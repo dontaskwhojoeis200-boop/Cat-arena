@@ -1,0 +1,16 @@
+{
+  "name": "cat-arena-online",
+  "version": "0.17.1",
+  "private": true,
+  "description": "Four-player Cat Arena WebSocket relay and HTTP lobby directory",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
