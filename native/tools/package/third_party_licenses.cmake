@@ -6,6 +6,7 @@ string(APPEND text "Build tools (CMake, the C++ compiler, glslang for compiling 
 foreach(entry
     "SDL3 3.2.10 (SDL3.dll / libSDL3.so.0: window, input, Vulkan surface)|SDL3/LICENSE.txt"
     "stb_image / stb_image_write (image decoding, compiled in)|stb/LICENSE"
+    "fdlibm 5.3 (reduction of very large trigonometric arguments in cat/js_math.hpp, compiled in)|fdlibm/NOTICE.txt"
     "Khronos Vulkan-Headers 1.4.309 (declarations compiled in, licensed Apache-2.0 OR MIT and used here under MIT, the Vulkan loader itself comes with the graphics driver)|vulkan-headers/MIT.txt")
   string(REPLACE "|" ";" parts "${entry}")
   list(GET parts 0 title)

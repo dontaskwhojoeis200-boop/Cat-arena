@@ -514,3 +514,10 @@ The executable finds its assets next to itself (SDL_GetBasePath), so it can be s
 New tests: `windows_vulkan_import_library` (llvm-lib on non-Windows hosts), `window_input_selftest`,
 `window_controls_selftest` (pause, resume, F11, F5, Esc twice). Tests that need a GPU or a window
 carry the label `gpu`: `ctest -LE gpu` runs the rest.
+
+Determinism across compilers (N6.5, after the first Windows runs): the simulation and effect
+libraries call `cat::jsmath::sin / cos / tan / atan2 / pow` (include/cat/js_math.hpp), never the C
+runtime's, and are built without FMA contraction (`-ffp-contract=off`, MSVC `/fp:precise`). Keep it
+that way for any new code whose results are compared with the legacy game. `js_math_browser` checks
+the functions against Chromium; `tools/js_math/gen_tables.py` regenerates their tables and
+`tools/js_math/record_chromium_math.cjs` the Chromium fixture.

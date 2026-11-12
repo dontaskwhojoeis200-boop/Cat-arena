@@ -1,12 +1,14 @@
 # Current known limitations — N6.5
 
 Windows (N6.5)
-- No Windows executable has been built: no MSVC / Windows SDK on the build machine, workflow not run.
-  MSVC compilation, the Windows link, CatArena.exe start-up and all Windows runtime checks are
-  unverified. Legacy-tape replay tests may differ in the last bits under MSVC's math library.
-- GitHub-hosted runners have no GPU: the workflow runs only GPU-free tests.
-- F11 fullscreen was not confirmed (Xvfb grants no fullscreen); the executable is not code-signed.
-
+- CatArena.exe is built, packaged and tested (GPU-free tests) by GitHub Actions, but has not been run
+  on Windows with a GPU: rendering, window, input, fullscreen and performance on Windows are unverified.
+  GitHub-hosted runners have no GPU.
+- The executable is not code-signed (SmartScreen warns). F11 fullscreen was not confirmed anywhere.
+- Math: sin / cos / tan / atan2 / pow are correctly rounded like Chromium; Chromium's pow (glibc's on
+  Linux) differs from the correctly rounded value in about 1 of 30,000 arguments, so such a pow result
+  can differ by 1 ulp from the legacy game. Helios enemy replay: 790 of 19,200 ticks differ from the
+  legacy by at most 1.8e-15 (not yet traced).
 
 Enemies (N6)
 - The route search stops after 110 expansions per tick; the legacy additionally stops after 1.8 ms

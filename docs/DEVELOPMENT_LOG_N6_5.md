@@ -7,11 +7,11 @@
 - No Windows toolchain is available here: no MSVC, no Windows SDK, no MinGW-w64; package installs
   are blocked. clang, lld-link and llvm-lib exist, but without Windows headers and C runtime libraries
   nothing can be compiled for Windows. Wine is not installed.
-- GitHub is reachable only for repositories attached to the session; no GitHub account is linked, so
-  the workflow could not be pushed or run.
-- Consequence: no CatArena.exe was built or run in N6.5 here. Everything that does not need Windows
-  was done and checked on Linux with the same CMake code; the Windows-only parts are written for
-  windows-2022 GitHub runners and documented as not yet executed.
+- At first no GitHub account was linked, so everything that does not need Windows was done and
+  checked on Linux with the same CMake code, and the Windows parts were written for windows-2022
+  GitHub runners. After GitHub was connected, the source went to
+  https://github.com/dontaskwhojoeis200-boop/Cat-arena and the workflow built Windows there
+  (sections 6-8). No Windows PC with a GPU was available at any point.
 
 ## 2. Review of the N6 tree for Windows
 
@@ -63,4 +63,60 @@ The legacy game has no mouse-wheel weapon switch, so none was added.
 `.github/workflows/windows-build.yml`: windows-2022, MSVC, preset `windows-release`, build, install,
 validate (incl. `dumpbin /dependents`: no VCRUNTIME / MSVCP / UCRT, SDL3.dll imported, vulkan-1.dll
 delay-loaded, x64), zip, upload artifact, GPU-free CTest, a start without GPU (expects a clean error),
-a summary that states that rendering on Windows is unverified. Not executed (section 1).
+a summary that states that rendering on Windows is unverified. Runs: sections 6-8.
+
+## 6. First Windows run: one MSVC error
+
+Repository created with the N6.5 source (legacy/ and reference/ included, unmodified), pushed;
+run 43164340554. Configure (VS 2022, MSVC 19.44, SDK 10.0.26100, glslang and SDL3 fetched) passed;
+the build failed in main.cpp with C2039 "'SDL_main' is not a member of 'cat::fx::Frame'" (and of
+`cat::Overlay`). `SDL_main.h` does `#define main SDL_main` on Windows, which also renames struct
+members called `main`. Fix: include it after the code that uses those members (it only has to
+precede `int main`). Every other target, including the renderer and all tests, had compiled and
+linked; the only warnings (2 x C5286) are in SDL's sources.
+
+## 7. Second run: a determinism failure, and what the browser computes
+
+Run 43164827201: build, install, package check, dumpbin checks, ZIP and artifact upload passed;
+start without GPU passed; CTest 32/33. `physics_legacy_trajectories` (Helios) failed: scenario
+random_3_z-4 max error 1.30e-9 at tick 2111 against a tolerance of 1e-9; bit-exact on 15,413 of
+21,820 ticks (Linux: 21,725). All enemy, combat, effect, animation and navigation replays passed.
+
+The tolerance was not raised. Investigation:
+
+- MSVC's CRT `sin` / `cos` / `atan2` / `pow` differ in the last bit from glibc's on some arguments;
+  a one-bit difference in a heading or a bob phase grows over thousands of 120 Hz ticks.
+- A first fix ported fdlibm (V8's `src/base/ieee754.cc`). Checked against Node 22 (V8 12.4) on
+  2.4 million arguments it matched bit for bit (after taking V8's version of pow, whose last step
+  differs from fdlibm's: `r = z*t1 / ((t1-two) - (w+z*w))`). But against Playwright's Chromium 153,
+  which recorded the legacy fixtures, fdlibm differed on 2-8 % of the arguments. V8 builds with
+  clang use other implementations (`v8_use_libm_trig_functions = is_clang`, and newer ones).
+- Measured Chromium 153 on 200,000 arguments per function: glibc differs from Chromium on 126 sin,
+  122 cos, 244 tan, 113 atan2 and 0 pow results. On every one of those 605 sin / cos / tan / atan2
+  results Chromium has the **correctly rounded** value (checked with 60-digit arithmetic). Its pow is
+  glibc's (correctly rounded except about 1 in 30,000 arguments).
+- So the platform-independent target is the correctly rounded result. `include/cat/js_math.hpp`
+  computes sin, cos, tan, atan2 and pow in double-double arithmetic: Cody-Waite reduction with six
+  33-bit pieces of pi/2 (fdlibm's Payne-Hanek only above 2^19 pi/2), tables of sin / cos / atan of
+  j/64, ln(1 + j/64) and 2^(j/64), short Taylor / atanh series, one final rounding. Only IEEE double
+  +, *, / are used (Dekker products, no FMA), so MSVC, GCC and clang compute identical bits.
+  Constants and tables come from `tools/js_math/gen_tables.py` (Python decimal, 400 digits).
+- Results against Chromium: sin, cos, tan, atan2 bit-exact on all 200,000 arguments each; pow
+  differs on 7 of 200,000, all of them cases where Chromium (glibc) is 1 ulp off and js_math is
+  correctly rounded. The new CTest `js_math_browser` keeps 31,127 Chromium results (special values,
+  angles from 1e-6 to 1e22, near multiples of pi/2, the game's pow arguments) and also reports how
+  often the platform's C runtime differs from the browser.
+- Replays on Linux after the change: trajectories (4 maps), weapon effects, combat and enemy
+  animation (4 maps) bit-exact on every tick; enemies bit-exact on Bastion, Reactor, Q3 and on 18,410
+  of 19,200 Helios ticks (was 18,273; worst 1.8e-15). The native replay hashes therefore changed
+  from N6 (they now agree with the legacy on more ticks).
+- Cost: about 0.2 µs per call; +0.02 ms per tick in the weapon-effect replay.
+
+## 8. Third and later runs
+
+Run 43169039455 (commit cd65a5a): every step passed, CTest 34/34 including `js_math_browser` on
+MSVC, artifact `CAT_ARENA_FERAL_CLAW_N6_WINDOWS` uploaded (ZIP 29,987,525 bytes). The next commit
+added the fdlibm notice to THIRD_PARTY_LICENSES.txt, a replay summary in the job log (bit-exact
+counts and hashes on Windows) and these documents; its run is the final N6.5 build
+(N6_5_BUILD_REPORT.md section 6). The Linux matrix (7 configurations) was run again on the final
+source (docs/n6_5-evidence).

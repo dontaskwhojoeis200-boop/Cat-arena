@@ -122,6 +122,8 @@ jobs:
         run: |
           ctest --preset windows-release --output-junit "$env:GITHUB_WORKSPACE/ci-logs/ctest-junit.xml" 2>&1 | Tee-Object -FilePath ../ci-logs/ctest.txt
           $code = $LASTEXITCODE
+          # Replay and js_math results in the job log (bit-exact tick counts and state hashes, for comparison with Linux)
+          ctest --preset windows-release -R "legacy|js_math" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) (legacy|js_math|sin|cos|tan|atan2|pow)" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/replay-summary.txt
           ctest --preset windows-release-gpu -N 2>&1 | Tee-Object -FilePath ../ci-logs/ctest-gpu-not-run.txt
           exit $code
 

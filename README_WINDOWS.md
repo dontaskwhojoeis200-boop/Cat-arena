@@ -66,7 +66,8 @@ Known limitations of this build
 - No sound or music yet (milestone N7), no menus beyond the in-game help panel, no settings screen.
 - Mirrors / portal views, detailed prop models and some lens effects of the original are not drawn yet.
 - The HUD shows the original's information in a simpler layout.
-- This Windows build is produced by the GitHub Actions workflow in the source package. Its gameplay
-  was verified on Linux (the same source); the Windows executable itself has not yet been run on
-  Windows hardware by the developers. Please report what you see (and attach CatArena.log).
+- This Windows build is produced by the GitHub Actions workflow in the source package, which also
+  runs the game's GPU-free tests on Windows (including the replays of recordings of the original
+  game). The runner has no graphics card, so the game has not yet been played on Windows hardware by
+  the developers. Please report what you see (and attach CatArena.log).
 - Third-party licences: THIRD_PARTY_LICENSES.txt.

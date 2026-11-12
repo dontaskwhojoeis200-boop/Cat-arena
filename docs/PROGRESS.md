@@ -5,23 +5,24 @@ N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 bas
 open items (MD3 prop models, portal / mirror feeds, PVS — still open).
 N5 (16 weapons, projectiles, damage, pickups, weapon viewmodel, effects, HUD), N5.1 (dynamic
 lights, medkit billboards) and N6 (enemies, waves, AI, animation, Marine Cats) delivered.
-**N6.5 (Windows build and packaging): source ported for MSVC / Windows, packaging and the GitHub
-Actions workflow written; a Windows executable has NOT been built yet** — this build machine has no
-Windows toolchain and no linked GitHub account (N6_5_BUILD_REPORT.md). The packaging and play
-controls were verified on Linux. Earlier trackers: docs/history/N0 … N6.
+**N6.5 (Windows build and packaging): CatArena.exe built, packaged, validated and tested (GPU-free)
+by GitHub Actions on Windows; not yet run on Windows with a GPU** (N6_5_BUILD_REPORT.md). Earlier trackers: docs/history/N0 … N6.
 
 ## N6.5 result (N6_5_BUILD_REPORT.md, docs/DEVELOPMENT_LOG_N6_5.md)
 
 - Windows: preset `windows-release` (VS 2022, x64), static MSVC runtime, `vulkan-1.lib` generated
   (no Vulkan SDK), glslang built from the pinned source, `CatArena.exe` (GUI subsystem, delay-loaded
   Vulkan with a clear error when missing, CatArena.log, error box). Workflow
-  `.github/workflows/windows-build.yml` builds, packages, validates (incl. DLL dependencies), zips,
-  uploads and runs the GPU-free tests. **Not executed.**
+  `.github/workflows/windows-build.yml` on https://github.com/dontaskwhojoeis200-boop/Cat-arena:
+  MSVC build, package check (incl. DLL dependencies), ZIP, artifact `CAT_ARENA_FERAL_CLAW_N6_WINDOWS`,
+  34/34 GPU-free tests, start without GPU. Final run: N6_5_BUILD_REPORT.md section 6.
+- Determinism across platforms: correctly rounded sin / cos / tan / atan2 / pow (`cat/js_math.hpp`),
+  as Chromium computes them; legacy replays now bit-exact on (almost) every tick on Linux and Windows.
 - UTF-8 paths for Windows user folders with non-ASCII names; rooted asset references rejected.
 - Play controls: pause while the mouse is released, F5 restart, F11 fullscreen (with 1-4 maps, Esc).
 - Packages: `cmake --install` + `tools/package/validate_package.cmake` + `zip_package.cmake`; a
   Linux package built this way was extracted and played from an empty folder.
-- Linux: 7 configurations clean (33 core / 63 desktop tests); replay hashes identical to N6.
+- Linux: 7 configurations clean (34 core / 64 desktop tests).
 
 ## N6 result (docs/N6_ENEMIES.md)
 
@@ -83,11 +84,11 @@ controls were verified on Linux. Earlier trackers: docs/history/N0 … N6.
 | Enemy animation, models, effects, final-five outline, shadows, Marine Cats | **N6: match legacy data; pictures 42.5-63.6 dB** |
 | HUD | N5: native HUD with the legacy's information; **N6: wave box, last-five banner, announcements**; legacy look not reproduced |
 | Audio, UI / menus, network, Android | Not started (N7-N9) |
-| Windows / Android builds | NOT_RUN (no toolchain / device in runner) |
+| Windows build | **N6.5: built and GPU-free tests pass in GitHub Actions; not run with a GPU** |
+| Android build | NOT_RUN (no toolchain / device in runner) |
 
 ## Next
 
-First: run the Windows workflow (or the preset on a Windows PC) and close the items N6.5 leaves
-unverified (MSVC build, start on Windows, Windows GPU tests). Then N7 (audio, UI, settings): enemy voices / attack and death sounds have their trigger points in the
+Play the Windows artifact on a Windows PC with a GPU (N6_5_BUILD_REPORT.md section 10). Then N7 (audio, UI, settings): enemy voices / attack and death sounds have their trigger points in the
 simulation events. Open items that can be closed alongside: MD3 prop models, portal / mirror feeds
 (the legacy's only view of the local Marine Cat), PVS (N4); the legacy HUD look.
