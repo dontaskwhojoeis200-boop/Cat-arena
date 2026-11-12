@@ -1,5 +1,6 @@
 // N6 enemy presentation (see cat/enemy_fx.hpp). Legacy line numbers refer to legacy/index.html.
 #include "cat/enemy_fx.hpp"
+#include "cat/js_math.hpp"
 #include <algorithm>
 #include <cmath>
 #include <unordered_set>
@@ -13,11 +14,11 @@ constexpr double kDetail = 1;   // Q3R.S.effects
 double clampd(double v, double lo, double hi) { return std::max(lo, std::min(hi, v)); }
 double ss01(double a, double b, double t) { t = std::max(0.0, std::min(1.0, (t - a) / (b - a))); return t * t * (3 - 2 * t); }
 double js_round(double v) { return std::floor(v + .5); }
-double facing_from(double vx, double vy) { return std::atan2(-vx, vy); }   // enemyFacingFromVec
+double facing_from(double vx, double vy) { return jsmath::atan2(-vx, vy); }   // enemyFacingFromVec
 struct V3 { double x, y, z; };
-V3 rx(V3 p, double a) { const double c = std::cos(a), s = std::sin(a); return {p.x, c * p.y - s * p.z, s * p.y + c * p.z}; }
-V3 ry(V3 p, double a) { const double c = std::cos(a), s = std::sin(a); return {c * p.x + s * p.z, p.y, -s * p.x + c * p.z}; }
-V3 rz(V3 p, double a) { const double c = std::cos(a), s = std::sin(a); return {c * p.x - s * p.y, s * p.x + c * p.y, p.z}; }
+V3 rx(V3 p, double a) { const double c = jsmath::cos(a), s = jsmath::sin(a); return {p.x, c * p.y - s * p.z, s * p.y + c * p.z}; }
+V3 ry(V3 p, double a) { const double c = jsmath::cos(a), s = jsmath::sin(a); return {c * p.x + s * p.z, p.y, -s * p.x + c * p.z}; }
+V3 rz(V3 p, double a) { const double c = jsmath::cos(a), s = jsmath::sin(a); return {c * p.x - s * p.y, s * p.x + c * p.y, p.z}; }
 template <class F> V3 about(V3 p, V3 piv, F f) { const V3 q = f(V3{p.x - piv.x, p.y - piv.y, p.z - piv.z}); return {q.x + piv.x, q.y + piv.y, q.z + piv.z}; }
 double hit_height(combat::TargetClass c) { return c == combat::TargetClass::heavy ? 1.10 : c == combat::TargetClass::fast ? .90 : 1.0; }   // enemyHitScale(b).h
 void add_light(Frame& f, double x, double y, double z, double radius, double r, double g, double b) { if(f.lights.size() < 64) f.lights.push_back({x, y, z, radius, r, g, b}); }
@@ -60,7 +61,7 @@ void eval_pose(AnimState& A, const Rig& rig, const PoseInput& b, double time, co
     const double H = rig.height;
     const double walk_t = std::max(0.0, std::min(1.0, A.speed / (cls == RigClass::heavy ? 3.2 : cls == RigClass::caster ? 3.4 : 4.5)));
     A.walk += (walk_t - A.walk) * std::min(1.0, fdt * 6);
-    const double yaw_delta = std::atan2(std::sin(b.a - A.pa), std::cos(b.a - A.pa));
+    const double yaw_delta = jsmath::atan2(jsmath::sin(b.a - A.pa), jsmath::cos(b.a - A.pa));
     A.pa = b.a;
     A.turn += ((fdt > 0 ? yaw_delta / fdt : 0) - A.turn) * std::min(1.0, fdt * 5);
     if(cls == RigClass::flyer) A.phase += fdt * (7 + A.walk * 5);
@@ -69,48 +70,48 @@ void eval_pose(AnimState& A, const Rig& rig, const PoseInput& b, double time, co
     if(hit > A.pain + .3) A.pain_dir = rng.next() < .5 ? -1 : 1;
     A.pain = std::max(A.pain - fdt * 4.5, hit);
     const double w = A.walk, ph = A.phase, t = time + A.seed, pain = A.pain;
-    const double S = std::sin(ph), C = std::cos(ph);
+    const double S = jsmath::sin(ph), C = jsmath::cos(ph);
     double hipL = 0, hipR = 0, kneeL = 0, kneeR = 0, shPL = 0, shPR = 0, elL = .25, elR = .25, shRL = .08, shRR = .08, lean = 0, twist = 0, headP = 0, headY = 0, bob = 0, roll = 0;
     // ---- locomotion ----
-    const double breathe = std::sin(t * 1.7);
+    const double breathe = jsmath::sin(t * 1.7);
     if(cls == RigClass::soldier) {
         hipL = w * .55 * S; hipR = -hipL; kneeL = -w * (.12 + .7 * std::max(0.0, C)); kneeR = -w * (.12 + .7 * std::max(0.0, -C));
         shPL = -w * .42 * S + .12; shPR = w * .42 * S + .12; elL = elR = .32 + w * .22;
-        lean = .07 * w; twist = .13 * w * S; headY = -twist * .7; bob = w * H * .024 * std::cos(2 * ph) + (1 - w) * H * .006 * breathe; roll = .03 * w * S;
+        lean = .07 * w; twist = .13 * w * S; headY = -twist * .7; bob = w * H * .024 * jsmath::cos(2 * ph) + (1 - w) * H * .006 * breathe; roll = .03 * w * S;
     } else if(cls == RigClass::heavy) {
         hipL = w * .42 * S; hipR = -hipL; kneeL = -w * (.1 + .5 * std::max(0.0, C)); kneeR = -w * (.1 + .5 * std::max(0.0, -C));
         shRL = shRR = .26 + .04 * breathe; shPL = -w * .36 * S + .1; shPR = w * .36 * S + .1; elL = elR = .45;
         lean = .12 + .06 * w; twist = .08 * w * S; roll = .075 * w * S; headY = -twist * .5;
-        bob = -w * H * .04 * std::pow(std::fabs(S), 4) + w * H * .012 + (1 - w) * H * .008 * breathe; headP = w * .06 * std::pow(std::fabs(S), 4);
+        bob = -w * H * .04 * jsmath::pow(std::fabs(S), 4) + w * H * .012 + (1 - w) * H * .008 * breathe; headP = w * .06 * jsmath::pow(std::fabs(S), 4);
     } else if(cls == RigClass::beast) {
-        hipL = w * .72 * S; hipR = w * .72 * std::sin(ph + .55); kneeL = -w * (.3 + .75 * std::max(0.0, C)); kneeR = -w * (.3 + .75 * std::max(0.0, std::cos(ph + .55)));
-        shPL = .35 + w * (.75 + .65 * std::sin(ph + kPi)); shPR = .35 + w * (.75 + .65 * std::sin(ph + kPi + .5)); elL = elR = .45 + .35 * w; shRL = shRR = .14;
-        lean = .1 + .24 * w + .06 * w * std::sin(2 * ph); headP = -lean * .75; bob = w * H * .05 * std::max(0.0, std::sin(ph + .7)) + (1 - w) * H * .01 * breathe; roll = .02 * w * S;
+        hipL = w * .72 * S; hipR = w * .72 * jsmath::sin(ph + .55); kneeL = -w * (.3 + .75 * std::max(0.0, C)); kneeR = -w * (.3 + .75 * std::max(0.0, jsmath::cos(ph + .55)));
+        shPL = .35 + w * (.75 + .65 * jsmath::sin(ph + kPi)); shPR = .35 + w * (.75 + .65 * jsmath::sin(ph + kPi + .5)); elL = elR = .45 + .35 * w; shRL = shRR = .14;
+        lean = .1 + .24 * w + .06 * w * jsmath::sin(2 * ph); headP = -lean * .75; bob = w * H * .05 * std::max(0.0, jsmath::sin(ph + .7)) + (1 - w) * H * .01 * breathe; roll = .02 * w * S;
     } else if(cls == RigClass::skitter) {
         const double q = ph * 1.0;
-        hipL = w * .48 * std::sin(q); hipR = -hipL; kneeL = -w * .4 * std::max(0.0, std::cos(q)); kneeR = -w * .4 * std::max(0.0, -std::cos(q));
-        shPL = .25 + w * .55 * std::sin(q + kPi / 2); shPR = .25 - w * .55 * std::sin(q + kPi / 2); shRL = shRR = .38; elL = elR = .5;
-        lean = .1; twist = .12 * w * std::sin(q); bob = w * H * .022 * std::fabs(std::sin(2 * q)) + (1 - w) * H * .006 * breathe; roll = .04 * w * std::sin(q);
+        hipL = w * .48 * jsmath::sin(q); hipR = -hipL; kneeL = -w * .4 * std::max(0.0, jsmath::cos(q)); kneeR = -w * .4 * std::max(0.0, -jsmath::cos(q));
+        shPL = .25 + w * .55 * jsmath::sin(q + kPi / 2); shPR = .25 - w * .55 * jsmath::sin(q + kPi / 2); shRL = shRR = .38; elL = elR = .5;
+        lean = .1; twist = .12 * w * jsmath::sin(q); bob = w * H * .022 * std::fabs(jsmath::sin(2 * q)) + (1 - w) * H * .006 * breathe; roll = .04 * w * jsmath::sin(q);
     } else if(cls == RigClass::flyer) {
-        const double f = std::sin(ph), f2 = std::sin(ph - .95);
+        const double f = jsmath::sin(ph), f2 = jsmath::sin(ph - .95);
         hipL = hipR = .28 + .58 * f; kneeL = kneeR = .42 * f2;
         lean = .22 * w - .04; roll = std::max(-.5, std::min(.5, -A.turn * .18)); bob = -H * .05 * f; headP = -lean * .6;
     } else {   // caster: hovering glide, robes barely stride
         hipL = w * .2 * S; hipR = -hipL; kneeL = -w * .18 * std::max(0.0, C); kneeR = -w * .18 * std::max(0.0, -C);
-        shRL = shRR = .32 + .06 * std::sin(t * 2.1); shPL = .38 + .1 * std::sin(t * 1.3); shPR = .38 + .1 * std::sin(t * 1.3 + 1); elL = elR = .75;
-        lean = .04 + .05 * w; bob = H * .022 * std::sin(t * 2.2) + H * .012; roll = .03 * std::sin(t * 1.1);
+        shRL = shRR = .32 + .06 * jsmath::sin(t * 2.1); shPL = .38 + .1 * jsmath::sin(t * 1.3); shPR = .38 + .1 * jsmath::sin(t * 1.3 + 1); elL = elR = .75;
+        lean = .04 + .05 * w; bob = H * .022 * jsmath::sin(t * 2.2) + H * .012; roll = .03 * jsmath::sin(t * 1.1);
     }
     // ---- look at the target (head first, then the spine) ----
     if(b.has_target) {
         const double dx = b.tx - b.x, dy = b.ty - b.y, d = js_hypot(dx, dy);
         if(d < 30 && d > .4) {
-            const double f = facing_from(dx, dy), want = std::atan2(std::sin(f - b.a), std::cos(f - b.a));
+            const double f = facing_from(dx, dy), want = jsmath::atan2(jsmath::sin(f - b.a), jsmath::cos(f - b.a));
             A.look += (std::max(-.9, std::min(.9, want)) - A.look) * std::min(1.0, fdt * 5);
-            const double pitch = std::atan2(b.tz + 1.2 - (b.z + rig.neck), d);
+            const double pitch = jsmath::atan2(b.tz + 1.2 - (b.z + rig.neck), d);
             A.look_p += (std::max(-.6, std::min(.6, -pitch)) - A.look_p) * std::min(1.0, fdt * 4);
         }
     } else {
-        A.look += (.35 * std::sin(t * .37) * (1 - w) - A.look) * std::min(1.0, fdt * 2);
+        A.look += (.35 * jsmath::sin(t * .37) * (1 - w) - A.look) * std::min(1.0, fdt * 2);
         A.look_p *= 1 - std::min(1.0, fdt * 2);
     }
     headY += A.look * .65; twist += A.look * .3; headP += A.look_p * .7;
@@ -153,7 +154,7 @@ void eval_pose(AnimState& A, const Rig& rig, const PoseInput& b, double time, co
 
 DeathState death_state(const Rig& rig, const Pose& at_death, int variant, double side_sign, double t, Pose& out) {   // enemyDeathState (10742)
     const double k = std::min(1.0, t / kDeathFall), e = k * k;
-    const double bounce = k >= 1 ? 0 : std::sin(std::max(0.0, (k - .82) / .18) * kPi) * .08;
+    const double bounce = k >= 1 ? 0 : jsmath::sin(std::max(0.0, (k - .82) / .18) * kPi) * .08;
     for(std::size_t j = 0; j < 16; ++j) out[j] = static_cast<float>(static_cast<double>(at_death[j]) * (1 - ss01(0, .6, k)));
     double fall = 0, side = 0;
     if(variant == 0) fall = (kPi / 2) * e - bounce;
@@ -171,7 +172,7 @@ DeathState death_state(const Rig& rig, const Pose& at_death, int variant, double
 std::array<double, 3> hand_world(const Rig& rig, double x, double y, double z, double a, int side, const Pose& P) {   // enemyHandWorld (10759)
     const bool left = side < 0;
     const double sg = left ? 1 : -1;
-    const double c = std::cos(a), s = std::sin(a);
+    const double c = jsmath::cos(a), s = jsmath::sin(a);
     if(rig.cls == RigClass::flyer) {
         V3 p{0, rig.depth * .7, rig.shoulder * .8};
         p = about(p, V3{0, 0, rig.spine}, [&](V3 q) { return rx(q, -static_cast<double>(P[10])); });
@@ -193,8 +194,8 @@ std::array<double, 3> hand_world(const Rig& rig, double x, double y, double z, d
 }
 
 bool in_view(const physics::PlayerState& p, double fov_deg, double aspect, double x, double y, double z, double r) {   // inView (5302)
-    const double ca = std::cos(p.a), sa = std::sin(p.a), cp = std::cos(p.pitch), sp = std::sin(p.pitch);
-    const double th = std::tan(std::min(88.0, fov_deg * .5 + 3) * kPi / 180), tv = th / aspect;
+    const double ca = jsmath::cos(p.a), sa = jsmath::sin(p.a), cp = jsmath::cos(p.pitch), sp = jsmath::sin(p.pitch);
+    const double th = jsmath::tan(std::min(88.0, fov_deg * .5 + 3) * kPi / 180), tv = th / aspect;
     const double dx = x - p.x, dy = y - p.y, eye = p.z + (p.downed ? .62 : 1.5) - p.crouch_offset, dz = z - eye;
     const double depth = dx * ca * cp + dy * sa * cp - dz * sp;
     if(depth < -r - 1.25) return false;
@@ -394,14 +395,14 @@ void EnemyFx::update(const combat::Arena& arena, const combat::Horde& horde, dou
         const double p = combat::attack_progress(b), was = live.efx_p;
         live.efx_p = p;
         if(T.melee != EnemyMelee::none && was < .7 && p >= .7) {   // strike frame
-            const double fx = -std::sin(b.a), fy = std::cos(b.a);
+            const double fx = -jsmath::sin(b.a), fy = jsmath::cos(b.a);
             const auto& c = T.color;
             if(T.melee == EnemyMelee::slam) {
                 const double z = b.z + .05;
                 WeaponFx::Entity ring; ring.x = b.x + fx * 1.2; ring.y = b.y + fy * 1.2; ring.z = z + .1; ring.life = .45; ring.s0 = .6; ring.s1 = 4.2; ring.a0 = .8; ring.a1 = 0; ring.tile = tile_ring; ring.r = c[0]; ring.g = c[1]; ring.b = c[2];
                 f.le(ring);
                 f.floor_mark(b.x + fx * 1.15, b.y + fy * 1.15, b.z, 2.4, tile_slam, {1, 1, 1}, .9, MarkOptions{{}, 0, 6, false});
-                for(int i = 0; i < 5; ++i) { const double a = i * 1.256; f.puff(b.x + fx * 1.2 + std::cos(a) * .7, b.y + fy * 1.2 + std::sin(a) * .7, z + .2, 1.1, 1.1, {.55, .5, .42}, .5, tile_dust, .5); }
+                for(int i = 0; i < 5; ++i) { const double a = i * 1.256; f.puff(b.x + fx * 1.2 + jsmath::cos(a) * .7, b.y + fy * 1.2 + jsmath::sin(a) * .7, z + .2, 1.1, 1.1, {.55, .5, .42}, .5, tile_dust, .5); }
                 WeaponFx::Entity deb; deb.x = b.x + fx * 1.2; deb.y = b.y + fy * 1.2; deb.z = z + .3; deb.vx = 0; deb.vy = 0; deb.vz = 4; deb.grav = 12; deb.life = .7; deb.s0 = .5; deb.s1 = .5; deb.a0 = 1; deb.a1 = .5; deb.tile = tile_debris; deb.add = 0; deb.flags = 0;
                 deb.rot = f.random() * 6;
                 f.le(deb);
@@ -503,7 +504,7 @@ void EnemyFx::build_fx(const combat::Arena& arena, const combat::Horde& horde, c
         const Rig& rig = enemy_rig(b.type);
         const Pose& pose = anim_[b.uid].pose;
         if(T.charge && p > .18 && p < .76) {
-            const double k = std::min(1.0, (p - .18) / .5), flick = .85 + .15 * std::sin(t * 40 + b.x);
+            const double k = std::min(1.0, (p - .18) / .5), flick = .85 + .15 * jsmath::sin(t * 40 + b.x);
             const int hands[2] = {-1, 1};
             const bool both = rig.cls != RigClass::flyer && T.rune;
             for(int hi = both ? 0 : 1; hi < 2; ++hi) {
@@ -515,7 +516,7 @@ void EnemyFx::build_fx(const combat::Arena& arena, const combat::Horde& horde, c
             }
         }
         if(T.melee != EnemyMelee::none && p > .66 && p < .9) {
-            const double k = (p - .66) / .24, fx = -std::sin(b.a), fy = std::cos(b.a), a = std::sin(k * kPi);
+            const double k = (p - .66) / .24, fx = -jsmath::sin(b.a), fy = jsmath::cos(b.a), a = jsmath::sin(k * kPi);
             if(T.melee == EnemyMelee::claw) { const auto h = hand_world(rig, b.x, b.y, b.z, b.a, 1, pose); sprite(main, cam, (h[0] + b.x + fx * .9) / 2, (h[1] + b.y + fy * .9) / 2, b.z + 1, 1.6, 1.3, -.6 + k * 1.6, tile_claw, c[0], c[1], c[2], a, 1); }
             else if(T.melee == EnemyMelee::bite) sprite(main, cam, b.x + fx * .8, b.y + fy * .8, b.z + .55, .9, .9, 0, tile_bite, c[0], c[1], c[2], a, 1);
             else sprite(main, cam, b.x + fx * .9, b.y + fy * .9, b.z + 1.6 - 1.2 * k, 1.2, 1.2, k * 3, tile_burst, c[0], c[1], c[2], a * .6, 1);
@@ -561,7 +562,7 @@ void EnemyFx::build(const combat::Arena& arena, const combat::Horde& horde, cons
     // fillEnemyInstances: live creatures in the order of the enemy list, then the dying / dead bodies
     const int remaining = horde.wave_total() - horde.wave_kills();
     out.xray_on = !(horde.wave_cooldown() >= 0 || remaining > 5 || remaining < 1 || arena.targets().empty());   // drawFinalFiveXray
-    out.shadow_dir = {static_cast<float>(-std::cos(o.sun_azimuth) * .55), static_cast<float>(-std::sin(o.sun_azimuth) * .55)};
+    out.shadow_dir = {static_cast<float>(-jsmath::cos(o.sun_azimuth) * .55), static_cast<float>(-jsmath::sin(o.sun_azimuth) * .55)};
     for(const auto& b : arena.targets()) {
         if(b.type < 0) continue;
         const auto ti = static_cast<std::size_t>(b.type);

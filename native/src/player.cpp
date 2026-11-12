@@ -2,6 +2,7 @@
 // Statement order and floating-point expression order follow the legacy functions named in each
 // comment (legacy/index.html) so that recorded reference trajectories can be replayed.
 #include "cat/physics.hpp"
+#include "cat/js_math.hpp"
 #include <algorithm>
 #include <cmath>
 
@@ -69,7 +70,7 @@ void PlayerController::tick(double dt) {
     const double f = p_.downed ? 0 : (held(key_forward) ? 1 : 0) - (held(key_back) ? 1 : 0);
     const double s = p_.downed ? 0 : (held(key_right) ? 1 : 0) - (held(key_left) ? 1 : 0);
     const double m = js_hypot(f, s), mf = m != 0 ? f / m : 0, ms = m != 0 ? s / m : 0;
-    const double ca = std::cos(p_.a), sa = std::sin(p_.a), wx = ca * mf - sa * ms, wy = sa * mf + ca * ms;
+    const double ca = jsmath::cos(p_.a), sa = jsmath::sin(p_.a), wx = ca * mf - sa * ms, wy = sa * mf + ca * ms;
     move_marine(dt, wx, wy, m);
     stage4_movement(dt);
     trigger_update(dt);
@@ -123,7 +124,7 @@ double PlayerController::slope(double x, double y, double feet, double dx, doubl
     const double forward = world_->floor_height(x + ux * probe, y + uy * probe, feet + .32);
     const double rise = forward - ground;
     if(std::fabs(rise) > .48) return 0;
-    return std::atan2(rise, probe);
+    return jsmath::atan2(rise, probe);
 }
 
 // moveMarine() (12150)
@@ -152,7 +153,7 @@ void PlayerController::move_marine(double dt, double wx, double wy, double m) {
     const bool moving_fast = js_hypot(p_.vx, p_.vy) > .15;
     const double travel_x = moving_fast ? p_.vx : wx, travel_y = moving_fast ? p_.vy : wy;
     slope_angle_ = airborne ? 0 : slope(p_.x, p_.y, p_.z, travel_x, travel_y);
-    const double incline = std::sin(slope_angle_);
+    const double incline = jsmath::sin(slope_angle_);
     const double grade_factor = incline >= 0 ? 1 - kGradePenalty * incline : 1 - kGradeDownhillBonus * incline;
     if(!airborne) {
         friction(dt, sliding ? kSlideFriction : crouch_only ? kCrouchFriction : kGroundFriction);
@@ -201,7 +202,7 @@ void PlayerController::stage4_movement(double dt) {
         bool repaired = false;
         for(const double shift : {0.0, .11, .24, .38, .56, 1.0}) {
             for(int k = 0; k < 16; ++k) {
-                const double a = k * kPi / 8, x = p_.x + shift * std::cos(a), y = p_.y + shift * std::sin(a);
+                const double a = k * kPi / 8, x = p_.x + shift * jsmath::cos(a), y = p_.y + shift * jsmath::sin(a);
                 const auto support = w.support(x, y, p_.z, .55);
                 const double z = support && std::fabs(support->z - p_.z) < .55 ? support->z : p_.z;
                 if(w.capsule_clear(x, y, z, h, r)) { p_.x = x; p_.y = y; p_.z = z; p_.vx *= .35; p_.vy *= .35; repaired = true; break; }
@@ -319,7 +320,7 @@ void PlayerController::post_move(double dt) {
         if(!q3_.crouched && (((old + 64) ^ (cur + 64)) & 128)) ++q3_.footsteps;
     }
     const auto c = static_cast<int>(std::floor(q3_.bob_cycle));
-    q3_.bobfracsin = std::fabs(std::sin((c & 127) / 127.0 * kPi));
+    q3_.bobfracsin = std::fabs(jsmath::sin((c & 127) / 127.0 * kPi));
     q3_.bob_odd = (c & 128) >> 7;
 }
 
@@ -336,7 +337,7 @@ void PlayerController::crash_land(double impact) {
 ViewCamera PlayerController::shot_origin() const {
     ViewCamera c;
     c.x = p_.x; c.y = p_.y; c.z = p_.z + (p_.downed ? kDownedEye : kEyeHeight) - (p_.downed ? 0 : p_.crouch_offset);
-    const double ca = std::cos(p_.a), sa = std::sin(p_.a), cp = std::cos(p_.pitch), sp = std::sin(p_.pitch);
+    const double ca = jsmath::cos(p_.a), sa = jsmath::sin(p_.a), cp = jsmath::cos(p_.pitch), sp = jsmath::sin(p_.pitch);
     c.forward = {ca * cp, sa * cp, -sp}; c.right = {-sa, ca, 0}; c.up = {ca * sp, sa * sp, cp};
     return c;
 }
@@ -355,7 +356,7 @@ ViewCamera PlayerController::view_camera() const {
         else if(lt >= 0 && lt < kLandDeflect + kLandReturn) z += q3_.land_change * kQ3Unit * S * (1 - (lt - kLandDeflect) / kLandReturn);
         const double st = now_ - q3_.step_time;
         if(st >= 0 && st < kStepTime) z -= q3_.step_change * kQ3Unit * (kStepTime - st) / kStepTime;
-        const double fx = std::cos(p_.a), fy = std::sin(p_.a);
+        const double fx = jsmath::cos(p_.a), fy = jsmath::sin(p_.a);
         const double vf = (p_.vx * fx + p_.vy * fy) / kQ3Unit, vr = (p_.vx * -fy + p_.vy * fx) / kQ3Unit;
         const double dp = vf * kRunPitch, dr = -vr * kRunRoll;   // degrees
         const double speed = q3_.xyspeed > 200 ? q3_.xyspeed : 200;
@@ -364,7 +365,7 @@ ViewCamera PlayerController::view_camera() const {
         if(q3_.bob_odd) br = -br;
         pitch += (dp + bp) * S * kPi / 180; roll = (dr + br) * S * kPi / 180;
     }
-    const double ca = std::cos(p_.a), sa = std::sin(p_.a), cp = std::cos(pitch), sp = std::sin(pitch), cr = std::cos(roll), sr = std::sin(roll);
+    const double ca = jsmath::cos(p_.a), sa = jsmath::sin(p_.a), cp = jsmath::cos(pitch), sp = jsmath::sin(pitch), cr = jsmath::cos(roll), sr = jsmath::sin(roll);
     const std::array<double, 3> r0{-sa, ca, 0}, u0{ca * sp, sa * sp, cp};
     c.z = z;
     c.forward = {ca * cp, sa * cp, -sp};
@@ -382,7 +383,7 @@ WeaponMotion PlayerController::weapon_motion() const {
     const double lt = now_ - q3_.land_time;
     if(lt >= 0 && lt < kLandDeflect) drop = q3_.land_change * .25 * lt / kLandDeflect;
     else if(lt >= 0 && lt < kLandDeflect + kLandReturn) drop = q3_.land_change * .25 * (kLandDeflect + kLandReturn - lt) / kLandReturn;
-    const double drift = (xy + 40) * std::sin(now_) * .01;
+    const double drift = (xy + 40) * jsmath::sin(now_) * .01;
     roll += drift; yaw += drift; pitch += drift;
     const double k = kPi / 180 * S;
     return {pitch * k, yaw * k, roll * k, drop * kGunUnit * S};

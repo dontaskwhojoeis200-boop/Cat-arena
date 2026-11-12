@@ -1,6 +1,7 @@
 // N6 enemies: see cat/enemies.hpp. Statement order, floating-point order and the order of random
 // draws follow the legacy functions named in the comments.
 #include "cat/enemies.hpp"
+#include "cat/js_math.hpp"
 #include <algorithm>
 #include <cmath>
 #include <cstring>
@@ -40,13 +41,13 @@ constexpr std::array<EnemyType, kEnemyTypeCount> kTypes{{
     {"skyjuggernaut", 260, 5.85, true, 24, H, true, false, false, false, ShotKind::voidorb, 1, 2.7, 1.02, 11, {.62F, .49F, .80F}},
 }};
 const EnemyType& type_of(const Target& b) { return kTypes[static_cast<std::size_t>(b.type)]; }
-double ang_norm(double a) { return std::atan2(std::sin(a), std::cos(a)); }
+double ang_norm(double a) { return jsmath::atan2(jsmath::sin(a), jsmath::cos(a)); }
 double ang_approach(double cur, double target, double max_step) {
     const double diff = ang_norm(target - cur);
     if(std::fabs(diff) <= max_step) return cur + diff;
     return cur + (diff > 0 ? 1.0 : diff < 0 ? -1.0 : 0.0) * max_step;
 }
-double facing_from(double vx, double vy) { return std::atan2(-vx, vy); }   // enemyFacingFromVec
+double facing_from(double vx, double vy) { return jsmath::atan2(-vx, vy); }   // enemyFacingFromVec
 constexpr double kDeathSeconds = .78 + 4.5 + 1.6;   // ENEMY_DEATH fall + stay + sink
 }  // namespace
 
@@ -58,7 +59,7 @@ int enemy_type_index(const char* name) {
 const nav::Profile& Horde::profile(int index) { return index == 0 ? nav::kLight : index == 2 ? nav::kHeavy : nav::kStandard; }
 
 Horde::Horde(Arena& arena, nav::NavGraph& graph) : arena_(&arena), graph_(&graph) { arena.attach(this); }
-double Horde::scale() const { return std::pow(1.05, std::max(0, wave_number_ - 1)); }
+double Horde::scale() const { return jsmath::pow(1.05, std::max(0, wave_number_ - 1)); }
 Target* Horde::find(std::uint32_t uid) {
     for(auto& t : arena_->targets_) if(t.type >= 0 && t.uid == uid) return &t;
     return nullptr;
@@ -332,7 +333,7 @@ void Horde::attack(Target& b) {   // enemyAttack (11955)
             const double spread = burst ? (n - (count - 1) / 2.0) * .09 + (arena_->rng_.next() - .5) * .02 : (arena_->rng_.next() - .5) * (orb ? .025 : .060);
             const double vx = dx / len, vy = dy / len;
             // enemyMuzzleOrigin (11939): alternating hand
-            const double side = std::sin((now + b.x * .31 + b.y * .27) * 7.0) > 0 ? 1 : -1;
+            const double side = jsmath::sin((now + b.x * .31 + b.y * .27) * 7.0) > 0 ? 1 : -1;
             double ox, oy, oz;
             if(b.flying) { ox = b.x + vx * .54; oy = b.y + vy * .54; oz = b.z + 1.18; }
             else if(fire) { ox = b.x + vx * .48 - vy * .17 * side; oy = b.y + vy * .48 + vx * .17 * side; oz = b.z + 1.34; }
@@ -433,9 +434,9 @@ int Horde::navigate(Target& b, double dt, bool decision, int search_left) {   //
             if(b.nav_stuck > .16) {
                 b.path_cooldown = -1;
                 // nav3Detour: the first free heading left / right of the wanted one
-                const double angle = std::atan2((*route_target)[1] - b.y, (*route_target)[0] - b.x), step = std::min(1.2, speed * dt * 2.1);
+                const double angle = jsmath::atan2((*route_target)[1] - b.y, (*route_target)[0] - b.x), step = std::min(1.2, speed * dt * 2.1);
                 for(const double off : {.40, -.40, .8, -.8, 1.25, -1.25, 1.65, -1.65, 2.2, -2.2}) {
-                    const double ex = b.x + std::cos(angle + off) * step, ey = b.y + std::sin(angle + off) * step;
+                    const double ex = b.x + jsmath::cos(angle + off) * step, ey = b.y + jsmath::sin(angle + off) * step;
                     if(graph_->traverse(b.x, b.y, b.z, ex, ey, b.z, p)) { moved += move(b, ex, ey, b.z, std::max(0.0, speed * dt - moved), p); break; }
                 }
             }
@@ -554,13 +555,13 @@ void Horde::update_flyer(Target& b, double dt) {   // updateFlyer (6597)
     const double r = b.type == 19 ? .52 : b.type == 18 ? .37 : .29;
     const double target_z = target.z + 2.45;
     b.fly_phase += dt * (b.type == 18 ? 9 : 6);
-    const std::array<double, 3> desired{target.x, target.y, std::max(-2.0, std::min(19.0, target_z + std::sin(b.fly_phase) * .16))};
+    const std::array<double, 3> desired{target.x, target.y, std::max(-2.0, std::min(19.0, target_z + jsmath::sin(b.fly_phase) * .16))};
     double dx = desired[0] - b.x, dy = desired[1] - b.y, dz = desired[2] - b.z;
     const double distance = js_hypot3(dx, dy, dz);
     if(distance < .7) { b.walk_amount = .2; return; }
     const double step = std::min(b.speed * dt, distance - .45);
     dx /= distance; dy /= distance; dz /= distance;
-    const double yaw = std::atan2(dy, dx), flat = js_hypot(dx, dy);
+    const double yaw = jsmath::atan2(dy, dx), flat = js_hypot(dx, dy);
     // Steering is re-decided at 30 Hz (staggered per flyer); in between the heading is kept, and every step is swept.
     if(!b.fly_decide_set) { b.fly_decide = static_cast<double>(b.uid % 4) / 120; b.fly_decide_set = true; }
     b.fly_decide -= dt;
@@ -584,7 +585,7 @@ void Horde::update_flyer(Target& b, double dt) {   // updateFlyer (6597)
     const double steering = b.fly_steer_side;
     for(const double a : {0.45, .9, 1.35, 1.85, 2.35}) for(const double sign : {steering, -steering}) {
         const double rad = yaw + sign * a;
-        for(const double lift : {dz, .65, -.65, 0.0}) candidates.push_back({std::cos(rad) * std::max(.25, flat), std::sin(rad) * std::max(.25, flat), lift});
+        for(const double lift : {dz, .65, -.65, 0.0}) candidates.push_back({jsmath::cos(rad) * std::max(.25, flat), jsmath::sin(rad) * std::max(.25, flat), lift});
     }
     bool found = false;
     double score = -kInf;
@@ -597,7 +598,7 @@ void Horde::update_flyer(Target& b, double dt) {   // updateFlyer (6597)
         const double new_distance = js_hypot3(desired[0] - nx, desired[1] - ny, desired[2] - nz);
         const double dot = vx * dx + vy * dy + vz * dz;
         int clearance = 0;
-        for(const double ang : {0.0, 3.141592653589793 * .5, 3.141592653589793, 3.141592653589793 * 1.5}) if(!flyer_free(nx + std::cos(ang) * .55, ny + std::sin(ang) * .55, nz, r)) ++clearance;
+        for(const double ang : {0.0, 3.141592653589793 * .5, 3.141592653589793, 3.141592653589793 * 1.5}) if(!flyer_free(nx + jsmath::cos(ang) * .55, ny + jsmath::sin(ang) * .55, nz, r)) ++clearance;
         const double s = (distance - new_distance) * 8 + dot * 1.8 - clearance * .2 + (std::fabs(vz) < .8 ? .10 : 0);
         if(s > score) { score = s; best = {nx, ny, nz}; best_dir = {vx, vy, vz}; found = true; }
     }

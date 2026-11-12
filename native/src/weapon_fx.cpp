@@ -1,6 +1,7 @@
 // N5 weapon presentation: see cat/weapon_fx.hpp. Statement order and the order of random draws
 // follow the legacy functions named in the comments (weapon-fx.js, fx-renderer.js, renderGun3D).
 #include "cat/weapon_fx.hpp"
+#include "cat/js_math.hpp"
 #include <algorithm>
 #include <cmath>
 #include <numeric>
@@ -21,7 +22,7 @@ void add_light(Frame& f, double x, double y, double z, double radius, double r, 
 }  // namespace
 
 Camera make_camera(const physics::ViewCamera& v, double fov, double scale, double aspect) {
-    return {v.x, v.y, v.z, v.forward, v.right, v.up, std::tan((fov * scale) * kPi / 360) / aspect, aspect};
+    return {v.x, v.y, v.z, v.forward, v.right, v.up, jsmath::tan((fov * scale) * kPi / 360) / aspect, aspect};
 }
 
 std::vector<Light> select_lights(const std::vector<Light>& lights, double cx, double cy, double cz) {
@@ -36,7 +37,7 @@ std::vector<Light> select_lights(const std::vector<Light>& lights, double cx, do
 }
 
 void billboard(std::vector<float>& out, double x, double y, double z, double w, double h, int material, double yaw, const std::array<double, 3>& tint) {   // billboard + quad (5190, 5395)
-    const double rx = -std::sin(yaw) * w * .5, ry = std::cos(yaw) * w * .5;
+    const double rx = -jsmath::sin(yaw) * w * .5, ry = jsmath::cos(yaw) * w * .5;
     const double p[4][3] = {{x - rx, y - ry, z}, {x + rx, y + ry, z}, {x + rx, y + ry, z + h}, {x - rx, y - ry, z + h}};
     const double uv[4][2] = {{0, 0}, {1, 0}, {1, 1}, {0, 1}};
     for(const int i : {0, 1, 2, 0, 2, 3})
@@ -68,7 +69,7 @@ bool quad4(Batch& b, const Camera& cam, const std::array<std::array<double, 3>, 
 }
 bool sprite(Batch& b, const Camera& cam, double x, double y, double z, double w, double h, double rot, int tile, double r, double g, double bl, double a, double add, int flags) {
     const auto& R = cam.right; const auto& Up = cam.up;
-    const double c = std::cos(rot), s = std::sin(rot), hw = w * .5, hh = h * .5;
+    const double c = jsmath::cos(rot), s = jsmath::sin(rot), hw = w * .5, hh = h * .5;
     const double rx = (R[0] * c + Up[0] * s) * hw, ry = (R[1] * c + Up[1] * s) * hw, rz = (R[2] * c + Up[2] * s) * hw;
     const double ux = (Up[0] * c - R[0] * s) * hh, uy = (Up[1] * c - R[1] * s) * hh, uz = (Up[2] * c - R[2] * s) * hh;
     return quad4(b, cam, {{{x - rx - ux, y - ry - uy, z - rz - uz}, {x + rx - ux, y + ry - uy, z + rz - uz}, {x + rx + ux, y + ry + uy, z + rz + uz}, {x - rx + ux, y - ry + uy, z - rz + uz}}}, 0, 0, 1, 1, tile, flags, r, g, bl, a, add);
@@ -122,7 +123,7 @@ void WeaponFx::add_mark(double x, double y, double z, double nx, double ny, doub
     const double l = js_hypot3(ux, uy, uz);
     ux /= l; uy /= l; uz /= l;
     const double vx = ny * uz - nz * uy, vy = nz * ux - nx * uz, vz = nx * uy - ny * ux;
-    const double a = opt.rot ? *opt.rot : random() * 6.28, c = std::cos(a), s = std::sin(a);
+    const double a = opt.rot ? *opt.rot : random() * 6.28, c = jsmath::cos(a), s = jsmath::sin(a);
     const double ax = ux * c + vx * s, ay = uy * c + vy * s, az = uz * c + vz * s, bx = vx * c - ux * s, by = vy * c - uy * s, bz = vz * c - uz * s;
     marks_.push_back({x + nx * .012, y + ny * .012, z + nz * .012, ax * size * .5, ay * size * .5, az * size * .5, bx * size * .5, by * size * .5, bz * size * .5,
                       tile, col[0], col[1], col[2], alpha, opt.add, 0, opt.life, opt.glow});
@@ -260,7 +261,7 @@ void WeaponFx::impact(int index, double hx, double hy, double hz, double dx, dou
         const double sz = (def.mark_size != 0 ? def.mark_size : .2) * (.85 + .3 * random()) * power;
         if(def.mark == MarkKind::hole) add_mark(x, y, z, nx, ny, nz, sz, tile_mark_hole, kWhite, .9);
         else if(def.mark == MarkKind::scorch) add_mark(x, y, z, nx, ny, nz, sz, tile_mark_scorch, kWhite, .75);
-        else if(def.mark == MarkKind::slash) add_mark(x, y, z, nx, ny, nz, sz, tile_mark_slash, kWhite, .85, {.rot = std::atan2(dz, js_hypot(dx, dy))});
+        else if(def.mark == MarkKind::slash) add_mark(x, y, z, nx, ny, nz, sz, tile_mark_slash, kWhite, .85, {.rot = jsmath::atan2(dz, js_hypot(dx, dy))});
         else if(def.mark == MarkKind::energy) {
             add_mark(x, y, z, nx, ny, nz, sz * .8, tile_mark_scorch, kWhite, .55);
             add_mark(x, y, z, nx, ny, nz, sz, tile_mark_energy, col, 1, {.add = 1, .life = 3.5, .glow = true});
@@ -471,8 +472,8 @@ Offsets WeaponFx::viewmodel_offsets(int index, double reloading) {   // recoil s
     const double raise = std::min(1.0, switch_t_ / .3), e = 1 - (1 - raise) * (1 - raise);
     double drop = (1 - e) * 1.25, pitch = -(1 - e) * .55, roll = 0;
     if(reloading > 0) {
-        const double p = 1 - reloading / std::max(.01, combat::weapons()[static_cast<std::size_t>(index)].reload), s = std::sin(kPi * std::min(1.0, p));
-        drop += .42 * std::pow(s, .7); roll += .5 * s; pitch += -.28 * s;
+        const double p = 1 - reloading / std::max(.01, combat::weapons()[static_cast<std::size_t>(index)].reload), s = jsmath::sin(kPi * std::min(1.0, p));
+        drop += .42 * jsmath::pow(s, .7); roll += .5 * s; pitch += -.28 * s;
     }
     return {recoil_.back, recoil_.climb * .25, pitch + recoil_.climb, roll + recoil_.roll, recoil_.yaw, drop};
 }
@@ -561,7 +562,7 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
         const double step = .32, rad = .07 + .2 * k;
         const int count = static_cast<int>(std::min(240.0, std::floor(L / step)));
         for(int i = 1; i < count; ++i) {
-            const double s = i * step, ang = R.phase + i * .55, cx = std::cos(ang) * rad, sy = std::sin(ang) * rad;
+            const double s = i * step, ang = R.phase + i * .55, cx = jsmath::cos(ang) * rad, sy = jsmath::sin(ang) * rad;
             sprite(main, cam, R.ax + ux * s + px * cx + qx * sy, R.ay + uy * s + py * cx + qy * sy, R.az + uz * s + pz * cx + qz * sy, .13 + .1 * k, .13 + .1 * k, 0, tile_spark_dot, c[0], c[1], c[2], .85 * f * f, 1);
         }
         if(k < .2) add_light(out, R.ax, R.ay, R.az, 4, c[0] * (1 - k * 5), c[1] * (1 - k * 5), c[2] * (1 - k * 5));
@@ -572,7 +573,7 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
         const auto m = muzzle_world(cam, in_hand);
         const auto o = player.shot_origin();
         const auto& p = player.state();
-        const double cp = std::cos(p.pitch), dx = std::cos(p.a) * cp, dy = std::sin(p.a) * cp, dz = -std::sin(p.pitch);
+        const double cp = jsmath::cos(p.pitch), dx = jsmath::cos(p.a) * cp, dy = jsmath::sin(p.a) * cp, dz = -jsmath::sin(p.pitch);
         const double r = bolt_range_;
         const auto h = arena.shot_sweep(o.x, o.y, o.z, o.x + dx * r, o.y + dy * r, o.z + dz * r, .042);
         const auto& c = def_of(bolt_def_).color;
@@ -594,13 +595,13 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
             const double v = or1(js_hypot3(p0.vx, p0.vy, p0.vz)), ux = p0.vx / v, uy = p0.vy / v, uz = p0.vz / v;
             beam(main, cam, px - ux * .42, py - uy * .42, pz - uz * .42, px + ux * .32, py + uy * .32, pz + uz * .32, .26, tile_rocket, 1, 1, 1, 1, 0, 0, 1, 0);
             beam(main, cam, px - ux * .42, py - uy * .42, pz - uz * .42, px - ux * 1.25, py - uy * 1.25, pz - uz * 1.25, .34, tile_flash_side, 1, .62, .3, 1, 1, 0, 1, 4);
-            sprite(main, cam, px - ux * .45, py - uy * .45, pz - uz * .45, .55 + .1 * std::sin(t * 60), .55, t * 20, tile_glow, 1, .7, .35, .9, 1);
+            sprite(main, cam, px - ux * .45, py - uy * .45, pz - uz * .45, .55 + .1 * jsmath::sin(t * 60), .55, t * 20, tile_glow, 1, .7, .35, .9, 1);
             add_light(out, px, py, pz, 5.2, 1, .6, .28);
         } else if(p0.kind == combat::FireKind::grenade) {
             sprite(main, cam, px, py, pz, .3, .3, t * 7 + p0.x, tile_grenade, 1, 1, 1, 1, 0, 0);
-            if(std::sin(t * 16) > .2) { sprite(main, cam, px, py, pz + .12, .16, .16, 0, tile_glow, 1, .25, .15, .9, 1); add_light(out, px, py, pz, 1.8, .8, .15, .08); }
+            if(jsmath::sin(t * 16) > .2) { sprite(main, cam, px, py, pz + .12, .16, .16, 0, tile_glow, 1, .25, .15, .9, 1); add_light(out, px, py, pz, 1.8, .8, .15, .08); }
         } else {
-            const double pulse = 1 + .12 * std::sin(t * 22);
+            const double pulse = 1 + .12 * jsmath::sin(t * 22);
             sprite(main, cam, px, py, pz, .85 * pulse, .85 * pulse, t * 5, tile_swirl, .8, .55, 1, 1, 1);
             sprite(main, cam, px, py, pz, .42, .42, 0, tile_dark_core, 1, 1, 1, .85, 0, 0);
             sprite(main, cam, px, py, pz, .55, .55, -t * 7, tile_electric, .85, .7, 1, .9, 1);
@@ -611,10 +612,10 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
     if(flash_) { const double f = 1 - flash_->t / flash_->life; const auto& c = def_of(flash_->index).flash_color; glow_ = {c[0] * f * .55, c[1] * f * .55, c[2] * f * .55}; }
     else glow_ = {0, 0, 0};
     // medkits: a soft green glow above every available pickup (render(), 13588)
-    for(const auto& p : arena.pickups()) if(p.cool <= 0) sprite(main, cam, p.x, p.y, p.z + .5, 1.3, 1.3, 0, tile_glow, .45, 1, .55, .22 + .08 * std::sin(t * 3 + p.x), 1);
+    for(const auto& p : arena.pickups()) if(p.cool <= 0) sprite(main, cam, p.x, p.y, p.z + .5, 1.3, 1.3, 0, tile_glow, .45, 1, .55, .22 + .08 * jsmath::sin(t * 3 + p.x), 1);
     // ... and the medkit itself: a bobbing world-atlas billboard (renderGeometry(), 12353)
     out.atlas.clear();
-    for(const auto& p : arena.pickups()) if(p.cool <= 0) billboard(out.atlas, p.x, p.y, .20 + std::sin(t * 2 + p.x) * .06 + p.z, .65, .65, kAtlasMedkit, player.state().a);
+    for(const auto& p : arena.pickups()) if(p.cool <= 0) billboard(out.atlas, p.x, p.y, .20 + jsmath::sin(t * 2 + p.x) * .06 + p.z, .65, .65, kAtlasMedkit, player.state().a);
 
     // ---- weapon view (renderGun3D): yaw-only viewmodel camera, muzzle anchored on screen ----
     auto& gv = out.gun_view;
@@ -624,12 +625,12 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
     const auto q3w = player.weapon_motion();
     const auto vo = viewmodel_offsets(gun, arena.reloading());
     const auto& muzzle = kGunMuzzle[static_cast<std::size_t>(gun)];
-    const double yaw = kPoseToeIn, cy = std::cos(yaw), sy = std::sin(yaw);
-    const double muzzle_depth = kPoseMuzzleY - kPoseY, legacy_shift = .20 * muzzle_depth * std::tan(65 * kPi / 360);
+    const double yaw = kPoseToeIn, cy = jsmath::cos(yaw), sy = jsmath::sin(yaw);
+    const double muzzle_depth = kPoseMuzzleY - kPoseY, legacy_shift = .20 * muzzle_depth * jsmath::tan(65 * kPi / 360);
     const double rest_x = kPoseX + legacy_shift + (muzzle[0] - kPoseMuzzleX), rest_y = kPoseY + (muzzle[1] - kPoseMuzzleY), rest_z = kPoseZ + (muzzle[2] - kPoseMuzzleZ);
     const double vx = muzzle[0] - rest_x, vy = muzzle[1] - rest_y, vz = muzzle[2] - rest_z;
     const double depth = std::max(.08, vx * sy + vy * cy);
-    const double tan_h = std::tan(kRefFov * kPi / 360), tan_v = tan_h / aspect;
+    const double tan_h = jsmath::tan(kRefFov * kPi / 360), tan_v = tan_h / aspect;
     const double rx = cy, ry = -sy;
     const double projected_x = (vx * rx + vy * ry) / (depth * tan_h), projected_y = vz / (depth * tan_v);
     const double desired_x = 2 * kRefMuzzleX - 1, desired_y = 1 - 2 * std::max(.50, std::min(.95, kMuzzleHeight[static_cast<std::size_t>(gun)]));
@@ -637,7 +638,7 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
     const double cx = rest_x + offset_r * rx, cy0 = rest_y + offset_r * ry + vo.back, cz = rest_z + offset_u - q3w.drop + vo.drop + vo.lift;
     std::array<double, 3> F{sy, cy, 0}, Rv{cy, -sy, 0}, U{0, 0, 1};
     auto rot = [](std::array<double, 3>& a, std::array<double, 3>& b, double angle) {
-        const double c = std::cos(angle), s = std::sin(angle);
+        const double c = jsmath::cos(angle), s = jsmath::sin(angle);
         const std::array<double, 3> na{a[0] * c + b[0] * s, a[1] * c + b[1] * s, a[2] * c + b[2] * s}, nb{b[0] * c - a[0] * s, b[1] * c - a[1] * s, b[2] * c - a[2] * s};
         a = na; b = nb;
     };
@@ -657,7 +658,7 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
         beam(b, gc, mx, my + .02, mz, mx, my + def.flash_side * f.scale * 1.45, mz, s * .72, tile_flash_side, c[0], c[1], c[2], a, 1, 0, 1, 4);
     }
     if(gun == 3 && rail_charge_ < 1) {   // railgun recharge glow
-        const double k = rail_charge_, a = .25 + .5 * std::sin(k * kPi);
+        const double k = rail_charge_, a = .25 + .5 * jsmath::sin(k * kPi);
         const auto& c = def.color;
         sprite(b, gc, mx, my - .15, mz, .35 + .25 * k, .35 + .25 * k, t * 3, tile_heat_ring, c[0], c[1], c[2], a * .8, 1);
     }

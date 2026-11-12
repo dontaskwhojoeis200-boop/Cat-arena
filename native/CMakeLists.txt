@@ -356,6 +356,20 @@ if(BUILD_TESTING)
   endif()
 endif()
 
+# N6.5 cat/js_math.hpp (correctly rounded sin, cos, tan, atan2, pow used by the simulation and the
+# effects): compared bit for bit with Math.* results recorded from Chromium.
+if(BUILD_TESTING)
+  add_executable(cat_arena_js_math_tests tests/js_math_tests.cpp)
+  target_include_directories(cat_arena_js_math_tests PRIVATE include)
+  target_link_libraries(cat_arena_js_math_tests PRIVATE cat_warnings)
+  if(MSVC)
+    target_compile_options(cat_arena_js_math_tests PRIVATE /fp:precise)
+  else()
+    target_compile_options(cat_arena_js_math_tests PRIVATE -ffp-contract=off)
+  endif()
+  add_test(NAME js_math_browser COMMAND cat_arena_js_math_tests "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/js_math/chromium_math.bin")
+endif()
+
 # N6 enemies, waves, AI and enemy projectiles (part of cat_arena_physics): unit tests plus a replay of
 # tapes recorded from the legacy game on every map.
 if(BUILD_TESTING)

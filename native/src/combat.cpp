@@ -1,6 +1,7 @@
 // N5 combat rules: see cat/combat.hpp. Statement and floating-point order follow the legacy
 // functions named in the comments so that recorded reference tapes replay exactly.
 #include "cat/combat.hpp"
+#include "cat/js_math.hpp"
 #include "cat/enemies.hpp"
 #include <algorithm>
 #include <cmath>
@@ -156,7 +157,7 @@ void Arena::step(const physics::TickInput& in) {
 }
 
 Arena::FirePose Arena::fire_position(double az, double pitch) const {   // firePosition (11811)
-    const double cp = std::cos(pitch), dx = std::cos(az) * cp, dy = std::sin(az) * cp, dz = -std::sin(pitch);
+    const double cp = jsmath::cos(pitch), dx = jsmath::cos(az) * cp, dy = jsmath::sin(az) * cp, dz = -jsmath::sin(pitch);
     const auto cam = player_.shot_origin();
     return {cam.x + dx * .24, cam.y + dy * .24, cam.z + dz * .24, dx, dy, dz};
 }
@@ -212,7 +213,7 @@ void Arena::damage_target(std::size_t index, double damage, double z_hit, int pa
 void Arena::shotgun_recoil(int index) {   // applyShotgunRecoil (11992)
     auto& p = player_.state();
     const double force = index == 15 ? 6.7 : index == 7 ? 5.7 : 4.7;
-    const double bx = -std::cos(p.a), by = -std::sin(p.a);
+    const double bx = -jsmath::cos(p.a), by = -jsmath::sin(p.a);
     if(p.ground) { p.vx += bx * force; p.vy += by * force; }
     else {
         p.vx += bx * force * .55; p.vy += by * force * .55;
@@ -307,7 +308,7 @@ void Arena::explode(double x, double y, double power, double z, FireKind kind) {
             const double launch = std::sqrt(2 * physics::kGravity * physics::kPlayerHeight * 2.25) * pct;   // 2.25 player heights at full blast
             p.vz = std::max(p.vz, launch); p.ground = false;
             double ax = p.x - x, ay = p.y - y, len = js_hypot(ax, ay);
-            if(len < .025) { ax = -std::cos(p.a); ay = -std::sin(p.a); len = 1; }
+            if(len < .025) { ax = -jsmath::cos(p.a); ay = -jsmath::sin(p.a); len = 1; }
             const double horiz = kBlastHorizontal * pct;
             p.vx += ax / len * horiz; p.vy += ay / len * horiz;
         }
