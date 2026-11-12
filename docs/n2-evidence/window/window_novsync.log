@@ -1,0 +1,7 @@
+level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1 in 4590 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 loader=1.3.275 negotiated=1.3.275 anisotropy=4.000000 validation=on target=window"
+level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, pipelines are created with the first render target"
+level="info" subsystem="app" message="N2 map view: click to capture the mouse, WASD/Space/Ctrl fly, Shift fast, Esc release/quit. Not gameplay."
+level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=MAILBOX"
+level="info" subsystem="app" message="Clean shutdown; ticks=2593 frames=400 validationWarnings=0 validationErrors=0"

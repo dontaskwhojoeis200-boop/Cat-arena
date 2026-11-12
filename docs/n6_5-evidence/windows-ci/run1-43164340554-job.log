@@ -1,0 +1,989 @@
+﻿2026-11-12T05:53:19.2237299Z Current runner version: '2.338.2'
+2026-11-12T05:53:19.2263514Z ##[group]Runner Image Provisioner
+2026-11-12T05:53:19.2264333Z Hosted Compute Agent
+2026-11-12T05:53:19.2264988Z Version: 20261028.624
+2026-11-12T05:53:19.2265599Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-12T05:53:19.2266266Z Build Date: 2026-10-28T21:51:42Z
+2026-11-12T05:53:19.2266935Z Worker ID: {92f61eed-6855-460d-b4e9-c6ace3decf65}
+2026-11-12T05:53:19.2267585Z Region: centralus
+2026-11-12T05:53:19.2268093Z Cloud: Azure
+2026-11-12T05:53:19.2268563Z ##[endgroup]
+2026-11-12T05:53:19.2269795Z ##[group]Operating System
+2026-11-12T05:53:19.2270379Z Microsoft Windows Server 2022
+2026-11-12T05:53:19.2270919Z 10.0.20348
+2026-11-12T05:53:19.2271396Z Datacenter
+2026-11-12T05:53:19.2271856Z ##[endgroup]
+2026-11-12T05:53:19.2272327Z ##[group]Runner Image
+2026-11-12T05:53:19.2272899Z Image: windows-2022
+2026-11-12T05:53:19.2273389Z Version: 20261101.353.1
+2026-11-12T05:53:19.2274920Z Included Software: https://github.com/actions/runner-images/blob/win22/20261101.353/images/windows/Windows2022-Readme.md
+2026-11-12T05:53:19.2276383Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20261101.353
+2026-11-12T05:53:19.2277284Z ##[endgroup]
+2026-11-12T05:53:19.2278274Z ##[group]GITHUB_TOKEN Permissions
+2026-11-12T05:53:19.2280146Z Contents: read
+2026-11-12T05:53:19.2280629Z Metadata: read
+2026-11-12T05:53:19.2281129Z ##[endgroup]
+2026-11-12T05:53:19.2282921Z Secret source: Actions
+2026-11-12T05:53:19.2283696Z Cache mode: write
+2026-11-12T05:53:19.2284404Z Prepare workflow directory
+2026-11-12T05:53:19.2765442Z Prepare all required actions
+2026-11-12T05:53:19.2814521Z Getting action download info
+2026-11-12T05:53:19.5506464Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-12T05:53:19.6534862Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-12T05:53:19.9334483Z Complete job name: windows-x64
+2026-11-12T05:53:20.0916756Z ##[group]Run actions/checkout@v4
+2026-11-12T05:53:20.0918162Z with:
+2026-11-12T05:53:20.0918625Z   submodules: recursive
+2026-11-12T05:53:20.0919139Z   lfs: true
+2026-11-12T05:53:20.0919649Z   repository: dontaskwhojoeis200-boop/Cat-arena
+2026-11-12T05:53:20.0923572Z   token: ***
+2026-11-12T05:53:20.0924011Z   ssh-strict: true
+2026-11-12T05:53:20.0924450Z   ssh-user: git
+2026-11-12T05:53:20.0924905Z   persist-credentials: true
+2026-11-12T05:53:20.0925396Z   clean: true
+2026-11-12T05:53:20.0925878Z   sparse-checkout-cone-mode: true
+2026-11-12T05:53:20.0926407Z   fetch-depth: 1
+2026-11-12T05:53:20.0926838Z   fetch-tags: false
+2026-11-12T05:53:20.0927289Z   show-progress: true
+2026-11-12T05:53:20.0927756Z   set-safe-directory: true
+2026-11-12T05:53:20.0928255Z   allow-unsafe-pr-checkout: false
+2026-11-12T05:53:20.0929011Z env:
+2026-11-12T05:53:20.0929417Z   MILESTONE: N6
+2026-11-12T05:53:20.0929872Z ##[endgroup]
+2026-11-12T05:53:20.2383471Z Syncing repository: dontaskwhojoeis200-boop/Cat-arena
+2026-11-12T05:53:20.2386601Z ##[group]Getting Git version info
+2026-11-12T05:53:20.2387554Z Working directory is 'D:\a\Cat-arena\Cat-arena'
+2026-11-12T05:53:20.3278216Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T05:53:20.6520124Z git version 2.56.0.windows.4
+2026-11-12T05:53:20.7296202Z [command]"C:\Program Files\Git\bin\git.exe" lfs version
+2026-11-12T05:53:22.0409979Z git-lfs/3.8.1 (GitHub; windows amd64; go 1.27.3; git a662a6db)
+2026-11-12T05:53:22.0463416Z ##[endgroup]
+2026-11-12T05:53:22.0481762Z Temporarily overriding HOME='D:\a\_temp\ba90c08f-8ff1-4a9b-b47a-b7d224e455f0' before making global git config changes
+2026-11-12T05:53:22.0484465Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T05:53:22.0490338Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cat-arena\Cat-arena
+2026-11-12T05:53:22.0964431Z Deleting the contents of 'D:\a\Cat-arena\Cat-arena'
+2026-11-12T05:53:22.0970117Z ##[group]Initializing the repository
+2026-11-12T05:53:22.0978527Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Cat-arena\Cat-arena
+2026-11-12T05:53:22.1776162Z Initialized empty Git repository in D:/a/Cat-arena/Cat-arena/.git/
+2026-11-12T05:53:22.1818333Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/dontaskwhojoeis200-boop/Cat-arena
+2026-11-12T05:53:22.2392330Z ##[endgroup]
+2026-11-12T05:53:22.2393875Z ##[group]Disabling automatic garbage collection
+2026-11-12T05:53:22.2401504Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-12T05:53:22.2742378Z ##[endgroup]
+2026-11-12T05:53:22.2743992Z ##[group]Setting up auth
+2026-11-12T05:53:22.2762556Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T05:53:22.3063463Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T05:53:23.4463378Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T05:53:23.4777288Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T05:53:23.9234778Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T05:53:23.9537485Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T05:53:24.4414990Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-12T05:53:24.4724054Z ##[endgroup]
+2026-11-12T05:53:24.4735949Z [command]"C:\Program Files\Git\bin\git.exe" lfs install --local
+2026-11-12T05:53:24.9005396Z Updated Git hooks.
+2026-11-12T05:53:24.9005932Z Git LFS initialized.
+2026-11-12T05:53:24.9061846Z ##[group]Fetching the repository
+2026-11-12T05:53:24.9082505Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d52f51c4727bf6bf65e24a267cf051afe8e5fbfe:refs/remotes/origin/main
+2026-11-12T05:53:31.0385872Z From https://github.com/dontaskwhojoeis200-boop/Cat-arena
+2026-11-12T05:53:31.0386844Z  * [new ref]         d52f51c4727bf6bf65e24a267cf051afe8e5fbfe -> origin/main
+2026-11-12T05:53:31.0421456Z ##[endgroup]
+2026-11-12T05:53:31.0422228Z ##[group]Determining the checkout info
+2026-11-12T05:53:31.0424193Z ##[endgroup]
+2026-11-12T05:53:31.0425429Z ##[group]Fetching LFS objects
+2026-11-12T05:53:31.0435116Z [command]"C:\Program Files\Git\bin\git.exe" lfs fetch origin refs/remotes/origin/main
+2026-11-12T05:53:31.2535665Z Fetching reference refs/remotes/origin/main
+2026-11-12T05:53:31.4169015Z ##[endgroup]
+2026-11-12T05:53:31.4178832Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-12T05:53:31.4693069Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-12T05:53:31.4985995Z ##[group]Checking out the ref
+2026-11-12T05:53:31.4994328Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-12T05:53:32.6066003Z Updating files:  85% (1266/1473)
+2026-11-12T05:53:32.6095056Z Updating files:  86% (1267/1473)
+2026-11-12T05:53:32.6120002Z Updating files:  87% (1282/1473)
+2026-11-12T05:53:32.6133469Z Updating files:  88% (1297/1473)
+2026-11-12T05:53:32.6186296Z Updating files:  89% (1311/1473)
+2026-11-12T05:53:32.7348259Z Updating files:  90% (1326/1473)
+2026-11-12T05:53:32.9194031Z Updating files:  91% (1341/1473)
+2026-11-12T05:53:33.1271322Z Updating files:  92% (1356/1473)
+2026-11-12T05:53:33.1916009Z Updating files:  93% (1370/1473)
+2026-11-12T05:53:33.1965589Z Updating files:  94% (1385/1473)
+2026-11-12T05:53:33.2054577Z Updating files:  95% (1400/1473)
+2026-11-12T05:53:33.2071125Z Updating files:  96% (1415/1473)
+2026-11-12T05:53:33.2098578Z Updating files:  97% (1429/1473)
+2026-11-12T05:53:33.6453250Z Updating files:  98% (1444/1473)
+2026-11-12T05:53:33.8672694Z Updating files:  98% (1447/1473)
+2026-11-12T05:53:33.8698458Z Updating files:  99% (1459/1473)
+2026-11-12T05:53:33.8699000Z Updating files: 100% (1473/1473)
+2026-11-12T05:53:33.8699365Z Updating files: 100% (1473/1473), done.
+2026-11-12T05:53:33.8833780Z Switched to a new branch 'main'
+2026-11-12T05:53:33.8845958Z branch 'main' set up to track 'origin/main'.
+2026-11-12T05:53:34.1537462Z ##[endgroup]
+2026-11-12T05:53:34.1538275Z ##[group]Setting up auth for fetching submodules
+2026-11-12T05:53:34.1549184Z [command]"C:\Program Files\Git\bin\git.exe" config --global http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-12T05:53:34.1857323Z [command]"C:\Program Files\Git\bin\git.exe" config --global --unset-all url.https://github.com/.insteadOf
+2026-11-12T05:53:34.2150539Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-11-12T05:53:34.2448744Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf org-317213623@github.com:
+2026-11-12T05:53:34.2743673Z ##[endgroup]
+2026-11-12T05:53:34.2744386Z ##[group]Fetching submodules
+2026-11-12T05:53:34.2752285Z [command]"C:\Program Files\Git\bin\git.exe" submodule sync --recursive
+2026-11-12T05:53:34.7348546Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-11-12T05:53:35.2230620Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local gc.auto 0"
+2026-11-12T05:53:35.6887831Z ##[endgroup]
+2026-11-12T05:53:35.6889446Z ##[group]Persisting credentials for submodules
+2026-11-12T05:53:35.6899433Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :\""
+2026-11-12T05:53:36.2405787Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url\""
+2026-11-12T05:53:36.7075128Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'"
+2026-11-12T05:53:37.1646217Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'org-317213623@github.com:'"
+2026-11-12T05:53:37.6342389Z ##[endgroup]
+2026-11-12T05:53:37.6654843Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-12T05:53:37.6916028Z d52f51c4727bf6bf65e24a267cf051afe8e5fbfe
+2026-11-12T05:53:37.7288383Z ##[group]Run $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+2026-11-12T05:53:37.7289990Z [36;1m$vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath[0m
+2026-11-12T05:53:37.7290852Z [36;1mif (-not $vs) { throw "MSVC x64 tools not found" }[0m
+2026-11-12T05:53:37.7291350Z [36;1m"VS_PATH=$vs" | Out-File -FilePath $env:GITHUB_ENV -Append[0m
+2026-11-12T05:53:37.7291741Z [36;1mcmake --version[0m
+2026-11-12T05:53:37.7292315Z [36;1m& "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property catalog_productDisplayVersion[0m
+2026-11-12T05:53:37.7293145Z [36;1mgit --version[0m
+2026-11-12T05:53:37.7293461Z [36;1mpython --version[0m
+2026-11-12T05:53:37.7294036Z [36;1mNew-Item -ItemType Directory -Force -Path ci-logs | Out-Null[0m
+2026-11-12T05:53:37.7506730Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T05:53:37.7507250Z env:
+2026-11-12T05:53:37.7507517Z   MILESTONE: N6
+2026-11-12T05:53:37.7507825Z ##[endgroup]
+2026-11-12T05:53:39.1875782Z cmake version 3.31.6
+2026-11-12T05:53:39.1876387Z 
+2026-11-12T05:53:39.1876796Z CMake suite maintained and supported by Kitware (kitware.com/cmake).
+2026-11-12T05:53:39.2333458Z 17.14.44
+2026-11-12T05:53:39.2626348Z git version 2.56.0.windows.4
+2026-11-12T05:53:39.4034428Z Python 3.12.10
+2026-11-12T05:53:39.4835576Z ##[group]Run cmake --preset windows-release "-DCAT_MILESTONE=$env:MILESTONE" 2>&1 | Tee-Object -FilePath ../ci-logs/configure.txt
+2026-11-12T05:53:39.4836554Z [36;1mcmake --preset windows-release "-DCAT_MILESTONE=$env:MILESTONE" 2>&1 | Tee-Object -FilePath ../ci-logs/configure.txt[0m
+2026-11-12T05:53:39.4837174Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-12T05:53:39.4874105Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T05:53:39.4874473Z env:
+2026-11-12T05:53:39.4874728Z   MILESTONE: N6
+2026-11-12T05:53:39.4875099Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2026-11-12T05:53:39.4875484Z ##[endgroup]
+2026-11-12T05:53:39.8031885Z Preset CMake variables:
+2026-11-12T05:53:39.8034672Z 
+2026-11-12T05:53:39.8036510Z   CAT_BUILD_DESKTOP="ON"
+2026-11-12T05:53:39.8038335Z   CAT_FETCH_GLSLANG="ON"
+2026-11-12T05:53:39.8040040Z   CAT_FETCH_SDL="ON"
+2026-11-12T05:53:39.8041119Z   CAT_WINDOWS_GUI="ON"
+2026-11-12T05:53:39.8042857Z 
+2026-11-12T05:53:39.9963244Z -- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.20348.
+2026-11-12T05:53:50.2518333Z -- The CXX compiler identification is MSVC 19.44.35229.0
+2026-11-12T05:53:50.3887491Z -- Detecting CXX compiler ABI info
+2026-11-12T05:53:53.3833806Z -- Detecting CXX compiler ABI info - done
+2026-11-12T05:53:53.4323716Z -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+2026-11-12T05:53:53.4334384Z -- Detecting CXX compile features
+2026-11-12T05:53:53.4434122Z -- Detecting CXX compile features - done
+2026-11-12T05:53:53.7104152Z -- Vulkan: import library for vulkan-1.dll generated (151 Vulkan 1.0 + WSI commands); no Vulkan SDK used
+2026-11-12T05:53:59.2726329Z -- The C compiler identification is MSVC 19.44.35229.0
+2026-11-12T05:53:59.2924183Z -- Detecting C compiler ABI info
+2026-11-12T05:54:00.0279230Z -- Detecting C compiler ABI info - done
+2026-11-12T05:54:00.0796658Z -- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+2026-11-12T05:54:00.0797672Z -- Detecting C compile features
+2026-11-12T05:54:00.0804291Z -- Detecting C compile features - done
+2026-11-12T05:54:01.2076794Z -- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+2026-11-12T05:54:01.2170758Z -- Detecting Target CPU Architecture
+2026-11-12T05:54:01.7909089Z -- Detecting Target CPU Architecture - X64
+2026-11-12T05:54:01.8030744Z -- Performing Test COMPILER_SUPPORTS_MMX
+2026-11-12T05:54:03.0401021Z -- Performing Test COMPILER_SUPPORTS_MMX - Failed
+2026-11-12T05:54:03.0401904Z -- Performing Test COMPILER_SUPPORTS_SSE
+2026-11-12T05:54:03.9420367Z -- Performing Test COMPILER_SUPPORTS_SSE - Success
+2026-11-12T05:54:03.9421700Z -- Performing Test COMPILER_SUPPORTS_SSE2
+2026-11-12T05:54:04.6682426Z -- Performing Test COMPILER_SUPPORTS_SSE2 - Success
+2026-11-12T05:54:04.6683326Z -- Performing Test COMPILER_SUPPORTS_SSE3
+2026-11-12T05:54:05.4047306Z -- Performing Test COMPILER_SUPPORTS_SSE3 - Success
+2026-11-12T05:54:05.4049325Z -- Performing Test COMPILER_SUPPORTS_SSE4_1
+2026-11-12T05:54:06.1326042Z -- Performing Test COMPILER_SUPPORTS_SSE4_1 - Success
+2026-11-12T05:54:06.1327051Z -- Performing Test COMPILER_SUPPORTS_SSE4_2
+2026-11-12T05:54:06.8639918Z -- Performing Test COMPILER_SUPPORTS_SSE4_2 - Success
+2026-11-12T05:54:06.8644283Z -- Performing Test COMPILER_SUPPORTS_AVX
+2026-11-12T05:54:07.7094467Z -- Performing Test COMPILER_SUPPORTS_AVX - Success
+2026-11-12T05:54:07.7095167Z -- Performing Test COMPILER_SUPPORTS_AVX2
+2026-11-12T05:54:08.4811069Z -- Performing Test COMPILER_SUPPORTS_AVX2 - Success
+2026-11-12T05:54:08.4811743Z -- Performing Test COMPILER_SUPPORTS_AVX512F
+2026-11-12T05:54:09.2319892Z -- Performing Test COMPILER_SUPPORTS_AVX512F - Success
+2026-11-12T05:54:09.2322654Z -- Looking for malloc.h
+2026-11-12T05:54:09.9481660Z -- Looking for malloc.h - found
+2026-11-12T05:54:09.9590468Z -- Looking for _copysign
+2026-11-12T05:54:10.8485665Z -- Looking for _copysign - found
+2026-11-12T05:54:10.8486168Z -- Looking for _fseeki64
+2026-11-12T05:54:11.6373518Z -- Looking for _fseeki64 - found
+2026-11-12T05:54:11.6436042Z -- Performing Test HAVE_GAMEINPUT_H
+2026-11-12T05:54:13.7790561Z -- Performing Test HAVE_GAMEINPUT_H - Success
+2026-11-12T05:54:13.7791187Z -- Looking for dxgi1_6.h
+2026-11-12T05:54:14.7220942Z -- Looking for dxgi1_6.h - found
+2026-11-12T05:54:14.7221538Z -- Performing Test HAVE_MFAPI_H
+2026-11-12T05:54:15.8011159Z -- Performing Test HAVE_MFAPI_H - Success
+2026-11-12T05:54:16.0693405Z -- Could NOT find LibUSB (missing: LibUSB_LIBRARY LibUSB_INCLUDE_PATH) (found version "LibUSB_VERSION-NOTFOUND")
+2026-11-12T05:54:16.1591094Z -- 
+2026-11-12T05:54:16.1592719Z -- SDL3 was configured with the following options:
+2026-11-12T05:54:16.1594195Z -- 
+2026-11-12T05:54:16.1594602Z -- Platform: Windows-10.0.20348
+2026-11-12T05:54:16.1598918Z -- 64-bit:   TRUE
+2026-11-12T05:54:16.1599825Z -- Compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+2026-11-12T05:54:16.1601625Z -- Revision: SDL3-3.2.10-HEAD-HASH-NOTFOUND
+2026-11-12T05:54:16.1603117Z -- Vendor:   
+2026-11-12T05:54:16.1603543Z -- 
+2026-11-12T05:54:16.1604085Z -- Subsystems:
+2026-11-12T05:54:16.1604475Z --   Audio:    ON
+2026-11-12T05:54:16.1605137Z --   Video:    ON
+2026-11-12T05:54:16.1605580Z --   GPU:      ON
+2026-11-12T05:54:16.1606117Z --   Render:   ON
+2026-11-12T05:54:16.1606509Z --   Camera:   ON
+2026-11-12T05:54:16.1607135Z --   Joystick: ON
+2026-11-12T05:54:16.1607725Z --   Haptic:   ON
+2026-11-12T05:54:16.1608912Z --   Hidapi:   ON
+2026-11-12T05:54:16.1609347Z --   Power:    ON
+2026-11-12T05:54:16.1610010Z --   Sensor:   ON
+2026-11-12T05:54:16.1610387Z --   Dialog:   ON
+2026-11-12T05:54:16.1610778Z -- 
+2026-11-12T05:54:16.1611123Z -- Options:
+2026-11-12T05:54:16.1611626Z --   SDL_ALSA                    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1612728Z --   SDL_ALSA_SHARED             (Wanted: OFF): OFF
+2026-11-12T05:54:16.1614248Z --   SDL_ALTIVEC                 (Wanted: OFF): OFF
+2026-11-12T05:54:16.1615636Z --   SDL_ARMNEON                 (Wanted: OFF): OFF
+2026-11-12T05:54:16.1616746Z --   SDL_ASAN                    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1618061Z --   SDL_ASSEMBLY                (Wanted: ON): ON
+2026-11-12T05:54:16.1618992Z --   SDL_ASSERTIONS              (Wanted: auto): auto
+2026-11-12T05:54:16.1620201Z --   SDL_AVX                     (Wanted: ON): ON
+2026-11-12T05:54:16.1621780Z --   SDL_AVX2                    (Wanted: ON): ON
+2026-11-12T05:54:16.1622624Z --   SDL_AVX512F                 (Wanted: ON): ON
+2026-11-12T05:54:16.1624200Z --   SDL_BACKGROUNDING_SIGNAL    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1625566Z --   SDL_CCACHE                  (Wanted: OFF): OFF
+2026-11-12T05:54:16.1626919Z --   SDL_CLANG_TIDY              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1627772Z --   SDL_CLOCK_GETTIME           (Wanted: OFF): OFF
+2026-11-12T05:54:16.1629793Z --   SDL_COCOA                   (Wanted: OFF): OFF
+2026-11-12T05:54:16.1630708Z --   SDL_DBUS                    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1632453Z --   SDL_DEPS_SHARED             (Wanted: ON): OFF
+2026-11-12T05:54:16.1633328Z --   SDL_DIRECTX                 (Wanted: ON): ON
+2026-11-12T05:54:16.1633935Z --   SDL_DISKAUDIO               (Wanted: ON): ON
+2026-11-12T05:54:16.1635133Z --   SDL_DUMMYAUDIO              (Wanted: ON): ON
+2026-11-12T05:54:16.1635973Z --   SDL_DUMMYCAMERA             (Wanted: ON): ON
+2026-11-12T05:54:16.1636757Z --   SDL_DUMMYVIDEO              (Wanted: ON): ON
+2026-11-12T05:54:16.1637673Z --   SDL_EXAMPLES                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1638508Z --   SDL_EXAMPLES_LINK_SHARED    (Wanted: ON): OFF
+2026-11-12T05:54:16.1639201Z --   SDL_FOREGROUNDING_SIGNAL    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1641341Z --   SDL_GCC_ATOMICS             (Wanted: OFF): OFF
+2026-11-12T05:54:16.1642184Z --   SDL_GPU_DXVK                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1643041Z --   SDL_HIDAPI                  (Wanted: ON): ON
+2026-11-12T05:54:16.1643558Z --   SDL_HIDAPI_JOYSTICK         (Wanted: ON): ON
+2026-11-12T05:54:16.1644138Z --   SDL_HIDAPI_LIBUSB           (Wanted: ON): OFF
+2026-11-12T05:54:16.1645200Z --   SDL_HIDAPI_LIBUSB_SHARED    (Wanted: ON): OFF
+2026-11-12T05:54:16.1645798Z --   SDL_IBUS                    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1647228Z --   SDL_INSTALL                 (Wanted: OFF): OFF
+2026-11-12T05:54:16.1648132Z --   SDL_INSTALL_TESTS           (Wanted: OFF): OFF
+2026-11-12T05:54:16.1648738Z --   SDL_JACK                    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1649732Z --   SDL_JACK_SHARED             (Wanted: OFF): OFF
+2026-11-12T05:54:16.1650351Z --   SDL_KMSDRM                  (Wanted: OFF): OFF
+2026-11-12T05:54:16.1651490Z --   SDL_KMSDRM_SHARED           (Wanted: OFF): OFF
+2026-11-12T05:54:16.1652462Z --   SDL_LASX                    (Wanted: OFF): OFF
+2026-11-12T05:54:16.1653345Z --   SDL_LIBC                    (Wanted: ON): ON
+2026-11-12T05:54:16.1653866Z --   SDL_LIBICONV                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1655094Z --   SDL_LIBUDEV                 (Wanted: ON): OFF
+2026-11-12T05:54:16.1655637Z --   SDL_LIBURING                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1656479Z --   SDL_LSX                     (Wanted: OFF): OFF
+2026-11-12T05:54:16.1657168Z --   SDL_METAL                   (Wanted: OFF): OFF
+2026-11-12T05:54:16.1658166Z --   SDL_MMX                     (Wanted: ON): OFF
+2026-11-12T05:54:16.1658944Z --   SDL_OFFSCREEN               (Wanted: ON): ON
+2026-11-12T05:54:16.1659664Z --   SDL_OPENGL                  (Wanted: ON): ON
+2026-11-12T05:54:16.1660842Z --   SDL_OPENGLES                (Wanted: ON): ON
+2026-11-12T05:54:16.1661389Z --   SDL_OPENVR                  (Wanted: OFF): OFF
+2026-11-12T05:54:16.1662578Z --   SDL_OSS                     (Wanted: OFF): OFF
+2026-11-12T05:54:16.1663318Z --   SDL_PIPEWIRE                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1664523Z --   SDL_PIPEWIRE_SHARED         (Wanted: OFF): OFF
+2026-11-12T05:54:16.1665333Z --   SDL_PTHREADS                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1666248Z --   SDL_PTHREADS_SEM            (Wanted: OFF): OFF
+2026-11-12T05:54:16.1666763Z --   SDL_PULSEAUDIO              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1667590Z --   SDL_PULSEAUDIO_SHARED       (Wanted: OFF): OFF
+2026-11-12T05:54:16.1668291Z --   SDL_RENDER_D3D              (Wanted: ON): ON
+2026-11-12T05:54:16.1669664Z --   SDL_RENDER_D3D11            (Wanted: ON): ON
+2026-11-12T05:54:16.1670251Z --   SDL_RENDER_D3D12            (Wanted: ON): ON
+2026-11-12T05:54:16.1671206Z --   SDL_RENDER_GPU              (Wanted: ON): ON
+2026-11-12T05:54:16.1672115Z --   SDL_RENDER_METAL            (Wanted: ON): OFF
+2026-11-12T05:54:16.1672908Z --   SDL_RENDER_VULKAN           (Wanted: ON): ON
+2026-11-12T05:54:16.1673621Z --   SDL_ROCKCHIP                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1674323Z --   SDL_RPATH                   (Wanted: OFF): OFF
+2026-11-12T05:54:16.1675316Z --   SDL_RPI                     (Wanted: OFF): OFF
+2026-11-12T05:54:16.1676514Z --   SDL_SNDIO                   (Wanted: OFF): OFF
+2026-11-12T05:54:16.1677617Z --   SDL_SNDIO_SHARED            (Wanted: OFF): OFF
+2026-11-12T05:54:16.1678626Z --   SDL_SSE                     (Wanted: ON): ON
+2026-11-12T05:54:16.1679400Z --   SDL_SSE2                    (Wanted: ON): ON
+2026-11-12T05:54:16.1680078Z --   SDL_SSE3                    (Wanted: ON): ON
+2026-11-12T05:54:16.1681049Z --   SDL_SSE4_1                  (Wanted: ON): ON
+2026-11-12T05:54:16.1681938Z --   SDL_SSE4_2                  (Wanted: ON): ON
+2026-11-12T05:54:16.1682497Z --   SDL_SYSTEM_ICONV            (Wanted: OFF): OFF
+2026-11-12T05:54:16.1684066Z --   SDL_TESTS                   (Wanted: OFF): OFF
+2026-11-12T05:54:16.1686006Z --   SDL_TESTS_LINK_SHARED       (Wanted: ON): OFF
+2026-11-12T05:54:16.1689920Z --   SDL_UNINSTALL               (Wanted: OFF): OFF
+2026-11-12T05:54:16.1692098Z --   SDL_VIRTUAL_JOYSTICK        (Wanted: ON): ON
+2026-11-12T05:54:16.1693237Z --   SDL_VIVANTE                 (Wanted: OFF): OFF
+2026-11-12T05:54:16.1694784Z --   SDL_VULKAN                  (Wanted: ON): ON
+2026-11-12T05:54:16.1695795Z --   SDL_WASAPI                  (Wanted: ON): ON
+2026-11-12T05:54:16.1696756Z --   SDL_WAYLAND                 (Wanted: OFF): OFF
+2026-11-12T05:54:16.1697721Z --   SDL_WAYLAND_LIBDECOR        (Wanted: OFF): OFF
+2026-11-12T05:54:16.1698584Z --   SDL_WAYLAND_LIBDECOR_SHARED (Wanted: OFF): OFF
+2026-11-12T05:54:16.1699358Z --   SDL_WAYLAND_SHARED          (Wanted: OFF): OFF
+2026-11-12T05:54:16.1700098Z --   SDL_X11                     (Wanted: OFF): OFF
+2026-11-12T05:54:16.1700881Z --   SDL_X11_SHARED              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1701628Z --   SDL_X11_XCURSOR             (Wanted: OFF): OFF
+2026-11-12T05:54:16.1702399Z --   SDL_X11_XDBE                (Wanted: OFF): OFF
+2026-11-12T05:54:16.1703226Z --   SDL_X11_XFIXES              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1704238Z --   SDL_X11_XINPUT              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1704957Z --   SDL_X11_XRANDR              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1706465Z --   SDL_X11_XSCRNSAVER          (Wanted: OFF): OFF
+2026-11-12T05:54:16.1708810Z --   SDL_X11_XSHAPE              (Wanted: OFF): OFF
+2026-11-12T05:54:16.1709463Z --   SDL_X11_XSYNC               (Wanted: OFF): OFF
+2026-11-12T05:54:16.1709968Z --   SDL_XINPUT                  (Wanted: ON): ON
+2026-11-12T05:54:16.1710493Z -- 
+2026-11-12T05:54:16.1710891Z --  Build Shared Library: ON
+2026-11-12T05:54:16.1711564Z --  Build Static Library: OFF
+2026-11-12T05:54:16.1714285Z -- 
+2026-11-12T05:54:26.0076752Z -- No build type selected, default to Debug
+2026-11-12T05:54:27.2150109Z -- Found Python3: C:/hostedtoolcache/windows/Python/3.14.10/x64/python3.exe (found version "3.14.10") found components: Interpreter
+2026-11-12T05:54:27.2163278Z -- Shaders: compiled with glslang built from source (vulkan-sdk-1.4.309.0)
+2026-11-12T05:54:27.3202353Z [31;1mCMake Warning (dev) at CMakeLists.txt:178 (install):[0m
+2026-11-12T05:54:27.3237971Z [31;1m  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run[0m
+2026-11-12T05:54:27.3246906Z [31;1m  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy[0m
+2026-11-12T05:54:27.3253371Z [31;1m  command to set the policy and suppress this warning.[0m
+2026-11-12T05:54:27.3260688Z [31;1mThis warning is for project developers.  Use -Wno-dev to suppress it.[0m
+2026-11-12T05:54:27.3277568Z [31;1m[0m
+2026-11-12T05:54:27.3283765Z [31;1mCMake Warning (dev) at CMakeLists.txt:180 (install):[0m
+2026-11-12T05:54:27.3290326Z [31;1m  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run[0m
+2026-11-12T05:54:27.3295930Z [31;1m  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy[0m
+2026-11-12T05:54:27.3301069Z [31;1m  command to set the policy and suppress this warning.[0m
+2026-11-12T05:54:27.3306350Z [31;1mThis warning is for project developers.  Use -Wno-dev to suppress it.[0m
+2026-11-12T05:54:27.3311889Z [31;1m[0m
+2026-11-12T05:54:27.3317577Z [31;1mCMake Warning (dev) at CMakeLists.txt:180 (install):[0m
+2026-11-12T05:54:27.3322959Z [31;1m  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run[0m
+2026-11-12T05:54:27.3329049Z [31;1m  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy[0m
+2026-11-12T05:54:27.3334868Z [31;1m  command to set the policy and suppress this warning.[0m
+2026-11-12T05:54:27.3342230Z [31;1mThis warning is for project developers.  Use -Wno-dev to suppress it.[0m
+2026-11-12T05:54:27.3346905Z [31;1m[0m
+2026-11-12T05:54:27.3351585Z [31;1mCMake Warning (dev) at CMakeLists.txt:180 (install):[0m
+2026-11-12T05:54:27.3356505Z [31;1m  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run[0m
+2026-11-12T05:54:27.3360842Z [31;1m  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy[0m
+2026-11-12T05:54:27.3365234Z [31;1m  command to set the policy and suppress this warning.[0m
+2026-11-12T05:54:27.3369482Z [31;1mThis warning is for project developers.  Use -Wno-dev to suppress it.[0m
+2026-11-12T05:54:27.3373683Z [31;1m[0m
+2026-11-12T05:54:27.3378793Z [31;1mCMake Warning (dev) at CMakeLists.txt:180 (install):[0m
+2026-11-12T05:54:27.3383442Z [31;1m  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run[0m
+2026-11-12T05:54:27.3392385Z [31;1m  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy[0m
+2026-11-12T05:54:27.3400341Z [31;1m  command to set the policy and suppress this warning.[0m
+2026-11-12T05:54:27.3407392Z [31;1mThis warning is for project developers.  Use -Wno-dev to suppress it.[0m
+2026-11-12T05:54:27.3413434Z [31;1m[0m
+2026-11-12T05:54:27.3418330Z [31;1mCMake Warning (dev) at CMakeLists.txt:180 (install):[0m
+2026-11-12T05:54:27.3422950Z [31;1m  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run[0m
+2026-11-12T05:54:27.3437536Z [31;1m  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy[0m
+2026-11-12T05:54:27.3439909Z [31;1m  command to set the policy and suppress this warning.[0m
+2026-11-12T05:54:27.3450765Z [31;1mThis warning is for project developers.  Use -Wno-dev to suppress it.[0m
+2026-11-12T05:54:27.3454433Z [31;1m[0m
+2026-11-12T05:54:27.3455280Z -- Configuring done (47.4s)
+2026-11-12T05:54:27.6337265Z -- Generating done (0.4s)
+2026-11-12T05:54:27.6349102Z -- Build files have been written to: D:/a/Cat-arena/Cat-arena/native/build/windows-release
+2026-11-12T05:54:27.7061138Z ##[group]Run cmake --build --preset windows-release --parallel 2>&1 | Tee-Object -FilePath ../ci-logs/build.txt
+2026-11-12T05:54:27.7061993Z [36;1mcmake --build --preset windows-release --parallel 2>&1 | Tee-Object -FilePath ../ci-logs/build.txt[0m
+2026-11-12T05:54:27.7062565Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-12T05:54:27.7063226Z [36;1mGet-ChildItem build/windows-release/shaders/*.spv | Measure-Object | ForEach-Object { "SPIR-V files: $($_.Count)" }[0m
+2026-11-12T05:54:27.7063938Z [36;1mGet-Item build/windows-release/Release/CatArena.exe | Format-List Name, Length[0m
+2026-11-12T05:54:27.7096853Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T05:54:27.7097252Z env:
+2026-11-12T05:54:27.7097494Z   MILESTONE: N6
+2026-11-12T05:54:27.7097865Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2026-11-12T05:54:27.7098283Z ##[endgroup]
+2026-11-12T05:54:28.0689276Z MSBuild version 17.14.60+43b635718 for .NET Framework
+2026-11-12T05:54:28.0920512Z 
+2026-11-12T05:54:28.4367868Z   1>Checking Build System
+2026-11-12T05:54:28.7526732Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+2026-11-12T05:54:28.8146083Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+2026-11-12T05:54:28.9171733Z   cmake_pch.cxx
+2026-11-12T05:54:28.9789849Z   ResourceLimits.cpp
+2026-11-12T05:54:29.9194256Z   resource_limits_c.cpp
+2026-11-12T05:54:30.1580105Z   Generating Code...
+2026-11-12T05:54:31.2520611Z   glslang-default-resource-limits.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\glslang-default-resource-limits.lib
+2026-11-12T05:54:31.4599043Z   glslang_c_interface.cpp
+2026-11-12T05:54:31.5812885Z   CodeGen.cpp
+2026-11-12T05:54:31.5904548Z   Link.cpp
+2026-11-12T05:54:31.6001180Z   ossource.cpp
+2026-11-12T05:54:31.9650348Z   glslang_tab.cpp
+2026-11-12T05:54:32.1141699Z   attribute.cpp
+2026-11-12T05:54:32.1707545Z   Constant.cpp
+2026-11-12T05:54:32.2273390Z   iomapper.cpp
+2026-11-12T05:54:32.5664509Z   InfoSink.cpp
+2026-11-12T05:54:32.5777435Z   Initialize.cpp
+2026-11-12T05:54:32.7539095Z   IntermTraverse.cpp
+2026-11-12T05:54:32.7746147Z   Intermediate.cpp
+2026-11-12T05:54:32.9673485Z   ParseContextBase.cpp
+2026-11-12T05:54:33.0747794Z   ParseHelper.cpp
+2026-11-12T05:54:33.5999636Z   PoolAlloc.cpp
+2026-11-12T05:54:33.6277738Z   RemoveTree.cpp
+2026-11-12T05:54:33.6420914Z   Scan.cpp
+2026-11-12T05:54:33.9583074Z   ShaderLang.cpp
+2026-11-12T05:54:34.3508100Z   SpirvIntrinsics.cpp
+2026-11-12T05:54:34.4941027Z   SymbolTable.cpp
+2026-11-12T05:54:34.5776284Z   Generating Code...
+2026-11-12T05:54:53.3896167Z   Compiling...
+2026-11-12T05:54:53.3897310Z   Versions.cpp
+2026-11-12T05:54:53.5108322Z   intermOut.cpp
+2026-11-12T05:54:53.5603422Z   limits.cpp
+2026-11-12T05:54:53.5812598Z   linkValidate.cpp
+2026-11-12T05:54:53.9038126Z   parseConst.cpp
+2026-11-12T05:54:53.9214150Z   reflection.cpp
+2026-11-12T05:54:54.1243043Z   Pp.cpp
+2026-11-12T05:54:54.3948437Z   PpAtom.cpp
+2026-11-12T05:54:54.6066181Z   PpContext.cpp
+2026-11-12T05:54:54.8270872Z   PpScanner.cpp
+2026-11-12T05:54:55.0679461Z   PpTokens.cpp
+2026-11-12T05:54:55.2785593Z   propagateNoContraction.cpp
+2026-11-12T05:54:55.5326514Z   GlslangToSpv.cpp
+2026-11-12T05:54:56.5195281Z   InReadableOrder.cpp
+2026-11-12T05:54:56.7360993Z   Logger.cpp
+2026-11-12T05:54:56.7808517Z   SpvBuilder.cpp
+2026-11-12T05:54:57.4322430Z   SpvPostProcess.cpp
+2026-11-12T05:54:57.9601294Z   doc.cpp
+2026-11-12T05:54:58.0960961Z   SpvTools.cpp
+2026-11-12T05:54:58.1029636Z   disassemble.cpp
+2026-11-12T05:54:58.2650578Z   Generating Code...
+2026-11-12T05:55:17.8318718Z   Compiling...
+2026-11-12T05:55:17.8319755Z   spirv_c_interface.cpp
+2026-11-12T05:55:17.8605792Z   Generating Code...
+2026-11-12T05:55:18.0781035Z   glslang.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\glslang.lib
+2026-11-12T05:55:18.1372788Z   Generating D:/a/Cat-arena/Cat-arena/native/build/windows-release/include/glslang/glsl_intrinsic_header.h
+2026-11-12T05:55:18.1970114Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/StandAlone/CMakeLists.txt
+2026-11-12T05:55:18.2619726Z   StandAlone.cpp
+2026-11-12T05:55:23.6308127Z   glslang-standalone.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\StandAlone\Release\glslang.exe
+2026-11-12T05:55:23.7444442Z   Generating shaders/dynamic.frag.spv
+2026-11-12T05:55:23.8664071Z   D:/a/Cat-arena/Cat-arena/native/shaders/dynamic.frag
+2026-11-12T05:55:23.8717775Z   Generating shaders/dynamic.vert.spv
+2026-11-12T05:55:23.9872528Z   D:/a/Cat-arena/Cat-arena/native/shaders/dynamic.vert
+2026-11-12T05:55:23.9926431Z   Generating shaders/enemy.frag.spv
+2026-11-12T05:55:24.1173508Z   D:/a/Cat-arena/Cat-arena/native/shaders/enemy.frag
+2026-11-12T05:55:24.1226845Z   Generating shaders/enemy.vert.spv
+2026-11-12T05:55:24.2473518Z   D:/a/Cat-arena/Cat-arena/native/shaders/enemy.vert
+2026-11-12T05:55:24.2530142Z   Generating shaders/fx.frag.spv
+2026-11-12T05:55:24.3728275Z   D:/a/Cat-arena/Cat-arena/native/shaders/fx.frag
+2026-11-12T05:55:24.3783998Z   Generating shaders/fx.vert.spv
+2026-11-12T05:55:24.4925877Z   D:/a/Cat-arena/Cat-arena/native/shaders/fx.vert
+2026-11-12T05:55:24.4975315Z   Generating shaders/gun.frag.spv
+2026-11-12T05:55:24.6131236Z   D:/a/Cat-arena/Cat-arena/native/shaders/gun.frag
+2026-11-12T05:55:24.6183045Z   Generating shaders/gun.vert.spv
+2026-11-12T05:55:24.7350685Z   D:/a/Cat-arena/Cat-arena/native/shaders/gun.vert
+2026-11-12T05:55:24.7400087Z   Generating shaders/hud.frag.spv
+2026-11-12T05:55:24.8600739Z   D:/a/Cat-arena/Cat-arena/native/shaders/hud.frag
+2026-11-12T05:55:24.8653722Z   Generating shaders/hud.vert.spv
+2026-11-12T05:55:24.9847365Z   D:/a/Cat-arena/Cat-arena/native/shaders/hud.vert
+2026-11-12T05:55:24.9963459Z   Generating shaders/material.frag.spv
+2026-11-12T05:55:25.1206465Z   D:/a/Cat-arena/Cat-arena/native/shaders/material.frag
+2026-11-12T05:55:25.1259428Z   Generating shaders/material.vert.spv
+2026-11-12T05:55:25.2512619Z   D:/a/Cat-arena/Cat-arena/native/shaders/material.vert
+2026-11-12T05:55:25.2564200Z   Generating shaders/sky.frag.spv
+2026-11-12T05:55:25.3779437Z   D:/a/Cat-arena/Cat-arena/native/shaders/sky.frag
+2026-11-12T05:55:25.3839178Z   Generating shaders/sky.vert.spv
+2026-11-12T05:55:25.4988237Z   D:/a/Cat-arena/Cat-arena/native/shaders/sky.vert
+2026-11-12T05:55:25.5041218Z   Generating shaders/skybox.frag.spv
+2026-11-12T05:55:25.6227409Z   D:/a/Cat-arena/Cat-arena/native/shaders/skybox.frag
+2026-11-12T05:55:25.6280432Z   Generating shaders/skybox.vert.spv
+2026-11-12T05:55:25.7472251Z   D:/a/Cat-arena/Cat-arena/native/shaders/skybox.vert
+2026-11-12T05:55:25.7532059Z   Generating shaders/solid.vert.spv
+2026-11-12T05:55:25.8750908Z   D:/a/Cat-arena/Cat-arena/native/shaders/solid.vert
+2026-11-12T05:55:25.8805763Z   Generating shaders/triangle.frag.spv
+2026-11-12T05:55:26.0007023Z   D:/a/Cat-arena/Cat-arena/native/shaders/triangle.frag
+2026-11-12T05:55:26.0065618Z   Generating shaders/triangle.vert.spv
+2026-11-12T05:55:26.1288328Z   D:/a/Cat-arena/Cat-arena/native/shaders/triangle.vert
+2026-11-12T05:55:26.1341002Z   Generating shaders/world.frag.spv
+2026-11-12T05:55:26.2554936Z   D:/a/Cat-arena/Cat-arena/native/shaders/world.frag
+2026-11-12T05:55:26.2605143Z   Generating shaders/world.vert.spv
+2026-11-12T05:55:26.3835909Z   D:/a/Cat-arena/Cat-arena/native/shaders/world.vert
+2026-11-12T05:55:26.3893870Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:26.5086735Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+2026-11-12T05:55:26.5768883Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+2026-11-12T05:55:26.6004054Z   stub.cpp
+2026-11-12T05:55:26.6756945Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-src/CMakeLists.txt
+2026-11-12T05:55:26.7203247Z   stub.cpp
+2026-11-12T05:55:26.7591839Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-src/CMakeLists.txt
+2026-11-12T05:55:26.8596781Z   SDL_test_assert.c
+2026-11-12T05:55:26.9249814Z   GenericCodeGen.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\GenericCodeGen.lib
+2026-11-12T05:55:26.9722529Z   SDL_test_common.c
+2026-11-12T05:55:26.9780388Z   e_atan2.c
+2026-11-12T05:55:27.0505495Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/OSDependent/Windows/CMakeLists.txt
+2026-11-12T05:55:27.0731667Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/SPIRV/CMakeLists.txt
+2026-11-12T05:55:27.1012047Z   MachineIndependent.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\MachineIndependent.lib
+2026-11-12T05:55:27.1706299Z   stub.cpp
+2026-11-12T05:55:27.2053540Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:27.2302918Z   e_exp.c
+2026-11-12T05:55:27.2488908Z   SDL_test_compare.c
+2026-11-12T05:55:27.2926568Z   stub.cpp
+2026-11-12T05:55:27.3114669Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:27.3423343Z   e_fmod.c
+2026-11-12T05:55:27.3705548Z   SDL_test_crc32.c
+2026-11-12T05:55:27.3886597Z   SPIRV.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\SPIRV\Release\SPIRV.lib
+2026-11-12T05:55:27.4720964Z   SDL_test_font.c
+2026-11-12T05:55:27.5141473Z   e_log.c
+2026-11-12T05:55:27.5505691Z   core.cpp
+2026-11-12T05:55:27.5804491Z   OSDependent.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\OSDependent\Windows\Release\OSDependent.lib
+2026-11-12T05:55:27.6070738Z   SDL_test_fuzzer.c
+2026-11-12T05:55:27.7046852Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:27.7569325Z   assets.cpp
+2026-11-12T05:55:27.8343764Z   e_log10.c
+2026-11-12T05:55:27.8536595Z   SDL_test_harness.c
+2026-11-12T05:55:27.8975311Z   e_pow.c
+2026-11-12T05:55:27.9868650Z   SDL_test_log.c
+2026-11-12T05:55:28.1235510Z   e_rem_pio2.c
+2026-11-12T05:55:28.1425518Z   SDL_test_md5.c
+2026-11-12T05:55:28.1564107Z   e_sqrt.c
+2026-11-12T05:55:28.1768140Z   SDL_test_memory.c
+2026-11-12T05:55:28.1800125Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:28.3463088Z   k_cos.c
+2026-11-12T05:55:28.4223516Z   k_rem_pio2.c
+2026-11-12T05:55:28.5558353Z   image_codec.cpp
+2026-11-12T05:55:28.5978533Z   k_sin.c
+2026-11-12T05:55:28.6615533Z   Generating Code...
+2026-11-12T05:55:28.7484420Z   k_tan.c
+2026-11-12T05:55:29.1165217Z   vulkan_caps.cpp
+2026-11-12T05:55:29.3355391Z   s_atan.c
+2026-11-12T05:55:29.7104790Z   s_copysign.c
+2026-11-12T05:55:29.9129840Z   s_cos.c
+2026-11-12T05:55:30.0551406Z   s_fabs.c
+2026-11-12T05:55:30.3231244Z   s_floor.c
+2026-11-12T05:55:30.5589866Z   s_isinf.c
+2026-11-12T05:55:30.9136638Z   s_isinff.c
+2026-11-12T05:55:31.4994605Z   s_isnan.c
+2026-11-12T05:55:32.0528516Z   Generating Code...
+2026-11-12T05:55:33.6672476Z   Compiling...
+2026-11-12T05:55:34.1916658Z   s_isnanf.c
+2026-11-12T05:55:34.4659901Z   SDL3_test.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\Release\SDL3_test.lib
+2026-11-12T05:55:34.7845511Z   s_modf.c
+2026-11-12T05:55:34.8483045Z   s_scalbn.c
+2026-11-12T05:55:34.8600690Z   s_sin.c
+2026-11-12T05:55:34.9709050Z   cat_arena_vkcaps.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_vkcaps.lib
+2026-11-12T05:55:34.9868015Z   s_tan.c
+2026-11-12T05:55:35.0403641Z   cat_arena_core.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_core.lib
+2026-11-12T05:55:35.0784724Z   cat_image_codec.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_image_codec.lib
+2026-11-12T05:55:35.1476998Z   cat_arena_assets.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_assets.lib
+2026-11-12T05:55:35.1757935Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.1773031Z   Generating Code...
+2026-11-12T05:55:35.2498440Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.2696683Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.2710165Z   core_tests.cpp
+2026-11-12T05:55:35.3437248Z   headless.cpp
+2026-11-12T05:55:35.3997655Z   vkcaps_tests.cpp
+2026-11-12T05:55:35.5086417Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.5481476Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.5620940Z   SDL_uclibc.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\Release\SDL_uclibc.lib
+2026-11-12T05:55:35.6884525Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.7302485Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:35.8232081Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-src/CMakeLists.txt
+2026-11-12T05:55:36.1243469Z   scene.cpp
+2026-11-12T05:55:36.5323793Z   asset_tests.cpp
+2026-11-12T05:55:39.4600029Z   physics_world.cpp
+2026-11-12T05:55:39.6284426Z   cmake_pch.c
+2026-11-12T05:55:42.7408245Z   player.cpp
+2026-11-12T05:55:43.6346485Z   asset_check.cpp
+2026-11-12T05:55:43.9943213Z   cat_arena_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_tests.exe
+2026-11-12T05:55:44.0376809Z   cat_arena_vkcaps_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_vkcaps_tests.exe
+2026-11-12T05:55:44.2836897Z   cat_arena_asset_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_asset_tests.exe
+2026-11-12T05:55:44.5204622Z   SDL.c
+2026-11-12T05:55:44.6811713Z   SDL_assert.c
+2026-11-12T05:55:44.7122523Z   SDL_error.c
+2026-11-12T05:55:44.7339877Z   SDL_guid.c
+2026-11-12T05:55:44.8328981Z   SDL_hashtable.c
+2026-11-12T05:55:44.8467050Z   SDL_hints.c
+2026-11-12T05:55:44.8776060Z   SDL_list.c
+2026-11-12T05:55:44.9217508Z   SDL_log.c
+2026-11-12T05:55:45.0550994Z   navigation.cpp
+2026-11-12T05:55:45.0652972Z   SDL_properties.c
+2026-11-12T05:55:45.0911985Z   SDL_utils.c
+2026-11-12T05:55:45.1018847Z   cat_arena_headless.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_headless.exe
+2026-11-12T05:55:45.1063205Z   SDL_atomic.c
+2026-11-12T05:55:45.1153330Z   SDL_spinlock.c
+2026-11-12T05:55:45.1925713Z   cat_arena_scene.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_scene.lib
+2026-11-12T05:55:45.2738082Z   SDL_audio.c
+2026-11-12T05:55:45.3074766Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:45.3109073Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:45.4706348Z   SDL_audiocvt.c
+2026-11-12T05:55:45.4834585Z   scene_tests.cpp
+2026-11-12T05:55:45.5058509Z   SDL_audiodev.c
+2026-11-12T05:55:45.5358558Z   SDL_audioqueue.c
+2026-11-12T05:55:45.5569427Z   SDL_audioresample.c
+2026-11-12T05:55:45.5752422Z   SDL_audiotypecvt.c
+2026-11-12T05:55:45.5912948Z   SDL_mixer.c
+2026-11-12T05:55:45.6243799Z   SDL_wave.c
+2026-11-12T05:55:45.7775926Z   Generating Code...
+2026-11-12T05:55:45.8717761Z   image_compare.cpp
+2026-11-12T05:55:48.0953456Z   Compiling...
+2026-11-12T05:55:48.1555548Z   SDL_camera.c
+2026-11-12T05:55:48.2958225Z   SDL_core_unsupported.c
+2026-11-12T05:55:48.3081565Z   SDL_cpuinfo.c
+2026-11-12T05:55:48.3376906Z   SDL_categories.c
+2026-11-12T05:55:48.4166888Z   SDL_clipboardevents.c
+2026-11-12T05:55:48.4403327Z   SDL_displayevents.c
+2026-11-12T05:55:48.4728765Z   SDL_dropevents.c
+2026-11-12T05:55:48.5775551Z   SDL_events.c
+2026-11-12T05:55:48.6244350Z   combat.cpp
+2026-11-12T05:55:48.6844276Z   SDL_eventwatch.c
+2026-11-12T05:55:48.7228855Z   SDL_keyboard.c
+2026-11-12T05:55:48.7572788Z   SDL_keymap.c
+2026-11-12T05:55:48.7864067Z   SDL_keysym_to_keycode.c
+2026-11-12T05:55:48.8009257Z   cat_arena_asset_check.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_asset_check.exe
+2026-11-12T05:55:48.8615072Z   SDL_keysym_to_scancode.c
+2026-11-12T05:55:48.8626125Z   SDL_mouse.c
+2026-11-12T05:55:49.2824969Z   SDL_pen.c
+2026-11-12T05:55:49.3352611Z   SDL_quit.c
+2026-11-12T05:55:49.4903090Z   SDL_scancode_tables.c
+2026-11-12T05:55:49.6150920Z   SDL_touch.c
+2026-11-12T05:55:49.8182034Z   SDL_windowevents.c
+2026-11-12T05:55:50.0696573Z   imKStoUCS.c
+2026-11-12T05:55:50.4755275Z   Generating Code...
+2026-11-12T05:55:51.1792768Z   Compiling...
+2026-11-12T05:55:51.3209922Z   SDL_filesystem.c
+2026-11-12T05:55:51.3401766Z   SDL_gpu.c
+2026-11-12T05:55:51.3823227Z   SDL_haptic.c
+2026-11-12T05:55:51.4425247Z   SDL_hidapi.c
+2026-11-12T05:55:51.5480904Z   SDL_asyncio.c
+2026-11-12T05:55:51.5613892Z   SDL_iostream.c
+2026-11-12T05:55:51.6724917Z   SDL_asyncio_generic.c
+2026-11-12T05:55:51.6880237Z   SDL_gamepad.c
+2026-11-12T05:55:51.7196551Z   SDL_joystick.c
+2026-11-12T05:55:51.8844945Z   cat_arena_image_compare.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_image_compare.exe
+2026-11-12T05:55:51.8894886Z   SDL_steam_virtual_gamepad.c
+2026-11-12T05:55:51.8902409Z   cat_arena_scene_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_scene_tests.exe
+2026-11-12T05:55:51.9851688Z   controller_type.c
+2026-11-12T05:55:52.0023093Z   SDL_locale.c
+2026-11-12T05:55:52.0118873Z   SDL_main_callbacks.c
+2026-11-12T05:55:52.0129724Z   enemies.cpp
+2026-11-12T05:55:52.0199335Z   SDL_runapp.c
+2026-11-12T05:55:52.0264165Z   SDL_url.c
+2026-11-12T05:55:52.0331814Z   SDL_power.c
+2026-11-12T05:55:52.0408008Z   SDL_d3dmath.c
+2026-11-12T05:55:52.0483979Z   SDL_render.c
+2026-11-12T05:55:52.0858915Z   SDL_render_unsupported.c
+2026-11-12T05:55:52.0922505Z   SDL_yuv_sw.c
+2026-11-12T05:55:52.1065986Z   Generating Code...
+2026-11-12T05:55:53.9030557Z   Compiling...
+2026-11-12T05:55:53.9031069Z   SDL_render_d3d.c
+2026-11-12T05:55:54.1863777Z   SDL_shaders_d3d.c
+2026-11-12T05:55:54.3297303Z   SDL_render_d3d11.c
+2026-11-12T05:55:54.5623365Z   Generating Code...
+2026-11-12T05:55:54.9812680Z   SDL_shaders_d3d11.c
+2026-11-12T05:55:55.1299148Z   SDL_render_d3d12.c
+2026-11-12T05:55:55.6545581Z   SDL_shaders_d3d12.c
+2026-11-12T05:55:56.1704555Z   SDL_pipeline_gpu.c
+2026-11-12T05:55:56.3629889Z   SDL_render_gpu.c
+2026-11-12T05:55:56.3804707Z   SDL_shaders_gpu.c
+2026-11-12T05:55:56.4120950Z   SDL_render_gl.c
+2026-11-12T05:55:56.5670654Z   SDL_shaders_gl.c
+2026-11-12T05:55:56.7097433Z   SDL_render_gles2.c
+2026-11-12T05:55:56.9134715Z   SDL_shaders_gles2.c
+2026-11-12T05:55:57.0723792Z   SDL_render_ps2.c
+2026-11-12T05:55:57.1556791Z   SDL_render_psp.c
+2026-11-12T05:55:57.1756655Z   SDL_blendfillrect.c
+2026-11-12T05:55:57.1942314Z   SDL_blendline.c
+2026-11-12T05:55:57.2227553Z   SDL_blendpoint.c
+2026-11-12T05:55:57.2375119Z   SDL_drawline.c
+2026-11-12T05:55:57.2532412Z   SDL_drawpoint.c
+2026-11-12T05:55:57.2625118Z   Generating Code...
+2026-11-12T05:55:58.1829998Z   cat_arena_physics.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_physics.lib
+2026-11-12T05:55:58.2765007Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:58.3015461Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:58.3066758Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:58.3092976Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:55:58.3963049Z   nav_tests.cpp
+2026-11-12T05:55:58.4059070Z   weapon_fx.cpp
+2026-11-12T05:55:58.6391244Z   physics_tests.cpp
+2026-11-12T05:55:59.6316016Z   combat_tests.cpp
+2026-11-12T05:56:00.9686642Z   Compiling...
+2026-11-12T05:56:01.1480182Z   SDL_render_sw.c
+2026-11-12T05:56:01.3230037Z   SDL_rotate.c
+2026-11-12T05:56:01.3684443Z   SDL_triangle.c
+2026-11-12T05:56:01.4543315Z   SDL_render_vita_gxm.c
+2026-11-12T05:56:01.7727698Z   SDL_render_vita_gxm_memory.c
+2026-11-12T05:56:01.8509504Z   SDL_render_vita_gxm_tools.c
+2026-11-12T05:56:01.9411693Z   SDL_render_vulkan.c
+2026-11-12T05:56:02.3829714Z   SDL_shaders_vulkan.c
+2026-11-12T05:56:02.6783020Z D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-src\src\render\vulkan\SDL_render_vulkan.c(3766,10): warning C5286: implicit conversion from enum type 'VkFilter' to enum type 'SDL_ScaleMode'; use an explicit cast to silence this warning [D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\SDL3-shared.vcxproj]
+2026-11-12T05:56:02.7869916Z   (compiling source file '_deps/sdl3-src/src/render/vulkan/SDL_render_vulkan.c')
+2026-11-12T05:56:03.0089530Z   
+2026-11-12T05:56:03.4784834Z D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-src\src\render\vulkan\SDL_render_vulkan.c(3778,10): warning C5286: implicit conversion from enum type 'VkFilter' to enum type 'SDL_ScaleMode'; use an explicit cast to silence this warning [D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\SDL3-shared.vcxproj]
+2026-11-12T05:56:03.8846003Z   hud.cpp
+2026-11-12T05:56:04.1546837Z   (compiling source file '_deps/sdl3-src/src/render/vulkan/SDL_render_vulkan.c')
+2026-11-12T05:56:04.4117726Z   
+2026-11-12T05:56:04.7723959Z   SDL_sensor.c
+2026-11-12T05:56:05.1170107Z   SDL_crc16.c
+2026-11-12T05:56:05.4132790Z   SDL_crc32.c
+2026-11-12T05:56:05.7816547Z   SDL_getenv.c
+2026-11-12T05:56:06.0744512Z   SDL_iconv.c
+2026-11-12T05:56:06.3727850Z   SDL_malloc.c
+2026-11-12T05:56:06.7372944Z   SDL_memcpy.c
+2026-11-12T05:56:06.9690364Z   SDL_memmove.c
+2026-11-12T05:56:07.1064597Z   SDL_memset.c
+2026-11-12T05:56:07.2158311Z   SDL_murmur3.c
+2026-11-12T05:56:07.3605123Z   SDL_qsort.c
+2026-11-12T05:56:07.4197088Z   SDL_random.c
+2026-11-12T05:56:07.4874533Z   Generating Code...
+2026-11-12T05:56:07.5098673Z   enemy_fx.cpp
+2026-11-12T05:56:07.5476353Z   Compiling...
+2026-11-12T05:56:07.5788502Z   SDL_stdlib.c
+2026-11-12T05:56:07.6213069Z   SDL_string.c
+2026-11-12T05:56:07.6368154Z   SDL_strtokr.c
+2026-11-12T05:56:07.6412897Z   SDL_storage.c
+2026-11-12T05:56:07.6493377Z   SDL_thread.c
+2026-11-12T05:56:07.7035123Z   cat_arena_nav_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_nav_tests.exe
+2026-11-12T05:56:07.7940494Z   cat_arena_physics_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_physics_tests.exe
+2026-11-12T05:56:07.7966912Z   SDL_time.c
+2026-11-12T05:56:07.8074772Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:07.8093489Z   SDL_timer.c
+2026-11-12T05:56:07.9677166Z   enemy_tests.cpp
+2026-11-12T05:56:07.9985203Z   SDL_RLEaccel.c
+2026-11-12T05:56:08.0184107Z   SDL_blit.c
+2026-11-12T05:56:08.0195353Z   SDL_blit_0.c
+2026-11-12T05:56:08.0611749Z   SDL_blit_1.c
+2026-11-12T05:56:08.0755459Z   SDL_blit_A.c
+2026-11-12T05:56:08.1213857Z   SDL_blit_N.c
+2026-11-12T05:56:08.1993736Z   SDL_blit_auto.c
+2026-11-12T05:56:08.2134616Z   SDL_blit_copy.c
+2026-11-12T05:56:08.2350018Z   SDL_blit_slow.c
+2026-11-12T05:56:08.2529031Z   SDL_bmp.c
+2026-11-12T05:56:08.2754873Z   SDL_clipboard.c
+2026-11-12T05:56:08.3274384Z   SDL_egl.c
+2026-11-12T05:56:08.5065257Z   SDL_fillrect.c
+2026-11-12T05:56:08.6926372Z   Generating Code...
+2026-11-12T05:56:11.3732791Z   Generating Code...
+2026-11-12T05:56:12.1606872Z   cat_arena_combat_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_combat_tests.exe
+2026-11-12T05:56:14.0634073Z   Compiling...
+2026-11-12T05:56:14.5605364Z   SDL_pixels.c
+2026-11-12T05:56:14.7990284Z   SDL_rect.c
+2026-11-12T05:56:14.8401642Z   SDL_stb.c
+2026-11-12T05:56:14.8746188Z   SDL_stretch.c
+2026-11-12T05:56:14.9634663Z   SDL_surface.c
+2026-11-12T05:56:14.9636511Z   SDL_video.c
+2026-11-12T05:56:15.0681626Z   SDL_video_unsupported.c
+2026-11-12T05:56:15.0752494Z   SDL_vulkan_utils.c
+2026-11-12T05:56:15.2042821Z   SDL_yuv.c
+2026-11-12T05:56:15.2247017Z   yuv_rgb_lsx.c
+2026-11-12T05:56:15.2343802Z   yuv_rgb_sse.c
+2026-11-12T05:56:15.2579793Z   cat_arena_fx.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_fx.lib
+2026-11-12T05:56:15.2806278Z   yuv_rgb_std.c
+2026-11-12T05:56:15.3132741Z   SDL_dummyaudio.c
+2026-11-12T05:56:15.3250058Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:15.3251525Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:15.3255015Z   SDL_diskaudio.c
+2026-11-12T05:56:15.3413118Z   SDL_camera_dummy.c
+2026-11-12T05:56:15.3529898Z   SDL_virtualjoystick.c
+2026-11-12T05:56:15.3729789Z   SDL_nullevents.c
+2026-11-12T05:56:15.3908268Z   SDL_nullframebuffer.c
+2026-11-12T05:56:15.4036900Z   SDL_nullvideo.c
+2026-11-12T05:56:15.4066617Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:15.4223799Z   SDL_gameinput.c
+2026-11-12T05:56:15.4898040Z   enemy_fx_tests.cpp
+2026-11-12T05:56:15.5017630Z   fx_tests.cpp
+2026-11-12T05:56:15.6630617Z   Generating Code...
+2026-11-12T05:56:15.7578867Z   cat_arena_enemy_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_enemy_tests.exe
+2026-11-12T05:56:16.8333922Z   hud_tests.cpp
+2026-11-12T05:56:18.7897273Z   Compiling...
+2026-11-12T05:56:18.9925378Z   SDL_hid.c
+2026-11-12T05:56:19.1048174Z   SDL_immdevice.c
+2026-11-12T05:56:19.7926181Z   SDL_windows.c
+2026-11-12T05:56:20.1088964Z   SDL_xinput.c
+2026-11-12T05:56:20.4444194Z   pch.c
+2026-11-12T05:56:20.8426141Z   SDL_sysmain_runapp.c
+2026-11-12T05:56:21.2115280Z   SDL_asyncio_windows_ioring.c
+2026-11-12T05:56:21.7792899Z   SDL_sysurl.c
+2026-11-12T05:56:22.1570643Z   SDL_directsound.c
+2026-11-12T05:56:22.6698235Z   SDL_wasapi.c
+2026-11-12T05:56:22.9189183Z   SDL_surface_utils.c
+2026-11-12T05:56:23.0156022Z   SDL_windowsclipboard.c
+2026-11-12T05:56:23.1708869Z   cat_arena_hud_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_hud_tests.exe
+2026-11-12T05:56:23.1978279Z   cat_arena_fx_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_fx_tests.exe
+2026-11-12T05:56:23.2873135Z   SDL_windowsevents.c
+2026-11-12T05:56:23.6214660Z   SDL_windowsframebuffer.c
+2026-11-12T05:56:23.7683997Z   cat_arena_enemy_fx_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_enemy_fx_tests.exe
+2026-11-12T05:56:23.7939926Z   SDL_windowsgameinput.c
+2026-11-12T05:56:23.9563508Z   SDL_windowskeyboard.c
+2026-11-12T05:56:24.1219310Z   SDL_windowsmessagebox.c
+2026-11-12T05:56:24.2854332Z   SDL_windowsmodes.c
+2026-11-12T05:56:24.4586668Z   SDL_windowsmouse.c
+2026-11-12T05:56:24.6208432Z   SDL_windowsopengl.c
+2026-11-12T05:56:24.8013789Z   Generating Code...
+2026-11-12T05:56:25.5102891Z   Compiling...
+2026-11-12T05:56:25.5103416Z   SDL_windowsopengles.c
+2026-11-12T05:56:25.6704252Z   SDL_windowsrawinput.c
+2026-11-12T05:56:25.8370248Z   SDL_windowsshape.c
+2026-11-12T05:56:25.9961381Z   SDL_windowsvideo.c
+2026-11-12T05:56:26.1914003Z   SDL_windowsvulkan.c
+2026-11-12T05:56:26.3758831Z   SDL_windowswindow.c
+2026-11-12T05:56:26.5531072Z   SDL_syscond.c
+2026-11-12T05:56:26.5607234Z   SDL_sysrwlock.c
+2026-11-12T05:56:26.5679980Z   SDL_syscond_cv.c
+2026-11-12T05:56:26.6573411Z   SDL_sysmutex.c
+2026-11-12T05:56:26.7451987Z   SDL_sysrwlock_srw.c
+2026-11-12T05:56:26.8352125Z   SDL_syssem.c
+2026-11-12T05:56:26.9245461Z   SDL_systhread.c
+2026-11-12T05:56:27.0123165Z   SDL_systls.c
+2026-11-12T05:56:27.1010241Z   SDL_windowssensor.c
+2026-11-12T05:56:27.2783935Z   SDL_syspower.c
+2026-11-12T05:56:27.3666757Z   SDL_syslocale.c
+2026-11-12T05:56:27.4562027Z   SDL_sysfilesystem.c
+2026-11-12T05:56:27.9123111Z   SDL_sysfsops.c
+2026-11-12T05:56:28.0020498Z   SDL_genericstorage.c
+2026-11-12T05:56:28.0111682Z   Generating Code...
+2026-11-12T05:56:28.3399487Z   Compiling...
+2026-11-12T05:56:28.3400742Z   SDL_steamstorage.c
+2026-11-12T05:56:28.3494445Z   SDL_systime.c
+2026-11-12T05:56:28.4404372Z   SDL_systimer.c
+2026-11-12T05:56:28.5289720Z   SDL_sysloadso.c
+2026-11-12T05:56:28.6171447Z   SDL_tray.c
+2026-11-12T05:56:28.7145398Z   SDL_hidapi_combined.c
+2026-11-12T05:56:28.7251536Z   SDL_hidapi_gamecube.c
+2026-11-12T05:56:28.7376401Z   SDL_hidapi_luna.c
+2026-11-12T05:56:28.7489808Z   SDL_hidapi_ps3.c
+2026-11-12T05:56:28.7621689Z   SDL_hidapi_ps4.c
+2026-11-12T05:56:28.7759614Z   SDL_hidapi_ps5.c
+2026-11-12T05:56:28.7901650Z   SDL_hidapi_rumble.c
+2026-11-12T05:56:28.8807825Z   SDL_hidapi_shield.c
+2026-11-12T05:56:28.8924632Z   SDL_hidapi_stadia.c
+2026-11-12T05:56:28.9035710Z   SDL_hidapi_steam.c
+2026-11-12T05:56:28.9186839Z   SDL_hidapi_steam_hori.c
+2026-11-12T05:56:28.9297987Z   SDL_hidapi_steamdeck.c
+2026-11-12T05:56:28.9426190Z   SDL_hidapi_switch.c
+2026-11-12T05:56:28.9607945Z   SDL_hidapi_wii.c
+2026-11-12T05:56:28.9747256Z   SDL_hidapi_xbox360.c
+2026-11-12T05:56:28.9862289Z   Generating Code...
+2026-11-12T05:56:29.8238071Z   Compiling...
+2026-11-12T05:56:29.8238738Z   SDL_hidapi_xbox360w.c
+2026-11-12T05:56:29.8359294Z   SDL_hidapi_xboxone.c
+2026-11-12T05:56:29.8506321Z   SDL_hidapijoystick.c
+2026-11-12T05:56:29.9466156Z   SDL_dinputjoystick.c
+2026-11-12T05:56:30.1031183Z   SDL_rawinputjoystick.c
+2026-11-12T05:56:34.4537098Z   SDL_windows_gaming_input.c
+2026-11-12T05:56:35.1012687Z   SDL_windowsjoystick.c
+2026-11-12T05:56:35.2629202Z   SDL_xinputjoystick.c
+2026-11-12T05:56:35.4132909Z   SDL_gameinputjoystick.c
+2026-11-12T05:56:35.5945814Z   SDL_dinputhaptic.c
+2026-11-12T05:56:35.7504527Z   SDL_windowshaptic.c
+2026-11-12T05:56:35.9043100Z   SDL_camera_mediafoundation.c
+2026-11-12T05:56:36.0878391Z   SDL_dialog.c
+2026-11-12T05:56:36.0961206Z   SDL_dialog_utils.c
+2026-11-12T05:56:36.1038938Z   SDL_windowsdialog.c
+2026-11-12T05:56:36.3518601Z   SDL_process.c
+2026-11-12T05:56:36.3602147Z   SDL_windowsprocess.c
+2026-11-12T05:56:36.4517356Z   SDL_offscreenevents.c
+2026-11-12T05:56:36.4648892Z   SDL_offscreenframebuffer.c
+2026-11-12T05:56:36.4770714Z   SDL_offscreenopengles.c
+2026-11-12T05:56:36.5710321Z   Generating Code...
+2026-11-12T05:56:37.4469601Z   Compiling...
+2026-11-12T05:56:37.4470020Z   SDL_offscreenvideo.c
+2026-11-12T05:56:37.5382685Z   SDL_offscreenvulkan.c
+2026-11-12T05:56:37.6522144Z   SDL_offscreenwindow.c
+2026-11-12T05:56:37.7453809Z   SDL_tray_utils.c
+2026-11-12T05:56:37.7586944Z   SDL_gpu_d3d12.c
+2026-11-12T05:56:37.9830528Z   SDL_gpu_vulkan.c
+2026-11-12T05:56:38.0462277Z   SDL_sysmain_callbacks.c
+2026-11-12T05:56:38.0576310Z   Generating Code...
+2026-11-12T05:56:39.3303069Z   SDL_dynapi.c
+2026-11-12T05:56:40.8968294Z   SDL_mslibc.c
+2026-11-12T05:56:41.3680977Z      Creating library D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-build/Release/SDL3.lib and object D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-build/Release/SDL3.exp
+2026-11-12T05:56:41.5125180Z   SDL3-shared.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\Release\SDL3.dll
+2026-11-12T05:56:41.5846252Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:41.6535691Z   renderer.cpp
+2026-11-12T05:56:46.7978294Z   cat_arena_render.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_render.lib
+2026-11-12T05:56:46.8716030Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:46.8736482Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:46.8738821Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+2026-11-12T05:56:46.9563644Z   render_tests.cpp
+2026-11-12T05:56:46.9566991Z   path_tests.cpp
+2026-11-12T05:56:46.9572325Z   main.cpp
+2026-11-12T05:56:49.3669547Z D:\a\Cat-arena\Cat-arena\native\src\main.cpp(415,67): error C2039: 'SDL_main': is not a member of 'cat::fx::Frame' [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_arena.vcxproj]
+2026-11-12T05:56:49.4337165Z       D:\a\Cat-arena\Cat-arena\native\include\cat\weapon_fx.hpp(49,8):
+2026-11-12T05:56:49.5357404Z       see declaration of 'cat::fx::Frame'
+2026-11-12T05:56:49.7463543Z   
+2026-11-12T05:56:49.9500552Z D:\a\Cat-arena\Cat-arena\native\src\main.cpp(423,53): error C2039: 'SDL_main': is not a member of 'cat::Overlay' [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_arena.vcxproj]
+2026-11-12T05:56:50.0909844Z       D:\a\Cat-arena\Cat-arena\native\include\cat\renderer.hpp(49,8):
+2026-11-12T05:56:50.2816729Z       see declaration of 'cat::Overlay'
+2026-11-12T05:56:50.2829216Z   
+2026-11-12T05:56:50.2832536Z D:\a\Cat-arena\Cat-arena\native\src\main.cpp(423,72): error C2039: 'SDL_main': is not a member of 'cat::fx::Frame' [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_arena.vcxproj]
+2026-11-12T05:56:50.2835014Z       D:\a\Cat-arena\Cat-arena\native\include\cat\weapon_fx.hpp(49,8):
+2026-11-12T05:56:50.2836756Z       see declaration of 'cat::fx::Frame'
+2026-11-12T05:56:50.2837865Z   
+2026-11-12T05:56:50.5708989Z   cat_arena_render_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_render_tests.exe
+2026-11-12T05:56:51.2650389Z   cat_arena_path_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_path_tests.exe
+2026-11-12T05:56:51.3458086Z ##[error]Process completed with exit code 1.
+2026-11-12T05:56:51.3622087Z ##[group]Run $p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--headless-test" -Wait -PassThru -NoNewWindow
+2026-11-12T05:56:51.3623036Z [36;1m$p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--headless-test" -Wait -PassThru -NoNewWindow[0m
+2026-11-12T05:56:51.3623722Z [36;1m"headless self-test exit code: $($p.ExitCode)" | Tee-Object -FilePath ci-logs/smoke.txt[0m
+2026-11-12T05:56:51.3624574Z [36;1m$p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--vk-info","--log-file","ci-logs/vk-info.log" -Wait -PassThru -NoNewWindow[0m
+2026-11-12T05:56:51.3625536Z [36;1m"vk-info exit code: $($p.ExitCode) (0 = a Vulkan device was found; 1 = no Vulkan, see vk-info.log)" | Tee-Object -FilePath ci-logs/smoke.txt -Append[0m
+2026-11-12T05:56:51.3626392Z [36;1mif (Test-Path ci-logs/vk-info.log) { Get-Content ci-logs/vk-info.log | Tee-Object -FilePath ci-logs/smoke.txt -Append }[0m
+2026-11-12T05:56:51.3660344Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T05:56:51.3660756Z env:
+2026-11-12T05:56:51.3661072Z   MILESTONE: N6
+2026-11-12T05:56:51.3661438Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2026-11-12T05:56:51.3661892Z ##[endgroup]
+2026-11-12T05:56:51.9141523Z [31;1mStart-Process: [0mD:\a\_temp\a84b3a3d-1bb1-4a95-a91c-fc38c56cfa62.ps1:2[0m
+2026-11-12T05:56:51.9142355Z [31;1m[0m[36;1mLine |[0m
+2026-11-12T05:56:51.9142998Z [31;1m[0m[36;1m[36;1m   2 | [0m $p = [36;1mStart-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "-[0m …[0m
+2026-11-12T05:56:51.9143743Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+2026-11-12T05:56:51.9144577Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mThis command cannot be run due to the error: The system cannot find the file specified.[0m
+2026-11-12T05:56:51.9567987Z ##[error]Process completed with exit code 1.
+2026-11-12T05:56:51.9692383Z ##[group]Run $lines = @("## Cat Arena Windows x64 ($env:MILESTONE)")
+2026-11-12T05:56:51.9692973Z [36;1m$lines = @("## Cat Arena Windows x64 ($env:MILESTONE)")[0m
+2026-11-12T05:56:51.9693596Z [36;1mif (Test-Path ci-logs/validate.txt) { $lines += (Get-Content ci-logs/validate.txt | Select-String "Package check") }[0m
+2026-11-12T05:56:51.9694368Z [36;1mif (Test-Path ci-logs/archive.txt) { $lines += (Get-Content ci-logs/archive.txt | Select-String "Wrote") }[0m
+2026-11-12T05:56:51.9695117Z [36;1mif (Test-Path ci-logs/ctest.txt) { $lines += (Get-Content ci-logs/ctest.txt | Select-String "tests passed|tests failed") }[0m
+2026-11-12T05:56:51.9695960Z [36;1m$lines += "GPU / window tests were not run (no GPU on GitHub-hosted runners): rendering and gameplay on Windows are UNVERIFIED by this run."[0m
+2026-11-12T05:56:51.9696693Z [36;1m$lines -join "`n" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append[0m
+2026-11-12T05:56:51.9729581Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T05:56:51.9729994Z env:
+2026-11-12T05:56:51.9730237Z   MILESTONE: N6
+2026-11-12T05:56:51.9730644Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2026-11-12T05:56:51.9731011Z ##[endgroup]
+2026-11-12T05:56:52.3242897Z ##[group]Run actions/upload-artifact@v4
+2026-11-12T05:56:52.3243305Z with:
+2026-11-12T05:56:52.3243576Z   name: windows-build-logs-N6
+2026-11-12T05:56:52.3243882Z   path: ci-logs/
+2026-11-12T05:56:52.3244135Z   retention-days: 30
+2026-11-12T05:56:52.3244392Z   if-no-files-found: warn
+2026-11-12T05:56:52.3244684Z   compression-level: 6
+2026-11-12T05:56:52.3244942Z   overwrite: false
+2026-11-12T05:56:52.3245197Z   include-hidden-files: false
+2026-11-12T05:56:52.3245491Z env:
+2026-11-12T05:56:52.3245745Z   MILESTONE: N6
+2026-11-12T05:56:52.3246092Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2026-11-12T05:56:52.3247137Z ##[endgroup]
+2026-11-12T05:56:52.5004375Z (node:6868) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-12T05:56:52.5005223Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-12T05:56:52.5070235Z With the provided path, there will be 2 files uploaded
+2026-11-12T05:56:52.5074521Z Artifact name is valid!
+2026-11-12T05:56:52.5076833Z Root directory input is valid!
+2026-11-12T05:56:52.7706337Z Beginning upload of artifact content to blob storage
+2026-11-12T05:56:52.7914109Z (node:6868) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-12T05:56:52.9389958Z Uploaded bytes 5527
+2026-11-12T05:56:52.9831022Z Finished uploading artifact content to blob storage!
+2026-11-12T05:56:52.9831823Z SHA256 digest of uploaded artifact zip is b91cc3eea433c98705e5d3a2868d5b929e43b9f0c6df9eeb3583e36dbf5309a1
+2026-11-12T05:56:52.9834027Z Finalizing artifact upload
+2026-11-12T05:56:53.3610186Z Artifact windows-build-logs-N6.zip successfully finalized. Artifact ID 13918834406
+2026-11-12T05:56:53.3611141Z Artifact windows-build-logs-N6 has been successfully uploaded! Final size is 5527 bytes. Artifact ID is 13918834406
+2026-11-12T05:56:53.3620065Z Artifact download URL: https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43164340554/artifacts/13918834406
+2026-11-12T05:56:53.3964151Z Post job cleanup.
+2026-11-12T05:56:53.5641628Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T05:56:53.5911563Z git version 2.56.0.windows.4
+2026-11-12T05:56:53.5969106Z Temporarily overriding HOME='D:\a\_temp\89e45ce5-896d-4743-b58a-215c6652a1d3' before making global git config changes
+2026-11-12T05:56:53.5970234Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T05:56:53.5979419Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cat-arena\Cat-arena
+2026-11-12T05:56:53.6280852Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T05:56:53.6580828Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T05:56:54.1395304Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T05:56:54.1645800Z http.https://github.com/.extraheader
+2026-11-12T05:56:54.1684066Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-12T05:56:54.1977810Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T05:56:54.6668515Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T05:56:54.6960181Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T05:56:55.2063309Z Cleaning up orphan processes
+2026-11-12T05:56:55.2487700Z Terminate orphan process: pid (5208) (vctip)
+2026-11-12T05:56:55.2541843Z Terminate orphan process: pid (3704) (MSBuild)
+2026-11-12T05:56:55.2686431Z Terminate orphan process: pid (952) (conhost)
+2026-11-12T05:56:55.2856726Z Terminate orphan process: pid (5196) (MSBuild)
+2026-11-12T05:56:55.2903680Z Terminate orphan process: pid (7264) (MSBuild)
+2026-11-12T05:56:55.3043444Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

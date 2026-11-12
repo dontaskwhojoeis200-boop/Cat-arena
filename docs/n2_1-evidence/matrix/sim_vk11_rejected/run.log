@@ -1,0 +1,5 @@
+level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+VK_LAYER_CAT_device_sim: simulating api=1.1 hide=0 extension(s) maskedFeatures=0
+level="warning" subsystem="vulkan" message="Skipping device llvmpipe (LLVM 20.1.2, 256 bits): API 1.1.318 is below the Vulkan 1.2 baseline"
+level="error" subsystem="app" message="No Vulkan 1.2+ device with a graphics queue; below the 1.2 baseline: llvmpipe (LLVM 20.1.2, 256 bits) (API 1.1.318)"

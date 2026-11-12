@@ -1,0 +1,10 @@
+map bastion-keep: 6359 nav nodes, 12 spawns; filling adjacency ...
+adjacency ready
+stand_still: 1500 ticks, max enemies 10, max enemy shots 3, min hp 2, kills 0, deaths 1, highest wave 1, types 9, routes 14/14 (shared 1, failed 0), random draws 349 gameplay / 732 cosmetic / 42 animation
+fight_spin: 1800 ticks, max enemies 10, max enemy shots 10, min hp 2, kills 0, deaths 1, highest wave 1, types 12, routes 97/103 (shared 1, failed 6), random draws 730 gameplay / 4243 cosmetic / 47 animation
+sprint_circuit: 1800 ticks, max enemies 10, max enemy shots 8, min hp 43, kills 0, deaths 0, highest wave 1, types 8, routes 72/77 (shared 2, failed 5), random draws 340 gameplay / 3783 cosmetic / 22 animation
+wave_progression: 2100 ticks, max enemies 14, max enemy shots 1, min hp 84, kills 30, deaths 0, highest wave 3, types 18, routes 29/32 (shared 1, failed 0), random draws 891 gameplay / 10218 cosmetic / 82 animation
+flyers_wave5: 1200 ticks, max enemies 20, max enemy shots 7, min hp 6.48354999999998, kills 0, deaths 1, highest wave 5, types 15, routes 71/72 (shared 2, failed 0), random draws 658 gameplay / 2028 cosmetic / 63 animation
+death_and_restart: 1200 ticks, max enemies 17, max enemy shots 3, min hp 16.77, kills 0, deaths 1, highest wave 3, types 17, routes 53/54 (shared 1, failed 0), random draws 625 gameplay / 171 cosmetic / 56 animation
+wrote CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/bastion-keep_enemies.bin: 6 scenarios, 9600 ticks, 5146520 bytes, sha256 88b93aedfe69ba79b5b64ffd6eb825fe950dba97006a86fe1aa70a08b06d7546
+wrote CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/bastion-keep_poses.bin: 6220948 bytes, sha256 94ddaab38cc094edc5a71c85cdd3b5791e2adf62433c8c319ec59959d417c28c

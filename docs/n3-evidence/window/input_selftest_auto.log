@@ -1,0 +1,3 @@
+level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=40.208693m jumps=1 slid=yes crouched=yes ticks=781"
+level="info" subsystem="app" message="Clean shutdown; ticks=781 frames=130 validationWarnings=0 validationErrors=0"

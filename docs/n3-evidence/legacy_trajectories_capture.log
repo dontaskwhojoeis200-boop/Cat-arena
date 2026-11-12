@@ -1,0 +1,18 @@
+random_0_z-4: 2400 ticks, end (54.65, 76.05, -4.00), z -4.00..-2.39, contacts {"horizontal":1643,"ceiling":0,"landings":12,"steps":0,"iterations":2525,"recoveries":0}
+random_1_z0: 2400 ticks, end (81.84, 31.56, 0.00), z 0.00..1.61, contacts {"horizontal":559,"ceiling":0,"landings":9,"steps":0,"iterations":2626,"recoveries":3}
+random_2_z7: 2400 ticks, end (73.01, 94.01, 0.00), z -4.00..10.73, contacts {"horizontal":680,"ceiling":0,"landings":12,"steps":33,"iterations":2735,"recoveries":1}
+random_3_z-4: 2400 ticks, end (40.95, 56.05, -3.33), z -4.00..-0.51, contacts {"horizontal":716,"ceiling":0,"landings":13,"steps":182,"iterations":2543,"recoveries":3}
+random_4_z0: 2400 ticks, end (45.07, 66.03, -3.43), z -4.00..1.59, contacts {"horizontal":1016,"ceiling":0,"landings":12,"steps":0,"iterations":2502,"recoveries":4}
+random_5_z7: 2400 ticks, end (94.05, 73.22, 7.89), z 2.46..8.59, contacts {"horizontal":1345,"ceiling":0,"landings":11,"steps":82,"iterations":2714,"recoveries":2}
+ramp_0_upper-stair-0: 900 ticks, end (92.00, 66.99, 7.00), z 0.00..7.00, contacts {"horizontal":2,"ceiling":0,"landings":1,"steps":621,"iterations":900,"recoveries":0}
+ramp_1_vault-ramp-0: 900 ticks, end (88.38, 58.50, 0.00), z -4.00..1.05, contacts {"horizontal":0,"ceiling":0,"landings":1,"steps":429,"iterations":900,"recoveries":0}
+ramp_2_upper-stair-2: 900 ticks, end (50.01, 92.00, 7.00), z 0.00..7.00, contacts {"horizontal":2,"ceiling":0,"landings":1,"steps":621,"iterations":900,"recoveries":0}
+pad_vault-launch-north: 700 ticks, end (60.95, 69.50, -4.00), z -4.00..10.73, contacts {"horizontal":186,"ceiling":0,"landings":1,"steps":0,"iterations":838,"recoveries":0}
+pad_vault-launch-south: 700 ticks, end (40.96, 52.10, -4.00), z -4.00..10.73, contacts {"horizontal":275,"ceiling":0,"landings":1,"steps":0,"iterations":838,"recoveries":0}
+ceiling_impulse_0: 360 ticks, end (41.75, 50.75, -4.00), z -4.00..-2.31, contacts {"horizontal":0,"ceiling":1,"landings":2,"steps":0,"iterations":360,"recoveries":0}
+ceiling_impulse_1: 360 ticks, end (50.77, 56.11, -4.00), z -4.00..10.02, contacts {"horizontal":3,"ceiling":0,"landings":2,"steps":0,"iterations":425,"recoveries":2}
+slide_crouch: 800 ticks, end (40.95, 51.23, -3.94), z -4.00..0.00, contacts {"horizontal":304,"ceiling":0,"landings":0,"steps":113,"iterations":850,"recoveries":0}
+air_strafe_bunnyhop: 900 ticks, end (40.19, 26.54, 0.47), z 0.00..1.61, contacts {"horizontal":317,"ceiling":0,"landings":7,"steps":0,"iterations":1265,"recoveries":0}
+crouch_walk: 500 ticks, end (54.95, 59.80, -4.00), z -4.00..-4.00, contacts {"horizontal":262,"ceiling":0,"landings":0,"steps":0,"iterations":500,"recoveries":0}
+idle: 400 ticks, end (86.50, 54.50, 7.00), z 7.00..7.00, contacts {"horizontal":0,"ceiling":0,"landings":0,"steps":0,"iterations":400,"recoveries":0}
+wrote CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n3/helios_trajectories.bin: 17 scenarios, 5762795 bytes

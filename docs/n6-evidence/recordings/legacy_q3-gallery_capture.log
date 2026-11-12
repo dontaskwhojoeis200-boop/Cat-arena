@@ -1,0 +1,10 @@
+map q3-gallery: 2535 nav nodes, 7 spawns; filling adjacency ...
+adjacency ready
+stand_still: 1500 ticks, max enemies 10, max enemy shots 6, min hp 5, kills 0, deaths 1, highest wave 1, types 14, routes 22/22 (shared 1, failed 0), random draws 522 gameplay / 2248 cosmetic / 42 animation
+fight_spin: 1800 ticks, max enemies 10, max enemy shots 6, min hp 37, kills 1, deaths 1, highest wave 1, types 11, routes 106/122 (shared 2, failed 16), random draws 927 gameplay / 5368 cosmetic / 53 animation
+sprint_circuit: 1800 ticks, max enemies 10, max enemy shots 7, min hp 15, kills 0, deaths 1, highest wave 1, types 12, routes 87/87 (shared 5, failed 0), random draws 850 gameplay / 1847 cosmetic / 42 animation
+wave_progression: 2100 ticks, max enemies 14, max enemy shots 2, min hp 37.8, kills 30, deaths 0, highest wave 3, types 19, routes 40/40 (shared 4, failed 0), random draws 878 gameplay / 10517 cosmetic / 83 animation
+flyers_wave5: 1200 ticks, max enemies 20, max enemy shots 7, min hp 17.34557499999998, kills 2, deaths 1, highest wave 5, types 14, routes 78/78 (shared 5, failed 0), random draws 1313 gameplay / 1806 cosmetic / 68 animation
+death_and_restart: 1200 ticks, max enemies 17, max enemy shots 8, min hp 30, kills 0, deaths 1, highest wave 3, types 14, routes 47/47 (shared 4, failed 0), random draws 821 gameplay / 155 cosmetic / 56 animation
+wrote CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/q3-gallery_enemies.bin: 6 scenarios, 9600 ticks, 5146520 bytes, sha256 a3258273501150caecd3d84a111c7602687b1976afbfec09807d8fc61c7256db
+wrote CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/q3-gallery_poses.bin: 6220948 bytes, sha256 57ac1f842b82e96288636fdb93364e36d34b265aefefadb577cc1740073e838c
