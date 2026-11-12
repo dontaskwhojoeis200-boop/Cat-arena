@@ -1,0 +1,257 @@
+{
+  "tool": "tools/n2/legacy_reference.cjs",
+  "source": "legacy/index.html",
+  "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "renderer": "ANGLE (Mesa, Vulkan 1.4.318 (llvmpipe (LLVM 20.1.2 256 bits) (0x00000000)), llvmpipe)",
+  "viewport": [
+    1280,
+    720
+  ],
+  "time": 10,
+  "runtimeStateChanges": [
+    "#start click handler invoked via element.click() (button is hidden behind the PLAY/map menus)",
+    "clicked the visible ENTER THE ARENA button (#loadReady)",
+    "fovPanelOpen=true (legacy simulation hold)",
+    "__SHOWCASE_HIDE_FP=true",
+    "setHudVisibility(false)",
+    "bots/pickups/particles/enemyShots emptied",
+    "Q3R.S.flares=false",
+    "q3Reset() (view bob state)",
+    "player pose and now set per capture",
+    "frame read with gl.readPixels right after a synchronous render() call"
+  ],
+  "info": {
+    "map": "bastion-keep",
+    "canvas": [
+      1280,
+      720
+    ],
+    "fov": 105,
+    "q3": {
+      "lightmap": {
+        "state": "ready",
+        "source": "shipped",
+        "hash": "2c71e476-1024x438",
+        "w": 1024,
+        "h": 438,
+        "charts": 2461,
+        "luxels": 0,
+        "covered": 0,
+        "triangles": 5462,
+        "occluders": 0,
+        "rays": 0,
+        "bakeMs": 0,
+        "chartMs": 134.6,
+        "progress": 1,
+        "luxelSize": 0.5,
+        "lights": 0,
+        "virtualLights": 0,
+        "error": "",
+        "vertexLuxels": 70940,
+        "loadStart": 3445.600000000006,
+        "loadMs": 728.5
+      },
+      "lightMode": "lightmap",
+      "materials": {
+        "programs": 15,
+        "compiles": 15,
+        "runtimeCompiles": 0,
+        "draws": 95,
+        "passes": 94,
+        "collapsed": 35,
+        "multipass": 33,
+        "surfaces": 467,
+        "staticTris": 126814,
+        "materials": 87,
+        "skyDraws": 2,
+        "textures": 45,
+        "kitTextures": 30,
+        "staticVertices": 216755,
+        "materialBatches": 33,
+        "batchedClusters": 321,
+        "surfaceDraws": 355,
+        "loaded": 87,
+        "parseErrors": 0
+      },
+      "sky": "sky/reactor_bastion",
+      "vis": {
+        "state": "ready",
+        "source": "shipped",
+        "hash": "7c4ddc7c-712",
+        "leaves": 432,
+        "occupiedLeaves": 140,
+        "targets": 712,
+        "pairs": 0,
+        "visiblePairs": 0,
+        "rays": 0,
+        "ms": 0,
+        "progress": 1,
+        "culledLast": 0,
+        "leafLast": 200,
+        "enabled": true,
+        "locked": false,
+        "cameraLeaf": 200
+      },
+      "portals": {
+        "views": 0,
+        "rendered": 0,
+        "skipped": 0,
+        "lastMs": 0,
+        "targets": 0,
+        "bytes": 0,
+        "list": []
+      },
+      "models": {
+        "models": 0,
+        "placed": 0,
+        "drawn": 0,
+        "surfaces": 0,
+        "parsed": 0,
+        "errors": 0,
+        "list": []
+      },
+      "curves": {
+        "patches": 0,
+        "triangles": 0,
+        "tolerance": 0.025
+      }
+    },
+    "lightQuality": 1,
+    "fogStrength": 1,
+    "preset": "normal",
+    "overbright": 1,
+    "textureMode": "trilinear",
+    "anisotropy": 4,
+    "msaa": 0
+  },
+  "frames": [
+    {
+      "name": "spawn0_zm4",
+      "file": "spawn0_zm4.png",
+      "requested": {
+        "name": "spawn0_zm4",
+        "x": 78.5,
+        "y": 58.5,
+        "z": -4,
+        "yaw": 3.141592653589793,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 78.5,
+        "y": 58.5,
+        "z": -4,
+        "a": 3.141592653589793,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "spawn1_zm4",
+      "file": "spawn1_zm4.png",
+      "requested": {
+        "name": "spawn1_zm4",
+        "x": 56.5,
+        "y": 48.5,
+        "z": -4,
+        "yaw": 1.373400766945016,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 56.5,
+        "y": 48.5,
+        "z": -4,
+        "a": 1.373400766945016,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "spawn2_z0",
+      "file": "spawn2_z0.png",
+      "requested": {
+        "name": "spawn2_z0",
+        "x": 88.5,
+        "y": 46.5,
+        "z": 0,
+        "yaw": 2.761086276477428,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 88.5,
+        "y": 46.5,
+        "z": 0,
+        "a": 2.761086276477428,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "spawn3_z0",
+      "file": "spawn3_z0.png",
+      "requested": {
+        "name": "spawn3_z0",
+        "x": 28.5,
+        "y": 70.5,
+        "z": 0,
+        "yaw": -0.3805063771123649,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 28.5,
+        "y": 70.5,
+        "z": 0,
+        "a": -0.3805063771123649,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "spawn4_z7",
+      "file": "spawn4_z7.png",
+      "requested": {
+        "name": "spawn4_z7",
+        "x": 85.5,
+        "y": 74.5,
+        "z": 7,
+        "yaw": -2.6066375798036967,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 85.5,
+        "y": 74.5,
+        "z": 7,
+        "a": -2.6066375798036967,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    }
+  ],
+  "consoleWarningsAndErrors": [
+    "warning: [.WebGL-0x2e4400192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+    "warning: [.WebGL-0x2e4400192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: [.WebGL-0x2e4400192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "warning: [.WebGL-0x2e4400192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+  ]
+}

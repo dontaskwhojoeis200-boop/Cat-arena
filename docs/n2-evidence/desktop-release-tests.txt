@@ -1,0 +1,25 @@
+Internal ctest changing into directory: /home/claude/n2/build-desktop-release
+Test project /home/claude/n2/build-desktop-release
+    Start 1: core_foundation
+1/8 Test #1: core_foundation ..................   Passed    0.00 sec
+    Start 2: headless_smoke
+2/8 Test #2: headless_smoke ...................   Passed    0.00 sec
+    Start 3: desktop_headless_smoke
+3/8 Test #3: desktop_headless_smoke ...........   Passed    0.00 sec
+    Start 4: render_helios_offscreen
+4/8 Test #4: render_helios_offscreen ..........   Passed    1.26 sec
+    Start 5: asset_format
+5/8 Test #5: asset_format .....................   Passed    0.00 sec
+    Start 6: baked_maps
+6/8 Test #6: baked_maps .......................   Passed    0.63 sec
+    Start 7: scene_units
+7/8 Test #7: scene_units ......................   Passed    0.01 sec
+    Start 8: helios_scene
+8/8 Test #8: helios_scene .....................   Passed    0.62 sec
+
+100% tests passed, 0 tests failed out of 8
+
+Label Time Summary:
+gpu    =   1.26 sec*proc (1 test)
+
+Total Test time (real) =   2.54 sec

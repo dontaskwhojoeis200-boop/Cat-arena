@@ -1,0 +1,7 @@
+Automatic Vulkan path (1.4 core features on lavapipe) vs --vk-baseline (Vulkan 1.2 path), N6 creature passes (staged scenes; validation layer on, a validation error makes cat_arena exit with 2)
+  windup: identical; exit codes automatic 0, baseline 0
+  strike_final5: identical; exit codes automatic 0, baseline 0
+  bodies: identical; exit codes automatic 0, baseline 0
+  marines: identical; exit codes automatic 0, baseline 0
+4/4 byte-identical
+PASS

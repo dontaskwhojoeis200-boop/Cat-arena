@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "dependencies": [
+  {
+   "name": "SDL3",
+   "version": "3.2.10",
+   "url": "https://codeload.github.com/libsdl-org/SDL/tar.gz/refs/tags/release-3.2.10",
+   "sha256": "8a6ddc3e70de897f7921da275ac71e375de89dad802aa2932649d1fea9068478",
+   "role": "platform/graphics dependency"
+  },
+  {
+   "name": "Vulkan-Headers",
+   "version": "1.4.309",
+   "url": "https://codeload.github.com/KhronosGroup/Vulkan-Headers/tar.gz/refs/tags/v1.4.309",
+   "sha256": "437925ada160d86ed763d29dcb9318c1bb0d024d7deaf77bc7c170b8eb6b6f10",
+   "role": "vendored C headers (native/third_party/vulkan-headers, tag vulkan-sdk-1.4.309.0, commit 952f776f6573aafbb62ea717d871cd1d6816c387; per-file SHA-256 in PROVENANCE.txt). N2.1: the build compiles against this copy on every platform; the Vulkan SDK supplies only the loader library and the shader compiler",
+   "license": "Apache-2.0 OR MIT"
+  },
+  {
+   "name": "glslang",
+   "version": "15.1.0",
+   "url": "https://codeload.github.com/KhronosGroup/glslang/tar.gz/refs/tags/15.1.0",
+   "sha256": "4bdcd8cdb330313f0d4deed7be527b0ac1c115ff272e492853a6e98add61b4bc",
+   "role": "shader build tool"
+  },
+  {
+   "name": "stb (stb_image 2.30, stb_image_write 1.16)",
+   "version": "commit 4e9b368bfc071e97206ea5c6adba68dd0cbf8897",
+   "url": "https://github.com/nothings/stb",
+   "sha256": {
+    "stb_image.h": "594c2fe35d49488b4382dbfaec8f98366defca819d916ac95becf3e75f4200b3",
+    "stb_image_write.h": "cbd5f0ad7a9cf4468affb36354a1d2338034f2c12473cf1a8e32053cb6914a05"
+   },
+   "role": "vendored runtime PNG/JPEG decode and PNG capture encode (native/third_party/stb)",
+   "license": "MIT or public domain"
+  }
+ ],
+ "notes": "SDL FetchContent verifies this hash. Vulkan SDK is externally installed. No VMA/glm/tinygltf/stb dependency in N0. N2: stb vendored; SDL3 3.2.10 used from its git tag in the N2 runner. N2.1: Vulkan C headers vendored; runtime baseline Vulkan 1.2 (device), loader >= 1.1; no new runtime dependency.",
+ "testTools": [
+  {
+   "name": "Vulkan-ValidationLayers",
+   "version": "vulkan-sdk-1.4.309.0",
+   "role": "local validation during N2 tests; not shipped"
+  },
+  {
+   "name": "Mesa lavapipe",
+   "version": "Vulkan 1.4.318 / LLVM 20.1.2 (runner-provided)",
+   "role": "software Vulkan device for N2 tests"
+  },
+  {
+   "name": "glslang",
+   "version": "15.2.0 (vulkan-sdk-1.4.309.0)",
+   "role": "shader compiler used in the N2 runner (N0 recorded 15.1.0)"
+  },
+  {
+   "name": "playwright Chromium",
+   "version": "runner-provided (chromium-1243)",
+   "role": "legacy reference frames and texture audit (tools/n2); not shipped"
+  },
+  {
+   "name": "Pillow",
+   "version": "runner-provided",
+   "role": "tools/n2 comparison/audit scripts"
+  },
+  {
+   "name": "VK_LAYER_CAT_device_sim",
+   "version": "in-tree (native/tests/vk_device_sim_layer.cpp)",
+   "role": "N2.1 test-only layer simulating older Vulkan devices; Linux; never installed or shipped"
+  },
+  {
+   "name": "Vulkan-Headers v1.2.198",
+   "version": "git tag v1.2.198",
+   "role": "N2.1 check that the build does not depend on the SDK header version; not shipped"
+  },
+  {
+   "name": "clang",
+   "version": "18.1.3",
+   "role": "N2.1 second-compiler build and test run"
+  }
+ ]
+}

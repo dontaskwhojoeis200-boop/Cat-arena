@@ -1,0 +1,4 @@
+PASS helios-crucible: 167 slabs, 2479 walls, 2 pads, 28 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 997, ceiling 0, landings 109, steps 212, recoveries 31
+PASS bastion-keep: 156 slabs, 2652 walls, 2 pads, 12 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 985, ceiling 2, landings 48, steps 5, recoveries 37
+PASS reactor-bastion: 343 slabs, 3789 walls, 4 pads, 12 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 744, ceiling 0, landings 47, steps 33, recoveries 26
+PASS q3-gallery: 988 slabs, 3083 walls, 1 pads, 7 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 382, ceiling 0, landings 29, steps 2, recoveries 7

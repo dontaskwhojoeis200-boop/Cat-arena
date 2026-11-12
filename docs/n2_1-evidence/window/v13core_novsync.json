@@ -1,0 +1,33 @@
+{"device": "llvmpipe (LLVM 20.1.2, 256 bits)", "api": "1.4.318", "colorFormat": "B8G8R8A8_UNORM", "depthFormat": "D32_SFLOAT", "presentMode": "MAILBOX", "validationLayer": true, "vulkan": {
+  "baselineApi": "1.2",
+  "device": "llvmpipe (LLVM 20.1.2, 256 bits)",
+  "deviceType": "cpu",
+  "driver": "llvmpipe",
+  "driverInfo": "Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)",
+  "deviceApi": "1.4.318",
+  "loaderApi": "1.3.275",
+  "instanceApi": "1.3",
+  "negotiatedApi": "1.3",
+  "path": "vulkan-1.3",
+  "features": {
+    "dynamic_rendering": {"selected": "core", "extension": "VK_KHR_dynamic_rendering", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "VkRenderPass + one framebuffer per target image"},
+    "synchronization2": {"selected": "core", "extension": "VK_KHR_synchronization2", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "vkCmdPipelineBarrier + vkQueueSubmit"},
+    "extended_dynamic_state": {"selected": "core", "extension": "VK_EXT_extended_dynamic_state", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "one static pipeline per cull/depth-write/depth-compare combination"},
+    "push_descriptor": {"selected": "unavailable", "extension": "VK_KHR_push_descriptor", "extensionAdvertised": true, "coreBit": false, "extensionBit": true, "fallback": "allocated descriptor set with a dynamic uniform-buffer offset"},
+    "host_image_copy": {"selected": "unavailable", "extension": "VK_EXT_host_image_copy", "extensionAdvertised": true, "coreBit": false, "extensionBit": true, "fallback": "staging buffer + vkCmdCopyBufferToImage"}
+  },
+  "hostImageCopyChecks": {"format": true, "layout": true, "optimalDeviceAccess": true},
+  "deviceExtensionsAdvertised": 161,
+  "enabledExtensions": [
+    "VK_KHR_swapchain"
+  ],
+  "selection": [
+    "dynamic_rendering: core 1.3 (feature bit reported)",
+    "synchronization2: core 1.3 (feature bit reported)",
+    "extended_dynamic_state: core 1.3 (mandatory, no feature bit)",
+    "push_descriptor: unavailable (needs 1.4 core (negotiated 1.3) and extensions are not allowed); fallback: allocated descriptor set with a dynamic uniform-buffer offset",
+    "host_image_copy: unavailable (needs 1.4 core (negotiated 1.3) and extensions are not allowed); fallback: staging buffer + vkCmdCopyBufferToImage"
+  ],
+  "objects": {"renderPasses": 0, "framebuffers": 0, "pipelines": 7, "materialPipelines": 4, "descriptorSets": 2, "stagingTextureBytes": 35177752, "hostCopyTextureBytes": 0},
+  "anisotropy": 4, "colorFormat": "B8G8R8A8_UNORM", "depthFormat": "D32_SFLOAT"
+}, "finalExtent": [1280, 720], "framesSubmitted": 300, "ticks": 1943, "validationWarnings": 0, "validationErrors": 0}

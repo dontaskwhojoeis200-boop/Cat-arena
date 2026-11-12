@@ -1,0 +1,1 @@
+PASS: Pillow 13.0.0 decoded all 165 extracted PNG/JPEG/WebP images. No browser/GPU pixel parity claim.

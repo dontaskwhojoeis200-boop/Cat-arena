@@ -1,0 +1,2 @@
+helios auto (N5.1 build, pose captures, no lights): 7/7 PNG files byte-identical to the N4 captures (which were byte-identical to the N2 golden frames)
+helios baseline (N5.1 build, pose captures, no lights): 7/7 PNG files byte-identical to the N4 captures (which were byte-identical to the N2 golden frames)

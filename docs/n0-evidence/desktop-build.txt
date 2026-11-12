@@ -1,0 +1,4 @@
+$ /home/agent/.local/bin/cmake --build build-desktop
+ninja: no work to do.
+
+exit=0

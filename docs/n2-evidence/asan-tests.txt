@@ -1,0 +1,18 @@
+Internal ctest changing into directory: /home/claude/n2/build-asan
+Test project /home/claude/n2/build-asan
+    Start 1: core_foundation
+1/6 Test #1: core_foundation ..................   Passed    0.01 sec
+    Start 2: headless_smoke
+2/6 Test #2: headless_smoke ...................   Passed    0.01 sec
+    Start 3: asset_format
+3/6 Test #3: asset_format .....................   Passed    0.03 sec
+    Start 4: baked_maps
+4/6 Test #4: baked_maps .......................   Passed   16.76 sec
+    Start 5: scene_units
+5/6 Test #5: scene_units ......................   Passed    0.13 sec
+    Start 6: helios_scene
+6/6 Test #6: helios_scene .....................   Passed   16.20 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =  33.14 sec

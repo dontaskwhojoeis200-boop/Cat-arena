@@ -1,0 +1,29 @@
+{
+ "tool": "tools/n4/legacy_navigation.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "map": "bastion-keep",
+ "nodes": 6359,
+ "layerCounts": {
+  "L1": 558,
+  "L2": 3179,
+  "L3": 2622
+ },
+ "gridWidth": 119,
+ "edges": {
+  "light": 43706,
+  "standard": 43706,
+  "heavy": 43018
+ },
+ "queries": 50,
+ "routesFound": 50,
+ "routesBetweenFloors": 39,
+ "noStartOrGoal": 0,
+ "longestChain": 99,
+ "mostExpanded": 2938,
+ "fixture": {
+  "file": "bastion-keep_navigation.bin",
+  "bytes": 493036,
+  "sha256": "d4e302fa81735b8eec71e1b9701e2dd8d77fa9a67e732cfb946c0fa5d7ad33b4"
+ }
+}

@@ -1,0 +1,5 @@
+Frames with dynamic lights turned off (--features -dlights) vs legacy pictures, N5.1 build, desktop Debug:
+  rocket_at_feet_moving_00062: with lights 50.155 dB
+  rocket_at_feet_moving_00204: with lights 45.132 dB
+  rocket_at_feet_moving_00230: with lights 40.968 dB
+  without lights: 24.72, 23.94, 25.66 dB (cat_arena_image_compare)

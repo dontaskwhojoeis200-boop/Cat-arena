@@ -1,0 +1,87 @@
+{
+  "tool": "tools/n2/compare_frames.py",
+  "note": "Descriptive pixel statistics only; not a perceptual parity verdict.",
+  "frames": [
+    {
+      "name": "spawn0_z0",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.112,
+        0.071,
+        0.059
+      ],
+      "psnrDb": 47.866,
+      "pixelsWithin8": 0.9984,
+      "pixelsWithin24": 0.9994,
+      "meanLegacyRGB": [
+        40.53,
+        38.05,
+        40.28
+      ],
+      "meanNativeRGB": [
+        40.46,
+        38.0,
+        40.24
+      ]
+    },
+    {
+      "name": "spawn1_z0",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.541,
+        0.18,
+        0.187
+      ],
+      "psnrDb": 33.462,
+      "pixelsWithin8": 0.9905,
+      "pixelsWithin24": 0.995,
+      "meanLegacyRGB": [
+        51.1,
+        44.55,
+        52.57
+      ],
+      "meanNativeRGB": [
+        50.66,
+        44.53,
+        52.68
+      ]
+    },
+    {
+      "name": "spawn2_z4_5",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.175,
+        0.078,
+        0.047
+      ],
+      "psnrDb": 47.912,
+      "pixelsWithin8": 0.9955,
+      "pixelsWithin24": 0.9995,
+      "meanLegacyRGB": [
+        47.38,
+        35.61,
+        32.14
+      ],
+      "meanNativeRGB": [
+        47.31,
+        35.56,
+        32.1
+      ]
+    }
+  ]
+}

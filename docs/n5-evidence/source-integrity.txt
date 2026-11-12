@@ -1,0 +1,4 @@
+N5 source integrity check against N4_FILE_MANIFEST.json (SHA-256)
+legacy/, reference/, assets/n1, assets/n2, assets/n4: 596 files, 0 changed, 0 missing, 0 added
+PASS
+(assets/n5 is new in N5: 67 files)

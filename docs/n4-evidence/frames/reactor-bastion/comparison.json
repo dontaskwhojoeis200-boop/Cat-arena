@@ -1,0 +1,114 @@
+{
+  "tool": "tools/n2/compare_frames.py",
+  "note": "Descriptive pixel statistics only; not a perceptual parity verdict.",
+  "frames": [
+    {
+      "name": "spawn0_z0",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.01,
+        0.006,
+        0.005
+      ],
+      "psnrDb": 57.631,
+      "pixelsWithin8": 0.9998,
+      "pixelsWithin24": 0.9999,
+      "meanLegacyRGB": [
+        42.5,
+        37.81,
+        35.47
+      ],
+      "meanNativeRGB": [
+        42.5,
+        37.81,
+        35.47
+      ]
+    },
+    {
+      "name": "spawn1_z0",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.008,
+        0.006,
+        0.005
+      ],
+      "psnrDb": 63.544,
+      "pixelsWithin8": 1.0,
+      "pixelsWithin24": 1.0,
+      "meanLegacyRGB": [
+        47.53,
+        39.28,
+        35.27
+      ],
+      "meanNativeRGB": [
+        47.53,
+        39.28,
+        35.26
+      ]
+    },
+    {
+      "name": "spawn2_z5",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.011,
+        0.007,
+        0.006
+      ],
+      "psnrDb": 59.73,
+      "pixelsWithin8": 0.9997,
+      "pixelsWithin24": 0.9999,
+      "meanLegacyRGB": [
+        33.3,
+        30.89,
+        30.72
+      ],
+      "meanNativeRGB": [
+        33.29,
+        30.88,
+        30.71
+      ]
+    },
+    {
+      "name": "spawn3_z5",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.105,
+        0.056,
+        0.03
+      ],
+      "psnrDb": 46.005,
+      "pixelsWithin8": 0.9967,
+      "pixelsWithin24": 0.9978,
+      "meanLegacyRGB": [
+        35.28,
+        32.78,
+        32.67
+      ],
+      "meanNativeRGB": [
+        35.18,
+        32.73,
+        32.65
+      ]
+    }
+  ]
+}

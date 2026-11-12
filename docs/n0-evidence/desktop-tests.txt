@@ -1,0 +1,46 @@
+$ /home/agent/.local/bin/ctest --test-dir build-desktop --output-on-failure -V
+UpdateCTestConfiguration  from :/workspace/scratch/764f703bb066/build-desktop/DartConfiguration.tcl
+Parse Config file:/workspace/scratch/764f703bb066/build-desktop/DartConfiguration.tcl
+Test project /workspace/scratch/764f703bb066/build-desktop
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: core_foundation
+
+1: Test command: /workspace/scratch/764f703bb066/build-desktop/cat_arena_tests
+1: Working Directory: /workspace/scratch/764f703bb066/build-desktop
+1: Test timeout computed to be: 1500
+1: PASS clock: drift, interpolation, negative time, stall, partition invariance
+1: PASS settings: roundtrip and malformed/range/version rejection
+1: PASS math: Z-up right-handed basis and inverse
+1: PASS rng: golden vector, replay and bounded unit samples
+1: PASS input: mapping, repeat, tick edges, short tap and focus loss
+1: PASS ownership: single move cleanup, exception cleanup, release
+1: PASS paths: absolute assets and user directory creation
+1/3 Test #1: core_foundation ..................   Passed    0.00 sec
+test 2
+    Start 2: headless_smoke
+
+2: Test command: /workspace/scratch/764f703bb066/build-desktop/cat_arena_headless
+2: Working Directory: /workspace/scratch/764f703bb066/build-desktop
+2: Test timeout computed to be: 1500
+2: level="info" subsystem="self-test" message="PASS"
+2/3 Test #2: headless_smoke ...................   Passed    0.00 sec
+test 3
+    Start 3: desktop_headless_smoke
+
+3: Test command: /workspace/scratch/764f703bb066/build-desktop/cat_arena "--headless-test"
+3: Working Directory: /workspace/scratch/764f703bb066/build-desktop
+3: Test timeout computed to be: 1500
+3: level="info" subsystem="self-test" message="PASS"
+3/3 Test #3: desktop_headless_smoke ...........   Passed    0.00 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =   0.01 sec
+
+exit=0

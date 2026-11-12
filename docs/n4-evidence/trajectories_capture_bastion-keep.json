@@ -1,0 +1,463 @@
+{
+ "tool": "tools/n3/legacy_trajectories.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "map": "bastion-keep",
+ "tickSeconds": "1/120",
+ "keys": [
+  "KeyW",
+  "KeyS",
+  "KeyA",
+  "KeyD",
+  "Space",
+  "ControlLeft",
+  "ShiftLeft",
+  "KeyC"
+ ],
+ "record": [
+  "x",
+  "y",
+  "z",
+  "vx",
+  "vy",
+  "vz",
+  "ground",
+  "crouchOffset",
+  "yaw",
+  "pitch",
+  "slideTime",
+  "slideCooldown",
+  "slideBuffer",
+  "jumpBuffer",
+  "coyoteTime",
+  "slopeAngle",
+  "fovScale",
+  "padCooldown",
+  "camZ",
+  "camForwardZ",
+  "camRoll",
+  "camUpZ",
+  "bobCycle",
+  "stepChange",
+  "landChange",
+  "weaponPitch",
+  "weaponYaw",
+  "weaponRoll",
+  "weaponDrop",
+  "colliderHeight"
+ ],
+ "fixture": {
+  "file": "bastion-keep_trajectories.bin",
+  "bytes": 3544908,
+  "sha256": "6baebf429491175f21b35a0827c59c7b68c263aa503e0f48d32b5d525790d2f5"
+ },
+ "sprintMode": "hold",
+ "runtimeStateChanges": [
+  "#start click handler + ENTER THE ARENA button (as tools/n2)",
+  "fovPanelOpen=true between scenarios (legacy simulation hold), false while a scenario runs synchronously",
+  "bots/enemyShots/rockets/grenades emptied",
+  "player pose/velocity, movement timers, moveFovScale, worldPadCooldown, q3Reset(), now=100 and STAGE4_CONTACTS reset per scenario",
+  "KeyboardEvents dispatched to window for key transitions; aim(dx,dy) called for mouse motion",
+  "player part of update(dt) executed by the tool in legacy order; the remainder of update() not executed"
+ ],
+ "world": {
+  "spawns": 12,
+  "pads": [
+   {
+    "id": "pad-east",
+    "x": 69.1,
+    "y": 62.5,
+    "z": -4,
+    "r": 1
+   },
+   {
+    "id": "pad-south",
+    "x": 59.9,
+    "y": 48.5,
+    "z": -4,
+    "r": 1
+   }
+  ],
+  "ramps": 10,
+  "lowCeilingSpots": 587,
+  "lowestClearance": 2.0999999999999996
+ },
+ "scenarios": [
+  {
+   "name": "random_0_z-4",
+   "ticks": 1500,
+   "start": {
+    "x": 78.5,
+    "y": 58.5,
+    "z": -4,
+    "a": 3.141592653589793,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 965,
+    "ceiling": 0,
+    "landings": 8,
+    "steps": 0,
+    "iterations": 1630,
+    "recoveries": 0
+   },
+   "footsteps": 16,
+   "viewLandings": 8,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "random_1_z0",
+   "ticks": 1500,
+   "start": {
+    "x": 74.5,
+    "y": 28.5,
+    "z": 0,
+    "a": 2.060753653048625,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 317,
+    "ceiling": 0,
+    "landings": 6,
+    "steps": 0,
+    "iterations": 1680,
+    "recoveries": 0
+   },
+   "footsteps": 38,
+   "viewLandings": 14,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "random_2_z7",
+   "ticks": 1500,
+   "start": {
+    "x": 31.5,
+    "y": 42.5,
+    "z": 7,
+    "a": 0.5349550737860964,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 438,
+    "ceiling": 0,
+    "landings": 8,
+    "steps": 0,
+    "iterations": 1553,
+    "recoveries": 0
+   },
+   "footsteps": 52,
+   "viewLandings": 22,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "random_3_z-4",
+   "ticks": 1500,
+   "start": {
+    "x": 38.5,
+    "y": 58.5,
+    "z": -4,
+    "a": 0,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 774,
+    "ceiling": 0,
+    "landings": 7,
+    "steps": 0,
+    "iterations": 1581,
+    "recoveries": 0
+   },
+   "footsteps": 67,
+   "viewLandings": 29,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "ramp_0_pit-ramp-sw",
+   "ticks": 900,
+   "start": {
+    "x": 51.5,
+    "y": 55.4,
+    "z": -4,
+    "a": -1.5707963267948966,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 21,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 360,
+    "iterations": 900,
+    "recoveries": 0
+   },
+   "footsteps": 86,
+   "viewLandings": 30,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "ramp_1_pit-ramp-se",
+   "ticks": 900,
+   "start": {
+    "x": 61.6,
+    "y": 51.5,
+    "z": -4,
+    "a": 0,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 46,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 358,
+    "iterations": 900,
+    "recoveries": 0
+   },
+   "footsteps": 106,
+   "viewLandings": 31,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "ramp_2_stairs-185",
+   "ticks": 900,
+   "start": {
+    "x": 93,
+    "y": 37.6,
+    "z": 0,
+    "a": 1.5707963267948966,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 2,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 621,
+    "iterations": 900,
+    "recoveries": 0
+   },
+   "footsteps": 127,
+   "viewLandings": 32,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "pad_pad-east",
+   "ticks": 700,
+   "start": {
+    "x": 70.01844023767622,
+    "y": 64.71731087802709,
+    "z": -4,
+    "a": -1.9634954084936227,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 77,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 7,
+    "iterations": 899,
+    "recoveries": 3
+   },
+   "footsteps": 132,
+   "viewLandings": 33,
+   "padLaunchesTotal": 2
+  },
+  {
+   "name": "pad_pad-south",
+   "ticks": 700,
+   "start": {
+    "x": 62.3,
+    "y": 48.5,
+    "z": -4,
+    "a": 3.141592653589793,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 281,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 0,
+    "iterations": 832,
+    "recoveries": 0
+   },
+   "footsteps": 140,
+   "viewLandings": 34,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "ceiling_impulse_0",
+   "ticks": 360,
+   "start": {
+    "x": 35.25,
+    "y": 23.25,
+    "z": 4.4,
+    "a": 0,
+    "pitch": 0,
+    "now": 100,
+    "vz": 10.5,
+    "ground": 0
+   },
+   "contacts": {
+    "horizontal": 0,
+    "ceiling": 2,
+    "landings": 2,
+    "steps": 0,
+    "iterations": 360,
+    "recoveries": 0
+   },
+   "footsteps": 140,
+   "viewLandings": 36,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "ceiling_impulse_1",
+   "ticks": 360,
+   "start": {
+    "x": 62.25,
+    "y": 23.75,
+    "z": 7,
+    "a": 1.3,
+    "pitch": 0,
+    "now": 100,
+    "vz": 10.5,
+    "ground": 0
+   },
+   "contacts": {
+    "horizontal": 29,
+    "ceiling": 1,
+    "landings": 2,
+    "steps": 0,
+    "iterations": 360,
+    "recoveries": 0
+   },
+   "footsteps": 144,
+   "viewLandings": 38,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "slide_crouch",
+   "ticks": 800,
+   "start": {
+    "x": 88.5,
+    "y": 46.5,
+    "z": 0,
+    "a": 2.761086276477428,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 219,
+    "ceiling": 0,
+    "landings": 0,
+    "steps": 0,
+    "iterations": 844,
+    "recoveries": 0
+   },
+   "footsteps": 152,
+   "viewLandings": 38,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "air_strafe_bunnyhop",
+   "ticks": 900,
+   "start": {
+    "x": 42.5,
+    "y": 88.5,
+    "z": 0,
+    "a": -1.0808390005411683,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 356,
+    "ceiling": 0,
+    "landings": 7,
+    "steps": 0,
+    "iterations": 1211,
+    "recoveries": 1
+   },
+   "footsteps": 155,
+   "viewLandings": 45,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "crouch_walk",
+   "ticks": 500,
+   "start": {
+    "x": 38.5,
+    "y": 58.5,
+    "z": -4,
+    "a": 0,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 75,
+    "ceiling": 0,
+    "landings": 0,
+    "steps": 0,
+    "iterations": 500,
+    "recoveries": 0
+   },
+   "footsteps": 157,
+   "viewLandings": 45,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "idle",
+   "ticks": 400,
+   "start": {
+    "x": 85.5,
+    "y": 74.5,
+    "z": 7,
+    "a": -2.6066375798036967,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 0,
+    "ceiling": 0,
+    "landings": 0,
+    "steps": 0,
+    "iterations": 400,
+    "recoveries": 0
+   },
+   "footsteps": 157,
+   "viewLandings": 45,
+   "padLaunchesTotal": 3
+  }
+ ],
+ "pageErrors": []
+}

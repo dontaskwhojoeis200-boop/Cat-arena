@@ -1,0 +1,61 @@
+Internal ctest changing into directory: /home/claude/n2/fresh/build
+Test project /home/claude/n2/fresh/build
+      Start  1: core_foundation
+ 1/26 Test  #1: core_foundation ...............................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/26 Test  #2: headless_smoke ................................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/26 Test  #3: vulkan_path_selection .........................   Passed    0.00 sec
+      Start  4: desktop_headless_smoke
+ 4/26 Test  #4: desktop_headless_smoke ........................   Passed    0.00 sec
+      Start  5: render_helios_offscreen
+ 5/26 Test  #5: render_helios_offscreen .......................   Passed    5.55 sec
+      Start  6: render_map_bastion-keep
+ 6/26 Test  #6: render_map_bastion-keep .......................   Passed    4.57 sec
+      Start  7: render_map_reactor-bastion
+ 7/26 Test  #7: render_map_reactor-bastion ....................   Passed    1.11 sec
+      Start  8: render_map_q3-gallery
+ 8/26 Test  #8: render_map_q3-gallery .........................   Passed    1.19 sec
+      Start  9: render_path_matrix
+ 9/26 Test  #9: render_path_matrix ............................   Passed   12.95 sec
+      Start 10: vulkan_link_imports
+10/26 Test #10: vulkan_link_imports ...........................   Passed    0.04 sec
+      Start 11: vk_sim_layer_selftest
+11/26 Test #11: vk_sim_layer_selftest .........................   Passed    0.04 sec
+      Start 12: render_path_simulated_devices
+12/26 Test #12: render_path_simulated_devices .................   Passed    9.44 sec
+      Start 13: asset_format
+13/26 Test #13: asset_format ..................................   Passed    0.00 sec
+      Start 14: baked_maps
+14/26 Test #14: baked_maps ....................................   Passed    4.82 sec
+      Start 15: scene_units
+15/26 Test #15: scene_units ...................................   Passed    0.02 sec
+      Start 16: helios_scene
+16/26 Test #16: helios_scene ..................................   Passed    4.22 sec
+      Start 17: physics_units
+17/26 Test #17: physics_units .................................   Passed    0.04 sec
+      Start 18: physics_legacy_trajectories
+18/26 Test #18: physics_legacy_trajectories ...................   Passed    0.61 sec
+      Start 19: physics_all_maps
+19/26 Test #19: physics_all_maps ..............................   Passed    1.00 sec
+      Start 20: physics_legacy_trajectories_bastion-keep
+20/26 Test #20: physics_legacy_trajectories_bastion-keep ......   Passed    0.41 sec
+      Start 21: physics_legacy_trajectories_reactor-bastion
+21/26 Test #21: physics_legacy_trajectories_reactor-bastion ...   Passed    0.52 sec
+      Start 22: physics_legacy_trajectories_q3-gallery
+22/26 Test #22: physics_legacy_trajectories_q3-gallery ........   Passed    0.64 sec
+      Start 23: navigation_helios-crucible
+23/26 Test #23: navigation_helios-crucible ....................   Passed    1.79 sec
+      Start 24: navigation_bastion-keep
+24/26 Test #24: navigation_bastion-keep .......................   Passed    1.58 sec
+      Start 25: navigation_reactor-bastion
+25/26 Test #25: navigation_reactor-bastion ....................   Passed    2.35 sec
+      Start 26: navigation_q3-gallery
+26/26 Test #26: navigation_q3-gallery .........................   Passed    1.10 sec
+
+100% tests passed, 0 tests failed out of 26
+
+Label Time Summary:
+gpu    =  34.86 sec*proc (7 tests)
+
+Total Test time (real) =  54.03 sec

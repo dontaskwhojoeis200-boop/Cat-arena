@@ -1,0 +1,76 @@
+Test project /home/claude/n2/build-pkg
+      Start  1: core_foundation
+ 1/35 Test  #1: core_foundation ...............................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/35 Test  #2: headless_smoke ................................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/35 Test  #3: vulkan_path_selection .........................   Passed    0.00 sec
+      Start  4: desktop_headless_smoke
+ 4/35 Test  #4: desktop_headless_smoke ........................   Passed    0.00 sec
+      Start 29: vulkan_link_imports
+ 5/35 Test #29: vulkan_link_imports ...........................   Passed    0.03 sec
+      Start 32: asset_format
+ 6/35 Test #32: asset_format ..................................   Passed    0.00 sec
+      Start 33: baked_maps
+ 7/35 Test #33: baked_maps ....................................   Passed    0.61 sec
+      Start 34: scene_units
+ 8/35 Test #34: scene_units ...................................   Passed    0.00 sec
+      Start 35: helios_scene
+ 9/35 Test #35: helios_scene ..................................   Passed    0.60 sec
+      Start 36: physics_units
+10/35 Test #36: physics_units .................................   Passed    0.01 sec
+      Start 37: physics_legacy_trajectories
+11/35 Test #37: physics_legacy_trajectories ...................   Passed    0.07 sec
+      Start 38: physics_all_maps
+12/35 Test #38: physics_all_maps ..............................   Passed    0.15 sec
+      Start 39: physics_legacy_trajectories_bastion-keep
+13/35 Test #39: physics_legacy_trajectories_bastion-keep ......   Passed    0.05 sec
+      Start 40: physics_legacy_trajectories_reactor-bastion
+14/35 Test #40: physics_legacy_trajectories_reactor-bastion ...   Passed    0.09 sec
+      Start 41: physics_legacy_trajectories_q3-gallery
+15/35 Test #41: physics_legacy_trajectories_q3-gallery ........   Passed    0.10 sec
+      Start 42: enemy_units
+16/35 Test #42: enemy_units ...................................   Passed    0.32 sec
+      Start 43: enemy_legacy_tapes_helios-crucible
+17/35 Test #43: enemy_legacy_tapes_helios-crucible ............   Passed    1.25 sec
+      Start 44: enemy_legacy_tapes_bastion-keep
+18/35 Test #44: enemy_legacy_tapes_bastion-keep ...............   Passed    0.67 sec
+      Start 45: enemy_legacy_tapes_reactor-bastion
+19/35 Test #45: enemy_legacy_tapes_reactor-bastion ............   Passed    0.99 sec
+      Start 46: enemy_legacy_tapes_q3-gallery
+20/35 Test #46: enemy_legacy_tapes_q3-gallery .................   Passed    0.68 sec
+      Start 47: weapon_fx_units
+21/35 Test #47: weapon_fx_units ...............................   Passed    0.01 sec
+      Start 48: hud_units
+22/35 Test #48: hud_units .....................................   Passed    0.00 sec
+      Start 49: weapon_fx_legacy_tapes
+23/35 Test #49: weapon_fx_legacy_tapes ........................   Passed    0.17 sec
+      Start 50: enemy_fx_units
+24/35 Test #50: enemy_fx_units ................................   Passed    0.13 sec
+      Start 51: enemy_fx_legacy_animation_helios-crucible
+25/35 Test #51: enemy_fx_legacy_animation_helios-crucible .....   Passed    1.37 sec
+      Start 52: enemy_fx_legacy_animation_bastion-keep
+26/35 Test #52: enemy_fx_legacy_animation_bastion-keep ........   Passed    0.79 sec
+      Start 53: enemy_fx_legacy_animation_reactor-bastion
+27/35 Test #53: enemy_fx_legacy_animation_reactor-bastion .....   Passed    0.98 sec
+      Start 54: enemy_fx_legacy_animation_q3-gallery
+28/35 Test #54: enemy_fx_legacy_animation_q3-gallery ..........   Passed    0.76 sec
+      Start 55: combat_units
+29/35 Test #55: combat_units ..................................   Passed    0.02 sec
+      Start 56: combat_legacy_tapes
+30/35 Test #56: combat_legacy_tapes ...........................   Passed    0.07 sec
+      Start 57: navigation_helios-crucible
+31/35 Test #57: navigation_helios-crucible ....................   Passed    0.34 sec
+      Start 58: navigation_bastion-keep
+32/35 Test #58: navigation_bastion-keep .......................   Passed    0.30 sec
+      Start 59: navigation_reactor-bastion
+33/35 Test #59: navigation_reactor-bastion ....................   Passed    0.48 sec
+      Start 60: navigation_q3-gallery
+34/35 Test #60: navigation_q3-gallery .........................   Passed    0.18 sec
+      Start 61: windows_vulkan_import_library
+35/35 Test #61: windows_vulkan_import_library .................   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 35
+
+Total Test time (real) =  11.26 sec
+ctest exit 0

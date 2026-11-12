@@ -1,0 +1,432 @@
+{
+  "milestone": "N0",
+  "date": "2026-11-09",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 44,
+      "sha256": "756b9d3999cf847b844cb38efe3e9d19ae9b0f8eb4e5209f4cdc84aeb3a9f158"
+    },
+    {
+      "path": "CLAUDE_MASTER_PROMPT.md",
+      "bytes": 13680,
+      "sha256": "be8517b7047b54176030324c7fa9b56a39ffa312db29e2e77b7b16cc0a3f6cfe"
+    },
+    {
+      "path": "CLAUDE_PHASE_PROMPTS.md",
+      "bytes": 6994,
+      "sha256": "02efe69cd377fabc17360abb134516a1b2af3b74766bf33455d1adcc93988395"
+    },
+    {
+      "path": "FILE_MANIFEST.json",
+      "bytes": 5169,
+      "sha256": "88e96356394629e58e04e150e2d13cb53b9f207ebb60c2d149ec826d9e65ac2d"
+    },
+    {
+      "path": "README_N0.md",
+      "bytes": 2054,
+      "sha256": "bd2aea885a9aa0193483d16aea9909a859ca34dcdb63bad3489a4f16a02658cc"
+    },
+    {
+      "path": "README_START_HERE.md",
+      "bytes": 3307,
+      "sha256": "71bb13fd5dddd01bf8da813336a4ac29046b93ab0cffa73482afae914aace6da"
+    },
+    {
+      "path": "docs/ADDITIONAL_SOURCES.json",
+      "bytes": 391,
+      "sha256": "84a0907c6bbb1d36cbb295a2b0791844f7145273642d2ebd4d1fea852b00350c"
+    },
+    {
+      "path": "docs/ARCHITECTURE_N0.md",
+      "bytes": 3563,
+      "sha256": "d929791eb862038bb351b7d2c0915a1b9796c95f42090b64da6c8aa9614488e6"
+    },
+    {
+      "path": "docs/BASELINE_REPORT.md",
+      "bytes": 10135,
+      "sha256": "8e46a5ad84a5011884432cedd41ab17ffe2e285e6e44951ae107cd47a65fb885"
+    },
+    {
+      "path": "docs/BUILD.md",
+      "bytes": 7575,
+      "sha256": "fc1455c88f3815d806603e83ec53a0b559efb0e16967ebab3949f2e3990fee05"
+    },
+    {
+      "path": "docs/DEPENDENCIES.json",
+      "bytes": 1025,
+      "sha256": "3ade97e1f83761e5563650cb254daab5059efc9cf114b9238b1b03030159eca0"
+    },
+    {
+      "path": "docs/DEVELOPMENT_LOG_N0.md",
+      "bytes": 2319,
+      "sha256": "c84721dd92e03868358b1c27ff32516f24cdc29e1f86051a0b1069b0215011b1"
+    },
+    {
+      "path": "docs/FEATURE_PARITY.md",
+      "bytes": 1637,
+      "sha256": "6609bb95fdb1f9149db97f7cf0bc02a88eb02bfc5307738fd738b4546fc5e679"
+    },
+    {
+      "path": "docs/KNOWN_LIMITATIONS.md",
+      "bytes": 1969,
+      "sha256": "5ed9d4f1e4f40a245ad2e83e24d1af96afae395f7c141f7c0dc55fe25f5f7b32"
+    },
+    {
+      "path": "docs/LEGACY_APK_MANIFEST.json",
+      "bytes": 991,
+      "sha256": "524329b507f0e7be4543a591226ec980b1678ea2e0adc87693e2780564b2dc78"
+    },
+    {
+      "path": "docs/LEGACY_ARCHITECTURE.md",
+      "bytes": 1558,
+      "sha256": "1ee871c76eb6697664e72e318e92871efdf9f8a45e81320c25e8f4e1b213ec6d"
+    },
+    {
+      "path": "docs/LEGACY_ARCHIVE_INVENTORY.json",
+      "bytes": 10076,
+      "sha256": "c75da41c7e9e1945e1c9fa8819a78f513b96b7b33af9f0e1ac15145b9ebb4744"
+    },
+    {
+      "path": "docs/LEGACY_SOURCE_HASHES.json",
+      "bytes": 1364,
+      "sha256": "d9b387b2f3eab7c197e665cc4a26f985cc3f479e052e92e390a390a944aea3e3"
+    },
+    {
+      "path": "docs/LEGACY_STATIC_CHECKS.json",
+      "bytes": 625,
+      "sha256": "b7c1d841486d0c48aa7846c68897210c075dc8b806079d5929b9f3de094211bb"
+    },
+    {
+      "path": "docs/LEGACY_TEST_MATRIX.md",
+      "bytes": 2837,
+      "sha256": "ef3dbe6348ad3c76af07a342976b0b5e3ced61a964b00d94ecac05d4ca4ff2b7"
+    },
+    {
+      "path": "docs/N0_SOURCE_INVENTORY.json",
+      "bytes": 23823,
+      "sha256": "6f7786575d5a03e413393b0665dce096e250ac35e9f273d35725d30245efc171"
+    },
+    {
+      "path": "docs/ORIGINAL_HANDOFF_HASHES.json",
+      "bytes": 4662,
+      "sha256": "908524dfb2f03e2f4d035d45e5f1410ca390c8a7700d6e8e002a1cc08a5f1360"
+    },
+    {
+      "path": "docs/ORIGIN_MAP.md",
+      "bytes": 4517,
+      "sha256": "836629f3009fe724380228279a1f5e7b9dda6d7e90a88583f63fcff85725a5d0"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "bytes": 2001,
+      "sha256": "746a7176e4b16a11483e5f7120f7d2a691b482616be18dd8107c18e5cd4911c3"
+    },
+    {
+      "path": "docs/SCRIPT_INDEX.json",
+      "bytes": 12693,
+      "sha256": "631e6b44925d68471974786565fa8258429946eb938235f9d31242ec07e636f0"
+    },
+    {
+      "path": "docs/SOURCE_AUDIT.md",
+      "bytes": 34517,
+      "sha256": "3710350fac573ad0e06a6424c3f8bf87202fa4aad6a4d4fceb938220e85299a4"
+    },
+    {
+      "path": "docs/TEST_MATRIX.md",
+      "bytes": 2614,
+      "sha256": "4af025706a21aa3cb6c0e513cce756d3ade35ddc4c11033e22c9565616539a1f"
+    },
+    {
+      "path": "docs/history/pre-N0/FILE_MANIFEST.json",
+      "bytes": 5169,
+      "sha256": "88e96356394629e58e04e150e2d13cb53b9f207ebb60c2d149ec826d9e65ac2d"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/ADDITIONAL_SOURCES.json",
+      "bytes": 391,
+      "sha256": "84a0907c6bbb1d36cbb295a2b0791844f7145273642d2ebd4d1fea852b00350c"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/BASELINE_REPORT.md",
+      "bytes": 10135,
+      "sha256": "8e46a5ad84a5011884432cedd41ab17ffe2e285e6e44951ae107cd47a65fb885"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/FEATURE_PARITY.md",
+      "bytes": 2760,
+      "sha256": "3619ca3376a4cb62f479156ca48eefda018c4152371761255155c5679ff64c19"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/LEGACY_APK_MANIFEST.json",
+      "bytes": 991,
+      "sha256": "524329b507f0e7be4543a591226ec980b1678ea2e0adc87693e2780564b2dc78"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/LEGACY_ARCHITECTURE.md",
+      "bytes": 1558,
+      "sha256": "1ee871c76eb6697664e72e318e92871efdf9f8a45e81320c25e8f4e1b213ec6d"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/LEGACY_ARCHIVE_INVENTORY.json",
+      "bytes": 10076,
+      "sha256": "c75da41c7e9e1945e1c9fa8819a78f513b96b7b33af9f0e1ac15145b9ebb4744"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/LEGACY_SOURCE_HASHES.json",
+      "bytes": 1364,
+      "sha256": "d9b387b2f3eab7c197e665cc4a26f985cc3f479e052e92e390a390a944aea3e3"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/LEGACY_STATIC_CHECKS.json",
+      "bytes": 625,
+      "sha256": "b7c1d841486d0c48aa7846c68897210c075dc8b806079d5929b9f3de094211bb"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/LEGACY_TEST_MATRIX.md",
+      "bytes": 2837,
+      "sha256": "ef3dbe6348ad3c76af07a342976b0b5e3ced61a964b00d94ecac05d4ca4ff2b7"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/SCRIPT_INDEX.json",
+      "bytes": 12693,
+      "sha256": "631e6b44925d68471974786565fa8258429946eb938235f9d31242ec07e636f0"
+    },
+    {
+      "path": "docs/history/pre-N0/docs/SOURCE_AUDIT.md",
+      "bytes": 34517,
+      "sha256": "3710350fac573ad0e06a6424c3f8bf87202fa4aad6a4d4fceb938220e85299a4"
+    },
+    {
+      "path": "docs/n0-evidence/asan-build.txt",
+      "bytes": 434,
+      "sha256": "f82e3ddaf9125ff07e98e6bb399f68fe02034cdf2f77953ede57a08d673135fb"
+    },
+    {
+      "path": "docs/n0-evidence/asan-config.txt",
+      "bytes": 563,
+      "sha256": "e99d49b5eef833d6d4ff8a11ed2ad6299d1eff4506a7d9cf3cee7dca5af92cb3"
+    },
+    {
+      "path": "docs/n0-evidence/asan-test.txt",
+      "bytes": 2318,
+      "sha256": "9d07d2ff0a8bf54deacb3f11e08326c720c3c5545cf54e7fd58bcc2795a5a292"
+    },
+    {
+      "path": "docs/n0-evidence/debug.txt",
+      "bytes": 1666,
+      "sha256": "21700e8942cf63778b814c7feb1b9387f992325b2f9e8c6969ecf704dc3523b7"
+    },
+    {
+      "path": "docs/n0-evidence/desktop-build-final.txt",
+      "bytes": 1294,
+      "sha256": "a0dd40315f3c329c4a590d8b3b9113dc5f5e7d178790585846c7cc418cbed485"
+    },
+    {
+      "path": "docs/n0-evidence/desktop-build.txt",
+      "bytes": 83,
+      "sha256": "b9c0b91026bc6248a850dbec580e24484391af395fe3e187979a677f8efc410f"
+    },
+    {
+      "path": "docs/n0-evidence/desktop-tests.txt",
+      "bytes": 2052,
+      "sha256": "102511ca84025514930d6f6c4743b087781e902e540ce789f5d03fdcd7c1e21c"
+    },
+    {
+      "path": "docs/n0-evidence/graphics-attempt.txt",
+      "bytes": 113,
+      "sha256": "a9a214635d521e1dd43e57b7ca2bc7a35364919089f4f6a1570df0cddd0dea30"
+    },
+    {
+      "path": "docs/n0-evidence/release-build.txt",
+      "bytes": 437,
+      "sha256": "bcacffe01fc790c21a8f1f4ea728cac7b54d15b22e120b3897301ac390701d96"
+    },
+    {
+      "path": "docs/n0-evidence/release-config.txt",
+      "bytes": 551,
+      "sha256": "d85e0254353608b91d0c265290e979e3478a15f9ad47942fed32130af77a57f0"
+    },
+    {
+      "path": "docs/n0-evidence/release-test.txt",
+      "bytes": 1690,
+      "sha256": "4e3441ef3ddeee4b10369fbc0c01ae7fb4463e21ed91a0773c8af6a51ead3c60"
+    },
+    {
+      "path": "docs/n0-evidence/sanitizers-no-leak.txt",
+      "bytes": 1694,
+      "sha256": "8474ff13427a77f5e7e73052711a6624f23e3d1cf187931328b4423659496417"
+    },
+    {
+      "path": "docs/n0-evidence/shader-compile.txt",
+      "bytes": 468,
+      "sha256": "4e82073ebc6f61ae264f5fe534d82b128c54f387e9dd1e496ffd7e024ffd88d3"
+    },
+    {
+      "path": "docs/n0-evidence/source-integrity.txt",
+      "bytes": 239,
+      "sha256": "216a031beec681ffa34e7aa1fa7393905231782ef553f8f5d037a867c4a921d9"
+    },
+    {
+      "path": "docs/n0-evidence/source-inventory-verify.txt",
+      "bytes": 188,
+      "sha256": "693e1d0b08cab3119ae556b802f8b660150c240ff354bbd664424911e649a7d1"
+    },
+    {
+      "path": "docs/n0-evidence/source-inventory.txt",
+      "bytes": 151,
+      "sha256": "b7601469a0ed47c28ee84e236cfed07aa0c0d78138cf9525bd83cc1f31d21b34"
+    },
+    {
+      "path": "legacy/index.html",
+      "bytes": 18320927,
+      "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "bytes": 4069,
+      "sha256": "8247305f265ee45f8e4f7fb2699738c5964956e7b0219c73fe03a432fff2614e"
+    },
+    {
+      "path": "native/CMakePresets.json",
+      "bytes": 1025,
+      "sha256": "b28dbea2959f82ebdde75576d502dc386c8352229a687091bc52f89d2a5ae2e4"
+    },
+    {
+      "path": "native/include/cat/core.hpp",
+      "bytes": 3319,
+      "sha256": "8a46cb8d432f288f7876c85610820d3e2a11220e688c2802f24d2e6ec020b643"
+    },
+    {
+      "path": "native/include/cat/renderer.hpp",
+      "bytes": 403,
+      "sha256": "c2398c4962757895989842c2d717aff17f9672b41e95af1f0b0fa5c150630dc5"
+    },
+    {
+      "path": "native/shaders/triangle.frag",
+      "bytes": 125,
+      "sha256": "9ab9bc5281941ccfae78e2b90adab69d7c72ec4418b0d11247b55e5a47a484ee"
+    },
+    {
+      "path": "native/shaders/triangle.vert",
+      "bytes": 302,
+      "sha256": "c36132f68faed914b72e9d8cca5e767500e3f79b6e32ee24bb943d92e36db918"
+    },
+    {
+      "path": "native/src/core.cpp",
+      "bytes": 4041,
+      "sha256": "e7de356ae066e72626a2472a5695686e4ff72e19deb0e13688cf74d1a1c67888"
+    },
+    {
+      "path": "native/src/headless.cpp",
+      "bytes": 138,
+      "sha256": "7c0dc3ec93165eaec3094abf2ef9986fc589322c85d00b214424c6172fa9f5e1"
+    },
+    {
+      "path": "native/src/main.cpp",
+      "bytes": 4559,
+      "sha256": "26bb7230bf330c5adb47695a42db6f69fe8ae9a92426c5df818cae2fb811c612"
+    },
+    {
+      "path": "native/src/renderer.cpp",
+      "bytes": 22364,
+      "sha256": "7b25f304834fa5e0d215c4794eaac6d8c4ca48c137bef5bd2bb64cbf4c31871e"
+    },
+    {
+      "path": "native/tests/core_tests.cpp",
+      "bytes": 4247,
+      "sha256": "779a49cacc0b6c68b94323a1ea2ec0f6e0e5dc21dd7e6c9fdfdcdeac123e4b22"
+    },
+    {
+      "path": "native/third_party_notices/SDL3/LICENSE.txt",
+      "bytes": 884,
+      "sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127"
+    },
+    {
+      "path": "native/third_party_notices/Vulkan-Headers/LICENSE.md",
+      "bytes": 458,
+      "sha256": "ac24e5ea920e4318e4d02c4086ae51f53cfb03feed06c18df1019e7ada1ec7bc"
+    },
+    {
+      "path": "native/third_party_notices/glslang/LICENSE.txt",
+      "bytes": 54705,
+      "sha256": "adb783e734e906d1f46db5df29991dbde84bdb0ceab502ac2febb44fe3c2b5f4"
+    },
+    {
+      "path": "native/tools/inventory_sources.py",
+      "bytes": 1968,
+      "sha256": "d73c745f91ffa6c2cf9a4e55e22ba0fe24c58f788d435f32bde3c394521238fd"
+    },
+    {
+      "path": "reference/alternate_branches/CAT_ARENA_FERAL_CLAW_v0_18_SOUND_BREAK_PLAYABLE.html",
+      "bytes": 14532912,
+      "sha256": "9a11079c2f465c148b51ac507165585a856b60d90bce98e10ccee09704fb0c43"
+    },
+    {
+      "path": "reference/character/CAT_MARINE_MODEL_AND_SOURCE.zip",
+      "bytes": 488973,
+      "sha256": "6ef98f473901340960e39988116ac0fa0c33c769c2c45dda918454aa136623e3"
+    },
+    {
+      "path": "reference/history/CAT_ARENA_MIGRATION_STEP_02_REFERENCE.zip",
+      "bytes": 68955490,
+      "sha256": "c6dd568549c6944b4b81df27fb86c64dfdb39ce974543898c9ca0442f72695f4"
+    },
+    {
+      "path": "reference/legacy_android/CAT_ARENA_FERAL_CLAW_v0_17_CAT_MARINE.apk",
+      "bytes": 11522130,
+      "sha256": "d1c757884857ef73496dad1830311e7a6dffc553960046782bbd832a6fc1525a"
+    },
+    {
+      "path": "reference/multiplayer/CatArena-FeralClaw-v0.17-Render-Multiplayer.zip",
+      "bytes": 11515269,
+      "sha256": "409556cf06e5e8f2faa64d6a684e431a7ffc360e0e5d4b3efa6a3735ee1aaf8f"
+    },
+    {
+      "path": "reference/multiplayer/package.json",
+      "bytes": 315,
+      "sha256": "c56867c82eece2575ebeaebe619682d73e83bc08b5a3d3be888d00de1fc2ec32"
+    },
+    {
+      "path": "reference/multiplayer/render.yaml",
+      "bytes": 232,
+      "sha256": "a5143e4890aafe0fd2dd5c459f8ebdef749f1d10bbd51de6537921f9f7af4afc"
+    },
+    {
+      "path": "reference/multiplayer/server.js",
+      "bytes": 8788,
+      "sha256": "ca1343efc3bf442bce1d609cb004e4e29d521b912483f02b2d5cb4185c7dd836"
+    },
+    {
+      "path": "reference/multiplayer/tests/relay_smoke_test.js",
+      "bytes": 3060,
+      "sha256": "5f59c5595742fe627c4e375fafddd14c69ff58eb66626d7278088c6f74c502cc"
+    },
+    {
+      "path": "reference/older_source/CAT_ARENA_v0_15_SOURCE.zip",
+      "bytes": 11525114,
+      "sha256": "97bf5c7f2da777c2a976844865545a6caa975ea8b97b78eb07081a6b04488b12"
+    },
+    {
+      "path": "reference/patches/CAT_ARENA_v0_18_MOUSE_SETTINGS_FIX_BUILD_PROJECT.zip",
+      "bytes": 12997,
+      "sha256": "72d6c950fbfe58a3d8e3f4b9716a8d6a39925469c9900f83cb4dad9ef4501afe"
+    },
+    {
+      "path": "tools/baseline/capture.cjs",
+      "bytes": 9953,
+      "sha256": "7350813392ee6d08b53250bcd599f9744bcefe3d0fabafe3bee03ce3648b5f32"
+    },
+    {
+      "path": "tools/baseline/package.json",
+      "bytes": 273,
+      "sha256": "46a045f4e235831ea682d0ec0d43b683836e6bdfd35fcbdbd9caca1bbe654666"
+    },
+    {
+      "path": "tools/baseline/reference_config.json",
+      "bytes": 1339,
+      "sha256": "263a6ae9ea912747913963cd98296ba2d9744fcc7c460154046befc85d9b2855"
+    }
+  ],
+  "note": "Self excluded; original input manifests preserved unchanged."
+}

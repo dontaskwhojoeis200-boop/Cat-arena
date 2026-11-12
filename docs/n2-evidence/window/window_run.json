@@ -1,0 +1,1 @@
+{"device": "llvmpipe (LLVM 20.1.2, 256 bits)", "api": "1.4.318", "colorFormat": "B8G8R8A8_UNORM", "depthFormat": "D32_SFLOAT", "presentMode": "FIFO", "validationLayer": true, "framesSubmitted": 120, "ticks": 773, "validationWarnings": 0, "validationErrors": 0}

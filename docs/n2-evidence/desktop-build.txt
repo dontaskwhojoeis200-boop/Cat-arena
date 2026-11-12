@@ -1,0 +1,4 @@
+[1/4] Building CXX object CMakeFiles/cat_arena_render.dir/src/renderer.cpp.o
+[2/4] Linking CXX static library libcat_arena_render.a
+[3/4] Linking CXX executable cat_arena_render_tests
+[4/4] Linking CXX executable cat_arena

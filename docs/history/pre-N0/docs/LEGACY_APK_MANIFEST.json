@@ -1,0 +1,57 @@
+[
+  {
+    "tag": "manifest",
+    "attrs": {
+      "package": "com.voidarena.helios",
+      "versionCode": 17,
+      "versionName": "0.17"
+    }
+  },
+  {
+    "tag": "uses-sdk",
+    "attrs": {
+      "minSdkVersion": 26,
+      "targetSdkVersion": 36
+    }
+  },
+  {
+    "tag": "uses-permission",
+    "attrs": {
+      "name": "android.permission.INTERNET"
+    }
+  },
+  {
+    "tag": "application",
+    "attrs": {
+      "label": "CAT ARENA",
+      "theme": 16974383,
+      "hardwareAccelerated": 4294967295,
+      "usesCleartextTraffic": 4294967295,
+      "allowBackup": 0
+    }
+  },
+  {
+    "tag": "activity",
+    "attrs": {
+      "name": "com.voidarena.bastion.MainActivity",
+      "exported": 4294967295,
+      "screenOrientation": 6
+    }
+  },
+  {
+    "tag": "intent-filter",
+    "attrs": {}
+  },
+  {
+    "tag": "action",
+    "attrs": {
+      "name": "android.intent.action.MAIN"
+    }
+  },
+  {
+    "tag": "category",
+    "attrs": {
+      "name": "android.intent.category.LAUNCHER"
+    }
+  }
+]

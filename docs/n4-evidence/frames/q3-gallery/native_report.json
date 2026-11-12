@@ -1,0 +1,53 @@
+{
+  "map": "q3-gallery",
+  "device": "llvmpipe (LLVM 20.1.2, 256 bits)",
+  "deviceType": "cpu",
+  "api": "1.4.318",
+  "loaderApi": "1.3.275",
+  "colorFormat": "R8G8B8A8_UNORM",
+  "depthFormat": "D32_SFLOAT",
+  "anisotropy": 4,
+  "validationLayer": true,
+  "pipelines": 8,
+  "vulkan": {
+    "baselineApi": "1.2",
+    "device": "llvmpipe (LLVM 20.1.2, 256 bits)",
+    "deviceType": "cpu",
+    "driver": "llvmpipe",
+    "driverInfo": "Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)",
+    "deviceApi": "1.4.318",
+    "loaderApi": "1.3.275",
+    "instanceApi": "1.4",
+    "negotiatedApi": "1.4",
+    "path": "vulkan-1.4",
+    "features": {
+      "dynamic_rendering": {"selected": "core", "extension": "VK_KHR_dynamic_rendering", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "VkRenderPass + one framebuffer per target image"},
+      "synchronization2": {"selected": "core", "extension": "VK_KHR_synchronization2", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "vkCmdPipelineBarrier + vkQueueSubmit"},
+      "extended_dynamic_state": {"selected": "core", "extension": "VK_EXT_extended_dynamic_state", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "one static pipeline per cull/depth-write/depth-compare combination"},
+      "push_descriptor": {"selected": "core", "extension": "VK_KHR_push_descriptor", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "allocated descriptor set with a dynamic uniform-buffer offset"},
+      "host_image_copy": {"selected": "core", "extension": "VK_EXT_host_image_copy", "extensionAdvertised": true, "coreBit": true, "extensionBit": true, "fallback": "staging buffer + vkCmdCopyBufferToImage"}
+    },
+    "hostImageCopyChecks": {"format": true, "layout": true, "optimalDeviceAccess": true},
+    "deviceExtensionsAdvertised": 161,
+    "enabledExtensions": [],
+    "selection": [
+      "dynamic_rendering: core 1.3 (feature bit reported)",
+      "synchronization2: core 1.3 (feature bit reported)",
+      "extended_dynamic_state: core 1.3 (mandatory, no feature bit)",
+      "push_descriptor: core 1.4 (feature bit reported)",
+      "host_image_copy: core 1.4 (feature bit reported)"
+    ],
+    "objects": {"renderPasses": 0, "framebuffers": 0, "pipelines": 8, "materialPipelines": 4, "descriptorSets": 1, "stagingTextureBytes": 0, "hostCopyTextureBytes": 19357640},
+    "anisotropy": 4, "colorFormat": "R8G8B8A8_UNORM", "depthFormat": "D32_SFLOAT"
+  },
+  "extent": [1280, 720],
+  "fov": 105,
+  "time": 10,
+  "frames": [
+    {"name": "spawn0_z0", "file": "spawn0_z0.png", "pose": [42.5, 46.5, 0, 0.785398, 0.05], "drawCalls": 59, "materialPasses": 57, "visibleClusters": 63, "culledClusters": 16, "meanLuma": 39.57, "clearColorFraction": 0.0000},
+    {"name": "spawn1_z0", "file": "spawn1_z0.png", "pose": [92, 46, 0, 1.885, 0.05], "drawCalls": 58, "materialPasses": 55, "visibleClusters": 64, "culledClusters": 15, "meanLuma": 49.29, "clearColorFraction": 0.0000},
+    {"name": "spawn2_z4_5", "file": "spawn2_z4_5.png", "pose": [70, 75, 4.5, -1.571, 0.05], "drawCalls": 49, "materialPasses": 47, "visibleClusters": 47, "culledClusters": 32, "meanLuma": 38.32, "clearColorFraction": 0.0000}
+  ],
+  "validationWarnings": 0,
+  "validationErrors": 0
+}

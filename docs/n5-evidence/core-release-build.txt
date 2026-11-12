@@ -1,0 +1,41 @@
+ninja: Entering directory `build-core-release'
+[1/40] Building CXX object CMakeFiles/cat_arena_headless.dir/src/headless.cpp.o
+[2/40] Building CXX object CMakeFiles/cat_arena_tests.dir/tests/core_tests.cpp.o
+[3/40] Building CXX object CMakeFiles/cat_arena_core.dir/src/core.cpp.o
+[4/40] Linking CXX static library libcat_arena_core.a
+[5/40] Linking CXX executable cat_arena_headless
+[6/40] Linking CXX executable cat_arena_tests
+[7/40] Building CXX object CMakeFiles/cat_arena_vkcaps_tests.dir/tests/vkcaps_tests.cpp.o
+[8/40] Building CXX object CMakeFiles/cat_arena_asset_check.dir/src/asset_check.cpp.o
+[9/40] Building CXX object CMakeFiles/cat_arena_vkcaps.dir/src/vulkan_caps.cpp.o
+[10/40] Linking CXX static library libcat_arena_vkcaps.a
+[11/40] Linking CXX executable cat_arena_vkcaps_tests
+[12/40] Building CXX object CMakeFiles/cat_arena_assets.dir/src/assets.cpp.o
+[13/40] Building CXX object CMakeFiles/cat_arena_asset_tests.dir/tests/asset_tests.cpp.o
+[14/40] Linking CXX static library libcat_arena_assets.a
+[15/40] Linking CXX executable cat_arena_asset_check
+[16/40] Linking CXX executable cat_arena_asset_tests
+[17/40] Building CXX object CMakeFiles/cat_arena_scene_tests.dir/tests/scene_tests.cpp.o
+[18/40] Building CXX object CMakeFiles/cat_arena_scene.dir/src/scene.cpp.o
+[19/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/physics_world.cpp.o
+[20/40] Building CXX object CMakeFiles/cat_image_codec.dir/src/image_codec.cpp.o
+[21/40] Linking CXX static library libcat_image_codec.a
+[22/40] Linking CXX static library libcat_arena_scene.a
+[23/40] Linking CXX executable cat_arena_scene_tests
+[24/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/player.cpp.o
+[25/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/combat.cpp.o
+[26/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/navigation.cpp.o
+[27/40] Linking CXX static library libcat_arena_physics.a
+[28/40] Building CXX object CMakeFiles/cat_arena_physics_tests.dir/tests/physics_tests.cpp.o
+[29/40] Linking CXX executable cat_arena_physics_tests
+[30/40] Building CXX object CMakeFiles/cat_arena_fx.dir/src/hud.cpp.o
+[31/40] Building CXX object CMakeFiles/cat_arena_fx.dir/src/weapon_fx.cpp.o
+[32/40] Linking CXX static library libcat_arena_fx.a
+[33/40] Building CXX object CMakeFiles/cat_arena_hud_tests.dir/tests/hud_tests.cpp.o
+[34/40] Linking CXX executable cat_arena_hud_tests
+[35/40] Building CXX object CMakeFiles/cat_arena_nav_tests.dir/tests/nav_tests.cpp.o
+[36/40] Linking CXX executable cat_arena_nav_tests
+[37/40] Building CXX object CMakeFiles/cat_arena_fx_tests.dir/tests/fx_tests.cpp.o
+[38/40] Linking CXX executable cat_arena_fx_tests
+[39/40] Building CXX object CMakeFiles/cat_arena_combat_tests.dir/tests/combat_tests.cpp.o
+[40/40] Linking CXX executable cat_arena_combat_tests

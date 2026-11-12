@@ -1,0 +1,1 @@
+PASS navigation q3-gallery: 2535 nodes (L1 102, L2 2223, L3 210) identical to legacy; edges light/standard/heavy 18055/18017/16692 identical; 50 route queries identical (50 routes, 7 between floors, longest chain 65 nodes); regions 4, spawns inside a region 7/7, nav nodes inside a region 2535/2535; 12789 checks

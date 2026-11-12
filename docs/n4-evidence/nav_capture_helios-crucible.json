@@ -1,0 +1,29 @@
+{
+ "tool": "tools/n4/legacy_navigation.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "map": "helios-crucible",
+ "nodes": 5270,
+ "layerCounts": {
+  "L1": 824,
+  "L2": 2683,
+  "L3": 1763
+ },
+ "gridWidth": 119,
+ "edges": {
+  "light": 34812,
+  "standard": 34726,
+  "heavy": 34468
+ },
+ "queries": 50,
+ "routesFound": 49,
+ "routesBetweenFloors": 28,
+ "noStartOrGoal": 1,
+ "longestChain": 91,
+ "mostExpanded": 3261,
+ "fixture": {
+  "file": "helios-crucible_navigation.bin",
+  "bytes": 413844,
+  "sha256": "5bdf3ea5aa4637fe8502524c9fac869bfbf5d891cf8c9206af3202b1d41565c7"
+ }
+}

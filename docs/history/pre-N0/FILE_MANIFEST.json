@@ -1,0 +1,149 @@
+{
+  "created_utc": "2026-11-09T15:19:43.639719+00:00",
+  "project": "Cat Arena: Feral Claw native rewrite",
+  "source": "CAT_ARENA_MIGRATION_STEP_02_REFERENCE.zip",
+  "source_sha256": "c6dd568549c6944b4b81df27fb86c64dfdb39ce974543898c9ca0442f72695f4",
+  "source_original_legacy_sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "files": [
+    {
+      "path": "CLAUDE_MASTER_PROMPT.md",
+      "bytes": 13680,
+      "sha256": "be8517b7047b54176030324c7fa9b56a39ffa312db29e2e77b7b16cc0a3f6cfe"
+    },
+    {
+      "path": "CLAUDE_PHASE_PROMPTS.md",
+      "bytes": 6994,
+      "sha256": "02efe69cd377fabc17360abb134516a1b2af3b74766bf33455d1adcc93988395"
+    },
+    {
+      "path": "README_START_HERE.md",
+      "bytes": 3307,
+      "sha256": "71bb13fd5dddd01bf8da813336a4ac29046b93ab0cffa73482afae914aace6da"
+    },
+    {
+      "path": "docs/ADDITIONAL_SOURCES.json",
+      "bytes": 391,
+      "sha256": "84a0907c6bbb1d36cbb295a2b0791844f7145273642d2ebd4d1fea852b00350c"
+    },
+    {
+      "path": "docs/BASELINE_REPORT.md",
+      "bytes": 10135,
+      "sha256": "8e46a5ad84a5011884432cedd41ab17ffe2e285e6e44951ae107cd47a65fb885"
+    },
+    {
+      "path": "docs/FEATURE_PARITY.md",
+      "bytes": 2760,
+      "sha256": "3619ca3376a4cb62f479156ca48eefda018c4152371761255155c5679ff64c19"
+    },
+    {
+      "path": "docs/LEGACY_APK_MANIFEST.json",
+      "bytes": 991,
+      "sha256": "524329b507f0e7be4543a591226ec980b1678ea2e0adc87693e2780564b2dc78"
+    },
+    {
+      "path": "docs/LEGACY_ARCHITECTURE.md",
+      "bytes": 1558,
+      "sha256": "1ee871c76eb6697664e72e318e92871efdf9f8a45e81320c25e8f4e1b213ec6d"
+    },
+    {
+      "path": "docs/LEGACY_ARCHIVE_INVENTORY.json",
+      "bytes": 10076,
+      "sha256": "c75da41c7e9e1945e1c9fa8819a78f513b96b7b33af9f0e1ac15145b9ebb4744"
+    },
+    {
+      "path": "docs/LEGACY_SOURCE_HASHES.json",
+      "bytes": 1364,
+      "sha256": "d9b387b2f3eab7c197e665cc4a26f985cc3f479e052e92e390a390a944aea3e3"
+    },
+    {
+      "path": "docs/LEGACY_STATIC_CHECKS.json",
+      "bytes": 625,
+      "sha256": "b7c1d841486d0c48aa7846c68897210c075dc8b806079d5929b9f3de094211bb"
+    },
+    {
+      "path": "docs/LEGACY_TEST_MATRIX.md",
+      "bytes": 2837,
+      "sha256": "ef3dbe6348ad3c76af07a342976b0b5e3ced61a964b00d94ecac05d4ca4ff2b7"
+    },
+    {
+      "path": "docs/SCRIPT_INDEX.json",
+      "bytes": 12693,
+      "sha256": "631e6b44925d68471974786565fa8258429946eb938235f9d31242ec07e636f0"
+    },
+    {
+      "path": "docs/SOURCE_AUDIT.md",
+      "bytes": 34517,
+      "sha256": "3710350fac573ad0e06a6424c3f8bf87202fa4aad6a4d4fceb938220e85299a4"
+    },
+    {
+      "path": "legacy/index.html",
+      "bytes": 18320927,
+      "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393"
+    },
+    {
+      "path": "reference/alternate_branches/CAT_ARENA_FERAL_CLAW_v0_18_SOUND_BREAK_PLAYABLE.html",
+      "bytes": 14532912,
+      "sha256": "9a11079c2f465c148b51ac507165585a856b60d90bce98e10ccee09704fb0c43"
+    },
+    {
+      "path": "reference/character/CAT_MARINE_MODEL_AND_SOURCE.zip",
+      "bytes": 488973,
+      "sha256": "6ef98f473901340960e39988116ac0fa0c33c769c2c45dda918454aa136623e3"
+    },
+    {
+      "path": "reference/legacy_android/CAT_ARENA_FERAL_CLAW_v0_17_CAT_MARINE.apk",
+      "bytes": 11522130,
+      "sha256": "d1c757884857ef73496dad1830311e7a6dffc553960046782bbd832a6fc1525a"
+    },
+    {
+      "path": "reference/multiplayer/CatArena-FeralClaw-v0.17-Render-Multiplayer.zip",
+      "bytes": 11515269,
+      "sha256": "409556cf06e5e8f2faa64d6a684e431a7ffc360e0e5d4b3efa6a3735ee1aaf8f"
+    },
+    {
+      "path": "reference/multiplayer/package.json",
+      "bytes": 315,
+      "sha256": "c56867c82eece2575ebeaebe619682d73e83bc08b5a3d3be888d00de1fc2ec32"
+    },
+    {
+      "path": "reference/multiplayer/render.yaml",
+      "bytes": 232,
+      "sha256": "a5143e4890aafe0fd2dd5c459f8ebdef749f1d10bbd51de6537921f9f7af4afc"
+    },
+    {
+      "path": "reference/multiplayer/server.js",
+      "bytes": 8788,
+      "sha256": "ca1343efc3bf442bce1d609cb004e4e29d521b912483f02b2d5cb4185c7dd836"
+    },
+    {
+      "path": "reference/multiplayer/tests/relay_smoke_test.js",
+      "bytes": 3060,
+      "sha256": "5f59c5595742fe627c4e375fafddd14c69ff58eb66626d7278088c6f74c502cc"
+    },
+    {
+      "path": "reference/older_source/CAT_ARENA_v0_15_SOURCE.zip",
+      "bytes": 11525114,
+      "sha256": "97bf5c7f2da777c2a976844865545a6caa975ea8b97b78eb07081a6b04488b12"
+    },
+    {
+      "path": "reference/patches/CAT_ARENA_v0_18_MOUSE_SETTINGS_FIX_BUILD_PROJECT.zip",
+      "bytes": 12997,
+      "sha256": "72d6c950fbfe58a3d8e3f4b9716a8d6a39925469c9900f83cb4dad9ef4501afe"
+    },
+    {
+      "path": "tools/baseline/capture.cjs",
+      "bytes": 9953,
+      "sha256": "7350813392ee6d08b53250bcd599f9744bcefe3d0fabafe3bee03ce3648b5f32"
+    },
+    {
+      "path": "tools/baseline/package.json",
+      "bytes": 273,
+      "sha256": "46a045f4e235831ea682d0ec0d43b683836e6bdfd35fcbdbd9caca1bbe654666"
+    },
+    {
+      "path": "tools/baseline/reference_config.json",
+      "bytes": 1339,
+      "sha256": "263a6ae9ea912747913963cd98296ba2d9744fcc7c460154046befc85d9b2855"
+    }
+  ]
+}

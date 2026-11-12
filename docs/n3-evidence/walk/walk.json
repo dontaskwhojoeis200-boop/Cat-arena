@@ -1,0 +1,20 @@
+{
+  "map": "helios-crucible", "spawn": 0, "ticks": 1339, "tickSeconds": "1/120", "script": "-:30,w:150,w+shift:200,w+shift+jump:3,w+shift:120,w+shift+slide:2,w+shift:150,w+crouch@3:160,d@-2:120,w@6:200,w+jump:4,w:200",
+  "frames": [
+    {"tick": 0, "file": "walk_00000.png", "feet": [81.5, 61.5, 0], "velocity": [0, 0, 0], "yaw": -3.01189, "pitch": 0, "ground": true, "stance": "run", "eyeZ": 1.5, "roll": 0, "fovScale": 1, "colliderHeight": 1.8},
+    {"tick": 120, "file": "walk_00120.png", "feet": [76.9525, 60.7707, 0], "velocity": [0, -1.17894, 0], "yaw": -3.01189, "pitch": 0, "ground": true, "stance": "run", "eyeZ": 1.50522, "roll": 0.00301086, "fovScale": 1, "colliderHeight": 1.8},
+    {"tick": 240, "file": "walk_00240.png", "feet": [69.9658, 58.7143, -2.61368], "velocity": [-11.8364, -1.61623, 0], "yaw": -3.01189, "pitch": 0, "ground": true, "stance": "sprint", "eyeZ": -1.0893, "roll": -0.00549108, "fovScale": 1.06111, "colliderHeight": 1.8},
+    {"tick": 360, "file": "walk_00360.png", "feet": [61.5649, 56.5397, -4], "velocity": [-9.00533, -9.00533, 0], "yaw": -3.01189, "pitch": 0, "ground": true, "stance": "sprint", "eyeZ": -2.45696, "roll": -0.0304287, "fovScale": 1.05434, "colliderHeight": 1.8},
+    {"tick": 480, "file": "walk_00480.png", "feet": [51.3228, 47.3299, -3.90625], "velocity": [-10.31, -9.09671, -7.35], "yaw": -3.01189, "pitch": 0, "ground": false, "stance": "air-momentum", "eyeZ": -2.33981, "roll": -0.00643855, "fovScale": 1.06811, "colliderHeight": 1.8},
+    {"tick": 600, "file": "walk_00600.png", "feet": [44.139, 48.0426, -4], "velocity": [-5.71451, 5.71451, 0], "yaw": -3.01189, "pitch": 0, "ground": true, "stance": "slide", "eyeZ": -2.96124, "roll": 0.0361233, "fovScale": 1.05061, "colliderHeight": 1.506},
+    {"tick": 720, "file": "walk_00720.png", "feet": [40.9503, 55.3662, -4], "velocity": [0, 4.233, 0], "yaw": -2.42689, "pitch": 0, "ground": true, "stance": "slide", "eyeZ": -2.97151, "roll": -0.00937095, "fovScale": 1.05058, "colliderHeight": 1.50615},
+    {"tick": 840, "file": "walk_00840.png", "feet": [42.2872, 53.4649, -4], "velocity": [7.34491, -2.25065, 0], "yaw": -1.72189, "pitch": 0, "ground": true, "stance": "run", "eyeZ": -2.5122, "roll": -0.0172279, "fovScale": 1.00296, "colliderHeight": 1.78327},
+    {"tick": 960, "file": "walk_00960.png", "feet": [47.8515, 49.6727, -4], "velocity": [-1.62761, -7.43571, 0], "yaw": -1.84189, "pitch": 0, "ground": true, "stance": "run", "eyeZ": -2.49906, "roll": -0.00135291, "fovScale": 1.0007, "colliderHeight": 1.8},
+    {"tick": 1080, "file": "walk_01080.png", "feet": [51.382, 43.9177, -4], "velocity": [8.02715, -0.0780602, 0], "yaw": 0.31811, "pitch": 0, "ground": true, "stance": "run", "eyeZ": -2.48638, "roll": 0.00405853, "fovScale": 1.00124, "colliderHeight": 1.8},
+    {"tick": 1200, "file": "walk_01200.png", "feet": [56.0675, 49.376, -2.5375], "velocity": [0.301781, 7.78882, -2.1], "yaw": 1.30811, "pitch": 0, "ground": false, "stance": "air", "eyeZ": -0.999029, "roll": 0.00365572, "fovScale": 1.00065, "colliderHeight": 1.8},
+    {"tick": 1320, "file": "walk_01320.png", "feet": [56.9905, 55.0032, -4], "velocity": [-1.24484, 0.707248, 0], "yaw": 1.30811, "pitch": 0, "ground": true, "stance": "run", "eyeZ": -2.49557, "roll": 0.00056143, "fovScale": 1, "colliderHeight": 1.8},
+    {"tick": 1339, "file": "walk_01339.png", "feet": [56.4932, 55.4808, -4], "velocity": [-4.90456, 4.90456, 0], "yaw": 1.30811, "pitch": 0, "ground": true, "stance": "run", "eyeZ": -2.47251, "roll": -0.0103455, "fovScale": 1, "colliderHeight": 1.8}
+  ],
+  "contacts": {"horizontal": 414, "ceiling": 0, "landings": 2, "steps": 107, "recoveries": 3}, "jumps": 2, "padLaunches": 0, "footsteps": 23,
+  "validationWarnings": 0, "validationErrors": 0
+}

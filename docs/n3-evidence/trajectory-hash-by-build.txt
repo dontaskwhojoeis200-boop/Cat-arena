@@ -1,0 +1,7 @@
+core: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 
+core-release: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 
+clang-release: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 
+desktop-debug: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 
+desktop-release: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 
+asan-desktop: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 
+clang-desktop: bit-exact ticks 21725, worst |error| 1.77636e-15 native state hash f6565a5daff19bc0 

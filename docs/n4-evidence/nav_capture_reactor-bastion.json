@@ -1,0 +1,29 @@
+{
+ "tool": "tools/n4/legacy_navigation.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "map": "reactor-bastion",
+ "nodes": 6182,
+ "layerCounts": {
+  "L1": 920,
+  "L2": 3245,
+  "L3": 2017
+ },
+ "gridWidth": 119,
+ "edges": {
+  "light": 37550,
+  "standard": 37112,
+  "heavy": 33381
+ },
+ "queries": 50,
+ "routesFound": 49,
+ "routesBetweenFloors": 20,
+ "noStartOrGoal": 0,
+ "longestChain": 93,
+ "mostExpanded": 3369,
+ "fixture": {
+  "file": "reactor-bastion_navigation.bin",
+  "bytes": 487228,
+  "sha256": "9f7d1b48f6a984c602b8625ec54598e1cffcda87ee6979e21c4ed506f372a524"
+ }
+}

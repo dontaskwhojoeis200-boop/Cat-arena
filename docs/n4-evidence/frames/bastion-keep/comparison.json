@@ -1,0 +1,141 @@
+{
+  "tool": "tools/n2/compare_frames.py",
+  "note": "Descriptive pixel statistics only; not a perceptual parity verdict.",
+  "frames": [
+    {
+      "name": "spawn0_zm4",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.024,
+        0.034,
+        0.015
+      ],
+      "psnrDb": 57.093,
+      "pixelsWithin8": 0.9998,
+      "pixelsWithin24": 1.0,
+      "meanLegacyRGB": [
+        16.85,
+        24.96,
+        22.61
+      ],
+      "meanNativeRGB": [
+        16.83,
+        24.94,
+        22.61
+      ]
+    },
+    {
+      "name": "spawn1_zm4",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.117,
+        0.08,
+        0.047
+      ],
+      "psnrDb": 49.759,
+      "pixelsWithin8": 0.999,
+      "pixelsWithin24": 0.9996,
+      "meanLegacyRGB": [
+        66.42,
+        37.86,
+        23.85
+      ],
+      "meanNativeRGB": [
+        66.38,
+        37.83,
+        23.84
+      ]
+    },
+    {
+      "name": "spawn2_z0",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.011,
+        0.009,
+        0.007
+      ],
+      "psnrDb": 61.162,
+      "pixelsWithin8": 1.0,
+      "pixelsWithin24": 1.0,
+      "meanLegacyRGB": [
+        31.68,
+        29.18,
+        29.51
+      ],
+      "meanNativeRGB": [
+        31.68,
+        29.17,
+        29.51
+      ]
+    },
+    {
+      "name": "spawn3_z0",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.016,
+        0.011,
+        0.008
+      ],
+      "psnrDb": 60.089,
+      "pixelsWithin8": 1.0,
+      "pixelsWithin24": 1.0,
+      "meanLegacyRGB": [
+        33.64,
+        31.11,
+        31.39
+      ],
+      "meanNativeRGB": [
+        33.64,
+        31.11,
+        31.39
+      ]
+    },
+    {
+      "name": "spawn4_z7",
+      "status": "COMPARED",
+      "size": [
+        1280,
+        720
+      ],
+      "pixels": 921600,
+      "meanAbsError": [
+        0.246,
+        0.134,
+        0.062
+      ],
+      "psnrDb": 44.4,
+      "pixelsWithin8": 0.9965,
+      "pixelsWithin24": 0.9983,
+      "meanLegacyRGB": [
+        83.61,
+        40.98,
+        25.5
+      ],
+      "meanNativeRGB": [
+        83.59,
+        40.96,
+        25.49
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+N3 source integrity check against N2_1_FILE_MANIFEST.json (SHA-256)
+legacy/, reference/, assets/: 593 files, 0 changed, 0 added
+PASS

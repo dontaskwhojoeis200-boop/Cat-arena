@@ -1,0 +1,3 @@
+bastion-keep: frames differing between the automatic path and the Vulkan 1.2 baseline: 0; "validationWarnings": 0,
+reactor-bastion: frames differing between the automatic path and the Vulkan 1.2 baseline: 0; "validationWarnings": 0,
+q3-gallery: frames differing between the automatic path and the Vulkan 1.2 baseline: 0; "validationWarnings": 0,

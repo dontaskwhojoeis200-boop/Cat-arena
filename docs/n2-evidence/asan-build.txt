@@ -1,0 +1,6 @@
+[1/6] Building CXX object CMakeFiles/cat_image_codec.dir/src/image_codec.cpp.o
+[2/6] Linking CXX static library libcat_image_codec.a
+[3/6] Building CXX object CMakeFiles/cat_arena_scene_tests.dir/tests/scene_tests.cpp.o
+[4/6] Building CXX object CMakeFiles/cat_arena_scene.dir/src/scene.cpp.o
+[5/6] Linking CXX static library libcat_arena_scene.a
+[6/6] Linking CXX executable cat_arena_scene_tests

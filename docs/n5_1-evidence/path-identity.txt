@@ -1,0 +1,3 @@
+Automatic Vulkan path (1.4 core features on lavapipe) vs --vk-baseline (Vulkan 1.2, render pass, static pipelines, descriptor sets, staging uploads)
+rocket_at_feet_moving ticks 62, 204, 230 (muzzle-flash light, blast light): 3/3 PNG files byte-identical; validation errors 0
+PASS

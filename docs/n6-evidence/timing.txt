@@ -1,0 +1,3 @@
+build-core-release (GCC, CMAKE_BUILD_TYPE=Release), wall time of whole replays incl. map load and graph build:
+  helios-crucible enemy replay: 1.221 s
+  q3-gallery enemy replay: 0.688 s

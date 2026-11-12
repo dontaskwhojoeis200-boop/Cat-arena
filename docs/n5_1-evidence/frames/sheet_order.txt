@@ -1,0 +1,9 @@
+columns: legacy | native N5 (no dynamic lights, no medkit billboard) | native N5.1
+rows:
+rocket_at_feet_moving_00062
+rocket_at_feet_moving_00204
+rocket_at_feet_moving_00230
+rocket_and_grenade_jump_00044
+rocket_and_grenade_jump_00060
+rocket_and_grenade_jump_00404
+health_pickup_00005

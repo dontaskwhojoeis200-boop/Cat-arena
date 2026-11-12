@@ -1,0 +1,6 @@
+$ deps/glslang-build/StandAlone/glslang -V --target-env vulkan1.1 spec/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.vert -o build-desktop/shaders/triangle.vert.spv
+spec/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.vert
+exit=0
+$ deps/glslang-build/StandAlone/glslang -V --target-env vulkan1.1 spec/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.frag -o build-desktop/shaders/triangle.frag.spv
+spec/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.frag
+exit=0

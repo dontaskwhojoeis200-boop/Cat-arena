@@ -1,0 +1,49 @@
+core:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+core-release:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+clang-release:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+desktop-debug:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+desktop-release:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+asan-desktop:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+clang-desktop:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4

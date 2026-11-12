@@ -1,0 +1,6 @@
+PASS map helios-crucible source links, binary/JSON equality, render ranges, matched lightmap dimensions/hash
+PASS map bastion-keep source links, binary/JSON equality, render ranges, matched lightmap dimensions/hash
+PASS map reactor-bastion source links, binary/JSON equality, render ranges, matched lightmap dimensions/hash
+PASS map q3-gallery source links, binary/JSON equality, render ranges, matched lightmap dimensions/hash
+PASS catalog: 16 weapons, 20 enemy meshes, 48 SFX, kit glTF buffer bounds, 21-joint/7-clip character/hitboxes
+PASS manifest: 577 files; checksums, native containers, references, no stale outputs

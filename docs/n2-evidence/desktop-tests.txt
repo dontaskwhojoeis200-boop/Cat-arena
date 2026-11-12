@@ -1,0 +1,120 @@
+Internal ctest changing into directory: /home/claude/n2/build-desktop
+UpdateCTestConfiguration  from :/home/claude/n2/build-desktop/DartConfiguration.tcl
+Parse Config file:/home/claude/n2/build-desktop/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/claude/n2/build-desktop/DartConfiguration.tcl
+Parse Config file:/home/claude/n2/build-desktop/DartConfiguration.tcl
+Test project /home/claude/n2/build-desktop
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: core_foundation
+
+1: Test command: /home/claude/n2/build-desktop/cat_arena_tests
+1: Working Directory: /home/claude/n2/build-desktop
+1: Test timeout computed to be: 1500
+1: PASS clock: drift, interpolation, negative time, stall, partition invariance
+1: PASS settings: roundtrip and malformed/range/version rejection
+1: PASS math: Z-up right-handed basis and inverse
+1: PASS rng: golden vector, replay and bounded unit samples
+1: PASS input: mapping, repeat, tick edges, short tap and focus loss
+1: PASS ownership: single move cleanup, exception cleanup, release
+1: PASS paths: absolute assets and user directory creation
+1/8 Test #1: core_foundation ..................   Passed    0.00 sec
+test 2
+    Start 2: headless_smoke
+
+2: Test command: /home/claude/n2/build-desktop/cat_arena_headless
+2: Working Directory: /home/claude/n2/build-desktop
+2: Test timeout computed to be: 1500
+2: level="info" subsystem="self-test" message="PASS"
+2/8 Test #2: headless_smoke ...................   Passed    0.00 sec
+test 3
+    Start 3: desktop_headless_smoke
+
+3: Test command: /home/claude/n2/build-desktop/cat_arena "--headless-test"
+3: Working Directory: /home/claude/n2/build-desktop
+3: Test timeout computed to be: 1500
+3: level="info" subsystem="self-test" message="PASS"
+3/8 Test #3: desktop_headless_smoke ...........   Passed    0.00 sec
+test 4
+    Start 4: render_helios_offscreen
+
+4: Test command: /home/claude/n2/build-desktop/cat_arena_render_tests "/home/claude/n2/build-desktop/shaders" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1"
+4: Working Directory: /home/claude/n2/build-desktop
+4: Test timeout computed to be: 1500
+4: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 loader=1.3.275 negotiated=1.3.275 anisotropy=4.000000 validation=on target=offscreen"
+4: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+4: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines"
+4: world atlas: runtime capture world-atlas-runtime.png
+4: device=llvmpipe (LLVM 20.1.2, 256 bits) (cpu) api=1.4.318 validation=on
+4: PASS preview frame: mean luma 41.0538, clear-colour pixels 1, draws 71
+4: PASS determinism: repeated frame is byte-identical
+4: PASS feature lightmap: disabling changes 40876 pixels
+4: PASS feature fog: disabling changes 17002 pixels
+4: PASS feature posterize: disabling changes 56009 pixels
+4: PASS feature materials: disabling changes 10388 pixels
+4: PASS feature world: disabling changes 40782 pixels
+4: PASS feature sky: disabling changes 6267 pixels
+4: PASS winding: floor seen from above has an up normal (128,128,255)
+4: INFO material animation: t=10 vs t=12.5 differ in 5602 pixels
+4: PASS validation: 0 errors, 0 warnings (layer active)
+4/8 Test #4: render_helios_offscreen ..........   Passed    5.33 sec
+test 5
+    Start 5: asset_format
+
+5: Test command: /home/claude/n2/build-desktop/cat_arena_asset_tests
+5: Working Directory: /home/claude/n2/build-desktop
+5: Test timeout computed to be: 1500
+5: PASS data: roundtrip, every truncation, checksum, version, trailing bytes, tag, allocation budget, finite values, depth
+5: PASS mesh: roundtrip, every truncation, count overflow, invalid index, nonfinite vertex
+5: PASS paths/schema: traversal, absolute paths, Windows paths, unsupported schema
+5/8 Test #5: asset_format .....................   Passed    0.00 sec
+test 6
+    Start 6: baked_maps
+
+6: Test command: /home/claude/n2/build-desktop/cat_arena_asset_check "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1"
+6: Working Directory: /home/claude/n2/build-desktop
+6: Test timeout computed to be: 1500
+6: PASS helios-crucible slabs=167 walls=2479 ramps=8 spawns=28 kits=420 lightmap=matched
+6: PASS bastion-keep slabs=156 walls=2652 ramps=10 spawns=12 kits=339 lightmap=matched
+6: PASS reactor-bastion slabs=343 walls=3789 ramps=20 spawns=12 kits=0 lightmap=matched
+6: PASS q3-gallery slabs=988 walls=3083 ramps=931 spawns=7 kits=0 lightmap=matched
+6/8 Test #6: baked_maps .......................   Passed    4.66 sec
+test 7
+    Start 7: scene_units
+
+7: Test command: /home/claude/n2/build-desktop/cat_arena_scene_tests
+7: Working Directory: /home/claude/n2/build-desktop
+7: Test timeout computed to be: 1500
+7: PASS waves: tables, period, noise golden values
+7: PASS tcMods: scroll fract, composition order, turb split, rotation centre
+7: PASS camera: legacy basis, Vulkan depth/clip mapping, FOV, inView
+7: PASS images: atlas layer extraction/flip, row flip, mips, decode rejection
+7: PASS materials: resolve, collapse, fog modes, sprites, validation
+7: PASS vertex light: walk grid, mapCell bounds, lightVertexColor golden values
+7/8 Test #7: scene_units ......................   Passed    0.02 sec
+test 8
+    Start 8: helios_scene
+
+8: Test command: /home/claude/n2/build-desktop/cat_arena_scene_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1"
+8: Working Directory: /home/claude/n2/build-desktop
+8: Test timeout computed to be: 1500
+8: PASS waves: tables, period, noise golden values
+8: PASS tcMods: scroll fract, composition order, turb split, rotation centre
+8: PASS camera: legacy basis, Vulkan depth/clip mapping, FOV, inView
+8: PASS images: atlas layer extraction/flip, row flip, mips, decode rejection
+8: PASS materials: resolve, collapse, fog modes, sprites, validation
+8: PASS vertex light: walk grid, mapCell bounds, lightVertexColor golden values
+8: PASS helios: 7308 world / 161014 material / 1142 sky triangles, 404 clusters, 34 materials, 14x256 + 19x512 textures, vertex light 0.6241..1 on 13520 vertices
+8/8 Test #8: helios_scene .....................   Passed    4.26 sec
+
+100% tests passed, 0 tests failed out of 8
+
+Label Time Summary:
+gpu    =   5.33 sec*proc (1 test)
+
+Total Test time (real) =  14.29 sec

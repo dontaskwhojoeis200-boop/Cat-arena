@@ -1,0 +1,15 @@
+PASS random_0_z0: 1500 ticks, bit-exact 1495, max |error| 2.77556e-17 (camForwardZ @ tick 1387), contacts h/c/l/s/r 484/0/8/0/0
+PASS random_1_z4.5: 1500 ticks, bit-exact 1496, max |error| 5.55112e-17 (camForwardZ @ tick 1462), contacts h/c/l/s/r 753/0/5/0/0
+PASS random_2_z0: 1500 ticks, bit-exact 1492, max |error| 8.88178e-16 (vy @ tick 728), contacts h/c/l/s/r 581/0/9/0/0
+PASS random_3_z4.5: 1500 ticks, bit-exact 1492, max |error| 5.55112e-17 (camForwardZ @ tick 708), contacts h/c/l/s/r 257/0/9/0/0
+PASS ramp_0_trench-stairs: 900 ticks, bit-exact 898, max |error| 6.93889e-18 (weaponPitch @ tick 565), contacts h/c/l/s/r 134/0/1/207/0
+PASS ramp_1_pool-steps: 900 ticks, bit-exact 897, max |error| 5.55112e-17 (slopeAngle @ tick 26), contacts h/c/l/s/r 0/0/1/47/0
+PASS ramp_2_mezz-stairs: 900 ticks, bit-exact 898, max |error| 1.04083e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 27/0/1/568/0
+PASS pad_pad-court: 700 ticks, bit-exact 699, max |error| 1.38778e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 1/0/1/0/0
+PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 107/1/2/0/0
+PASS slide_crouch: 800 ticks, bit-exact 799, max |error| 8.67362e-19 (weaponPitch @ tick 565), contacts h/c/l/s/r 567/0/0/72/0
+PASS air_strafe_bunnyhop: 900 ticks, bit-exact 898, max |error| 5.20417e-18 (weaponYaw @ tick 565), contacts h/c/l/s/r 584/2/9/0/0
+PASS crouch_walk: 500 ticks, bit-exact 499, max |error| 2.77556e-17 (camForwardZ @ tick 479), contacts h/c/l/s/r 61/0/1/34/0
+PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+PASS legacy trajectories q3-gallery: 14 scenarios, 12720 ticks (106 s), bit-exact ticks 12683, worst |error| 8.88178e-16, tolerance 1e-09; contacts horizontal 3556, ceiling 5, landings 49, steps 928, recoveries 0; native state hash 553f46979da8da4

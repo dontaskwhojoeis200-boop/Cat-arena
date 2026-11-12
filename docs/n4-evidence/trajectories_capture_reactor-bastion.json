@@ -1,0 +1,527 @@
+{
+ "tool": "tools/n3/legacy_trajectories.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "map": "reactor-bastion",
+ "tickSeconds": "1/120",
+ "keys": [
+  "KeyW",
+  "KeyS",
+  "KeyA",
+  "KeyD",
+  "Space",
+  "ControlLeft",
+  "ShiftLeft",
+  "KeyC"
+ ],
+ "record": [
+  "x",
+  "y",
+  "z",
+  "vx",
+  "vy",
+  "vz",
+  "ground",
+  "crouchOffset",
+  "yaw",
+  "pitch",
+  "slideTime",
+  "slideCooldown",
+  "slideBuffer",
+  "jumpBuffer",
+  "coyoteTime",
+  "slopeAngle",
+  "fovScale",
+  "padCooldown",
+  "camZ",
+  "camForwardZ",
+  "camRoll",
+  "camUpZ",
+  "bobCycle",
+  "stepChange",
+  "landChange",
+  "weaponPitch",
+  "weaponYaw",
+  "weaponRoll",
+  "weaponDrop",
+  "colliderHeight"
+ ],
+ "fixture": {
+  "file": "reactor-bastion_trajectories.bin",
+  "bytes": 3914770,
+  "sha256": "d8f2dcd39606059e56e98795d68393c88d5d72e478b3c58200f4f166ca9c90b7"
+ },
+ "sprintMode": "hold",
+ "runtimeStateChanges": [
+  "#start click handler + ENTER THE ARENA button (as tools/n2)",
+  "fovPanelOpen=true between scenarios (legacy simulation hold), false while a scenario runs synchronously",
+  "bots/enemyShots/rockets/grenades emptied",
+  "player pose/velocity, movement timers, moveFovScale, worldPadCooldown, q3Reset(), now=100 and STAGE4_CONTACTS reset per scenario",
+  "KeyboardEvents dispatched to window for key transitions; aim(dx,dy) called for mouse motion",
+  "player part of update(dt) executed by the tool in legacy order; the remainder of update() not executed"
+ ],
+ "world": {
+  "spawns": 12,
+  "pads": [
+   {
+    "id": "pad-0",
+    "x": 67.36924351210835,
+    "y": 62.17376095070486,
+    "z": -4,
+    "r": 1
+   },
+   {
+    "id": "pad-2",
+    "x": 54.82623904929514,
+    "y": 67.36924351210835,
+    "z": -4,
+    "r": 1
+   },
+   {
+    "id": "pad-4",
+    "x": 49.630756487891645,
+    "y": 54.82623904929515,
+    "z": -4,
+    "r": 1
+   },
+   {
+    "id": "pad-6",
+    "x": 62.17376095070486,
+    "y": 49.630756487891645,
+    "z": -4,
+    "r": 1
+   }
+  ],
+  "ramps": 20,
+  "lowCeilingSpots": 402,
+  "lowestClearance": 2.1
+ },
+ "scenarios": [
+  {
+   "name": "random_0_z0",
+   "ticks": 1500,
+   "start": {
+    "x": 52.29999999999999,
+    "y": 26.9,
+    "z": 0,
+    "a": 0.7345944593392266,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 722,
+    "ceiling": 0,
+    "landings": 8,
+    "steps": 26,
+    "iterations": 1510,
+    "recoveries": 0
+   },
+   "footsteps": 15,
+   "viewLandings": 8,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "random_1_z5",
+   "ticks": 1500,
+   "start": {
+    "x": 72.92497833620556,
+    "y": 29.93288604006348,
+    "z": 5,
+    "a": 1.4016951007935192,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 565,
+    "ceiling": 0,
+    "landings": 7,
+    "steps": 0,
+    "iterations": 1610,
+    "recoveries": 6
+   },
+   "footsteps": 35,
+   "viewLandings": 15,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "random_2_z0",
+   "ticks": 1500,
+   "start": {
+    "x": 27.3,
+    "y": 55.900000000000006,
+    "z": 0,
+    "a": 0.4636476090008061,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 876,
+    "ceiling": 0,
+    "landings": 9,
+    "steps": 0,
+    "iterations": 1521,
+    "recoveries": 0
+   },
+   "footsteps": 50,
+   "viewLandings": 24,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "random_3_z5",
+   "ticks": 1500,
+   "start": {
+    "x": 44.07502166379443,
+    "y": 87.06711395993652,
+    "z": 5,
+    "a": -1.739897552796274,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 518,
+    "ceiling": 0,
+    "landings": 7,
+    "steps": 0,
+    "iterations": 1597,
+    "recoveries": 0
+   },
+   "footsteps": 62,
+   "viewLandings": 31,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "ramp_0_tunnel-stairs-0",
+   "ticks": 900,
+   "start": {
+    "x": 96,
+    "y": 64.6,
+    "z": -4,
+    "a": 3.141592653589793,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 350,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 358,
+    "iterations": 900,
+    "recoveries": 0
+   },
+   "footsteps": 82,
+   "viewLandings": 32,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "ramp_1_tunnel-stairs-2",
+   "ticks": 900,
+   "start": {
+    "x": 52.4,
+    "y": 96,
+    "z": -4,
+    "a": -1.5707963267948968,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 350,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 358,
+    "iterations": 900,
+    "recoveries": 0
+   },
+   "footsteps": 102,
+   "viewLandings": 33,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "ramp_2_tunnel-stairs-4",
+   "ticks": 900,
+   "start": {
+    "x": 21,
+    "y": 52.400000000000006,
+    "z": -4,
+    "a": -1.2246467991473532e-16,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 350,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 358,
+    "iterations": 900,
+    "recoveries": 0
+   },
+   "footsteps": 122,
+   "viewLandings": 34,
+   "padLaunchesTotal": 0
+  },
+  {
+   "name": "pad_pad-0",
+   "ticks": 700,
+   "start": {
+    "x": 69.76924351210836,
+    "y": 62.17376095070486,
+    "z": -4,
+    "a": 3.141592653589793,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 99,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 173,
+    "iterations": 788,
+    "recoveries": 0
+   },
+   "footsteps": 130,
+   "viewLandings": 35,
+   "padLaunchesTotal": 1
+  },
+  {
+   "name": "pad_pad-2",
+   "ticks": 700,
+   "start": {
+    "x": 57.22623904929514,
+    "y": 67.36924351210835,
+    "z": -4,
+    "a": 3.141592653589793,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 50,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 0,
+    "iterations": 756,
+    "recoveries": 0
+   },
+   "footsteps": 138,
+   "viewLandings": 36,
+   "padLaunchesTotal": 2
+  },
+  {
+   "name": "pad_pad-4",
+   "ticks": 700,
+   "start": {
+    "x": 51.84806736591873,
+    "y": 55.74467928697136,
+    "z": -4,
+    "a": -2.7488935718910685,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 227,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 0,
+    "iterations": 756,
+    "recoveries": 0
+   },
+   "footsteps": 146,
+   "viewLandings": 37,
+   "padLaunchesTotal": 3
+  },
+  {
+   "name": "pad_pad-6",
+   "ticks": 700,
+   "start": {
+    "x": 61.255320713028645,
+    "y": 51.84806736591873,
+    "z": -4,
+    "a": -1.1780972450961722,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 227,
+    "ceiling": 0,
+    "landings": 1,
+    "steps": 0,
+    "iterations": 756,
+    "recoveries": 0
+   },
+   "footsteps": 154,
+   "viewLandings": 38,
+   "padLaunchesTotal": 4
+  },
+  {
+   "name": "ceiling_impulse_0",
+   "ticks": 360,
+   "start": {
+    "x": 39.75,
+    "y": 30.75,
+    "z": 2.4,
+    "a": 0,
+    "pitch": 0,
+    "now": 100,
+    "vz": 10.5,
+    "ground": 0
+   },
+   "contacts": {
+    "horizontal": 0,
+    "ceiling": 2,
+    "landings": 2,
+    "steps": 0,
+    "iterations": 360,
+    "recoveries": 0
+   },
+   "footsteps": 154,
+   "viewLandings": 40,
+   "padLaunchesTotal": 4
+  },
+  {
+   "name": "ceiling_impulse_1",
+   "ticks": 360,
+   "start": {
+    "x": 58.25,
+    "y": 25.75,
+    "z": -4,
+    "a": 1.3,
+    "pitch": 0,
+    "now": 100,
+    "vz": 10.5,
+    "ground": 0
+   },
+   "contacts": {
+    "horizontal": 113,
+    "ceiling": 1,
+    "landings": 2,
+    "steps": 0,
+    "iterations": 360,
+    "recoveries": 0
+   },
+   "footsteps": 158,
+   "viewLandings": 42,
+   "padLaunchesTotal": 4
+  },
+  {
+   "name": "slide_crouch",
+   "ticks": 800,
+   "start": {
+    "x": 52.29999999999999,
+    "y": 26.9,
+    "z": 0,
+    "a": 0.7345944593392266,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 116,
+    "ceiling": 0,
+    "landings": 0,
+    "steps": 0,
+    "iterations": 844,
+    "recoveries": 6
+   },
+   "footsteps": 166,
+   "viewLandings": 42,
+   "padLaunchesTotal": 4
+  },
+  {
+   "name": "air_strafe_bunnyhop",
+   "ticks": 900,
+   "start": {
+    "x": 90.1,
+    "y": 52.3,
+    "z": 0,
+    "a": 2.305390786134123,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 441,
+    "ceiling": 0,
+    "landings": 7,
+    "steps": 0,
+    "iterations": 1108,
+    "recoveries": 0
+   },
+   "footsteps": 169,
+   "viewLandings": 49,
+   "padLaunchesTotal": 4
+  },
+  {
+   "name": "crouch_walk",
+   "ticks": 500,
+   "start": {
+    "x": 90.1,
+    "y": 52.3,
+    "z": 0,
+    "a": 2.305390786134123,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 18,
+    "ceiling": 0,
+    "landings": 0,
+    "steps": 59,
+    "iterations": 500,
+    "recoveries": 0
+   },
+   "footsteps": 170,
+   "viewLandings": 49,
+   "padLaunchesTotal": 4
+  },
+  {
+   "name": "idle",
+   "ticks": 400,
+   "start": {
+    "x": 87.06711395993652,
+    "y": 72.92497833620557,
+    "z": 5,
+    "a": 2.972491427588416,
+    "pitch": 0,
+    "now": 100,
+    "vz": 0,
+    "ground": 1
+   },
+   "contacts": {
+    "horizontal": 0,
+    "ceiling": 0,
+    "landings": 0,
+    "steps": 0,
+    "iterations": 400,
+    "recoveries": 0
+   },
+   "footsteps": 170,
+   "viewLandings": 49,
+   "padLaunchesTotal": 4
+  }
+ ],
+ "pageErrors": []
+}

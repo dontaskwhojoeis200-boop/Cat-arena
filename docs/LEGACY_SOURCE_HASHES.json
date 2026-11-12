@@ -1,0 +1,42 @@
+[
+  {
+    "path": "legacy_web/index.html",
+    "bytes": 18320927,
+    "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393"
+  },
+  {
+    "path": "reference/CAT_ARENA_FERAL_CLAW_v0_17_CAT_MARINE.apk",
+    "bytes": 11522130,
+    "sha256": "d1c757884857ef73496dad1830311e7a6dffc553960046782bbd832a6fc1525a"
+  },
+  {
+    "path": "reference/CAT_ARENA_FERAL_CLAW_v0_18_SOUND_BREAK_PLAYABLE.html",
+    "bytes": 14532912,
+    "sha256": "9a11079c2f465c148b51ac507165585a856b60d90bce98e10ccee09704fb0c43"
+  },
+  {
+    "path": "reference/CAT_ARENA_v0_15_SOURCE.zip",
+    "bytes": 11525114,
+    "sha256": "97bf5c7f2da777c2a976844865545a6caa975ea8b97b78eb07081a6b04488b12"
+  },
+  {
+    "path": "reference/CAT_MARINE_MODEL_AND_SOURCE.zip",
+    "bytes": 488973,
+    "sha256": "6ef98f473901340960e39988116ac0fa0c33c769c2c45dda918454aa136623e3"
+  },
+  {
+    "path": "reference/VOID_ARENA_MODULAR_SOURCE_AND_GAME_v0_1.zip",
+    "bytes": 6804277,
+    "sha256": "b6e2aedb93ec4d6e11f74622524e88e5c6043bcfb7d24eb39a8dd94299545995"
+  },
+  {
+    "path": "reference/VOID_ARENA_v3_24_SERVER_BROWSER_COMPLETE.zip",
+    "bytes": 6814538,
+    "sha256": "7d4e8b02c1687ba04a535b9a91fc26b14598941499e44f87c6a0546e64499a71"
+  },
+  {
+    "path": "reference/server.js",
+    "bytes": 7047,
+    "sha256": "b783b2eb0c82bac25095796005831eefbf22a4037691144b3ed38985b3e58c4b"
+  }
+]

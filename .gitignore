@@ -1,0 +1,8 @@
+/build*/
+/native/build/
+/deps/
+*.user
+*.log
+
+node_modules/
+__pycache__/

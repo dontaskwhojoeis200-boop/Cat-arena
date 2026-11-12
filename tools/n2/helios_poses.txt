@@ -1,0 +1,10 @@
+# name x y feetZ yaw pitch  (legacy player convention: yaw = player.a, positive pitch looks down)
+# preview: legacy menu preview shot (legacy/index.html 16569); others: real Helios spawn points
+# (compiled.spawns) with their authored yaw, covering floors -4 (vault), 0 (L2) and 7 (L3).
+preview   78       42       0  2.45   0.15
+bay0_l2   81.5     61.5     0 -3.012  0.08
+bay4_l2   35.5     55.5     0  0.13   0.05
+bay0_l3   86.5     54.5     7  3.0    0.12
+bay6_l3   54.5     30.5     7  1.429  0.25
+core_l3   75.4706  35.8726  7  2.214  0.45
+vault_l1  69.1066  64.8640 -4 -2.601  0.05

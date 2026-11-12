@@ -1,0 +1,15 @@
+build-core: 100% tests passed, 0 tests failed out of 1
+build-core-release: 100% tests passed, 0 tests failed out of 1
+build-clang-release: 100% tests passed, 0 tests failed out of 1
+build-desktop: 100% tests passed, 0 tests failed out of 1
+build-desktop-release: 100% tests passed, 0 tests failed out of 1
+build-asan: 100% tests passed, 0 tests failed out of 1
+build-clang: 100% tests passed, 0 tests failed out of 1
+PASS clock: drift, interpolation, negative time, stall, partition invariance
+PASS settings: roundtrip and malformed/range/version rejection
+PASS math: Z-up right-handed basis and inverse
+PASS rng: golden vector, replay and bounded unit samples
+PASS input: mapping, repeat, tick edges, short tap and focus loss
+PASS ownership: single move cleanup, exception cleanup, release
+PASS paths: absolute assets and user directory creation
+PASS utf8 paths: non-ASCII folder and file names round trip, write, read and list

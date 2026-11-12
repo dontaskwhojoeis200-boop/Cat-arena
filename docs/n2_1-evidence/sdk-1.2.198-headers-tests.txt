@@ -1,0 +1,35 @@
+Internal ctest changing into directory: /home/claude/n2/build-oldsdk
+Test project /home/claude/n2/build-oldsdk
+      Start  1: core_foundation
+ 1/13 Test  #1: core_foundation ..................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/13 Test  #2: headless_smoke ...................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/13 Test  #3: vulkan_path_selection ............   Passed    0.00 sec
+      Start  4: desktop_headless_smoke
+ 4/13 Test  #4: desktop_headless_smoke ...........   Passed    0.00 sec
+      Start  5: render_helios_offscreen
+ 5/13 Test  #5: render_helios_offscreen ..........   Passed    4.84 sec
+      Start  6: render_path_matrix
+ 6/13 Test  #6: render_path_matrix ...............   Passed   13.19 sec
+      Start  7: vulkan_link_imports
+ 7/13 Test  #7: vulkan_link_imports ..............   Passed    0.04 sec
+      Start  8: vk_sim_layer_selftest
+ 8/13 Test  #8: vk_sim_layer_selftest ............   Passed    0.04 sec
+      Start  9: render_path_simulated_devices
+ 9/13 Test  #9: render_path_simulated_devices ....   Passed   10.12 sec
+      Start 10: asset_format
+10/13 Test #10: asset_format .....................   Passed    0.00 sec
+      Start 11: baked_maps
+11/13 Test #11: baked_maps .......................   Passed    4.47 sec
+      Start 12: scene_units
+12/13 Test #12: scene_units ......................   Passed    0.02 sec
+      Start 13: helios_scene
+13/13 Test #13: helios_scene .....................   Passed    4.86 sec
+
+100% tests passed, 0 tests failed out of 13
+
+Label Time Summary:
+gpu    =  28.19 sec*proc (4 tests)
+
+Total Test time (real) =  37.60 sec

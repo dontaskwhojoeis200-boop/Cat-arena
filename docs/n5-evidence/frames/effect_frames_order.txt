@@ -1,0 +1,10 @@
+rocket_at_feet_moving_00062
+rocket_at_feet_moving_00070
+rocket_at_feet_moving_00204
+rocket_and_grenade_jump_00044
+rocket_and_grenade_jump_00060
+rocket_and_grenade_jump_00404
+grenade_arcs_00060
+fire_while_moving_00060
+fire_while_moving_00200
+health_pickup_00005

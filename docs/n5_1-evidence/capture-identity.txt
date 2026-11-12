@@ -1,0 +1,7 @@
+Recorder self-check for N5.1 (tools/n5/legacy_combat.cjs, fixture version 2), 2026-11-10
+helios_combat.bin from the new run == N5 fixture (cmp): sha256 cc2cc6e3d43610991399c7a5dca8bd05f65f0056ef96278e64f35804dde58168
+  identical
+helios_weapon_fx.bin: version 2, 43 values per tick, sha256 5bde5f880ecc1ab0b6f703ec66dd28a6cec7509f5ec0aba91ee9f541cd26c461
+  the first 40 values of every tick are byte-identical to the N5 (version 1) fixture (sha256 1747171248e8b7883d68e3d84b6a696645c74b03e19ce0edcfd95d8534aebe6b)
+  uploaded lights 8603 on 6722 ticks; most lights requested in one frame: 4; uploaded count == min(requested, 16) on every tick
+PASS

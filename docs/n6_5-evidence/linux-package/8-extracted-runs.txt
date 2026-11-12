@@ -1,0 +1,23 @@
+== offscreen fight from the extracted folder (working directory: an empty folder)
+level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 619 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n6 in 114 ms"
+level="info" subsystem="enemies" message="Wave 3: 17 enemies, health / speed / damage x 1.102500, 11 spawned at once"
+exit 0
+== window input:--frames 100 --input-selftest --weapons 4,2
+level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 614 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=36.528679m jumps=1 slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=804"
+level="info" subsystem="app" message="Clean shutdown; ticks=804 frames=127 validationWarnings=0 validationErrors=0"
+exit 0
+== window controls:--controls-selftest
+level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 618 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="app" message="Controls self-test PASS: pausedByEsc=yes resumedByClick=yes f11Fullscreen=no (not granted by this display server) f11Windowed=yes f5Restart=yes quitByEsc=yes"
+level="info" subsystem="app" message="Clean shutdown; ticks=390 frames=0 validationWarnings=0 validationErrors=0"
+exit 0
+== window mapcycle:--frames 240 --map-cycle-test --resize-test --seed 9
+level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 597 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="scene" message="Loaded bastion-keep from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 513 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="app" message="Resize test: requested 960x540"
+level="info" subsystem="scene" message="Loaded reactor-bastion from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 111 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="scene" message="Loaded q3-gallery from /home/claude/n2/n65/extract/CAT_ARENA_FERAL_CLAW_N6_LINUX/assets/n1 in 77 ms (CPU preparation, not a GPU benchmark)"
+level="info" subsystem="app" message="Clean shutdown; ticks=1222 frames=240 validationWarnings=0 validationErrors=0"
+exit 0

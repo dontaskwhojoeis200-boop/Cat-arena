@@ -1,0 +1,4 @@
+$ python3 spec/CAT_ARENA_NATIVE_REWRITE/native/tools/inventory_sources.py --verify spec/CAT_ARENA_NATIVE_REWRITE/docs/N0_SOURCE_INVENTORY.json
+PASS: 12 reference files; 55 scripts
+
+exit=0

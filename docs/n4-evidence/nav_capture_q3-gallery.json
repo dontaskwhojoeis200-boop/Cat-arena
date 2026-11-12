@@ -1,0 +1,29 @@
+{
+ "tool": "tools/n4/legacy_navigation.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "map": "q3-gallery",
+ "nodes": 2535,
+ "layerCounts": {
+  "L1": 102,
+  "L2": 2223,
+  "L3": 210
+ },
+ "gridWidth": 119,
+ "edges": {
+  "light": 18055,
+  "standard": 18017,
+  "heavy": 16692
+ },
+ "queries": 50,
+ "routesFound": 50,
+ "routesBetweenFloors": 7,
+ "noStartOrGoal": 0,
+ "longestChain": 65,
+ "mostExpanded": 1113,
+ "fixture": {
+  "file": "q3-gallery_navigation.bin",
+  "bytes": 208772,
+  "sha256": "ea6ae2c0aea34579ade7e3378b9e008e0d0fbe3897b6de0b5179035b074d27ea"
+ }
+}

@@ -1,0 +1,16 @@
+PASS random_0_z-4: 1500 ticks, bit-exact 1238, max |error| 1.77636e-15 (vx @ tick 1086), contacts h/c/l/s/r 965/0/8/0/0
+PASS random_1_z0: 1500 ticks, bit-exact 1496, max |error| 1.11022e-16 (camUpZ @ tick 1276), contacts h/c/l/s/r 317/0/6/0/0
+PASS random_2_z7: 1500 ticks, bit-exact 1496, max |error| 5.55112e-17 (camForwardZ @ tick 972), contacts h/c/l/s/r 438/0/8/0/0
+PASS random_3_z-4: 1500 ticks, bit-exact 1488, max |error| 8.88178e-16 (vy @ tick 1292), contacts h/c/l/s/r 774/0/7/0/0
+PASS ramp_0_pit-ramp-sw: 900 ticks, bit-exact 898, max |error| 1.04083e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 21/0/1/360/0
+PASS ramp_1_pit-ramp-se: 900 ticks, bit-exact 898, max |error| 1.04083e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 46/0/1/358/0
+PASS ramp_2_stairs-185: 900 ticks, bit-exact 898, max |error| 1.04083e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 2/0/1/621/0
+PASS pad_pad-east: 700 ticks, bit-exact 699, max |error| 6.93889e-18 (weaponPitch @ tick 565), contacts h/c/l/s/r 77/0/1/7/3
+PASS pad_pad-south: 700 ticks, bit-exact 699, max |error| 8.67362e-19 (weaponPitch @ tick 565), contacts h/c/l/s/r 281/0/1/0/0
+PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 29/1/2/0/0
+PASS slide_crouch: 800 ticks, bit-exact 798, max |error| 6.93889e-18 (weaponRoll @ tick 565), contacts h/c/l/s/r 219/0/0/0/0
+PASS air_strafe_bunnyhop: 900 ticks, bit-exact 898, max |error| 6.93889e-18 (weaponPitch @ tick 565), contacts h/c/l/s/r 356/0/7/0/1
+PASS crouch_walk: 500 ticks, bit-exact 499, max |error| 2.77556e-17 (camForwardZ @ tick 474), contacts h/c/l/s/r 75/0/0/0/0
+PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+PASS legacy trajectories bastion-keep: 15 scenarios, 13420 ticks (111.833 s), bit-exact ticks 13125, worst |error| 1.77636e-15, tolerance 1e-09; contacts horizontal 3600, ceiling 3, landings 45, steps 1346, recoveries 4; native state hash f71da46e4d22f37f

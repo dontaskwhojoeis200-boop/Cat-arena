@@ -1,0 +1,5 @@
+PASS native output lineup/idle.png vs reference: PSNR 51.4194 dB (minimum 45)
+PASS native output lineup/windup.png vs reference: PSNR 48.4768 dB (minimum 45)
+PASS native output lineup/strike_final5.png vs reference: PSNR 52.7705 dB (minimum 45)
+PASS native output lineup/bodies.png vs reference: PSNR 52.2796 dB (minimum 45)
+PASS native output lineup/marines.png vs reference: PSNR 50.8687 dB (minimum 45)

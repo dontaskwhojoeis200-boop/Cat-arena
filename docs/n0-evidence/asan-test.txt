@@ -1,0 +1,51 @@
+$ /home/agent/.local/bin/ctest --test-dir build-asan --output-on-failure -V
+UpdateCTestConfiguration  from :/workspace/scratch/764f703bb066/build-asan/DartConfiguration.tcl
+Parse Config file:/workspace/scratch/764f703bb066/build-asan/DartConfiguration.tcl
+Test project /workspace/scratch/764f703bb066/build-asan
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: core_foundation
+
+1: Test command: /workspace/scratch/764f703bb066/build-asan/cat_arena_tests
+1: Working Directory: /workspace/scratch/764f703bb066/build-asan
+1: Test timeout computed to be: 1500
+1: ==126==LeakSanitizer has encountered a fatal error.
+1: ==126==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+1: ==126==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+1/2 Test #1: core_foundation ..................***Failed    0.02 sec
+==126==LeakSanitizer has encountered a fatal error.
+==126==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==126==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+test 2
+    Start 2: headless_smoke
+
+2: Test command: /workspace/scratch/764f703bb066/build-asan/cat_arena_headless
+2: Working Directory: /workspace/scratch/764f703bb066/build-asan
+2: Test timeout computed to be: 1500
+2: level="info" subsystem="self-test" message="PASS"
+2: ==128==LeakSanitizer has encountered a fatal error.
+2: ==128==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+2: ==128==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+2/2 Test #2: headless_smoke ...................***Failed    0.01 sec
+level="info" subsystem="self-test" message="PASS"
+==128==LeakSanitizer has encountered a fatal error.
+==128==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==128==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.03 sec
+
+The following tests FAILED:
+	  1 - core_foundation (Failed)
+	  2 - headless_smoke (Failed)
+Errors while running CTest
+
+exit=8

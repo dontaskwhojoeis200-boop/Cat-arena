@@ -1,0 +1,438 @@
+{
+ "tool": "tools/n2/compare_frames.py",
+ "note": "Descriptive pixel statistics only; not a perceptual parity verdict.",
+ "frames": [
+  {
+   "name": "view_00",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.14,
+    0.098,
+    0.085
+   ],
+   "psnrDb": 47.41,
+   "pixelsWithin8": 0.9982,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.5,
+    34.91,
+    27.62
+   ],
+   "meanNativeRGB": [
+    53.48,
+    34.88,
+    27.6
+   ]
+  },
+  {
+   "name": "view_01",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.133,
+    0.089,
+    0.076
+   ],
+   "psnrDb": 45.519,
+   "pixelsWithin8": 0.9981,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.37,
+    33.79,
+    26.22
+   ],
+   "meanNativeRGB": [
+    53.35,
+    33.76,
+    26.19
+   ]
+  },
+  {
+   "name": "view_02",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.141,
+    0.098,
+    0.086
+   ],
+   "psnrDb": 46.383,
+   "pixelsWithin8": 0.9981,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    54.36,
+    35.19,
+    27.71
+   ],
+   "meanNativeRGB": [
+    54.34,
+    35.16,
+    27.69
+   ]
+  },
+  {
+   "name": "view_03",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.141,
+    0.097,
+    0.084
+   ],
+   "psnrDb": 46.101,
+   "pixelsWithin8": 0.998,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    52.29,
+    34.09,
+    27.99
+   ],
+   "meanNativeRGB": [
+    52.27,
+    34.06,
+    27.96
+   ]
+  },
+  {
+   "name": "view_04",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.15,
+    0.105,
+    0.09
+   ],
+   "psnrDb": 45.42,
+   "pixelsWithin8": 0.998,
+   "pixelsWithin24": 0.9997,
+   "meanLegacyRGB": [
+    55.94,
+    34.2,
+    26.42
+   ],
+   "meanNativeRGB": [
+    55.92,
+    34.17,
+    26.39
+   ]
+  },
+  {
+   "name": "view_05",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.141,
+    0.099,
+    0.087
+   ],
+   "psnrDb": 47.277,
+   "pixelsWithin8": 0.998,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.68,
+    34.66,
+    27.04
+   ],
+   "meanNativeRGB": [
+    53.66,
+    34.63,
+    27.02
+   ]
+  },
+  {
+   "name": "view_06",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.134,
+    0.095,
+    0.084
+   ],
+   "psnrDb": 47.091,
+   "pixelsWithin8": 0.9979,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    52.65,
+    34.19,
+    27.09
+   ],
+   "meanNativeRGB": [
+    52.63,
+    34.17,
+    27.07
+   ]
+  },
+  {
+   "name": "view_07",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.13,
+    0.087,
+    0.075
+   ],
+   "psnrDb": 47.035,
+   "pixelsWithin8": 0.9981,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    52.77,
+    33.92,
+    26.79
+   ],
+   "meanNativeRGB": [
+    52.75,
+    33.89,
+    26.77
+   ]
+  },
+  {
+   "name": "view_08",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.142,
+    0.099,
+    0.086
+   ],
+   "psnrDb": 45.447,
+   "pixelsWithin8": 0.998,
+   "pixelsWithin24": 0.9997,
+   "meanLegacyRGB": [
+    52.62,
+    34.33,
+    27.73
+   ],
+   "meanNativeRGB": [
+    52.59,
+    34.3,
+    27.71
+   ]
+  },
+  {
+   "name": "view_09",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.136,
+    0.093,
+    0.082
+   ],
+   "psnrDb": 47.365,
+   "pixelsWithin8": 0.998,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.59,
+    34.84,
+    27.91
+   ],
+   "meanNativeRGB": [
+    53.57,
+    34.82,
+    27.89
+   ]
+  },
+  {
+   "name": "view_10",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.137,
+    0.097,
+    0.085
+   ],
+   "psnrDb": 47.367,
+   "pixelsWithin8": 0.9982,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    54.31,
+    33.64,
+    29.02
+   ],
+   "meanNativeRGB": [
+    54.29,
+    33.61,
+    29.0
+   ]
+  },
+  {
+   "name": "view_11",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.135,
+    0.096,
+    0.082
+   ],
+   "psnrDb": 47.47,
+   "pixelsWithin8": 0.9983,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.42,
+    34.9,
+    27.37
+   ],
+   "meanNativeRGB": [
+    53.41,
+    34.87,
+    27.36
+   ]
+  },
+  {
+   "name": "view_12",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.143,
+    0.1,
+    0.087
+   ],
+   "psnrDb": 45.38,
+   "pixelsWithin8": 0.998,
+   "pixelsWithin24": 0.9997,
+   "meanLegacyRGB": [
+    52.06,
+    34.03,
+    27.56
+   ],
+   "meanNativeRGB": [
+    52.04,
+    34.0,
+    27.54
+   ]
+  },
+  {
+   "name": "view_13",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.138,
+    0.094,
+    0.081
+   ],
+   "psnrDb": 47.361,
+   "pixelsWithin8": 0.9982,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.99,
+    34.05,
+    26.73
+   ],
+   "meanNativeRGB": [
+    53.97,
+    34.03,
+    26.71
+   ]
+  },
+  {
+   "name": "view_14",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.132,
+    0.09,
+    0.077
+   ],
+   "psnrDb": 46.706,
+   "pixelsWithin8": 0.9981,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.46,
+    34.76,
+    26.36
+   ],
+   "meanNativeRGB": [
+    53.44,
+    34.73,
+    26.34
+   ]
+  },
+  {
+   "name": "view_15",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.146,
+    0.1,
+    0.086
+   ],
+   "psnrDb": 46.12,
+   "pixelsWithin8": 0.9978,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    53.59,
+    34.25,
+    27.07
+   ],
+   "meanNativeRGB": [
+    53.56,
+    34.21,
+    27.05
+   ]
+  }
+ ]
+}

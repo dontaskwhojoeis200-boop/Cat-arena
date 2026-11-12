@@ -1,0 +1,71 @@
+Test project /home/claude/n2/build-core
+      Start  1: core_foundation
+ 1/33 Test  #1: core_foundation ...............................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/33 Test  #2: headless_smoke ................................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/33 Test  #3: vulkan_path_selection .........................   Passed    0.00 sec
+      Start  4: asset_format
+ 4/33 Test  #4: asset_format ..................................   Passed    0.00 sec
+      Start  5: baked_maps
+ 5/33 Test  #5: baked_maps ....................................   Passed    5.00 sec
+      Start  6: scene_units
+ 6/33 Test  #6: scene_units ...................................   Passed    0.02 sec
+      Start  7: helios_scene
+ 7/33 Test  #7: helios_scene ..................................   Passed    4.50 sec
+      Start  8: physics_units
+ 8/33 Test  #8: physics_units .................................   Passed    0.04 sec
+      Start  9: physics_legacy_trajectories
+ 9/33 Test  #9: physics_legacy_trajectories ...................   Passed    0.63 sec
+      Start 10: physics_all_maps
+10/33 Test #10: physics_all_maps ..............................   Passed    1.13 sec
+      Start 11: physics_legacy_trajectories_bastion-keep
+11/33 Test #11: physics_legacy_trajectories_bastion-keep ......   Passed    0.41 sec
+      Start 12: physics_legacy_trajectories_reactor-bastion
+12/33 Test #12: physics_legacy_trajectories_reactor-bastion ...   Passed    0.52 sec
+      Start 13: physics_legacy_trajectories_q3-gallery
+13/33 Test #13: physics_legacy_trajectories_q3-gallery ........   Passed    0.79 sec
+      Start 14: enemy_units
+14/33 Test #14: enemy_units ...................................   Passed    1.50 sec
+      Start 15: enemy_legacy_tapes_helios-crucible
+15/33 Test #15: enemy_legacy_tapes_helios-crucible ............   Passed    7.10 sec
+      Start 16: enemy_legacy_tapes_bastion-keep
+16/33 Test #16: enemy_legacy_tapes_bastion-keep ...............   Passed    4.15 sec
+      Start 17: enemy_legacy_tapes_reactor-bastion
+17/33 Test #17: enemy_legacy_tapes_reactor-bastion ............   Passed    5.53 sec
+      Start 18: enemy_legacy_tapes_q3-gallery
+18/33 Test #18: enemy_legacy_tapes_q3-gallery .................   Passed    5.00 sec
+      Start 19: weapon_fx_units
+19/33 Test #19: weapon_fx_units ...............................   Passed    0.01 sec
+      Start 20: hud_units
+20/33 Test #20: hud_units .....................................   Passed    0.01 sec
+      Start 21: weapon_fx_legacy_tapes
+21/33 Test #21: weapon_fx_legacy_tapes ........................   Passed    2.03 sec
+      Start 22: enemy_fx_units
+22/33 Test #22: enemy_fx_units ................................   Passed    0.83 sec
+      Start 23: enemy_fx_legacy_animation_helios-crucible
+23/33 Test #23: enemy_fx_legacy_animation_helios-crucible .....   Passed    7.85 sec
+      Start 24: enemy_fx_legacy_animation_bastion-keep
+24/33 Test #24: enemy_fx_legacy_animation_bastion-keep ........   Passed    4.74 sec
+      Start 25: enemy_fx_legacy_animation_reactor-bastion
+25/33 Test #25: enemy_fx_legacy_animation_reactor-bastion .....   Passed    5.71 sec
+      Start 26: enemy_fx_legacy_animation_q3-gallery
+26/33 Test #26: enemy_fx_legacy_animation_q3-gallery ..........   Passed    4.51 sec
+      Start 27: combat_units
+27/33 Test #27: combat_units ..................................   Passed    0.11 sec
+      Start 28: combat_legacy_tapes
+28/33 Test #28: combat_legacy_tapes ...........................   Passed    0.69 sec
+      Start 29: navigation_helios-crucible
+29/33 Test #29: navigation_helios-crucible ....................   Passed    1.85 sec
+      Start 30: navigation_bastion-keep
+30/33 Test #30: navigation_bastion-keep .......................   Passed    1.59 sec
+      Start 31: navigation_reactor-bastion
+31/33 Test #31: navigation_reactor-bastion ....................   Passed    2.48 sec
+      Start 32: navigation_q3-gallery
+32/33 Test #32: navigation_q3-gallery .........................   Passed    1.07 sec
+      Start 33: windows_vulkan_import_library
+33/33 Test #33: windows_vulkan_import_library .................   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 33
+
+Total Test time (real) =  69.88 sec

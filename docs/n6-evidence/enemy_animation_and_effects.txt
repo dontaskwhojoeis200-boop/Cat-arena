@@ -1,0 +1,28 @@
+PASS stand_still: 3000 ticks, bit-exact 2949, max |error| 1.13687e-13 (weightedPoseSum.headYaw @ tick 536), animation draws 82
+PASS fight_spin: 3600 ticks, bit-exact 3598, max |error| 1.13687e-13 (rightHandY @ tick 820), animation draws 90
+PASS sprint_circuit: 3600 ticks, bit-exact 3599, max |error| 7.10543e-15 (leftHandZ @ tick 148), animation draws 42
+PASS wave_progression: 4200 ticks, bit-exact 4086, max |error| 2.84217e-14 (rightHandX @ tick 2301), animation draws 162
+PASS flyers_wave5: 2400 ticks, bit-exact 2392, max |error| 7.10543e-15 (leftHandZ @ tick 1311), animation draws 91
+PASS death_and_restart: 2400 ticks, bit-exact 2400, max |error| 0 (poseSum.hipL @ tick 0), animation draws 76
+PASS legacy enemy animation helios-crucible: 6 scenarios, 19200 ticks, 168213 poses evaluated, bit-exact ticks 19024, worst |error| 1.13687e-13, tolerance 2e-05; most bodies 1, animation draws 543; native pose hash 2238650d4ad02f3
+PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 47
+PASS sprint_circuit: 1800 ticks, bit-exact 1799, max |error| 7.10543e-15 (leftHandZ @ tick 1011), animation draws 22
+PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 63
+PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+PASS legacy enemy animation bastion-keep: 6 scenarios, 9600 ticks, 92841 poses evaluated, bit-exact ticks 9599, worst |error| 7.10543e-15, tolerance 2e-05; most bodies 0, animation draws 312; native pose hash 825a88a56fb0c75f
+PASS stand_still: 1500 ticks, bit-exact 1495, max |error| 1.13687e-13 (rightHandY @ tick 420), animation draws 42
+PASS fight_spin: 1800 ticks, bit-exact 1799, max |error| 3.55271e-15 (rightHandZ @ tick 1116), animation draws 54
+PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+PASS wave_progression: 2100 ticks, bit-exact 2097, max |error| 1.38778e-17 (weightedPoseSum.headYaw @ tick 103), animation draws 82
+PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 78
+PASS death_and_restart: 1200 ticks, bit-exact 1199, max |error| 1.42109e-14 (rightHandZ @ tick 200), animation draws 56
+PASS legacy enemy animation reactor-bastion: 6 scenarios, 9600 ticks, 91349 poses evaluated, bit-exact ticks 9590, worst |error| 1.13687e-13, tolerance 2e-05; most bodies 3, animation draws 354; native pose hash 52490338e7a23b18
+PASS stand_still: 1500 ticks, bit-exact 1499, max |error| 7.10543e-15 (rightHandZ @ tick 50), animation draws 42
+PASS fight_spin: 1800 ticks, bit-exact 1798, max |error| 5.68434e-14 (leftHandY @ tick 1186), animation draws 53
+PASS sprint_circuit: 1800 ticks, bit-exact 1799, max |error| 1.13687e-13 (leftHandX @ tick 969), animation draws 42
+PASS wave_progression: 2100 ticks, bit-exact 2098, max |error| 7.10543e-15 (rightHandZ @ tick 936), animation draws 83
+PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 68
+PASS death_and_restart: 1200 ticks, bit-exact 1198, max |error| 1.13687e-13 (leftHandX @ tick 597), animation draws 56
+PASS legacy enemy animation q3-gallery: 6 scenarios, 9600 ticks, 89587 poses evaluated, bit-exact ticks 9592, worst |error| 1.13687e-13, tolerance 2e-05; most bodies 1, animation draws 344; native pose hash 44656bcca2d1c26c

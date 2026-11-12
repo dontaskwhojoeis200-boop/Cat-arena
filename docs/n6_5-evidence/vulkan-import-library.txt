@@ -1,0 +1,2 @@
+61: PASS vulkan-1.lib: 151 commands imported from vulkan-1.dll (151 in the .def)
+1/1 Test #61: windows_vulkan_import_library ....   Passed    0.04 sec

@@ -1,0 +1,41 @@
+Internal ctest changing into directory: /home/claude/n2/build-desktop-release
+Test project /home/claude/n2/build-desktop-release
+      Start  1: core_foundation
+ 1/16 Test  #1: core_foundation ..................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/16 Test  #2: headless_smoke ...................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/16 Test  #3: vulkan_path_selection ............   Passed    0.00 sec
+      Start  4: desktop_headless_smoke
+ 4/16 Test  #4: desktop_headless_smoke ...........   Passed    0.00 sec
+      Start  5: render_helios_offscreen
+ 5/16 Test  #5: render_helios_offscreen ..........   Passed    1.15 sec
+      Start  6: render_path_matrix
+ 6/16 Test  #6: render_path_matrix ...............   Passed    5.94 sec
+      Start  7: vulkan_link_imports
+ 7/16 Test  #7: vulkan_link_imports ..............   Passed    0.04 sec
+      Start  8: vk_sim_layer_selftest
+ 8/16 Test  #8: vk_sim_layer_selftest ............   Passed    0.04 sec
+      Start  9: render_path_simulated_devices
+ 9/16 Test  #9: render_path_simulated_devices ....   Passed    3.87 sec
+      Start 10: asset_format
+10/16 Test #10: asset_format .....................   Passed    0.00 sec
+      Start 11: baked_maps
+11/16 Test #11: baked_maps .......................   Passed    0.61 sec
+      Start 12: scene_units
+12/16 Test #12: scene_units ......................   Passed    0.00 sec
+      Start 13: helios_scene
+13/16 Test #13: helios_scene .....................   Passed    0.63 sec
+      Start 14: physics_units
+14/16 Test #14: physics_units ....................   Passed    0.01 sec
+      Start 15: physics_legacy_trajectories
+15/16 Test #15: physics_legacy_trajectories ......   Passed    0.07 sec
+      Start 16: physics_all_maps
+16/16 Test #16: physics_all_maps .................   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 16
+
+Label Time Summary:
+gpu    =  11.00 sec*proc (4 tests)
+
+Total Test time (real) =  12.53 sec

@@ -1,0 +1,105 @@
+core:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 
+core-release:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 
+clang-release:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 
+desktop-debug:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 
+desktop-release:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 
+asan:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 
+clang-desktop:
+  combat   bit-exact ticks 18220 native state hash 36759acbc0ae3d1 
+  effects  bit-exact ticks 18186 native state hash 80d2f9e2ef4d703c 
+  helios-crucible  native state hash f6565a5daff19bc0
+  bastion-keep  native state hash f71da46e4d22f37f
+  reactor-bastion  native state hash 9d617f7c21a07c15
+  q3-gallery  native state hash 553f46979da8da4
+  enemies helios-crucible  bit-exact ticks 18273 native state hash 5be022788cd6f56a 
+  animation helios-crucible  bit-exact ticks 19024 native pose hash 2238650d4ad02f3 
+  enemies bastion-keep  bit-exact ticks 9596 native state hash ce6027fb28a41cf6 
+  animation bastion-keep  bit-exact ticks 9599 native pose hash 825a88a56fb0c75f 
+  enemies reactor-bastion  bit-exact ticks 9580 native state hash 15d63aa2a6a031db 
+  animation reactor-bastion  bit-exact ticks 9590 native pose hash 52490338e7a23b18 
+  enemies q3-gallery  bit-exact ticks 9590 native state hash 76ee2de74b8a5a60 
+  animation q3-gallery  bit-exact ticks 9592 native pose hash 44656bcca2d1c26c 

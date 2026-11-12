@@ -1,0 +1,56 @@
+UpdateCTestConfiguration  from :/workspace/scratch/764f703bb066/build-release/DartConfiguration.tcl
+Parse Config file:/workspace/scratch/764f703bb066/build-release/DartConfiguration.tcl
+Test project /workspace/scratch/764f703bb066/build-release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: core_foundation
+
+1: Test command: /workspace/scratch/764f703bb066/build-release/cat_arena_tests
+1: Working Directory: /workspace/scratch/764f703bb066/build-release
+1: Test timeout computed to be: 1500
+1: PASS clock: drift, interpolation, negative time, stall, partition invariance
+1: PASS settings: roundtrip and malformed/range/version rejection
+1: PASS math: Z-up right-handed basis and inverse
+1: PASS rng: golden vector, replay and bounded unit samples
+1: PASS input: mapping, repeat, tick edges, short tap and focus loss
+1: PASS ownership: single move cleanup, exception cleanup, release
+1: PASS paths: absolute assets and user directory creation
+1/4 Test #1: core_foundation ..................   Passed    0.00 sec
+test 2
+    Start 2: headless_smoke
+
+2: Test command: /workspace/scratch/764f703bb066/build-release/cat_arena_headless
+2: Working Directory: /workspace/scratch/764f703bb066/build-release
+2: Test timeout computed to be: 1500
+2: level="info" subsystem="self-test" message="PASS"
+2/4 Test #2: headless_smoke ...................   Passed    0.00 sec
+test 3
+    Start 3: asset_format
+
+3: Test command: /workspace/scratch/764f703bb066/build-release/cat_arena_asset_tests
+3: Working Directory: /workspace/scratch/764f703bb066/build-release
+3: Test timeout computed to be: 1500
+3: PASS data: roundtrip, every truncation, checksum, version, trailing bytes, tag, allocation budget, finite values, depth
+3: PASS mesh: roundtrip, every truncation, count overflow, invalid index, nonfinite vertex
+3: PASS paths/schema: traversal, absolute paths, Windows paths, unsupported schema
+3/4 Test #3: asset_format .....................   Passed    0.00 sec
+test 4
+    Start 4: baked_maps
+
+4: Test command: /workspace/scratch/764f703bb066/build-release/cat_arena_asset_check "/workspace/scratch/764f703bb066/spec/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1"
+4: Working Directory: /workspace/scratch/764f703bb066/build-release
+4: Test timeout computed to be: 1500
+4: PASS helios-crucible slabs=167 walls=2479 ramps=8 spawns=28 kits=420 lightmap=matched
+4: PASS bastion-keep slabs=156 walls=2652 ramps=10 spawns=12 kits=339 lightmap=matched
+4: PASS reactor-bastion slabs=343 walls=3789 ramps=20 spawns=12 kits=0 lightmap=matched
+4: PASS q3-gallery slabs=988 walls=3083 ramps=931 spawns=7 kits=0 lightmap=matched
+4/4 Test #4: baked_maps .......................   Passed    0.69 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =   0.70 sec

@@ -1,0 +1,13 @@
+world atlas: runtime capture world-atlas-runtime.png
+device=llvmpipe (LLVM 20.1.2, 256 bits) (cpu) api=1.4.318 validation=on
+PASS preview frame: mean luma 41.0538, clear-colour pixels 1, draws 71
+PASS determinism: repeated frame is byte-identical
+PASS feature lightmap: disabling changes 40876 pixels
+PASS feature fog: disabling changes 17002 pixels
+PASS feature posterize: disabling changes 56009 pixels
+PASS feature materials: disabling changes 10388 pixels
+PASS feature world: disabling changes 40782 pixels
+PASS feature sky: disabling changes 6267 pixels
+PASS winding: floor seen from above has an up normal (128,128,255)
+INFO material animation: t=10 vs t=12.5 differ in 5602 pixels
+PASS validation: 0 errors, 0 warnings (layer active)

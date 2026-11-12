@@ -1,0 +1,654 @@
+{
+ "tool": "tools/n2/compare_frames.py",
+ "note": "Descriptive pixel statistics only; not a perceptual parity verdict.",
+ "frames": [
+  {
+   "name": "fire_while_moving_00014",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    2.586,
+    3.138,
+    2.888
+   ],
+   "psnrDb": 20.89,
+   "pixelsWithin8": 0.9659,
+   "pixelsWithin24": 0.9853,
+   "meanLegacyRGB": [
+    58.69,
+    40.23,
+    31.27
+   ],
+   "meanNativeRGB": [
+    60.5,
+    42.39,
+    33.43
+   ]
+  },
+  {
+   "name": "fire_while_moving_00060",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    5.244,
+    6.142,
+    5.84
+   ],
+   "psnrDb": 17.523,
+   "pixelsWithin8": 0.9419,
+   "pixelsWithin24": 0.9698,
+   "meanLegacyRGB": [
+    59.95,
+    40.89,
+    31.54
+   ],
+   "meanNativeRGB": [
+    64.21,
+    45.88,
+    36.6
+   ]
+  },
+  {
+   "name": "fire_while_moving_00200",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    9.915,
+    21.305,
+    7.753
+   ],
+   "psnrDb": 17.623,
+   "pixelsWithin8": 0.746,
+   "pixelsWithin24": 0.7729,
+   "meanLegacyRGB": [
+    60.22,
+    39.04,
+    28.77
+   ],
+   "meanNativeRGB": [
+    61.71,
+    57.18,
+    34.95
+   ]
+  },
+  {
+   "name": "fire_while_moving_00430",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.778,
+    1.298,
+    0.979
+   ],
+   "psnrDb": 39.053,
+   "pixelsWithin8": 0.9206,
+   "pixelsWithin24": 0.9996,
+   "meanLegacyRGB": [
+    49.67,
+    38.63,
+    30.91
+   ],
+   "meanNativeRGB": [
+    48.93,
+    37.37,
+    29.97
+   ]
+  },
+  {
+   "name": "grenade_arcs_00024",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    1.39,
+    2.184,
+    1.491
+   ],
+   "psnrDb": 25.892,
+   "pixelsWithin8": 0.9781,
+   "pixelsWithin24": 0.9821,
+   "meanLegacyRGB": [
+    69.49,
+    43.05,
+    32.71
+   ],
+   "meanNativeRGB": [
+    70.41,
+    45.01,
+    34.04
+   ]
+  },
+  {
+   "name": "grenade_arcs_00060",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    1.377,
+    2.177,
+    1.479
+   ],
+   "psnrDb": 25.878,
+   "pixelsWithin8": 0.9783,
+   "pixelsWithin24": 0.982,
+   "meanLegacyRGB": [
+    60.2,
+    35.8,
+    27.69
+   ],
+   "meanNativeRGB": [
+    61.13,
+    37.77,
+    29.02
+   ]
+  },
+  {
+   "name": "grenade_arcs_00100",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    1.373,
+    2.175,
+    1.48
+   ],
+   "psnrDb": 25.89,
+   "pixelsWithin8": 0.978,
+   "pixelsWithin24": 0.9822,
+   "meanLegacyRGB": [
+    59.69,
+    35.34,
+    27.28
+   ],
+   "meanNativeRGB": [
+    60.61,
+    37.29,
+    28.6
+   ]
+  },
+  {
+   "name": "health_pickup_00005",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.471,
+    0.372,
+    0.347
+   ],
+   "psnrDb": 32.492,
+   "pixelsWithin8": 0.9941,
+   "pixelsWithin24": 0.9959,
+   "meanLegacyRGB": [
+    33.01,
+    29.85,
+    28.02
+   ],
+   "meanNativeRGB": [
+    32.65,
+    29.64,
+    27.86
+   ]
+  },
+  {
+   "name": "health_pickup_00060",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.042,
+    0.041,
+    0.039
+   ],
+   "psnrDb": 59.206,
+   "pixelsWithin8": 0.9998,
+   "pixelsWithin24": 1.0,
+   "meanLegacyRGB": [
+    28.85,
+    26.22,
+    25.28
+   ],
+   "meanNativeRGB": [
+    28.85,
+    26.22,
+    25.28
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00042",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    26.733,
+    17.364,
+    8.418
+   ],
+   "psnrDb": 19.981,
+   "pixelsWithin8": 0.2369,
+   "pixelsWithin24": 0.534,
+   "meanLegacyRGB": [
+    107.65,
+    76.65,
+    54.47
+   ],
+   "meanNativeRGB": [
+    80.97,
+    59.34,
+    46.1
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00044",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    20.662,
+    13.229,
+    6.404
+   ],
+   "psnrDb": 22.147,
+   "pixelsWithin8": 0.2993,
+   "pixelsWithin24": 0.6578,
+   "meanLegacyRGB": [
+    96.48,
+    67.75,
+    48.47
+   ],
+   "meanNativeRGB": [
+    75.87,
+    54.58,
+    42.12
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00048",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    26.512,
+    16.875,
+    8.128
+   ],
+   "psnrDb": 20.741,
+   "pixelsWithin8": 0.1921,
+   "pixelsWithin24": 0.5221,
+   "meanLegacyRGB": [
+    96.19,
+    67.37,
+    47.64
+   ],
+   "meanNativeRGB": [
+    69.74,
+    50.55,
+    39.57
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00060",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    12.276,
+    7.841,
+    3.81
+   ],
+   "psnrDb": 27.169,
+   "pixelsWithin8": 0.3373,
+   "pixelsWithin24": 0.887,
+   "meanLegacyRGB": [
+    70.71,
+    48.68,
+    35.5
+   ],
+   "meanNativeRGB": [
+    58.49,
+    40.89,
+    31.74
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00090",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    2.173,
+    1.398,
+    0.752
+   ],
+   "psnrDb": 38.567,
+   "pixelsWithin8": 0.9112,
+   "pixelsWithin24": 0.9999,
+   "meanLegacyRGB": [
+    57.75,
+    40.57,
+    31.55
+   ],
+   "meanNativeRGB": [
+    55.63,
+    39.21,
+    30.84
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00120",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.049,
+    0.047,
+    0.044
+   ],
+   "psnrDb": 53.993,
+   "pixelsWithin8": 0.9997,
+   "pixelsWithin24": 1.0,
+   "meanLegacyRGB": [
+    53.67,
+    38.18,
+    30.01
+   ],
+   "meanNativeRGB": [
+    53.67,
+    38.18,
+    30.0
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00404",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    15.198,
+    9.036,
+    4.783
+   ],
+   "psnrDb": 24.519,
+   "pixelsWithin8": 0.4313,
+   "pixelsWithin24": 0.7508,
+   "meanLegacyRGB": [
+    69.4,
+    52.34,
+    41.49
+   ],
+   "meanNativeRGB": [
+    54.25,
+    43.35,
+    36.75
+   ]
+  },
+  {
+   "name": "rocket_and_grenade_jump_00430",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    8.451,
+    5.422,
+    2.586
+   ],
+   "psnrDb": 29.961,
+   "pixelsWithin8": 0.4687,
+   "pixelsWithin24": 0.9703,
+   "meanLegacyRGB": [
+    57.2,
+    43.39,
+    34.29
+   ],
+   "meanNativeRGB": [
+    48.79,
+    38.0,
+    31.74
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00059",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    0.134,
+    0.089,
+    0.073
+   ],
+   "psnrDb": 48.908,
+   "pixelsWithin8": 0.996,
+   "pixelsWithin24": 0.9998,
+   "meanLegacyRGB": [
+    48.47,
+    34.0,
+    27.09
+   ],
+   "meanNativeRGB": [
+    48.44,
+    33.97,
+    27.07
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00062",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    9.438,
+    6.195,
+    3.146
+   ],
+   "psnrDb": 24.713,
+   "pixelsWithin8": 0.7023,
+   "pixelsWithin24": 0.8536,
+   "meanLegacyRGB": [
+    77.86,
+    55.74,
+    42.0
+   ],
+   "meanNativeRGB": [
+    68.56,
+    49.62,
+    38.92
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00070",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    7.401,
+    4.547,
+    2.258
+   ],
+   "psnrDb": 27.811,
+   "pixelsWithin8": 0.7015,
+   "pixelsWithin24": 0.8796,
+   "meanLegacyRGB": [
+    58.16,
+    40.01,
+    30.58
+   ],
+   "meanNativeRGB": [
+    50.9,
+    35.54,
+    28.39
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00090",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    6.046,
+    3.846,
+    1.996
+   ],
+   "psnrDb": 29.541,
+   "pixelsWithin8": 0.7246,
+   "pixelsWithin24": 0.9226,
+   "meanLegacyRGB": [
+    58.78,
+    41.29,
+    32.03
+   ],
+   "meanNativeRGB": [
+    52.85,
+    37.52,
+    30.1
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00110",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    2.181,
+    1.453,
+    0.728
+   ],
+   "psnrDb": 36.526,
+   "pixelsWithin8": 0.873,
+   "pixelsWithin24": 0.9989,
+   "meanLegacyRGB": [
+    53.71,
+    37.21,
+    29.32
+   ],
+   "meanNativeRGB": [
+    51.66,
+    35.84,
+    28.65
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00204",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    14.366,
+    8.136,
+    3.772
+   ],
+   "psnrDb": 23.932,
+   "pixelsWithin8": 0.479,
+   "pixelsWithin24": 0.7881,
+   "meanLegacyRGB": [
+    83.27,
+    55.84,
+    40.73
+   ],
+   "meanNativeRGB": [
+    69.0,
+    47.77,
+    37.01
+   ]
+  },
+  {
+   "name": "rocket_at_feet_moving_00230",
+   "status": "COMPARED",
+   "size": [
+    1280,
+    720
+   ],
+   "pixels": 921600,
+   "meanAbsError": [
+    12.882,
+    5.44,
+    2.181
+   ],
+   "psnrDb": 25.605,
+   "pixelsWithin8": 0.5549,
+   "pixelsWithin24": 0.7473,
+   "meanLegacyRGB": [
+    66.57,
+    39.46,
+    28.17
+   ],
+   "meanNativeRGB": [
+    53.77,
+    34.09,
+    26.06
+   ]
+  }
+ ]
+}

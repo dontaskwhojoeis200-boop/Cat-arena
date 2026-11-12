@@ -1,0 +1,1 @@
+{"name":"cat-arena-reference-capture","version":"0.2.0","private":true,"description":"Step 02 reference-only browser test tooling; not a game dependency","scripts":{"capture":"node capture.cjs","check":"node --check capture.cjs"},"devDependencies":{"playwright":"1.62.1"}}

@@ -1,0 +1,20 @@
+Internal ctest changing into directory: /home/claude/n2/build-core
+Test project /home/claude/n2/build-core
+    Start 1: core_foundation
+1/7 Test #1: core_foundation ..................   Passed    0.00 sec
+    Start 2: headless_smoke
+2/7 Test #2: headless_smoke ...................   Passed    0.00 sec
+    Start 3: vulkan_path_selection
+3/7 Test #3: vulkan_path_selection ............   Passed    0.00 sec
+    Start 4: asset_format
+4/7 Test #4: asset_format .....................   Passed    0.00 sec
+    Start 5: baked_maps
+5/7 Test #5: baked_maps .......................   Passed    5.02 sec
+    Start 6: scene_units
+6/7 Test #6: scene_units ......................   Passed    0.02 sec
+    Start 7: helios_scene
+7/7 Test #7: helios_scene .....................   Passed    4.79 sec
+
+100% tests passed, 0 tests failed out of 7
+
+Total Test time (real) =   9.85 sec

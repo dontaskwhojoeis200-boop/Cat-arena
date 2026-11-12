@@ -1,0 +1,49 @@
+Test project /home/claude/n2/build-core-release
+      Start  1: core_foundation
+ 1/22 Test  #1: core_foundation ...............................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/22 Test  #2: headless_smoke ................................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/22 Test  #3: vulkan_path_selection .........................   Passed    0.00 sec
+      Start  4: asset_format
+ 4/22 Test  #4: asset_format ..................................   Passed    0.00 sec
+      Start  5: baked_maps
+ 5/22 Test  #5: baked_maps ....................................   Passed    0.63 sec
+      Start  6: scene_units
+ 6/22 Test  #6: scene_units ...................................   Passed    0.00 sec
+      Start  7: helios_scene
+ 7/22 Test  #7: helios_scene ..................................   Passed    0.63 sec
+      Start  8: physics_units
+ 8/22 Test  #8: physics_units .................................   Passed    0.01 sec
+      Start  9: physics_legacy_trajectories
+ 9/22 Test  #9: physics_legacy_trajectories ...................   Passed    0.07 sec
+      Start 10: physics_all_maps
+10/22 Test #10: physics_all_maps ..............................   Passed    0.15 sec
+      Start 11: physics_legacy_trajectories_bastion-keep
+11/22 Test #11: physics_legacy_trajectories_bastion-keep ......   Passed    0.05 sec
+      Start 12: physics_legacy_trajectories_reactor-bastion
+12/22 Test #12: physics_legacy_trajectories_reactor-bastion ...   Passed    0.06 sec
+      Start 13: physics_legacy_trajectories_q3-gallery
+13/22 Test #13: physics_legacy_trajectories_q3-gallery ........   Passed    0.08 sec
+      Start 14: weapon_fx_units
+14/22 Test #14: weapon_fx_units ...............................   Passed    0.01 sec
+      Start 15: hud_units
+15/22 Test #15: hud_units .....................................   Passed    0.00 sec
+      Start 16: weapon_fx_legacy_tapes
+16/22 Test #16: weapon_fx_legacy_tapes ........................   Passed    0.18 sec
+      Start 17: combat_units
+17/22 Test #17: combat_units ..................................   Passed    0.02 sec
+      Start 18: combat_legacy_tapes
+18/22 Test #18: combat_legacy_tapes ...........................   Passed    0.07 sec
+      Start 19: navigation_helios-crucible
+19/22 Test #19: navigation_helios-crucible ....................   Passed    0.35 sec
+      Start 20: navigation_bastion-keep
+20/22 Test #20: navigation_bastion-keep .......................   Passed    0.28 sec
+      Start 21: navigation_reactor-bastion
+21/22 Test #21: navigation_reactor-bastion ....................   Passed    0.45 sec
+      Start 22: navigation_q3-gallery
+22/22 Test #22: navigation_q3-gallery .........................   Passed    0.18 sec
+
+100% tests passed, 0 tests failed out of 22
+
+Total Test time (real) =   3.24 sec

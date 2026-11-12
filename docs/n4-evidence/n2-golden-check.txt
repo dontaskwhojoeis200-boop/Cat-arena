@@ -1,0 +1,2 @@
+helios auto: 7/7 PNG files byte-identical to N2 golden
+helios baseline: 7/7 PNG files byte-identical to N2 golden

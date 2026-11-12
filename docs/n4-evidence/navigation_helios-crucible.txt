@@ -1,0 +1,1 @@
+PASS navigation helios-crucible: 5270 nodes (L1 824, L2 2683, L3 1763) identical to legacy; edges light/standard/heavy 34812/34726/34468 identical; 50 route queries identical (49 routes, 28 between floors, longest chain 91 nodes); regions 9, spawns inside a region 28/28, nav nodes inside a region 5270/5270; 24647 checks

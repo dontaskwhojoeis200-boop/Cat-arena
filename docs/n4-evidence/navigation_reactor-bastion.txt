@@ -1,0 +1,1 @@
+PASS navigation reactor-bastion: 6182 nodes (L1 920, L2 3245, L3 2017) identical to legacy; edges light/standard/heavy 37550/37112/33381 identical; 50 route queries identical (49 routes, 20 between floors, longest chain 93 nodes); regions 18, spawns inside a region 12/12, nav nodes inside a region 6182/6182; 29118 checks

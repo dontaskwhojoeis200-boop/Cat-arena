@@ -1,0 +1,35 @@
+core:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 
+core-release:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 
+clang-release:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 
+desktop-debug:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 
+desktop-release:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 
+asan-desktop:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 
+clang-desktop:
+  helios-crucible bit-exact ticks 21725 native state hash f6565a5daff19bc0 
+  bastion-keep bit-exact ticks 13125 native state hash f71da46e4d22f37f 
+  reactor-bastion bit-exact ticks 14378 native state hash 9d617f7c21a07c15 
+  q3-gallery bit-exact ticks 12683 native state hash 553f46979da8da4 

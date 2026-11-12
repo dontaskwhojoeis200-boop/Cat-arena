@@ -1,0 +1,14 @@
+{
+  "verified_prior_files": 85,
+  "changed": [
+    ".gitignore",
+    "docs/BUILD.md",
+    "docs/FEATURE_PARITY.md",
+    "docs/KNOWN_LIMITATIONS.md",
+    "docs/PROGRESS.md",
+    "docs/TEST_MATRIX.md",
+    "native/CMakeLists.txt"
+  ],
+  "allowed_changes_only": true,
+  "reference_inventory": "unchanged"
+}

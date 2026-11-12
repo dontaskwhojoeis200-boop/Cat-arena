@@ -1,0 +1,69 @@
+Test project /home/claude/n2/build-core-release
+      Start  1: core_foundation
+ 1/32 Test  #1: core_foundation ...............................   Passed    0.00 sec
+      Start  2: headless_smoke
+ 2/32 Test  #2: headless_smoke ................................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/32 Test  #3: vulkan_path_selection .........................   Passed    0.00 sec
+      Start  4: asset_format
+ 4/32 Test  #4: asset_format ..................................   Passed    0.00 sec
+      Start  5: baked_maps
+ 5/32 Test  #5: baked_maps ....................................   Passed    0.60 sec
+      Start  6: scene_units
+ 6/32 Test  #6: scene_units ...................................   Passed    0.00 sec
+      Start  7: helios_scene
+ 7/32 Test  #7: helios_scene ..................................   Passed    0.61 sec
+      Start  8: physics_units
+ 8/32 Test  #8: physics_units .................................   Passed    0.01 sec
+      Start  9: physics_legacy_trajectories
+ 9/32 Test  #9: physics_legacy_trajectories ...................   Passed    0.07 sec
+      Start 10: physics_all_maps
+10/32 Test #10: physics_all_maps ..............................   Passed    0.15 sec
+      Start 11: physics_legacy_trajectories_bastion-keep
+11/32 Test #11: physics_legacy_trajectories_bastion-keep ......   Passed    0.04 sec
+      Start 12: physics_legacy_trajectories_reactor-bastion
+12/32 Test #12: physics_legacy_trajectories_reactor-bastion ...   Passed    0.06 sec
+      Start 13: physics_legacy_trajectories_q3-gallery
+13/32 Test #13: physics_legacy_trajectories_q3-gallery ........   Passed    0.08 sec
+      Start 14: enemy_units
+14/32 Test #14: enemy_units ...................................   Passed    0.28 sec
+      Start 15: enemy_legacy_tapes_helios-crucible
+15/32 Test #15: enemy_legacy_tapes_helios-crucible ............   Passed    1.25 sec
+      Start 16: enemy_legacy_tapes_bastion-keep
+16/32 Test #16: enemy_legacy_tapes_bastion-keep ...............   Passed    0.67 sec
+      Start 17: enemy_legacy_tapes_reactor-bastion
+17/32 Test #17: enemy_legacy_tapes_reactor-bastion ............   Passed    0.92 sec
+      Start 18: enemy_legacy_tapes_q3-gallery
+18/32 Test #18: enemy_legacy_tapes_q3-gallery .................   Passed    0.68 sec
+      Start 19: weapon_fx_units
+19/32 Test #19: weapon_fx_units ...............................   Passed    0.01 sec
+      Start 20: hud_units
+20/32 Test #20: hud_units .....................................   Passed    0.00 sec
+      Start 21: weapon_fx_legacy_tapes
+21/32 Test #21: weapon_fx_legacy_tapes ........................   Passed    0.17 sec
+      Start 22: enemy_fx_units
+22/32 Test #22: enemy_fx_units ................................   Passed    0.13 sec
+      Start 23: enemy_fx_legacy_animation_helios-crucible
+23/32 Test #23: enemy_fx_legacy_animation_helios-crucible .....   Passed    1.29 sec
+      Start 24: enemy_fx_legacy_animation_bastion-keep
+24/32 Test #24: enemy_fx_legacy_animation_bastion-keep ........   Passed    0.72 sec
+      Start 25: enemy_fx_legacy_animation_reactor-bastion
+25/32 Test #25: enemy_fx_legacy_animation_reactor-bastion .....   Passed    1.03 sec
+      Start 26: enemy_fx_legacy_animation_q3-gallery
+26/32 Test #26: enemy_fx_legacy_animation_q3-gallery ..........   Passed    0.74 sec
+      Start 27: combat_units
+27/32 Test #27: combat_units ..................................   Passed    0.02 sec
+      Start 28: combat_legacy_tapes
+28/32 Test #28: combat_legacy_tapes ...........................   Passed    0.07 sec
+      Start 29: navigation_helios-crucible
+29/32 Test #29: navigation_helios-crucible ....................   Passed    0.34 sec
+      Start 30: navigation_bastion-keep
+30/32 Test #30: navigation_bastion-keep .......................   Passed    0.28 sec
+      Start 31: navigation_reactor-bastion
+31/32 Test #31: navigation_reactor-bastion ....................   Passed    0.44 sec
+      Start 32: navigation_q3-gallery
+32/32 Test #32: navigation_q3-gallery .........................   Passed    0.18 sec
+
+100% tests passed, 0 tests failed out of 32
+
+Total Test time (real) =  10.87 sec

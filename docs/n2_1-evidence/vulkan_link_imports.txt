@@ -1,0 +1,2 @@
+-- PASS build-desktop/libcat_arena_render.a: 89 Vulkan imports, all Vulkan 1.0 + WSI
+-- PASS build-desktop/cat_arena: 89 Vulkan imports, all Vulkan 1.0 + WSI

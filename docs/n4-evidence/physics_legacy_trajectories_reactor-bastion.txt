@@ -1,0 +1,18 @@
+PASS random_0_z0: 1500 ticks, bit-exact 1497, max |error| 1.04083e-17 (weaponPitch @ tick 565), contacts h/c/l/s/r 722/0/8/26/0
+PASS random_1_z5: 1500 ticks, bit-exact 1494, max |error| 5.55112e-17 (camForwardZ @ tick 1078), contacts h/c/l/s/r 565/0/7/0/6
+PASS random_2_z0: 1500 ticks, bit-exact 1496, max |error| 1.11022e-16 (camUpZ @ tick 406), contacts h/c/l/s/r 876/0/9/0/0
+PASS random_3_z5: 1500 ticks, bit-exact 1495, max |error| 1.11022e-16 (camUpZ @ tick 564), contacts h/c/l/s/r 518/0/7/0/0
+PASS ramp_0_tunnel-stairs-0: 900 ticks, bit-exact 896, max |error| 5.55112e-17 (slopeAngle @ tick 391), contacts h/c/l/s/r 350/0/1/358/0
+PASS ramp_1_tunnel-stairs-2: 900 ticks, bit-exact 488, max |error| 5.55112e-17 (slopeAngle @ tick 391), contacts h/c/l/s/r 350/0/1/358/0
+PASS ramp_2_tunnel-stairs-4: 900 ticks, bit-exact 898, max |error| 8.67362e-19 (weaponPitch @ tick 565), contacts h/c/l/s/r 350/0/1/358/0
+PASS pad_pad-0: 700 ticks, bit-exact 699, max |error| 2.77556e-17 (slopeAngle @ tick 645), contacts h/c/l/s/r 99/0/1/173/0
+PASS pad_pad-2: 700 ticks, bit-exact 699, max |error| 1.38778e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 50/0/1/0/0
+PASS pad_pad-4: 700 ticks, bit-exact 699, max |error| 1.73472e-18 (weaponYaw @ tick 565), contacts h/c/l/s/r 227/0/1/0/0
+PASS pad_pad-6: 700 ticks, bit-exact 699, max |error| 1.73472e-18 (weaponYaw @ tick 565), contacts h/c/l/s/r 227/0/1/0/0
+PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 113/1/2/0/0
+PASS slide_crouch: 800 ticks, bit-exact 799, max |error| 6.93889e-18 (weaponRoll @ tick 565), contacts h/c/l/s/r 116/0/0/0/6
+PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 441/0/7/0/0
+PASS crouch_walk: 500 ticks, bit-exact 499, max |error| 2.77556e-17 (camForwardZ @ tick 476), contacts h/c/l/s/r 18/0/0/59/0
+PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+PASS legacy trajectories reactor-bastion: 17 scenarios, 14820 ticks (123.5 s), bit-exact ticks 14378, worst |error| 1.11022e-16, tolerance 1e-09; contacts horizontal 5022, ceiling 3, landings 49, steps 1332, recoveries 12; native state hash 9d617f7c21a07c15

@@ -1,0 +1,5 @@
+Recorder self-check (tools/n5/legacy_combat.cjs), 2026-11-10
+Three runs of the recorder: (1) gameplay only, (2) with the effect code running (--fx-out), (3) with effects and pictures (--frames, --views-dir, 1280x720).
+helios_combat.bin: run 1 == run 2 == run 3 (cmp), sha256 cc2cc6e3d43610991399c7a5dca8bd05f65f0056ef96278e64f35804dde58168
+helios_weapon_fx.bin: run 2 == run 3 (cmp), sha256 1747171248e8b7883d68e3d84b6a696645c74b03e19ce0edcfd95d8534aebe6b
+PASS

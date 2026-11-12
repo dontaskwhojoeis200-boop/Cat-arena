@@ -1,0 +1,1 @@
+PASS navigation bastion-keep: 6359 nodes (L1 558, L2 3179, L3 2622) identical to legacy; edges light/standard/heavy 43706/43706/43018 identical; 50 route queries identical (50 routes, 39 between floors, longest chain 99 nodes); regions 16, spawns inside a region 12/12, nav nodes inside a region 6359/6359; 29075 checks

@@ -1,0 +1,4 @@
+# name x y feetZ yaw pitch — spawn points of q3-gallery (compiled.spawns)
+spawn0_z0 42.5 46.5 0 0.7853981633974483 0.05
+spawn1_z0 92 46 0 1.8849555921538759 0.05
+spawn2_z4_5 70 75 4.5 -1.5707963267948966 0.05

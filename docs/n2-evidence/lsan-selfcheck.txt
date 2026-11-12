@@ -1,0 +1,8 @@
+LeakSanitizer self-check (runner capability), 2026-11-09:
+$ g++ -fsanitize=address -g leak.cpp -o leak && ./leak
+
+=================================================================
+==9163==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 64 byte(s) in 1 object(s) allocated from:
+    #0 0x7f250c6fd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69

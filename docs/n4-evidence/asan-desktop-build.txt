@@ -1,0 +1,62 @@
+[1/52] Building CXX object CMakeFiles/cat_arena_headless.dir/src/headless.cpp.o
+[2/52] Building CXX object CMakeFiles/cat_arena_core.dir/src/core.cpp.o
+[3/52] Linking CXX static library libcat_arena_core.a
+[4/52] Linking CXX executable cat_arena_headless
+[5/52] Building CXX object CMakeFiles/cat_arena_tests.dir/tests/core_tests.cpp.o
+[6/52] Linking CXX executable cat_arena_tests
+[7/52] Building CXX object CMakeFiles/cat_arena_vkcaps.dir/src/vulkan_caps.cpp.o
+[8/52] Linking CXX static library libcat_arena_vkcaps.a
+[9/52] Building CXX object CMakeFiles/cat_arena_vkcaps_tests.dir/tests/vkcaps_tests.cpp.o
+[10/52] Linking CXX executable cat_arena_vkcaps_tests
+[11/52] Building CXX object CMakeFiles/cat_arena_vk_sim_selftest.dir/tests/vk_sim_layer_selftest.cpp.o
+[12/52] Building CXX object CMakeFiles/VkLayer_cat_device_sim.dir/tests/vk_device_sim_layer.cpp.o
+[13/52] Linking CXX shared module vk_sim_layer/libVkLayer_cat_device_sim.so
+[14/52] Linking CXX executable cat_arena_vk_sim_selftest
+[15/52] Building CXX object CMakeFiles/cat_arena_asset_check.dir/src/asset_check.cpp.o
+[16/52] Building CXX object CMakeFiles/cat_image_codec.dir/src/image_codec.cpp.o
+[17/52] Linking CXX static library libcat_image_codec.a
+[18/52] Building CXX object CMakeFiles/cat_arena_assets.dir/src/assets.cpp.o
+[19/52] Linking CXX static library libcat_arena_assets.a
+[20/52] Linking CXX executable cat_arena_asset_check
+[21/52] Building CXX object CMakeFiles/cat_arena_asset_tests.dir/tests/asset_tests.cpp.o
+[22/52] Linking CXX executable cat_arena_asset_tests
+[23/52] Building CXX object CMakeFiles/cat_arena_scene_tests.dir/tests/scene_tests.cpp.o
+[24/52] Building CXX object CMakeFiles/cat_arena_physics.dir/src/physics_world.cpp.o
+[25/52] Building CXX object CMakeFiles/cat_arena_physics.dir/src/player.cpp.o
+[26/52] Building CXX object CMakeFiles/cat_arena_scene.dir/src/scene.cpp.o
+[27/52] Linking CXX static library libcat_arena_scene.a
+[28/52] Linking CXX executable cat_arena_scene_tests
+[29/52] Building CXX object CMakeFiles/cat_arena_physics.dir/src/navigation.cpp.o
+[30/52] Linking CXX static library libcat_arena_physics.a
+[31/52] Generating shaders/material.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/material.frag
+[32/52] Generating shaders/material.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/material.vert
+[33/52] Generating shaders/sky.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/sky.frag
+[34/52] Generating shaders/sky.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/sky.vert
+[35/52] Generating shaders/skybox.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/skybox.frag
+[36/52] Generating shaders/skybox.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/skybox.vert
+[37/52] Generating shaders/triangle.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.frag
+[38/52] Generating shaders/triangle.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.vert
+[39/52] Generating shaders/world.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/world.frag
+[40/52] Generating shaders/world.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/world.vert
+[41/52] Building CXX object CMakeFiles/cat_arena_physics_tests.dir/tests/physics_tests.cpp.o
+[42/52] Building CXX object CMakeFiles/cat_arena_nav_tests.dir/tests/nav_tests.cpp.o
+[43/52] Building CXX object CMakeFiles/cat_arena_render_tests.dir/tests/render_tests.cpp.o
+[44/52] Building CXX object CMakeFiles/cat_arena_path_tests.dir/tests/path_tests.cpp.o
+[45/52] Building CXX object CMakeFiles/cat_arena.dir/src/main.cpp.o
+[46/52] Linking CXX executable cat_arena_physics_tests
+[47/52] Linking CXX executable cat_arena_nav_tests
+[48/52] Building CXX object CMakeFiles/cat_arena_render.dir/src/renderer.cpp.o
+[49/52] Linking CXX static library libcat_arena_render.a
+[50/52] Linking CXX executable cat_arena_path_tests
+[51/52] Linking CXX executable cat_arena_render_tests
+[52/52] Linking CXX executable cat_arena

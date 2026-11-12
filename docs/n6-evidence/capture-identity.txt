@@ -1,0 +1,7 @@
+Recorder self-check (tools/n6/legacy_enemies.cjs), 2026-11-11
+The animation fixture gained the cosmetic draw count (version 2, 81 values per tick). The enemy fixtures written by that run must be byte-identical to the ones written before the change:
+  bastion-keep_enemies.bin: before 88b93aedfe69ba79b5b64ffd6eb825fe950dba97006a86fe1aa70a08b06d7546, after 88b93aedfe69ba79b5b64ffd6eb825fe950dba97006a86fe1aa70a08b06d7546: identical
+  helios-crucible_enemies.bin: before 2fc3c09250c1cd367dcc850ac97e51fa1ef9964f0f0e591976e84ff06986f8be, after 2fc3c09250c1cd367dcc850ac97e51fa1ef9964f0f0e591976e84ff06986f8be: identical
+  q3-gallery_enemies.bin: before a3258273501150caecd3d84a111c7602687b1976afbfec09807d8fc61c7256db, after a3258273501150caecd3d84a111c7602687b1976afbfec09807d8fc61c7256db: identical
+  reactor-bastion_enemies.bin: before 59a488c1809d8bbc60855c7444b4a2a5025d7ef2db5a04a68b923a6915b1f5ef, after 59a488c1809d8bbc60855c7444b4a2a5025d7ef2db5a04a68b923a6915b1f5ef: identical
+Pictures: legacy picture fight_spin tick 1300 taken again with the current recorder vs the stored reference: PSNR 99 dB (identical).

@@ -1,0 +1,10 @@
+[0/1] Re-running CMake...
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/scratch/764f703bb066/build-desktop
+[1/7] Building CXX object CMakeFiles/cat_arena_asset_check.dir/src/asset_check.cpp.o
+[2/7] Building CXX object CMakeFiles/cat_arena_asset_tests.dir/tests/asset_tests.cpp.o
+[3/7] Building CXX object CMakeFiles/cat_arena_assets.dir/src/assets.cpp.o
+[4/7] Linking CXX static library libcat_arena_assets.a
+[5/7] Linking CXX executable cat_arena_asset_check
+[6/7] Linking CXX executable cat_arena_asset_tests

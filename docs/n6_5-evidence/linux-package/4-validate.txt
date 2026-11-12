@@ -1,0 +1,2 @@
+Package check PASS: /home/claude/n2/n65/dist/CAT_ARENA_FERAL_CLAW_N6_LINUX: cat_arena, libSDL3.so.0, 21 shaders, 4 maps, 16 weapon models, 20 creature meshes, README.txt, THIRD_PARTY_LICENSES.txt; 703 files, 91 MiB; no development files
+validate exit 0

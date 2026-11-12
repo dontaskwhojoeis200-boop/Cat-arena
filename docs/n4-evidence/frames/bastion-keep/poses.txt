@@ -1,0 +1,6 @@
+# name x y feetZ yaw pitch — spawn points of bastion-keep (compiled.spawns)
+spawn0_zm4 78.5 58.5 -4 3.141592653589793 0.05
+spawn1_zm4 56.5 48.5 -4 1.373400766945016 0.05
+spawn2_z0 88.5 46.5 0 2.761086276477428 0.05
+spawn3_z0 28.5 70.5 0 -0.3805063771123649 0.05
+spawn4_z7 85.5 74.5 7 -2.6066375798036967 0.05

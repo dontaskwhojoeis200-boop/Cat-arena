@@ -1,0 +1,314 @@
+{
+  "tool": "tools/n2/legacy_reference.cjs",
+  "source": "legacy/index.html",
+  "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "renderer": "ANGLE (Mesa, Vulkan 1.4.318 (llvmpipe (LLVM 20.1.2 256 bits) (0x00000000)), llvmpipe)",
+  "viewport": [
+    1280,
+    720
+  ],
+  "time": 10,
+  "runtimeStateChanges": [
+    "#start click handler invoked via element.click() (button is hidden behind the PLAY/map menus)",
+    "clicked the visible ENTER THE ARENA button (#loadReady)",
+    "fovPanelOpen=true (legacy simulation hold)",
+    "__SHOWCASE_HIDE_FP=true",
+    "setHudVisibility(false)",
+    "bots/pickups/particles/enemyShots emptied",
+    "Q3R.S.flares=false",
+    "q3Reset() (view bob state)",
+    "player pose and now set per capture",
+    "frame read with gl.readPixels right after a synchronous render() call"
+  ],
+  "info": {
+    "map": "helios-crucible",
+    "canvas": [
+      1280,
+      720
+    ],
+    "fov": 105,
+    "q3": {
+      "lightmap": {
+        "state": "ready",
+        "source": "shipped",
+        "hash": "8ef1b586-1024x567",
+        "w": 1024,
+        "h": 567,
+        "charts": 3187,
+        "luxels": 0,
+        "covered": 0,
+        "triangles": 7308,
+        "occluders": 0,
+        "rays": 0,
+        "bakeMs": 0,
+        "chartMs": 222.8,
+        "progress": 1,
+        "luxelSize": 0.5,
+        "lights": 0,
+        "virtualLights": 0,
+        "error": "",
+        "vertexLuxels": 88941,
+        "loadStart": 4259.799999999814,
+        "loadMs": 691.2
+      },
+      "lightMode": "lightmap",
+      "materials": {
+        "programs": 15,
+        "compiles": 15,
+        "runtimeCompiles": 0,
+        "draws": 66,
+        "passes": 65,
+        "collapsed": 26,
+        "multipass": 29,
+        "surfaces": 404,
+        "staticTris": 161062,
+        "materials": 87,
+        "skyDraws": 2,
+        "textures": 45,
+        "kitTextures": 30,
+        "staticVertices": 282449,
+        "materialBatches": 24,
+        "batchedClusters": 247,
+        "surfaceDraws": 276,
+        "loaded": 87,
+        "parseErrors": 0
+      },
+      "sky": "sky/reactor_bastion",
+      "vis": {
+        "state": "missing",
+        "source": "",
+        "hash": "237cac0d-645",
+        "leaves": 432,
+        "occupiedLeaves": 123,
+        "targets": 645,
+        "pairs": 0,
+        "visiblePairs": 0,
+        "rays": 0,
+        "ms": 0,
+        "progress": 0,
+        "culledLast": 0,
+        "leafLast": -1,
+        "enabled": true,
+        "locked": false,
+        "error": "shipped vis is stale",
+        "cameraLeaf": -1
+      },
+      "portals": {
+        "views": 1,
+        "rendered": 0,
+        "skipped": 1,
+        "lastMs": 1.1,
+        "targets": 0,
+        "bytes": 0,
+        "list": [
+          {
+            "id": "core-monitor",
+            "type": "feed",
+            "visible": false,
+            "rt": null,
+            "range": 40
+          }
+        ]
+      },
+      "models": {
+        "models": 0,
+        "placed": 0,
+        "drawn": 0,
+        "surfaces": 0,
+        "parsed": 0,
+        "errors": 0,
+        "list": []
+      },
+      "curves": {
+        "patches": 2,
+        "triangles": 160,
+        "tolerance": 0.025
+      }
+    },
+    "lightQuality": 1,
+    "fogStrength": 1,
+    "preset": "normal",
+    "overbright": 1,
+    "textureMode": "trilinear",
+    "anisotropy": 4,
+    "msaa": 0
+  },
+  "frames": [
+    {
+      "name": "preview",
+      "file": "preview.png",
+      "requested": {
+        "name": "preview",
+        "x": 78,
+        "y": 42,
+        "z": 0,
+        "yaw": 2.45,
+        "pitch": 0.15
+      },
+      "state": {
+        "x": 78,
+        "y": 42,
+        "z": 0,
+        "a": 2.45,
+        "pitch": 0.15,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "bay0_l2",
+      "file": "bay0_l2.png",
+      "requested": {
+        "name": "bay0_l2",
+        "x": 81.5,
+        "y": 61.5,
+        "z": 0,
+        "yaw": -3.012,
+        "pitch": 0.08
+      },
+      "state": {
+        "x": 81.5,
+        "y": 61.5,
+        "z": 0,
+        "a": -3.012,
+        "pitch": 0.08,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "bay4_l2",
+      "file": "bay4_l2.png",
+      "requested": {
+        "name": "bay4_l2",
+        "x": 35.5,
+        "y": 55.5,
+        "z": 0,
+        "yaw": 0.13,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 35.5,
+        "y": 55.5,
+        "z": 0,
+        "a": 0.13,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "bay0_l3",
+      "file": "bay0_l3.png",
+      "requested": {
+        "name": "bay0_l3",
+        "x": 86.5,
+        "y": 54.5,
+        "z": 7,
+        "yaw": 3,
+        "pitch": 0.12
+      },
+      "state": {
+        "x": 86.5,
+        "y": 54.5,
+        "z": 7,
+        "a": 3,
+        "pitch": 0.12,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "bay6_l3",
+      "file": "bay6_l3.png",
+      "requested": {
+        "name": "bay6_l3",
+        "x": 54.5,
+        "y": 30.5,
+        "z": 7,
+        "yaw": 1.429,
+        "pitch": 0.25
+      },
+      "state": {
+        "x": 54.5,
+        "y": 30.5,
+        "z": 7,
+        "a": 1.429,
+        "pitch": 0.25,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "core_l3",
+      "file": "core_l3.png",
+      "requested": {
+        "name": "core_l3",
+        "x": 75.4706,
+        "y": 35.8726,
+        "z": 7,
+        "yaw": 2.214,
+        "pitch": 0.45
+      },
+      "state": {
+        "x": 75.4706,
+        "y": 35.8726,
+        "z": 7,
+        "a": 2.214,
+        "pitch": 0.45,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "vault_l1",
+      "file": "vault_l1.png",
+      "requested": {
+        "name": "vault_l1",
+        "x": 69.1066,
+        "y": 64.864,
+        "z": -4,
+        "yaw": -2.601,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 69.1066,
+        "y": 64.864,
+        "z": -4,
+        "a": -2.601,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    }
+  ],
+  "consoleWarningsAndErrors": [
+    "warning: [.WebGL-0x39c00192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+    "warning: [.WebGL-0x39c00192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: [.WebGL-0x39c00192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "warning: [.WebGL-0x39c00192000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+  ]
+}

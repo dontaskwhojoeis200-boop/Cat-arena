@@ -1,0 +1,38 @@
+$ /home/agent/.local/bin/ctest --test-dir build-core --output-on-failure -V
+UpdateCTestConfiguration  from :/workspace/scratch/764f703bb066/build-core/DartConfiguration.tcl
+Parse Config file:/workspace/scratch/764f703bb066/build-core/DartConfiguration.tcl
+Test project /workspace/scratch/764f703bb066/build-core
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: core_foundation
+
+1: Test command: /workspace/scratch/764f703bb066/build-core/cat_arena_tests
+1: Working Directory: /workspace/scratch/764f703bb066/build-core
+1: Test timeout computed to be: 1500
+1: PASS clock: drift, interpolation, negative time, stall, partition invariance
+1: PASS settings: roundtrip and malformed/range/version rejection
+1: PASS math: Z-up right-handed basis and inverse
+1: PASS rng: golden vector, replay and bounded unit samples
+1: PASS input: mapping, repeat, tick edges, short tap and focus loss
+1: PASS ownership: single move cleanup, exception cleanup, release
+1: PASS paths: absolute assets and user directory creation
+1/2 Test #1: core_foundation ..................   Passed    0.01 sec
+test 2
+    Start 2: headless_smoke
+
+2: Test command: /workspace/scratch/764f703bb066/build-core/cat_arena_headless
+2: Working Directory: /workspace/scratch/764f703bb066/build-core
+2: Test timeout computed to be: 1500
+2: level="info" subsystem="self-test" message="PASS"
+2/2 Test #2: headless_smoke ...................   Passed    0.01 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =   0.02 sec
+
+exit=0

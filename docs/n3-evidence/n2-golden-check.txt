@@ -1,0 +1,1 @@
+N2 golden preview still byte-identical (baseline path)

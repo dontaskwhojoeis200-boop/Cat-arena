@@ -1,0 +1,1 @@
+{"name":"cat-arena-offline-baker","version":"1.0.0","private":true,"description":"Offline-only source conversion. Not a native runtime dependency.","engines":{"node":">=22"},"dependencies":{"acorn":"8.15.0","@napi-rs/canvas":"0.1.100"}}

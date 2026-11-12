@@ -1,0 +1,17 @@
+stb single-file libraries, vendored for N2 native image decode/encode.
+
+Upstream:   https://github.com/nothings/stb
+Commit:     4e9b368bfc071e97206ea5c6adba68dd0cbf8897
+Files:      stb_image.h        v2.30  sha256 594c2fe35d49488b4382dbfaec8f98366defca819d916ac95becf3e75f4200b3
+            stb_image_write.h  v1.16  sha256 cbd5f0ad7a9cf4468affb36354a1d2338034f2c12473cf1a8e32053cb6914a05
+            LICENSE                   sha256 bebfe904b14301657e4e5d655c811d51fd31b97c455b9cc2d8600d6bac6cff63
+License:    MIT or public domain (dual, see LICENSE)
+
+Justification: the N1 bake intentionally keeps original PNG (lightmaps, world atlas)
+and JPEG (Bastion kit textures) payloads. The runtime needs a decoder for both.
+Only PNG and JPEG decoding are compiled (STBI_ONLY_PNG, STBI_ONLY_JPEG). PNG writing is
+used for frame captures. The files are unmodified; they are compiled in one translation
+unit (src/image_codec.cpp) without the project's strict warning flags.
+
+JPEG note: stb_image's IDCT/upsampling is not bit-identical to the browser's libjpeg-turbo
+decoder; kit texels may differ by small amounts from the legacy WebGL build.

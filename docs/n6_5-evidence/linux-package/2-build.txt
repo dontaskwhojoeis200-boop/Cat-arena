@@ -1,0 +1,474 @@
+ninja: Entering directory `build-pkg'
+[1/402] Building CXX object CMakeFiles/cat_arena_headless.dir/src/headless.cpp.o
+[2/402] Building CXX object CMakeFiles/cat_arena_tests.dir/tests/core_tests.cpp.o
+[3/402] Building CXX object CMakeFiles/cat_arena_core.dir/src/core.cpp.o
+[4/402] Linking CXX static library libcat_arena_core.a
+[5/402] Linking CXX executable cat_arena_headless
+[6/402] Linking CXX executable cat_arena_tests
+[7/402] Building CXX object CMakeFiles/cat_arena_vkcaps_tests.dir/tests/vkcaps_tests.cpp.o
+[8/402] Building CXX object CMakeFiles/cat_arena_vkcaps.dir/src/vulkan_caps.cpp.o
+[9/402] Linking CXX static library libcat_arena_vkcaps.a
+[10/402] Linking CXX executable cat_arena_vkcaps_tests
+[11/402] Building CXX object CMakeFiles/cat_arena_image_compare.dir/tests/image_compare.cpp.o
+[12/402] Building CXX object CMakeFiles/cat_arena_vk_sim_selftest.dir/tests/vk_sim_layer_selftest.cpp.o
+[13/402] Building CXX object CMakeFiles/VkLayer_cat_device_sim.dir/tests/vk_device_sim_layer.cpp.o
+[14/402] Linking CXX shared module vk_sim_layer/libVkLayer_cat_device_sim.so
+[15/402] Linking CXX executable cat_arena_vk_sim_selftest
+[16/402] Building CXX object CMakeFiles/cat_arena_asset_check.dir/src/asset_check.cpp.o
+[17/402] Building CXX object CMakeFiles/cat_arena_assets.dir/src/assets.cpp.o
+[18/402] Linking CXX static library libcat_arena_assets.a
+[19/402] Building CXX object CMakeFiles/cat_arena_asset_tests.dir/tests/asset_tests.cpp.o
+[20/402] Linking CXX executable cat_arena_asset_check
+[21/402] Linking CXX executable cat_arena_asset_tests
+[22/402] Building CXX object CMakeFiles/cat_arena_scene_tests.dir/tests/scene_tests.cpp.o
+[23/402] Building CXX object CMakeFiles/cat_image_codec.dir/src/image_codec.cpp.o
+[24/402] Linking CXX static library libcat_image_codec.a
+[25/402] Building CXX object CMakeFiles/cat_arena_physics.dir/src/physics_world.cpp.o
+[26/402] Building CXX object CMakeFiles/cat_arena_scene.dir/src/scene.cpp.o
+[27/402] Linking CXX static library libcat_arena_scene.a
+[28/402] Linking CXX executable cat_arena_image_compare
+[29/402] Linking CXX executable cat_arena_scene_tests
+[30/402] Building CXX object CMakeFiles/cat_arena_physics.dir/src/player.cpp.o
+[31/402] Building CXX object CMakeFiles/cat_arena_physics.dir/src/combat.cpp.o
+[32/402] Building CXX object CMakeFiles/cat_arena_physics.dir/src/navigation.cpp.o
+[33/402] Building CXX object CMakeFiles/cat_arena_physics.dir/src/enemies.cpp.o
+[34/402] Linking CXX static library libcat_arena_physics.a
+[35/402] Building CXX object CMakeFiles/cat_arena_enemy_tests.dir/tests/enemy_tests.cpp.o
+[36/402] Linking CXX executable cat_arena_enemy_tests
+[37/402] Building CXX object CMakeFiles/cat_arena_physics_tests.dir/tests/physics_tests.cpp.o
+[38/402] Linking CXX executable cat_arena_physics_tests
+[39/402] Building CXX object CMakeFiles/cat_arena_fx.dir/src/weapon_fx.cpp.o
+[40/402] Building CXX object CMakeFiles/cat_arena_fx.dir/src/hud.cpp.o
+[41/402] Building CXX object CMakeFiles/cat_arena_hud_tests.dir/tests/hud_tests.cpp.o
+[42/402] Building CXX object CMakeFiles/cat_arena_fx.dir/src/enemy_fx.cpp.o
+[43/402] Linking CXX static library libcat_arena_fx.a
+[44/402] Linking CXX executable cat_arena_hud_tests
+[45/402] Building CXX object CMakeFiles/cat_arena_fx_tests.dir/tests/fx_tests.cpp.o
+[46/402] Linking CXX executable cat_arena_fx_tests
+[47/402] Building CXX object CMakeFiles/cat_arena_enemy_fx_tests.dir/tests/enemy_fx_tests.cpp.o
+[48/402] Linking CXX executable cat_arena_enemy_fx_tests
+[49/402] Building CXX object CMakeFiles/cat_arena_nav_tests.dir/tests/nav_tests.cpp.o
+[50/402] Linking CXX executable cat_arena_nav_tests
+[51/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/cmake_pch.h.gch
+[52/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL.c.o
+[53/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_assert.c.o
+[54/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_error.c.o
+[55/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_guid.c.o
+[56/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_hashtable.c.o
+[57/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_hints.c.o
+[58/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_list.c.o
+[59/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_log.c.o
+[60/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_properties.c.o
+[61/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/SDL_utils.c.o
+[62/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/atomic/SDL_atomic.c.o
+[63/402] Building CXX object CMakeFiles/cat_arena_combat_tests.dir/tests/combat_tests.cpp.o
+[64/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/atomic/SDL_spinlock.c.o
+[65/402] Linking CXX executable cat_arena_combat_tests
+[66/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_audio.c.o
+[67/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_audiodev.c.o
+[68/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_audioqueue.c.o
+[69/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_audioresample.c.o
+[70/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_audiocvt.c.o
+[71/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_mixer.c.o
+[72/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_audiotypecvt.c.o
+[73/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/SDL_wave.c.o
+[74/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/SDL_core_unsupported.c.o
+[75/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/cpuinfo/SDL_cpuinfo.c.o
+[76/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/camera/SDL_camera.c.o
+[77/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_clipboardevents.c.o
+[78/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_categories.c.o
+[79/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_displayevents.c.o
+[80/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_dropevents.c.o
+[81/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_eventwatch.c.o
+[82/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_events.c.o
+[83/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_keymap.c.o
+[84/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_keysym_to_keycode.c.o
+[85/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_keysym_to_scancode.c.o
+[86/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_keyboard.c.o
+[87/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_pen.c.o
+[88/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_mouse.c.o
+[89/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_scancode_tables.c.o
+[90/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/dynapi/SDL_dynapi.c.o
+[91/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_quit.c.o
+[92/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/imKStoUCS.c.o
+[93/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_windowevents.c.o
+[94/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/events/SDL_touch.c.o
+[95/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/filesystem/SDL_filesystem.c.o
+[96/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/hidapi/SDL_hidapi.c.o
+[97/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/io/SDL_asyncio.c.o
+[98/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/haptic/SDL_haptic.c.o
+[99/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/io/generic/SDL_asyncio_generic.c.o
+[100/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/io/SDL_iostream.c.o
+[101/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/gpu/SDL_gpu.c.o
+[102/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/SDL_steam_virtual_gamepad.c.o
+[103/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/controller_type.c.o
+[104/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/locale/SDL_locale.c.o
+[105/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/main/SDL_main_callbacks.c.o
+[106/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/main/SDL_runapp.c.o
+[107/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/misc/SDL_url.c.o
+[108/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/power/SDL_power.c.o
+[109/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/SDL_d3dmath.c.o
+[110/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/SDL_gamepad.c.o
+[111/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/SDL_render_unsupported.c.o
+[112/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/SDL_yuv_sw.c.o
+[113/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/direct3d/SDL_render_d3d.c.o
+[114/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/direct3d/SDL_shaders_d3d.c.o
+[115/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/direct3d11/SDL_render_d3d11.c.o
+[116/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/direct3d11/SDL_shaders_d3d11.c.o
+[117/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/direct3d12/SDL_render_d3d12.c.o
+[118/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/direct3d12/SDL_shaders_d3d12.c.o
+[119/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/SDL_joystick.c.o
+[120/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/gpu/SDL_pipeline_gpu.c.o
+[121/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/gpu/SDL_shaders_gpu.c.o
+[122/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/gpu/SDL_render_gpu.c.o
+[123/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/opengl/SDL_render_gl.c.o
+[124/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/opengl/SDL_shaders_gl.c.o
+[125/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/opengles2/SDL_shaders_gles2.c.o
+[126/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/ps2/SDL_render_ps2.c.o
+[127/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/psp/SDL_render_psp.c.o
+[128/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/opengles2/SDL_render_gles2.c.o
+[129/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/SDL_render.c.o
+[130/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_blendpoint.c.o
+[131/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_drawline.c.o
+[132/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_drawpoint.c.o
+[133/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_render_sw.c.o
+[134/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_rotate.c.o
+[135/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_blendfillrect.c.o
+[136/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/vitagxm/SDL_render_vita_gxm.c.o
+[137/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/vitagxm/SDL_render_vita_gxm_memory.c.o
+[138/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/vitagxm/SDL_render_vita_gxm_tools.c.o
+[139/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_triangle.c.o
+[140/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/vulkan/SDL_shaders_vulkan.c.o
+[141/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/sensor/SDL_sensor.c.o
+[142/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_crc16.c.o
+[143/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_crc32.c.o
+[144/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_getenv.c.o
+[145/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_iconv.c.o
+[146/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_malloc.c.o
+[147/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_memcpy.c.o
+[148/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_memmove.c.o
+[149/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_memset.c.o
+[150/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_mslibc.c.o
+[151/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_murmur3.c.o
+[152/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/software/SDL_blendline.c.o
+[153/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_random.c.o
+[154/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/render/vulkan/SDL_render_vulkan.c.o
+[155/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_stdlib.c.o
+[156/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_qsort.c.o
+[157/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_strtokr.c.o
+[158/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/storage/SDL_storage.c.o
+[159/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/time/SDL_time.c.o
+[160/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/SDL_thread.c.o
+[161/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/stdlib/SDL_string.c.o
+[162/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/timer/SDL_timer.c.o
+[163/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit.c.o
+[164/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_0.c.o
+[165/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_1.c.o
+[166/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_RLEaccel.c.o
+[167/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_N.c.o
+[168/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_copy.c.o
+[169/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_A.c.o
+[170/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_bmp.c.o
+[171/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_slow.c.o
+[172/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_clipboard.c.o
+[173/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_fillrect.c.o
+[174/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_egl.c.o
+[175/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_pixels.c.o
+[176/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_rect.c.o
+[177/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_stretch.c.o
+[178/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_stb.c.o
+[179/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_surface.c.o
+[180/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_video_unsupported.c.o
+[181/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_vulkan_utils.c.o
+[182/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_video.c.o
+[183/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/yuv2rgb/yuv_rgb_lsx.c.o
+[184/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/yuv2rgb/yuv_rgb_sse.c.o
+[185/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_yuv.c.o
+[186/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/dummy/SDL_dummyaudio.c.o
+[187/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/audio/disk/SDL_diskaudio.c.o
+[188/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/camera/dummy/SDL_camera_dummy.c.o
+[189/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/loadso/dlopen/SDL_sysloadso.c.o
+[190/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/virtual/SDL_virtualjoystick.c.o
+[191/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/dummy/SDL_nullevents.c.o
+[192/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/dummy/SDL_nullframebuffer.c.o
+[193/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/dummy/SDL_nullvideo.c.o
+[194/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11clipboard.c.o
+[195/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/yuv2rgb/yuv_rgb_std.c.o
+[196/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11dyn.c.o
+[197/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11framebuffer.c.o
+[198/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11events.c.o
+[199/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11messagebox.c.o
+[200/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11keyboard.c.o
+[201/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11mouse.c.o
+[202/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11modes.c.o
+[203/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11opengl.c.o
+[204/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11opengles.c.o
+[205/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11pen.c.o
+[206/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11shape.c.o
+[207/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11settings.c.o
+[208/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11touch.c.o
+[209/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11vulkan.c.o
+[210/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11video.c.o
+[211/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11xfixes.c.o
+[212/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11xinput2.c.o
+[213/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11xsync.c.o
+[214/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/SDL_x11window.c.o
+[215/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/edid-parse.c.o
+[216/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/x11/xsettings-client.c.o
+[217/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/SDL_blit_auto.c.o
+[218/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/unix/SDL_appid.c.o
+[219/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/unix/SDL_poll.c.o
+[220/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/tray/unix/SDL_tray.c.o
+[221/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/linux/SDL_evdev.c.o
+[222/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/camera/v4l2/SDL_camera_v4l2.c.o
+[223/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/haptic/linux/SDL_syshaptic.c.o
+[224/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/linux/SDL_evdev_capabilities.c.o
+[225/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/linux/SDL_threadprio.c.o
+[226/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_combined.c.o
+[227/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/core/linux/SDL_evdev_kbd.c.o
+[228/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_gamecube.c.o
+[229/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_luna.c.o
+[230/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_ps3.c.o
+[231/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_ps5.c.o
+[232/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_ps4.c.o
+[233/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_rumble.c.o
+[234/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_stadia.c.o
+[235/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_shield.c.o
+[236/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_steamdeck.c.o
+[237/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_steam_hori.c.o
+[238/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_steam.c.o
+[239/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_xbox360.c.o
+[240/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_wii.c.o
+[241/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_xbox360w.c.o
+[242/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_switch.c.o
+[243/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapi_xboxone.c.o
+[244/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/pthread/SDL_systhread.c.o
+[245/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/pthread/SDL_sysmutex.c.o
+[246/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/hidapi/SDL_hidapijoystick.c.o
+[247/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/pthread/SDL_syscond.c.o
+[248/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/pthread/SDL_sysrwlock.c.o
+[249/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/pthread/SDL_syssem.c.o
+[250/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/thread/pthread/SDL_systls.c.o
+[251/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/misc/unix/SDL_sysurl.c.o
+[252/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/power/linux/SDL_syspower.c.o
+[253/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/locale/unix/SDL_syslocale.c.o
+[254/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/joystick/linux/SDL_sysjoystick.c.o
+[255/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/filesystem/unix/SDL_sysfilesystem.c.o
+[256/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/storage/steam/SDL_steamstorage.c.o
+[257/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/time/unix/SDL_systime.c.o
+[258/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/storage/generic/SDL_genericstorage.c.o
+[259/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/filesystem/posix/SDL_sysfsops.c.o
+[260/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/timer/unix/SDL_systimer.c.o
+[261/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/dialog/SDL_dialog_utils.c.o
+[262/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/dialog/SDL_dialog.c.o
+[263/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/dialog/unix/SDL_unixdialog.c.o
+[264/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/dialog/unix/SDL_portaldialog.c.o
+[265/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/dialog/unix/SDL_zenitydialog.c.o
+[266/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/offscreen/SDL_offscreenevents.c.o
+[267/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/offscreen/SDL_offscreenframebuffer.c.o
+[268/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/process/SDL_process.c.o
+[269/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/process/posix/SDL_posixprocess.c.o
+[270/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/offscreen/SDL_offscreenopengles.c.o
+[271/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/offscreen/SDL_offscreenvideo.c.o
+[272/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/tray/SDL_tray_utils.c.o
+[273/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/offscreen/SDL_offscreenwindow.c.o
+[274/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/video/offscreen/SDL_offscreenvulkan.c.o
+[275/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/sensor/dummy/SDL_dummysensor.c.o
+[276/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/main/generic/SDL_sysmain_callbacks.c.o
+[277/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_assert.c.o
+[278/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_compare.c.o
+[279/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_crc32.c.o
+[280/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_font.c.o
+[281/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_common.c.o
+[282/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_harness.c.o
+[283/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_fuzzer.c.o
+[284/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_log.c.o
+[285/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_memory.c.o
+[286/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3_test.dir/src/test/SDL_test_md5.c.o
+[287/402] Linking C static library _deps/sdl3-build/libSDL3_test.a
+[288/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_atan2.c.o
+[289/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_exp.c.o
+[290/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_fmod.c.o
+[291/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_log.c.o
+[292/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_log10.c.o
+[293/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_pow.c.o
+[294/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_rem_pio2.c.o
+[295/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/e_sqrt.c.o
+[296/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/k_cos.c.o
+[297/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/k_sin.c.o
+[298/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/k_rem_pio2.c.o
+[299/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/k_tan.c.o
+[300/402] Building C object _deps/sdl3-build/CMakeFiles/SDL3-shared.dir/src/gpu/vulkan/SDL_gpu_vulkan.c.o
+[301/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_atan.c.o
+[302/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_cos.c.o
+[303/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_copysign.c.o
+[304/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_fabs.c.o
+[305/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_isinf.c.o
+[306/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_floor.c.o
+[307/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_isinff.c.o
+[308/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_isnan.c.o
+[309/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_isnanf.c.o
+[310/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_modf.c.o
+[311/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_scalbn.c.o
+[312/402] Building CXX object _deps/glslang-build/SPIRV/CMakeFiles/SPIRV.dir/home/claude/deps/glslang/glslang/stub.cpp.o
+[313/402] Linking CXX static library _deps/glslang-build/SPIRV/libSPIRV.a
+[314/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/GenericCodeGen.dir/stub.cpp.o
+[315/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_sin.c.o
+[316/402] Linking CXX static library _deps/glslang-build/glslang/libGenericCodeGen.a
+[317/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/MachineIndependent.dir/stub.cpp.o
+[318/402] Linking CXX static library _deps/glslang-build/glslang/libMachineIndependent.a
+[319/402] Building C object _deps/sdl3-build/CMakeFiles/SDL_uclibc.dir/src/libm/s_tan.c.o
+[320/402] Linking C static library _deps/sdl3-build/libSDL_uclibc.a
+[321/402] Linking C shared library _deps/sdl3-build/libSDL3.so.0.2.10
+[322/402] Creating library symlink _deps/sdl3-build/libSDL3.so.0 _deps/sdl3-build/libSDL3.so
+[323/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang-default-resource-limits.dir/ResourceLimits/resource_limits_c.cpp.o
+[324/402] Building CXX object _deps/glslang-build/glslang/OSDependent/Unix/CMakeFiles/OSDependent.dir/home/claude/deps/glslang/glslang/stub.cpp.o
+[325/402] Linking CXX static library _deps/glslang-build/glslang/OSDependent/Unix/libOSDependent.a
+[326/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang-default-resource-limits.dir/ResourceLimits/ResourceLimits.cpp.o
+[327/402] Linking CXX static library _deps/glslang-build/glslang/libglslang-default-resource-limits.a
+[328/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/cmake_pch.hxx.gch
+[329/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/GenericCodeGen/Link.cpp.o
+[330/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/GenericCodeGen/CodeGen.cpp.o
+[331/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/CInterface/glslang_c_interface.cpp.o
+[332/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/OSDependent/Unix/ossource.cpp.o
+[333/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/attribute.cpp.o
+[334/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/Constant.cpp.o
+[335/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/InfoSink.cpp.o
+[336/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/iomapper.cpp.o
+[337/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/IntermTraverse.cpp.o
+[338/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/Initialize.cpp.o
+[339/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/Intermediate.cpp.o
+[340/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/ParseContextBase.cpp.o
+[341/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/glslang_tab.cpp.o
+[342/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/PoolAlloc.cpp.o
+[343/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/RemoveTree.cpp.o
+[344/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/Scan.cpp.o
+[345/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/ShaderLang.cpp.o
+[346/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/SpirvIntrinsics.cpp.o
+[347/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/SymbolTable.cpp.o
+[348/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/Versions.cpp.o
+[349/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/limits.cpp.o
+[350/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/intermOut.cpp.o
+[351/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/parseConst.cpp.o
+[352/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/ParseHelper.cpp.o
+In file included from /home/claude/deps/glslang/glslang/Include/intermediate.h:52,
+                 from /home/claude/deps/glslang/glslang/MachineIndependent/SymbolTable.h:69,
+                 from /home/claude/deps/glslang/glslang/MachineIndependent/pch.h:44,
+                 from /home/claude/n2/build-pkg/_deps/glslang-build/glslang/CMakeFiles/glslang.dir/cmake_pch.hxx:5,
+                 from <command-line>:
+In member function 'void glslang::TType::shallowCopy(const glslang::TType&)',
+    inlined from 'glslang::TVariable::TVariable(const glslang::TString*, const glslang::TString*, const glslang::TType&, bool)' at /home/claude/deps/glslang/glslang/MachineIndependent/SymbolTable.h:166:27,
+    inlined from 'glslang::TVariable::TVariable(const glslang::TString*, const glslang::TType&, bool)' at /home/claude/deps/glslang/glslang/MachineIndependent/SymbolTable.h:159:38,
+    inlined from 'void glslang::TParseContext::addQualifierToExisting(const glslang::TSourceLoc&, glslang::TQualifier, const glslang::TString&)' at /home/claude/deps/glslang/glslang/MachineIndependent/ParseHelper.cpp:9973:81:
+/home/claude/deps/glslang/glslang/Include/Types.h:1759:19: warning: 'blockNameType.glslang::TType::coopvecNV' may be used uninitialized [-Wmaybe-uninitialized]
+ 1759 |         coopvecNV = copyOf.isCoopVecNV();
+      |         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/home/claude/deps/glslang/glslang/MachineIndependent/ParseHelper.cpp: In member function 'void glslang::TParseContext::addQualifierToExisting(const glslang::TSourceLoc&, glslang::TQualifier, const glslang::TString&)':
+/home/claude/deps/glslang/glslang/MachineIndependent/ParseHelper.cpp:9972:15: note: 'blockNameType.glslang::TType::coopvecNV' was declared here
+ 9972 |         TType blockNameType(EbtReference, blockType, identifier);
+      |               ^~~~~~~~~~~~~
+In member function 'void glslang::TType::shallowCopy(const glslang::TType&)',
+    inlined from 'glslang::TVariable::TVariable(const glslang::TString*, const glslang::TString*, const glslang::TType&, bool)' at /home/claude/deps/glslang/glslang/MachineIndependent/SymbolTable.h:166:27,
+    inlined from 'glslang::TVariable::TVariable(const glslang::TString*, const glslang::TType&, bool)' at /home/claude/deps/glslang/glslang/MachineIndependent/SymbolTable.h:159:38,
+    inlined from 'void glslang::TParseContext::declareBlock(const glslang::TSourceLoc&, glslang::TTypeList&, const glslang::TString*, glslang::TArraySizes*)' at /home/claude/deps/glslang/glslang/MachineIndependent/ParseHelper.cpp:9505:79:
+/home/claude/deps/glslang/glslang/Include/Types.h:1759:19: warning: 'blockNameType.glslang::TType::coopvecNV' may be used uninitialized [-Wmaybe-uninitialized]
+ 1759 |         coopvecNV = copyOf.isCoopVecNV();
+      |         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/home/claude/deps/glslang/glslang/MachineIndependent/ParseHelper.cpp: In member function 'void glslang::TParseContext::declareBlock(const glslang::TSourceLoc&, glslang::TTypeList&, const glslang::TString*, glslang::TArraySizes*)':
+/home/claude/deps/glslang/glslang/MachineIndependent/ParseHelper.cpp:9504:15: note: 'blockNameType.glslang::TType::coopvecNV' was declared here
+ 9504 |         TType blockNameType(EbtReference, blockType, *blockName);
+      |               ^~~~~~~~~~~~~
+[353/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/reflection.cpp.o
+[354/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/linkValidate.cpp.o
+[355/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/preprocessor/PpAtom.cpp.o
+[356/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/preprocessor/Pp.cpp.o
+[357/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/preprocessor/PpContext.cpp.o
+[358/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/preprocessor/PpTokens.cpp.o
+[359/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/preprocessor/PpScanner.cpp.o
+[360/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/MachineIndependent/propagateNoContraction.cpp.o
+[361/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/InReadableOrder.cpp.o
+[362/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/Logger.cpp.o
+[363/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/SpvPostProcess.cpp.o
+[364/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/doc.cpp.o
+[365/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/SpvTools.cpp.o
+[366/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/SpvBuilder.cpp.o
+[367/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/disassemble.cpp.o
+[368/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/CInterface/spirv_c_interface.cpp.o
+[369/402] Building CXX object _deps/glslang-build/glslang/CMakeFiles/glslang.dir/home/claude/deps/glslang/SPIRV/GlslangToSpv.cpp.o
+In file included from /usr/include/c++/13/string:51,
+                 from /usr/include/c++/13/bits/locale_classes.h:40,
+                 from /usr/include/c++/13/bits/ios_base.h:41,
+                 from /usr/include/c++/13/ios:44,
+                 from /usr/include/c++/13/istream:40,
+                 from /usr/include/c++/13/sstream:40,
+                 from /home/claude/deps/glslang/glslang/MachineIndependent/pch.h:36,
+                 from /home/claude/n2/build-pkg/_deps/glslang-build/glslang/CMakeFiles/glslang.dir/cmake_pch.hxx:5,
+                 from <command-line>:
+In static member function 'static _Up* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(_Tp*, _Tp*, _Up*) [with _Tp = long unsigned int; _Up = long unsigned int; bool _IsMove = false]',
+    inlined from '_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = long unsigned int*; _OI = long unsigned int*]' at /usr/include/c++/13/bits/stl_algobase.h:506:30,
+    inlined from '_OI std::__copy_move_a1(_II, _II, _OI) [with bool _IsMove = false; _II = long unsigned int*; _OI = long unsigned int*]' at /usr/include/c++/13/bits/stl_algobase.h:533:42,
+    inlined from '_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = false; _II = long unsigned int*; _OI = long unsigned int*]' at /usr/include/c++/13/bits/stl_algobase.h:540:31,
+    inlined from '_OI std::copy(_II, _II, _OI) [with _II = long unsigned int*; _OI = long unsigned int*]' at /usr/include/c++/13/bits/stl_algobase.h:633:7,
+    inlined from 'std::vector<bool, _Alloc>::iterator std::vector<bool, _Alloc>::_M_copy_aligned(const_iterator, const_iterator, iterator) [with _Alloc = std::allocator<bool>]' at /usr/include/c++/13/bits/stl_bvector.h:1342:28,
+    inlined from 'void std::vector<bool, _Alloc>::_M_reallocate(size_type) [with _Alloc = std::allocator<bool>]' at /usr/include/c++/13/bits/vector.tcc:851:40,
+    inlined from 'void std::vector<bool, _Alloc>::reserve(size_type) [with _Alloc = std::allocator<bool>]' at /usr/include/c++/13/bits/stl_bvector.h:1130:17,
+    inlined from 'void spv::Instruction::reserveOperands(size_t)' at /home/claude/deps/glslang/SPIRV/spvIR.h:102:26,
+    inlined from 'void spv::Function::setDebugLineInfo(spv::Id, int, int)' at /home/claude/deps/glslang/SPIRV/spvIR.h:422:41:
+/usr/include/c++/13/bits/stl_algobase.h:437:30: warning: 'void* __builtin_memmove(void*, const void*, long unsigned int)' forming offset 8 is out of the bounds [0, 8] [-Warray-bounds=]
+  437 |             __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
+      |             ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[370/402] Linking CXX static library _deps/glslang-build/glslang/libglslang.a
+[371/402] Generating /home/claude/n2/build-pkg/include/glslang/glsl_intrinsic_header.h
+[372/402] Building CXX object _deps/glslang-build/StandAlone/CMakeFiles/glslang-standalone.dir/StandAlone.cpp.o
+[373/402] Linking CXX executable _deps/glslang-build/StandAlone/glslang
+[374/402] Generating shaders/dynamic.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/dynamic.vert
+[375/402] Generating shaders/enemy.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/enemy.vert
+[376/402] Generating shaders/dynamic.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/dynamic.frag
+[377/402] Generating shaders/enemy.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/enemy.frag
+[378/402] Generating shaders/fx.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/fx.frag
+[379/402] Generating shaders/gun.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/gun.vert
+[380/402] Generating shaders/fx.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/fx.vert
+[381/402] Generating shaders/gun.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/gun.frag
+[382/402] Generating shaders/hud.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/hud.frag
+[383/402] Generating shaders/material.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/material.frag
+[384/402] Generating shaders/hud.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/hud.vert
+[385/402] Generating shaders/material.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/material.vert
+[386/402] Generating shaders/skybox.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/skybox.frag
+[387/402] Generating shaders/sky.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/sky.vert
+[388/402] Generating shaders/sky.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/sky.frag
+[389/402] Generating shaders/skybox.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/skybox.vert
+[390/402] Generating shaders/triangle.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.vert
+[391/402] Generating shaders/triangle.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.frag
+[392/402] Generating shaders/solid.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/solid.vert
+[393/402] Generating shaders/world.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/world.frag
+[394/402] Generating shaders/world.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/world.vert
+[395/402] Building CXX object CMakeFiles/cat_arena_render_tests.dir/tests/render_tests.cpp.o
+[396/402] Building CXX object CMakeFiles/cat_arena_path_tests.dir/tests/path_tests.cpp.o
+[397/402] Building CXX object CMakeFiles/cat_arena_render.dir/src/renderer.cpp.o
+[398/402] Linking CXX static library libcat_arena_render.a
+[399/402] Linking CXX executable cat_arena_path_tests
+[400/402] Linking CXX executable cat_arena_render_tests
+[401/402] Building CXX object CMakeFiles/cat_arena.dir/src/main.cpp.o
+[402/402] Linking CXX executable cat_arena
+build exit 0

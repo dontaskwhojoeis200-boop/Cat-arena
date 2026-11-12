@@ -1,0 +1,2 @@
+helios auto (N6 build, pose captures): 7/7 PNG files byte-identical to the N4 captures (= N2 golden frames)
+helios baseline (N6 build, pose captures): 7/7 PNG files byte-identical to the N4 captures (= N2 golden frames)

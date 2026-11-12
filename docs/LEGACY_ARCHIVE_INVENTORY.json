@@ -1,0 +1,317 @@
+{
+  "CAT_ARENA_FERAL_CLAW_v0_17_CAT_MARINE.apk": {
+    "crc_ok": true,
+    "entries": [
+      {
+        "path": "AndroidManifest.xml",
+        "bytes": 1576,
+        "sha256": "10ba33f40d0f185675184d788c3bcc8e5749a5f36d13325501802fe921d17c39"
+      },
+      {
+        "path": "classes.dex",
+        "bytes": 2404,
+        "sha256": "d79d4671a95db46e0991c2181a13fdf1a5f1e9d4605b85ac76cb400cec2e6e70"
+      },
+      {
+        "path": "assets/index.html",
+        "bytes": 18320927,
+        "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393"
+      }
+    ]
+  },
+  "CAT_ARENA_v0_15_SOURCE.zip": {
+    "crc_ok": true,
+    "entries": [
+      {
+        "path": "work/AndroidManifest.xml",
+        "bytes": 1580,
+        "sha256": "a55cc92c3f01162fc10a490d2c9e0a36acbce222237295c49fe6cd4ba147835e"
+      },
+      {
+        "path": "work/GRAPHICS_FIX_v0_15.md",
+        "bytes": 1265,
+        "sha256": "c7a4fece0a20eb9ff08a810acd57f5da0315e3f3c0af47174d6a544567a1373a"
+      },
+      {
+        "path": "work/PERFORMANCE_FIX_v0_13.md",
+        "bytes": 2610,
+        "sha256": "162c42c7914aefbbcc86326299c483fa62044f536ced9e0516aba03908324259"
+      },
+      {
+        "path": "work/README.txt",
+        "bytes": 4546,
+        "sha256": "8978b66e25285833a8bf0924237440fc8d2e91783536914078b31b2c24f9f4ff"
+      },
+      {
+        "path": "work/assets/index.html",
+        "bytes": 18223959,
+        "sha256": "e85fd897c5b9013bbd295410056ea4d4237b62f37db6b3b90fd84c3565f652af"
+      },
+      {
+        "path": "work/build_native.py",
+        "bytes": 7573,
+        "sha256": "3ef3f664f640559e65be1864f53f6bb53bf52f3adfabc592d1a6f47196ae5042"
+      },
+      {
+        "path": "work/cat-ui.css",
+        "bytes": 11172,
+        "sha256": "101f0be24afc29dba871c588c89fa2bef2c525e7e64b04318cc699ffa49d5f7b"
+      },
+      {
+        "path": "work/cat-ui.js",
+        "bytes": 13715,
+        "sha256": "e68a7fd2606a622d7a1211f99df382a241ef5fa8f231b7f21fc89fbae79d6007"
+      },
+      {
+        "path": "work/classes.dex",
+        "bytes": 2404,
+        "sha256": "d79d4671a95db46e0991c2181a13fdf1a5f1e9d4605b85ac76cb400cec2e6e70"
+      },
+      {
+        "path": "work/helios-crucible.js",
+        "bytes": 10091,
+        "sha256": "0045e2ab43465131f483c463c91de47dac458cabbd96ed4fa27d6d6ab50e84fd"
+      },
+      {
+        "path": "work/helios-signing-cert.der",
+        "bytes": 719,
+        "sha256": "73280e2cdb33fc2fa88abcc36ee87f2f05eaa36c0375b0acec99b2cd3f571dd8"
+      },
+      {
+        "path": "work/helios-signing-key.pem",
+        "bytes": 1704,
+        "sha256": "93a1d4d5d0468c288e3b2aa26af67bd3346eaa1f765ce6d9a8ff201aa5f5dd29"
+      },
+      {
+        "path": "work/lightmap-info.json",
+        "bytes": 312,
+        "sha256": "44bd7067df8dec263cdaaf219321c97aaf5d7ba47eb105b173fd7f9793543e54"
+      },
+      {
+        "path": "work/package_apk.py",
+        "bytes": 4199,
+        "sha256": "6dd3ede932606c8a0951dbb56a7134ae1b0844bc42f11e93339cc07f29edfcde"
+      },
+      {
+        "path": "work/ui_test.cjs",
+        "bytes": 7287,
+        "sha256": "2ddfaa7ec2eb4de67538b818e5e1501995f62d1763741949c952d3188951cc4c"
+      },
+      {
+        "path": "work/verify_apk.py",
+        "bytes": 2015,
+        "sha256": "8c7288836a48fba889ee0af3fc68500d391ef3433f05f224f25f5c49e716a214"
+      },
+      {
+        "path": "work/vis-info.json",
+        "bytes": 241,
+        "sha256": "cbdda57263422041af3f425971179fb083997eee9d670fd6719778b67356436d"
+      }
+    ]
+  },
+  "CAT_MARINE_MODEL_AND_SOURCE.zip": {
+    "crc_ok": true,
+    "entries": [
+      {
+        "path": "README_INTEGRATION.txt",
+        "bytes": 2964,
+        "sha256": "a09d7d54f190c713367b60f70df99eb261be9fbdd1a7ec1e0b257b06a39ae07c"
+      },
+      {
+        "path": "cat_marine_rigged.glb",
+        "bytes": 235536,
+        "sha256": "64809ecf7fa87c42db2dbd56dab9034ee7d97588d827b2aa1d7bf835f831c039"
+      },
+      {
+        "path": "cat_marine_hitboxes.json",
+        "bytes": 2594,
+        "sha256": "cd2c35602a7f410333b4d3b23e6fb63bd47b4c5ad4c2e3090acbaaecddc16c4a"
+      },
+      {
+        "path": "model_metadata.json",
+        "bytes": 361,
+        "sha256": "52bd37028b60c828ace96882ea3f9754cfbd867415d564d6096b5613e83db994"
+      },
+      {
+        "path": "cat_marine_preview.png",
+        "bytes": 119821,
+        "sha256": "9158ac6fe33b470e2ecc1f38d021a8dc26ac9e5a0e4d9f0ff1f8254e6505c0a9"
+      },
+      {
+        "path": "build_cat_marine.py",
+        "bytes": 14225,
+        "sha256": "8200d04cb691fae53420c1e4acb1c24906f00d7a433728ffc5d1f1adc46f4318"
+      },
+      {
+        "path": "integrate_v17.py",
+        "bytes": 9538,
+        "sha256": "2ed43866b6b8b9fcb92f279c05f0c889083bfab0670fd376fbe852d10c793bd7"
+      },
+      {
+        "path": "package_apk.py",
+        "bytes": 4788,
+        "sha256": "2bdaacce25f4f46d6a4d714dd41b4da7eea2725323e47a57a5d3e1af06e6b05b"
+      },
+      {
+        "path": "armor_camo_256.png",
+        "bytes": 78479,
+        "sha256": "b2b76d09e202bd94540808540a76ed63d10bc823b73bc664f511272acd5ced70"
+      },
+      {
+        "path": "cat_face_256.png",
+        "bytes": 98164,
+        "sha256": "3ebca3ad8890e80cda12b434fb88e3dbdee47e86239f3375553501e95ec85c06"
+      }
+    ]
+  },
+  "VOID_ARENA_MODULAR_SOURCE_AND_GAME_v0_1.zip": {
+    "crc_ok": true,
+    "entries": [
+      {
+        "path": "package.json",
+        "bytes": 372,
+        "sha256": "40ef828a88ddcb9371f36f1a8abab0997ef79348c4d0122a99e8c18c38e16b1f"
+      },
+      {
+        "path": "server.js",
+        "bytes": 7415,
+        "sha256": "1f2d44e3bb7a11cd3c447486e110be694225447b584f2a29b44bc37e2dab0f4a"
+      },
+      {
+        "path": "README.md",
+        "bytes": 6882,
+        "sha256": "61c127ae19f5a98104f71040d642b4f3fa371125ff1ec157072523cccf8fa067"
+      },
+      {
+        "path": "index.html",
+        "bytes": 24750,
+        "sha256": "2dbfaee7083127c99cec274bd29c9017e28ab448300880b617918a3407bcab04"
+      },
+      {
+        "path": "tests/test-staging.cjs",
+        "bytes": 1768,
+        "sha256": "5cc0e6439a9d32d4ed1fc2f90f860b1a35510c9a25a177d4532423dcfdf3c011"
+      },
+      {
+        "path": "styles/main.css",
+        "bytes": 50621,
+        "sha256": "45618a998d694a3115f740756c6a3b9965fc35fb3d3c40f8fb2e9519058396b8"
+      },
+      {
+        "path": "assets/environment/README.md",
+        "bytes": 494,
+        "sha256": "ed514500dc4f2e4d4fea468d5e97c52ffab5d86f31091aa1be6f3cfe2f089ecb"
+      },
+      {
+        "path": "assets/models/enemies.js",
+        "bytes": 2115456,
+        "sha256": "e6e795107bcf6ebbe0a469210c67f0b538edf6bde1cda910db095169c4729b78"
+      },
+      {
+        "path": "assets/models/weapons.js",
+        "bytes": 2893599,
+        "sha256": "7b5013658b9a8728fab03be85b8d4fbd93de09a0d19d70e33f2c86c2986d539b"
+      },
+      {
+        "path": "assets/textures/cat-faces.png",
+        "bytes": 233105,
+        "sha256": "177df5a1803f114488e57befafae14b2ffcd3e7c182e01719e87957b53640168"
+      },
+      {
+        "path": "assets/textures/gun-concept.png",
+        "bytes": 343225,
+        "sha256": "245d974ba9d747c3af2f39a813b83fea81063a936e0204ecacea990344c811f4"
+      },
+      {
+        "path": "assets/textures/enemy-concept.webp",
+        "bytes": 316568,
+        "sha256": "1d975cc00bcc546a131ec42185ba353d4cc7a9504805ad7ec48d1d84ff592448"
+      },
+      {
+        "path": "assets/audio/sfx-bank.js",
+        "bytes": 475932,
+        "sha256": "ffa34c1ca3a918f63a3b48e2d1360bb2bcd4c4e641968b7ff686c3982b837b04"
+      },
+      {
+        "path": "assets/audio/main-theme.mp3",
+        "bytes": 2801276,
+        "sha256": "6145237cf664191502e0fdc30662d47a868eeafbd61b3549de9e081c9e442e66"
+      },
+      {
+        "path": "js/net/multiplayer.js",
+        "bytes": 28699,
+        "sha256": "307f2dae8f70cd059f2fe2f6299a8e7391ebea5bf44719259d62e5fe5239d028"
+      },
+      {
+        "path": "js/game/gameplay.js",
+        "bytes": 226406,
+        "sha256": "5127c9c09f1acebcfd584b6ce69344943697c56c38f17916cfc012f02f4deedd"
+      },
+      {
+        "path": "js/game/entry.js",
+        "bytes": 20279,
+        "sha256": "16102cc12756e66d9a6b2ae51b972f79370af50fbf68b49d5ecbb46193b59e1b"
+      },
+      {
+        "path": "js/engine/gameplay-foundation.js",
+        "bytes": 74951,
+        "sha256": "3fb672e43f4af0820e6f3e8c0bcc5753dcf82c0e3d161a7a456680d8b8833b0f"
+      },
+      {
+        "path": "js/engine/boot.js",
+        "bytes": 62550,
+        "sha256": "e63f90462a9f28fd7006997202ce521ba3bdf9ce99ba248e48ce843ac14b5210"
+      },
+      {
+        "path": "js/world/geometry-staging.js",
+        "bytes": 1345,
+        "sha256": "cc637e8dd558bc436ea390de309a86d47dd5d3ce667fa197072db61e6dab83ab"
+      },
+      {
+        "path": "js/world/collision-navigation.js",
+        "bytes": 24097,
+        "sha256": "8db7d0719a4b0b76fbbde01831d217a0c4a830050a3e000b0f1dbffd665d8db0"
+      },
+      {
+        "path": "js/world/level-data.js",
+        "bytes": 1130,
+        "sha256": "80045e3f518043a0b0f0e62e5636bac6b49e933075556367d51254e2336f9a5e"
+      },
+      {
+        "path": "js/world/mesh-toolkit.js",
+        "bytes": 6042,
+        "sha256": "febd8677e84e87f0bd758c135452150457377684b1a9ce3dc6e7a17e88659322"
+      }
+    ]
+  },
+  "VOID_ARENA_v3_24_SERVER_BROWSER_COMPLETE.zip": {
+    "crc_ok": true,
+    "entries": [
+      {
+        "path": "index.html",
+        "bytes": 10895216,
+        "sha256": "0b46329fa7ed84ae7cf2324e90104563b7469e002faf739918f90144777bae31"
+      },
+      {
+        "path": "server.js",
+        "bytes": 8011,
+        "sha256": "ed68cb82fedf1af2a377ad4e8018997f551169a3322b5fdaf31f092c930f484a"
+      },
+      {
+        "path": "package.json",
+        "bytes": 162,
+        "sha256": "e902665f621de71f7cff864b6997d6aa23a498de978bda534ddbe4a444f14ba6"
+      },
+      {
+        "path": "README.md",
+        "bytes": 5077,
+        "sha256": "81dbcf4bbbdf519571d67ebaacf6213fe2d393aa898a158c03b61723fad2053e"
+      },
+      {
+        "path": "movement_smoke_test.js",
+        "bytes": 3356,
+        "sha256": "8e023b341287b85efbca3c0130fa10d21e5c8f5acedb6b94225cec08ce7a7ae7"
+      }
+    ]
+  }
+}

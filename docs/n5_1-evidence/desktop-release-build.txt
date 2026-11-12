@@ -1,0 +1,93 @@
+ninja: Entering directory `build-desktop-release'
+[1/73] Building CXX object CMakeFiles/cat_arena_headless.dir/src/headless.cpp.o
+[2/73] Building CXX object CMakeFiles/cat_arena_tests.dir/tests/core_tests.cpp.o
+[3/73] Building CXX object CMakeFiles/cat_arena_core.dir/src/core.cpp.o
+[4/73] Linking CXX static library libcat_arena_core.a
+[5/73] Linking CXX executable cat_arena_headless
+[6/73] Linking CXX executable cat_arena_tests
+[7/73] Building CXX object CMakeFiles/cat_arena_vkcaps_tests.dir/tests/vkcaps_tests.cpp.o
+[8/73] Building CXX object CMakeFiles/cat_arena_image_compare.dir/tests/image_compare.cpp.o
+[9/73] Building CXX object CMakeFiles/cat_arena_vkcaps.dir/src/vulkan_caps.cpp.o
+[10/73] Linking CXX static library libcat_arena_vkcaps.a
+[11/73] Linking CXX executable cat_arena_vkcaps_tests
+[12/73] Building CXX object CMakeFiles/cat_arena_vk_sim_selftest.dir/tests/vk_sim_layer_selftest.cpp.o
+[13/73] Building CXX object CMakeFiles/cat_arena_asset_check.dir/src/asset_check.cpp.o
+[14/73] Building CXX object CMakeFiles/VkLayer_cat_device_sim.dir/tests/vk_device_sim_layer.cpp.o
+[15/73] Linking CXX shared module vk_sim_layer/libVkLayer_cat_device_sim.so
+[16/73] Linking CXX executable cat_arena_vk_sim_selftest
+[17/73] Building CXX object CMakeFiles/cat_arena_assets.dir/src/assets.cpp.o
+[18/73] Building CXX object CMakeFiles/cat_arena_asset_tests.dir/tests/asset_tests.cpp.o
+[19/73] Linking CXX static library libcat_arena_assets.a
+[20/73] Linking CXX executable cat_arena_asset_check
+[21/73] Linking CXX executable cat_arena_asset_tests
+[22/73] Building CXX object CMakeFiles/cat_arena_scene_tests.dir/tests/scene_tests.cpp.o
+[23/73] Building CXX object CMakeFiles/cat_arena_scene.dir/src/scene.cpp.o
+[24/73] Building CXX object CMakeFiles/cat_arena_physics.dir/src/physics_world.cpp.o
+[25/73] Building CXX object CMakeFiles/cat_image_codec.dir/src/image_codec.cpp.o
+[26/73] Linking CXX static library libcat_image_codec.a
+[27/73] Linking CXX static library libcat_arena_scene.a
+[28/73] Linking CXX executable cat_arena_image_compare
+[29/73] Linking CXX executable cat_arena_scene_tests
+[30/73] Building CXX object CMakeFiles/cat_arena_physics.dir/src/player.cpp.o
+[31/73] Building CXX object CMakeFiles/cat_arena_physics.dir/src/combat.cpp.o
+[32/73] Building CXX object CMakeFiles/cat_arena_physics.dir/src/navigation.cpp.o
+[33/73] Linking CXX static library libcat_arena_physics.a
+[34/73] Building CXX object CMakeFiles/cat_arena_fx.dir/src/hud.cpp.o
+[35/73] Building CXX object CMakeFiles/cat_arena_physics_tests.dir/tests/physics_tests.cpp.o
+[36/73] Linking CXX executable cat_arena_physics_tests
+[37/73] Building CXX object CMakeFiles/cat_arena_fx.dir/src/weapon_fx.cpp.o
+[38/73] Linking CXX static library libcat_arena_fx.a
+[39/73] Building CXX object CMakeFiles/cat_arena_hud_tests.dir/tests/hud_tests.cpp.o
+[40/73] Linking CXX executable cat_arena_hud_tests
+[41/73] Building CXX object CMakeFiles/cat_arena_fx_tests.dir/tests/fx_tests.cpp.o
+[42/73] Linking CXX executable cat_arena_fx_tests
+[43/73] Generating shaders/dynamic.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/dynamic.frag
+[44/73] Generating shaders/dynamic.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/dynamic.vert
+[45/73] Generating shaders/fx.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/fx.frag
+[46/73] Generating shaders/fx.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/fx.vert
+[47/73] Generating shaders/gun.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/gun.frag
+[48/73] Generating shaders/gun.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/gun.vert
+[49/73] Generating shaders/hud.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/hud.frag
+[50/73] Generating shaders/hud.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/hud.vert
+[51/73] Generating shaders/material.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/material.frag
+[52/73] Building CXX object CMakeFiles/cat_arena_nav_tests.dir/tests/nav_tests.cpp.o
+[53/73] Generating shaders/material.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/material.vert
+[54/73] Linking CXX executable cat_arena_nav_tests
+[55/73] Generating shaders/sky.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/sky.vert
+[56/73] Generating shaders/sky.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/sky.frag
+[57/73] Generating shaders/skybox.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/skybox.frag
+[58/73] Generating shaders/solid.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/solid.vert
+[59/73] Generating shaders/skybox.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/skybox.vert
+[60/73] Generating shaders/triangle.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.frag
+[61/73] Generating shaders/world.frag.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/world.frag
+[62/73] Generating shaders/triangle.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/triangle.vert
+[63/73] Generating shaders/world.vert.spv
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/shaders/world.vert
+[64/73] Building CXX object CMakeFiles/cat_arena_combat_tests.dir/tests/combat_tests.cpp.o
+[65/73] Building CXX object CMakeFiles/cat_arena_render_tests.dir/tests/render_tests.cpp.o
+[66/73] Building CXX object CMakeFiles/cat_arena_path_tests.dir/tests/path_tests.cpp.o
+[67/73] Linking CXX executable cat_arena_combat_tests
+[68/73] Building CXX object CMakeFiles/cat_arena.dir/src/main.cpp.o
+[69/73] Building CXX object CMakeFiles/cat_arena_render.dir/src/renderer.cpp.o
+[70/73] Linking CXX static library libcat_arena_render.a
+[71/73] Linking CXX executable cat_arena_path_tests
+[72/73] Linking CXX executable cat_arena_render_tests
+[73/73] Linking CXX executable cat_arena

@@ -1,0 +1,116 @@
+MAP helios-crucible 7308 161014 2479 walls
+MAP bastion-keep 5462 126814 2652 walls
+MAP reactor-bastion 24398 0 3789 walls
+MAP q3-gallery 2398 1000 3083 walls
+BAKE PASS 527 files
+{
+  "schema": 1,
+  "maps": [
+    {
+      "id": "helios-crucible",
+      "slabs": 167,
+      "ramps": 8,
+      "walls": 2479,
+      "solids": 120,
+      "cavities": 1,
+      "spawns": 28,
+      "pickups": 26,
+      "jumpPads": 2,
+      "kitPlacements": 420,
+      "worldTriangles": 7308,
+      "materialTriangles": 161014,
+      "skyTriangles": 1142,
+      "lightmapSourceHash": "8ef1b586-1024x567",
+      "lightmapComputedHash": "8ef1b586-1024x567",
+      "lightmapMatched": true
+    },
+    {
+      "id": "bastion-keep",
+      "slabs": 156,
+      "ramps": 10,
+      "walls": 2652,
+      "solids": 96,
+      "cavities": 5,
+      "spawns": 12,
+      "pickups": 33,
+      "jumpPads": 2,
+      "kitPlacements": 339,
+      "worldTriangles": 5462,
+      "materialTriangles": 126814,
+      "skyTriangles": 1142,
+      "lightmapSourceHash": "2c71e476-1024x438",
+      "lightmapComputedHash": "2c71e476-1024x438",
+      "lightmapMatched": true
+    },
+    {
+      "id": "reactor-bastion",
+      "slabs": 343,
+      "ramps": 20,
+      "walls": 3789,
+      "solids": 207,
+      "cavities": 13,
+      "spawns": 12,
+      "pickups": 38,
+      "jumpPads": 4,
+      "kitPlacements": 0,
+      "worldTriangles": 24398,
+      "materialTriangles": 0,
+      "skyTriangles": 1142,
+      "lightmapSourceHash": "aa6afd0f-1024x792",
+      "lightmapComputedHash": "aa6afd0f-1024x792",
+      "lightmapMatched": true
+    },
+    {
+      "id": "q3-gallery",
+      "slabs": 988,
+      "ramps": 931,
+      "walls": 3083,
+      "solids": 34,
+      "cavities": 2,
+      "spawns": 7,
+      "pickups": 5,
+      "jumpPads": 1,
+      "kitPlacements": 0,
+      "worldTriangles": 2398,
+      "materialTriangles": 1000,
+      "skyTriangles": 1142,
+      "lightmapSourceHash": "1eca3ff9-512x236",
+      "lightmapComputedHash": "1eca3ff9-512x236",
+      "lightmapMatched": true
+    }
+  ],
+  "modelCounts": {
+    "enemies": 20,
+    "weapons": 16,
+    "kit": 40
+  },
+  "character": {
+    "file": "models/character/cat_marine_rigged.glb",
+    "sha256": "64809ecf7fa87c42db2dbd56dab9034ee7d97588d827b2aa1d7bf835f831c039",
+    "sourceArchiveSha256": "6ef98f473901340960e39988116ac0fa0c33c769c2c45dda918454aa136623e3",
+    "hitboxes": "models/character/cat_marine_hitboxes.json",
+    "joints": 21,
+    "animations": [
+      "idle",
+      "walk",
+      "run",
+      "shoot",
+      "melee",
+      "hurt",
+      "death"
+    ],
+    "axis": "glTF +Y up; hitbox metadata +Z forward; native world +Z up. Runtime animation/axis integration remains N6.",
+    "thirdPersonOnly": true
+  },
+  "proceduralAndKitTextures": 88,
+  "sfx": 48,
+  "lightmaps": 4,
+  "visibilitySets": 4,
+  "limitations": [
+    "Native renderer does not consume these maps until N2.",
+    "Runtime A* graph is not baked; authored connections, walkable surfaces and spatial indices are exported.",
+    "Native material shaders, animation and audio playback not implemented in N1.",
+    "Canvas rasterization was performed by pinned Skia, not browser pixel-parity tested.",
+    "Legacy fallback vertex lighting is not recomputed. Matched shipped atlas/UVs provide the preserved static lightmap path."
+  ]
+}

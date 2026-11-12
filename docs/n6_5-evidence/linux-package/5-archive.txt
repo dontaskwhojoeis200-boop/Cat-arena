@@ -1,0 +1,2 @@
+Wrote /home/claude/n2/n65/dist/CAT_ARENA_FERAL_CLAW_N6_LINUX.zip: 30680993 bytes, SHA-256 acfa4e796c7696567f0584f57c01facd940a4c152fbfbabd58203a6d886f4eb4
+archive exit 0

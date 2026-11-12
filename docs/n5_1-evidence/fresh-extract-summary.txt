@@ -1,0 +1,7 @@
+Fresh-extraction check, 2026-11-10.
+A candidate ZIP (SHA-256 e52876c0a174eba231cac6a91c2e43a616b597465c31c2af681c43294b905477) was extracted into an empty directory, configured, built
+and tested (desktop Debug, GCC). The delivered ZIP is that candidate plus these fresh-extract-* files, the updated
+TEST_MATRIX.md line and the regenerated N5_1_FILE_MANIFEST.json; no source, shader, asset, fixture or build file differs.
+
+configure: exit 0   build: exit 0, 0 warnings   ctest: exit 0
+100% tests passed, 0 tests failed out of 40

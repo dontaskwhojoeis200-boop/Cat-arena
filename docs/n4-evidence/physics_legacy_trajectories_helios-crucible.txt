@@ -1,0 +1,18 @@
+PASS random_0_z-4: 2400 ticks, bit-exact 2388, max |error| 2.77556e-17 (camForwardZ @ tick 1357), contacts h/c/l/s/r 1643/0/12/0/0
+PASS random_1_z0: 2400 ticks, bit-exact 2392, max |error| 1.77636e-15 (vy @ tick 1695), contacts h/c/l/s/r 559/0/9/0/3
+PASS random_2_z7: 2400 ticks, bit-exact 2390, max |error| 1.11022e-16 (camUpZ @ tick 694), contacts h/c/l/s/r 680/0/12/33/1
+PASS random_3_z-4: 2400 ticks, bit-exact 2368, max |error| 1.77636e-15 (vy @ tick 1133), contacts h/c/l/s/r 716/0/13/182/3
+PASS random_4_z0: 2400 ticks, bit-exact 2389, max |error| 1.33227e-15 (vx @ tick 1130), contacts h/c/l/s/r 1016/0/12/0/4
+PASS random_5_z7: 2400 ticks, bit-exact 2388, max |error| 8.88178e-16 (vx @ tick 824), contacts h/c/l/s/r 1345/0/11/82/2
+PASS ramp_0_upper-stair-0: 900 ticks, bit-exact 898, max |error| 1.04083e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 2/0/1/621/0
+PASS ramp_1_vault-ramp-0: 900 ticks, bit-exact 899, max |error| 1.73472e-18 (weaponPitch @ tick 790), contacts h/c/l/s/r 0/0/1/429/0
+PASS ramp_2_upper-stair-2: 900 ticks, bit-exact 898, max |error| 1.04083e-17 (weaponYaw @ tick 565), contacts h/c/l/s/r 2/0/1/621/0
+PASS pad_vault-launch-north: 700 ticks, bit-exact 699, max |error| 8.67362e-19 (weaponPitch @ tick 565), contacts h/c/l/s/r 186/0/1/0/0
+PASS pad_vault-launch-south: 700 ticks, bit-exact 699, max |error| 8.67362e-19 (weaponPitch @ tick 565), contacts h/c/l/s/r 275/0/1/0/0
+PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/1/2/0/0
+PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 3/0/2/0/2
+PASS slide_crouch: 800 ticks, bit-exact 799, max |error| 1.38778e-17 (weaponRoll @ tick 565), contacts h/c/l/s/r 304/0/0/113/0
+PASS air_strafe_bunnyhop: 900 ticks, bit-exact 899, max |error| 3.46945e-18 (weaponPitch @ tick 790), contacts h/c/l/s/r 317/0/7/0/0
+PASS crouch_walk: 500 ticks, bit-exact 499, max |error| 1.38778e-17 (vy @ tick 449), contacts h/c/l/s/r 262/0/0/0/0
+PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+PASS legacy trajectories helios-crucible: 17 scenarios, 21820 ticks (181.833 s), bit-exact ticks 21725, worst |error| 1.77636e-15, tolerance 1e-09; contacts horizontal 7310, ceiling 1, landings 85, steps 2081, recoveries 15; native state hash f6565a5daff19bc0

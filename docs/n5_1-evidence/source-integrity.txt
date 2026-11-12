@@ -1,0 +1,4 @@
+N5.1 source integrity check against N5_FILE_MANIFEST.json (SHA-256)
+legacy/, reference/, assets/ (n1, n2, n4, n5): 663 files, 0 changed, 0 missing, 0 added
+PASS
+native/tests/fixtures/n5/helios_combat.bin unchanged: True

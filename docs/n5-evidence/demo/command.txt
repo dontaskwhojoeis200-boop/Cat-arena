@@ -1,0 +1,2 @@
+cat_arena --offscreen 1280x720 --player-pose 81.5,61.5,0,2.2252947962927703,0.05 --weapons 4,7 --seed 5 --walk "-:20,fire:3,-:50,fire:3,-:70,swap:2,-:40,w:60,fire:3,-:100,fire:3,-:106,fire:3,-:100" --capture-every 8 --capture-dir demo
+(frames here are 960x540 JPEG copies of seven of the 1280x720 PNG captures)

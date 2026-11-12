@@ -1,0 +1,33 @@
+# N2.1 link-level check: the render library and the game executable may reference only Vulkan 1.0
+# and WSI (VK_KHR_surface / VK_KHR_swapchain) commands. Everything newer has to be resolved at run
+# time, otherwise the binary would fail to load on a Vulkan 1.2 system whose loader does not export it
+# (Android's libvulkan.so, older desktop loaders).
+#   cmake -DNM=<nm> -DBINARIES=<a|b> -DALLOW=<vulkan_baseline_imports.txt> -P check_vulkan_imports.cmake
+file(STRINGS "${ALLOW}" allowed)
+string(REPLACE "|" ";" binaries "${BINARIES}")
+set(total 0)
+foreach(binary IN LISTS binaries)
+  execute_process(COMMAND "${NM}" -u "${binary}" OUTPUT_VARIABLE out RESULT_VARIABLE rc ERROR_VARIABLE err)
+  if(NOT rc EQUAL 0)
+    message(FATAL_ERROR "nm failed on ${binary}: ${err}")
+  endif()
+  string(REGEX MATCHALL "U vk[A-Za-z0-9_]+" symbols "${out}")
+  list(REMOVE_DUPLICATES symbols)
+  list(LENGTH symbols count)
+  if(count LESS 40)
+    message(FATAL_ERROR "Only ${count} undefined Vulkan symbols found in ${binary}; the check is not seeing the imports")
+  endif()
+  set(bad "")
+  foreach(symbol IN LISTS symbols)
+    string(SUBSTRING "${symbol}" 2 -1 name)
+    list(FIND allowed "${name}" index)
+    if(index EQUAL -1)
+      list(APPEND bad "${name}")
+    endif()
+  endforeach()
+  if(bad)
+    message(FATAL_ERROR "${binary} links Vulkan commands newer than 1.0 + WSI: ${bad}")
+  endif()
+  math(EXPR total "${total} + ${count}")
+  message(STATUS "PASS ${binary}: ${count} Vulkan imports, all Vulkan 1.0 + WSI")
+endforeach()

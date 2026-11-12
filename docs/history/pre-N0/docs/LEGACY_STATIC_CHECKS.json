@@ -1,0 +1,42 @@
+{
+  "apk_html_matches": true,
+  "glb": {
+    "version": 2,
+    "declared_length": 235536,
+    "actual_length": 235536,
+    "meshes": 1,
+    "primitives": 7,
+    "triangles": 274,
+    "skin_joint_counts": [
+      21
+    ],
+    "animations": [
+      "idle",
+      "walk",
+      "run",
+      "shoot",
+      "melee",
+      "hurt",
+      "death"
+    ],
+    "images": 2
+  },
+  "duplicate_declaration_candidates": {
+    "buildNavGrid": [
+      5687,
+      6210
+    ],
+    "resetNavJobs": [
+      5752,
+      6211
+    ],
+    "processNavJobs": [
+      5876,
+      6450
+    ],
+    "botNavigation": [
+      6007,
+      6492
+    ]
+  }
+}

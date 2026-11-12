@@ -1,0 +1,64 @@
+{
+  "checkpoint": "migration-0.2-reference-blocked",
+  "source": "legacy_web/index.html",
+  "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "deviceScaleFactor": 1,
+  "settings": {
+    "preset": "normal",
+    "renderHeight": 720,
+    "adaptiveResolution": false,
+    "msaa": 0,
+    "fxaa": false,
+    "fov": 105,
+    "culling": "balanced",
+    "frameLimit": 241,
+    "vsyncPreference": true
+  },
+  "maps": {
+    "helios-crucible": [
+      78,
+      42,
+      0,
+      2.45,
+      0.15
+    ],
+    "bastion-keep": [
+      78,
+      38,
+      0,
+      2.36,
+      0.1
+    ],
+    "reactor-bastion": [
+      78.5,
+      60.5,
+      0,
+      3.14,
+      0.05
+    ],
+    "q3-gallery": [
+      42,
+      46,
+      0,
+      0.73,
+      0.12
+    ]
+  },
+  "cameraTuple": [
+    "playerX",
+    "playerY",
+    "feetZ",
+    "yawRadians",
+    "pitchRadians"
+  ],
+  "cameraOrigin": "existing menu preview shots, index.html lines 16569\u201316574; view camera has original eye offset",
+  "warmupSeconds": 10,
+  "sampleSeconds": 60,
+  "repetitions": 3,
+  "benchmarkScenario": "stationary rendering only, simulation paused via existing fovPanelOpen gate without settings overlay, zero enemies, no firing; not a combat benchmark",
+  "status": "CONFIGURED_NOT_EXECUTED"
+}

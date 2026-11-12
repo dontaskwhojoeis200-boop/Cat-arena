@@ -1,0 +1,28 @@
+PASS stand_still: 3000 ticks, bit-exact 2328, max |error| 7.10543e-15 (botSumFacing @ tick 1868), wave 1, kills 0, deaths 3, routes 34/34 (shared 1), random draws 858
+PASS fight_spin: 3600 ticks, bit-exact 3346, max |error| 1.77636e-15 (vx @ tick 3496), wave 1, kills 1, deaths 3, routes 202/213 (shared 6), random draws 1701
+PASS sprint_circuit: 3600 ticks, bit-exact 3599, max |error| 1.77636e-15 (vy @ tick 682), wave 1, kills 0, deaths 1, routes 188/193 (shared 6), random draws 768
+PASS wave_progression: 4200 ticks, bit-exact 4200, max |error| 0 (x @ tick 0), wave 3, kills 64, deaths 1, routes 63/63 (shared 1), random draws 1737
+PASS flyers_wave5: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 3, routes 83/89 (shared 0), random draws 1072
+PASS death_and_restart: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 2, routes 58/79 (shared 2), random draws 777
+PASS legacy enemies helios-crucible: 6 scenarios, 19200 ticks (160 s), bit-exact ticks 18273, worst |error| 7.10543e-15, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 65, player deaths 13, routes 628 (16 shared), random draws 6913; native state hash 5be022788cd6f56a
+PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 14/14 (shared 1), random draws 349
+PASS fight_spin: 1800 ticks, bit-exact 1797, max |error| 7.10543e-15 (botSumFacing @ tick 1586), wave 1, kills 0, deaths 1, routes 97/103 (shared 1), random draws 730
+PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 0, routes 72/77 (shared 2), random draws 340
+PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 29/32 (shared 1), random draws 891
+PASS flyers_wave5: 1200 ticks, bit-exact 1199, max |error| 3.55271e-15 (botSumFacing @ tick 732), wave 1, kills 0, deaths 1, routes 71/72 (shared 2), random draws 658
+PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 53/54 (shared 1), random draws 625
+PASS legacy enemies bastion-keep: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9596, worst |error| 7.10543e-15, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 10, highest wave 5, kills 30, player deaths 4, routes 336 (8 shared), random draws 3593; native state hash ce6027fb28a41cf6
+PASS stand_still: 1500 ticks, bit-exact 1489, max |error| 1.42109e-14 (botSumFacing @ tick 312), wave 1, kills 0, deaths 1, routes 17/22 (shared 1), random draws 356
+PASS fight_spin: 1800 ticks, bit-exact 1792, max |error| 8.88178e-16 (vy @ tick 1013), wave 1, kills 4, deaths 1, routes 112/130 (shared 4), random draws 702
+PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 103/106 (shared 3), random draws 602
+PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 27/58 (shared 1), random draws 871
+PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 3, deaths 1, routes 69/75 (shared 5), random draws 915
+PASS death_and_restart: 1200 ticks, bit-exact 1199, max |error| 2.22045e-16 (vx @ tick 569), wave 1, kills 0, deaths 1, routes 44/49 (shared 1), random draws 484
+PASS legacy enemies reactor-bastion: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9580, worst |error| 1.42109e-14, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 37, player deaths 5, routes 372 (15 shared), random draws 3930; native state hash 15d63aa2a6a031db
+PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 22/22 (shared 1), random draws 522
+PASS fight_spin: 1800 ticks, bit-exact 1794, max |error| 1.77636e-15 (botSumFacing @ tick 959), wave 1, kills 1, deaths 1, routes 106/122 (shared 2), random draws 927
+PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 87/87 (shared 5), random draws 850
+PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 40/40 (shared 4), random draws 878
+PASS flyers_wave5: 1200 ticks, bit-exact 1196, max |error| 8.88178e-16 (vy @ tick 1014), wave 1, kills 2, deaths 1, routes 78/78 (shared 5), random draws 1313
+PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 47/47 (shared 4), random draws 821
+PASS legacy enemies q3-gallery: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9590, worst |error| 1.77636e-15, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 33, player deaths 5, routes 380 (21 shared), random draws 5311; native state hash 76ee2de74b8a5a60

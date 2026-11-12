@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-09",
+  "os": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"",
+  "kernel": "6.18.44-fc-v338",
+  "cpuCores": "2",
+  "memory": "Mem:            8022         686        6051          15        1536        7336",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cmake": "cmake version 3.28.3",
+  "ninja": "1.11.1",
+  "sdl3": "release-3.2.10 (git tag, static, X11 on; Wayland/Xrandr/XInput/Xcursor dev headers absent)",
+  "vulkanHeaders": "vulkan-sdk-1.4.309.0 (git tag)",
+  "vulkanLoader": "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275",
+  "vulkanDevice": "Mesa lavapipe: llvmpipe (LLVM 20.1.2, 256 bits), Vulkan 1.4.318, CPU software rasterizer (no GPU)",
+  "validationLayer": "Vulkan-ValidationLayers vulkan-sdk-1.4.309.0 built locally (Release). Offscreen tests: XCB-only WSI build; window tests: Xlib WSI build using a build-only RROutput typedef stub (Xrandr dev headers absent)",
+  "shaderCompiler": "glslangValidator 15.2.0 (vulkan-sdk-1.4.309.0, built locally)",
+  "display": "Xvfb :99 1280x720x24 (window tests)",
+  "node": "v22.23.4",
+  "python": "Python 3.13.18",
+  "pillow": "12.3.0",
+  "legacyReferenceBrowser": "Playwright Chromium 1243 headless shell; WebGL2 = ANGLE (Mesa Vulkan 1.4.318 llvmpipe)",
+  "notes": "Package installs were unavailable; dependencies were fetched with git through the runner proxy. Same software rasterizer drove both legacy WebGL2 and native Vulkan captures; no hardware GPU, Windows or Android device was available."
+}

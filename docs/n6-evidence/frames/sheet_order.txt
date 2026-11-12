@@ -1,0 +1,2 @@
+staged_legacy_left_native_right.jpg: idle, windup, strike_final5, bodies, marines
+tape_frames_legacy_left_native_right.jpg: fight_spin_00530, fight_spin_01300, flyers_wave5_02003, wave_progression_02400, stand_still_00400, death_and_restart_00250

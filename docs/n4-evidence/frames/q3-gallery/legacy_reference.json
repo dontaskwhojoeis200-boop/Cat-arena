@@ -1,0 +1,285 @@
+{
+  "tool": "tools/n2/legacy_reference.cjs",
+  "source": "legacy/index.html",
+  "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "renderer": "ANGLE (Mesa, Vulkan 1.4.318 (llvmpipe (LLVM 20.1.2 256 bits) (0x00000000)), llvmpipe)",
+  "viewport": [
+    1280,
+    720
+  ],
+  "time": 10,
+  "runtimeStateChanges": [
+    "#start click handler invoked via element.click() (button is hidden behind the PLAY/map menus)",
+    "clicked the visible ENTER THE ARENA button (#loadReady)",
+    "fovPanelOpen=true (legacy simulation hold)",
+    "__SHOWCASE_HIDE_FP=true",
+    "setHudVisibility(false)",
+    "bots/pickups/particles/enemyShots emptied",
+    "Q3R.S.flares=false",
+    "q3Reset() (view bob state)",
+    "player pose and now set per capture",
+    "frame read with gl.readPixels right after a synchronous render() call"
+  ],
+  "info": {
+    "map": "q3-gallery",
+    "canvas": [
+      1280,
+      720
+    ],
+    "fov": 105,
+    "q3": {
+      "lightmap": {
+        "state": "ready",
+        "source": "shipped",
+        "hash": "1eca3ff9-512x236",
+        "w": 512,
+        "h": 236,
+        "charts": 1066,
+        "luxels": 0,
+        "covered": 0,
+        "triangles": 2432,
+        "occluders": 0,
+        "rays": 0,
+        "bakeMs": 0,
+        "chartMs": 41.3,
+        "progress": 1,
+        "luxelSize": 0.5,
+        "lights": 0,
+        "virtualLights": 0,
+        "error": "",
+        "vertexLuxels": 0,
+        "loadStart": 2644.899999999994,
+        "loadMs": 21.5
+      },
+      "lightMode": "lightmap",
+      "materials": {
+        "programs": 15,
+        "compiles": 15,
+        "runtimeCompiles": 0,
+        "draws": 122,
+        "passes": 120,
+        "collapsed": 49,
+        "multipass": 56,
+        "surfaces": 79,
+        "staticTris": 1658,
+        "materials": 87,
+        "skyDraws": 4,
+        "textures": 45,
+        "kitTextures": 30,
+        "staticVertices": 1536,
+        "materialBatches": 41,
+        "batchedClusters": 79,
+        "surfaceDraws": 56,
+        "loaded": 87,
+        "parseErrors": 0
+      },
+      "sky": "sky/gallery",
+      "vis": {
+        "state": "ready",
+        "source": "shipped",
+        "hash": "73e587a2-203",
+        "leaves": 432,
+        "occupiedLeaves": 63,
+        "targets": 203,
+        "pairs": 0,
+        "visiblePairs": 0,
+        "rays": 0,
+        "ms": 0,
+        "progress": 1,
+        "culledLast": 0,
+        "leafLast": 196,
+        "enabled": true,
+        "locked": false,
+        "cameraLeaf": 196
+      },
+      "portals": {
+        "views": 3,
+        "rendered": 1,
+        "skipped": 2,
+        "lastMs": 1.5,
+        "targets": 1,
+        "bytes": 1843200,
+        "list": [
+          {
+            "id": "portal-window",
+            "type": "window",
+            "visible": false,
+            "rt": null,
+            "range": 24
+          },
+          {
+            "id": "mirror",
+            "type": "mirror",
+            "visible": true,
+            "rt": [
+              640,
+              360
+            ],
+            "range": 40
+          },
+          {
+            "id": "monitor",
+            "type": "feed",
+            "visible": false,
+            "rt": null,
+            "range": 40
+          }
+        ]
+      },
+      "models": {
+        "models": 4,
+        "placed": 3,
+        "drawn": 2,
+        "surfaces": 4,
+        "parsed": 4,
+        "errors": 0,
+        "list": [
+          {
+            "model": "flag",
+            "parts": 1,
+            "frames": [
+              16
+            ],
+            "tags": [
+              []
+            ]
+          },
+          {
+            "model": "turret",
+            "parts": 3,
+            "frames": [
+              2,
+              1,
+              8
+            ],
+            "tags": [
+              [
+                "tag_head"
+              ],
+              [
+                "tag_barrel"
+              ],
+              [
+                "tag_flash"
+              ]
+            ]
+          },
+          {
+            "model": "turret",
+            "parts": 3,
+            "frames": [
+              2,
+              1,
+              8
+            ],
+            "tags": [
+              [
+                "tag_head"
+              ],
+              [
+                "tag_barrel"
+              ],
+              [
+                "tag_flash"
+              ]
+            ]
+          }
+        ]
+      },
+      "curves": {
+        "patches": 10,
+        "triangles": 1562,
+        "tolerance": 0.025
+      }
+    },
+    "lightQuality": 1,
+    "fogStrength": 1,
+    "preset": "normal",
+    "overbright": 1,
+    "textureMode": "trilinear",
+    "anisotropy": 4,
+    "msaa": 0
+  },
+  "frames": [
+    {
+      "name": "spawn0_z0",
+      "file": "spawn0_z0.png",
+      "requested": {
+        "name": "spawn0_z0",
+        "x": 42.5,
+        "y": 46.5,
+        "z": 0,
+        "yaw": 0.7853981633974483,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 42.5,
+        "y": 46.5,
+        "z": 0,
+        "a": 0.7853981633974483,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "spawn1_z0",
+      "file": "spawn1_z0.png",
+      "requested": {
+        "name": "spawn1_z0",
+        "x": 92,
+        "y": 46,
+        "z": 0,
+        "yaw": 1.8849555921538759,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 92,
+        "y": 46,
+        "z": 0,
+        "a": 1.8849555921538759,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    },
+    {
+      "name": "spawn2_z4_5",
+      "file": "spawn2_z4_5.png",
+      "requested": {
+        "name": "spawn2_z4_5",
+        "x": 70,
+        "y": 75,
+        "z": 4.5,
+        "yaw": -1.5707963267948966,
+        "pitch": 0.05
+      },
+      "state": {
+        "x": 70,
+        "y": 75,
+        "z": 4.5,
+        "a": -1.5707963267948966,
+        "pitch": 0.05,
+        "now": 10,
+        "canvas": [
+          1280,
+          720
+        ]
+      }
+    }
+  ],
+  "consoleWarningsAndErrors": [
+    "warning: [.WebGL-0x3d2c00192c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+    "warning: [.WebGL-0x3d2c00192c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: [.WebGL-0x3d2c00192c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "warning: [.WebGL-0x3d2c00192c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+  ]
+}

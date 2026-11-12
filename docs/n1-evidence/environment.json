@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "node": "v24.22.1",
+  "offline_dependencies": {
+    "acorn": "8.15.0",
+    "canvas": "0.1.100"
+  },
+  "GPU_execution": "NOT_RUN",
+  "Windows_build": "NOT_RUN",
+  "Android_build": "NOT_RUN",
+  "ASAN_OPTIONS": "detect_leaks=0"
+}

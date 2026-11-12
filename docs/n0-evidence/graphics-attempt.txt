@@ -1,0 +1,4 @@
+$ ./build-desktop/cat_arena --frames 5
+level="error" subsystem="app" message="No available video device"
+
+exit=1

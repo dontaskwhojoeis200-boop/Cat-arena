@@ -1,0 +1,2 @@
+assets/n1 byte-identical to N1 package
+legacy/ and reference/ byte-identical to N1 package

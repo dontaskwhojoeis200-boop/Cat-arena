@@ -1,0 +1,5 @@
+CMake Error at CAT_ARENA_NATIVE_REWRITE/native/tests/check_vulkan_imports.cmake:29 (message):
+  build-desktop/libcat_arena_render.a links Vulkan commands newer than 1.0 +
+  WSI: vkQueueSubmit
+
+
