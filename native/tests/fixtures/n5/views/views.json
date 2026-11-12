@@ -1,0 +1,16 @@
+{
+ "tool": "tools/n5/legacy_combat.cjs --views-dir",
+ "pose": [
+  81.5,
+  61.5,
+  0,
+  2.2252947962927703,
+  0
+ ],
+ "time": 100,
+ "size": [
+  1280,
+  720
+ ],
+ "note": "railCharge 0 as at game start (the railgun shows its recharge glow), HUD hidden, flares off"
+}
