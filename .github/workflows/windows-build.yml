@@ -1,0 +1,153 @@
+# Cat Arena: Feral Claw - Windows x64 build, test and package (N6.5; reusable for later milestones).
+#
+# Produces the artifact CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS (downloads as a ZIP holding one folder
+# with CatArena.exe, SDL3.dll, assets/, README.txt, THIRD_PARTY_LICENSES.txt).
+# Toolchain: windows-2022 runner, MSVC (Visual Studio 2022 Build Tools), Windows SDK, CMake.
+# Fetched at configure time (pinned, see native/CMakeLists.txt): SDL3 3.2.10, glslang vulkan-sdk-1.4.309.0.
+# Vulkan headers are vendored (native/third_party/vulkan-headers, 1.4.309); vulkan-1.lib is generated
+# from native/tests/vulkan_baseline_imports.txt. No Vulkan SDK is installed and none is shipped.
+#
+# The hosted runner has no GPU: tests labelled "gpu" (Vulkan rendering, windows) are not run here.
+# A green run proves compilation, packaging and the GPU-free tests - not that the game renders on Windows.
+# Run `ctest --preset windows-release-gpu` on a Windows PC with a Vulkan driver for that.
+name: windows-build
+
+on:
+  workflow_dispatch:
+    inputs:
+      milestone:
+        description: "Milestone in the package name (CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS)"
+        required: false
+        default: "N6"
+  push:
+    branches: [main, master]
+    paths: ["native/**", "assets/**", "README_WINDOWS.md", ".github/workflows/windows-build.yml"]
+  pull_request:
+    paths: ["native/**", "assets/**", "README_WINDOWS.md", ".github/workflows/windows-build.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows-x64:
+    runs-on: windows-2022
+    timeout-minutes: 120
+    env:
+      MILESTONE: ${{ github.event.inputs.milestone || 'N6' }}
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      # Stage 1: checkout (assets are ordinary files; lfs: true only matters if the repository uses Git LFS)
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          lfs: true
+
+      # Stage 2: toolchain report (MSVC, Windows SDK and CMake are preinstalled on windows-2022)
+      - name: Toolchain
+        run: |
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (-not $vs) { throw "MSVC x64 tools not found" }
+          "VS_PATH=$vs" | Out-File -FilePath $env:GITHUB_ENV -Append
+          cmake --version
+          & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property catalog_productDisplayVersion
+          git --version
+          python --version
+          New-Item -ItemType Directory -Force -Path ci-logs | Out-Null
+
+      # Stage 3: configure (Visual Studio 2022 generator, x64, static MSVC runtime, SDL3 + glslang fetched)
+      - name: Configure
+        working-directory: native
+        run: |
+          cmake --preset windows-release "-DCAT_MILESTONE=$env:MILESTONE" 2>&1 | Tee-Object -FilePath ../ci-logs/configure.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      # Stage 4 + 5: compile the engine, the tests and the SPIR-V shaders (cat_shaders runs glslang)
+      - name: Build (C++20 and SPIR-V)
+        working-directory: native
+        run: |
+          cmake --build --preset windows-release --parallel 2>&1 | Tee-Object -FilePath ../ci-logs/build.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Get-ChildItem build/windows-release/shaders/*.spv | Measure-Object | ForEach-Object { "SPIR-V files: $($_.Count)" }
+          Get-Item build/windows-release/Release/CatArena.exe | Format-List Name, Length
+
+      # Stage 7: package (cmake --install makes the game folder)
+      - name: Package
+        run: |
+          $pkg = "dist/CAT_ARENA_FERAL_CLAW_$($env:MILESTONE)_WINDOWS"
+          cmake --install native/build/windows-release --config Release --prefix $pkg 2>&1 | Tee-Object -FilePath ci-logs/install.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "PKG=$pkg" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      # Stage 8: validate contents and the executable's DLL dependencies
+      - name: Validate package
+        run: |
+          cmake "-DPACKAGE_DIR=$env:PKG" -DPLATFORM=windows -P native/tools/package/validate_package.cmake 2>&1 | Tee-Object -FilePath ci-logs/validate.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $dumpbin = Get-ChildItem "$env:VS_PATH\VC\Tools\MSVC" -Recurse -Filter dumpbin.exe | Where-Object { $_.FullName -match 'Hostx64\\x64' } | Select-Object -First 1
+          $deps = & $dumpbin.FullName /nologo /dependents "$env:PKG/CatArena.exe" | Out-String
+          $deps | Tee-Object -FilePath ci-logs/dependents.txt
+          (& $dumpbin.FullName /nologo /dependents "$env:PKG/SDL3.dll" | Out-String) | Tee-Object -FilePath ci-logs/dependents.txt -Append
+          (& $dumpbin.FullName /nologo /headers "$env:PKG/CatArena.exe" | Select-String "machine|subsystem" | Out-String) | Tee-Object -FilePath ci-logs/dependents.txt -Append
+          $all = Get-Content ci-logs/dependents.txt -Raw
+          if ($all -match '(?i)(VCRUNTIME\d+|MSVCP\d+|ucrtbase|api-ms-win-crt)') { throw "The package needs the Visual C++ runtime ($($Matches[1])); expected a static runtime" }
+          if ($deps -notmatch '(?i)SDL3\.dll') { throw "CatArena.exe does not import SDL3.dll" }
+          if ($deps -notmatch '(?is)delay load.*vulkan-1\.dll') { throw "vulkan-1.dll is not delay-loaded" }
+          if ($all -notmatch '(?i)8664 machine \(x64\)') { throw "CatArena.exe is not x64" }
+
+      # Stage 9: archive (one top-level folder in the ZIP)
+      - name: Archive
+        run: |
+          cmake "-DPACKAGE_DIR=$env:PKG" "-DZIP=dist/CAT_ARENA_FERAL_CLAW_$($env:MILESTONE)_WINDOWS.zip" -P native/tools/package/zip_package.cmake 2>&1 | Tee-Object -FilePath ci-logs/archive.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      # Stage 10: upload. The artifact downloads as CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS.zip.
+      - name: Upload game package
+        uses: actions/upload-artifact@v4
+        with:
+          name: CAT_ARENA_FERAL_CLAW_${{ env.MILESTONE }}_WINDOWS
+          path: ${{ env.PKG }}/
+          if-no-files-found: error
+          retention-days: 30
+
+      # Stage 6: GPU-free tests (after the upload, so a test failure still leaves the package to inspect)
+      - name: Test (no GPU on the runner; gpu-labelled tests excluded)
+        working-directory: native
+        run: |
+          ctest --preset windows-release --output-junit "$env:GITHUB_WORKSPACE/ci-logs/ctest-junit.xml" 2>&1 | Tee-Object -FilePath ../ci-logs/ctest.txt
+          $code = $LASTEXITCODE
+          ctest --preset windows-release-gpu -N 2>&1 | Tee-Object -FilePath ../ci-logs/ctest-gpu-not-run.txt
+          exit $code
+
+      - name: Smoke start without a GPU (expects a clean Vulkan error, not a crash)
+        if: always()
+        run: |
+          $p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--headless-test" -Wait -PassThru -NoNewWindow
+          "headless self-test exit code: $($p.ExitCode)" | Tee-Object -FilePath ci-logs/smoke.txt
+          $p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--vk-info","--log-file","ci-logs/vk-info.log" -Wait -PassThru -NoNewWindow
+          "vk-info exit code: $($p.ExitCode) (0 = a Vulkan device was found; 1 = no Vulkan, see vk-info.log)" | Tee-Object -FilePath ci-logs/smoke.txt -Append
+          if (Test-Path ci-logs/vk-info.log) { Get-Content ci-logs/vk-info.log | Tee-Object -FilePath ci-logs/smoke.txt -Append }
+
+      - name: Summary
+        if: always()
+        run: |
+          $lines = @("## Cat Arena Windows x64 ($env:MILESTONE)")
+          if (Test-Path ci-logs/validate.txt) { $lines += (Get-Content ci-logs/validate.txt | Select-String "Package check") }
+          if (Test-Path ci-logs/archive.txt) { $lines += (Get-Content ci-logs/archive.txt | Select-String "Wrote") }
+          if (Test-Path ci-logs/ctest.txt) { $lines += (Get-Content ci-logs/ctest.txt | Select-String "tests passed|tests failed") }
+          $lines += "GPU / window tests were not run (no GPU on GitHub-hosted runners): rendering and gameplay on Windows are UNVERIFIED by this run."
+          $lines -join "`n" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build-logs-${{ env.MILESTONE }}
+          path: ci-logs/
+          retention-days: 30
