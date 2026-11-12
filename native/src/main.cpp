@@ -65,7 +65,6 @@
 #include "cat/renderer.hpp"
 #include "cat/scene.hpp"
 #include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
 #include <algorithm>
 #include <charconv>
 #include <chrono>
@@ -469,6 +468,9 @@ struct Session {
 };
 }  // namespace
 
+// SDL_main.h last: on Windows it does `#define main SDL_main` (SDL then supplies WinMain / main with UTF-8
+// arguments), which would also rename the `main` members of fx::Frame and cat::Overlay used above.
+#include <SDL3/SDL_main.h>
 namespace {
 bool g_error_dialog = false;   // N6.5: an interactive (double-clicked) run shows fatal errors in a message box
 }
