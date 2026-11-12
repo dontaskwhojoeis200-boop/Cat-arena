@@ -1,0 +1,51 @@
+{
+  "category": "floors",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    0.3,
+    4
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b878-133b-7704-a371-9bc93e0de3c9",
+  "id": "BA_14",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_14.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_14_ceiling_panel.glb",
+  "name": "ceiling_panel",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_14.nrm.bin"
+  },
+  "orientation": "rx90",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_14.pos.bin"
+  },
+  "scale": [
+    4.17959,
+    4.19672,
+    3.76932
+  ],
+  "sha256": "e95ee5a472e8ec30dfa0367296037998b447a00b870a39cd490284d4d05b99ea",
+  "size": [
+    4,
+    4,
+    0.3
+  ],
+  "sourceTriangles": 146,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_14",
+    "size": 512
+  },
+  "texture_task_id": "01a1b878-771e-7271-ac56-b30b86269777",
+  "triangles": 588,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_14.uv.bin"
+  },
+  "vertices": 547
+}

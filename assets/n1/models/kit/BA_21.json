@@ -1,0 +1,51 @@
+{
+  "category": "rails",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    1.2,
+    0.5
+  ],
+  "fit": "width",
+  "geometry_task_id": "01a1b87a-d735-761f-9f5c-35f5d1eb235b",
+  "id": "BA_21",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_21.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_21_guardrail_broken.glb",
+  "name": "guardrail_broken",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_21.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_21.pos.bin"
+  },
+  "scale": [
+    4.18173,
+    4.18173,
+    4.18173
+  ],
+  "sha256": "57ed39d511ab2eda7bc28d99cfd4604314a592847e74511ac77fbdc58d99b57d",
+  "size": [
+    4,
+    3.955,
+    1.538
+  ],
+  "sourceTriangles": 208,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_21",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87b-316c-7011-8afc-6c2217cd85fe",
+  "triangles": 276,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_21.uv.bin"
+  },
+  "vertices": 551
+}

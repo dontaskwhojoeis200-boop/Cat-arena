@@ -1,0 +1,51 @@
+{
+  "category": "floors",
+  "degenerateRemoved": 4,
+  "desired": [
+    4,
+    0.5,
+    4
+  ],
+  "fit": "width",
+  "geometry_task_id": "01a1b877-958d-7138-8baa-567c396c72af",
+  "id": "BA_13",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_13.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_13_balcony_platform.glb",
+  "name": "balcony_platform",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_13.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_13.pos.bin"
+  },
+  "scale": [
+    4.17959,
+    4.17959,
+    4.17959
+  ],
+  "sha256": "7bbdb0d7c4e09647d1b38aa1ca30f4f25519a9d04a95ad6d1d20554b0fc7723b",
+  "size": [
+    4,
+    1.994,
+    2.406
+  ],
+  "sourceTriangles": 214,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_13",
+    "size": 512
+  },
+  "texture_task_id": "01a1b877-f44b-74a9-bb61-46b40ab0b15e",
+  "triangles": 368,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_13.uv.bin"
+  },
+  "vertices": 504
+}

@@ -1,0 +1,51 @@
+{
+  "category": "props",
+  "degenerateRemoved": 0,
+  "desired": [
+    0.3,
+    1,
+    0.3
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87f-feea-728e-835c-6f73d716f3f5",
+  "id": "BA_34",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_34.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_34_wall_light_green.glb",
+  "name": "wall_light_green",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_34.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_34.pos.bin"
+  },
+  "scale": [
+    0.74113,
+    0.75758,
+    1.05026
+  ],
+  "sha256": "5143a98c6aa997684a149213fd93e76c700f46d59216d35b91a55226f5fc32ac",
+  "size": [
+    0.3,
+    0.3,
+    1
+  ],
+  "sourceTriangles": 146,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_34",
+    "size": 256
+  },
+  "texture_task_id": "01a1b880-9509-72af-870d-f1e88855372b",
+  "triangles": 146,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_34.uv.bin"
+  },
+  "vertices": 388
+}

@@ -1,0 +1,51 @@
+{
+  "category": "floors",
+  "degenerateRemoved": 0,
+  "desired": [
+    8,
+    0.5,
+    8
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b873-10ae-74f0-afe2-8ded53fb5e44",
+  "id": "BA_12",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_12.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_12_bridge_junction.glb",
+  "name": "bridge_junction",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_12.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_12.pos.bin"
+  },
+  "scale": [
+    9.46506,
+    8.46719,
+    2.87641
+  ],
+  "sha256": "563305674e225c4b2c5a27de825a6947df0a9bccb07302afd4ffd13575f20a36",
+  "size": [
+    8,
+    8,
+    0.5
+  ],
+  "sourceTriangles": 265,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_12",
+    "size": 512
+  },
+  "texture_task_id": "01a1b877-5804-760b-8e7c-70ac7a880b24",
+  "triangles": 428,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_12.uv.bin"
+  },
+  "vertices": 748
+}

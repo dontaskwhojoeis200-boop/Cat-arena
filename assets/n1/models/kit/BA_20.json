@@ -1,0 +1,51 @@
+{
+  "category": "rails",
+  "degenerateRemoved": 0,
+  "desired": [
+    2,
+    1.2,
+    2
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87a-b8ea-7479-9078-ca571cface51",
+  "id": "BA_20",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_20.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_20_guardrail_corner.glb",
+  "name": "guardrail_corner",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_20.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_20.pos.bin"
+  },
+  "scale": [
+    2.10591,
+    2.44537,
+    1.70194
+  ],
+  "sha256": "f767115d9b22746083fbfb0f0834791c9cfa68b18f38fe7ee9e7f928bce066bc",
+  "size": [
+    2,
+    2,
+    1.2
+  ],
+  "sourceTriangles": 250,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_20",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87b-07a2-7670-931a-a802c712534b",
+  "triangles": 252,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_20.uv.bin"
+  },
+  "vertices": 578
+}

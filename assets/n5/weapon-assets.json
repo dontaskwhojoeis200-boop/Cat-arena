@@ -1,0 +1,595 @@
+{
+ "tool": "tools/n5/legacy_weapon_assets.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "weapons": [
+  {
+   "index": 0,
+   "weapon": "NAILGUN",
+   "model": "nailgun",
+   "stem": "00_nailgun",
+   "triangles": 300,
+   "muzzle": [
+    0.37577847803483194,
+    2.8521270410844304,
+    -0.43650766954132464
+   ]
+  },
+  {
+   "index": 1,
+   "weapon": "SHOTGUN",
+   "model": "shotgun",
+   "stem": "01_shotgun",
+   "triangles": 292,
+   "muzzle": [
+    0.3917692573574441,
+    2.8638780305279483,
+    -0.43163607740203036
+   ]
+  },
+  {
+   "index": 2,
+   "weapon": "GRENADE LAUNCHER",
+   "model": "grenade_launcher",
+   "stem": "02_grenade_launcher",
+   "triangles": 299,
+   "muzzle": [
+    0.3677395472505757,
+    2.8895440762503473,
+    -0.38162447352924334
+   ]
+  },
+  {
+   "index": 3,
+   "weapon": "RAILGUN",
+   "model": "railgun",
+   "stem": "03_railgun",
+   "triangles": 292,
+   "muzzle": [
+    0.36840604934429966,
+    2.867131440583921,
+    -0.42092363386501264
+   ]
+  },
+  {
+   "index": 4,
+   "weapon": "ROCKET LAUNCHER",
+   "model": "rocket_launcher",
+   "stem": "04_rocket_launcher",
+   "triangles": 300,
+   "muzzle": [
+    0.3657288049501146,
+    2.9036554570185373,
+    -0.5007381072742692
+   ]
+  },
+  {
+   "index": 5,
+   "weapon": "SUPER NAILGUN",
+   "model": "super_nailgun",
+   "stem": "05_super_nailgun",
+   "triangles": 273,
+   "muzzle": [
+    0.3702536425843891,
+    2.8360934928256567,
+    -0.5839279160650862
+   ]
+  },
+  {
+   "index": 6,
+   "weapon": "THUNDERBOLT",
+   "model": "thunderbolt",
+   "stem": "06_thunderbolt",
+   "triangles": 288,
+   "muzzle": [
+    0.39654816025074885,
+    2.8536063704658203,
+    -0.4583360063220929
+   ]
+  },
+  {
+   "index": 7,
+   "weapon": "SUPER SHOTGUN",
+   "model": "super_shotgun",
+   "stem": "07_super_shotgun",
+   "triangles": 293,
+   "muzzle": [
+    0.36832223905194783,
+    2.8786837167576658,
+    -0.3677748703570931
+   ]
+  },
+  {
+   "index": 8,
+   "weapon": "PLASMA REPEATER",
+   "model": "plasma_repeater",
+   "stem": "08_plasma_repeater",
+   "triangles": 296,
+   "muzzle": [
+    0.4917000516840304,
+    2.8466375929095284,
+    -0.48564134259458114
+   ]
+  },
+  {
+   "index": 9,
+   "weapon": "TRIPLE SPIKE",
+   "model": "triple_spike",
+   "stem": "09_triple_spike",
+   "triangles": 286,
+   "muzzle": [
+    0.36828862296519266,
+    2.8343503752522965,
+    -0.48599659854503746
+   ]
+  },
+  {
+   "index": 10,
+   "weapon": "RIFT CANNON",
+   "model": "rift_cannon",
+   "stem": "10_rift_cannon",
+   "triangles": 300,
+   "muzzle": [
+    0.47778720215679593,
+    2.834077330561713,
+    -0.6345033605519064
+   ]
+  },
+  {
+   "index": 11,
+   "weapon": "IRON CHAINGUN",
+   "model": "iron_chaingun",
+   "stem": "11_iron_chaingun",
+   "triangles": 299,
+   "muzzle": [
+    0.4761328948334729,
+    2.9271740331406,
+    -0.48387167014557536
+   ]
+  },
+  {
+   "index": 12,
+   "weapon": "HAND CANNON",
+   "model": "hand_cannon",
+   "stem": "12_hand_cannon",
+   "triangles": 300,
+   "muzzle": [
+    0.4236362536021502,
+    2.8777380921514197,
+    -0.2637371518118141
+   ]
+  },
+  {
+   "index": 13,
+   "weapon": "HELLFIRE CARBINE",
+   "model": "hellfire_carbine",
+   "stem": "13_hellfire_carbine",
+   "triangles": 286,
+   "muzzle": [
+    0.41229793845306206,
+    2.8476161155148336,
+    -0.3837492540208249
+   ]
+  },
+  {
+   "index": 14,
+   "weapon": "SAWBLADE DRIVER",
+   "model": "sawblade_driver",
+   "stem": "14_sawblade_driver",
+   "triangles": 299,
+   "muzzle": [
+    0.41068023438656664,
+    2.8352261900171163,
+    -0.5305916113973527
+   ]
+  },
+  {
+   "index": 15,
+   "weapon": "QUAD SHOTGUN",
+   "model": "quad_shotgun",
+   "stem": "15_quad_shotgun",
+   "triangles": 286,
+   "muzzle": [
+    0.37402544427910994,
+    2.905582239877014,
+    -0.45687680439224165
+   ]
+  }
+ ],
+ "fxAtlas": {
+  "width": 1024,
+  "height": 1024,
+  "tiles": 8,
+  "tilePixels": 128,
+  "tileNames": {
+   "GLOW": 0,
+   "FLASH_STAR": 1,
+   "FLASH_SIDE": 2,
+   "SPARK": 3,
+   "SMOKE1": 4,
+   "SMOKE2": 5,
+   "SMOKE3": 6,
+   "DUST": 7,
+   "EXPLO0": 8,
+   "RAIL_CORE": 16,
+   "RING": 17,
+   "BOLT1": 18,
+   "BOLT2": 19,
+   "PLASMA": 20,
+   "SWIRL": 21,
+   "DARK_CORE": 22,
+   "ELECTRIC": 23,
+   "NAIL": 24,
+   "SAW": 25,
+   "FIREBALL": 26,
+   "FLAME": 27,
+   "ROCKET": 28,
+   "GRENADE": 29,
+   "BRASS": 30,
+   "SHELL": 31,
+   "MARK_HOLE": 32,
+   "MARK_SCORCH": 33,
+   "MARK_ENERGY": 34,
+   "MARK_BLOOD": 35,
+   "BLOOD": 36,
+   "GIB1": 37,
+   "GIB2": 38,
+   "MARK_SLASH": 39,
+   "CLAW": 40,
+   "BITE": 41,
+   "SLAM": 42,
+   "BLASTER": 43,
+   "ACID": 44,
+   "SPIKE": 45,
+   "WISP": 46,
+   "FEATHER": 47,
+   "CORONA": 48,
+   "SPARK_DOT": 49,
+   "EMBERS": 50,
+   "CLOUD_A": 51,
+   "CLOUD_B": 52,
+   "SHADOW": 53,
+   "RUNE": 54,
+   "ROCK": 55,
+   "SMOKE_TRAIL": 56,
+   "TRACER": 57,
+   "FLAME_GRAY": 58,
+   "BURST": 59,
+   "DEBRIS": 60,
+   "HEAT_RING": 61,
+   "LASER": 62,
+   "ENERGY_CLOUD": 63
+  }
+ },
+ "generated": {
+  "file": "native/include/cat/generated/weapon_fx_tables.inc",
+  "sha256": "495560e757c75b973164915645402b6a85c09cc743b03e007cdd27ee89196449"
+ },
+ "files": [
+  {
+   "file": "weapons/00_nailgun.gun",
+   "bytes": 43224,
+   "sha256": "adaeb48bc95859365e488a8cfc5ad4d65080f58b49ce7c2f5337093392cc2199"
+  },
+  {
+   "file": "weapons/00_nailgun_base.jpg",
+   "bytes": 67082,
+   "sha256": "bfd4e662aa9d73e5254d01f5f128d85252930c0572517b161873582fb07995c2"
+  },
+  {
+   "file": "weapons/00_nailgun_mr.jpg",
+   "bytes": 15217,
+   "sha256": "4775ed17d5c8e7f7e84c5db1b64ffdc3a81b2d6c1cdf7b26aba1384363636b2e"
+  },
+  {
+   "file": "weapons/00_nailgun_normal.jpg",
+   "bytes": 4464,
+   "sha256": "5cb718e9586fcb728670ddb3dbc435bff5974da67c8c7dc3c24d8fb653f94dde"
+  },
+  {
+   "file": "weapons/01_shotgun.gun",
+   "bytes": 42072,
+   "sha256": "932cf6dcd77ee5dd2d115150fc5d262a30a7ab1734ccb1acac4e208111d321eb"
+  },
+  {
+   "file": "weapons/01_shotgun_base.jpg",
+   "bytes": 69467,
+   "sha256": "a52e5e6af442f61f29ddbb775ede3489455c419f40dc9e59672c562c865fd83b"
+  },
+  {
+   "file": "weapons/01_shotgun_mr.jpg",
+   "bytes": 17044,
+   "sha256": "02cf091127a12746bca736be4ff680b33d178fe0114cacd711a4e8cebc91514c"
+  },
+  {
+   "file": "weapons/01_shotgun_normal.jpg",
+   "bytes": 3741,
+   "sha256": "5b993485b9e26a4542ff91ecc85a21ffedf83ca9c1064b378cf39bea601e1f31"
+  },
+  {
+   "file": "weapons/02_grenade_launcher.gun",
+   "bytes": 43080,
+   "sha256": "4bba7ed171bbb353b77288008b058c3244412f49a3dbb5716a3a2ab88bc46584"
+  },
+  {
+   "file": "weapons/02_grenade_launcher_base.jpg",
+   "bytes": 61781,
+   "sha256": "8f7766990ed5b1a46ad98f95bac23b1a8a610494ae847c4bd00695a0336660a5"
+  },
+  {
+   "file": "weapons/02_grenade_launcher_mr.jpg",
+   "bytes": 14689,
+   "sha256": "a7742f89bd779a67d58d2d37b07b100874ff2ffd80594f0a5d9491cc9b8ae142"
+  },
+  {
+   "file": "weapons/02_grenade_launcher_normal.jpg",
+   "bytes": 3517,
+   "sha256": "202fb2f7ff8be30e4d50707b4d0c533e91dc8e38c71cd5744f9f9007213d358d"
+  },
+  {
+   "file": "weapons/03_railgun.gun",
+   "bytes": 42072,
+   "sha256": "7c90d563f7283a0714c9b5cd638ade535ddefb314decd40bfb7b9da6777ce73b"
+  },
+  {
+   "file": "weapons/03_railgun_base.jpg",
+   "bytes": 62585,
+   "sha256": "f34ac9bdb6361c0ec6053fa2a0167b14cda795a5e6636f0f1805fcffbcc8aeea"
+  },
+  {
+   "file": "weapons/03_railgun_mr.jpg",
+   "bytes": 14984,
+   "sha256": "63b7ef3264341bd7e9d2fa3796f9474f5b9452d2486e3cd2e22d2fde13151ba8"
+  },
+  {
+   "file": "weapons/03_railgun_normal.jpg",
+   "bytes": 4056,
+   "sha256": "2c4e686288e30b9022ccbd56ae26e4c4ed8a0b998afdc1b0363b8d5c55047e27"
+  },
+  {
+   "file": "weapons/04_rocket_launcher.gun",
+   "bytes": 43224,
+   "sha256": "4be20b011fb172b6a54d5e9acd02f416ac16c94c9cdf79e33989f77e4354c4f4"
+  },
+  {
+   "file": "weapons/04_rocket_launcher_base.jpg",
+   "bytes": 76798,
+   "sha256": "f1062c4f494c25790db9b70be51352a8ab328da6d87b424b4e20080885cec1a5"
+  },
+  {
+   "file": "weapons/04_rocket_launcher_mr.jpg",
+   "bytes": 13253,
+   "sha256": "fa1207397f62c6f6f95ff50607c23df8a1ece5416f352fad6a4ee64191744b0c"
+  },
+  {
+   "file": "weapons/04_rocket_launcher_normal.jpg",
+   "bytes": 4519,
+   "sha256": "68086076285fcfa106b664f5fd41bb7bc73edd8c9022db0cba43f0364c1e1b47"
+  },
+  {
+   "file": "weapons/05_super_nailgun.gun",
+   "bytes": 39336,
+   "sha256": "9b194e074bc77afb97f1827d02241c987837d9d1736cc8b44e586af4075fed94"
+  },
+  {
+   "file": "weapons/05_super_nailgun_base.jpg",
+   "bytes": 84277,
+   "sha256": "4fbd71244d1ba0f097c8bf5dffe6e5713817d10981eeab7035cb1ce470d43bae"
+  },
+  {
+   "file": "weapons/05_super_nailgun_mr.jpg",
+   "bytes": 12532,
+   "sha256": "fd090db63c4a45a3b32f7a48c90251c9700708327db662eb97a4209c557390d5"
+  },
+  {
+   "file": "weapons/05_super_nailgun_normal.jpg",
+   "bytes": 5788,
+   "sha256": "985f0b6ff3637535dcfd849c8885070f8754aae112f0f5b1b620e25f4d52b680"
+  },
+  {
+   "file": "weapons/06_thunderbolt.gun",
+   "bytes": 41496,
+   "sha256": "24a83ebb4f6cff409c96760c1c1b18a7511aa8c63fb4234a8ed5e38ffa47be12"
+  },
+  {
+   "file": "weapons/06_thunderbolt_base.jpg",
+   "bytes": 92252,
+   "sha256": "f92aad8008d2f69945315cf1d5c36fde1bf847a0325cd6a69c2045e5baab212c"
+  },
+  {
+   "file": "weapons/06_thunderbolt_mr.jpg",
+   "bytes": 24210,
+   "sha256": "9f1443250fe5a095c344444aa7a7ccd022344a4090089627852db15ad6c731ca"
+  },
+  {
+   "file": "weapons/06_thunderbolt_normal.jpg",
+   "bytes": 6937,
+   "sha256": "d04a63faeb1d25a6ac879798589cf8149b7dea94b8031e781423ab7a4fba43cb"
+  },
+  {
+   "file": "weapons/07_super_shotgun.gun",
+   "bytes": 42216,
+   "sha256": "6dbe39c8e056412ec7e8fca4104359623947b5bc0701e2a33d370577a3a18bcd"
+  },
+  {
+   "file": "weapons/07_super_shotgun_base.jpg",
+   "bytes": 76955,
+   "sha256": "d0b27914c7dd30e95275e7a67e76912f6fcf274b00b935ab7efeb1c563c53662"
+  },
+  {
+   "file": "weapons/07_super_shotgun_mr.jpg",
+   "bytes": 22551,
+   "sha256": "60630933ef02fd9699663b61a975762aa3ca3805d6e2aca3a61d4bcfa5bbe8f4"
+  },
+  {
+   "file": "weapons/07_super_shotgun_normal.jpg",
+   "bytes": 4330,
+   "sha256": "e44fd55f186f3fa65fd4f1fe2ff13071f497e4e43b44b313865af5bed60029c9"
+  },
+  {
+   "file": "weapons/08_plasma_repeater.gun",
+   "bytes": 42648,
+   "sha256": "e5831eb703649eca04085a6112b28ca7283b5ba4fa3ce247926b86ae657f85a7"
+  },
+  {
+   "file": "weapons/08_plasma_repeater_base.jpg",
+   "bytes": 69809,
+   "sha256": "4c0fdf0993aec8f2a5784f40afdfe81c9feacbe928a6c58b226bc85a3f1b6262"
+  },
+  {
+   "file": "weapons/08_plasma_repeater_mr.jpg",
+   "bytes": 17077,
+   "sha256": "8e428ea065a1937293fe80fd19834add5493e330eec7c60efcdb82544e1efcda"
+  },
+  {
+   "file": "weapons/08_plasma_repeater_normal.jpg",
+   "bytes": 3982,
+   "sha256": "db1ed7c54b312f36a16127d4e939809d9f9cdaf96aeb9a4c0f2b5762131be11d"
+  },
+  {
+   "file": "weapons/09_triple_spike.gun",
+   "bytes": 41208,
+   "sha256": "1b1f1992091fe381074e1b98c618f1592df0362db79c0027ccd1de78586d37f9"
+  },
+  {
+   "file": "weapons/09_triple_spike_base.jpg",
+   "bytes": 71301,
+   "sha256": "262c4f1df5b190631adc26544bfa0b4d2103b45aed59755eeb51dbf8baff4921"
+  },
+  {
+   "file": "weapons/09_triple_spike_mr.jpg",
+   "bytes": 17466,
+   "sha256": "492251de876c774035aaa38b2baabdbf750581eeeeca929f5a80e8e42d941f94"
+  },
+  {
+   "file": "weapons/09_triple_spike_normal.jpg",
+   "bytes": 4075,
+   "sha256": "d5266fd306deb13ff32b8cf86b9aa1beea6f73a8eb8a508bcf6ea1dc38d914c8"
+  },
+  {
+   "file": "weapons/10_rift_cannon.gun",
+   "bytes": 43224,
+   "sha256": "b2cc63a97786a5d553b330cbd26b14e0c645235f2b721065cbd3825f698a535d"
+  },
+  {
+   "file": "weapons/10_rift_cannon_base.jpg",
+   "bytes": 75276,
+   "sha256": "14b7aeb34647f11ba205c6b9073a05ff93fe0eee6d8cf549482d07beba5bb814"
+  },
+  {
+   "file": "weapons/10_rift_cannon_mr.jpg",
+   "bytes": 17914,
+   "sha256": "78065405516ad00f54b1b1b4aa3a6286741b35cf93793aec5db0db46f53113b9"
+  },
+  {
+   "file": "weapons/10_rift_cannon_normal.jpg",
+   "bytes": 3806,
+   "sha256": "a198356ef8a78d31cc3e63f941a9ac5fd47416a7f0bfce727bb39b0740ef3847"
+  },
+  {
+   "file": "weapons/11_iron_chaingun.gun",
+   "bytes": 43080,
+   "sha256": "b64abc26cb9ee82822eb95b68754e2354e00755aaf549718d88e4dde450e07db"
+  },
+  {
+   "file": "weapons/11_iron_chaingun_base.jpg",
+   "bytes": 70359,
+   "sha256": "1adf827ffa0fc0e702ae832935898f5df8c145ed923c2ccbf446b9984ccf658e"
+  },
+  {
+   "file": "weapons/11_iron_chaingun_mr.jpg",
+   "bytes": 15333,
+   "sha256": "f6a71bc3d54a3359a169ecaadfcbac9d05748004685f8134ae0367f581b064dc"
+  },
+  {
+   "file": "weapons/11_iron_chaingun_normal.jpg",
+   "bytes": 4403,
+   "sha256": "211a3e2227a4c2675dee03e278339857eaad0b3c3f3dc5781f38aaae73e8f173"
+  },
+  {
+   "file": "weapons/12_hand_cannon.gun",
+   "bytes": 43224,
+   "sha256": "cf05930f2ba191ed900a4eea6ea7d54e6f96b83a554ee4d33966f4b34735ed29"
+  },
+  {
+   "file": "weapons/12_hand_cannon_base.jpg",
+   "bytes": 57369,
+   "sha256": "76d414d2b1e705cd0e3f2b2e05e21fabaf5f170a6b98ae7f39eeffc5ae48e13d"
+  },
+  {
+   "file": "weapons/12_hand_cannon_mr.jpg",
+   "bytes": 13869,
+   "sha256": "f15977a0285caa92433212a0d832bafa162f8cf0967884ec861543dd4e3920e4"
+  },
+  {
+   "file": "weapons/12_hand_cannon_normal.jpg",
+   "bytes": 3759,
+   "sha256": "c12f79b6802b37d9660327d809f505c0f1d9bfa7a1861651e0942b3e2e58985f"
+  },
+  {
+   "file": "weapons/13_hellfire_carbine.gun",
+   "bytes": 41208,
+   "sha256": "6b1b78dd921a0b575e1439cdf7291f334ec57b906ba3f4e0f787817b9101d595"
+  },
+  {
+   "file": "weapons/13_hellfire_carbine_base.jpg",
+   "bytes": 66595,
+   "sha256": "8eba111f1653fde7a59ba6a78e69d2e41380d785056c2f63470bcb7eeea6b408"
+  },
+  {
+   "file": "weapons/13_hellfire_carbine_mr.jpg",
+   "bytes": 15468,
+   "sha256": "78cdca6c1b5b2d627c1f3a489442b83bde0ef4608c1247253c1601bda82364dd"
+  },
+  {
+   "file": "weapons/13_hellfire_carbine_normal.jpg",
+   "bytes": 4133,
+   "sha256": "9bec40f46d9bd926dea2ac96399831f22d1bc1e2ea32041a03d9c57381c9cb82"
+  },
+  {
+   "file": "weapons/14_sawblade_driver.gun",
+   "bytes": 43080,
+   "sha256": "0cb44863eb1f4c85c8c5def50230574516db5e39c6e75f5d8a772d9ed9145702"
+  },
+  {
+   "file": "weapons/14_sawblade_driver_base.jpg",
+   "bytes": 74572,
+   "sha256": "71b6e6887827a88cb7356c41a05fe28aa015cdffa458bd73def391eeb262d667"
+  },
+  {
+   "file": "weapons/14_sawblade_driver_mr.jpg",
+   "bytes": 17663,
+   "sha256": "f0ef6e83e36f7f5e44e4156ed5627b90d2518e3f03b7b9c8baf2062fd4d96c03"
+  },
+  {
+   "file": "weapons/14_sawblade_driver_normal.jpg",
+   "bytes": 5148,
+   "sha256": "de6874a3302f2e1cb2ba4e7395e8cca6691d89e7fb0ffaa02979667b7416a44a"
+  },
+  {
+   "file": "weapons/15_quad_shotgun.gun",
+   "bytes": 41208,
+   "sha256": "0f1a51ff5115d638715879de439af0291ec49066a986a82ff2259c0ae0f09fd5"
+  },
+  {
+   "file": "weapons/15_quad_shotgun_base.jpg",
+   "bytes": 75982,
+   "sha256": "b92130f6a90d2bf79939cff39f6e8bd687521c3235195f15f9de27da4591430f"
+  },
+  {
+   "file": "weapons/15_quad_shotgun_mr.jpg",
+   "bytes": 19503,
+   "sha256": "9eb89435fb1573f1fe63a2df649e33dcb7ae20d7a47473f1dc7a7702be92efa6"
+  },
+  {
+   "file": "weapons/15_quad_shotgun_normal.jpg",
+   "bytes": 4447,
+   "sha256": "59a32e14ce656bba3eff8b1a2f2b85bf4781a196eda1782b88eb4e1d83abf3d8"
+  },
+  {
+   "file": "fx-atlas.png",
+   "bytes": 724116,
+   "sha256": "6e27d7d705a954979a81410dccc9af594a936ca68a843c48539819d5c72f7194"
+  }
+ ]
+}

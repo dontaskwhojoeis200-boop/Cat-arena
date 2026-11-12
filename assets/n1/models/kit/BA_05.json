@@ -1,0 +1,51 @@
+{
+  "category": "walls",
+  "degenerateRemoved": 0,
+  "desired": [
+    1.5,
+    4,
+    1.5
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b870-8ec4-75ab-837e-0156307293cf",
+  "id": "BA_05",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_05.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_05_wall_buttress.glb",
+  "name": "wall_buttress",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_05.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_05.pos.bin"
+  },
+  "scale": [
+    4.09054,
+    4.14017,
+    4.20102
+  ],
+  "sha256": "aea5f6d00d45d04752b7bc4b78f1d24ccbd0a6b79206beada8fd001be4c0b617",
+  "size": [
+    1.5,
+    1.5,
+    4
+  ],
+  "sourceTriangles": 304,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_05",
+    "size": 512
+  },
+  "texture_task_id": "01a1b871-2dbd-722a-bf04-b807cc1730c7",
+  "triangles": 388,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_05.uv.bin"
+  },
+  "vertices": 755
+}

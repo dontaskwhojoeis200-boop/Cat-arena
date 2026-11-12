@@ -1,0 +1,51 @@
+{
+  "category": "traversal",
+  "degenerateRemoved": 0,
+  "desired": [
+    3,
+    4,
+    6
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b878-133c-73d7-acda-e17b45e4640f",
+  "id": "BA_15",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_15.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_15_stairs_straight.glb",
+  "name": "stairs_straight",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_15.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_15.pos.bin"
+  },
+  "scale": [
+    9.51083,
+    6.25344,
+    5.7528
+  ],
+  "sha256": "de3dee7e5cc4d1a21addc5ae402507fbd0880d5bd493ae6d6b986fffe30de966",
+  "size": [
+    3,
+    6,
+    4
+  ],
+  "sourceTriangles": 143,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_15",
+    "size": 256
+  },
+  "texture_task_id": "01a1b878-f969-70c6-864d-6a166bfe332c",
+  "triangles": 427,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_15.uv.bin"
+  },
+  "vertices": 534
+}

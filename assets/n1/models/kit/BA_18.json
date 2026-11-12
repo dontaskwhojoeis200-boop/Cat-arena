@@ -1,0 +1,51 @@
+{
+  "category": "traversal",
+  "degenerateRemoved": 0,
+  "desired": [
+    3,
+    0.3,
+    3
+  ],
+  "fit": "footprint",
+  "geometry_task_id": "01a1b879-b4e5-7406-b615-00a1fc368e50",
+  "id": "BA_18",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_18.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_18_stair_landing.glb",
+  "name": "stair_landing",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_18.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_18.pos.bin"
+  },
+  "scale": [
+    3.10774,
+    3.10774,
+    3.10774
+  ],
+  "sha256": "e11a150d08e04f24dd8eed63d6041327810eca8b8dd908d599c0114a3b1ed9f3",
+  "size": [
+    3,
+    2.868,
+    2.25
+  ],
+  "sourceTriangles": 119,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_18",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87a-1aeb-7173-ae2a-a28221c6fd30",
+  "triangles": 183,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_18.uv.bin"
+  },
+  "vertices": 291
+}

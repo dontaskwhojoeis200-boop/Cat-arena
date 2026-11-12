@@ -1,0 +1,19 @@
+{
+  "triangles": 274,
+  "bones": 21,
+  "animations": [
+    "idle",
+    "walk",
+    "run",
+    "shoot",
+    "melee",
+    "hurt",
+    "death"
+  ],
+  "meshes": 1,
+  "primitives": 7,
+  "textures": 2,
+  "sourceImage": "reference.png",
+  "meshFormat": "glTF 2.0 binary",
+  "meshProvenance": "Procedural offline model from supplied reference. Meshy CLI unavailable."
+}

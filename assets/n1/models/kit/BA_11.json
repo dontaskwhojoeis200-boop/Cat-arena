@@ -1,0 +1,51 @@
+{
+  "category": "floors",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    0.5,
+    8
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b872-e99d-70f1-acd3-8225712d7020",
+  "id": "BA_11",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_11.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_11_bridge_straight.glb",
+  "name": "bridge_straight",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_11.nrm.bin"
+  },
+  "orientation": "rz90",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_11.pos.bin"
+  },
+  "scale": [
+    5.88928,
+    8.56456,
+    1.73854
+  ],
+  "sha256": "23aae636d79668cd7735ff2a74f46f49517a51700385519b61519151d0cdd0b3",
+  "size": [
+    4,
+    8,
+    0.5
+  ],
+  "sourceTriangles": 252,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_11",
+    "size": 512
+  },
+  "texture_task_id": "01a1b877-5809-760e-8af0-4834f151caba",
+  "triangles": 480,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_11.uv.bin"
+  },
+  "vertices": 688
+}

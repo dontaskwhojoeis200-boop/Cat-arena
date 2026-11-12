@@ -1,0 +1,51 @@
+{
+  "category": "damage",
+  "degenerateRemoved": 0,
+  "desired": [
+    2,
+    2,
+    0.4
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b882-7358-77d6-b7ff-da0908767567",
+  "id": "BA_40",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_40.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_40_exposed_rebar_panel.glb",
+  "name": "exposed_rebar_panel",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_40.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_40.pos.bin"
+  },
+  "scale": [
+    2.107,
+    0.87615,
+    2.56481
+  ],
+  "sha256": "92129d29e0de47a62d5c9940f509fb4618ac8d0eceb074edb27337bc28ddcbea",
+  "size": [
+    2,
+    0.4,
+    2
+  ],
+  "sourceTriangles": 290,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_40",
+    "size": 512
+  },
+  "texture_task_id": "01a1b882-e4c0-747d-93b8-3ff5dd84dc90",
+  "triangles": 302,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_40.uv.bin"
+  },
+  "vertices": 724
+}

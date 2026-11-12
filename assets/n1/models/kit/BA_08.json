@@ -1,0 +1,51 @@
+{
+  "category": "walls",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    2,
+    0.5
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b871-ccd8-77bd-b34b-be599bf843c4",
+  "id": "BA_08",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_08.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_08_wall_half_destroyed.glb",
+  "name": "wall_half_destroyed",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_08.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_08.pos.bin"
+  },
+  "scale": [
+    4.17746,
+    0.52405,
+    2.74715
+  ],
+  "sha256": "c754b3a995e0e17d27c05e3cd79e762f28eca45dfa049de3103ceac0c9f94260",
+  "size": [
+    4,
+    0.5,
+    2
+  ],
+  "sourceTriangles": 460,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_08",
+    "size": 512
+  },
+  "texture_task_id": "01a1b872-34f8-7719-bf7b-5e7b7b76e43f",
+  "triangles": 704,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_08.uv.bin"
+  },
+  "vertices": 1142
+}

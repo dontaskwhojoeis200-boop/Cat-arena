@@ -1,0 +1,134 @@
+{
+  "character": "Cat Marine",
+  "version": 1,
+  "units": "model meters",
+  "axis": "+Y up, +Z forward",
+  "sceneSource": "cat_marine_rigged.glb",
+  "height": 2.08,
+  "selfHitboxesEnabled": false,
+  "boneIndex": {
+    "Root": 0,
+    "Pelvis": 1,
+    "Spine_01": 2,
+    "Spine_02": 3,
+    "Neck": 4,
+    "Head": 5,
+    "Shoulder_L": 6,
+    "Elbow_L": 7,
+    "Wrist_L": 8,
+    "Grip_L": 9,
+    "Shoulder_R": 10,
+    "Elbow_R": 11,
+    "Wrist_R": 12,
+    "Grip_R": 13,
+    "Hip_L": 14,
+    "Knee_L": 15,
+    "Ankle_L": 16,
+    "Hip_R": 17,
+    "Knee_R": 18,
+    "Ankle_R": 19,
+    "Weapon": 20
+  },
+  "boxes": [
+    {
+      "name": "head",
+      "bone": "Head",
+      "shape": "box",
+      "centerLocal": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0.72,
+        0.6,
+        0.56
+      ],
+      "damageMultiplier": 2.0
+    },
+    {
+      "name": "torso",
+      "bone": "Spine_02",
+      "shape": "box",
+      "centerLocal": [
+        0,
+        0.08,
+        0
+      ],
+      "size": [
+        0.76,
+        0.74,
+        0.52
+      ],
+      "damageMultiplier": 1.0
+    }
+  ],
+  "capsules": [
+    {
+      "name": "arm_L",
+      "fromBone": "Shoulder_L",
+      "toBone": "Wrist_L",
+      "radius": 0.18,
+      "height": 0.56,
+      "damageMultiplier": 1.0
+    },
+    {
+      "name": "arm_R",
+      "fromBone": "Shoulder_R",
+      "toBone": "Wrist_R",
+      "radius": 0.18,
+      "height": 0.56,
+      "damageMultiplier": 1.0
+    },
+    {
+      "name": "leg_L",
+      "fromBone": "Hip_L",
+      "toBone": "Ankle_L",
+      "radius": 0.22,
+      "height": 0.72,
+      "damageMultiplier": 1.0
+    },
+    {
+      "name": "leg_R",
+      "fromBone": "Hip_R",
+      "toBone": "Ankle_R",
+      "radius": 0.22,
+      "height": 0.72,
+      "damageMultiplier": 1.0
+    }
+  ],
+  "gameplay": {
+    "thirdPersonRemoteOnly": true,
+    "localPlayerModelVisibility": false,
+    "preserveFirstPersonViewmodel": true,
+    "cameraCollisionUsesExistingPlayerCapsule": true,
+    "meleeHitboxActivation": "melee window controlled by game",
+    "hurtboxes": true,
+    "animatedJoints": true,
+    "authoritativeServerHealth": "unchanged"
+  },
+  "animationClips": {
+    "idle": {
+      "loop": true
+    },
+    "walk": {
+      "loop": true
+    },
+    "run": {
+      "loop": true
+    },
+    "shoot": {
+      "loop": false
+    },
+    "melee": {
+      "loop": false
+    },
+    "hurt": {
+      "loop": false
+    },
+    "death": {
+      "loop": false
+    }
+  },
+  "notes": "Hitbox descriptors are not automatic active collisions inside GLB. Bind these regions to animated bones in your game combat logic."
+}

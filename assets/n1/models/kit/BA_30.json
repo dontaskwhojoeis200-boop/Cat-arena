@@ -1,0 +1,51 @@
+{
+  "category": "reactor",
+  "degenerateRemoved": 0,
+  "desired": [
+    0.4,
+    4,
+    0.2
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87e-3213-7398-b5b2-b7c0387abe18",
+  "id": "BA_30",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_30.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_30_reactor_light_strip.glb",
+  "name": "reactor_light_strip",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_30.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_30.pos.bin"
+  },
+  "scale": [
+    1.11003,
+    0.51914,
+    4.19888
+  ],
+  "sha256": "407b0844dc72f2d51b08d949912b1efecb4f75ec7420c06b569aab5d520d94a2",
+  "size": [
+    0.4,
+    0.2,
+    4
+  ],
+  "sourceTriangles": 148,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_30",
+    "size": 512
+  },
+  "texture_task_id": "01a1b87e-a033-7194-ba88-baed88c06762",
+  "triangles": 202,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_30.uv.bin"
+  },
+  "vertices": 278
+}

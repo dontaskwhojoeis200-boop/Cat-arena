@@ -1,0 +1,51 @@
+{
+  "category": "walls",
+  "degenerateRemoved": 2,
+  "desired": [
+    4,
+    4,
+    0.5
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b86f-45a6-707a-91e4-7f559886d3a7",
+  "id": "BA_02",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_02.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_02_wall_window.glb",
+  "name": "wall_window",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_02.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_02.pos.bin"
+  },
+  "scale": [
+    4.17746,
+    1.81239,
+    5.46133
+  ],
+  "sha256": "1256284ea2d2470cca26fabd905ca60a5a5fa8bfc6e0d4d9dea998f4d0c89da0",
+  "size": [
+    4,
+    0.5,
+    4
+  ],
+  "sourceTriangles": 290,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_02",
+    "size": 512
+  },
+  "texture_task_id": "01a1b86f-a569-72db-bb94-ff3948f4d8b9",
+  "triangles": 502,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_02.uv.bin"
+  },
+  "vertices": 808
+}

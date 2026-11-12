@@ -1,0 +1,51 @@
+{
+  "category": "walls",
+  "degenerateRemoved": 0,
+  "desired": [
+    1,
+    4,
+    1
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b86f-45a5-753b-848d-639753b21de7",
+  "id": "BA_04",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_04.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_04_wall_corner_pillar.glb",
+  "name": "wall_corner_pillar",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_04.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_04.pos.bin"
+  },
+  "scale": [
+    2.71259,
+    2.6912,
+    4.20318
+  ],
+  "sha256": "f139753fa9b6e03b876881ace345172ffb03aac3fad9082878ae90cff9a49e77",
+  "size": [
+    1,
+    1,
+    4
+  ],
+  "sourceTriangles": 232,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_04",
+    "size": 512
+  },
+  "texture_task_id": "01a1b86f-f47d-74e6-843f-30559ad3f5f6",
+  "triangles": 372,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_04.uv.bin"
+  },
+  "vertices": 762
+}

@@ -1,0 +1,51 @@
+{
+  "category": "reactor",
+  "degenerateRemoved": 3,
+  "desired": [
+    1.5,
+    4,
+    1.5
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87d-05ef-71ad-806e-374d63433a36",
+  "id": "BA_27",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_27.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_27_reactor_stabilizer.glb",
+  "name": "reactor_stabilizer",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_27.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_27.pos.bin"
+  },
+  "scale": [
+    5.85142,
+    5.94196,
+    4.20318
+  ],
+  "sha256": "8c47c96cb451203e63cf5ee6408e2c6e1cd5e280aeaa313bd557b6682856d8ce",
+  "size": [
+    1.5,
+    1.5,
+    4
+  ],
+  "sourceTriangles": 610,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_27",
+    "size": 512
+  },
+  "texture_task_id": "01a1b87d-500d-7109-92ef-11954eb18ed8",
+  "triangles": 773,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_27.uv.bin"
+  },
+  "vertices": 1269
+}

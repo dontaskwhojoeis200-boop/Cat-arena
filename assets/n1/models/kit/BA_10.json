@@ -1,0 +1,51 @@
+{
+  "category": "floors",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    0.25,
+    4
+  ],
+  "fit": "footprint",
+  "geometry_task_id": "01a1b872-5aed-7636-ac6e-170135852dd6",
+  "id": "BA_10",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_10.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_10_floor_grating.glb",
+  "name": "floor_grating",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_10.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_10.pos.bin"
+  },
+  "scale": [
+    4.19457,
+    4.19457,
+    4.19457
+  ],
+  "sha256": "3777590860d2f0c402a69c2866ec4e14885755c7e9e8a66b76e8fca1c0d36cd4",
+  "size": [
+    3.633,
+    4,
+    3.044
+  ],
+  "sourceTriangles": 258,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_10",
+    "size": 512
+  },
+  "texture_task_id": "01a1b872-c4e7-75cc-aa5e-c3b43a9f110a",
+  "triangles": 605,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_10.uv.bin"
+  },
+  "vertices": 697
+}

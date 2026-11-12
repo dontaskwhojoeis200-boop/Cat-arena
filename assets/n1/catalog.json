@@ -1,0 +1,2831 @@
+{
+  "audio": [
+    {
+      "file": "audio/gun0_0.ogg",
+      "id": "gun0:0"
+    },
+    {
+      "file": "audio/gun0_1.ogg",
+      "id": "gun0:1"
+    },
+    {
+      "file": "audio/gun1_0.ogg",
+      "id": "gun1:0"
+    },
+    {
+      "file": "audio/gun1_1.ogg",
+      "id": "gun1:1"
+    },
+    {
+      "file": "audio/gun2_0.ogg",
+      "id": "gun2:0"
+    },
+    {
+      "file": "audio/gun2_1.ogg",
+      "id": "gun2:1"
+    },
+    {
+      "file": "audio/gun3_0.ogg",
+      "id": "gun3:0"
+    },
+    {
+      "file": "audio/gun3_1.ogg",
+      "id": "gun3:1"
+    },
+    {
+      "file": "audio/gun4_0.ogg",
+      "id": "gun4:0"
+    },
+    {
+      "file": "audio/gun4_1.ogg",
+      "id": "gun4:1"
+    },
+    {
+      "file": "audio/gun5_0.ogg",
+      "id": "gun5:0"
+    },
+    {
+      "file": "audio/gun5_1.ogg",
+      "id": "gun5:1"
+    },
+    {
+      "file": "audio/gun6_0.ogg",
+      "id": "gun6:0"
+    },
+    {
+      "file": "audio/gun6_1.ogg",
+      "id": "gun6:1"
+    },
+    {
+      "file": "audio/gun7_0.ogg",
+      "id": "gun7:0"
+    },
+    {
+      "file": "audio/gun7_1.ogg",
+      "id": "gun7:1"
+    },
+    {
+      "file": "audio/gun8_0.ogg",
+      "id": "gun8:0"
+    },
+    {
+      "file": "audio/gun8_1.ogg",
+      "id": "gun8:1"
+    },
+    {
+      "file": "audio/gun9_0.ogg",
+      "id": "gun9:0"
+    },
+    {
+      "file": "audio/gun9_1.ogg",
+      "id": "gun9:1"
+    },
+    {
+      "file": "audio/gun10_0.ogg",
+      "id": "gun10:0"
+    },
+    {
+      "file": "audio/gun10_1.ogg",
+      "id": "gun10:1"
+    },
+    {
+      "file": "audio/gun11_0.ogg",
+      "id": "gun11:0"
+    },
+    {
+      "file": "audio/gun11_1.ogg",
+      "id": "gun11:1"
+    },
+    {
+      "file": "audio/gun12_0.ogg",
+      "id": "gun12:0"
+    },
+    {
+      "file": "audio/gun12_1.ogg",
+      "id": "gun12:1"
+    },
+    {
+      "file": "audio/gun13_0.ogg",
+      "id": "gun13:0"
+    },
+    {
+      "file": "audio/gun13_1.ogg",
+      "id": "gun13:1"
+    },
+    {
+      "file": "audio/gun14_0.ogg",
+      "id": "gun14:0"
+    },
+    {
+      "file": "audio/gun14_1.ogg",
+      "id": "gun14:1"
+    },
+    {
+      "file": "audio/gun15_0.ogg",
+      "id": "gun15:0"
+    },
+    {
+      "file": "audio/gun15_1.ogg",
+      "id": "gun15:1"
+    },
+    {
+      "file": "audio/cat_idle_0.ogg",
+      "id": "cat:idle:0"
+    },
+    {
+      "file": "audio/cat_idle_1.ogg",
+      "id": "cat:idle:1"
+    },
+    {
+      "file": "audio/cat_idle_2.ogg",
+      "id": "cat:idle:2"
+    },
+    {
+      "file": "audio/cat_attack_0.ogg",
+      "id": "cat:attack:0"
+    },
+    {
+      "file": "audio/cat_attack_1.ogg",
+      "id": "cat:attack:1"
+    },
+    {
+      "file": "audio/cat_attack_2.ogg",
+      "id": "cat:attack:2"
+    },
+    {
+      "file": "audio/cat_hurt_0.ogg",
+      "id": "cat:hurt:0"
+    },
+    {
+      "file": "audio/cat_hurt_1.ogg",
+      "id": "cat:hurt:1"
+    },
+    {
+      "file": "audio/cat_hurt_2.ogg",
+      "id": "cat:hurt:2"
+    },
+    {
+      "file": "audio/cat_eliminated_0.ogg",
+      "id": "cat:eliminated:0"
+    },
+    {
+      "file": "audio/cat_eliminated_1.ogg",
+      "id": "cat:eliminated:1"
+    },
+    {
+      "file": "audio/cat_eliminated_2.ogg",
+      "id": "cat:eliminated:2"
+    },
+    {
+      "file": "audio/explosion.ogg",
+      "id": "explosion"
+    },
+    {
+      "file": "audio/body_jump.ogg",
+      "id": "body:jump"
+    },
+    {
+      "file": "audio/body_land.ogg",
+      "id": "body:land"
+    },
+    {
+      "file": "audio/body_slide.ogg",
+      "id": "body:slide"
+    }
+  ],
+  "character": {
+    "animations": [
+      "idle",
+      "walk",
+      "run",
+      "shoot",
+      "melee",
+      "hurt",
+      "death"
+    ],
+    "axis": "glTF +Y up; hitbox metadata +Z forward; native world +Z up. Runtime animation/axis integration remains N6.",
+    "file": "models/character/cat_marine_rigged.glb",
+    "hitboxes": "models/character/cat_marine_hitboxes.json",
+    "joints": 21,
+    "sha256": "64809ecf7fa87c42db2dbd56dab9034ee7d97588d827b2aa1d7bf835f831c039",
+    "sourceArchiveSha256": "6ef98f473901340960e39988116ac0fa0c33c769c2c45dda918454aa136623e3",
+    "thirdPersonOnly": true
+  },
+  "coordinateSystem": "world: X-right Y-forward Z-up; model metadata retained",
+  "gameplay": "gameplay/constants.cadata",
+  "kitGlowAssets": [
+    "BA_08",
+    "BA_24",
+    "BA_27",
+    "BA_28",
+    "BA_30"
+  ],
+  "lightmaps": {
+    "bastion-keep": {
+      "bakeMs": 4058,
+      "bakedAt": "2026-11-08T07:06:35.831Z",
+      "charts": 2461,
+      "h": 438,
+      "hash": "2c71e476-1024x438",
+      "lights": 61,
+      "luxel": 0.5,
+      "luxels": 377674,
+      "png": "lightmaps/bastion-keep.png",
+      "rays": 2653204,
+      "version": "q3lm-3",
+      "w": 1024
+    },
+    "helios-crucible": {
+      "bakeMs": 10055,
+      "chartMs": 792.6,
+      "charts": 3187,
+      "covered": 354552,
+      "error": "",
+      "h": 567,
+      "hash": "8ef1b586-1024x567",
+      "lights": 61,
+      "luxelSize": 0.5,
+      "luxels": 498669,
+      "occluders": 168156,
+      "png": "lightmaps/helios-crucible.png",
+      "progress": 1,
+      "rays": 3220641,
+      "source": "baked",
+      "state": "ready",
+      "triangles": 7308,
+      "version": "q3lm-3",
+      "vertexLuxels": 88941,
+      "virtualLights": 64,
+      "w": 1024,
+      "worker": false
+    },
+    "q3-gallery": {
+      "bakeMs": 701,
+      "bakedAt": "2026-11-08T00:00:42.952Z",
+      "charts": 1066,
+      "h": 236,
+      "hash": "1eca3ff9-512x236",
+      "lights": 31,
+      "luxel": 0.5,
+      "luxels": 100039,
+      "png": "lightmaps/q3-gallery.png",
+      "rays": 857817,
+      "version": "q3lm-3",
+      "w": 512
+    },
+    "reactor-bastion": {
+      "bakeMs": 10280,
+      "bakedAt": "2026-11-07T23:55:29.247Z",
+      "charts": 10683,
+      "h": 792,
+      "hash": "aa6afd0f-1024x792",
+      "lights": 92,
+      "luxel": 0.5,
+      "luxels": 692664,
+      "png": "lightmaps/reactor-bastion.png",
+      "rays": 5649905,
+      "version": "q3lm-3",
+      "w": 1024
+    }
+  },
+  "materialScripts": [
+    "materials/scripts/gallery.shader",
+    "materials/scripts/base.shader",
+    "materials/scripts/bastion.shader",
+    "materials/scripts/helios.shader"
+  ],
+  "md3": {
+    "flag": {
+      "bytes": 10420,
+      "data": "models/md3/flag.md3",
+      "file": "assets/models/md3/flag.md3"
+    },
+    "turret_barrel": {
+      "bytes": 5660,
+      "data": "models/md3/turret_barrel.md3",
+      "file": "assets/models/md3/turret_barrel.md3"
+    },
+    "turret_base": {
+      "bytes": 3812,
+      "data": "models/md3/turret_base.md3",
+      "file": "assets/models/md3/turret_base.md3"
+    },
+    "turret_head": {
+      "bytes": 2036,
+      "data": "models/md3/turret_head.md3",
+      "file": "assets/models/md3/turret_head.md3"
+    }
+  },
+  "md3Rigs": {
+    "flag": {
+      "kind": "prop",
+      "parts": [
+        {
+          "file": "flag",
+          "fps": 12
+        }
+      ],
+      "radius": 2.5
+    },
+    "turret": {
+      "kind": "turret",
+      "parts": [
+        {
+          "file": "turret_base",
+          "fps": 0.6
+        },
+        {
+          "file": "turret_head",
+          "parent": 0,
+          "tag": "tag_head",
+          "track": true
+        },
+        {
+          "file": "turret_barrel",
+          "fireOnly": true,
+          "fps": 12,
+          "parent": 1,
+          "tag": "tag_barrel"
+        }
+      ],
+      "radius": 2.2
+    }
+  },
+  "models": [
+    {
+      "bounds": [
+        [
+          -1.1708060503005981,
+          -0.6889550685882568,
+          0
+        ],
+        [
+          1.1708060503005981,
+          0.6889550685882568,
+          2.180000066757202
+        ]
+      ],
+      "file": "models/enemies/grunt.cmesh",
+      "group": "enemies",
+      "id": "grunt",
+      "indices": 768,
+      "metadata": {
+        "bounds": [
+          [
+            -1.1708060038426975,
+            -0.6889550938532797,
+            0
+          ],
+          [
+            1.1708060038426975,
+            0.6889550938532797,
+            2.18
+          ]
+        ],
+        "name": "grunt",
+        "triangles": 256
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/grunt-texture-0.jpg",
+        "models/enemies/grunt-texture-1.jpg",
+        "models/enemies/grunt-texture-2.jpg"
+      ],
+      "triangles": 256,
+      "vertices": 429
+    },
+    {
+      "bounds": [
+        [
+          -1.520931601524353,
+          -0.8087567687034607,
+          0
+        ],
+        [
+          1.520931601524353,
+          0.8087567687034607,
+          2.3980000019073486
+        ]
+      ],
+      "file": "models/enemies/ogre.cmesh",
+      "group": "enemies",
+      "id": "ogre",
+      "indices": 774,
+      "metadata": {
+        "bounds": [
+          [
+            -1.5209316192369509,
+            -0.8087567745869114,
+            0
+          ],
+          [
+            1.5209316192369509,
+            0.8087567745869114,
+            2.3980000000000006
+          ]
+        ],
+        "name": "ogre",
+        "triangles": 258
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/ogre-texture-0.jpg",
+        "models/enemies/ogre-texture-1.jpg",
+        "models/enemies/ogre-texture-2.jpg"
+      ],
+      "triangles": 258,
+      "vertices": 569
+    },
+    {
+      "bounds": [
+        [
+          -1.4467966556549072,
+          -1.5393303632736206,
+          0
+        ],
+        [
+          1.4467966556549072,
+          1.5393303632736206,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/fiend.cmesh",
+      "group": "enemies",
+      "id": "fiend",
+      "indices": 840,
+      "metadata": {
+        "bounds": [
+          [
+            -1.4467967017606518,
+            -1.5393303410503023,
+            0
+          ],
+          [
+            1.4467967017606518,
+            1.5393303410503023,
+            1.9620000000000002
+          ]
+        ],
+        "name": "fiend",
+        "triangles": 280
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/fiend-texture-0.jpg",
+        "models/enemies/fiend-texture-1.jpg",
+        "models/enemies/fiend-texture-2.jpg"
+      ],
+      "triangles": 280,
+      "vertices": 592
+    },
+    {
+      "bounds": [
+        [
+          -1.688245415687561,
+          -0.7485141158103943,
+          0
+        ],
+        [
+          1.688245415687561,
+          0.7485141158103943,
+          2.3980000019073486
+        ]
+      ],
+      "file": "models/enemies/shambler.cmesh",
+      "group": "enemies",
+      "id": "shambler",
+      "indices": 834,
+      "metadata": {
+        "bounds": [
+          [
+            -1.6882454474362516,
+            -0.7485141429357233,
+            0
+          ],
+          [
+            1.6882454474362516,
+            0.7485141429357233,
+            2.3980000000000006
+          ]
+        ],
+        "name": "shambler",
+        "triangles": 278
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/shambler-texture-0.jpg",
+        "models/enemies/shambler-texture-1.jpg",
+        "models/enemies/shambler-texture-2.jpg"
+      ],
+      "triangles": 278,
+      "vertices": 526
+    },
+    {
+      "bounds": [
+        [
+          -1.3176201581954956,
+          -0.7038588523864746,
+          0
+        ],
+        [
+          1.3176201581954956,
+          0.7038588523864746,
+          2.180000066757202
+        ]
+      ],
+      "file": "models/enemies/marauder.cmesh",
+      "group": "enemies",
+      "id": "marauder",
+      "indices": 762,
+      "metadata": {
+        "bounds": [
+          [
+            -1.317620162938353,
+            -0.7038588234553298,
+            0
+          ],
+          [
+            1.317620162938353,
+            0.7038588234553298,
+            2.18
+          ]
+        ],
+        "name": "marauder",
+        "triangles": 254
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/marauder-texture-0.jpg",
+        "models/enemies/marauder-texture-1.jpg",
+        "models/enemies/marauder-texture-2.jpg"
+      ],
+      "triangles": 254,
+      "vertices": 518
+    },
+    {
+      "bounds": [
+        [
+          -1.2910784482955933,
+          -0.9503872394561768,
+          0
+        ],
+        [
+          1.2910784482955933,
+          0.9503872394561768,
+          2.3980000019073486
+        ]
+      ],
+      "file": "models/enemies/warden.cmesh",
+      "group": "enemies",
+      "id": "warden",
+      "indices": 816,
+      "metadata": {
+        "bounds": [
+          [
+            -1.291078441066825,
+            -0.95038724166744,
+            0
+          ],
+          [
+            1.291078441066825,
+            0.95038724166744,
+            2.3980000000000006
+          ]
+        ],
+        "name": "warden",
+        "triangles": 272
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/warden-texture-0.jpg",
+        "models/enemies/warden-texture-1.jpg",
+        "models/enemies/warden-texture-2.jpg"
+      ],
+      "triangles": 272,
+      "vertices": 593
+    },
+    {
+      "bounds": [
+        [
+          -1.506674885749817,
+          -0.941573441028595,
+          0
+        ],
+        [
+          1.506674885749817,
+          0.941573441028595,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/skitter.cmesh",
+      "group": "enemies",
+      "id": "skitter",
+      "indices": 708,
+      "metadata": {
+        "bounds": [
+          [
+            -1.5066748625951656,
+            -0.9415734357434811,
+            0
+          ],
+          [
+            1.5066748625951656,
+            0.9415734357434811,
+            1.9620000000000002
+          ]
+        ],
+        "name": "skitter",
+        "triangles": 236
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/skitter-texture-0.jpg",
+        "models/enemies/skitter-texture-1.jpg",
+        "models/enemies/skitter-texture-2.jpg"
+      ],
+      "triangles": 236,
+      "vertices": 463
+    },
+    {
+      "bounds": [
+        [
+          -0.8639026880264282,
+          -0.6055866479873657,
+          0
+        ],
+        [
+          0.8639026880264282,
+          0.6055866479873657,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/stalker.cmesh",
+      "group": "enemies",
+      "id": "stalker",
+      "indices": 690,
+      "metadata": {
+        "bounds": [
+          [
+            -0.8639026854468174,
+            -0.6055866698906069,
+            0
+          ],
+          [
+            0.8639026854468174,
+            0.6055866698906069,
+            1.962
+          ]
+        ],
+        "name": "stalker",
+        "triangles": 230
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/stalker-texture-0.jpg",
+        "models/enemies/stalker-texture-1.jpg",
+        "models/enemies/stalker-texture-2.jpg"
+      ],
+      "triangles": 230,
+      "vertices": 470
+    },
+    {
+      "bounds": [
+        [
+          -1.5703868865966797,
+          -0.7619820237159729,
+          0
+        ],
+        [
+          1.5703868865966797,
+          0.7619820237159729,
+          2.3980000019073486
+        ]
+      ],
+      "file": "models/enemies/brute.cmesh",
+      "group": "enemies",
+      "id": "brute",
+      "indices": 774,
+      "metadata": {
+        "bounds": [
+          [
+            -1.5703868447421798,
+            -0.7619820407435521,
+            0
+          ],
+          [
+            1.5703868447421798,
+            0.7619820407435521,
+            2.3980000000000006
+          ]
+        ],
+        "name": "brute",
+        "triangles": 258
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/brute-texture-0.jpg",
+        "models/enemies/brute-texture-1.jpg",
+        "models/enemies/brute-texture-2.jpg"
+      ],
+      "triangles": 258,
+      "vertices": 521
+    },
+    {
+      "bounds": [
+        [
+          -1.3287755250930786,
+          -0.6772028803825378,
+          0
+        ],
+        [
+          1.3287755250930786,
+          0.6772028803825378,
+          2.180000066757202
+        ]
+      ],
+      "file": "models/enemies/pyromancer.cmesh",
+      "group": "enemies",
+      "id": "pyromancer",
+      "indices": 726,
+      "metadata": {
+        "bounds": [
+          [
+            -1.3287754821468845,
+            -0.6772028699232343,
+            0
+          ],
+          [
+            1.3287754821468845,
+            0.6772028699232343,
+            2.18
+          ]
+        ],
+        "name": "pyromancer",
+        "triangles": 242
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/pyromancer-texture-0.jpg",
+        "models/enemies/pyromancer-texture-1.jpg",
+        "models/enemies/pyromancer-texture-2.jpg"
+      ],
+      "triangles": 242,
+      "vertices": 515
+    },
+    {
+      "bounds": [
+        [
+          -1.134406566619873,
+          -0.6643806099891663,
+          0
+        ],
+        [
+          1.134406566619873,
+          0.6643806099891663,
+          2.180000066757202
+        ]
+      ],
+      "file": "models/enemies/sentinel.cmesh",
+      "group": "enemies",
+      "id": "sentinel",
+      "indices": 810,
+      "metadata": {
+        "bounds": [
+          [
+            -1.13440661149285,
+            -0.6643806305509874,
+            0
+          ],
+          [
+            1.13440661149285,
+            0.6643806305509874,
+            2.18
+          ]
+        ],
+        "name": "sentinel",
+        "triangles": 270
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/sentinel-texture-0.jpg",
+        "models/enemies/sentinel-texture-1.jpg",
+        "models/enemies/sentinel-texture-2.jpg"
+      ],
+      "triangles": 270,
+      "vertices": 427
+    },
+    {
+      "bounds": [
+        [
+          -1.4051964282989502,
+          -0.7656932473182678,
+          0
+        ],
+        [
+          1.4051964282989502,
+          0.7656932473182678,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/reaver.cmesh",
+      "group": "enemies",
+      "id": "reaver",
+      "indices": 756,
+      "metadata": {
+        "bounds": [
+          [
+            -1.4051964255044627,
+            -0.7656932269251624,
+            0
+          ],
+          [
+            1.4051964255044627,
+            0.7656932269251624,
+            1.9620000000000002
+          ]
+        ],
+        "name": "reaver",
+        "triangles": 252
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/reaver-texture-0.jpg",
+        "models/enemies/reaver-texture-1.jpg",
+        "models/enemies/reaver-texture-2.jpg"
+      ],
+      "triangles": 252,
+      "vertices": 548
+    },
+    {
+      "bounds": [
+        [
+          -0.987040638923645,
+          -0.514409065246582,
+          0
+        ],
+        [
+          0.987040638923645,
+          0.514409065246582,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/banshee.cmesh",
+      "group": "enemies",
+      "id": "banshee",
+      "indices": 864,
+      "metadata": {
+        "bounds": [
+          [
+            -0.987040666612991,
+            -0.5144090788196357,
+            0
+          ],
+          [
+            0.987040666612991,
+            0.5144090788196357,
+            1.9620000000000002
+          ]
+        ],
+        "name": "banshee",
+        "triangles": 288
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/banshee-texture-0.jpg",
+        "models/enemies/banshee-texture-1.jpg",
+        "models/enemies/banshee-texture-2.jpg"
+      ],
+      "triangles": 288,
+      "vertices": 583
+    },
+    {
+      "bounds": [
+        [
+          -2.051112413406372,
+          -1.1594146490097046,
+          0
+        ],
+        [
+          2.051112413406372,
+          1.1594146490097046,
+          2.3980000019073486
+        ]
+      ],
+      "file": "models/enemies/crusher.cmesh",
+      "group": "enemies",
+      "id": "crusher",
+      "indices": 798,
+      "metadata": {
+        "bounds": [
+          [
+            -2.0511123026659153,
+            -1.1594146126571048,
+            0
+          ],
+          [
+            2.0511123026659153,
+            1.1594146126571048,
+            2.3980000000000006
+          ]
+        ],
+        "name": "crusher",
+        "triangles": 266
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/crusher-texture-0.jpg",
+        "models/enemies/crusher-texture-1.jpg",
+        "models/enemies/crusher-texture-2.jpg"
+      ],
+      "triangles": 266,
+      "vertices": 536
+    },
+    {
+      "bounds": [
+        [
+          -1.2246283292770386,
+          -0.86211758852005,
+          0
+        ],
+        [
+          1.2246283292770386,
+          0.86211758852005,
+          2.180000066757202
+        ]
+      ],
+      "file": "models/enemies/sapper.cmesh",
+      "group": "enemies",
+      "id": "sapper",
+      "indices": 702,
+      "metadata": {
+        "bounds": [
+          [
+            -1.224628387448829,
+            -0.8621175923601327,
+            0
+          ],
+          [
+            1.224628387448829,
+            0.8621175923601327,
+            2.18
+          ]
+        ],
+        "name": "sapper",
+        "triangles": 234
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/sapper-texture-0.jpg",
+        "models/enemies/sapper-texture-1.jpg",
+        "models/enemies/sapper-texture-2.jpg"
+      ],
+      "triangles": 234,
+      "vertices": 414
+    },
+    {
+      "bounds": [
+        [
+          -1.4411674737930298,
+          -0.7842078804969788,
+          0
+        ],
+        [
+          1.4411674737930298,
+          0.7842078804969788,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/harrier.cmesh",
+      "group": "enemies",
+      "id": "harrier",
+      "indices": 714,
+      "metadata": {
+        "bounds": [
+          [
+            -1.4411674687618328,
+            -0.7842078919830653,
+            0
+          ],
+          [
+            1.4411674687618328,
+            0.7842078919830653,
+            1.9620000000000004
+          ]
+        ],
+        "name": "harrier",
+        "triangles": 238
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/harrier-texture-0.jpg",
+        "models/enemies/harrier-texture-1.jpg",
+        "models/enemies/harrier-texture-2.jpg"
+      ],
+      "triangles": 238,
+      "vertices": 511
+    },
+    {
+      "bounds": [
+        [
+          -1.3087959289550781,
+          -0.7107552886009216,
+          0
+        ],
+        [
+          1.3087959289550781,
+          0.7107552886009216,
+          2.180000066757202
+        ]
+      ],
+      "file": "models/enemies/cultist.cmesh",
+      "group": "enemies",
+      "id": "cultist",
+      "indices": 654,
+      "metadata": {
+        "bounds": [
+          [
+            -1.308795968841315,
+            -0.7107552888900407,
+            0
+          ],
+          [
+            1.308795968841315,
+            0.7107552888900407,
+            2.18
+          ]
+        ],
+        "name": "cultist",
+        "triangles": 218
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/cultist-texture-0.jpg",
+        "models/enemies/cultist-texture-1.jpg",
+        "models/enemies/cultist-texture-2.jpg"
+      ],
+      "triangles": 218,
+      "vertices": 492
+    },
+    {
+      "bounds": [
+        [
+          -1.7995810508728027,
+          -0.48542526364326477,
+          0
+        ],
+        [
+          1.7995810508728027,
+          0.48542526364326477,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/skyprobe.cmesh",
+      "group": "enemies",
+      "id": "skyprobe",
+      "indices": 762,
+      "metadata": {
+        "bounds": [
+          [
+            -1.7995810465108268,
+            -0.4854252754912679,
+            0
+          ],
+          [
+            1.7995810465108268,
+            0.4854252754912679,
+            1.9620000000000002
+          ]
+        ],
+        "name": "skyprobe",
+        "triangles": 254
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/skyprobe-texture-0.jpg",
+        "models/enemies/skyprobe-texture-1.jpg",
+        "models/enemies/skyprobe-texture-2.jpg"
+      ],
+      "triangles": 254,
+      "vertices": 517
+    },
+    {
+      "bounds": [
+        [
+          -1.8099507093429565,
+          -0.7831525802612305,
+          0
+        ],
+        [
+          1.8099507093429565,
+          0.7831525802612305,
+          1.9620000123977661
+        ]
+      ],
+      "file": "models/enemies/skyraider.cmesh",
+      "group": "enemies",
+      "id": "skyraider",
+      "indices": 732,
+      "metadata": {
+        "bounds": [
+          [
+            -1.8099507491113855,
+            -0.7831525792321844,
+            0
+          ],
+          [
+            1.8099507491113855,
+            0.7831525792321844,
+            1.9620000000000002
+          ]
+        ],
+        "name": "skyraider",
+        "triangles": 244
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/skyraider-texture-0.jpg",
+        "models/enemies/skyraider-texture-1.jpg",
+        "models/enemies/skyraider-texture-2.jpg"
+      ],
+      "triangles": 244,
+      "vertices": 530
+    },
+    {
+      "bounds": [
+        [
+          -2.1163296699523926,
+          -1.087843656539917,
+          0
+        ],
+        [
+          2.1163296699523926,
+          1.087843656539917,
+          2.3980000019073486
+        ]
+      ],
+      "file": "models/enemies/skyjuggernaut.cmesh",
+      "group": "enemies",
+      "id": "skyjuggernaut",
+      "indices": 786,
+      "metadata": {
+        "bounds": [
+          [
+            -2.116329646828631,
+            -1.0878436601502381,
+            0
+          ],
+          [
+            2.116329646828631,
+            1.0878436601502381,
+            2.3980000000000006
+          ]
+        ],
+        "name": "skyjuggernaut",
+        "triangles": 262
+      },
+      "stride": 12,
+      "textures": [
+        "models/enemies/skyjuggernaut-texture-0.jpg",
+        "models/enemies/skyjuggernaut-texture-1.jpg",
+        "models/enemies/skyjuggernaut-texture-2.jpg"
+      ],
+      "triangles": 262,
+      "vertices": 548
+    },
+    {
+      "bounds": [
+        [
+          0.32196179032325745,
+          0.8334280848503113,
+          -0.9362004995346069
+        ],
+        [
+          1.0833662748336792,
+          2.8521270751953125,
+          -0.14379946887493134
+        ]
+      ],
+      "file": "models/weapons/nailgun.cmesh",
+      "group": "weapons",
+      "id": "nailgun",
+      "indices": 900,
+      "metadata": {
+        "muzzle": [
+          0.37577847803483194,
+          2.8521270410844304,
+          -0.43650766954132464
+        ],
+        "name": "nailgun",
+        "triangles": 300
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/nailgun-texture-0.jpg",
+        "models/weapons/nailgun-texture-1.jpg",
+        "models/weapons/nailgun-texture-2.jpg"
+      ],
+      "triangles": 300,
+      "vertices": 617
+    },
+    {
+      "bounds": [
+        [
+          0.27013808488845825,
+          0.8941416144371033,
+          -0.8797475695610046
+        ],
+        [
+          1.0348920822143555,
+          2.863878011703491,
+          -0.20025241374969482
+        ]
+      ],
+      "file": "models/weapons/shotgun.cmesh",
+      "group": "weapons",
+      "id": "shotgun",
+      "indices": 876,
+      "metadata": {
+        "muzzle": [
+          0.3917692573574441,
+          2.8638780305279483,
+          -0.43163607740203036
+        ],
+        "name": "shotgun",
+        "triangles": 292
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/shotgun-texture-0.jpg",
+        "models/weapons/shotgun-texture-1.jpg",
+        "models/weapons/shotgun-texture-2.jpg"
+      ],
+      "triangles": 292,
+      "vertices": 645
+    },
+    {
+      "bounds": [
+        [
+          0.16910307109355927,
+          0.8400730490684509,
+          -0.9848107099533081
+        ],
+        [
+          1.058646559715271,
+          2.8895440101623535,
+          -0.09518926590681076
+        ]
+      ],
+      "file": "models/weapons/grenade_launcher.cmesh",
+      "group": "weapons",
+      "id": "grenade_launcher",
+      "indices": 897,
+      "metadata": {
+        "muzzle": [
+          0.3677395472505757,
+          2.8895440762503473,
+          -0.38162447352924334
+        ],
+        "name": "grenade_launcher",
+        "triangles": 299
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/grenade_launcher-texture-0.jpg",
+        "models/weapons/grenade_launcher-texture-1.jpg",
+        "models/weapons/grenade_launcher-texture-2.jpg"
+      ],
+      "triangles": 299,
+      "vertices": 593
+    },
+    {
+      "bounds": [
+        [
+          0.2482636421918869,
+          0.8441880345344543,
+          -0.8557887077331543
+        ],
+        [
+          1.0131316184997559,
+          2.867131471633911,
+          -0.22421129047870636
+        ]
+      ],
+      "file": "models/weapons/railgun.cmesh",
+      "group": "weapons",
+      "id": "railgun",
+      "indices": 876,
+      "metadata": {
+        "muzzle": [
+          0.36840604934429966,
+          2.867131440583921,
+          -0.42092363386501264
+        ],
+        "name": "railgun",
+        "triangles": 292
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/railgun-texture-0.jpg",
+        "models/weapons/railgun-texture-1.jpg",
+        "models/weapons/railgun-texture-2.jpg"
+      ],
+      "triangles": 292,
+      "vertices": 439
+    },
+    {
+      "bounds": [
+        [
+          0.125244602560997,
+          0.8157304525375366,
+          -0.9493717551231384
+        ],
+        [
+          1.1023086309432983,
+          2.903655529022217,
+          -0.13062827289104462
+        ]
+      ],
+      "file": "models/weapons/rocket_launcher.cmesh",
+      "group": "weapons",
+      "id": "rocket_launcher",
+      "indices": 900,
+      "metadata": {
+        "muzzle": [
+          0.3657288049501146,
+          2.9036554570185373,
+          -0.5007381072742692
+        ],
+        "name": "rocket_launcher",
+        "triangles": 300
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/rocket_launcher-texture-0.jpg",
+        "models/weapons/rocket_launcher-texture-1.jpg",
+        "models/weapons/rocket_launcher-texture-2.jpg"
+      ],
+      "triangles": 300,
+      "vertices": 607
+    },
+    {
+      "bounds": [
+        [
+          0.3259730339050293,
+          0.8429318070411682,
+          -0.9248980283737183
+        ],
+        [
+          1.0604157447814941,
+          2.8360934257507324,
+          -0.15510194003582
+        ]
+      ],
+      "file": "models/weapons/super_nailgun.cmesh",
+      "group": "weapons",
+      "id": "super_nailgun",
+      "indices": 819,
+      "metadata": {
+        "muzzle": [
+          0.3702536425843891,
+          2.8360934928256567,
+          -0.5839279160650862
+        ],
+        "name": "super_nailgun",
+        "triangles": 273
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/super_nailgun-texture-0.jpg",
+        "models/weapons/super_nailgun-texture-1.jpg",
+        "models/weapons/super_nailgun-texture-2.jpg"
+      ],
+      "triangles": 273,
+      "vertices": 593
+    },
+    {
+      "bounds": [
+        [
+          0.286022812128067,
+          0.8488598465919495,
+          -0.9556532502174377
+        ],
+        [
+          1.022430181503296,
+          2.8536064624786377,
+          -0.12434674799442291
+        ]
+      ],
+      "file": "models/weapons/thunderbolt.cmesh",
+      "group": "weapons",
+      "id": "thunderbolt",
+      "indices": 864,
+      "metadata": {
+        "muzzle": [
+          0.39654816025074885,
+          2.8536063704658203,
+          -0.4583360063220929
+        ],
+        "name": "thunderbolt",
+        "triangles": 288
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/thunderbolt-texture-0.jpg",
+        "models/weapons/thunderbolt-texture-1.jpg",
+        "models/weapons/thunderbolt-texture-2.jpg"
+      ],
+      "triangles": 288,
+      "vertices": 644
+    },
+    {
+      "bounds": [
+        [
+          0.19270475208759308,
+          0.8457356691360474,
+          -0.827563464641571
+        ],
+        [
+          0.9939543604850769,
+          2.8786838054656982,
+          -0.2524365186691284
+        ]
+      ],
+      "file": "models/weapons/super_shotgun.cmesh",
+      "group": "weapons",
+      "id": "super_shotgun",
+      "indices": 879,
+      "metadata": {
+        "muzzle": [
+          0.36832223905194783,
+          2.8786837167576658,
+          -0.3677748703570931
+        ],
+        "name": "super_shotgun",
+        "triangles": 293
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/super_shotgun-texture-0.jpg",
+        "models/weapons/super_shotgun-texture-1.jpg",
+        "models/weapons/super_shotgun-texture-2.jpg"
+      ],
+      "triangles": 293,
+      "vertices": 639
+    },
+    {
+      "bounds": [
+        [
+          0.23771995306015015,
+          0.851051390171051,
+          -0.9069305658340454
+        ],
+        [
+          1.0112760066986084,
+          2.846637487411499,
+          -0.17306946218013763
+        ]
+      ],
+      "file": "models/weapons/plasma_repeater.cmesh",
+      "group": "weapons",
+      "id": "plasma_repeater",
+      "indices": 888,
+      "metadata": {
+        "muzzle": [
+          0.4917000516840304,
+          2.8466375929095284,
+          -0.48564134259458114
+        ],
+        "name": "plasma_repeater",
+        "triangles": 296
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/plasma_repeater-texture-0.jpg",
+        "models/weapons/plasma_repeater-texture-1.jpg",
+        "models/weapons/plasma_repeater-texture-2.jpg"
+      ],
+      "triangles": 296,
+      "vertices": 639
+    },
+    {
+      "bounds": [
+        [
+          0.36419177055358887,
+          0.8437025547027588,
+          -0.9042554497718811
+        ],
+        [
+          1.0438532829284668,
+          2.834350347518921,
+          -0.17574454843997955
+        ]
+      ],
+      "file": "models/weapons/triple_spike.cmesh",
+      "group": "weapons",
+      "id": "triple_spike",
+      "indices": 858,
+      "metadata": {
+        "muzzle": [
+          0.36828862296519266,
+          2.8343503752522965,
+          -0.48599659854503746
+        ],
+        "name": "triple_spike",
+        "triangles": 286
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/triple_spike-texture-0.jpg",
+        "models/weapons/triple_spike-texture-1.jpg",
+        "models/weapons/triple_spike-texture-2.jpg"
+      ],
+      "triangles": 286,
+      "vertices": 661
+    },
+    {
+      "bounds": [
+        [
+          0.12020497024059296,
+          0.8564983606338501,
+          -0.9294378161430359
+        ],
+        [
+          1.0350797176361084,
+          2.8340773582458496,
+          -0.15056216716766357
+        ]
+      ],
+      "file": "models/weapons/rift_cannon.cmesh",
+      "group": "weapons",
+      "id": "rift_cannon",
+      "indices": 900,
+      "metadata": {
+        "muzzle": [
+          0.47778720215679593,
+          2.834077330561713,
+          -0.6345033605519064
+        ],
+        "name": "rift_cannon",
+        "triangles": 300
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/rift_cannon-texture-0.jpg",
+        "models/weapons/rift_cannon-texture-1.jpg",
+        "models/weapons/rift_cannon-texture-2.jpg"
+      ],
+      "triangles": 300,
+      "vertices": 572
+    },
+    {
+      "bounds": [
+        [
+          0.23847131431102753,
+          0.8668025135993958,
+          -0.9559808969497681
+        ],
+        [
+          1.289723515510559,
+          2.9271740913391113,
+          -0.1240190863609314
+        ]
+      ],
+      "file": "models/weapons/iron_chaingun.cmesh",
+      "group": "weapons",
+      "id": "iron_chaingun",
+      "indices": 897,
+      "metadata": {
+        "muzzle": [
+          0.4761328948334729,
+          2.9271740331406,
+          -0.48387167014557536
+        ],
+        "name": "iron_chaingun",
+        "triangles": 299
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/iron_chaingun-texture-0.jpg",
+        "models/weapons/iron_chaingun-texture-1.jpg",
+        "models/weapons/iron_chaingun-texture-2.jpg"
+      ],
+      "triangles": 299,
+      "vertices": 642
+    },
+    {
+      "bounds": [
+        [
+          0.2183959037065506,
+          0.8341190814971924,
+          -0.9899746179580688
+        ],
+        [
+          1.0420948266983032,
+          2.8777379989624023,
+          -0.0900254100561142
+        ]
+      ],
+      "file": "models/weapons/hand_cannon.cmesh",
+      "group": "weapons",
+      "id": "hand_cannon",
+      "indices": 900,
+      "metadata": {
+        "muzzle": [
+          0.4236362536021502,
+          2.8777380921514197,
+          -0.2637371518118141
+        ],
+        "name": "hand_cannon",
+        "triangles": 300
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/hand_cannon-texture-0.jpg",
+        "models/weapons/hand_cannon-texture-1.jpg",
+        "models/weapons/hand_cannon-texture-2.jpg"
+      ],
+      "triangles": 300,
+      "vertices": 413
+    },
+    {
+      "bounds": [
+        [
+          0.31411314010620117,
+          0.8457745909690857,
+          -0.9530209898948669
+        ],
+        [
+          1.0150784254074097,
+          2.847616195678711,
+          -0.12697897851467133
+        ]
+      ],
+      "file": "models/weapons/hellfire_carbine.cmesh",
+      "group": "weapons",
+      "id": "hellfire_carbine",
+      "indices": 858,
+      "metadata": {
+        "muzzle": [
+          0.41229793845306206,
+          2.8476161155148336,
+          -0.3837492540208249
+        ],
+        "name": "hellfire_carbine",
+        "triangles": 286
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/hellfire_carbine-texture-0.jpg",
+        "models/weapons/hellfire_carbine-texture-1.jpg",
+        "models/weapons/hellfire_carbine-texture-2.jpg"
+      ],
+      "triangles": 286,
+      "vertices": 461
+    },
+    {
+      "bounds": [
+        [
+          0.29782846570014954,
+          0.8433952331542969,
+          -0.9121577143669128
+        ],
+        [
+          1.016149640083313,
+          2.83522629737854,
+          -0.1678423136472702
+        ]
+      ],
+      "file": "models/weapons/sawblade_driver.cmesh",
+      "group": "weapons",
+      "id": "sawblade_driver",
+      "indices": 897,
+      "metadata": {
+        "muzzle": [
+          0.41068023438656664,
+          2.8352261900171163,
+          -0.5305916113973527
+        ],
+        "name": "sawblade_driver",
+        "triangles": 299
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/sawblade_driver-texture-0.jpg",
+        "models/weapons/sawblade_driver-texture-1.jpg",
+        "models/weapons/sawblade_driver-texture-2.jpg"
+      ],
+      "triangles": 299,
+      "vertices": 434
+    },
+    {
+      "bounds": [
+        [
+          0.1162470281124115,
+          0.8529914021492004,
+          -0.9795083999633789
+        ],
+        [
+          1.0481979846954346,
+          2.9055821895599365,
+          -0.10049161314964294
+        ]
+      ],
+      "file": "models/weapons/quad_shotgun.cmesh",
+      "group": "weapons",
+      "id": "quad_shotgun",
+      "indices": 858,
+      "metadata": {
+        "muzzle": [
+          0.37402544427910994,
+          2.905582239877014,
+          -0.45687680439224165
+        ],
+        "name": "quad_shotgun",
+        "triangles": 286
+      },
+      "stride": 12,
+      "textures": [
+        "models/weapons/quad_shotgun-texture-0.jpg",
+        "models/weapons/quad_shotgun-texture-1.jpg",
+        "models/weapons/quad_shotgun-texture-2.jpg"
+      ],
+      "triangles": 286,
+      "vertices": 636
+    },
+    {
+      "gltf": "models/kit/BA_01.gltf",
+      "group": "kit",
+      "id": "BA_01",
+      "metadata": "models/kit/BA_01.json"
+    },
+    {
+      "gltf": "models/kit/BA_02.gltf",
+      "group": "kit",
+      "id": "BA_02",
+      "metadata": "models/kit/BA_02.json"
+    },
+    {
+      "gltf": "models/kit/BA_03.gltf",
+      "group": "kit",
+      "id": "BA_03",
+      "metadata": "models/kit/BA_03.json"
+    },
+    {
+      "gltf": "models/kit/BA_04.gltf",
+      "group": "kit",
+      "id": "BA_04",
+      "metadata": "models/kit/BA_04.json"
+    },
+    {
+      "gltf": "models/kit/BA_05.gltf",
+      "group": "kit",
+      "id": "BA_05",
+      "metadata": "models/kit/BA_05.json"
+    },
+    {
+      "gltf": "models/kit/BA_06.gltf",
+      "group": "kit",
+      "id": "BA_06",
+      "metadata": "models/kit/BA_06.json"
+    },
+    {
+      "gltf": "models/kit/BA_07.gltf",
+      "group": "kit",
+      "id": "BA_07",
+      "metadata": "models/kit/BA_07.json"
+    },
+    {
+      "gltf": "models/kit/BA_08.gltf",
+      "group": "kit",
+      "id": "BA_08",
+      "metadata": "models/kit/BA_08.json"
+    },
+    {
+      "gltf": "models/kit/BA_09.gltf",
+      "group": "kit",
+      "id": "BA_09",
+      "metadata": "models/kit/BA_09.json"
+    },
+    {
+      "gltf": "models/kit/BA_10.gltf",
+      "group": "kit",
+      "id": "BA_10",
+      "metadata": "models/kit/BA_10.json"
+    },
+    {
+      "gltf": "models/kit/BA_11.gltf",
+      "group": "kit",
+      "id": "BA_11",
+      "metadata": "models/kit/BA_11.json"
+    },
+    {
+      "gltf": "models/kit/BA_12.gltf",
+      "group": "kit",
+      "id": "BA_12",
+      "metadata": "models/kit/BA_12.json"
+    },
+    {
+      "gltf": "models/kit/BA_13.gltf",
+      "group": "kit",
+      "id": "BA_13",
+      "metadata": "models/kit/BA_13.json"
+    },
+    {
+      "gltf": "models/kit/BA_14.gltf",
+      "group": "kit",
+      "id": "BA_14",
+      "metadata": "models/kit/BA_14.json"
+    },
+    {
+      "gltf": "models/kit/BA_15.gltf",
+      "group": "kit",
+      "id": "BA_15",
+      "metadata": "models/kit/BA_15.json"
+    },
+    {
+      "gltf": "models/kit/BA_16.gltf",
+      "group": "kit",
+      "id": "BA_16",
+      "metadata": "models/kit/BA_16.json"
+    },
+    {
+      "gltf": "models/kit/BA_17.gltf",
+      "group": "kit",
+      "id": "BA_17",
+      "metadata": "models/kit/BA_17.json"
+    },
+    {
+      "gltf": "models/kit/BA_18.gltf",
+      "group": "kit",
+      "id": "BA_18",
+      "metadata": "models/kit/BA_18.json"
+    },
+    {
+      "gltf": "models/kit/BA_19.gltf",
+      "group": "kit",
+      "id": "BA_19",
+      "metadata": "models/kit/BA_19.json"
+    },
+    {
+      "gltf": "models/kit/BA_20.gltf",
+      "group": "kit",
+      "id": "BA_20",
+      "metadata": "models/kit/BA_20.json"
+    },
+    {
+      "gltf": "models/kit/BA_21.gltf",
+      "group": "kit",
+      "id": "BA_21",
+      "metadata": "models/kit/BA_21.json"
+    },
+    {
+      "gltf": "models/kit/BA_22.gltf",
+      "group": "kit",
+      "id": "BA_22",
+      "metadata": "models/kit/BA_22.json"
+    },
+    {
+      "gltf": "models/kit/BA_23.gltf",
+      "group": "kit",
+      "id": "BA_23",
+      "metadata": "models/kit/BA_23.json"
+    },
+    {
+      "gltf": "models/kit/BA_24.gltf",
+      "group": "kit",
+      "id": "BA_24",
+      "metadata": "models/kit/BA_24.json"
+    },
+    {
+      "gltf": "models/kit/BA_25.gltf",
+      "group": "kit",
+      "id": "BA_25",
+      "metadata": "models/kit/BA_25.json"
+    },
+    {
+      "gltf": "models/kit/BA_26.gltf",
+      "group": "kit",
+      "id": "BA_26",
+      "metadata": "models/kit/BA_26.json"
+    },
+    {
+      "gltf": "models/kit/BA_27.gltf",
+      "group": "kit",
+      "id": "BA_27",
+      "metadata": "models/kit/BA_27.json"
+    },
+    {
+      "gltf": "models/kit/BA_28.gltf",
+      "group": "kit",
+      "id": "BA_28",
+      "metadata": "models/kit/BA_28.json"
+    },
+    {
+      "gltf": "models/kit/BA_29.gltf",
+      "group": "kit",
+      "id": "BA_29",
+      "metadata": "models/kit/BA_29.json"
+    },
+    {
+      "gltf": "models/kit/BA_30.gltf",
+      "group": "kit",
+      "id": "BA_30",
+      "metadata": "models/kit/BA_30.json"
+    },
+    {
+      "gltf": "models/kit/BA_31.gltf",
+      "group": "kit",
+      "id": "BA_31",
+      "metadata": "models/kit/BA_31.json"
+    },
+    {
+      "gltf": "models/kit/BA_32.gltf",
+      "group": "kit",
+      "id": "BA_32",
+      "metadata": "models/kit/BA_32.json"
+    },
+    {
+      "gltf": "models/kit/BA_33.gltf",
+      "group": "kit",
+      "id": "BA_33",
+      "metadata": "models/kit/BA_33.json"
+    },
+    {
+      "gltf": "models/kit/BA_34.gltf",
+      "group": "kit",
+      "id": "BA_34",
+      "metadata": "models/kit/BA_34.json"
+    },
+    {
+      "gltf": "models/kit/BA_35.gltf",
+      "group": "kit",
+      "id": "BA_35",
+      "metadata": "models/kit/BA_35.json"
+    },
+    {
+      "gltf": "models/kit/BA_36.gltf",
+      "group": "kit",
+      "id": "BA_36",
+      "metadata": "models/kit/BA_36.json"
+    },
+    {
+      "gltf": "models/kit/BA_37.gltf",
+      "group": "kit",
+      "id": "BA_37",
+      "metadata": "models/kit/BA_37.json"
+    },
+    {
+      "gltf": "models/kit/BA_38.gltf",
+      "group": "kit",
+      "id": "BA_38",
+      "metadata": "models/kit/BA_38.json"
+    },
+    {
+      "gltf": "models/kit/BA_39.gltf",
+      "group": "kit",
+      "id": "BA_39",
+      "metadata": "models/kit/BA_39.json"
+    },
+    {
+      "gltf": "models/kit/BA_40.gltf",
+      "group": "kit",
+      "id": "BA_40",
+      "metadata": "models/kit/BA_40.json"
+    }
+  ],
+  "schema": 1,
+  "sourceAuthority": {
+    "primary": "legacy/index.html",
+    "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+    "soundtrackBranchMerged": false
+  },
+  "textures": [
+    {
+      "file": "textures/kit/BA_01.jpg",
+      "id": "BA_01",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_01",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_02.jpg",
+      "id": "BA_02",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_02",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_03.jpg",
+      "id": "BA_03",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_03",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_04.jpg",
+      "id": "BA_04",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_04",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_05.jpg",
+      "id": "BA_05",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_05",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_06.jpg",
+      "id": "BA_06",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_06",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_07.jpg",
+      "id": "BA_07",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_07",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_08.jpg",
+      "id": "BA_08",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_08",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_08_glow.rgba",
+      "format": "RGBA8",
+      "height": 512,
+      "id": "models/bastion/BA_08_glow",
+      "width": 512
+    },
+    {
+      "file": "textures/kit/BA_09.jpg",
+      "id": "BA_09",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_09",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_10.jpg",
+      "id": "BA_10",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_10",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_11.jpg",
+      "id": "BA_11",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_11",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_12.jpg",
+      "id": "BA_12",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_12",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_13.jpg",
+      "id": "BA_13",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_13",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_14.jpg",
+      "id": "BA_14",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_14",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_15.jpg",
+      "id": "BA_15",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_15",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_16.jpg",
+      "id": "BA_16",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_16",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_17.jpg",
+      "id": "BA_17",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_17",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_18.jpg",
+      "id": "BA_18",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_18",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_19.jpg",
+      "id": "BA_19",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_19",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_20.jpg",
+      "id": "BA_20",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_20",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_21.jpg",
+      "id": "BA_21",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_21",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_22.jpg",
+      "id": "BA_22",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_22",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_23.jpg",
+      "id": "BA_23",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_23",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_24.jpg",
+      "id": "BA_24",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_24",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_24_glow.rgba",
+      "format": "RGBA8",
+      "height": 512,
+      "id": "models/bastion/BA_24_glow",
+      "width": 512
+    },
+    {
+      "file": "textures/kit/BA_25.jpg",
+      "id": "BA_25",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_25",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_26.jpg",
+      "id": "BA_26",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_26",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_27.jpg",
+      "id": "BA_27",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_27",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_27_glow.rgba",
+      "format": "RGBA8",
+      "height": 512,
+      "id": "models/bastion/BA_27_glow",
+      "width": 512
+    },
+    {
+      "file": "textures/kit/BA_28.jpg",
+      "id": "BA_28",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_28",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_28_glow.rgba",
+      "format": "RGBA8",
+      "height": 512,
+      "id": "models/bastion/BA_28_glow",
+      "width": 512
+    },
+    {
+      "file": "textures/kit/BA_29.jpg",
+      "id": "BA_29",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_29",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_30.jpg",
+      "id": "BA_30",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_30",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_30_glow.rgba",
+      "format": "RGBA8",
+      "height": 512,
+      "id": "models/bastion/BA_30_glow",
+      "width": 512
+    },
+    {
+      "file": "textures/kit/BA_31.jpg",
+      "id": "BA_31",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_31",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_32.jpg",
+      "id": "BA_32",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_32",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_33.jpg",
+      "id": "BA_33",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_33",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_34.jpg",
+      "id": "BA_34",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_34",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_35.jpg",
+      "id": "BA_35",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_35",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_36.jpg",
+      "id": "BA_36",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_36",
+        "size": 256
+      }
+    },
+    {
+      "file": "textures/kit/BA_37.jpg",
+      "id": "BA_37",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_37",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_38.jpg",
+      "id": "BA_38",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_38",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_39.jpg",
+      "id": "BA_39",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_39",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/kit/BA_40.jpg",
+      "id": "BA_40",
+      "metadata": {
+        "data": null,
+        "mime": "image/jpeg",
+        "name": "models/bastion/BA_40",
+        "size": 512
+      }
+    },
+    {
+      "file": "textures/procedural/textures/gallery/metal.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/metal",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/floor.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/floor",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/wall.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/wall",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/stone.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/stone",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/detail.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/detail",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/energy.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/energy",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/scanlines.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/scanlines",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/machinery.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/machinery",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/conveyor.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/conveyor",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/warning.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/warning",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/warning_glow.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/warning_glow",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/glass.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/glass",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/chrome_env.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/chrome_env",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/water.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/water",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/caustics.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/caustics",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/plasma.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/plasma",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/reactor_cells.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/reactor_cells",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/grate.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/grate",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/banner.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/banner",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/flare.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/flare",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/console0.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/console0",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/console1.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/console1",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/console2.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/console2",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/console3.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/console3",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/fan.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/fan",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/textures/gallery/swirl.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "textures/gallery/swirl",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/sky/gallery_clouds1.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "sky/gallery_clouds1",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/sky/gallery_clouds2.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "sky/gallery_clouds2",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/env/gallery_nebula_rt.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "env/gallery_nebula_rt",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/env/gallery_nebula_lf.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "env/gallery_nebula_lf",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/env/gallery_nebula_bk.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "env/gallery_nebula_bk",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/env/gallery_nebula_ft.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "env/gallery_nebula_ft",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/env/gallery_nebula_up.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "env/gallery_nebula_up",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/procedural/env/gallery_nebula_dn.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "env/gallery_nebula_dn",
+      "origin": "top-left",
+      "width": 256
+    },
+    {
+      "file": "textures/nailTexCanvas.png",
+      "height": 512,
+      "id": "nailTexCanvas",
+      "width": 512
+    },
+    {
+      "file": "textures/shotgunTexCanvas.png",
+      "height": 512,
+      "id": "shotgunTexCanvas",
+      "width": 512
+    },
+    {
+      "file": "textures/grenadeTexCanvas.png",
+      "height": 512,
+      "id": "grenadeTexCanvas",
+      "width": 512
+    },
+    {
+      "file": "textures/railTexCanvas.png",
+      "height": 512,
+      "id": "railTexCanvas",
+      "width": 512
+    },
+    {
+      "file": "textures/rocketTexCanvas.png",
+      "height": 512,
+      "id": "rocketTexCanvas",
+      "width": 512
+    },
+    {
+      "file": "textures/projectileAtlasCanvas.png",
+      "height": 512,
+      "id": "projectileAtlasCanvas",
+      "width": 512
+    },
+    {
+      "file": "textures/world-atlas.png",
+      "height": 512,
+      "id": "$world",
+      "origin": "top-left",
+      "tile": 128,
+      "uvConvention": "legacy UNPACK_FLIP_Y_WEBGL; native loader must flip V when sampling top-left pixels",
+      "width": 512
+    },
+    {
+      "file": "textures/sky/rb_clouds_a.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "sky/rb_clouds_a",
+      "width": 256
+    },
+    {
+      "file": "textures/sky/rb_clouds_b.rgba",
+      "format": "RGBA8",
+      "height": 256,
+      "id": "sky/rb_clouds_b",
+      "width": 256
+    }
+  ],
+  "visibility": {
+    "bastion-keep": {
+      "bakedAt": "2026-11-08T07:17:37.276Z",
+      "data": "visibility/bastion-keep.bin",
+      "hash": "7c4ddc7c-712",
+      "leaves": 432,
+      "ms": 661261,
+      "occupiedLeaves": 140,
+      "pairs": 99680,
+      "rays": 30204815,
+      "targets": 712,
+      "version": "q3vis-4",
+      "visiblePairs": 67631
+    },
+    "helios-crucible": {
+      "culledLast": 0,
+      "data": "visibility/helios-crucible.bin",
+      "enabled": true,
+      "hash": "a380df5a-645",
+      "leafLast": -1,
+      "leaves": 432,
+      "locked": false,
+      "ms": 18606,
+      "occupiedLeaves": 123,
+      "pairs": 79335,
+      "progress": 1,
+      "rays": 21555260,
+      "source": "computed",
+      "state": "ready",
+      "targets": 645,
+      "version": "q3vis-4",
+      "visiblePairs": 60545
+    },
+    "q3-gallery": {
+      "bakedAt": "2026-11-08T00:00:57.051Z",
+      "data": "visibility/q3-gallery.bin",
+      "hash": "73e587a2-203",
+      "leaves": 432,
+      "ms": 14057,
+      "occupiedLeaves": 63,
+      "pairs": 12789,
+      "rays": 2774344,
+      "targets": 203,
+      "version": "q3vis-4",
+      "visiblePairs": 8722
+    },
+    "reactor-bastion": {
+      "bakedAt": "2026-11-07T23:57:51.689Z",
+      "data": "visibility/reactor-bastion.bin",
+      "hash": "dcc70298-411",
+      "leaves": 432,
+      "ms": 142337,
+      "occupiedLeaves": 140,
+      "pairs": 57540,
+      "rays": 22735505,
+      "targets": 411,
+      "version": "q3vis-4",
+      "visiblePairs": 32875
+    }
+  },
+  "warnings": []
+}

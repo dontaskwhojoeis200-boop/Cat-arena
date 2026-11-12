@@ -1,0 +1,51 @@
+{
+  "category": "traversal",
+  "degenerateRemoved": 0,
+  "desired": [
+    3,
+    4,
+    8
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b879-8947-759a-894b-bc4c96742f65",
+  "id": "BA_17",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_17.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_17_ramp_straight.glb",
+  "name": "ramp_straight",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_17.nrm.bin"
+  },
+  "orientation": "rz90",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_17.pos.bin"
+  },
+  "scale": [
+    6.91114,
+    8.38056,
+    10.82166
+  ],
+  "sha256": "a9f6a80da162bc53fea0b5765399c93aa91788148b54ac5694e8b4df36e917f9",
+  "size": [
+    3,
+    8,
+    4
+  ],
+  "sourceTriangles": 140,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_17",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87a-360c-7555-97aa-2daf4f83d9ae",
+  "triangles": 700,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_17.uv.bin"
+  },
+  "vertices": 815
+}

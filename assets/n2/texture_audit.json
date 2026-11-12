@@ -1,0 +1,874 @@
+{
+  "tool": "tools/n2/audit_textures.py",
+  "legacySha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "renderer": "ANGLE (Mesa, Vulkan 1.4.318 (llvmpipe (LLVM 20.1.2 256 bits) (0x00000000)), llvmpipe)",
+  "map": "helios-crucible",
+  "rule": "GPU rows are in upload order; world layers are row-flipped tiles (rebuildWorld), Q3MAT arrays and the lightmap are unflipped",
+  "world": [
+    {
+      "layer": 0,
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0
+    },
+    {
+      "layer": 1,
+      "maeVsN1": 21.2464,
+      "maxVsN1": 167,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 2,
+      "maeVsN1": 21.9072,
+      "maxVsN1": 131,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 3,
+      "maeVsN1": 13.0809,
+      "maxVsN1": 135,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 4,
+      "maeVsN1": 71.8429,
+      "maxVsN1": 232,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 5,
+      "maeVsN1": 46.9901,
+      "maxVsN1": 205,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 6,
+      "maeVsN1": 28.3686,
+      "maxVsN1": 139,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 7,
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0
+    },
+    {
+      "layer": 8,
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0
+    },
+    {
+      "layer": 9,
+      "maeVsN1": 21.4647,
+      "maxVsN1": 147,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 10,
+      "maeVsN1": 42.8077,
+      "maxVsN1": 210,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 11,
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0
+    },
+    {
+      "layer": 12,
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0
+    },
+    {
+      "layer": 13,
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0
+    },
+    {
+      "layer": 14,
+      "maeVsN1": 33.7528,
+      "maxVsN1": 139,
+      "differingFraction": 1.0
+    },
+    {
+      "layer": 15,
+      "maeVsN1": 35.757,
+      "maxVsN1": 255,
+      "differingFraction": 1.0
+    }
+  ],
+  "lightmap": {
+    "size": [
+      1024,
+      567
+    ],
+    "hash": "8ef1b586-1024x567",
+    "source": "shipped",
+    "maeVsN1": 0.0,
+    "maxVsN1": 0,
+    "differingFraction": 0.0
+  },
+  "material": [
+    {
+      "name": "models/bastion/BA_15",
+      "layer": 0,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_15.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_16",
+      "layer": 1,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_16.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_17",
+      "layer": 2,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_17.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_18",
+      "layer": 3,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_18.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_19",
+      "layer": 4,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_19.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_20",
+      "layer": 5,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_20.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_21",
+      "layer": 6,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_21.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_22",
+      "layer": 7,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_22.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_23",
+      "layer": 8,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_23.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_31",
+      "layer": 9,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_31.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_32",
+      "layer": 10,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_32.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_33",
+      "layer": 11,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_33.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_34",
+      "layer": 12,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_34.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_35",
+      "layer": 13,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_35.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_36",
+      "layer": 14,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_36.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "textures/gallery/floor",
+      "layer": 17,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/floor.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/detail",
+      "layer": 18,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/detail.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/wall",
+      "layer": 19,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/wall.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/stone",
+      "layer": 20,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/stone.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/metal",
+      "layer": 21,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/metal.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/energy",
+      "layer": 22,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/energy.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/scanlines",
+      "layer": 23,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/scanlines.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/machinery",
+      "layer": 24,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/machinery.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/warning",
+      "layer": 25,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/warning.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/warning_glow",
+      "layer": 26,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/warning_glow.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/console0",
+      "layer": 27,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/console0.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/console1",
+      "layer": 28,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/console1.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/console2",
+      "layer": 29,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/console2.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/console3",
+      "layer": 30,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/console3.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/glass",
+      "layer": 31,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/glass.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/chrome_env",
+      "layer": 32,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/chrome_env.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/water",
+      "layer": 33,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/water.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/caustics",
+      "layer": 34,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/caustics.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/plasma",
+      "layer": 35,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/plasma.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/reactor_cells",
+      "layer": 36,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/reactor_cells.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/conveyor",
+      "layer": 37,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/conveyor.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/grate",
+      "layer": 38,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/grate.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/fan",
+      "layer": 39,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/fan.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/banner",
+      "layer": 40,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/banner.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/swirl",
+      "layer": 41,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/swirl.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "textures/gallery/flare",
+      "layer": 42,
+      "status": "COMPARED",
+      "file": "textures/procedural/textures/gallery/flare.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "sky/gallery_clouds1",
+      "layer": 43,
+      "status": "COMPARED",
+      "file": "textures/procedural/sky/gallery_clouds1.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "sky/gallery_clouds2",
+      "layer": 44,
+      "status": "COMPARED",
+      "file": "textures/procedural/sky/gallery_clouds2.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "sky/rb_clouds_a",
+      "layer": 15,
+      "status": "COMPARED",
+      "file": "textures/sky/rb_clouds_a.rgba",
+      "maeVsN1": 4.4015,
+      "maxVsN1": 255,
+      "differingFraction": 0.4393,
+      "decoder": "raw"
+    },
+    {
+      "name": "sky/rb_clouds_b",
+      "layer": 16,
+      "status": "COMPARED",
+      "file": "textures/sky/rb_clouds_b.rgba",
+      "maeVsN1": 6.0124,
+      "maxVsN1": 255,
+      "differingFraction": 0.2815,
+      "decoder": "raw"
+    }
+  ],
+  "kit": [
+    {
+      "name": "models/bastion/BA_01",
+      "layer": 0,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_01.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_02",
+      "layer": 1,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_02.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_03",
+      "layer": 2,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_03.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_04",
+      "layer": 3,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_04.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_05",
+      "layer": 4,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_05.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_06",
+      "layer": 5,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_06.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_07",
+      "layer": 6,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_07.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_08",
+      "layer": 7,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_08.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_08_glow",
+      "layer": 8,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_08_glow.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "models/bastion/BA_09",
+      "layer": 9,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_09.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_10",
+      "layer": 10,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_10.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_11",
+      "layer": 11,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_11.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_12",
+      "layer": 12,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_12.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_13",
+      "layer": 13,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_13.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_14",
+      "layer": 14,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_14.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_24",
+      "layer": 15,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_24.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_24_glow",
+      "layer": 16,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_24_glow.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "models/bastion/BA_25",
+      "layer": 17,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_25.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_26",
+      "layer": 18,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_26.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_27",
+      "layer": 19,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_27.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_27_glow",
+      "layer": 20,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_27_glow.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "models/bastion/BA_28",
+      "layer": 21,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_28.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_28_glow",
+      "layer": 22,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_28_glow.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "models/bastion/BA_29",
+      "layer": 23,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_29.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_30",
+      "layer": 24,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_30.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_30_glow",
+      "layer": 25,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_30_glow.rgba",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "raw"
+    },
+    {
+      "name": "models/bastion/BA_37",
+      "layer": 26,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_37.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_38",
+      "layer": 27,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_38.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_39",
+      "layer": 28,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_39.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    },
+    {
+      "name": "models/bastion/BA_40",
+      "layer": 29,
+      "status": "COMPARED",
+      "file": "textures/kit/BA_40.jpg",
+      "maeVsN1": 0.0,
+      "maxVsN1": 0,
+      "differingFraction": 0.0,
+      "decoder": "PIL"
+    }
+  ],
+  "worldAtlasRuntime": {
+    "file": "world-atlas-runtime.png",
+    "sha256": "4ff5c606e3659428535c40d37916dec41c5d37cdeb2d257f4852f8833ec265a0"
+  }
+}

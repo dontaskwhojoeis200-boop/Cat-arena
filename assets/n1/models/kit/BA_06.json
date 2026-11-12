@@ -1,0 +1,51 @@
+{
+  "category": "walls",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    4,
+    0.4
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b870-8ece-73a9-908e-bc986a448986",
+  "id": "BA_06",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_06.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_06_wall_vent_panel.glb",
+  "name": "wall_vent_panel",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_06.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_06.pos.bin"
+  },
+  "scale": [
+    4.19457,
+    0.41353,
+    6.0191
+  ],
+  "sha256": "96f53e09e186227be6eebfaec1a36d86ef3e746392949f33283d9a07e669e4d5",
+  "size": [
+    4,
+    0.4,
+    4
+  ],
+  "sourceTriangles": 276,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_06",
+    "size": 512
+  },
+  "texture_task_id": "01a1b870-ee71-70ed-a9dc-3b7e34622b42",
+  "triangles": 510,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_06.uv.bin"
+  },
+  "vertices": 881
+}

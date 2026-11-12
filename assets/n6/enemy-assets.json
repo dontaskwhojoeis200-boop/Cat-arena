@@ -1,0 +1,2102 @@
+{
+ "tool": "tools/n6/legacy_enemy_assets.cjs",
+ "legacySha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "settings": {
+  "entityGrid": true,
+  "shadows": 1,
+  "gibs": true,
+  "blood": true,
+  "overbright": 1,
+  "dynamicLights": true,
+  "effects": 1
+ },
+ "types": [
+  {
+   "index": 0,
+   "type": "grunt",
+   "stem": "00_grunt",
+   "triangles": 256,
+   "bounds": [
+    [
+     -1.1708060038426975,
+     -0.6889550938532797,
+     0
+    ],
+    [
+     1.1708060038426975,
+     0.6889550938532797,
+     2.18
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 256,
+    "rigidTriangles": 78,
+    "leftLeg": 66,
+    "rightLeg": 64,
+    "leftArm": 27,
+    "rightArm": 21,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "soldier",
+   "attack": "shoot",
+   "rig": {
+    "hip": 0.9320476341247558,
+    "knee": 0.4660238170623779,
+    "shoulder": 1.4910177171230317,
+    "elbow": 1.160905470609665,
+    "neck": 1.308,
+    "spine": 1.052352391204834,
+    "wingRoot": 0.654,
+    "height": 2.18,
+    "shoulderX": 0.45371830463409424,
+    "wingTip": 1.1708060503005981,
+    "depth": 0.6889550685882568,
+    "width": 1.1708060503005981
+   },
+   "materials": [
+    400,
+    400.04,
+    400.08,
+    400.12,
+    400.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/grunt-texture-0.jpg",
+     "sha256": "a98ea2d8ca3e5dbc65f7277811194da15726450782e5aa70f3f269f14d84a836",
+     "bytes": 19660
+    },
+    {
+     "file": "assets/n1/models/enemies/grunt-texture-1.jpg",
+     "sha256": "638b1cbc3ca6053192a5f06febe1fd30912b0e1a1ab5b076ae7f21b335dad7f9",
+     "bytes": 10379
+    },
+    {
+     "file": "assets/n1/models/enemies/grunt-texture-2.jpg",
+     "sha256": "c15393bdfe9d8c03a02481e0f13182b9f765f7687f39cb3df61d88906952c957",
+     "bytes": 3926
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "type": "ogre",
+   "stem": "01_ogre",
+   "triangles": 258,
+   "bounds": [
+    [
+     -1.5209316192369509,
+     -0.8087567745869114,
+     0
+    ],
+    [
+     1.5209316192369509,
+     0.8087567745869114,
+     2.3980000000000006
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 258,
+    "rigidTriangles": 103,
+    "leftLeg": 52,
+    "rightLeg": 60,
+    "leftArm": 20,
+    "rightArm": 23,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "heavy",
+   "attack": "throw",
+   "rig": {
+    "hip": 1.1510400000000003,
+    "knee": 0.5755200000000001,
+    "shoulder": 1.6405819630622864,
+    "elbow": 1.107130931568146,
+    "neck": 1.3908400000000003,
+    "spine": 1.2277760000000002,
+    "wingRoot": 0.7194000000000002,
+    "height": 2.3980000000000006,
+    "shoulderX": 0.5912561416625977,
+    "wingTip": 1.520931601524353,
+    "depth": 0.8087567687034607,
+    "width": 1.520931601524353
+   },
+   "materials": [
+    401,
+    401.04,
+    401.08,
+    401.12,
+    401.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/ogre-texture-0.jpg",
+     "sha256": "7d920ddb8a63b6edead9f97059d2dcf3a0ec7d43a88910901b5068248d2ff09e",
+     "bytes": 24563
+    },
+    {
+     "file": "assets/n1/models/enemies/ogre-texture-1.jpg",
+     "sha256": "eb4fc32999061e52c7cc4073c7b9bc9c8e46df2f5aaf5dfec6e2358a905ae8aa",
+     "bytes": 10094
+    },
+    {
+     "file": "assets/n1/models/enemies/ogre-texture-2.jpg",
+     "sha256": "7fe1f92eb47c35da769006e216e631cbd30dfd287543368e3e39adeba40cb8b8",
+     "bytes": 3829
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "type": "fiend",
+   "stem": "02_fiend",
+   "triangles": 280,
+   "bounds": [
+    [
+     -1.4467967017606518,
+     -1.5393303410503023,
+     0
+    ],
+    [
+     1.4467967017606518,
+     1.5393303410503023,
+     1.9620000000000002
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 280,
+    "rigidTriangles": 79,
+    "leftLeg": 82,
+    "rightLeg": 80,
+    "leftArm": 20,
+    "rightArm": 19,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "beast",
+   "attack": "claw",
+   "rig": {
+    "hip": 0.7452768516540527,
+    "knee": 0.37263842582702633,
+    "shoulder": 1.0987200000000001,
+    "elbow": 0.6474600000000001,
+    "neck": 1.13796,
+    "spine": 0.8709354591247558,
+    "wingRoot": 0.5886,
+    "height": 1.9620000000000002,
+    "shoulderX": 0.43678298592567444,
+    "wingTip": 1.4467966556549072,
+    "depth": 1.5393303632736206,
+    "width": 1.4467966556549072
+   },
+   "materials": [
+    402,
+    402.04,
+    402.08,
+    402.12,
+    402.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/fiend-texture-0.jpg",
+     "sha256": "ecfeb04ee66eba508d0aa9ad9a135314761a2e38266cf0e57e2a04a056527448",
+     "bytes": 25591
+    },
+    {
+     "file": "assets/n1/models/enemies/fiend-texture-1.jpg",
+     "sha256": "de733f101e9db00fdfd6d8d4ff0de4f0ad0a958d254333289483b8825479e7cd",
+     "bytes": 9910
+    },
+    {
+     "file": "assets/n1/models/enemies/fiend-texture-2.jpg",
+     "sha256": "90e45fd20d04c53a4a95280dbf4eb0649b7c049e15eae194a59cb90bb63e9644",
+     "bytes": 5149
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "type": "shambler",
+   "stem": "03_shambler",
+   "triangles": 278,
+   "bounds": [
+    [
+     -1.6882454474362516,
+     -0.7485141429357233,
+     0
+    ],
+    [
+     1.6882454474362516,
+     0.7485141429357233,
+     2.3980000000000006
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 278,
+    "rigidTriangles": 83,
+    "leftLeg": 54,
+    "rightLeg": 55,
+    "leftArm": 44,
+    "rightArm": 42,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "heavy",
+   "attack": "slam",
+   "rig": {
+    "hip": 0.9591989135742187,
+    "knee": 0.47959945678710936,
+    "shoulder": 1.7244907104969025,
+    "elbow": 1.3077028341770172,
+    "neck": 1.3908400000000003,
+    "spine": 1.0973240612304689,
+    "wingRoot": 0.7194000000000002,
+    "height": 2.3980000000000006,
+    "shoulderX": 0.5908861756324768,
+    "wingTip": 1.688245415687561,
+    "depth": 0.7485141158103943,
+    "width": 1.688245415687561
+   },
+   "materials": [
+    403,
+    403.04,
+    403.08,
+    403.12,
+    403.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/shambler-texture-0.jpg",
+     "sha256": "dfef71765c17e348f99c1b052fdcbd8d03bd3317c4eb91f49d4d9c9a15564c82",
+     "bytes": 29528
+    },
+    {
+     "file": "assets/n1/models/enemies/shambler-texture-1.jpg",
+     "sha256": "2442649bb8f806db98c5a4974e6bb9040f955dd79002a0a7597f82585d110412",
+     "bytes": 7581
+    },
+    {
+     "file": "assets/n1/models/enemies/shambler-texture-2.jpg",
+     "sha256": "3d687f244122e7050ac6229a9b337933c2446b507b08669738c36fe3a5ad073e",
+     "bytes": 6005
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "type": "marauder",
+   "stem": "04_marauder",
+   "triangles": 254,
+   "bounds": [
+    [
+     -1.317620162938353,
+     -0.7038588234553298,
+     0
+    ],
+    [
+     1.317620162938353,
+     0.7038588234553298,
+     2.18
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 254,
+    "rigidTriangles": 109,
+    "leftLeg": 59,
+    "rightLeg": 39,
+    "leftArm": 28,
+    "rightArm": 19,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "soldier",
+   "attack": "shoot",
+   "rig": {
+    "hip": 0.8922686004638671,
+    "knee": 0.44613430023193357,
+    "shoulder": 1.524510703086853,
+    "elbow": 1.1465313093185425,
+    "neck": 1.2644,
+    "spine": 1.0113506483154295,
+    "wingRoot": 0.654,
+    "height": 2.18,
+    "shoulderX": 0.5941131114959717,
+    "wingTip": 1.3176201581954956,
+    "depth": 0.7038588523864746,
+    "width": 1.3176201581954956
+   },
+   "materials": [
+    404,
+    404.04,
+    404.08,
+    404.12,
+    404.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/marauder-texture-0.jpg",
+     "sha256": "096104c47fb922db895882929c8c7461062eab53c1895463f083a2da3a01de49",
+     "bytes": 25597
+    },
+    {
+     "file": "assets/n1/models/enemies/marauder-texture-1.jpg",
+     "sha256": "cdd31235bbda6b4f2645f59dae6a008abe606c6429a241e3ee9629db8b8b310b",
+     "bytes": 11348
+    },
+    {
+     "file": "assets/n1/models/enemies/marauder-texture-2.jpg",
+     "sha256": "dcb07db17770fd4c1a11e606bce67c65d1c8f6d42208fc3d2d992300806ede26",
+     "bytes": 5333
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "type": "warden",
+   "stem": "05_warden",
+   "triangles": 272,
+   "bounds": [
+    [
+     -1.291078441066825,
+     -0.95038724166744,
+     0
+    ],
+    [
+     1.291078441066825,
+     0.95038724166744,
+     2.3980000000000006
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 272,
+    "rigidTriangles": 143,
+    "leftLeg": 38,
+    "rightLeg": 40,
+    "leftArm": 27,
+    "rightArm": 24,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "heavy",
+   "attack": "cast",
+   "rig": {
+    "hip": 1.1510400000000003,
+    "knee": 0.5755200000000001,
+    "shoulder": 1.6753259825706481,
+    "elbow": 1.2777913390159608,
+    "neck": 1.3908400000000003,
+    "spine": 1.2277760000000002,
+    "wingRoot": 0.7194000000000002,
+    "height": 2.3980000000000006,
+    "shoulderX": 0.4018591046333313,
+    "wingTip": 1.2910784482955933,
+    "depth": 0.9503872394561768,
+    "width": 1.2910784482955933
+   },
+   "materials": [
+    405,
+    405.04,
+    405.08,
+    405.12,
+    405.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/warden-texture-0.jpg",
+     "sha256": "d614fb448da0bbdb9885d952486978cf9afdb4ddb25031c73326825daf3bcdf6",
+     "bytes": 26185
+    },
+    {
+     "file": "assets/n1/models/enemies/warden-texture-1.jpg",
+     "sha256": "2dd082f91951d364bea4c2cdfc945b8808cf0cae67fd37f9ea2d99d4e2bef659",
+     "bytes": 12263
+    },
+    {
+     "file": "assets/n1/models/enemies/warden-texture-2.jpg",
+     "sha256": "f92819a1398737ace0d7bd17e10ac053d623d9b90f228f87e2ebd359434bcaed",
+     "bytes": 5790
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "type": "skitter",
+   "stem": "06_skitter",
+   "triangles": 236,
+   "bounds": [
+    [
+     -1.5066748625951656,
+     -0.9415734357434811,
+     0
+    ],
+    [
+     1.5066748625951656,
+     0.9415734357434811,
+     1.9620000000000002
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 236,
+    "rigidTriangles": 78,
+    "leftLeg": 59,
+    "rightLeg": 53,
+    "leftArm": 17,
+    "rightArm": 29,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "skitter",
+   "attack": "bite",
+   "rig": {
+    "hip": 0.7063200000000001,
+    "knee": 0.35316000000000003,
+    "shoulder": 0.9810000000000001,
+    "elbow": 0.8307183352661134,
+    "neck": 1.13796,
+    "spine": 0.8444448000000001,
+    "wingRoot": 0.5886,
+    "height": 1.9620000000000002,
+    "shoulderX": 0.4290439188480377,
+    "wingTip": 1.506674885749817,
+    "depth": 0.941573441028595,
+    "width": 1.506674885749817
+   },
+   "materials": [
+    406,
+    406.04,
+    406.08,
+    406.12,
+    406.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/skitter-texture-0.jpg",
+     "sha256": "fd21cb4f243459412137b267171e2f9ab7ffe8a76b9cd9604294cff62193cee7",
+     "bytes": 27678
+    },
+    {
+     "file": "assets/n1/models/enemies/skitter-texture-1.jpg",
+     "sha256": "fe00c92ca0f6bf8e8913dbf2e1864ab30a6b458f82a135f78d4ec8d04b0c1178",
+     "bytes": 10345
+    },
+    {
+     "file": "assets/n1/models/enemies/skitter-texture-2.jpg",
+     "sha256": "ec2f7910ba82527d7fa8ef45e479348efa3da07568adb6226f46d655e059322e",
+     "bytes": 4321
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "type": "stalker",
+   "stem": "07_stalker",
+   "triangles": 230,
+   "bounds": [
+    [
+     -0.8639026854468174,
+     -0.6055866698906069,
+     0
+    ],
+    [
+     0.8639026854468174,
+     0.6055866698906069,
+     1.962
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 230,
+    "rigidTriangles": 116,
+    "leftLeg": 43,
+    "rightLeg": 45,
+    "leftArm": 13,
+    "rightArm": 13,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "beast",
+   "attack": "claw",
+   "rig": {
+    "hip": 0.9417599999999999,
+    "knee": 0.47087999999999997,
+    "shoulder": 1.4897535014152525,
+    "elbow": 0.8798475590705871,
+    "neck": 1.21644,
+    "spine": 1.0296576,
+    "wingRoot": 0.5886,
+    "height": 1.962,
+    "shoulderX": 0.3734032213687897,
+    "wingTip": 0.8639026880264282,
+    "depth": 0.6055866479873657,
+    "width": 0.8639026880264282
+   },
+   "materials": [
+    407,
+    407.04,
+    407.08,
+    407.12,
+    407.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/stalker-texture-0.jpg",
+     "sha256": "08639c33b46d6a0d346a3d997609f48a77ab724f138c289e8290bb93246c7691",
+     "bytes": 18851
+    },
+    {
+     "file": "assets/n1/models/enemies/stalker-texture-1.jpg",
+     "sha256": "1f19378d1f6426111e85daadd2fafad613f6b8ece6190206c30461941783046f",
+     "bytes": 10350
+    },
+    {
+     "file": "assets/n1/models/enemies/stalker-texture-2.jpg",
+     "sha256": "296ed7ddfdf09e26de2ed880b852266a63ecccd76f1d7c49bed0e4ae66e450f0",
+     "bytes": 3867
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "type": "brute",
+   "stem": "08_brute",
+   "triangles": 258,
+   "bounds": [
+    [
+     -1.5703868447421798,
+     -0.7619820407435521,
+     0
+    ],
+    [
+     1.5703868447421798,
+     0.7619820407435521,
+     2.3980000000000006
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 258,
+    "rigidTriangles": 94,
+    "leftLeg": 44,
+    "rightLeg": 48,
+    "leftArm": 31,
+    "rightArm": 41,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "heavy",
+   "attack": "slam",
+   "rig": {
+    "hip": 0.9051552772521972,
+    "knee": 0.4525776386260986,
+    "shoulder": 1.6257567703723907,
+    "elbow": 1.1965445482730865,
+    "neck": 1.3908400000000003,
+    "spine": 1.0605743885314942,
+    "wingRoot": 0.7194000000000002,
+    "height": 2.3980000000000006,
+    "shoulderX": 0.6835420727729797,
+    "wingTip": 1.5703868865966797,
+    "depth": 0.7619820237159729,
+    "width": 1.5703868865966797
+   },
+   "materials": [
+    408,
+    408.04,
+    408.08,
+    408.12,
+    408.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/brute-texture-0.jpg",
+     "sha256": "2b266006d64ab5345b49f059ccc114eecdde2308a98417a6bee238ed3d1a542c",
+     "bytes": 28268
+    },
+    {
+     "file": "assets/n1/models/enemies/brute-texture-1.jpg",
+     "sha256": "e57cee9b8d70180e2c7524f91ff84de4789ec34579ea294ab1306e013a23bb16",
+     "bytes": 8931
+    },
+    {
+     "file": "assets/n1/models/enemies/brute-texture-2.jpg",
+     "sha256": "6904ee4acca68770cbbe247a95d6d78fe27dfd5692fbba1e0c2e52af85e881fa",
+     "bytes": 5088
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "type": "pyromancer",
+   "stem": "09_pyromancer",
+   "triangles": 242,
+   "bounds": [
+    [
+     -1.3287754821468845,
+     -0.6772028699232343,
+     0
+    ],
+    [
+     1.3287754821468845,
+     0.6772028699232343,
+     2.18
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 242,
+    "rigidTriangles": 137,
+    "leftLeg": 17,
+    "rightLeg": 11,
+    "leftArm": 33,
+    "rightArm": 44,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "caster",
+   "attack": "cast",
+   "rig": {
+    "hip": 0.9466802215576171,
+    "knee": 0.47334011077880855,
+    "shoulder": 1.6042711162567138,
+    "elbow": 1.2428087318420409,
+    "neck": 1.308,
+    "spine": 1.0623025506591797,
+    "wingRoot": 0.654,
+    "height": 2.18,
+    "shoulderX": 0.6124517321586609,
+    "wingTip": 1.3287755250930786,
+    "depth": 0.6772028803825378,
+    "width": 1.3287755250930786
+   },
+   "materials": [
+    409,
+    409.04,
+    409.08,
+    409.12,
+    409.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/pyromancer-texture-0.jpg",
+     "sha256": "8bfdcb1242c6c0ebc0b4cac683f7e56fc814a3312fa4a6f465c07ec3fd6edd8f",
+     "bytes": 36861
+    },
+    {
+     "file": "assets/n1/models/enemies/pyromancer-texture-1.jpg",
+     "sha256": "725c80b0de051cfa17e7af8933fcc4dfca3cd92f4ef0d0eab47fea2a4d5aa997",
+     "bytes": 12895
+    },
+    {
+     "file": "assets/n1/models/enemies/pyromancer-texture-2.jpg",
+     "sha256": "35837799ddbcb3998f36a3c279f801101ec1825c6dc6c86e96f8e55f32d416d7",
+     "bytes": 6358
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "type": "sentinel",
+   "stem": "10_sentinel",
+   "triangles": 270,
+   "bounds": [
+    [
+     -1.13440661149285,
+     -0.6643806305509874,
+     0
+    ],
+    [
+     1.13440661149285,
+     0.6643806305509874,
+     2.18
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 270,
+    "rigidTriangles": 123,
+    "leftLeg": 46,
+    "rightLeg": 52,
+    "leftArm": 26,
+    "rightArm": 23,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "soldier",
+   "attack": "shoot",
+   "rig": {
+    "hip": 0.8415493583679199,
+    "knee": 0.42077467918395994,
+    "shoulder": 1.6603532421588898,
+    "elbow": 1.060483133172989,
+    "neck": 1.2644,
+    "spine": 0.9768615636901855,
+    "wingRoot": 0.654,
+    "height": 2.18,
+    "shoulderX": 0.5023225545883179,
+    "wingTip": 1.134406566619873,
+    "depth": 0.6643806099891663,
+    "width": 1.134406566619873
+   },
+   "materials": [
+    410,
+    410.04,
+    410.08,
+    410.12,
+    410.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/sentinel-texture-0.jpg",
+     "sha256": "9e57d5f88f6cb884b25158edc2b55bd8c6e7a616a7794831a0dfd4555827663f",
+     "bytes": 20457
+    },
+    {
+     "file": "assets/n1/models/enemies/sentinel-texture-1.jpg",
+     "sha256": "9672b7e2a9cd5fceed34539c1f906bead38d05d04a275410e87db70b16864c51",
+     "bytes": 10215
+    },
+    {
+     "file": "assets/n1/models/enemies/sentinel-texture-2.jpg",
+     "sha256": "729a723a924b38b9fcefa5957db9a221edfad6e6839c63fcbe136289c0ea824f",
+     "bytes": 4243
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "type": "reaver",
+   "stem": "11_reaver",
+   "triangles": 252,
+   "bounds": [
+    [
+     -1.4051964255044627,
+     -0.7656932269251624,
+     0
+    ],
+    [
+     1.4051964255044627,
+     0.7656932269251624,
+     1.9620000000000002
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 252,
+    "rigidTriangles": 112,
+    "leftLeg": 45,
+    "rightLeg": 50,
+    "leftArm": 20,
+    "rightArm": 25,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "beast",
+   "attack": "claw",
+   "rig": {
+    "hip": 0.8404669189453124,
+    "knee": 0.4202334594726562,
+    "shoulder": 1.3720311176776885,
+    "elbow": 1.1186327063083648,
+    "neck": 1.1772,
+    "spine": 0.9482215048828124,
+    "wingRoot": 0.5886,
+    "height": 1.9620000000000002,
+    "shoulderX": 0.456991583108902,
+    "wingTip": 1.4051964282989502,
+    "depth": 0.7656932473182678,
+    "width": 1.4051964282989502
+   },
+   "materials": [
+    411,
+    411.04,
+    411.08,
+    411.12,
+    411.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/reaver-texture-0.jpg",
+     "sha256": "f733a10d67aa155570958048c6298c843f00beb425333a8fb4d49f056238713c",
+     "bytes": 30006
+    },
+    {
+     "file": "assets/n1/models/enemies/reaver-texture-1.jpg",
+     "sha256": "f4080b3e8f9206f5f635e95a4d9d3ec433b37f904b2dd4db61474705ed5f3a38",
+     "bytes": 9962
+    },
+    {
+     "file": "assets/n1/models/enemies/reaver-texture-2.jpg",
+     "sha256": "3a9a43b174639b2f9e700c937d427469170ecf7aeeebd2b45454f2a899623fea",
+     "bytes": 5363
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "type": "banshee",
+   "stem": "12_banshee",
+   "triangles": 288,
+   "bounds": [
+    [
+     -0.987040666612991,
+     -0.5144090788196357,
+     0
+    ],
+    [
+     0.987040666612991,
+     0.5144090788196357,
+     1.9620000000000002
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 288,
+    "rigidTriangles": 178,
+    "leftLeg": 16,
+    "rightLeg": 19,
+    "leftArm": 29,
+    "rightArm": 46,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "caster",
+   "attack": "scream",
+   "rig": {
+    "hip": 0.94176,
+    "knee": 0.47088,
+    "shoulder": 1.3182352876663208,
+    "elbow": 1.006811475944519,
+    "neck": 1.1772,
+    "spine": 1.0171008000000001,
+    "wingRoot": 0.5886,
+    "height": 1.9620000000000002,
+    "shoulderX": 0.4766579866409302,
+    "wingTip": 0.987040638923645,
+    "depth": 0.514409065246582,
+    "width": 0.987040638923645
+   },
+   "materials": [
+    412,
+    412.04,
+    412.08,
+    412.12,
+    412.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/banshee-texture-0.jpg",
+     "sha256": "2a17e9895348af9704cd57311df6dc4f7f3dad27939868f97700fa96a506ad35",
+     "bytes": 23772
+    },
+    {
+     "file": "assets/n1/models/enemies/banshee-texture-1.jpg",
+     "sha256": "7a3906b9a6412627660357812cbd7f5a8d5095dfc81335c21922e5c3196b9fc8",
+     "bytes": 12121
+    },
+    {
+     "file": "assets/n1/models/enemies/banshee-texture-2.jpg",
+     "sha256": "65a4f71b9b26fe221be3ab28c301a152f57009661981893cedf7554e029655ae",
+     "bytes": 4863
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "type": "crusher",
+   "stem": "13_crusher",
+   "triangles": 266,
+   "bounds": [
+    [
+     -2.0511123026659153,
+     -1.1594146126571048,
+     0
+    ],
+    [
+     2.0511123026659153,
+     1.1594146126571048,
+     2.3980000000000006
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 266,
+    "rigidTriangles": 80,
+    "leftLeg": 44,
+    "rightLeg": 44,
+    "leftArm": 49,
+    "rightArm": 49,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "heavy",
+   "attack": "slam",
+   "rig": {
+    "hip": 0.9700356674194336,
+    "knee": 0.4850178337097168,
+    "shoulder": 1.9178368520736693,
+    "elbow": 1.423290149116516,
+    "neck": 1.3908400000000003,
+    "spine": 1.1046930538452149,
+    "wingRoot": 0.7194000000000002,
+    "height": 2.3980000000000006,
+    "shoulderX": 0.7031494379043579,
+    "wingTip": 2.051112413406372,
+    "depth": 1.1594146490097046,
+    "width": 2.051112413406372
+   },
+   "materials": [
+    413,
+    413.04,
+    413.08,
+    413.12,
+    413.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/crusher-texture-0.jpg",
+     "sha256": "6d37df0d308642c17fe3f9ccbd4aca2c0be7a17e05e5ee966bd87ccdf4f30414",
+     "bytes": 25067
+    },
+    {
+     "file": "assets/n1/models/enemies/crusher-texture-1.jpg",
+     "sha256": "ad830e09ab092084c4c5d5bcffd1eed7257ddb4dee6ec9e376af4dc9f2bc2bef",
+     "bytes": 8514
+    },
+    {
+     "file": "assets/n1/models/enemies/crusher-texture-2.jpg",
+     "sha256": "1104738794985cc976a417dec3feb33146aa92c2a92102fb685b7974e4ee19b4",
+     "bytes": 5349
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "type": "sapper",
+   "stem": "14_sapper",
+   "triangles": 234,
+   "bounds": [
+    [
+     -1.224628387448829,
+     -0.8621175923601327,
+     0
+    ],
+    [
+     1.224628387448829,
+     0.8621175923601327,
+     2.18
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 234,
+    "rigidTriangles": 116,
+    "leftLeg": 29,
+    "rightLeg": 33,
+    "leftArm": 26,
+    "rightArm": 30,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "soldier",
+   "attack": "shoot",
+   "rig": {
+    "hip": 0.9912629699707031,
+    "knee": 0.49563148498535153,
+    "shoulder": 1.5622875452041625,
+    "elbow": 1.0750273675918578,
+    "neck": 1.2644,
+    "spine": 1.0786668195800782,
+    "wingRoot": 0.654,
+    "height": 2.18,
+    "shoulderX": 0.45514509081840515,
+    "wingTip": 1.2246283292770386,
+    "depth": 0.86211758852005,
+    "width": 1.2246283292770386
+   },
+   "materials": [
+    414,
+    414.04,
+    414.08,
+    414.12,
+    414.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/sapper-texture-0.jpg",
+     "sha256": "dcd98dc564b36071f67d6c20521657c33c2ba838daadc8d04dd80b0931c118ea",
+     "bytes": 24361
+    },
+    {
+     "file": "assets/n1/models/enemies/sapper-texture-1.jpg",
+     "sha256": "d208af1918eb98523357729b524eae5a0356900a8b019c2de65a1b4b738fe303",
+     "bytes": 11044
+    },
+    {
+     "file": "assets/n1/models/enemies/sapper-texture-2.jpg",
+     "sha256": "5223f973cd5f2cbf209dc1288da70e239594a2ad0c0e7f778761b28e88d12f91",
+     "bytes": 4407
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "type": "harrier",
+   "stem": "15_harrier",
+   "triangles": 238,
+   "bounds": [
+    [
+     -1.4411674687618328,
+     -0.7842078919830653,
+     0
+    ],
+    [
+     1.4411674687618328,
+     0.7842078919830653,
+     1.9620000000000004
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 238,
+    "rigidTriangles": 92,
+    "leftLeg": 46,
+    "rightLeg": 46,
+    "leftArm": 23,
+    "rightArm": 31,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "beast",
+   "attack": "throw",
+   "rig": {
+    "hip": 0.7855086135864258,
+    "knee": 0.3927543067932129,
+    "shoulder": 1.3864482414722443,
+    "elbow": 1.059020941400528,
+    "neck": 1.13796,
+    "spine": 0.8982930572387695,
+    "wingRoot": 0.5886000000000001,
+    "height": 1.9620000000000004,
+    "shoulderX": 0.41873878240585327,
+    "wingTip": 1.4411674737930298,
+    "depth": 0.7842078804969788,
+    "width": 1.4411674737930298
+   },
+   "materials": [
+    415,
+    415.04,
+    415.08,
+    415.12,
+    415.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/harrier-texture-0.jpg",
+     "sha256": "dc69043f058869e765d03b7a2c3fc610d049227785f48e5653d16bce87a767d2",
+     "bytes": 27552
+    },
+    {
+     "file": "assets/n1/models/enemies/harrier-texture-1.jpg",
+     "sha256": "6e0ab3951ee6b60f18bc68683dc4c5802ae6f6a7f8a6c80ab53bb468a534dc3b",
+     "bytes": 10529
+    },
+    {
+     "file": "assets/n1/models/enemies/harrier-texture-2.jpg",
+     "sha256": "4d2d30962b2ce8b19145896a77251d31342ad72170cea3002646b1c6d41b4dda",
+     "bytes": 5185
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "type": "cultist",
+   "stem": "16_cultist",
+   "triangles": 218,
+   "bounds": [
+    [
+     -1.308795968841315,
+     -0.7107552888900407,
+     0
+    ],
+    [
+     1.308795968841315,
+     0.7107552888900407,
+     2.18
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 218,
+    "rigidTriangles": 126,
+    "leftLeg": 23,
+    "rightLeg": 23,
+    "leftArm": 23,
+    "rightArm": 23,
+    "leftWing": 0,
+    "rightWing": 0
+   },
+   "class": "caster",
+   "attack": "cast",
+   "rig": {
+    "hip": 1.0464,
+    "knee": 0.5232,
+    "shoulder": 1.4508934092521668,
+    "elbow": 1.1242685832023622,
+    "neck": 1.3516000000000001,
+    "spine": 1.144064,
+    "wingRoot": 0.654,
+    "height": 2.18,
+    "shoulderX": 0.3885284662246704,
+    "wingTip": 1.3087959289550781,
+    "depth": 0.7107552886009216,
+    "width": 1.3087959289550781
+   },
+   "materials": [
+    416,
+    416.04,
+    416.08,
+    416.12,
+    416.16
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/cultist-texture-0.jpg",
+     "sha256": "3156dbb07b4fdd8f4baf366649d60ce634eb02c3cc4215347d503f29dbebf4ec",
+     "bytes": 20019
+    },
+    {
+     "file": "assets/n1/models/enemies/cultist-texture-1.jpg",
+     "sha256": "deb4d9ea1d692171296639d06df95b8bdb3421748a5c5e8a97ea0c446322da6e",
+     "bytes": 10652
+    },
+    {
+     "file": "assets/n1/models/enemies/cultist-texture-2.jpg",
+     "sha256": "c01d48fedb88e299279a4d0575ccf00e8f873be7eba150ccbdf1247c0e63e827",
+     "bytes": 3526
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "type": "skyprobe",
+   "stem": "17_skyprobe",
+   "triangles": 254,
+   "bounds": [
+    [
+     -1.7995810465108268,
+     -0.4854252754912679,
+     0
+    ],
+    [
+     1.7995810465108268,
+     0.4854252754912679,
+     1.9620000000000002
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 254,
+    "rigidTriangles": 116,
+    "leftLeg": 0,
+    "rightLeg": 0,
+    "leftArm": 0,
+    "rightArm": 0,
+    "leftWing": 65,
+    "rightWing": 73
+   },
+   "class": "flyer",
+   "attack": "dive",
+   "rig": {
+    "hip": 0.7534080000000001,
+    "knee": 0.37670400000000004,
+    "shoulder": 1.2560724000000003,
+    "elbow": 0.9545208480000003,
+    "neck": 1.13796,
+    "spine": 0.8764646400000001,
+    "wingRoot": 0.4503559172153473,
+    "height": 1.9620000000000002,
+    "shoulderX": 0.5493600000000001,
+    "wingTip": 1.7995810508728027,
+    "depth": 0.48542526364326477,
+    "width": 1.7995810508728027
+   },
+   "materials": [
+    417,
+    417.2,
+    417.24
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/skyprobe-texture-0.jpg",
+     "sha256": "e573b199abbf0608b4d85f6ce92a4024ead8dcbf710c98d6f72849db4f2a008c",
+     "bytes": 33144
+    },
+    {
+     "file": "assets/n1/models/enemies/skyprobe-texture-1.jpg",
+     "sha256": "5dfda13415e8ce403c6e055b87bca6198206655036c58217166f846c4dd14ad6",
+     "bytes": 12854
+    },
+    {
+     "file": "assets/n1/models/enemies/skyprobe-texture-2.jpg",
+     "sha256": "a149843134c5b7e31bdb3b365bd0cc10ee69e608eebb13b91319cb9a1a012ebc",
+     "bytes": 6158
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "type": "skyraider",
+   "stem": "18_skyraider",
+   "triangles": 244,
+   "bounds": [
+    [
+     -1.8099507491113855,
+     -0.7831525792321844,
+     0
+    ],
+    [
+     1.8099507491113855,
+     0.7831525792321844,
+     1.9620000000000002
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 244,
+    "rigidTriangles": 142,
+    "leftLeg": 0,
+    "rightLeg": 0,
+    "leftArm": 0,
+    "rightArm": 0,
+    "leftWing": 45,
+    "rightWing": 57
+   },
+   "class": "flyer",
+   "attack": "dive",
+   "rig": {
+    "hip": 0.7534080000000001,
+    "knee": 0.37670400000000004,
+    "shoulder": 1.2560724000000003,
+    "elbow": 0.9545208480000003,
+    "neck": 1.13796,
+    "spine": 0.8764646400000001,
+    "wingRoot": 0.4579821825027466,
+    "height": 1.9620000000000002,
+    "shoulderX": 0.5493600000000001,
+    "wingTip": 1.8099507093429565,
+    "depth": 0.7831525802612305,
+    "width": 1.8099507093429565
+   },
+   "materials": [
+    418,
+    418.2,
+    418.24
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/skyraider-texture-0.jpg",
+     "sha256": "ec491b89644bfafeeb634d540e59c671d26557c71f74c36efb5d1cf82101cfa8",
+     "bytes": 32965
+    },
+    {
+     "file": "assets/n1/models/enemies/skyraider-texture-1.jpg",
+     "sha256": "deb5971cde170ddab7a300956860df61a94441a4dadac25961a24ed8f34df23b",
+     "bytes": 12961
+    },
+    {
+     "file": "assets/n1/models/enemies/skyraider-texture-2.jpg",
+     "sha256": "5d60462298f1a15691e9861fa52aabc34cc930ebabecbf42ed06d30b1747690f",
+     "bytes": 5732
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "type": "skyjuggernaut",
+   "stem": "19_skyjuggernaut",
+   "triangles": 262,
+   "bounds": [
+    [
+     -2.116329646828631,
+     -1.0878436601502381,
+     0
+    ],
+    [
+     2.116329646828631,
+     1.0878436601502381,
+     2.3980000000000006
+    ]
+   ],
+   "limbTriangles": {
+    "totalTriangles": 262,
+    "rigidTriangles": 138,
+    "leftLeg": 0,
+    "rightLeg": 0,
+    "leftArm": 0,
+    "rightArm": 0,
+    "leftWing": 62,
+    "rightWing": 62
+   },
+   "class": "flyer",
+   "attack": "dive",
+   "rig": {
+    "hip": 0.9208320000000002,
+    "knee": 0.4604160000000001,
+    "shoulder": 1.5351996000000006,
+    "elbow": 1.1666365920000004,
+    "neck": 1.3908400000000003,
+    "spine": 1.0712345600000002,
+    "wingRoot": 0.5622666478157043,
+    "height": 2.3980000000000006,
+    "shoulderX": 0.6714400000000003,
+    "wingTip": 2.1163296699523926,
+    "depth": 1.087843656539917,
+    "width": 2.1163296699523926
+   },
+   "materials": [
+    419,
+    419.2,
+    419.24
+   ],
+   "textures": [
+    {
+     "file": "assets/n1/models/enemies/skyjuggernaut-texture-0.jpg",
+     "sha256": "5d4a345a2bf1065cce6914c7068be1454533203b23d0ef3655d8ee919bcdd25f",
+     "bytes": 32102
+    },
+    {
+     "file": "assets/n1/models/enemies/skyjuggernaut-texture-1.jpg",
+     "sha256": "200cfb444d413edfebaf78a001a5f333fdaddac5f6cb48041aaf720f7d55410e",
+     "bytes": 13822
+    },
+    {
+     "file": "assets/n1/models/enemies/skyjuggernaut-texture-2.jpg",
+     "sha256": "51e6196bfcae9ec807c45aa61043d603ae931dfff95325f21ebe848eb35fd28b",
+     "bytes": 6158
+    }
+   ]
+  }
+ ],
+ "marine": {
+  "runtime": {
+   "vertices": 822,
+   "triangles": 274,
+   "bounds": {
+    "lo": [
+     -0.6549999713897705,
+     -0.4000000059604645,
+     0.014999999664723873
+    ],
+    "hi": [
+     0.6549999713897705,
+     0.949999988079071,
+     2.075000047683716
+    ]
+   },
+   "materials": [
+    {
+     "id": 0,
+     "name": "WHITE"
+    },
+    {
+     "id": 0.03999999910593033,
+     "name": "0.03999999910593033"
+    },
+    {
+     "id": 0.07999999821186066,
+     "name": "0.07999999821186066"
+    },
+    {
+     "id": 0.11999999731779099,
+     "name": "0.11999999731779099"
+    },
+    {
+     "id": 0.1599999964237213,
+     "name": "0.1599999964237213"
+    },
+    {
+     "id": 20,
+     "name": "20"
+    }
+   ],
+   "rig": {
+    "hip": 0.69,
+    "knee": 0.37,
+    "shoulder": 1.21,
+    "elbow": 0.95,
+    "neck": 1.28,
+    "spine": 1.09,
+    "wingRoot": 1,
+    "height": 2.08,
+    "shoulderX": 0.47,
+    "wingTip": 1,
+    "depth": 0.52,
+    "width": 0.38
+   },
+   "reference": {
+    "triangles": 274,
+    "joints": 21,
+    "animationStates": [
+     "idle",
+     "walk",
+     "run",
+     "shoot",
+     "melee",
+     "hurt",
+     "death"
+    ],
+    "hitboxParts": [
+     "head",
+     "torso",
+     "arm_L",
+     "arm_R",
+     "leg_L",
+     "leg_R"
+    ],
+    "source": "user character rig sheet"
+   }
+  },
+  "glb": {
+   "file": "assets/n1/models/character/cat_marine_rigged.glb",
+   "sha256": "64809ecf7fa87c42db2dbd56dab9034ee7d97588d827b2aa1d7bf835f831c039",
+   "triangles": 274,
+   "flattenedVertices": 822,
+   "bounds": {
+    "lo": [
+     -0.6549999713897705,
+     -0.4000000059604645,
+     0.014999999664723873
+    ],
+    "hi": [
+     0.6549999713897705,
+     0.949999988079071,
+     2.075000047683716
+    ]
+   },
+   "joints": [
+    {
+     "index": 0,
+     "name": "Root",
+     "rest": [
+      0,
+      0,
+      0
+     ],
+     "restGame": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "index": 1,
+     "name": "Pelvis",
+     "rest": [
+      0,
+      0.74,
+      0
+     ],
+     "restGame": [
+      0,
+      0,
+      0.74
+     ]
+    },
+    {
+     "index": 2,
+     "name": "Spine_01",
+     "rest": [
+      0,
+      0.87,
+      0
+     ],
+     "restGame": [
+      0,
+      0,
+      0.87
+     ]
+    },
+    {
+     "index": 3,
+     "name": "Spine_02",
+     "rest": [
+      0,
+      1.0899999999999999,
+      0
+     ],
+     "restGame": [
+      0,
+      0,
+      1.0899999999999999
+     ]
+    },
+    {
+     "index": 4,
+     "name": "Neck",
+     "rest": [
+      0,
+      1.28,
+      0
+     ],
+     "restGame": [
+      0,
+      0,
+      1.28
+     ]
+    },
+    {
+     "index": 5,
+     "name": "Head",
+     "rest": [
+      0,
+      1.5899999999999999,
+      0
+     ],
+     "restGame": [
+      0,
+      0,
+      1.5899999999999999
+     ]
+    },
+    {
+     "index": 6,
+     "name": "Shoulder_L",
+     "rest": [
+      0.47,
+      1.21,
+      0
+     ],
+     "restGame": [
+      0.47,
+      0,
+      1.21
+     ]
+    },
+    {
+     "index": 7,
+     "name": "Elbow_L",
+     "rest": [
+      0.51,
+      0.95,
+      0.13
+     ],
+     "restGame": [
+      0.51,
+      0.13,
+      0.95
+     ]
+    },
+    {
+     "index": 8,
+     "name": "Wrist_L",
+     "rest": [
+      0.51,
+      0.72,
+      0.33
+     ],
+     "restGame": [
+      0.51,
+      0.33,
+      0.72
+     ]
+    },
+    {
+     "index": 9,
+     "name": "Grip_L",
+     "rest": [
+      0.51,
+      0.7,
+      0.4
+     ],
+     "restGame": [
+      0.51,
+      0.4,
+      0.7
+     ]
+    },
+    {
+     "index": 10,
+     "name": "Shoulder_R",
+     "rest": [
+      -0.47,
+      1.21,
+      0
+     ],
+     "restGame": [
+      -0.47,
+      0,
+      1.21
+     ]
+    },
+    {
+     "index": 11,
+     "name": "Elbow_R",
+     "rest": [
+      -0.51,
+      0.95,
+      0.13
+     ],
+     "restGame": [
+      -0.51,
+      0.13,
+      0.95
+     ]
+    },
+    {
+     "index": 12,
+     "name": "Wrist_R",
+     "rest": [
+      -0.51,
+      0.72,
+      0.33
+     ],
+     "restGame": [
+      -0.51,
+      0.33,
+      0.72
+     ]
+    },
+    {
+     "index": 13,
+     "name": "Grip_R",
+     "rest": [
+      -0.51,
+      0.7,
+      0.4
+     ],
+     "restGame": [
+      -0.51,
+      0.4,
+      0.7
+     ]
+    },
+    {
+     "index": 14,
+     "name": "Hip_L",
+     "rest": [
+      0.19,
+      0.69,
+      0
+     ],
+     "restGame": [
+      0.19,
+      0,
+      0.69
+     ]
+    },
+    {
+     "index": 15,
+     "name": "Knee_L",
+     "rest": [
+      0.19,
+      0.37,
+      0
+     ],
+     "restGame": [
+      0.19,
+      0,
+      0.37
+     ]
+    },
+    {
+     "index": 16,
+     "name": "Ankle_L",
+     "rest": [
+      0.19,
+      0.1299999999999999,
+      0
+     ],
+     "restGame": [
+      0.19,
+      0,
+      0.1299999999999999
+     ]
+    },
+    {
+     "index": 17,
+     "name": "Hip_R",
+     "rest": [
+      -0.19,
+      0.69,
+      0
+     ],
+     "restGame": [
+      -0.19,
+      0,
+      0.69
+     ]
+    },
+    {
+     "index": 18,
+     "name": "Knee_R",
+     "rest": [
+      -0.19,
+      0.37,
+      0
+     ],
+     "restGame": [
+      -0.19,
+      0,
+      0.37
+     ]
+    },
+    {
+     "index": 19,
+     "name": "Ankle_R",
+     "rest": [
+      -0.19,
+      0.1299999999999999,
+      0
+     ],
+     "restGame": [
+      -0.19,
+      0,
+      0.1299999999999999
+     ]
+    },
+    {
+     "index": 20,
+     "name": "Weapon",
+     "rest": [
+      -0.26,
+      1.06,
+      0.45
+     ],
+     "restGame": [
+      -0.26,
+      0.45,
+      1.06
+     ]
+    }
+   ],
+   "primitives": 7,
+   "materials": [
+    "Camo_256",
+    "Dark_Armor",
+    "Fur_Ears",
+    "Weathered_Boots",
+    "Gun_Steel",
+    "Magenta_Status",
+    "Cat_Face_256"
+   ],
+   "clips": [
+    {
+     "name": "idle",
+     "channels": 4,
+     "seconds": 2
+    },
+    {
+     "name": "walk",
+     "channels": 6,
+     "seconds": 0.800000011920929
+    },
+    {
+     "name": "run",
+     "channels": 5,
+     "seconds": 0.5699999928474426
+    },
+    {
+     "name": "shoot",
+     "channels": 3,
+     "seconds": 0.18000000715255737
+    },
+    {
+     "name": "melee",
+     "channels": 3,
+     "seconds": 0.41999998688697815
+    },
+    {
+     "name": "hurt",
+     "channels": 2,
+     "seconds": 0.3199999928474426
+    },
+    {
+     "name": "death",
+     "channels": 4,
+     "seconds": 0.800000011920929
+    }
+   ],
+   "maxInfluencesUsed": 1
+  },
+  "comparison": {
+   "nearestVertexWorstDistance": 0,
+   "sameTriangleOrder": false,
+   "sameOrderWorstDistance": 0.7400000095367432,
+   "partVertices": [
+    {
+     "part": "head",
+     "vertices": 60
+    },
+    {
+     "part": "torso",
+     "vertices": 258
+    },
+    {
+     "part": "arm_L",
+     "vertices": 144
+    },
+    {
+     "part": "arm_R",
+     "vertices": 144
+    },
+    {
+     "part": "leg_L",
+     "vertices": 108
+    },
+    {
+     "part": "leg_R",
+     "vertices": 108
+    }
+   ]
+  },
+  "runtimeUseOfClips": "none: the legacy poses the Marine Cat with enemyEvalPose(MARINE_RIG) (soldier gait) plus shoot / melee / hurt offsets in drawMarineCats; CAT_MARINE_REFERENCE.animationStates is metadata only"
+ },
+ "lightVolume": {
+  "width": 624,
+  "height": 234,
+  "slices": 24,
+  "columns": 8,
+  "rows": 3,
+  "tile": 78,
+  "zMin": -6,
+  "zMax": 24,
+  "maps": [
+   {
+    "map": "helios-crucible",
+    "uploads": 1,
+    "unpackFlipY": false,
+    "info": {
+     "version": "3.33",
+     "volume": true,
+     "layers": 24,
+     "probes": 138624,
+     "resolution": [
+      76,
+      76,
+      24
+     ],
+     "atlas": [
+      624,
+      234
+     ],
+     "blockedRays": 24835,
+     "outdoorSamples": 122668,
+     "minLight": 0.33,
+     "maxLight": 1.523,
+     "textureBytes": 584064,
+     "bakeMs": 227.2,
+     "separateStackedFloors": true
+    },
+    "sunAzimuth": -0.8,
+    "fog": null
+   },
+   {
+    "map": "bastion-keep",
+    "uploads": 1,
+    "unpackFlipY": false,
+    "info": {
+     "version": "3.33",
+     "volume": true,
+     "layers": 24,
+     "probes": 138624,
+     "resolution": [
+      76,
+      76,
+      24
+     ],
+     "atlas": [
+      624,
+      234
+     ],
+     "blockedRays": 8559,
+     "outdoorSamples": 118704,
+     "minLight": 0.33,
+     "maxLight": 1.405,
+     "textureBytes": 584064,
+     "bakeMs": 169.6,
+     "separateStackedFloors": true
+    },
+    "sunAzimuth": -0.62,
+    "fog": null
+   },
+   {
+    "map": "reactor-bastion",
+    "uploads": 1,
+    "unpackFlipY": false,
+    "info": {
+     "version": "3.33",
+     "volume": true,
+     "layers": 24,
+     "probes": 138624,
+     "resolution": [
+      76,
+      76,
+      24
+     ],
+     "atlas": [
+      624,
+      234
+     ],
+     "blockedRays": 43355,
+     "outdoorSamples": 115692,
+     "minLight": 0.33,
+     "maxLight": 1.551,
+     "textureBytes": 584064,
+     "bakeMs": 291.5,
+     "separateStackedFloors": true
+    },
+    "sunAzimuth": -0.62,
+    "fog": null
+   },
+   {
+    "map": "q3-gallery",
+    "uploads": 1,
+    "unpackFlipY": false,
+    "info": {
+     "version": "3.33",
+     "volume": true,
+     "layers": 24,
+     "probes": 138624,
+     "resolution": [
+      76,
+      76,
+      24
+     ],
+     "atlas": [
+      624,
+      234
+     ],
+     "blockedRays": 9425,
+     "outdoorSamples": 127930,
+     "minLight": 0.33,
+     "maxLight": 1.239,
+     "textureBytes": 584064,
+     "bakeMs": 156.9,
+     "separateStackedFloors": true
+    },
+    "sunAzimuth": 0.95,
+    "fog": null
+   }
+  ]
+ },
+ "generated": {
+  "file": "native/include/cat/generated/enemy_tables.inc",
+  "sha256": "f24b2d130416991af52ec448e36428db41a6ab07621cabe2c86a645a272ee766"
+ },
+ "files": [
+  {
+   "file": "light-volume/helios-crucible.png",
+   "bytes": 44488,
+   "sha256": "fe4b9ae72130582a1668bdb766b2fa5cba0e8c2d0f2400bb56388907d8418422"
+  },
+  {
+   "file": "light-volume/bastion-keep.png",
+   "bytes": 39797,
+   "sha256": "8939d7cc07c7145c0ae391ea5ded5f20bce7899f2baff7ec49565ee276ef735f"
+  },
+  {
+   "file": "light-volume/reactor-bastion.png",
+   "bytes": 72285,
+   "sha256": "6721779864adb072da9da986d8e757de136ffa539d92b376fa78d37dc73eb191"
+  },
+  {
+   "file": "light-volume/q3-gallery.png",
+   "bytes": 42153,
+   "sha256": "2ffa0be271d4803e47400def22f3f0ef813658d1996b556ee9443522517eb792"
+  },
+  {
+   "file": "enemies/00_grunt.emesh",
+   "bytes": 36944,
+   "sha256": "724b437aa50952a8387e50d9b988c4c887056a3d571dbd989de66441eea4f5bd"
+  },
+  {
+   "file": "enemies/01_ogre.emesh",
+   "bytes": 37232,
+   "sha256": "8bbe23a980016ae31147a7af73633f961fdb0a54f41a9738a0cc8e5528dc400f"
+  },
+  {
+   "file": "enemies/02_fiend.emesh",
+   "bytes": 40400,
+   "sha256": "a03004292579674cda1b5b8f6b9cd3a31c774af206af78f5c1954c82a1312e75"
+  },
+  {
+   "file": "enemies/03_shambler.emesh",
+   "bytes": 40112,
+   "sha256": "90652e8ac9aaace8c4ef4547035fb7801d14979c1312df41e18391bbd1881150"
+  },
+  {
+   "file": "enemies/04_marauder.emesh",
+   "bytes": 36656,
+   "sha256": "c6fbb65e8de7895112601742498ed9fa0c4e6b82f42f95424cfec9d756ed4c98"
+  },
+  {
+   "file": "enemies/05_warden.emesh",
+   "bytes": 39248,
+   "sha256": "687513db7f7f9e26128a01c7fa90a38221760f4528f9de09a39572112ab699d1"
+  },
+  {
+   "file": "enemies/06_skitter.emesh",
+   "bytes": 34064,
+   "sha256": "aaf133a8d4d1cd5d12b1ea157509af74b7c0ede3e60c7dc2d4107ce4d458af4a"
+  },
+  {
+   "file": "enemies/07_stalker.emesh",
+   "bytes": 33200,
+   "sha256": "212d7911becac0ffaa19d9d734171fe04501521c3f0360f57c2ac67cf86c1394"
+  },
+  {
+   "file": "enemies/08_brute.emesh",
+   "bytes": 37232,
+   "sha256": "7d97e9b0347b43fccf6fba2a9d7a40b25457b7a3fda495f86f1cf05b7b70a033"
+  },
+  {
+   "file": "enemies/09_pyromancer.emesh",
+   "bytes": 34928,
+   "sha256": "1e92baf2123c7a79dfb7e06ddd8cbbdd60e16dae1715aacac22103de8f312cab"
+  },
+  {
+   "file": "enemies/10_sentinel.emesh",
+   "bytes": 38960,
+   "sha256": "4e67aa35c17e77cab18348e9673d5609a286f71b3d0a4e1d7d832af5fe2d0619"
+  },
+  {
+   "file": "enemies/11_reaver.emesh",
+   "bytes": 36368,
+   "sha256": "ea9095ce1d672d16401451f2b46ddf698977fde97e18db9e06710b8f490c82d6"
+  },
+  {
+   "file": "enemies/12_banshee.emesh",
+   "bytes": 41552,
+   "sha256": "62e004e154b3f1dbb7c27d3a0e677c5f182c92595912c6d0b97c8b35ece5a5b1"
+  },
+  {
+   "file": "enemies/13_crusher.emesh",
+   "bytes": 38384,
+   "sha256": "e114536a9ea80ba86bf889dee1773c13b95e7958e770e94797235dd6e7b66f9c"
+  },
+  {
+   "file": "enemies/14_sapper.emesh",
+   "bytes": 33776,
+   "sha256": "10f7066bf057b8163119baa53f78631e0eec04a1266991b1d4c29728de743ddd"
+  },
+  {
+   "file": "enemies/15_harrier.emesh",
+   "bytes": 34352,
+   "sha256": "9abd0bb6d2321ac193e7a7f20bcc971f55197bf89f909b680d897ef31a324ceb"
+  },
+  {
+   "file": "enemies/16_cultist.emesh",
+   "bytes": 31472,
+   "sha256": "09379dae9ab28254e34c39ce2e88b7959cfb40d411ffc6ab82bdd80a353cfdd1"
+  },
+  {
+   "file": "enemies/17_skyprobe.emesh",
+   "bytes": 36656,
+   "sha256": "086687038b879d12da8f5bacd996a292e1d37bd7697be7dd29719f249e72ed19"
+  },
+  {
+   "file": "enemies/18_skyraider.emesh",
+   "bytes": 35216,
+   "sha256": "536e8355ae228a461871b4f2a2bf99bcfabd3d534a777dac7d25720cfaf432d1"
+  },
+  {
+   "file": "enemies/19_skyjuggernaut.emesh",
+   "bytes": 37808,
+   "sha256": "dcdc8dcee9e85effcc5ebf8f6a2a81f9873da412e79cae38c07c63a7ffe828cd"
+  },
+  {
+   "file": "marine.emesh",
+   "bytes": 41180,
+   "sha256": "ed3c209f4bf00d6da29d7ea615635d2c3d0181ae7eb2851b5412d347a5e42230"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+  "category": "props",
+  "degenerateRemoved": 0,
+  "desired": [
+    1,
+    0.3,
+    0.3
+  ],
+  "fit": "width",
+  "geometry_task_id": "01a1b87f-7ad8-7568-b0ca-1ba9dd588239",
+  "id": "BA_33",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_33.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_33_wall_light_amber.glb",
+  "name": "wall_light_amber",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_33.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_33.pos.bin"
+  },
+  "scale": [
+    1.04436,
+    1.04436,
+    1.04436
+  ],
+  "sha256": "8c098a685b64a639828a6a23dca95d6427556d264204fb7d51c4b60a6ff61650",
+  "size": [
+    1,
+    0.355,
+    0.535
+  ],
+  "sourceTriangles": 150,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_33",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87f-dcf5-75d9-bd23-1c16643dd184",
+  "triangles": 150,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_33.uv.bin"
+  },
+  "vertices": 378
+}

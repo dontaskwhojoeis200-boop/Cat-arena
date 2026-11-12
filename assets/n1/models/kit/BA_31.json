@@ -1,0 +1,51 @@
+{
+  "category": "props",
+  "degenerateRemoved": 0,
+  "desired": [
+    0.5,
+    0.5,
+    4
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87e-f8a2-7462-984c-bf624cab88f0",
+  "id": "BA_31",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_31.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_31_pipe_straight.glb",
+  "name": "pipe_straight",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_31.nrm.bin"
+  },
+  "orientation": "rz90",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_31.pos.bin"
+  },
+  "scale": [
+    1.74744,
+    4.17746,
+    2.05623
+  ],
+  "sha256": "8bb5f0f999be0b3f125db1ce717a50d3ce2d9a613ce03a3b40ce133403d0386e",
+  "size": [
+    0.5,
+    4,
+    0.5
+  ],
+  "sourceTriangles": 154,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_31",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87f-50a1-779b-85f1-05fb3756c954",
+  "triangles": 154,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_31.uv.bin"
+  },
+  "vertices": 404
+}

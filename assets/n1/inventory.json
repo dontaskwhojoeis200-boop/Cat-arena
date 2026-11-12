@@ -1,0 +1,111 @@
+{
+  "character": {
+    "animations": [
+      "idle",
+      "walk",
+      "run",
+      "shoot",
+      "melee",
+      "hurt",
+      "death"
+    ],
+    "axis": "glTF +Y up; hitbox metadata +Z forward; native world +Z up. Runtime animation/axis integration remains N6.",
+    "file": "models/character/cat_marine_rigged.glb",
+    "hitboxes": "models/character/cat_marine_hitboxes.json",
+    "joints": 21,
+    "sha256": "64809ecf7fa87c42db2dbd56dab9034ee7d97588d827b2aa1d7bf835f831c039",
+    "sourceArchiveSha256": "6ef98f473901340960e39988116ac0fa0c33c769c2c45dda918454aa136623e3",
+    "thirdPersonOnly": true
+  },
+  "lightmaps": 4,
+  "limitations": [
+    "Native renderer does not consume these maps until N2.",
+    "Runtime A* graph is not baked; authored connections, walkable surfaces and spatial indices are exported.",
+    "Native material shaders, animation and audio playback not implemented in N1.",
+    "Canvas rasterization was performed by pinned Skia, not browser pixel-parity tested.",
+    "Legacy fallback vertex lighting is not recomputed. Matched shipped atlas/UVs provide the preserved static lightmap path."
+  ],
+  "maps": [
+    {
+      "cavities": 1,
+      "id": "helios-crucible",
+      "jumpPads": 2,
+      "kitPlacements": 420,
+      "lightmapComputedHash": "8ef1b586-1024x567",
+      "lightmapMatched": true,
+      "lightmapSourceHash": "8ef1b586-1024x567",
+      "materialTriangles": 161014,
+      "pickups": 26,
+      "ramps": 8,
+      "skyTriangles": 1142,
+      "slabs": 167,
+      "solids": 120,
+      "spawns": 28,
+      "walls": 2479,
+      "worldTriangles": 7308
+    },
+    {
+      "cavities": 5,
+      "id": "bastion-keep",
+      "jumpPads": 2,
+      "kitPlacements": 339,
+      "lightmapComputedHash": "2c71e476-1024x438",
+      "lightmapMatched": true,
+      "lightmapSourceHash": "2c71e476-1024x438",
+      "materialTriangles": 126814,
+      "pickups": 33,
+      "ramps": 10,
+      "skyTriangles": 1142,
+      "slabs": 156,
+      "solids": 96,
+      "spawns": 12,
+      "walls": 2652,
+      "worldTriangles": 5462
+    },
+    {
+      "cavities": 13,
+      "id": "reactor-bastion",
+      "jumpPads": 4,
+      "kitPlacements": 0,
+      "lightmapComputedHash": "aa6afd0f-1024x792",
+      "lightmapMatched": true,
+      "lightmapSourceHash": "aa6afd0f-1024x792",
+      "materialTriangles": 0,
+      "pickups": 38,
+      "ramps": 20,
+      "skyTriangles": 1142,
+      "slabs": 343,
+      "solids": 207,
+      "spawns": 12,
+      "walls": 3789,
+      "worldTriangles": 24398
+    },
+    {
+      "cavities": 2,
+      "id": "q3-gallery",
+      "jumpPads": 1,
+      "kitPlacements": 0,
+      "lightmapComputedHash": "1eca3ff9-512x236",
+      "lightmapMatched": true,
+      "lightmapSourceHash": "1eca3ff9-512x236",
+      "materialTriangles": 1000,
+      "pickups": 5,
+      "ramps": 931,
+      "skyTriangles": 1142,
+      "slabs": 988,
+      "solids": 34,
+      "spawns": 7,
+      "walls": 3083,
+      "worldTriangles": 2398
+    }
+  ],
+  "modelCounts": {
+    "enemies": 20,
+    "kit": 40,
+    "weapons": 16
+  },
+  "proceduralAndKitTextures": 88,
+  "schema": 1,
+  "sfx": 48,
+  "visibilitySets": 4
+}

@@ -1,0 +1,51 @@
+{
+  "category": "damage",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    1.2,
+    3
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b882-1e9c-759c-b53c-44029e15fa9f",
+  "id": "BA_38",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_38.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_38_rubble_large.glb",
+  "name": "rubble_large",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_38.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_38.pos.bin"
+  },
+  "scale": [
+    4.15416,
+    3.10931,
+    3.44684
+  ],
+  "sha256": "1e3302d547c55076c825e29e6ab9861c81048f219127776b9068f5bab22eb88f",
+  "size": [
+    4,
+    3,
+    1.2
+  ],
+  "sourceTriangles": 468,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_38",
+    "size": 512
+  },
+  "texture_task_id": "01a1b882-a1ed-77aa-b07e-f2ac149a333b",
+  "triangles": 618,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_38.uv.bin"
+  },
+  "vertices": 1109
+}

@@ -1,0 +1,51 @@
+{
+  "category": "damage",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    0.8,
+    3
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b882-3817-7148-aee8-6281bf137e05",
+  "id": "BA_39",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_39.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_39_broken_bridge_end.glb",
+  "name": "broken_bridge_end",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_39.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_39.pos.bin"
+  },
+  "scale": [
+    4.16896,
+    6.54313,
+    1.43468
+  ],
+  "sha256": "13b4bff91125b590547d5fedcdbc470bf562c264a36dfa17cffab25d644a92f5",
+  "size": [
+    4,
+    3,
+    0.8
+  ],
+  "sourceTriangles": 412,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_39",
+    "size": 512
+  },
+  "texture_task_id": "01a1b883-13f3-7649-a9a2-39ac8d92278f",
+  "triangles": 534,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_39.uv.bin"
+  },
+  "vertices": 807
+}

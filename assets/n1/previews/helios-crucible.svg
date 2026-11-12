@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="850" viewBox="0 0 900 850">
+<rect width="900" height="850" fill="#11151c"/>
+<text x="28" y="35" fill="white" font-size="24">helios-crucible — exported geometry plan</text>
+<text x="28" y="60" fill="#b8c0cc" font-size="14">Z-up layered slabs • schematic only • no native rendering claim</text>
+<polygon points="527.25,508.74 527.25,419.26 458.71,356.00 361.79,356.00 293.25,419.26 293.25,508.74 361.79,572.00 458.71,572.00" fill="#51bac5" fill-opacity="0.16" stroke="#51bac5" stroke-width="0.7"/>
+<polygon points="527.25,508.74 644.25,553.47 644.25,374.53 527.25,419.26" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="462.25,476.00 527.25,476.00 527.25,452.00 462.25,452.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="527.25,419.26 644.25,374.53 507.18,248.00 458.71,356.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="458.71,356.00 507.18,248.00 313.32,248.00 361.79,356.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="423.25,416.00 423.25,356.00 397.25,356.00 397.25,416.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="361.79,356.00 313.32,248.00 176.25,374.53 293.25,419.26" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="293.25,419.26 176.25,374.53 176.25,553.47 293.25,508.74" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="358.25,452.00 293.25,452.00 293.25,476.00 358.25,476.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="293.25,508.74 176.25,553.47 313.32,680.00 361.79,572.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="361.79,572.00 313.32,680.00 507.18,680.00 458.71,572.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="397.25,512.00 397.25,572.00 423.25,572.00 423.25,512.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="458.71,572.00 507.18,680.00 644.25,553.47 527.25,508.74" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="293.25,512.00 527.25,512.00 527.25,488.00 293.25,488.00" fill="#d1d5db" fill-opacity="0.16" stroke="#d1d5db" stroke-width="0.7"/>
+<polygon points="579.25,528.62 618.25,543.53 618.25,384.47 579.25,399.38" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="618.25,543.53 637.75,550.98 637.75,518.00 618.25,518.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="637.75,434.00 637.75,377.02 618.25,384.47 618.25,434.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="637.75,550.98 644.25,553.47 644.25,374.53 637.75,377.02" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="618.25,518.00 637.75,518.00 637.75,434.00 618.25,434.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="579.25,399.38 644.25,374.53 507.18,248.00 480.25,308.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="480.25,308.00 496.41,272.00 324.09,272.00 340.25,308.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="496.41,272.00 504.48,254.00 468.75,254.00 468.75,272.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="377.75,254.00 316.02,254.00 324.09,272.00 377.75,272.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="504.48,254.00 507.18,248.00 313.32,248.00 316.02,254.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="468.75,272.00 468.75,254.00 377.75,254.00 377.75,272.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="340.25,308.00 313.32,248.00 176.25,374.53 241.25,399.38" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="241.25,399.38 202.25,384.47 202.25,543.53 241.25,528.62" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="202.25,384.47 182.75,377.02 182.75,410.00 202.25,410.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="182.75,494.00 182.75,550.98 202.25,543.53 202.25,494.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="182.75,377.02 176.25,374.53 176.25,553.47 182.75,550.98" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="202.25,410.00 182.75,410.00 182.75,494.00 202.25,494.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="241.25,528.62 176.25,553.47 313.32,680.00 340.25,620.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="340.25,620.00 324.09,656.00 496.41,656.00 480.25,620.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="324.09,656.00 316.02,674.00 351.75,674.00 351.75,656.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="442.75,674.00 504.48,674.00 496.41,656.00 442.75,656.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="316.02,674.00 313.32,680.00 507.18,680.00 504.48,674.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="351.75,656.00 351.75,674.00 442.75,674.00 442.75,656.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="480.25,620.00 507.18,680.00 644.25,553.47 579.25,528.62" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="436.25,620.00 462.25,620.00 462.25,308.00 436.25,308.00" fill="#dc9b51" fill-opacity="0.16" stroke="#dc9b51" stroke-width="0.7"/>
+<polygon points="605.25,538.56 644.25,553.47 644.25,374.53 605.25,389.44" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="605.25,389.44 644.25,374.53 507.18,248.00 491.02,284.00" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="491.02,284.00 507.18,248.00 313.32,248.00 329.48,284.00" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="329.48,284.00 313.32,248.00 176.25,374.53 215.25,389.44" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="215.25,389.44 176.25,374.53 176.25,553.47 215.25,538.56" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="215.25,538.56 176.25,553.47 313.32,680.00 329.48,644.00" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="329.48,644.00 313.32,680.00 507.18,680.00 491.02,644.00" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<polygon points="491.02,644.00 507.18,680.00 644.25,553.47 605.25,538.56" fill="#b78fe8" fill-opacity="0.16" stroke="#b78fe8" stroke-width="0.7"/>
+<circle cx="559.75" cy="446.00" r="3" fill="#96ef9b"/>
+<circle cx="624.75" cy="416.00" r="3" fill="#96ef9b"/>
+<circle cx="592.25" cy="488.00" r="3" fill="#96ef9b"/>
+<circle cx="502.17" cy="353.69" r="3" fill="#96ef9b"/>
+<circle cx="525.15" cy="290.05" r="3" fill="#96ef9b"/>
+<circle cx="557.33" cy="362.18" r="3" fill="#96ef9b"/>
+<circle cx="390.75" cy="326.00" r="3" fill="#96ef9b"/>
+<circle cx="358.25" cy="266.00" r="3" fill="#96ef9b"/>
+<circle cx="436.25" cy="296.00" r="3" fill="#96ef9b"/>
+<circle cx="290.75" cy="379.15" r="3" fill="#96ef9b"/>
+<circle cx="221.81" cy="357.93" r="3" fill="#96ef9b"/>
+<circle cx="299.94" cy="328.24" r="3" fill="#96ef9b"/>
+<circle cx="260.75" cy="482.00" r="3" fill="#96ef9b"/>
+<circle cx="195.75" cy="512.00" r="3" fill="#96ef9b"/>
+<circle cx="228.25" cy="440.00" r="3" fill="#96ef9b"/>
+<circle cx="318.33" cy="574.31" r="3" fill="#96ef9b"/>
+<circle cx="295.35" cy="637.95" r="3" fill="#96ef9b"/>
+<circle cx="263.17" cy="565.82" r="3" fill="#96ef9b"/>
+<circle cx="429.75" cy="602.00" r="3" fill="#96ef9b"/>
+<circle cx="462.25" cy="662.00" r="3" fill="#96ef9b"/>
+<circle cx="384.25" cy="632.00" r="3" fill="#96ef9b"/>
+<circle cx="529.75" cy="548.85" r="3" fill="#96ef9b"/>
+<circle cx="598.69" cy="570.07" r="3" fill="#96ef9b"/>
+<circle cx="520.56" cy="599.76" r="3" fill="#96ef9b"/>
+<circle cx="479.19" cy="425.82" r="3" fill="#96ef9b"/>
+<circle cx="368.88" cy="400.36" r="3" fill="#96ef9b"/>
+<circle cx="341.31" cy="502.18" r="3" fill="#96ef9b"/>
+<circle cx="451.62" cy="527.64" r="3" fill="#96ef9b"/>
+<text x="30" y="838" fill="#51bac5" font-size="15">z&lt;0</text>
+<text x="200" y="838" fill="#d1d5db" font-size="15">0≤z&lt;4</text>
+<text x="370" y="838" fill="#dc9b51" font-size="15">4≤z&lt;9</text>
+<text x="540" y="838" fill="#b78fe8" font-size="15">z≥9</text>
+</svg>

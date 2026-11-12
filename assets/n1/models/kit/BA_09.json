@@ -1,0 +1,51 @@
+{
+  "category": "floors",
+  "degenerateRemoved": 0,
+  "desired": [
+    4,
+    0.25,
+    4
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b871-dd1a-74ac-bb04-7e6651283946",
+  "id": "BA_09",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_09.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_09_floor_plate.glb",
+  "name": "floor_plate",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_09.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_09.pos.bin"
+  },
+  "scale": [
+    4.19672,
+    4.19672,
+    2.89265
+  ],
+  "sha256": "8aba23d8022e07318ac4c7b3d86776b4a770909f84445b392b7b20cddf8279bd",
+  "size": [
+    4,
+    4,
+    0.25
+  ],
+  "sourceTriangles": 152,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_09",
+    "size": 512
+  },
+  "texture_task_id": "01a1b872-34f8-75a1-b8bd-e36f422bbcd9",
+  "triangles": 158,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_09.uv.bin"
+  },
+  "vertices": 418
+}

@@ -1,0 +1,145 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 815,
+      "max": [
+        1.5,
+        4.0,
+        4.0
+      ],
+      "min": [
+        -1.5,
+        -4.0,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 815,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 815,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 2100,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "generator": "Cat Arena N1 fitted-source extractor",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 9780,
+      "target": 34962
+    },
+    {
+      "buffer": 1,
+      "byteLength": 9780,
+      "target": 34962
+    },
+    {
+      "buffer": 2,
+      "byteLength": 6520,
+      "target": 34962
+    },
+    {
+      "buffer": 3,
+      "byteLength": 4200,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 9780,
+      "uri": "BA_17.pos.bin"
+    },
+    {
+      "byteLength": 9780,
+      "uri": "BA_17.nrm.bin"
+    },
+    {
+      "byteLength": 6520,
+      "uri": "BA_17.uv.bin"
+    },
+    {
+      "byteLength": 4200,
+      "uri": "BA_17.idx.bin"
+    }
+  ],
+  "extras": {
+    "appearanceNote": "Diffuse inspection export; native shader stage definitions remain authoritative for emissive/vertex light behavior.",
+    "fittedGameSpaceBuffers": true,
+    "sourceAssetId": "BA_17",
+    "sourceModelSHA256": "a9f6a80da162bc53fea0b5765399c93aa91788148b54ac5694e8b4df36e917f9",
+    "upstreamOriginalGLBIncluded": false
+  },
+  "images": [
+    {
+      "uri": "../../textures/kit/BA_17.jpg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ]
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    }
+  ]
+}

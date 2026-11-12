@@ -1,0 +1,51 @@
+{
+  "category": "rails",
+  "degenerateRemoved": 0,
+  "desired": [
+    0.3,
+    1.2,
+    0.3
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87a-e4d3-7754-a419-b37e3094c600",
+  "id": "BA_22",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_22.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_22_guardrail_endpost.glb",
+  "name": "guardrail_endpost",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_22.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_22.pos.bin"
+  },
+  "scale": [
+    0.79896,
+    0.77283,
+    1.2629
+  ],
+  "sha256": "00d422c4c55adc1fa112aa5cfefb9d5910d325f9fe290e75b77a2358b53c3816",
+  "size": [
+    0.3,
+    0.3,
+    1.2
+  ],
+  "sourceTriangles": 100,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_22",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87b-7ea8-7648-9a4a-c074a668841c",
+  "triangles": 100,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_22.uv.bin"
+  },
+  "vertices": 300
+}

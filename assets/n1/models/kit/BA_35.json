@@ -1,0 +1,51 @@
+{
+  "category": "props",
+  "degenerateRemoved": 0,
+  "desired": [
+    2,
+    4,
+    0.15
+  ],
+  "fit": "height",
+  "geometry_task_id": "01a1b880-a54f-77d0-a95d-271265b4e268",
+  "id": "BA_35",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_35.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_35_banner_torn.glb",
+  "name": "banner_torn",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_35.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_35.pos.bin"
+  },
+  "scale": [
+    4.20534,
+    4.20534,
+    4.20534
+  ],
+  "sha256": "407d6af0269f07cd2ae5100f0759fcca6bf0f3ee1d16b71318546ee715f49d53",
+  "size": [
+    1.542,
+    0.076,
+    4
+  ],
+  "sourceTriangles": 185,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_35",
+    "size": 256
+  },
+  "texture_task_id": "01a1b881-7863-76be-b231-74ac0e4b034f",
+  "triangles": 211,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_35.uv.bin"
+  },
+  "vertices": 451
+}

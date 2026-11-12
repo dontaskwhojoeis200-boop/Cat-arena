@@ -1,0 +1,51 @@
+{
+  "category": "reactor",
+  "degenerateRemoved": 0,
+  "desired": [
+    2,
+    4,
+    2
+  ],
+  "fit": "envelope",
+  "geometry_task_id": "01a1b87d-05f0-70e2-a0b4-766315935c77",
+  "id": "BA_26",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_26.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_26_reactor_column_segment.glb",
+  "name": "reactor_column_segment",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_26.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_26.pos.bin"
+  },
+  "scale": [
+    3.69342,
+    3.71351,
+    4.20534
+  ],
+  "sha256": "b94cdaa32ada2a4a2f95746e9f4da00d86afc1abda15db1d2e47cb2a55e2f774",
+  "size": [
+    2,
+    2,
+    4
+  ],
+  "sourceTriangles": 535,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_26",
+    "size": 512
+  },
+  "texture_task_id": "01a1b87d-7425-70dd-a8d4-1ca74fdfc283",
+  "triangles": 617,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_26.uv.bin"
+  },
+  "vertices": 1032
+}

@@ -1,0 +1,51 @@
+{
+  "category": "rails",
+  "degenerateRemoved": 0,
+  "desired": [
+    0.2,
+    4.8,
+    6
+  ],
+  "fit": "height",
+  "geometry_task_id": "01a1b87b-d048-76f5-aba8-3b0ced07e12d",
+  "id": "BA_23",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_23.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_23_guardrail_stairs.glb",
+  "name": "guardrail_stairs",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_23.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_23.pos.bin"
+  },
+  "scale": [
+    5.04382,
+    5.04382,
+    5.04382
+  ],
+  "sha256": "90ba0f7ddb5fdd85d5d17ee1e1ebff5246446d3162fd1fc976c63ff85fa0549f",
+  "size": [
+    4.332,
+    3.756,
+    4.8
+  ],
+  "sourceTriangles": 140,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_23",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87c-3678-77bf-b77a-d6a50d2e498f",
+  "triangles": 340,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_23.uv.bin"
+  },
+  "vertices": 397
+}

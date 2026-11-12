@@ -1,0 +1,51 @@
+{
+  "category": "props",
+  "degenerateRemoved": 0,
+  "desired": [
+    2,
+    1.3,
+    1
+  ],
+  "fit": "width",
+  "geometry_task_id": "01a1b880-a551-7633-a77d-fc5566b09470",
+  "id": "BA_36",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_36.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_36_control_console.glb",
+  "name": "control_console",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_36.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_36.pos.bin"
+  },
+  "scale": [
+    2.09728,
+    2.09728,
+    2.09728
+  ],
+  "sha256": "d04308a708343e2a3841e8415e6ce483f9a441d9b7f091ce38f165788d8555c3",
+  "size": [
+    2,
+    1.622,
+    1.477
+  ],
+  "sourceTriangles": 248,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_36",
+    "size": 256
+  },
+  "texture_task_id": "01a1b881-47cf-76a1-9ad6-22205c5e5376",
+  "triangles": 258,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_36.uv.bin"
+  },
+  "vertices": 418
+}

@@ -1,0 +1,51 @@
+{
+  "category": "props",
+  "degenerateRemoved": 0,
+  "desired": [
+    2,
+    0.5,
+    2
+  ],
+  "fit": "width",
+  "geometry_task_id": "01a1b87f-62d3-750c-98e0-daebc70ee002",
+  "id": "BA_32",
+  "idx": {
+    "componentType": "uint16-le",
+    "file": "models/kit/BA_32.idx.bin"
+  },
+  "model": "assets/bastion-kit/source/models/BA_32_pipe_elbow.glb",
+  "name": "pipe_elbow",
+  "nrm": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_32.nrm.bin"
+  },
+  "orientation": "none",
+  "pos": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_32.pos.bin"
+  },
+  "scale": [
+    2.07919,
+    2.07919,
+    2.07919
+  ],
+  "sha256": "c734ac8a6843bc3edd5fe7ba2c84d5bc5b5df9e42e3eca540009b9ead49248fc",
+  "size": [
+    2,
+    1.639,
+    1.397
+  ],
+  "sourceTriangles": 205,
+  "texture": {
+    "embeddedMatchesExport": true,
+    "name": "models/bastion/BA_32",
+    "size": 256
+  },
+  "texture_task_id": "01a1b87f-cb53-7665-aff8-7573ea1fa4df",
+  "triangles": 205,
+  "uv": {
+    "componentType": "float32-le",
+    "file": "models/kit/BA_32.uv.bin"
+  },
+  "vertices": 469
+}

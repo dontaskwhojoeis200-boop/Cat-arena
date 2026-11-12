@@ -1,0 +1,36 @@
+{
+ "tool": "tools/n4/legacy_skybox.cjs",
+ "source": "legacy/index.html",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "activeMap": "q3-gallery",
+ "shader": "sky/gallery",
+ "farbox": "env/gallery_nebula",
+ "cloudHeight": 192,
+ "skyRotate": 0.6,
+ "suffix": [
+  "rt",
+  "bk",
+  "lf",
+  "ft",
+  "up",
+  "dn"
+ ],
+ "generators": [
+  "env/gallery_nebula"
+ ],
+ "horizonFog": 0.25,
+ "faceSize": 512,
+ "layout": "six faces stacked vertically in suffix order",
+ "file": "skybox-env-gallery_nebula.png",
+ "fileSha256": "eda41186a3b116c118f72fb2a3f15914bc6960825150afd7611a1a483584bb28",
+ "rgbaSha256": "27a9ad5c5d278f16634b836c8d81424369c335f52a91fb19bccd90f8be107977",
+ "faceSha256": [
+  "40714258460f8c4d7c5ab1506af66b5569e734f8430568eb18adfbb74b561a24",
+  "a92ce21fcefc8a5e8e5365190aba25747c46a0e17a50333600448e92b093e6c0",
+  "83ebd5c0803952fcdc94b7cf473190f28450b2088f46e5a00763266cd275be97",
+  "6978b3f777449bfecee61c7d06d40b511793884a5a7bda57808f1f42dade203a",
+  "bb920817a3ed4131d069578c4087df4beded201b9e08dd6407fd969077203137",
+  "d068e5123de80f831584cdd60dd7eb0482f33cc77227fa82380e2ee275893efc"
+ ],
+ "deterministic": true
+}
