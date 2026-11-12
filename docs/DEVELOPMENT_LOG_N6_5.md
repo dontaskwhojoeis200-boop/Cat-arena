@@ -86,9 +86,10 @@ The tolerance was not raised. Investigation:
 
 - MSVC's CRT `sin` / `cos` / `atan2` / `pow` differ in the last bit from glibc's on some arguments;
   a one-bit difference in a heading or a bob phase grows over thousands of 120 Hz ticks.
-- A first fix ported fdlibm (V8's `src/base/ieee754.cc`). Checked against Node 22 (V8 12.4) on
-  2.4 million arguments it matched bit for bit (after taking V8's version of pow, whose last step
-  differs from fdlibm's: `r = z*t1 / ((t1-two) - (w+z*w))`). But against Playwright's Chromium 153,
+- A first fix ported fdlibm (as in V8's `src/base/ieee754.cc`). Checked against Node 22 (V8 12.4)
+  on 2.4 million arguments, its sin, cos, tan, atan and atan2 matched bit for bit (pow differed on
+  4 %: V8's pow ends with `r = z*t1 / ((t1-two) - (w+z*w))` instead of fdlibm's
+  `r = z*t1 / (t1-two) - (w+z*w)`). But against Playwright's Chromium 153,
   which recorded the legacy fixtures, fdlibm differed on 2-8 % of the arguments. V8 builds with
   clang use other implementations (`v8_use_libm_trig_functions = is_clang`, and newer ones).
 - Measured Chromium 153 on 200,000 arguments per function: glibc differs from Chromium on 126 sin,

@@ -7,8 +7,8 @@ Date: 2026-11-11 (CI times are UTC, 2026-11-12). Repository: https://github.com/
 
 | Requirement | Status |
 |---|---|
-| Windows x64 executable compiled and linked | **Done by GitHub Actions** (MSVC 19.44, VS 2022 17.14, Windows SDK 10.0.26100). Successful runs: [43169039455](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43169039455) and [RUN4_ID](RUN4_URL) (final, section 6). |
-| `CAT_ARENA_FERAL_CLAW_N6_WINDOWS.zip` | **Produced and uploaded** as the workflow artifact `CAT_ARENA_FERAL_CLAW_N6_WINDOWS` (RUN4_ARTIFACT). GitHub serves it as `CAT_ARENA_FERAL_CLAW_N6_WINDOWS.zip`; it contains the game folder (CatArena.exe, SDL3.dll, assets with the 21 shaders, README.txt, THIRD_PARTY_LICENSES.txt). Kept 30 days (workflow setting). |
+| Windows x64 executable compiled and linked | **Done by GitHub Actions** (MSVC 19.44, VS 2022 17.14, Windows SDK 10.0.26100). Successful runs: [43169039455](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43169039455) and [43170081594](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43170081594) (final, section 6). |
+| `CAT_ARENA_FERAL_CLAW_N6_WINDOWS.zip` | **Produced and uploaded** as the workflow artifact `CAT_ARENA_FERAL_CLAW_N6_WINDOWS` ([download from the run page](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43170081594/artifacts/13921817501), artifact 13921817501; needs a GitHub login). GitHub serves it as `CAT_ARENA_FERAL_CLAW_N6_WINDOWS.zip`; it contains the game folder (CatArena.exe, SDL3.dll, assets with the 21 shaders, README.txt, THIRD_PARTY_LICENSES.txt). Kept 30 days (workflow setting). |
 | Package checks on Windows | PASS in CI: required files present, no development files; `dumpbin`: x64, no VCRUNTIME / MSVCP / UCRT import (static runtime), SDL3.dll imported, vulkan-1.dll delay-loaded. |
 | Tests on Windows | PASS in CI: all 34 GPU-free tests (unit tests and every legacy-tape replay; sections 6-7). The 28 GPU / window tests cannot run on the GPU-less runner. |
 | Start on Windows | Checked in CI without a GPU: `CatArena.exe --headless-test` exit 0; `--vk-info` stops cleanly with "Vulkan is not available ... install or update the GPU driver" (exit 1, no crash). |
@@ -113,22 +113,48 @@ it; Actions > windows-build > Run workflow starts it by hand. The game folder is
 | [43164340554](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43164340554) | d52f51c (N6.5 source + workflow) | **failed at Build**: C2039 in main.cpp (section 3.2.1). All other targets compiled and linked. |
 | [43164827201](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43164827201) | 046326b (SDL_main.h fix) | build, package, validation, ZIP and upload **passed**; tests 32/33 (`physics_legacy_trajectories` 1.30e-9 > 1e-9, section 3.2.2); start without GPU passed. Run marked failed. |
 | [43169039455](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43169039455) | cd65a5a (correctly rounded math) | **success**: every step; tests 34/34; artifact 13921267822 (ZIP 29,987,525 bytes, SHA-256 4024a11f…bc180). |
-| [RUN4_ID](RUN4_URL) | RUN4_SHA (fdlibm notice in the licences, replay summary in the job log, docs) | RUN4_RESULT |
+| [43170081594](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43170081594) | 33ca3ac (fdlibm notice in the licences, replay summary in the job log, docs) | **success**: every step; tests 34/34; artifact 13921817501 |
 
-Final run details (RUN4_ID):
+Final run details (43170081594):
 
-- Build: 0 errors; MSVC warnings: RUN4_WARNINGS (all in SDL's own sources, none in project code).
-- Package: RUN4_PACKAGE.
+- Build: 0 errors; MSVC warnings: 2 (C5286, both in SDL's `SDL_render_vulkan.c`) (all in SDL's own sources, none in project code).
+- Package: PASS — CatArena.exe, SDL3.dll, 21 shaders, 4 maps, 16 weapon models, 20 creature meshes, README.txt, THIRD_PARTY_LICENSES.txt; 703 files, 91 MiB; no development files.
 - `dumpbin /dependents CatArena.exe`: SDL3.dll, KERNEL32.dll; delay-load: vulkan-1.dll; x64.
   SDL3.dll imports only Windows system DLLs. No Visual C++ runtime DLL anywhere.
-- ZIP: RUN4_ZIP.
-- Tests: RUN4_TESTS.
+- ZIP: `CAT_ARENA_FERAL_CLAW_N6_WINDOWS.zip` 29,987,699 bytes, SHA-256 a392fe42147746dfbe854a1f61c6671d29dd094390b22e3fd4dfae50ef81da59 (the workflow's own ZIP; the artifact GitHub serves is its own ZIP of the same folder, 30,405,485 bytes).
+- Tests: 34/34 passed (`ctest --preset windows-release`: every test without the `gpu` label).
 - Start without GPU: `--headless-test` exit 0; `--vk-info` exit 1 with the "Vulkan is not available"
   message (expected on a runner without a GPU driver).
 
 ## 7. Replay results (legacy tapes), Windows and Linux
 
-RUN4_REPLAY_TABLE
+Every line printed by the replay tests (scenarios, ticks, bit-exact counts, worst error, statistics,
+native state hash) is **identical** on Windows (MSVC, final run) and Linux (GCC Release); only the
+informational count of C-runtime differences in `js_math_browser` differs (below).
+
+| Replay | Ticks | Bit-exact ticks (Windows = Linux) | Worst error vs legacy | Native hash (Windows = Linux) | N6 bit-exact (Linux) |
+|---|---|---|---|---|---|
+| trajectories helios-crucible | 21,820 | 21,820 | 0 | fefebf6f8d483889 | 21,725 |
+| trajectories bastion-keep | 13,420 | 13,420 | 0 | 6105b7124aca6fa6 | 13,125 |
+| trajectories reactor-bastion | 14,820 | 14,820 | 0 | 28b244020bb687a1 | 14,378 |
+| trajectories q3-gallery | 12,720 | 12,720 | 0 | 3c18e4de32268258 | 12,683 |
+| enemies helios-crucible | 19,200 | 18,410 | 1.77636e-15 | 4be9d78b976ce18d | 18,273 |
+| enemies bastion-keep | 9,600 | 9,600 | 0 | c7b6fc877e60b407 | 9,596 |
+| enemies reactor-bastion | 9,600 | 9,600 | 0 | 9be6af56284c9973 | 9,580 |
+| enemies q3-gallery | 9,600 | 9,600 | 0 | 9e0d1a1a69c65505 | 9,590 |
+| weapon effects | 18,220 | 18,220 | 0 | db998305f47476f0 | 18,186 |
+| enemy animation helios-crucible | 19,200 | 19,200 | 0 | 942cc6a4769e3472 | 19,024 |
+| enemy animation bastion-keep | 9,600 | 9,600 | 0 | e92ff4f26aab2c8d | 9,599 |
+| enemy animation reactor-bastion | 9,600 | 9,600 | 0 | 7eae7a5f5120e22d | 9,590 |
+| enemy animation q3-gallery | 9,600 | 9,600 | 0 | df4ca5ce583572d4 | 9,592 |
+| combat | 18,220 | 18,220 | 0 | 36759acbc0ae3d1 | 18,220 |
+
+`js_math_browser` (31,127 Chromium results): sin / cos / tan / atan2 bit-exact on every record and pow on
+6,526 of 6,529 (3 records where Chromium is 1 ulp from the correctly rounded value) — on both systems.
+The C runtime differs from Chromium on: MSVC 172 sin, 175 cos, 199 tan, 6 atan2, 6 pow records;
+glibc 10 sin, 1 cos, 9 tan, 2 atan2, 5 pow. This is the difference js_math removes.
+
+Tolerances: 1e-9 for simulation values, 2e-5 for poses (unchanged). Logs: docs/n6_5-evidence/windows-ci/.
 
 ## 8. Known issues and risks (Windows)
 

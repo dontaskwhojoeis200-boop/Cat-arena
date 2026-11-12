@@ -1,23 +1,25 @@
-# N6.5 test matrix — 2026-11-11
+# N6.5 test matrix — 2026-11-11 / 12
 
-Environment: as N6 (Linux x64, GCC 13.3 / clang 18.1, Mesa lavapipe, Xvfb). Logs: docs/n6_5-evidence.
+Windows: GitHub Actions windows-2022 runner, MSVC 19.44 (VS 2022 17.14), Windows SDK 10.0.26100, no
+GPU. Linux: as N6 (GCC 13.3 / clang 18.1, Mesa lavapipe, Xvfb). Logs: docs/n6_5-evidence.
 
 | Check | Result | Evidence / scope |
 |---|---|---|
-| Core-only build + CTest: GCC Debug, GCC Release, clang Release (33 tests each) | PASS 33/33 each, 0 warnings | core-*, core-release-*, clang-release-*.txt |
-| Desktop build + CTest: GCC Debug, GCC Release, clang Debug (63 tests each) | PASS 63/63 each, 0 warnings | desktop-*, clang-desktop-*.txt |
-| Desktop ASan + UBSan + LeakSanitizer + CTest (63) | PASS 63/63, no sanitizer report | asan-desktop-*.txt |
-| UTF-8 path unit test (added after the matrix) in the 7 build trees | PASS x7 | post-matrix-utf8-test.txt |
-| Replay hashes vs N6 (combat, effects, trajectories, enemies, animation) | identical (3 builds) | hash-by-build.txt |
-| `vulkan-1.lib` from the import allowlist (cmake/cat_vulkan_import_library.cmake, llvm-lib) | PASS: 151 commands from vulkan-1.dll | vulkan-import-library.txt |
-| Package build as in CI (Release; SDL3, glslang via FetchContent) | PASS; SPIR-V byte-identical to SDK-built; 3 warnings inside glslang | linux-package/1-2 |
-| Install, package check, zip | PASS: 703 files, 91 MiB, no development files | linux-package/3-5 |
-| CTest in the package build: without GPU / GPU on lavapipe | PASS 35/35 / 28/28 | linux-package/6-7 |
-| Extracted ZIP played from an empty working directory: offscreen fight, input / controls self-tests, four maps + resize | PASS, validation 0 | linux-package/8-* |
-| Controls self-test (Esc pause, click resume, F11 x2, F5 restart, Esc x2 quit) | PASS (fullscreen not granted by Xvfb, reported) | window_controls_selftest in *-tests.txt |
-| Workflow YAML parses | PASS (PyYAML) | — |
-| Fresh extraction of the source ZIP: configure, build, CTest (63) | PASS 63/63, 0 warnings | fresh-extract-*.txt |
-| MSVC configure / build, Windows link, CatArena.exe start, Windows CTest, Windows GPU / gameplay / performance | NOT_RUN | no Windows toolchain, no GitHub access (N6_5_BUILD_REPORT.md §7, §9) |
+| Windows: MSVC configure + build of every target (final run 43170081594) | PASS; 2 warnings, both in SDL's sources | windows-ci/run4-*-job.log |
+| Windows: package check + dumpbin (x64, no VC++ runtime DLL, SDL3.dll imported, vulkan-1.dll delay-loaded) | PASS: 703 files, 91 MiB | run4 job log |
+| Windows: ZIP + artifact `CAT_ARENA_FERAL_CLAW_N6_WINDOWS` uploaded | PASS: artifact 13921817501 (ZIP 29,987,699 bytes) | run4 job log |
+| Windows: CTest without GPU (`ctest --preset windows-release`) | PASS 34/34 | run4 job log |
+| Windows: every legacy replay identical to Linux (bit-exact counts, worst errors, native hashes) | PASS: all 14 replay lines identical | run4-replay-summary-windows.txt vs replay-summary-linux.txt |
+| Windows: start without GPU (`--headless-test`; `--vk-info` must report the missing driver) | PASS: exit 0; clean "Vulkan is not available" message, exit 1 | run4 job log |
+| Windows runs before the fixes: run 1 (MSVC C2039), run 2 (32/33: trajectories 1.30e-9) | FAIL, fixed (N6_5_BUILD_REPORT.md §3.2) | run1-, run2-*-job.log |
+| js_math vs Chromium 153: 200,000 arguments per function | sin / cos / tan / atan2 bit-exact on all; pow on all but 7 (Chromium 1 ulp off) | js-math-chromium.txt |
+| Core-only build + CTest: GCC Debug, GCC Release, clang Release (34 tests each) | PASS 34/34 each, 0 warnings | core-*, core-release-*, clang-release-*.txt |
+| Desktop build + CTest: GCC Debug, GCC Release, clang Debug (64 tests each) | PASS 64/64 each, 0 warnings | desktop-*, clang-desktop-*.txt |
+| Desktop ASan + UBSan + LeakSanitizer + CTest (64) | PASS 64/64, no sanitizer report | asan-desktop-*.txt |
+| Same native bits in the 7 Linux builds (14 replay hashes and bit-exact counts) | PASS: identical in all 7 builds, and equal to the Windows run | hash-by-build.txt |
+| `vulkan-1.lib` from the import allowlist (llvm-lib) | PASS: 151 commands from vulkan-1.dll | vulkan-import-library.txt |
+| Package build, install, package check, zip, extracted ZIP played (Linux, before js_math) | PASS | linux-package/ |
+| Windows with a GPU: rendering, window, input, fullscreen, performance | NOT_RUN (no GPU on hosted runners, no Windows PC) | N6_5_BUILD_REPORT.md §10 |
 
 # N6 test matrix — 2026-11-11
 

@@ -1,0 +1,15 @@
+Chromium 153.0.8010.12 (Playwright), 200,000 arguments per function (chrome_sin.cjs: x in +-4, +-100, +-0.005, +-15000;
+atan2(x, 0.37); pow(|x| mod 3, 0.7)). Mismatches = results not bit-identical to Chromium.
+Column 'fdlibm-port' is cat::jsmath (final, correctly rounded; the column name is historical).
+sin: fdlibm-port 0, glibc 126 mismatches of 200000
+cos: fdlibm-port 0, glibc 122 mismatches of 200000
+tan: fdlibm-port 0, glibc 244 mismatches of 200000
+atan2: fdlibm-port 0, glibc 113 mismatches of 200000
+pow: fdlibm-port 7, glibc 0 mismatches of 200000
+
+First attempt (fdlibm 5.3 port, as V8 in Node 22 / GCC builds), same inputs:
+sin 5578, cos 4767, tan 5385, atan2 16850, pow 21083 mismatches of 200000 (its sin / cos / tan / atan / atan2 matched
+Node 22 bit for bit on 2.4M arguments; V8's pow differs from fdlibm's in its last step, see V8 src/base/ieee754.cc).
+
+Where glibc differs from Chromium (605 sin/cos/tan/atan2 results), Chromium equals the correctly rounded
+value (60-digit decimal arithmetic) in all 605 cases; glibc in none.
