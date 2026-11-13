@@ -192,6 +192,7 @@
                 mt.loaded_ok = session.has_value() && load.phase >= 7;
                 push_key(SDL_SCANCODE_RETURN); mt.stage = 3; mt.waited = 0; break;
             case 3: if(menu.active() || !session) { if(++mt.waited > 60) fail("ENTER THE ARENA did not start the game"); break; }
+                if(!relative_on) { if(++mt.waited > 240) fail("the mouse capture requested by ENTER THE ARENA was not granted (window without keyboard focus?)"); break; }
                 mt.t0 = now; push_button(true); mt.stage = 4; mt.waited = 0; break;
             case 4: if(++mt.waited < 90) break;
                 push_button(false);
