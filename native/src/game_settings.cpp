@@ -51,7 +51,7 @@ std::vector<SettingDef> make_defs() {
                        "Fine-tune the look and performance of your arena. Changes apply immediately; picking any option switches the preset to CUSTOM. Native: the preset writes every value below; only the applied ones change the picture.", "CAT ARENA · GRAPHICS"));
     d.push_back(select(T::graphics, "lightQuality", "LIGHTING", "1", {{"0", "VERTEX · r_vertexLight, per-vertex bake"}, {"1", "LIGHTMAP · baked per-surface shadows"}, {"2", "LIGHT VOLUME · classic 3-D grid"}}, S::partial,
                        "Native: LIGHTMAP is the renderer's lighting; VERTEX and LIGHT VOLUME world lighting are N10.", "LIGHTING & DISPLAY"));
-    d.push_back(toggle(T::graphics, "gfxOverbright", "Overbright lighting", true, S::stored, kN10));
+    d.push_back(toggle(T::graphics, "gfxOverbright", "Overbright lighting", true));
     d.push_back(toggle(T::graphics, "gfxEntityGrid", "Light grid on models [entity lighting]", true));
     d.push_back(toggle(T::graphics, "gfxDynamicLights", "Dynamic lights", true));
     d.push_back(toggle(T::graphics, "gfxFlares", "Light flares / coronas", true, S::stored, kN10));
@@ -69,7 +69,7 @@ std::vector<SettingDef> make_defs() {
     d.push_back(toggle(T::graphics, "gfxGibs", "Gibs", true, S::stored, kN10));
     d.push_back(range(T::graphics, "gfxRail", "RAIL TRAIL TIME", .6, .2, 1.6, .05, S::stored, kN10));
     d.push_back(select(T::graphics, "gfxLmFilter", "LIGHTMAP FILTER", "bilinear", {{"bilinear", "BILINEAR · SMOOTH"}, {"nearest", "NEAREST · visible luxels"}}, S::stored, kN10, "ID TECH 3 RENDERER"));
-    d.push_back(range(T::graphics, "gfxLmIntensity", "LIGHTMAP INTENSITY", 1, .6, 1.6, .05, S::stored, kN10));
+    d.push_back(range(T::graphics, "gfxLmIntensity", "LIGHTMAP INTENSITY", 1, .6, 1.6, .05));
     d.push_back(select(T::graphics, "gfxCurves", "CURVE DETAIL", "2", {{"0", "LOW · 16 cm error"}, {"1", "MEDIUM · 6 cm"}, {"2", "HIGH · 2.5 cm"}, {"3", "ULTRA · 1 cm"}}, S::stored, kN10));
     d.push_back(toggle(T::graphics, "gfxDetail", "Detail textures", true, S::stored, kN10));
     d.push_back(toggle(T::graphics, "gfxMirrors", "Mirrors & portal views", true, S::stored, "Mirrors and portal views are not drawn natively yet (N10)."));
@@ -79,7 +79,7 @@ std::vector<SettingDef> make_defs() {
     d.push_back(action(T::graphics, "gfxReset", "RESTORE NORMAL GRAPHICS"));
     // ---- PERFORMANCE
     d.push_back(select(T::performance, "worldCullingMode", "WORLD VISIBILITY", "balanced", {{"balanced", "BALANCED · conservative sector culling"}, {"quality", "QUALITY · smooth, frustum only"}, {"legacy", "FAST · legacy aggressive culling"}}, S::stored, "Native: one cluster-culling mode (PVS toggle in Graphics); the three legacy modes are N10."));
-    d.push_back(select(T::performance, "fogQuality", "FOG QUALITY", "1", {{"0", "OFF · maximum visibility"}, {"0.5", "LOW · lighter fog"}, {"1", "STANDARD · atmospheric"}, {"1.25", "DENSE · cinematic"}}, S::partial, "Native: OFF removes the fog; the other levels draw the standard fog (densities are N10)."));
+    d.push_back(select(T::performance, "fogQuality", "FOG QUALITY", "1", {{"0", "OFF · maximum visibility"}, {"0.5", "LOW · lighter fog"}, {"1", "STANDARD · atmospheric"}, {"1.25", "DENSE · cinematic"}}, S::applied, "Adjusts environmental fog strength."));
     d.push_back(range(T::performance, "sceneResolution", "SCENE RESOLUTION", 720, 480, 1080, 10, S::stored, "Native: renders at the window resolution; render scaling is N10."));
     d.push_back(select(T::performance, "msaaSamples", "MULTISAMPLE AA", "0", {{"0", "OFF · fastest"}, {"2", "2× MSAA"}, {"4", "4× MSAA"}, {"8", "8× MSAA"}}, S::stored, kN10));
     d.push_back(toggle(T::performance, "fxaaEnabled", "FXAA (fast post-process anti-aliasing)", false, S::stored, kN10));

@@ -72,6 +72,16 @@ int main(int argc, char** argv) {
             std::cout << "PASS feature " << name << ": disabling changes " << changed << " pixels\n";
         }
 
+        RenderFeatures lightmap_dim;
+        lightmap_dim.lightmap_intensity = .6F;
+        check(differing(full, render(preview, 10, lightmap_dim)) > 0, "lightmap intensity changes the frame");
+        RenderFeatures normal_light;
+        normal_light.overbright = false;
+        check(differing(full, render(preview, 10, normal_light)) > 0, "overbright changes the frame");
+        RenderFeatures light_fog;
+        light_fog.fog_strength = .5F;
+        check(differing(full, render(preview, 10, light_fog)) > 0, "fog density changes the frame");
+
         // Winding / cull orientation: from above a floor, the visible world surface must face up.
         RenderFeatures normals; normals.debug_view = 3; normals.sky = false; normals.materials = false; normals.clouds = false;
         const auto& spawn = s.spawns.at(0);

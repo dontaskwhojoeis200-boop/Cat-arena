@@ -95,8 +95,6 @@ const char* present_name(VkPresentModeKHR m) {
 // Y down) makes "clockwise" mean clockwise as displayed - exactly GL's CW. An earlier revision used
 // COUNTER_CLOCKWISE and culled every floor top; render_tests' normals check caught it.
 constexpr VkFrontFace kLegacyFrontFace = VK_FRONT_FACE_CLOCKWISE;
-constexpr float kLightScale = 1.9F * 1.0F * 1.32F;   // Q3MAT frame.lightScale (normal preset overbright)
-constexpr float kMapOverbright = 1.32F, kLmIntensity = 1.0F, kFogStrength = 1.0F;
 }  // namespace
 
 namespace gpu {
@@ -1674,8 +1672,10 @@ struct Renderer::Impl {
         put(f.cam_pos, c.position, v.time);
         put(f.cam_forward, c.forward, c.tan_half_x);
         put(f.cam_right, c.right, c.tan_half_y);
-        put(f.cam_up, c.up, kLightScale);
-        f.fog_color[0] = theme.fog[0]; f.fog_color[1] = theme.fog[1]; f.fog_color[2] = theme.fog[2]; f.fog_color[3] = kFogStrength;
+        const auto& ft = v.features;
+        const float overbright = ft.overbright ? 1.32F : 1.0F;
+        put(f.cam_up, c.up, 1.9F * ft.lightmap_intensity * overbright);
+        f.fog_color[0] = theme.fog[0]; f.fog_color[1] = theme.fog[1]; f.fog_color[2] = theme.fog[2]; f.fog_color[3] = ft.fog ? ft.fog_strength : 0;
         for(int i = 0; i < 4; ++i) last_fog[i] = f.fog_color[i];   // effects use the same theme fog (fxOpts)
         const std::size_t lights = v.features.dynamic_lights && v.lights ? std::min<std::size_t>(v.light_count, 16) : 0;
         f.dl[0] = static_cast<std::int32_t>(lights);
@@ -1685,11 +1685,10 @@ struct Renderer::Impl {
             f.dl_col[i][0] = l.r; f.dl_col[i][1] = l.g; f.dl_col[i][2] = l.b; f.dl_col[i][3] = 1;
         }
         stats.dynamic_lights = static_cast<std::uint32_t>(lights);
-        f.params[0] = kLmIntensity; f.params[1] = kMapOverbright; f.params[2] = float(extent.width); f.params[3] = float(extent.height);
+        f.params[0] = ft.lightmap_intensity; f.params[1] = overbright; f.params[2] = float(extent.width); f.params[3] = float(extent.height);
         f.sky_eye[0] = float(sky_center[0]); f.sky_eye[1] = float(sky_center[1]); f.sky_eye[2] = float(sky_eye_z);
         f.sky_box[0] = float(sky_rotate_deg * std::numbers::pi / 180 * v.time);   // drawSky: rot = skyRotate * pi/180 * time
         f.sky_box[1] = float(sky_fog); f.sky_box[2] = has_sky_box ? 1.0F : 0.0F;
-        const auto& ft = v.features;
         f.flags[0] = (ft.lightmap ? 1 : 0) | (ft.fog ? 2 : 0) | (ft.posterize ? 4 : 0);
         f.flags[1] = ft.debug_view;
         std::memcpy(frame_ubo.mapped, &f, sizeof f);

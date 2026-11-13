@@ -19,6 +19,8 @@ struct RenderFeatures {
     bool sky{true}, world{true}, materials{true}, clouds{true}, translucent{true};
     bool lightmap{true}, fog{true}, posterize{true}, culling{true};
     int debug_view{0};   // 0 normal, 1 lightmap only, 2 fullbright, 3 normals (legacy graphics-debug views)
+    float fog_strength{1}, lightmap_intensity{1};
+    bool overbright{true};
     bool dynamic_lights{true};   // N5.1: r_dynamiclight (Q3R.S.dynamicLights)
 };
 // N5.1 dynamic light as the legacy uploads it (Q3R.uploadLights): at most 16 per frame are used.

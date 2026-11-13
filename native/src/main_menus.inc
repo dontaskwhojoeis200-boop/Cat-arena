@@ -92,6 +92,9 @@
         mouse_y = gs.flag("mouseInvertY") ? -1 : 1;
         SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE, gs.flag("mouseRaw") ? "0" : "1");
         features.dynamic_lights = gs.flag("gfxDynamicLights"); features.clouds = gs.flag("gfxSky"); features.culling = gs.flag("gfxVis"); features.fog = gs.number("fogQuality") > 0;
+        features.fog_strength = static_cast<float>(gs.number("fogQuality"));
+        features.lightmap_intensity = static_cast<float>(gs.number("gfxLmIntensity"));
+        features.overbright = gs.flag("gfxOverbright");
         light_grid = gs.flag("gfxEntityGrid"); shadow_mode = std::stoi(gs.text("gfxShadows"));
         if(session) {
             session->fov = fov; session->light_grid = light_grid; session->enemy_options.shadows = shadow_mode;

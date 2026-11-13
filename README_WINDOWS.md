@@ -1,4 +1,4 @@
-CAT ARENA: FERAL CLAW — native Windows build (milestone N9)
+CAT ARENA: FERAL CLAW — native Windows build (milestone N10)
 =========================================================
 
 A native C++20 / Vulkan game (no browser, no JavaScript runtime). This folder holds everything the

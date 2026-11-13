@@ -341,6 +341,8 @@ struct Session {
     bool show_hud{true};
     double hit_marker{}, notice_time{}, retarget_in{-1};
     bool hit_kill{}, hit_head{};
+    double outgoing_damage{}, outgoing_time{}, incoming_time{};
+    std::string incoming_text;
     std::string notice, map_title;
     std::string pause_title, pause_help;   // N6.5: interactive pause panel (empty = running)
     std::uint64_t volleys{}, pellets{}, pellet_hits{}, target_hits{}, head_hits{}, detonations{}, reloads{}, swaps{}, deaths_seen{};
@@ -391,7 +393,27 @@ struct Session {
         const double dt = cat::physics::kTick;
         hit_marker = std::max(0.0, hit_marker - dt * 4); notice_time = std::max(0.0, notice_time - dt);
         if(e.fired_weapon >= 0) { ++volleys; pellets += e.shots.size(); for(const auto& s : e.shots) pellet_hits += s.hit; }
-        for(const auto& d : e.damage) { ++target_hits; head_hits += d.head; damage_dealt += d.amount; hit_marker = 1; hit_kill = d.killed; hit_head = d.head; }
+        outgoing_time = std::max(0.0, outgoing_time - dt);
+        incoming_time = std::max(0.0, incoming_time - dt);
+        for(const auto& d : e.damage) {
+            ++target_hits; head_hits += d.head; damage_dealt += d.amount;
+            hit_marker = 1; hit_kill = d.killed; hit_head = d.head;
+            outgoing_damage = d.amount; outgoing_time = .55;
+        }
+        if(e.incoming_hit) {
+            const auto& hit = *e.incoming_hit;
+            std::string arrow = "V";
+            if(hit.source) {
+                const auto& p = arena.player().state();
+                const double angle = std::atan2((*hit.source)[1] - p.y, (*hit.source)[0] - p.x) - p.a;
+                const double side = std::sin(angle);
+                arrow = std::abs(side) > .55 ? (side > 0 ? ">>" : "<<") : (std::cos(angle) > 0 ? "VV" : "^^");
+            }
+            char amount[48];
+            std::snprintf(amount, sizeof amount, "%.0f", std::ceil(hit.amount));
+            incoming_text = (hit.burn ? "FIRE " : "HIT ") + arrow + "  -" + amount;
+            incoming_time = .7;
+        }
         detonations += e.blasts.size(); reloads += e.reload_started; swaps += e.switched; damage_taken += e.player_damage; healed += e.healed;
         if(e.reroll >= 0) { notice = std::string("FRAG - NEW WEAPON: ") + cat::combat::weapons()[static_cast<std::size_t>(e.reroll)].name; notice_time = 2.4; }
         if(horde) {   // announce(): beginWave "WAVE n · total ENEMIES · +p% STATS" (2.5 s), tickWaves "WAVE n CLEARED!" (3.25 s)
@@ -400,7 +422,7 @@ struct Session {
             else if(cleared && !cleared_seen) { notice = "WAVE " + std::to_string(horde->wave_number()) + " CLEARED!"; notice_time = 3.25; }
             cleared_seen = cleared;
         }
-        if(arena.deaths() != deaths_seen) { deaths_seen = arena.deaths(); notice = horde ? "YOU DIED - WAVE 1 RESTARTS" : "YOU DIED - RESPAWNED"; notice_time = 2.4; if(!horde) place_targets(); }
+        if(arena.deaths() != deaths_seen) { deaths_seen = arena.deaths(); notice = arena.player().state().downed ? "YOU ARE DOWN - WAIT FOR REVIVE" : horde ? "YOU DIED - WAVE 1 RESTARTS" : "YOU DIED - RESPAWNED"; notice_time = 2.4; if(!horde) place_targets(); }
         if(practice && arena.targets().empty()) {
             if(retarget_in < 0) retarget_in = 2.5;
             retarget_in -= dt;
@@ -549,6 +571,8 @@ cat::ui::HudInfo hud_info(Session& s) {
         h.final_five = s.enemy_frame.xray_on; h.burning = a.burn_remaining();
     }
     h.damage_flash = a.damage_flash(); h.hit_marker = s.hit_marker; h.hit_was_kill = s.hit_kill; h.hit_was_head = s.hit_head; h.respawn_grace = a.respawn_grace();
+    h.outgoing_damage = s.outgoing_damage; h.outgoing_time = s.outgoing_time;
+    h.incoming_text = s.incoming_text; h.incoming_time = s.incoming_time;
     h.notice = s.notice; h.notice_alpha = s.notice_time;
     for(std::size_t at = 0; (at = h.notice.find(" - ", at)) != std::string::npos;) h.notice.replace(at, 3, " · ");   // the N5 bitmap HUD has no '·'; the legacy text does
     return h;
