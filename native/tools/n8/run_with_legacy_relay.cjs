@@ -14,6 +14,7 @@ const freePort = () => new Promise(res => { const s = net.createServer(); s.list
   fs.symlinkSync(path.resolve(modules), path.join(dir, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
   const port = await freePort();
   const relay = cp.spawn(process.execPath, ['server.js'], { cwd: dir, env: { ...process.env, PORT: String(port), HOST: '127.0.0.1' }, stdio: ['ignore', 'pipe', 'pipe'] });
+  const relayClosed = new Promise(resolve => relay.once('close', resolve));
   let log = '';
   relay.stdout.on('data', d => { log += d; }); relay.stderr.on('data', d => { log += d; });
   for(let i = 0; i < 100 && !log.includes('listening'); i++) await new Promise(r => setTimeout(r, 50));
@@ -21,7 +22,8 @@ const freePort = () => new Promise(res => { const s = net.createServer(); s.list
   console.log(`original relay ${serverJs} (sha256 ${hash}) on port ${port}; ws ${require(path.join(path.resolve(modules), 'ws', 'package.json')).version}`);
   const run = cp.spawnSync(program, [...args, `ws://127.0.0.1:${port}`], { stdio: 'inherit', timeout: 100000 });
   relay.kill();
+  await relayClosed; // Windows holds the process working directory until the relay has exited.
   console.log('--- relay log ---\n' + log.trim());
-  fs.rmSync(dir, { recursive: true, force: true });
+  fs.rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
   process.exit(run.status === null ? 1 : run.status);
 })().catch(e => { console.error(e); process.exit(1); });
