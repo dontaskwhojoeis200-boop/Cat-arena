@@ -1,0 +1,89 @@
+Test project D:/a/Cat-arena/Cat-arena/native/build/windows-release
+      Start  1: core_foundation
+ 1/42 Test  #1: core_foundation ...............................   Passed    0.01 sec
+      Start  2: headless_smoke
+ 2/42 Test  #2: headless_smoke ................................   Passed    0.00 sec
+      Start  3: vulkan_path_selection
+ 3/42 Test  #3: vulkan_path_selection .........................   Passed    0.01 sec
+      Start  4: desktop_headless_smoke
+ 4/42 Test  #4: desktop_headless_smoke ........................   Passed    0.02 sec
+      Start 29: asset_format
+ 5/42 Test #29: asset_format ..................................   Passed    0.01 sec
+      Start 30: baked_maps
+ 6/42 Test #30: baked_maps ....................................   Passed    1.51 sec
+      Start 31: scene_units
+ 7/42 Test #31: scene_units ...................................   Passed    0.01 sec
+      Start 32: helios_scene
+ 8/42 Test #32: helios_scene ..................................   Passed    1.62 sec
+      Start 33: physics_units
+ 9/42 Test #33: physics_units .................................   Passed    0.02 sec
+      Start 34: physics_legacy_trajectories
+10/42 Test #34: physics_legacy_trajectories ...................   Passed    0.20 sec
+      Start 35: physics_all_maps
+11/42 Test #35: physics_all_maps ..............................   Passed    0.30 sec
+      Start 36: physics_legacy_trajectories_bastion-keep
+12/42 Test #36: physics_legacy_trajectories_bastion-keep ......   Passed    0.13 sec
+      Start 37: physics_legacy_trajectories_reactor-bastion
+13/42 Test #37: physics_legacy_trajectories_reactor-bastion ...   Passed    0.17 sec
+      Start 38: physics_legacy_trajectories_q3-gallery
+14/42 Test #38: physics_legacy_trajectories_q3-gallery ........   Passed    0.19 sec
+      Start 39: js_math_browser
+15/42 Test #39: js_math_browser ...............................   Passed    0.04 sec
+      Start 40: enemy_units
+16/42 Test #40: enemy_units ...................................   Passed    0.50 sec
+      Start 41: enemy_legacy_tapes_helios-crucible
+17/42 Test #41: enemy_legacy_tapes_helios-crucible ............   Passed    2.52 sec
+      Start 42: enemy_legacy_tapes_bastion-keep
+18/42 Test #42: enemy_legacy_tapes_bastion-keep ...............   Passed    1.64 sec
+      Start 43: enemy_legacy_tapes_reactor-bastion
+19/42 Test #43: enemy_legacy_tapes_reactor-bastion ............   Passed    1.64 sec
+      Start 44: enemy_legacy_tapes_q3-gallery
+20/42 Test #44: enemy_legacy_tapes_q3-gallery .................   Passed    1.71 sec
+      Start 45: audio_webaudio_parity
+21/42 Test #45: audio_webaudio_parity .........................   Passed    1.09 sec
+      Start 46: ui_menus_settings_hud
+22/42 Test #46: ui_menus_settings_hud .........................   Passed    0.75 sec
+      Start 47: coop_multiplayer
+23/42 Test #47: coop_multiplayer ..............................   Passed   10.42 sec
+      Start 48: net_relay_protocol_winhttp
+24/42 Test #48: net_relay_protocol_winhttp ....................   Passed    0.60 sec
+      Start 49: coop_multiplayer_winhttp
+25/42 Test #49: coop_multiplayer_winhttp ......................   Passed   10.43 sec
+      Start 50: net_relay_protocol
+26/42 Test #50: net_relay_protocol ............................   Passed    0.74 sec
+      Start 51: net_interop_legacy_relay
+27/42 Test #51: net_interop_legacy_relay ......................   Passed    0.91 sec
+      Start 52: coop_interop_legacy_relay
+28/42 Test #52: coop_interop_legacy_relay .....................   Passed   10.46 sec
+      Start 53: weapon_fx_units
+29/42 Test #53: weapon_fx_units ...............................   Passed    0.01 sec
+      Start 54: hud_units
+30/42 Test #54: hud_units .....................................   Passed    0.01 sec
+      Start 55: weapon_fx_legacy_tapes
+31/42 Test #55: weapon_fx_legacy_tapes ........................   Passed    1.05 sec
+      Start 56: enemy_fx_units
+32/42 Test #56: enemy_fx_units ................................   Passed    0.31 sec
+      Start 57: enemy_fx_legacy_animation_helios-crucible
+33/42 Test #57: enemy_fx_legacy_animation_helios-crucible .....   Passed    4.14 sec
+      Start 58: enemy_fx_legacy_animation_bastion-keep
+34/42 Test #58: enemy_fx_legacy_animation_bastion-keep ........   Passed    2.51 sec
+      Start 59: enemy_fx_legacy_animation_reactor-bastion
+35/42 Test #59: enemy_fx_legacy_animation_reactor-bastion .....   Passed    2.52 sec
+      Start 60: enemy_fx_legacy_animation_q3-gallery
+36/42 Test #60: enemy_fx_legacy_animation_q3-gallery ..........   Passed    2.56 sec
+      Start 61: combat_units
+37/42 Test #61: combat_units ..................................   Passed    0.03 sec
+      Start 62: combat_legacy_tapes
+38/42 Test #62: combat_legacy_tapes ...........................   Passed    0.12 sec
+      Start 63: navigation_helios-crucible
+39/42 Test #63: navigation_helios-crucible ....................   Passed    0.37 sec
+      Start 64: navigation_bastion-keep
+40/42 Test #64: navigation_bastion-keep .......................   Passed    0.34 sec
+      Start 65: navigation_reactor-bastion
+41/42 Test #65: navigation_reactor-bastion ....................   Passed    0.49 sec
+      Start 66: navigation_q3-gallery
+42/42 Test #66: navigation_q3-gallery .........................   Passed    0.26 sec
+
+100% tests passed, 0 tests failed out of 42
+
+Total Test time (real) =  62.43 sec

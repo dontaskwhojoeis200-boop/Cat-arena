@@ -1,4 +1,4 @@
-# Native feature parity — N9
+# Native feature parity — N10 checkpoint
 
 Rendering parity below is measured against the unmodified legacy game captured in headless
 Chromium (WebGL2 on Mesa lavapipe) at identical poses; it is not a hardware-GPU or perceptual
@@ -36,7 +36,7 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Muzzle flash, tracers, rail trail, lightning, projectile sprites, impacts, explosions, marks, brass | **N5: every quad equal to the legacy's** (counts and checksums); **N6: started in the legacy's event order** | — |
 | Dynamic lights (flashes, projectiles, explosions) on world and material surfaces | **N5.1: selection equal to the legacy on every recorded tick; frames 41-59 dB**; **N6: on creatures and Marine Cats too** | Flares not implemented |
 | Medkit billboard | **N5.1: matches legacy** (frame 57 dB) | — |
-| HUD: health, ammo, weapon, score, crosshair, hit marker | **N7: legacy layout and look** (measured boxes, fonts, 8 crosshairs, event box, touch layout, editor, HUD scale, toggles, perf overlay) | Damage numbers, incoming-hit indicator not reproduced; N5 HUD kept for automation runs |
+| HUD: health, ammo, weapon, score, crosshair, hit marker | **N7: legacy layout and look** (measured boxes, fonts, 8 crosshairs, event box, touch layout, editor, HUD scale, toggles, perf overlay); **N10:** damage numbers, incoming hits and downed notice | Guest incoming hit amounts come from authoritative health changes. Direction is available for solo and host hits when the source is known. N5 HUD is used in traversal captures. |
 | 20 enemy types: stats, scaling, waves, spawning (20 alive, 0.2 s), 30 Hz decisions, stride cadence | **N6: match legacy tapes** (24 tapes, 48,000 ticks, four maps; within 1.5e-14) | — |
 | Ground AI routes, flyers (swept 3-D steering), attacks (wind-up / strike / recovery), enemy projectiles, melee, burn | **N6: match legacy tapes** | — |
 | Bodies (three death variants, flyer fall, sink), gibs at -40 hp | **N6: match legacy** (animation fixture, staged scene 52 dB) | No loot: the legacy has none |
@@ -45,9 +45,9 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Enemy effects (projectile looks and trails, casting glows, melee arcs, muzzle flashes, impacts, blood, gibs) | **N6: cosmetic draws equal to the legacy on every tick**; **N7: voices, attacks, deaths audible (legacy limits)** | — |
 | Cat Marine model, skin joints, hit parts | **N6: runtime mesh = shipped GLB vertices; joints and 6 parts per vertex; posed as the legacy (soldier gait + offsets)** | The 7 GLB clips: not used by the legacy runtime, not used natively. Mirror view N10; networked players N8 |
 | Menus: home, maps, loading, pause, exit, multiplayer page, HUD editor | **N7: legacy routing, layout and look** (captures in docs/n7-evidence) | N8 adds host setup, browser, connecting and co-op pause |
-| Settings (65 legacy controls) | **N7: same defaults / ranges / options; 32 applied, 8 partial, 25 stored**; keyboard-only navigation tested | Scene resolution, AA, culling modes, texture / effect detail: N10 |
+| Settings (65 legacy controls) | **N7: same defaults / ranges / options**; keyboard-only navigation tested; **N10:** fog, lightmap intensity and overbright affect gameplay rendering | Internal scene resolution, AA, culling modes, texture and effect detail remain open |
 | Audio: samples, music, mix, compressor, voices, beeps | **N7: Web Audio graphs match Chromium (RMS 6e-8 … 5e-2); legacy rules tested** | Not heard on real hardware; sound uses its own random stream |
 | Input modes: keyboard / mouse, touch, gamepad, pointer capture | **N7: implemented; capture and mode rules unit-tested** | N9 adds Windows movement layouts, mouse options and focus handling. Physical hardware validation is open. |
-| Four-player multiplayer | N8 implemented and tested on Windows loopback | Separate PCs, WAN/TLS and real GPU play remain unverified |
+| Four-player multiplayer | N8 implemented and tested on Windows loopback. N10 adds host-authoritative explosive flight and detonation visuals and attributes eliminations to the shooter. | Separate PCs, WAN/TLS and real GPU play remain unverified |
 | Android ARM64 APK | Historical target | Windows 10/11 x64 is the active release target |
-| Shipping EXE/APK | Not built | N11 |
+| Windows executable | Packaged Windows checkpoints start in GPU-free CI | Physical Windows launch and the N11 hardware benchmark remain open |

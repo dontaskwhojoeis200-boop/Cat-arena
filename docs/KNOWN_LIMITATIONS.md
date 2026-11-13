@@ -1,5 +1,10 @@
 # Current and historical known limitations
 
+N10 checkpoint ([test report](N10_TEST_REPORT.md))
+- Physical Windows GPU play, exclusive fullscreen, raw input, playback-device changes, and four-player LAN/WAN are open. Windows CI covers GPU-free loopback. Linux software Vulkan covers the co-op UI and rendering path.
+- The HUD now draws damage numbers and incoming hit feedback. Guest health feedback reflects the change between host snapshots and has no source direction. Fog strength, lightmap intensity, and overbright are active.
+- Live mirrors and portals, Arsenal MD3 props, internal scene resolution, anti-aliasing, and several texture and effects controls remain open. No FPS or combined memory result exists for the Pentium G2020 and GTX 660.
+
 Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
 - 25 of the 65 legacy settings are shown and saved but do not change the game yet (N10): scene
   resolution, multisample AA, FXAA, adaptive resolution and FPS target, the three world culling

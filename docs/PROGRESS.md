@@ -1,6 +1,6 @@
 # Current milestone
 
-N9 implements Windows platform integration and the Vulkan 1.1 fallback. See [N9](../README_N9.md), [N8](../README_N8.md), the [migration log](MIGRATION_LOG.md) and [Windows roadmap](WINDOWS_ROADMAP.md). The status below describes the N7 baseline.
+N10 adds multiplayer combat and HUD fixes on the N9 Windows platform baseline. See [N10](../README_N10.md), [the gameplay acceptance matrix](N10_ACCEPTANCE.md), the [migration log](MIGRATION_LOG.md) and [Windows roadmap](WINDOWS_ROADMAP.md). The status below describes the N7 baseline.
 
 # Native rewrite progress — 2026-11-12
 

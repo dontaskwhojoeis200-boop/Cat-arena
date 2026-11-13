@@ -10,9 +10,12 @@ forward. See [N9](README_N9.md) for platform options and
 - Co-op guests see host and teammate rockets, grenades and rift bolts in flight,
   plus their detonations. The firing guest retains its immediate local prediction.
   The additional messages are optional to older clients and use the same relay
-  protocol. Existing relay routing and room capacity still apply.
+  protocol. Existing relay routing and room capacity still apply. The host
+  includes up to 96 in-flight explosives in each snapshot. Collision, damage,
+  and scoring remain authoritative on the host.
 - Guest frags go to the shooter. The host no longer receives the kill or hit
-  marker for a guest's hit, including a projectile from a departed guest.
+  marker for a guest's hit, including a projectile from a departed guest. Wave
+  kill progress still counts team kills.
 - HUD combat feedback shows damage, critical hits, and the most recent incoming
   hit. Solo and host hits include direction when available. Guests show the
   health loss from the host's snapshot. The co-op downed notice now reflects
@@ -46,3 +49,6 @@ driver still need validation. The older mirror and portal feeds, Arsenal MD3
 props and some rendering controls remain listed in
 [FEATURE_PARITY.md](docs/FEATURE_PARITY.md). N11's performance baseline and
 the 480 MiB acceptance measurement remain open.
+
+See [the test report](docs/N10_TEST_REPORT.md) for the commands, evidence, and
+verified scenarios for this checkpoint.

@@ -11,10 +11,11 @@ Check these scenarios on Windows before marking N10 complete.
 | Reactor Bastion collision and navigation | Layered map, traversal and navigation checks | Cross both bridges, enter maintenance tunnels, traverse ramps and test the undersides |
 | Local character and viewmodel | Marine Cat pose, model and weapon-view regressions | Check teammate poses, labels and distinct first-person viewmodel |
 | Pause, settings and audio | Menu and audio tests with simulated input and dummy playback | Verify physical devices, focus changes and settings persistence |
-| Multiplayer combat and revive | Four-player automation on Windows loopback and software-Vulkan Linux | Test at least two separate Windows PCs and four clients where available |
+| Multiplayer combat and revive | Four-player automation through the native and original Node.js relays. Installed Linux software-Vulkan build exercised the hosting UI, name tags, downed status, revive and leave. | Test at least two separate Windows PCs and four clients where available. Observe other players' rockets, grenades and rift bolts in flight, check detonations and confirm only the shooter receives each elimination. |
 
 Current parity gaps include live portal/mirror feeds, three Arsenal MD3 props,
 and some legacy graphics controls. See [FEATURE_PARITY.md](FEATURE_PARITY.md)
 for details. Keep the existing map layout and comparison recordings while
 fixing issues found during play. Use the N11 build to capture the hardware
-baseline after the gameplay checks.
+baseline after the gameplay checks. [N10 test evidence](N10_TEST_REPORT.md)
+records the builds, commands and scenarios executed for this checkpoint.
