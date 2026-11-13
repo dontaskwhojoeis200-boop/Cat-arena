@@ -16,12 +16,18 @@ forward. See [N9](README_N9.md) for platform options and
 - Guest frags go to the shooter. The host no longer receives the kill or hit
   marker for a guest's hit, including a projectile from a departed guest. Wave
   kill progress still counts team kills.
+- Remote gunfire shows the Marine Cat's muzzle flash and dynamic light,
+  with tracers or beams for the appropriate weapons. Cosmetic traces use
+  the shooter's last known pose and the existing collision query. They leave
+  damage and kill decisions on the host. The host also hears guest gunfire.
 - HUD combat feedback shows damage, critical hits, and the most recent incoming
   hit. Solo and host hits include direction when available. Guests show the
   health loss from the host's snapshot. The co-op downed notice now reflects
   the revive mechanic.
 - Fog strength, lightmap intensity and overbright settings take effect during
   play. The standard values match the previous renderer.
+- Effects detail, marks, brass, blood, gibs and rail trail duration now apply
+  during play. The normal preset retains the existing settings.
 
 ## Build
 

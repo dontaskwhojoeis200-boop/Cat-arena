@@ -1,68 +1,68 @@
 Test project /workspace/scratch/a16818ac3257/n10-linux
       Start  5: render_helios_offscreen
- 1/30 Test  #5: render_helios_offscreen .......................   Passed    4.06 sec
+ 1/30 Test  #5: render_helios_offscreen .......................   Passed    2.11 sec
       Start  6: render_map_bastion-keep
- 2/30 Test  #6: render_map_bastion-keep .......................   Passed    1.07 sec
+ 2/30 Test  #6: render_map_bastion-keep .......................   Passed    1.33 sec
       Start  7: render_map_reactor-bastion
- 3/30 Test  #7: render_map_reactor-bastion ....................   Passed    0.47 sec
+ 3/30 Test  #7: render_map_reactor-bastion ....................   Passed    0.46 sec
       Start  8: render_map_q3-gallery
- 4/30 Test  #8: render_map_q3-gallery .........................   Passed    0.56 sec
+ 4/30 Test  #8: render_map_q3-gallery .........................   Passed    0.61 sec
       Start  9: render_weapons_overlay
- 5/30 Test  #9: render_weapons_overlay ........................   Passed    2.93 sec
+ 5/30 Test  #9: render_weapons_overlay ........................   Passed    2.65 sec
       Start 10: render_weapons_overlay_baseline
- 6/30 Test #10: render_weapons_overlay_baseline ...............   Passed    2.48 sec
+ 6/30 Test #10: render_weapons_overlay_baseline ...............   Passed    3.17 sec
       Start 11: render_weapon_view_00
- 7/30 Test #11: render_weapon_view_00 .........................   Passed    2.12 sec
+ 7/30 Test #11: render_weapon_view_00 .........................   Passed    2.15 sec
       Start 12: render_weapon_view_04
- 8/30 Test #12: render_weapon_view_04 .........................   Passed    1.97 sec
+ 8/30 Test #12: render_weapon_view_04 .........................   Passed    2.43 sec
       Start 13: render_weapon_view_07
- 9/30 Test #13: render_weapon_view_07 .........................   Passed    2.08 sec
+ 9/30 Test #13: render_weapon_view_07 .........................   Passed    2.05 sec
       Start 14: render_weapon_view_10
-10/30 Test #14: render_weapon_view_10 .........................   Passed    2.05 sec
+10/30 Test #14: render_weapon_view_10 .........................   Passed    2.17 sec
       Start 15: render_effect_frame_rocket_at_feet_moving
-11/30 Test #15: render_effect_frame_rocket_at_feet_moving .....   Passed    2.03 sec
+11/30 Test #15: render_effect_frame_rocket_at_feet_moving .....   Passed    2.25 sec
       Start 16: render_effect_frame_rocket_and_grenade_jump
-12/30 Test #16: render_effect_frame_rocket_and_grenade_jump ...   Passed    1.79 sec
+12/30 Test #16: render_effect_frame_rocket_and_grenade_jump ...   Passed    2.19 sec
       Start 17: render_effect_frame_health_pickup
-13/30 Test #17: render_effect_frame_health_pickup .............   Passed    1.90 sec
+13/30 Test #17: render_effect_frame_health_pickup .............   Passed    3.14 sec
       Start 18: render_enemy_lineup_idle
-14/30 Test #18: render_enemy_lineup_idle ......................   Passed    2.90 sec
+14/30 Test #18: render_enemy_lineup_idle ......................   Passed    2.70 sec
       Start 19: render_enemy_lineup_windup
-15/30 Test #19: render_enemy_lineup_windup ....................   Passed    2.54 sec
+15/30 Test #19: render_enemy_lineup_windup ....................   Passed    2.38 sec
       Start 20: render_enemy_lineup_strike_final5
-16/30 Test #20: render_enemy_lineup_strike_final5 .............   Passed    2.66 sec
+16/30 Test #20: render_enemy_lineup_strike_final5 .............   Passed    1.99 sec
       Start 21: render_enemy_lineup_bodies
-17/30 Test #21: render_enemy_lineup_bodies ....................   Passed    2.19 sec
+17/30 Test #21: render_enemy_lineup_bodies ....................   Passed    2.50 sec
       Start 22: render_enemy_lineup_marines
-18/30 Test #22: render_enemy_lineup_marines ...................   Passed    1.96 sec
+18/30 Test #22: render_enemy_lineup_marines ...................   Passed    2.15 sec
       Start 23: render_enemy_frame_fight_spin_530
-19/30 Test #23: render_enemy_frame_fight_spin_530 .............   Passed    3.09 sec
+19/30 Test #23: render_enemy_frame_fight_spin_530 .............   Passed    3.43 sec
       Start 24: render_enemy_frame_fight_spin_1300
-20/30 Test #24: render_enemy_frame_fight_spin_1300 ............   Passed    3.45 sec
+20/30 Test #24: render_enemy_frame_fight_spin_1300 ............   Passed    3.48 sec
       Start 25: render_enemy_frame_flyers_wave5_2003
-21/30 Test #25: render_enemy_frame_flyers_wave5_2003 ..........   Passed    3.16 sec
+21/30 Test #25: render_enemy_frame_flyers_wave5_2003 ..........   Passed    3.22 sec
       Start 26: render_enemy_frame_wave_progression_2400
-22/30 Test #26: render_enemy_frame_wave_progression_2400 ......   Passed    2.57 sec
+22/30 Test #26: render_enemy_frame_wave_progression_2400 ......   Passed    3.17 sec
       Start 27: render_enemy_frame_stand_still_400
-23/30 Test #27: render_enemy_frame_stand_still_400 ............   Passed    2.90 sec
+23/30 Test #27: render_enemy_frame_stand_still_400 ............   Passed    4.30 sec
       Start 28: render_path_matrix
-24/30 Test #28: render_path_matrix ............................   Passed    9.62 sec
+24/30 Test #28: render_path_matrix ............................   Passed   10.86 sec
       Start 30: vk_sim_layer_selftest
-25/30 Test #30: vk_sim_layer_selftest .........................   Passed    0.14 sec
+25/30 Test #30: vk_sim_layer_selftest .........................   Passed    0.08 sec
       Start 31: render_path_simulated_devices
-26/30 Test #31: render_path_simulated_devices .................   Passed    6.70 sec
+26/30 Test #31: render_path_simulated_devices .................   Passed    6.87 sec
       Start 68: window_input_selftest
-27/30 Test #68: window_input_selftest .........................   Passed   10.73 sec
+27/30 Test #68: window_input_selftest .........................   Passed    9.14 sec
       Start 69: window_controls_selftest
-28/30 Test #69: window_controls_selftest ......................   Passed    6.69 sec
+28/30 Test #69: window_controls_selftest ......................   Passed    6.47 sec
       Start 70: window_menu_selftest
-29/30 Test #70: window_menu_selftest ..........................   Passed   18.77 sec
+29/30 Test #70: window_menu_selftest ..........................   Passed   19.16 sec
       Start 71: window_coop_selftest
-30/30 Test #71: window_coop_selftest ..........................   Passed   15.62 sec
+30/30 Test #71: window_coop_selftest ..........................   Passed   15.52 sec
 
 100% tests passed out of 30
 
 Label Time Summary:
-gpu    = 121.21 sec*proc (30 tests)
+gpu    = 124.12 sec*proc (30 tests)
 
-Total Test time (real) = 121.23 sec
+Total Test time (real) = 124.14 sec

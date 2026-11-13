@@ -1,0 +1,11 @@
+Test project /workspace/scratch/a16818ac3257/upstream/n10-sanitized
+    Start 22: coop_multiplayer
+1/3 Test #22: coop_multiplayer .................   Passed   17.17 sec
+    Start 25: coop_interop_legacy_relay
+2/3 Test #25: coop_interop_legacy_relay ........   Passed   14.34 sec
+    Start 26: weapon_fx_units
+3/3 Test #26: weapon_fx_units ..................   Passed    0.22 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =  31.73 sec

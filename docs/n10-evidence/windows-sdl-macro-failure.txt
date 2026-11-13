@@ -1,0 +1,3 @@
+D:\a\Cat-arena\Cat-arena\native\src\main_menus.inc(838,68): error C2039: 'SDL_main': is not a member of 'cat::fx::Frame' [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_arena.vcxproj]
+D:\a\Cat-arena\Cat-arena\native\src\main_menus.inc(838,106): error C2039: 'SDL_main': is not a member of 'cat::fx::Frame' [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_arena.vcxproj]
+D:\a\Cat-arena\Cat-arena\native\src\main_menus.inc(838,46): error C2672: 'std::any_of': no matching overloaded function found [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_arena.vcxproj]

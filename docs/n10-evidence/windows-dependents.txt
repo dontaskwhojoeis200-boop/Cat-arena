@@ -19,10 +19,10 @@ File Type: EXECUTABLE IMAGE
         8000 .data
         1000 .fptable
         F000 .pdata
-       76000 .rdata
+       77000 .rdata
         2000 .reloc
         1000 .rsrc
-      1B4000 .text
+      1B5000 .text
 
 
 Dump of file dist\CAT_ARENA_FERAL_CLAW_N10_WINDOWS\SDL3.dll
