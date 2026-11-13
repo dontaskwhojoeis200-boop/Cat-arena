@@ -51,6 +51,7 @@ struct Frame {
     GunView gun_view;
     std::vector<Light> lights;         // Q3R.addLight calls of this frame (max 64)
     std::vector<float> atlas;          // N5.1 renderGeometry(): medkit billboards, 12 floats per vertex (world-atlas layout)
+    const Batch& world_effects() const { return main; }
 };
 struct MarkOptions { std::optional<double> rot; double add{}; double life{12}; bool glow{}; };   // addMark options
 struct Offsets { double back{}, lift{}, pitch{}, roll{}, yaw{}, drop{}; };   // WFX.viewmodelOffsets

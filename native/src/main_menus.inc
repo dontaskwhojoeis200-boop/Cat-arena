@@ -835,7 +835,8 @@
                 }
                 o = session->build(size); session->light(*view);
                 if(coop_selftest && ct.stage == 9 && !ct.remote_fire_ok) {
-                    ct.remote_fire_ok = std::any_of(session->frame.main.vertices.begin(), session->frame.main.vertices.end(), [](const cat::fx::Vertex& v) {
+                    const auto& effects = session->frame.world_effects().vertices;
+                    ct.remote_fire_ok = std::any_of(effects.begin(), effects.end(), [](const cat::fx::Vertex& v) {
                         return v.tile == static_cast<float>(cat::fx::tile_flash_star);
                     });
                 }
