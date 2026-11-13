@@ -1,0 +1,8 @@
+=== core (/home/claude/n2/build-core) Thu Nov 12 16:10:12 PST 2026
+core: 100% tests passed, 0 tests failed out of 36
+=== core-release (/home/claude/n2/build-core-release) Thu Nov 12 16:13:16 PST 2026
+core-release: 100% tests passed, 0 tests failed out of 36
+=== clang-release (/home/claude/n2/build-clang-release) Thu Nov 12 16:13:43 PST 2026
+clang-release: 100% tests passed, 0 tests failed out of 36
+=== desktop-debug (/home/claude/n2/build-desktop) Thu Nov 12 16:14:09 PST 2026
+desktop-debug: 99% tests passed, 1 tests failed out of 67

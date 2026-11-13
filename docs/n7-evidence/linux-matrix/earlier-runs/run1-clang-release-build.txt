@@ -1,0 +1,34 @@
+[1/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/player.cpp.o
+[2/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/physics_world.cpp.o
+[3/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/combat.cpp.o
+[4/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/navigation.cpp.o
+[5/40] Building CXX object CMakeFiles/cat_arena_enemy_tests.dir/tests/enemy_tests.cpp.o
+[6/40] Building CXX object CMakeFiles/cat_arena_physics.dir/src/enemies.cpp.o
+[7/40] Linking CXX static library libcat_arena_physics.a
+[8/40] Linking CXX executable cat_arena_enemy_tests
+[9/40] Building CXX object CMakeFiles/cat_arena_physics_tests.dir/tests/physics_tests.cpp.o
+[10/40] Linking CXX executable cat_arena_physics_tests
+[11/40] Building CXX object CMakeFiles/cat_arena_audio.dir/src/audio_mixer.cpp.o
+[12/40] Building CXX object CMakeFiles/cat_arena_audio.dir/src/audio_game.cpp.o
+[13/40] Building CXX object CMakeFiles/cat_arena_ui.dir/src/ui_canvas.cpp.o
+[14/40] Building CXX object CMakeFiles/cat_audio_codec.dir/src/audio_codec.cpp.o
+[15/40] Building CXX object CMakeFiles/cat_ui_font.dir/src/ui_font.cpp.o
+[16/40] Linking CXX static library libcat_audio_codec.a
+[17/40] Linking CXX static library libcat_ui_font.a
+[18/40] Linking CXX static library libcat_arena_audio.a
+[19/40] Building CXX object CMakeFiles/cat_arena_ui.dir/src/ui_hud.cpp.o
+[20/40] Building CXX object CMakeFiles/cat_arena_ui.dir/src/menu.cpp.o
+FAILED: CMakeFiles/cat_arena_ui.dir/src/menu.cpp.o 
+/usr/bin/clang++  -I/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror -Wno-missing-field-initializers -MD -MT CMakeFiles/cat_arena_ui.dir/src/menu.cpp.o -MF CMakeFiles/cat_arena_ui.dir/src/menu.cpp.o.d -o CMakeFiles/cat_arena_ui.dir/src/menu.cpp.o -c /home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/src/menu.cpp
+/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/src/menu.cpp:12:18: error: unused variable 'kPi' [-Werror,-Wunused-const-variable]
+   12 | constexpr double kPi = 3.141592653589793;
+      |                  ^~~
+1 error generated.
+[21/40] Building CXX object CMakeFiles/cat_arena_audio_tests.dir/tests/audio_tests.cpp.o
+[22/40] Building CXX object CMakeFiles/cat_arena_fx.dir/src/hud.cpp.o
+[23/40] Building CXX object CMakeFiles/cat_arena_ui.dir/src/game_settings.cpp.o
+[24/40] Building CXX object CMakeFiles/cat_arena_fx.dir/src/enemy_fx.cpp.o
+[25/40] Building CXX object CMakeFiles/cat_arena_fx.dir/src/weapon_fx.cpp.o
+[26/40] Building CXX object CMakeFiles/cat_arena_fx_tests.dir/tests/fx_tests.cpp.o
+[27/40] Building CXX object CMakeFiles/cat_arena_ui_tests.dir/tests/ui_tests.cpp.o
+ninja: build stopped: subcommand failed.

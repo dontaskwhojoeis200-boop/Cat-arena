@@ -1,0 +1,312 @@
+UpdateCTestConfiguration  from :/home/claude/n2/build-clang-release/DartConfiguration.tcl
+Parse Config file:/home/claude/n2/build-clang-release/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/claude/n2/build-clang-release/DartConfiguration.tcl
+Parse Config file:/home/claude/n2/build-clang-release/DartConfiguration.tcl
+Test project /home/claude/n2/build-clang-release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 9
+      Start  9: physics_legacy_trajectories
+
+9: Test command: /home/claude/n2/build-clang-release/cat_arena_physics_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n3/helios_trajectories.bin"
+9: Working Directory: /home/claude/n2/build-clang-release
+9: Test timeout computed to be: 1500
+9: PASS random_0_z-4: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1643/0/12/0/0
+9: PASS random_1_z0: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 559/0/9/0/3
+9: PASS random_2_z7: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 680/0/12/33/1
+9: PASS random_3_z-4: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 716/0/13/182/3
+9: PASS random_4_z0: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1016/0/12/0/4
+9: PASS random_5_z7: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1345/0/11/82/2
+9: PASS ramp_0_upper-stair-0: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 2/0/1/621/0
+9: PASS ramp_1_vault-ramp-0: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/1/429/0
+9: PASS ramp_2_upper-stair-2: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 2/0/1/621/0
+9: PASS pad_vault-launch-north: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 186/0/1/0/0
+9: PASS pad_vault-launch-south: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 275/0/1/0/0
+9: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/1/2/0/0
+9: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 3/0/2/0/2
+9: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 304/0/0/113/0
+9: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 317/0/7/0/0
+9: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 262/0/0/0/0
+9: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+9: PASS legacy trajectories helios-crucible: 17 scenarios, 21820 ticks (181.833 s), bit-exact ticks 21820, worst |error| 0, tolerance 1e-09; contacts horizontal 7310, ceiling 1, landings 85, steps 2081, recoveries 15; native state hash fefebf6f8d483889
+ 1/14 Test  #9: physics_legacy_trajectories ...................   Passed    0.13 sec
+test 11
+      Start 11: physics_legacy_trajectories_bastion-keep
+
+11: Test command: /home/claude/n2/build-clang-release/cat_arena_physics_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n4/bastion-keep_trajectories.bin" "bastion-keep"
+11: Working Directory: /home/claude/n2/build-clang-release
+11: Test timeout computed to be: 1500
+11: PASS random_0_z-4: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 965/0/8/0/0
+11: PASS random_1_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 317/0/6/0/0
+11: PASS random_2_z7: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 438/0/8/0/0
+11: PASS random_3_z-4: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 774/0/7/0/0
+11: PASS ramp_0_pit-ramp-sw: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 21/0/1/360/0
+11: PASS ramp_1_pit-ramp-se: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 46/0/1/358/0
+11: PASS ramp_2_stairs-185: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 2/0/1/621/0
+11: PASS pad_pad-east: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 77/0/1/7/3
+11: PASS pad_pad-south: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 281/0/1/0/0
+11: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+11: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 29/1/2/0/0
+11: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 219/0/0/0/0
+11: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 356/0/7/0/1
+11: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 75/0/0/0/0
+11: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+11: PASS legacy trajectories bastion-keep: 15 scenarios, 13420 ticks (111.833 s), bit-exact ticks 13420, worst |error| 0, tolerance 1e-09; contacts horizontal 3600, ceiling 3, landings 45, steps 1346, recoveries 4; native state hash 6105b7124aca6fa6
+ 2/14 Test #11: physics_legacy_trajectories_bastion-keep ......   Passed    0.08 sec
+test 12
+      Start 12: physics_legacy_trajectories_reactor-bastion
+
+12: Test command: /home/claude/n2/build-clang-release/cat_arena_physics_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n4/reactor-bastion_trajectories.bin" "reactor-bastion"
+12: Working Directory: /home/claude/n2/build-clang-release
+12: Test timeout computed to be: 1500
+12: PASS random_0_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 722/0/8/26/0
+12: PASS random_1_z5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 565/0/7/0/6
+12: PASS random_2_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 876/0/9/0/0
+12: PASS random_3_z5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 518/0/7/0/0
+12: PASS ramp_0_tunnel-stairs-0: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 350/0/1/358/0
+12: PASS ramp_1_tunnel-stairs-2: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 350/0/1/358/0
+12: PASS ramp_2_tunnel-stairs-4: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 350/0/1/358/0
+12: PASS pad_pad-0: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 99/0/1/173/0
+12: PASS pad_pad-2: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 50/0/1/0/0
+12: PASS pad_pad-4: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 227/0/1/0/0
+12: PASS pad_pad-6: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 227/0/1/0/0
+12: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+12: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 113/1/2/0/0
+12: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 116/0/0/0/6
+12: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 441/0/7/0/0
+12: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 18/0/0/59/0
+12: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+12: PASS legacy trajectories reactor-bastion: 17 scenarios, 14820 ticks (123.5 s), bit-exact ticks 14820, worst |error| 0, tolerance 1e-09; contacts horizontal 5022, ceiling 3, landings 49, steps 1332, recoveries 12; native state hash 28b244020bb687a1
+ 3/14 Test #12: physics_legacy_trajectories_reactor-bastion ...   Passed    0.10 sec
+test 13
+      Start 13: physics_legacy_trajectories_q3-gallery
+
+13: Test command: /home/claude/n2/build-clang-release/cat_arena_physics_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n4/q3-gallery_trajectories.bin" "q3-gallery"
+13: Working Directory: /home/claude/n2/build-clang-release
+13: Test timeout computed to be: 1500
+13: PASS random_0_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 484/0/8/0/0
+13: PASS random_1_z4.5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 753/0/5/0/0
+13: PASS random_2_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 581/0/9/0/0
+13: PASS random_3_z4.5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 257/0/9/0/0
+13: PASS ramp_0_trench-stairs: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 134/0/1/207/0
+13: PASS ramp_1_pool-steps: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/1/47/0
+13: PASS ramp_2_mezz-stairs: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 27/0/1/568/0
+13: PASS pad_pad-court: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1/0/1/0/0
+13: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+13: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 107/1/2/0/0
+13: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 567/0/0/72/0
+13: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 584/2/9/0/0
+13: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 61/0/1/34/0
+13: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+13: PASS legacy trajectories q3-gallery: 14 scenarios, 12720 ticks (106 s), bit-exact ticks 12720, worst |error| 0, tolerance 1e-09; contacts horizontal 3556, ceiling 5, landings 49, steps 928, recoveries 0; native state hash 3c18e4de32268258
+ 4/14 Test #13: physics_legacy_trajectories_q3-gallery ........   Passed    0.11 sec
+test 16
+      Start 16: enemy_legacy_tapes_helios-crucible
+
+16: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "helios-crucible" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/helios-crucible_enemies.bin"
+16: Working Directory: /home/claude/n2/build-clang-release
+16: Test timeout computed to be: 1500
+16: PASS stand_still: 3000 ticks, bit-exact 2331, max |error| 4.44089e-16 (yaw @ tick 2331), wave 1, kills 0, deaths 3, routes 34/34 (shared 1), random draws 858
+16: PASS fight_spin: 3600 ticks, bit-exact 3479, max |error| 1.77636e-15 (vx @ tick 3496), wave 1, kills 1, deaths 3, routes 202/213 (shared 6), random draws 1701
+16: PASS sprint_circuit: 3600 ticks, bit-exact 3600, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 188/193 (shared 6), random draws 768
+16: PASS wave_progression: 4200 ticks, bit-exact 4200, max |error| 0 (x @ tick 0), wave 3, kills 64, deaths 1, routes 63/63 (shared 1), random draws 1737
+16: PASS flyers_wave5: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 3, routes 83/89 (shared 0), random draws 1072
+16: PASS death_and_restart: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 2, routes 58/79 (shared 2), random draws 777
+16: PASS legacy enemies helios-crucible: 6 scenarios, 19200 ticks (160 s), bit-exact ticks 18410, worst |error| 1.77636e-15, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 65, player deaths 13, routes 628 (16 shared), random draws 6913; native state hash 4be9d78b976ce18d
+ 5/14 Test #16: enemy_legacy_tapes_helios-crucible ............   Passed    1.80 sec
+test 17
+      Start 17: enemy_legacy_tapes_bastion-keep
+
+17: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "bastion-keep" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/bastion-keep_enemies.bin"
+17: Working Directory: /home/claude/n2/build-clang-release
+17: Test timeout computed to be: 1500
+17: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 14/14 (shared 1), random draws 349
+17: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 97/103 (shared 1), random draws 730
+17: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 0, routes 72/77 (shared 2), random draws 340
+17: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 29/32 (shared 1), random draws 891
+17: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 71/72 (shared 2), random draws 658
+17: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 53/54 (shared 1), random draws 625
+17: PASS legacy enemies bastion-keep: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9600, worst |error| 0, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 10, highest wave 5, kills 30, player deaths 4, routes 336 (8 shared), random draws 3593; native state hash c7b6fc877e60b407
+ 6/14 Test #17: enemy_legacy_tapes_bastion-keep ...............   Passed    1.14 sec
+test 18
+      Start 18: enemy_legacy_tapes_reactor-bastion
+
+18: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "reactor-bastion" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/reactor-bastion_enemies.bin"
+18: Working Directory: /home/claude/n2/build-clang-release
+18: Test timeout computed to be: 1500
+18: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 17/22 (shared 1), random draws 356
+18: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 4, deaths 1, routes 112/130 (shared 4), random draws 702
+18: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 103/106 (shared 3), random draws 602
+18: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 27/58 (shared 1), random draws 871
+18: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 3, deaths 1, routes 69/75 (shared 5), random draws 915
+18: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 44/49 (shared 1), random draws 484
+18: PASS legacy enemies reactor-bastion: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9600, worst |error| 0, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 37, player deaths 5, routes 372 (15 shared), random draws 3930; native state hash 9be6af56284c9973
+ 7/14 Test #18: enemy_legacy_tapes_reactor-bastion ............   Passed    1.20 sec
+test 19
+      Start 19: enemy_legacy_tapes_q3-gallery
+
+19: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "q3-gallery" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/q3-gallery_enemies.bin"
+19: Working Directory: /home/claude/n2/build-clang-release
+19: Test timeout computed to be: 1500
+19: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 22/22 (shared 1), random draws 522
+19: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 1, deaths 1, routes 106/122 (shared 2), random draws 927
+19: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 87/87 (shared 5), random draws 850
+19: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 40/40 (shared 4), random draws 878
+19: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 2, deaths 1, routes 78/78 (shared 5), random draws 1313
+19: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 47/47 (shared 4), random draws 821
+19: PASS legacy enemies q3-gallery: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9600, worst |error| 0, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 33, player deaths 5, routes 380 (21 shared), random draws 5311; native state hash 9e0d1a1a69c65505
+ 8/14 Test #19: enemy_legacy_tapes_q3-gallery .................   Passed    1.12 sec
+test 24
+      Start 24: weapon_fx_legacy_tapes
+
+24: Test command: /home/claude/n2/build-clang-release/cat_arena_fx_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n5/helios_combat.bin" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n5/helios_weapon_fx.bin"
+24: Working Directory: /home/claude/n2/build-clang-release
+24: Test timeout computed to be: 1500
+24: PASS weapon_00_nailgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 26126, cosmetic draws 877
+24: PASS weapon_01_shotgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 28668, cosmetic draws 624
+24: PASS weapon_02_grenade_launcher: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 32744, cosmetic draws 902
+24: PASS weapon_03_railgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 21459, cosmetic draws 214
+24: PASS weapon_04_rocket_launcher: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 31267, cosmetic draws 815
+24: PASS weapon_05_super_nailgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 24827, cosmetic draws 618
+24: PASS weapon_06_thunderbolt: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 26235, cosmetic draws 1101
+24: PASS weapon_07_super_shotgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 26054, cosmetic draws 485
+24: PASS weapon_08_plasma_repeater: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 23020, cosmetic draws 436
+24: PASS weapon_09_triple_spike: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 27837, cosmetic draws 756
+24: PASS weapon_10_rift_cannon: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 23099, cosmetic draws 540
+24: PASS weapon_11_iron_chaingun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 44378, cosmetic draws 1453
+24: PASS weapon_12_hand_cannon: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 20268, cosmetic draws 321
+24: PASS weapon_13_hellfire_carbine: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 23790, cosmetic draws 497
+24: PASS weapon_14_sawblade_driver: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 20916, cosmetic draws 471
+24: PASS weapon_15_quad_shotgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 28744, cosmetic draws 677
+24: PASS kills_and_reroll: 900 ticks, bit-exact 900, worst camera/recoil error 0, worst checksum error 0, quads 45455, cosmetic draws 892
+24: PASS rocket_and_grenade_jump: 700 ticks, bit-exact 700, worst camera/recoil error 0, worst checksum error 0, quads 27297, cosmetic draws 384
+24: PASS rocket_at_feet_moving: 420 ticks, bit-exact 420, worst camera/recoil error 0, worst checksum error 0, quads 21044, cosmetic draws 436
+24: PASS splash_falloff_rocket: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 31599, cosmetic draws 771
+24: PASS splash_falloff_grenade: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 27879, cosmetic draws 678
+24: PASS splash_falloff_rift: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 21445, cosmetic draws 507
+24: PASS grenade_arcs: 900 ticks, bit-exact 900, worst camera/recoil error 0, worst checksum error 0, quads 48933, cosmetic draws 1207
+24: PASS recoil_shotgun: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 16930, cosmetic draws 159
+24: PASS recoil_super_shotgun: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 18795, cosmetic draws 238
+24: PASS recoil_quad_shotgun: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 20217, cosmetic draws 319
+24: PASS headshots_rail_handcannon: 420 ticks, bit-exact 420, worst camera/recoil error 0, worst checksum error 0, quads 14791, cosmetic draws 112
+24: PASS health_pickup: 2100 ticks, bit-exact 2100, worst camera/recoil error 0, worst checksum error 0, quads 52739, cosmetic draws 0
+24: PASS fire_while_moving: 700 ticks, bit-exact 700, worst camera/recoil error 0, worst checksum error 0, quads 38331, cosmetic draws 1088
+24: PASS legacy weapon effects: 29 scenarios, 18220 ticks, bit-exact ticks 18220; viewmodel camera / glow / recoil / muzzle worst |error| 0 (tolerance 1e-09); batch checksums worst |error| 0; quad counts, light counts and 17578 cosmetic random draws identical; 814887 quads built, largest main batch 98, 8603 lights requested, 8603 uploaded to the shaders (selection equal to the legacy); native state hash db998305f47476f0
+ 9/14 Test #24: weapon_fx_legacy_tapes ........................   Passed    0.64 sec
+test 26
+      Start 26: enemy_fx_legacy_animation_helios-crucible
+
+26: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_fx_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "helios-crucible" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/helios-crucible_enemies.bin" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/helios-crucible_poses.bin"
+26: Working Directory: /home/claude/n2/build-clang-release
+26: Test timeout computed to be: 1500
+26: PASS stand_still: 3000 ticks, bit-exact 3000, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+26: PASS fight_spin: 3600 ticks, bit-exact 3600, max |error| 0 (poseSum.hipL @ tick 0), animation draws 90
+26: PASS sprint_circuit: 3600 ticks, bit-exact 3600, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+26: PASS wave_progression: 4200 ticks, bit-exact 4200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 162
+26: PASS flyers_wave5: 2400 ticks, bit-exact 2400, max |error| 0 (poseSum.hipL @ tick 0), animation draws 91
+26: PASS death_and_restart: 2400 ticks, bit-exact 2400, max |error| 0 (poseSum.hipL @ tick 0), animation draws 76
+26: PASS legacy enemy animation helios-crucible: 6 scenarios, 19200 ticks, 168213 poses evaluated, bit-exact ticks 19200, worst |error| 0, tolerance 2e-05; most bodies 1, animation draws 543; native pose hash 942cc6a4769e3472
+10/14 Test #26: enemy_fx_legacy_animation_helios-crucible .....   Passed    2.83 sec
+test 27
+      Start 27: enemy_fx_legacy_animation_bastion-keep
+
+27: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_fx_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "bastion-keep" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/bastion-keep_enemies.bin" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/bastion-keep_poses.bin"
+27: Working Directory: /home/claude/n2/build-clang-release
+27: Test timeout computed to be: 1500
+27: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+27: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 47
+27: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 22
+27: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+27: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 63
+27: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+27: PASS legacy enemy animation bastion-keep: 6 scenarios, 9600 ticks, 92841 poses evaluated, bit-exact ticks 9600, worst |error| 0, tolerance 2e-05; most bodies 0, animation draws 312; native pose hash e92ff4f26aab2c8d
+11/14 Test #27: enemy_fx_legacy_animation_bastion-keep ........   Passed    1.68 sec
+test 28
+      Start 28: enemy_fx_legacy_animation_reactor-bastion
+
+28: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_fx_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "reactor-bastion" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/reactor-bastion_enemies.bin" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/reactor-bastion_poses.bin"
+28: Working Directory: /home/claude/n2/build-clang-release
+28: Test timeout computed to be: 1500
+28: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+28: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 54
+28: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+28: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+28: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 78
+28: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+28: PASS legacy enemy animation reactor-bastion: 6 scenarios, 9600 ticks, 91349 poses evaluated, bit-exact ticks 9600, worst |error| 0, tolerance 2e-05; most bodies 3, animation draws 354; native pose hash 7eae7a5f5120e22d
+12/14 Test #28: enemy_fx_legacy_animation_reactor-bastion .....   Passed    1.76 sec
+test 29
+      Start 29: enemy_fx_legacy_animation_q3-gallery
+
+29: Test command: /home/claude/n2/build-clang-release/cat_arena_enemy_fx_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "q3-gallery" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/q3-gallery_enemies.bin" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n6/q3-gallery_poses.bin"
+29: Working Directory: /home/claude/n2/build-clang-release
+29: Test timeout computed to be: 1500
+29: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+29: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 53
+29: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+29: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 83
+29: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 68
+29: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+29: PASS legacy enemy animation q3-gallery: 6 scenarios, 9600 ticks, 89587 poses evaluated, bit-exact ticks 9600, worst |error| 0, tolerance 2e-05; most bodies 1, animation draws 344; native pose hash df4ca5ce583572d4
+13/14 Test #29: enemy_fx_legacy_animation_q3-gallery ..........   Passed    1.73 sec
+test 31
+      Start 31: combat_legacy_tapes
+
+31: Test command: /home/claude/n2/build-clang-release/cat_arena_combat_tests "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/../assets/n1" "/home/claude/n2/CAT_ARENA_NATIVE_REWRITE/native/tests/fixtures/n5/helios_combat.bin"
+31: Working Directory: /home/claude/n2/build-clang-release
+31: Test timeout computed to be: 1500
+31: PASS weapon_00_nailgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 33, detonations 0, frags 0, random draws 86, hp 100
+31: PASS weapon_01_shotgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 40, detonations 0, frags 0, random draws 106, hp 100
+31: PASS weapon_02_grenade_launcher: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 14, detonations 4, frags 0, random draws 39, hp 100
+31: PASS weapon_03_railgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 7, detonations 0, frags 0, random draws 16, hp 100
+31: PASS weapon_04_rocket_launcher: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 6, detonations 3, frags 0, random draws 17, hp 100
+31: PASS weapon_05_super_nailgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 19, detonations 1, frags 0, random draws 55, hp 100
+31: PASS weapon_06_thunderbolt: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 43, detonations 0, frags 0, random draws 112, hp 100
+31: PASS weapon_07_super_shotgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 43, detonations 0, frags 0, random draws 113, hp 100
+31: PASS weapon_08_plasma_repeater: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 17, detonations 0, frags 0, random draws 44, hp 100
+31: PASS weapon_09_triple_spike: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 26, detonations 0, frags 0, random draws 71, hp 100
+31: PASS weapon_10_rift_cannon: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 20, detonations 3, frags 0, random draws 49, hp 89
+31: PASS weapon_11_iron_chaingun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 45, detonations 0, frags 0, random draws 116, hp 100
+31: PASS weapon_12_hand_cannon: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 12, detonations 0, frags 0, random draws 29, hp 100
+31: PASS weapon_13_hellfire_carbine: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 9, detonations 1, frags 0, random draws 27, hp 100
+31: PASS weapon_14_sawblade_driver: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 8, detonations 0, frags 0, random draws 21, hp 100
+31: PASS weapon_15_quad_shotgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 60, detonations 1, frags 0, random draws 153, hp 100
+31: PASS kills_and_reroll: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), pellets 63, detonations 1, frags 4, random draws 132, hp 100
+31: PASS rocket_and_grenade_jump: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), pellets 0, detonations 2, frags 0, random draws 0, hp 29
+31: PASS rocket_at_feet_moving: 420 ticks, bit-exact 420, max |error| 0 (x @ tick 0), pellets 0, detonations 2, frags 0, random draws 0, hp 64
+31: PASS splash_falloff_rocket: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 0, detonations 3, frags 0, random draws 15, hp 100
+31: PASS splash_falloff_grenade: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 0, detonations 3, frags 0, random draws 15, hp 100
+31: PASS splash_falloff_rift: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 0, detonations 3, frags 0, random draws 21, hp 100
+31: PASS grenade_arcs: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), pellets 0, detonations 5, frags 0, random draws 5, hp 100
+31: PASS recoil_shotgun: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 24, detonations 0, frags 0, random draws 55, hp 100
+31: PASS recoil_super_shotgun: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 42, detonations 0, frags 0, random draws 93, hp 100
+31: PASS recoil_quad_shotgun: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 60, detonations 0, frags 0, random draws 133, hp 100
+31: PASS headshots_rail_handcannon: 420 ticks, bit-exact 420, max |error| 0 (x @ tick 0), pellets 3, detonations 0, frags 0, random draws 9, hp 100
+31: PASS health_pickup: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), pellets 0, detonations 0, frags 0, random draws 0, hp 100
+31: PASS fire_while_moving: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), pellets 36, detonations 0, frags 0, random draws 82, hp 100
+31: PASS legacy combat: 29 scenarios, 18220 ticks (151.833 s), bit-exact ticks 18220, worst |error| 0, tolerance 1e-09; weapons fired 16/16, pellets 630 (world or target hit 468, target 272), detonations 32, frags 4, random draws 1614; native state hash 36759acbc0ae3d1
+14/14 Test #31: combat_legacy_tapes ...........................   Passed    0.08 sec
+
+The following tests passed:
+	physics_legacy_trajectories
+	physics_legacy_trajectories_bastion-keep
+	physics_legacy_trajectories_reactor-bastion
+	physics_legacy_trajectories_q3-gallery
+	enemy_legacy_tapes_helios-crucible
+	enemy_legacy_tapes_bastion-keep
+	enemy_legacy_tapes_reactor-bastion
+	enemy_legacy_tapes_q3-gallery
+	weapon_fx_legacy_tapes
+	enemy_fx_legacy_animation_helios-crucible
+	enemy_fx_legacy_animation_bastion-keep
+	enemy_fx_legacy_animation_reactor-bastion
+	enemy_fx_legacy_animation_q3-gallery
+	combat_legacy_tapes
+
+100% tests passed, 0 tests failed out of 14
+
+Total Test time (real) =  14.41 sec

@@ -1,3 +1,28 @@
+# N7 test matrix — 2026-11-12
+
+Linux: Ubuntu 24.04 container, GCC 13.3 / clang 18.1, Mesa lavapipe (llvmpipe), Xvfb, no sound card.
+Windows: GitHub Actions windows-2022, MSVC (VS 2022), no GPU. Legacy side: Chromium 153 + Playwright.
+Logs: docs/n7-evidence.
+
+| Check | Result | Evidence / scope |
+|---|---|---|
+| Core-only build + CTest: GCC Debug, GCC Release, clang Release (36 tests each) | PASS 36/36 each, 0 compiler warnings | linux-matrix/core-*, core-release-*, clang-release-*.txt |
+| Desktop build + CTest: GCC Debug, GCC Release, clang Debug (67 tests each) | PASS 67/67 each, 0 compiler warnings | linux-matrix/desktop-*, clang-desktop-*.txt |
+| Desktop ASan + UBSan + LeakSanitizer + CTest (67) | PASS 67/67, no sanitizer report | linux-matrix/asan-desktop-*.txt |
+| Earlier matrix runs during N7 | run 1: clang builds FAIL (unused constant, fixed); run 2: `window_menu_selftest` FAIL once in a parallel CTest (now RUN_SERIAL, explicit capture wait); both re-run above | linux-matrix/earlier-runs |
+| Legacy replays: 14 replay hashes / bit-exact counts in the 7 Linux builds | PASS: identical in all 7 builds, identical to N6.5 and to Windows | linux-matrix/hash-by-build.txt, windows-ci/run2-replay-summary-windows.txt |
+| `audio_webaudio_parity`: decoding (49 files), 7 Web Audio graphs vs Chromium, legacy sound rules | PASS (relative RMS 6.1e-8 … 4.9e-2 within per-graph limits) | docs/N7_UI_AUDIO.md §2 |
+| `ui_menus_settings_hud` (936 checks): 65 settings vs the legacy recording, presets, persistence, font atlas (0 missing), keyboard-only navigation (47/47 controls), mouse / touch, HUD on 5 sizes, capture rules, FPS statistics, touch controls | PASS | N7_UI_AUDIO.md §7 |
+| `window_menu_selftest` (Xvfb + lavapipe): home → maps → loading → game → fire → pause → settings (FOV, volume) → main menu → exit, settings file written | PASS in all 4 desktop builds; also with SDL's dummy audio driver (1,093,632 frames mixed) | linux-matrix/menu-selftest-*.log |
+| UI captures, validation layers on: 4 sizes (1280x720 x2, 2400x1080 touch, 800x480) | PASS: exit 0, no warning / error lines | native-ui/*.log |
+| Comparison with legacy pages (side by side) | Visual comparison only (no PSNR threshold for UI) | legacy_left_native_right.jpg |
+| Windows run 1 (43335019026) | FAIL: MSVC C2015 in ui_font.cpp (target without /utf-8); fixed | windows-ci/run1-43335019026-failed-steps.log |
+| Windows run 2 (43336140592): MSVC build, package check, ZIP, artifact, CTest without GPU (36), start without GPU | PASS: 0 warnings in project code (2 in SDL), package 766 files / 97 MiB, artifact `CAT_ARENA_FERAL_CLAW_N7_WINDOWS` 13997451666 (35,146,465 bytes), 36/36, clean "Vulkan is not available" | windows-ci/run2-43336140592-job.log |
+| Windows with a GPU / sound card: menus, rendering, audio, input | NOT_RUN (no GPU or sound on hosted runners, no Windows PC) | — |
+| Android: pointer capture, touch, safe area on a device | NOT_RUN (N9) | unit tests only |
+| Real sound card on Linux | NOT_RUN (none in the container) | — |
+| Gamepad | NOT_RUN (no device) | — |
+
 # N6.5 test matrix — 2026-11-11 / 12
 
 Windows: GitHub Actions windows-2022 runner, MSVC 19.44 (VS 2022 17.14), Windows SDK 10.0.26100, no

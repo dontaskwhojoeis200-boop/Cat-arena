@@ -18,9 +18,15 @@ players read `README_WINDOWS.md`.
   legacy Web Audio graph that matches Chromium on recorded graphs; sounds follow the legacy rules.
   Gameplay replays are unchanged.
 
-Status: Linux — built and tested in seven configurations (docs/TEST_MATRIX.md). Windows — see
-`docs/TEST_MATRIX.md` (GitHub Actions run and artifact). Not yet played on Windows with a GPU, not
-heard on a real sound card, not run on Android.
+Status:
+- Linux: built and tested in seven configurations (36 core / 67 desktop tests each, all PASS; legacy
+  replays identical in every build).
+- Windows: built, packaged and tested (36 GPU-free tests PASS) by GitHub Actions run
+  https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43336140592 on branch `n7`;
+  game folder = artifact `CAT_ARENA_FERAL_CLAW_N7_WINDOWS`
+  (https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43336140592/artifacts/13997451666).
+  Replays identical to Linux.
+- Not yet played on Windows with a GPU, not heard on a real sound card, not run on Android.
 
 Run: `cat_arena` (menus), `cat_arena --map reactor-bastion` (loading screen of that map),
 `cat_arena --menu-selftest`, `cat_arena --offscreen 1280x720 --ui-capture out/` (docs/BUILD.md, N7).

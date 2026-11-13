@@ -1,0 +1,5 @@
+[1/5] Building CXX object CMakeFiles/cat_arena_ui.dir/src/menu.cpp.o
+[2/5] Linking CXX static library libcat_arena_ui.a
+[3/5] Linking CXX executable cat_arena_ui_tests
+[4/5] Building CXX object CMakeFiles/cat_arena.dir/src/main.cpp.o
+[5/5] Linking CXX executable cat_arena

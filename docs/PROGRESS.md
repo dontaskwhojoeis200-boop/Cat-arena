@@ -6,8 +6,9 @@ open items (MD3 prop models, portal / mirror feeds, PVS — still open).
 N5 (16 weapons, projectiles, damage, pickups, weapon viewmodel, effects, HUD), N5.1 (dynamic
 lights, medkit billboards), N6 (enemies, waves, AI, animation, Marine Cats) and N6.5 (Windows
 build in GitHub Actions) delivered.
-**N7 (menus, settings, HUD, audio): implemented and tested on Linux; Windows build in GitHub Actions
-(README_N7.md). Not yet played on Windows with a GPU or heard on a real sound card.**
+**N7 (menus, settings, HUD, audio): implemented; Linux matrix PASS; Windows build, package and
+GPU-free tests PASS in GitHub Actions (run 43336140592, artifact CAT_ARENA_FERAL_CLAW_N7_WINDOWS).
+Not yet played on Windows with a GPU or heard on a real sound card.**
 Earlier trackers: docs/history/N0 … N6_5.
 
 ## N7 result (docs/N7_UI_AUDIO.md, docs/DEVELOPMENT_LOG_N7.md)
@@ -112,7 +113,7 @@ Earlier trackers: docs/history/N0 … N6_5.
 | Menus, settings | **N7: legacy routing and look; 40 of 65 settings act (8 with a difference), 25 stored (N10)** |
 | Audio | **N7: legacy sounds and music; mixer matches Chromium Web Audio graphs; not heard on real hardware** |
 | Network, Android | Not started (N8, N9) |
-| Windows build | **N6.5: built and GPU-free tests pass in GitHub Actions; not run with a GPU** |
+| Windows build | **N7: built, packaged, 36 GPU-free tests pass in GitHub Actions; not run with a GPU** |
 | Android build | NOT_RUN (no toolchain / device in runner) |
 
 ## Next

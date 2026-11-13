@@ -1,0 +1,590 @@
+windows-x64	Build (C++20 and SPIR-V)	﻿2026-11-13T00:12:18.6063692Z ##[group]Run cmake --build --preset windows-release --parallel 2>&1 | Tee-Object -FilePath ../ci-logs/build.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6064372Z [36;1mcmake --build --preset windows-release --parallel 2>&1 | Tee-Object -FilePath ../ci-logs/build.txt[0m
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6064787Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6065241Z [36;1mGet-ChildItem build/windows-release/shaders/*.spv | Measure-Object | ForEach-Object { "SPIR-V files: $($_.Count)" }[0m
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6065804Z [36;1mGet-Item build/windows-release/Release/CatArena.exe | Format-List Name, Length[0m
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6093619Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6093884Z env:
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6094118Z   MILESTONE: N7
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6094550Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.6094810Z ##[endgroup]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.9202959Z MSBuild version 17.14.60+43b635718 for .NET Framework
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:18.9388540Z 
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:19.2551417Z   1>Checking Build System
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:19.5089299Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:19.5611948Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:19.6401532Z   cmake_pch.cxx
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:19.6949277Z   ResourceLimits.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:20.5991396Z   resource_limits_c.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:20.8090287Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:21.6141122Z   glslang-default-resource-limits.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\glslang-default-resource-limits.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.0564210Z   glslang_c_interface.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.1593208Z   CodeGen.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.1662817Z   Link.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.1737286Z   ossource.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.4748864Z   glslang_tab.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.6228533Z   attribute.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.6682891Z   Constant.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:22.7242942Z   iomapper.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.0179026Z   InfoSink.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.0267835Z   Initialize.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.1898613Z   IntermTraverse.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.2060938Z   Intermediate.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.3526464Z   ParseContextBase.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.4403433Z   ParseHelper.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.9185458Z   PoolAlloc.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.9406670Z   RemoveTree.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:23.9513872Z   Scan.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:24.2226213Z   ShaderLang.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:24.5615657Z   SpirvIntrinsics.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:24.6860162Z   SymbolTable.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:24.7517932Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:38.7151797Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:38.7152686Z   Versions.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:38.7923779Z   intermOut.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:38.8339118Z   limits.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:38.8495520Z   linkValidate.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:39.1162297Z   parseConst.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:39.1302152Z   reflection.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:39.2982117Z   Pp.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:39.5292325Z   PpAtom.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:39.7116351Z   PpContext.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:39.8975673Z   PpScanner.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:40.1002897Z   PpTokens.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:40.2794299Z   propagateNoContraction.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:40.4991792Z   GlslangToSpv.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:41.3752886Z   InReadableOrder.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:41.5556370Z   Logger.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:41.5918791Z   SpvBuilder.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:42.1671756Z   SpvPostProcess.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:42.6244031Z   doc.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:42.7354977Z   SpvTools.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:42.7403944Z   disassemble.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:42.8780224Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:58.1157016Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:58.1157356Z   spirv_c_interface.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:58.1382511Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:58.3225069Z   glslang.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\glslang.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:12:58.3678801Z   Generating D:/a/Cat-arena/Cat-arena/native/build/windows-release/include/glslang/glsl_intrinsic_header.h
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:00.2591394Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/StandAlone/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:00.3119515Z   StandAlone.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.4237557Z   glslang-standalone.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\StandAlone\Release\glslang.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.5118585Z   Generating shaders/dynamic.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.6017535Z   D:/a/Cat-arena/Cat-arena/native/shaders/dynamic.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.6059480Z   Generating shaders/dynamic.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.6967212Z   D:/a/Cat-arena/Cat-arena/native/shaders/dynamic.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.7006875Z   Generating shaders/enemy.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.7946906Z   D:/a/Cat-arena/Cat-arena/native/shaders/enemy.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.7985831Z   Generating shaders/enemy.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.8913613Z   D:/a/Cat-arena/Cat-arena/native/shaders/enemy.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.8955987Z   Generating shaders/fx.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.9825235Z   D:/a/Cat-arena/Cat-arena/native/shaders/fx.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:10.9863473Z   Generating shaders/fx.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.0744491Z   D:/a/Cat-arena/Cat-arena/native/shaders/fx.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.0782950Z   Generating shaders/gun.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.1827161Z   D:/a/Cat-arena/Cat-arena/native/shaders/gun.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.1865580Z   Generating shaders/gun.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.2769702Z   D:/a/Cat-arena/Cat-arena/native/shaders/gun.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.2810592Z   Generating shaders/hud.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.3708125Z   D:/a/Cat-arena/Cat-arena/native/shaders/hud.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.3747328Z   Generating shaders/hud.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.4646104Z   D:/a/Cat-arena/Cat-arena/native/shaders/hud.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.4685529Z   Generating shaders/material.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.5611961Z   D:/a/Cat-arena/Cat-arena/native/shaders/material.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.5650713Z   Generating shaders/material.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.6588771Z   D:/a/Cat-arena/Cat-arena/native/shaders/material.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.6627562Z   Generating shaders/sky.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.7519049Z   D:/a/Cat-arena/Cat-arena/native/shaders/sky.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.7557281Z   Generating shaders/sky.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.8472817Z   D:/a/Cat-arena/Cat-arena/native/shaders/sky.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.8511188Z   Generating shaders/skybox.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.9602442Z   D:/a/Cat-arena/Cat-arena/native/shaders/skybox.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:11.9641856Z   Generating shaders/skybox.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.0501159Z   D:/a/Cat-arena/Cat-arena/native/shaders/skybox.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.0540481Z   Generating shaders/solid.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.1427423Z   D:/a/Cat-arena/Cat-arena/native/shaders/solid.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.1466017Z   Generating shaders/triangle.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.2368401Z   D:/a/Cat-arena/Cat-arena/native/shaders/triangle.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.2407100Z   Generating shaders/triangle.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.3312616Z   D:/a/Cat-arena/Cat-arena/native/shaders/triangle.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.3351436Z   Generating shaders/ui.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.4268355Z   D:/a/Cat-arena/Cat-arena/native/shaders/ui.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.4307676Z   Generating shaders/ui.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.5212386Z   D:/a/Cat-arena/Cat-arena/native/shaders/ui.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.5255581Z   Generating shaders/world.frag.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.6175943Z   D:/a/Cat-arena/Cat-arena/native/shaders/world.frag
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.6214043Z   Generating shaders/world.vert.spv
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.7123565Z   D:/a/Cat-arena/Cat-arena/native/shaders/world.vert
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.7161953Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.8134954Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.8951347Z   stub.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.8953251Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:12.9317655Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-src/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.0044059Z   stub.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.1077100Z   SDL_test_assert.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.1281459Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-src/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.1499900Z   GenericCodeGen.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\GenericCodeGen.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.1950486Z   SDL_test_common.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.2646400Z   e_atan2.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.2962638Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/glslang/OSDependent/Windows/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.2999841Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.3568488Z   MachineIndependent.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\Release\MachineIndependent.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.3836881Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/glslang-src/SPIRV/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.3975920Z   SDL_test_compare.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.4297103Z   assets.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.4321085Z   e_exp.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.4823476Z   stub.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.5152554Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.5186021Z   SDL_test_crc32.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.5478998Z   e_fmod.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.6458814Z   SDL_test_font.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.6823824Z   e_log.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.7310641Z   core.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.7807271Z   SDL_test_fuzzer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.8289318Z   e_log10.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.8677510Z   SDL_test_harness.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.9009509Z   stub.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:13.9636130Z   e_pow.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.0221477Z   SDL_test_log.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.0537306Z   e_rem_pio2.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.0820178Z   OSDependent.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\glslang\OSDependent\Windows\Release\OSDependent.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.1497349Z   SDL_test_md5.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.1798034Z   e_sqrt.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.2665335Z   SDL_test_memory.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.3372536Z   k_cos.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.3715283Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.4769740Z   SPIRV.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\glslang-build\SPIRV\Release\SPIRV.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.5568307Z   k_rem_pio2.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.5926943Z   k_sin.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.6431799Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.6649894Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.7601666Z   k_tan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.8527930Z   s_atan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:14.9800706Z   s_copysign.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.1806513Z   s_cos.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.2521729Z   image_codec.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.3261938Z   s_fabs.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.4650495Z   s_floor.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.5650016Z   s_isinf.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.6001417Z   SDL3_test.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\Release\SDL3_test.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:15.6003189Z   vulkan_caps.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:16.0282798Z   s_isinff.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:16.1787416Z   s_isnan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:16.9501661Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:18.7952999Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:18.8359084Z   s_isnanf.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.0766939Z   s_modf.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.3593016Z   s_scalbn.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.6704583Z   s_sin.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.6991215Z   s_tan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.7511541Z   cat_arena_vkcaps.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_vkcaps.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.7596037Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.8441438Z   js_math_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.8775049Z   cat_arena_core.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_core.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.8799851Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.9299353Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.9560297Z   cat_image_codec.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_image_codec.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.9601139Z   cat_arena_assets.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_assets.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:19.9999580Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:20.0013034Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:20.0062413Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:20.0871572Z   asset_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:20.0883558Z   asset_check.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:20.1656966Z   SDL_uclibc.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\Release\SDL_uclibc.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:20.4076097Z   core_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:21.3222743Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:21.3314834Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:21.6104786Z   physics_world.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:22.5497419Z   vkcaps_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:22.9263277Z   headless.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:24.8989113Z   player.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:25.5435227Z   cat_arena_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:25.5929184Z   cat_arena_asset_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_asset_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:25.6223378Z   cat_arena_asset_check.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_asset_check.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:25.7003133Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-src/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:25.8500951Z   cat_arena_js_math_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_js_math_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:25.9582678Z   cmake_pch.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.0250450Z   cat_arena_headless.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_headless.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.0745196Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.1640009Z   scene.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.1974981Z   SDL.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.3292744Z   SDL_assert.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.3726598Z   cat_arena_vkcaps_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_vkcaps_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.4489143Z   SDL_error.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.4567985Z   SDL_guid.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.4639999Z   SDL_hashtable.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.4737240Z   SDL_hints.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.4827767Z   SDL_list.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.4882838Z   SDL_log.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.6036740Z   SDL_properties.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.6168360Z   SDL_utils.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.6291502Z   SDL_atomic.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.6373595Z   SDL_spinlock.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.7452754Z   SDL_audio.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.8297042Z   SDL_audiocvt.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.8502133Z   SDL_audiodev.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.8573851Z   SDL_audioqueue.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.8663507Z   SDL_audioresample.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.8790050Z   SDL_audiotypecvt.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.8920996Z   SDL_mixer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.9019996Z   SDL_wave.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:26.9191580Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:27.0302055Z   navigation.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:27.7931090Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:27.7932620Z   SDL_camera.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:27.8810876Z   SDL_core_unsupported.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:27.8893051Z   SDL_cpuinfo.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:27.9847702Z   SDL_categories.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.0014295Z   SDL_clipboardevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.0124497Z   SDL_displayevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.0226553Z   SDL_dropevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.0337980Z   SDL_events.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.1395120Z   SDL_eventwatch.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.1460300Z   SDL_keyboard.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.1585216Z   SDL_keymap.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.1673065Z   SDL_keysym_to_keycode.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.1741783Z   SDL_keysym_to_scancode.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.1791385Z   SDL_mouse.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.2730130Z   SDL_pen.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.2869342Z   SDL_quit.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.3026759Z   SDL_scancode_tables.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.3098228Z   SDL_touch.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.3269619Z   SDL_windowevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.3435923Z   imKStoUCS.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.3491499Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.9372796Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.9373586Z   SDL_filesystem.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.9458466Z   SDL_gpu.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.9793671Z   SDL_haptic.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:28.9923345Z   SDL_hidapi.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:29.1190476Z   SDL_asyncio.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:29.1298888Z   SDL_iostream.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:29.4752416Z   SDL_asyncio_generic.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:29.7967525Z   SDL_gamepad.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.1066146Z   SDL_joystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.3983421Z   combat.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.5928797Z   SDL_steam_virtual_gamepad.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.7839447Z   controller_type.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.8405919Z   SDL_locale.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.8496290Z   SDL_main_callbacks.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.8580719Z   SDL_runapp.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.8716848Z   SDL_url.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.8735149Z   SDL_power.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.8840735Z   SDL_d3dmath.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.9198707Z   SDL_render.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:30.9281004Z   SDL_render_unsupported.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:31.1429326Z   SDL_yuv_sw.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:31.2206008Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.4066129Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.4066910Z   SDL_render_d3d.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.7164802Z   SDL_shaders_d3d.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.8668175Z   cat_arena_scene.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_scene.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.9084888Z   SDL_render_d3d11.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.9233039Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.9245495Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:32.9904225Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:33.0966267Z   enemies.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:33.3162160Z   SDL_shaders_d3d11.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:33.5138274Z   scene_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:33.5150570Z   image_compare.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:33.5540402Z   SDL_render_d3d12.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:33.8265304Z   SDL_shaders_d3d12.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.1234816Z   SDL_pipeline_gpu.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.1424230Z   SDL_render_gpu.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.1703343Z   SDL_shaders_gpu.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.2824877Z   SDL_render_gl.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.3925759Z   SDL_shaders_gl.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.5008304Z   SDL_render_gles2.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.5171583Z   SDL_shaders_gles2.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.5289913Z   SDL_render_ps2.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.5367647Z   SDL_render_psp.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.5625522Z   SDL_blendfillrect.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.5955004Z   SDL_blendline.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.6171882Z   SDL_blendpoint.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.6300237Z   SDL_drawline.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.6922041Z   SDL_drawpoint.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:34.7672204Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:36.4522880Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.3068583Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.5373563Z   SDL_render_sw.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.6522227Z   SDL_rotate.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.8239221Z   SDL_triangle.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.8471004Z   SDL_render_vita_gxm.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.8590035Z   SDL_render_vita_gxm_memory.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.8607371Z   SDL_render_vita_gxm_tools.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.8837089Z   SDL_render_vulkan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:39.8871459Z   ui_font.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0513117Z   SDL_shaders_vulkan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0513957Z   SDL_sensor.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0658292Z D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-src\src\render\vulkan\SDL_render_vulkan.c(3766,10): warning C5286: implicit conversion from enum type 'VkFilter' to enum type 'SDL_ScaleMode'; use an explicit cast to silence this warning [D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\SDL3-shared.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0663126Z   (compiling source file '_deps/sdl3-src/src/render/vulkan/SDL_render_vulkan.c')
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0663869Z   
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0665570Z D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-src\src\render\vulkan\SDL_render_vulkan.c(3778,10): warning C5286: implicit conversion from enum type 'VkFilter' to enum type 'SDL_ScaleMode'; use an explicit cast to silence this warning [D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\SDL3-shared.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0667645Z   (compiling source file '_deps/sdl3-src/src/render/vulkan/SDL_render_vulkan.c')
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0668289Z   
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0668641Z   SDL_crc16.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0669010Z   SDL_crc32.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.0714047Z   SDL_getenv.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.1934040Z   SDL_iconv.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2018608Z   SDL_malloc.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2111366Z   SDL_memcpy.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2167403Z   SDL_memmove.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2246774Z   SDL_memset.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2347901Z   SDL_murmur3.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2429754Z   SDL_qsort.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2599721Z   SDL_random.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.2716770Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.4183232Z   cat_arena_image_compare.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_image_compare.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.4766668Z   cat_arena_scene_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_scene_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.6031458Z   cat_arena_physics.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_physics.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.6878773Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.6949574Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.7576084Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:40.8958219Z   nav_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.1174176Z   weapon_fx.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.2896811Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.3267072Z   SDL_stdlib.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.3548792Z   SDL_string.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.4752101Z   SDL_strtokr.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.4937514Z   SDL_storage.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.6561469Z   SDL_thread.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.7269721Z   SDL_time.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.7720932Z   SDL_timer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.8257638Z   SDL_RLEaccel.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.8552054Z   audio_codec.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.8922545Z   SDL_blit.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:41.9112885Z   SDL_blit_0.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0046654Z   SDL_blit_1.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0178226Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,23): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0353809Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,32): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0499162Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,45): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0672378Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,58): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0700238Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,70): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.0870968Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,83): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.2222940Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,96): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.3168672Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,109): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.5518348Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,118): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:42.9630545Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,128): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:43.3868424Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,139): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:43.7783466Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,151): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:43.8479184Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,163): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:44.0600580Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,175): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:44.6243792Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,188): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:44.9673428Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,200): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.1271291Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,212): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.3085582Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,224): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.5167225Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,236): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.6785929Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,248): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.7515628Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,260): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.7669696Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(24,271): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:45.9671038Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,23): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:46.2522847Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,34): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:46.4717084Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,45): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:46.6754689Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,57): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:46.9115951Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,66): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.0108299Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,75): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.0977119Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,84): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.1895575Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,93): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.2792314Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,102): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.2838546Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,114): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.2930752Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,126): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.2961722Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,138): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3151184Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,151): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3592162Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,160): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3594753Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,175): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3597094Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,184): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3599414Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,196): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3601623Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,208): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3603831Z D:\a\Cat-arena\Cat-arena\native\src\ui_font.cpp(25,221): error C2015: too many characters in constant [D:\a\Cat-arena\Cat-arena\native\build\windows-release\cat_ui_font.vcxproj]
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3605428Z   SDL_blit_A.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3607031Z   SDL_blit_N.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3608238Z   SDL_blit_auto.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3609392Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3610670Z   SDL_blit_copy.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3611886Z   SDL_blit_slow.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3613143Z   SDL_bmp.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3614244Z   SDL_clipboard.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3615572Z   SDL_egl.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3616579Z   SDL_fillrect.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3617684Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3618800Z   hud.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3619855Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3620912Z   SDL_pixels.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3621935Z   SDL_rect.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3623267Z   SDL_stb.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3624348Z   SDL_stretch.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3625396Z   SDL_surface.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3626382Z   SDL_video.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3627281Z   combat_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3628254Z   SDL_video_unsupported.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.3629002Z   SDL_vulkan_utils.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.4453753Z   cat_arena_nav_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_nav_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.4507772Z   SDL_yuv.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.4841400Z   yuv_rgb_lsx.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.4848236Z   yuv_rgb_sse.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5279726Z   cat_audio_codec.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_audio_codec.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5341370Z   yuv_rgb_std.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5646060Z   SDL_dummyaudio.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5673573Z   SDL_diskaudio.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5745458Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5836098Z   SDL_camera_dummy.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.5908550Z   SDL_virtualjoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.6055745Z   SDL_nullevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.6216586Z   SDL_nullframebuffer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.6346568Z   SDL_nullvideo.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.6529501Z   SDL_gameinput.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.7207029Z   audio_mixer.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.8614940Z   enemy_fx.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:47.9228804Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:50.2237844Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:50.3489484Z   SDL_hid.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:50.4271810Z   SDL_immdevice.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:50.5898196Z   SDL_windows.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:51.1149532Z   SDL_xinput.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:51.5215213Z   pch.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:51.7253693Z   audio_game.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:51.7509747Z   SDL_sysmain_runapp.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:51.8345236Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:52.1314409Z   SDL_asyncio_windows_ioring.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:52.5376208Z   SDL_sysurl.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:52.7572389Z   SDL_directsound.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:52.9135199Z   SDL_wasapi.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:53.0139060Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:53.1945018Z   enemy_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:54.2074610Z   SDL_surface_utils.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:54.5654216Z   SDL_windowsclipboard.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:54.8527921Z   SDL_windowsevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:54.9735540Z   cat_arena_fx.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_fx.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:54.9784089Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.0201131Z   SDL_windowsframebuffer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.0578902Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.0657764Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.1467195Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.1756409Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.3874253Z   physics_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:55.8538655Z   SDL_windowsgameinput.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:56.1220652Z   SDL_windowskeyboard.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:56.5729354Z   SDL_windowsmessagebox.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:56.7415665Z   SDL_windowsmodes.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:56.7898785Z   hud_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:56.9636270Z   enemy_fx_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:57.1663931Z   SDL_windowsmouse.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:57.7138457Z   SDL_windowsopengl.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:58.8101065Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:59.4355653Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:59.5955057Z   SDL_windowsopengles.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:13:59.8168171Z   SDL_windowsrawinput.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:00.4844739Z   SDL_windowsshape.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:00.9383942Z   SDL_windowsvideo.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:01.5879793Z   SDL_windowsvulkan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:01.7233004Z   cat_arena_audio.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_audio.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:02.4385932Z   SDL_windowswindow.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:02.8129677Z   SDL_syscond.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:02.8569450Z   SDL_sysrwlock.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:02.8954856Z   fx_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.0124497Z   SDL_syscond_cv.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.0646645Z   SDL_sysmutex.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.2572602Z   SDL_sysrwlock_srw.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.2938323Z   SDL_syssem.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.3914406Z   cat_arena_enemy_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_enemy_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.4049555Z   SDL_systhread.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.5297028Z   SDL_systls.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.5695497Z   cat_arena_hud_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_hud_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.6306337Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.6668922Z   SDL_windowssensor.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.7842005Z   audio_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:03.8985567Z   cat_arena_physics_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_physics_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.0060348Z   SDL_syspower.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.0790669Z   SDL_syslocale.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.2045701Z   SDL_sysfilesystem.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.2951183Z   cat_arena_combat_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_combat_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.3422329Z   cat_arena_enemy_fx_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_enemy_fx_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.7271790Z   SDL_sysfsops.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.8297757Z   SDL_genericstorage.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:04.8401422Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:05.1300804Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:05.1301652Z   SDL_steamstorage.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:05.1380835Z   SDL_systime.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:05.2598554Z   SDL_systimer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:05.3712187Z   SDL_sysloadso.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:05.9801288Z   SDL_tray.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.3007241Z   SDL_hidapi_combined.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.3916940Z   SDL_hidapi_gamecube.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.4043264Z   SDL_hidapi_luna.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.4156973Z   SDL_hidapi_ps3.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.4470567Z   SDL_hidapi_ps4.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.4629110Z   SDL_hidapi_ps5.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.4785168Z   SDL_hidapi_rumble.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.6125469Z   SDL_hidapi_shield.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.6286290Z   SDL_hidapi_stadia.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.6425047Z   SDL_hidapi_steam.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.6615117Z   SDL_hidapi_steam_hori.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.6742999Z   SDL_hidapi_steamdeck.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.6884327Z   SDL_hidapi_switch.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.7057757Z   SDL_hidapi_wii.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.7184513Z   SDL_hidapi_xbox360.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:06.7292789Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.0713397Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.2203710Z   SDL_hidapi_xbox360w.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.2823960Z   SDL_hidapi_xboxone.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.2853514Z   SDL_hidapijoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.4137910Z   SDL_dinputjoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.6022939Z   cat_arena_fx_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_fx_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:08.6174023Z   SDL_rawinputjoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:09.1306707Z   cat_arena_audio_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_audio_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:13.4070597Z   SDL_windows_gaming_input.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:13.9511738Z   SDL_windowsjoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.0883025Z   SDL_xinputjoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.2135775Z   SDL_gameinputjoystick.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.3650896Z   SDL_dinputhaptic.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.4919749Z   SDL_windowshaptic.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.6183775Z   SDL_camera_mediafoundation.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.7723187Z   SDL_dialog.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.7782673Z   SDL_dialog_utils.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.7844267Z   SDL_windowsdialog.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:14.9971260Z   SDL_process.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.0031713Z   SDL_windowsprocess.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.0796422Z   SDL_offscreenevents.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.0901071Z   SDL_offscreenframebuffer.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.0988978Z   SDL_offscreenopengles.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.1754097Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.8442915Z   Compiling...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.8443250Z   SDL_offscreenvideo.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:15.9225177Z   SDL_offscreenvulkan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:16.0150172Z   SDL_offscreenwindow.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:16.0927757Z   SDL_tray_utils.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:16.1036497Z   SDL_gpu_d3d12.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:16.2877370Z   SDL_gpu_vulkan.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:16.3380828Z   SDL_sysmain_callbacks.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:16.3465542Z   Generating Code...
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:17.3620978Z   SDL_dynapi.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:18.5379349Z   SDL_mslibc.c
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:19.2261857Z      Creating library D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-build/Release/SDL3.lib and object D:/a/Cat-arena/Cat-arena/native/build/windows-release/_deps/sdl3-build/Release/SDL3.exp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:19.3375099Z   SDL3-shared.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\_deps\sdl3-build\Release\SDL3.dll
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:19.3903725Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:19.4451712Z   renderer.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:23.9429584Z   cat_arena_render.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_render.lib
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:23.9969499Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:24.0452340Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/native/CMakeLists.txt
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:24.0996633Z   render_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:24.1103906Z   path_tests.cpp
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:26.9445183Z   cat_arena_render_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_render_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:27.4113969Z   cat_arena_path_tests.vcxproj -> D:\a\Cat-arena\Cat-arena\native\build\windows-release\Release\cat_arena_path_tests.exe
+windows-x64	Build (C++20 and SPIR-V)	2026-11-13T00:14:27.4744084Z ##[error]Process completed with exit code 1.
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	﻿2026-11-13T00:14:27.4876239Z ##[group]Run $p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--headless-test" -Wait -PassThru -NoNewWindow
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4877010Z [36;1m$p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--headless-test" -Wait -PassThru -NoNewWindow[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4877538Z [36;1m"headless self-test exit code: $($p.ExitCode)" | Tee-Object -FilePath ci-logs/smoke.txt[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4878114Z [36;1m$p = Start-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "--vk-info","--log-file","ci-logs/vk-info.log" -Wait -PassThru -NoNewWindow[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4878802Z [36;1m"vk-info exit code: $($p.ExitCode) (0 = a Vulkan device was found; 1 = no Vulkan, see vk-info.log)" | Tee-Object -FilePath ci-logs/smoke.txt -Append[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4879435Z [36;1mif (Test-Path ci-logs/vk-info.log) { Get-Content ci-logs/vk-info.log | Tee-Object -FilePath ci-logs/smoke.txt -Append }[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4907866Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4908220Z env:
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4908364Z   MILESTONE: N7
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4908588Z   VS_PATH: C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:27.4908844Z ##[endgroup]
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:28.2155213Z [31;1mStart-Process: [0mD:\a\_temp\e45f92d6-11c5-4ec0-95b4-ba0d06b2b29f.ps1:2[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:28.2155862Z [31;1m[0m[36;1mLine |[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:28.2156561Z [31;1m[0m[36;1m[36;1m   2 | [0m $p = [36;1mStart-Process -FilePath "$env:PKG/CatArena.exe" -ArgumentList "-[0m …[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:28.2157407Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:28.2158411Z [31;1m[0m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mThis command cannot be run due to the error: The system cannot find the file specified.[0m
+windows-x64	Smoke start without a GPU (expects a clean Vulkan error, not a crash)	2026-11-13T00:14:28.2550773Z ##[error]Process completed with exit code 1.

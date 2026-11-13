@@ -59,7 +59,8 @@ All legacy replays are bit-identical to N6.5 (TEST_MATRIX.md).
 
 **Output.** SDL3 audio stream, stereo float at 48 kHz, pulled by the device thread. Without a
 device the game runs silent and logs it (seen on the build machine: no sound card; with
-`SDL_AUDIO_DRIVER=dummy` the device path mixed 1,176,576 frames in the menu self-test). The
+`SDL_AUDIO_DRIVER=dummy` the device path mixed 1,093,632 frames in the menu self-test,
+`docs/n7-evidence/linux-matrix/menu-selftest-dummy-audio.log`). The
 soundtrack plays only in a game (returnMenu pauses it), pauses while the window is minimized /
 hidden (document.hidden), and starts with the first deliberate action (PLAY, ENTER, TEST AUDIO).
 

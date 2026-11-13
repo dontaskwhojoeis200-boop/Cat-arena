@@ -1,0 +1,15 @@
+=== core (/home/claude/n2/build-core) Thu Nov 12 07:59:12 PST 2026
+core: 100% tests passed, 0 tests failed out of 36
+=== core-release (/home/claude/n2/build-core-release) Thu Nov 12 08:00:51 PST 2026
+core-release: 100% tests passed, 0 tests failed out of 36
+=== clang-release (/home/claude/n2/build-clang-release) Thu Nov 12 08:01:30 PST 2026
+BUILD FAIL clang-release
+=== desktop-debug (/home/claude/n2/build-desktop) Thu Nov 12 08:01:51 PST 2026
+desktop-debug: 100% tests passed, 0 tests failed out of 67
+=== desktop-release (/home/claude/n2/build-desktop-release) Thu Nov 12 08:05:53 PST 2026
+desktop-release: 100% tests passed, 0 tests failed out of 67
+=== clang-desktop (/home/claude/n2/build-clang) Thu Nov 12 08:07:49 PST 2026
+BUILD FAIL clang-desktop
+=== asan-desktop (/home/claude/n2/build-asan) Thu Nov 12 08:08:02 PST 2026
+asan-desktop: 100% tests passed, 0 tests failed out of 67
+=== done Thu Nov 12 08:18:53 PST 2026
