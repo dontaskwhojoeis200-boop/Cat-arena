@@ -10,6 +10,7 @@
 #include "cat/navigation.hpp"
 #include "cat/relay.hpp"
 
+#include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <cstdio>
@@ -128,6 +129,18 @@ void rules(const World& w) {
             a.step({});
             check(std::abs(a.teammate(m.key)->hp - 70) < 1e-9 && a.pickups().front().cool > 12.9, "a teammate on a medkit heals 40, cooldown 13 s");
         }
+    }
+    {
+        combat::Arena a(*w.collision, 7);
+        a.spawn(sp.x, sp.y, sp.z, sp.a);
+        combat::Horde h(a, *w.graph);
+        auto dead = h.stage_enemy(0, sp.x, sp.y, sp.z, sp.a);
+        dead.hp = -50;
+        h.enemy_died(dead);
+        check(h.deaths().back().gibbed && h.corpses().empty(), "default overkill produces gibs");
+        h.set_gibs(false);
+        h.enemy_died(dead);
+        check(!h.deaths().back().gibbed && h.corpses().size() == 1, "gibs off preserves a normal death animation");
     }
     {   // guest side: no damage authority, puppets from snapshots
         combat::Arena a(*w.collision, 8);
@@ -261,7 +274,10 @@ void network(const World& w, const std::string& external) {
         c[1]->keys = 0;
         play(60);
         check(c[1]->arena->frags() == frags + 1, "guest 1's shot killed the host's enemy and the 'frag' came back");
-        check(c[2]->saw(net::CoopEvent::Kind::remote_volley), "the other guests saw guest 1's volley (shotFx)");
+        const auto& seen = c[2]->events;
+        check(std::any_of(seen.begin(), seen.end(), [&](const net::CoopEvent& e) {
+            return e.kind == net::CoopEvent::Kind::remote_volley && e.positioned && std::hypot(e.x - gp.x, e.y - gp.y) < .5;
+        }), "another guest received a positioned shotFx for guest 1's volley");
     }
     {
         auto& host = *c[0]->arena;

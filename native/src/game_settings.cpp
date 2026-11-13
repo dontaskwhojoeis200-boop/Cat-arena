@@ -62,12 +62,12 @@ std::vector<SettingDef> make_defs() {
     d.push_back(select(T::graphics, "gfxFilter", "TEXTURE FILTER", "trilinear", {{"trilinear", "TRILINEAR · LINEAR_MIPMAP_LINEAR"}, {"bilinear", "BILINEAR · LINEAR_MIPMAP_NEAREST"}, {"nearest", "NEAREST · crisp pixels"}}, S::stored, kN10));
     d.push_back(select(T::graphics, "gfxAniso", "ANISOTROPY", "4", {{"0", "OFF"}, {"2", "2×"}, {"4", "4×"}, {"8", "8×"}, {"16", "16×"}}, S::stored, "Native: fixed at 4× (the normal preset) where supported; switching is N10."));
     d.push_back(select(T::graphics, "gfxShadows", "SHADOWS", "1", {{"0", "OFF"}, {"1", "BLOB · soft disc"}, {"3", "PROJECTED · body silhouette"}}, S::applied, {}, "EFFECTS (GAME OPTIONS)"));
-    d.push_back(select(T::graphics, "gfxEffects", "EFFECTS DETAIL", "1", {{"1", "HIGH · full particles"}, {"0.7", "MEDIUM"}, {"0.45", "LOW · fewer particles"}}, S::stored, kN10));
-    d.push_back(toggle(T::graphics, "gfxMarks", "Marks on walls", true, S::stored, kN10));
-    d.push_back(toggle(T::graphics, "gfxBrass", "Ejecting brass", true, S::stored, kN10));
-    d.push_back(toggle(T::graphics, "gfxBlood", "Blood [com_blood]", true, S::stored, kN10));
-    d.push_back(toggle(T::graphics, "gfxGibs", "Gibs", true, S::stored, kN10));
-    d.push_back(range(T::graphics, "gfxRail", "RAIL TRAIL TIME", .6, .2, 1.6, .05, S::stored, kN10));
+    d.push_back(select(T::graphics, "gfxEffects", "EFFECTS DETAIL", "1", {{"1", "HIGH · full particles"}, {"0.7", "MEDIUM"}, {"0.45", "LOW · fewer particles"}}));
+    d.push_back(toggle(T::graphics, "gfxMarks", "Marks on walls", true));
+    d.push_back(toggle(T::graphics, "gfxBrass", "Ejecting brass", true));
+    d.push_back(toggle(T::graphics, "gfxBlood", "Blood [com_blood]", true));
+    d.push_back(toggle(T::graphics, "gfxGibs", "Gibs", true));
+    d.push_back(range(T::graphics, "gfxRail", "RAIL TRAIL TIME", .6, .2, 1.6, .05));
     d.push_back(select(T::graphics, "gfxLmFilter", "LIGHTMAP FILTER", "bilinear", {{"bilinear", "BILINEAR · SMOOTH"}, {"nearest", "NEAREST · visible luxels"}}, S::stored, kN10, "ID TECH 3 RENDERER"));
     d.push_back(range(T::graphics, "gfxLmIntensity", "LIGHTMAP INTENSITY", 1, .6, 1.6, .05));
     d.push_back(select(T::graphics, "gfxCurves", "CURVE DETAIL", "2", {{"0", "LOW · 16 cm error"}, {"1", "MEDIUM · 6 cm"}, {"2", "HIGH · 2.5 cm"}, {"3", "ULTRA · 1 cm"}}, S::stored, kN10));

@@ -97,6 +97,7 @@ public:
     const std::vector<ShotImpact>& impacts() const { return impacts_; }   // of the last tick
     const std::vector<DeathEvent>& deaths() const { return deaths_; }     // of the last tick, in order
     void begin_step() { deaths_.clear(); }
+    void set_gibs(bool enabled) { gibs_ = enabled; }
     const NavStats& nav_stats() const { return nav_stats_; }
     std::size_t nav_queue() const { return queue_.size(); }
     int nav_active_expanded() const { return job_ ? static_cast<int>(job_->expanded) : -1; }
@@ -148,6 +149,7 @@ private:
     int wave_number_{1}, wave_total_{10}, wave_spawned_{}, wave_kills_{};
     double wave_cooldown_{-1}, wave_spawn_timer_{}, ai_acc_{};
     bool wave_reset_pending_{}, pending_purge_{};
+    bool gibs_{true};
     int search_pool_{};
     std::uint32_t waves_begun_{};
     std::uint32_t serial_{}, epoch_{}, next_shot_id_{1}, next_corpse_id_{1};

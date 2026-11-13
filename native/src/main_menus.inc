@@ -99,6 +99,8 @@
         if(session) {
             session->fov = fov; session->light_grid = light_grid; session->enemy_options.shadows = shadow_mode;
             session->effects.set_viewmodel({gs.number("vmAngleOffset"), gs.number("vmSizeFov"), gs.number("vmVerticalOffset")});
+            session->effects.set_settings({gs.number("gfxEffects"), gs.number("gfxRail"), gs.flag("gfxMarks"), gs.flag("gfxBrass"), gs.flag("gfxBlood")});
+            if(session->horde) session->horde->set_gibs(gs.flag("gfxGibs"));
             session->arena.player().view().bob_scale = gs.number("motionStrength") / 100.0;
         }
         if(gs.flag("vsyncEnabled") != vsync_now && !no_vsync) { vsync_now = !vsync_now; renderer.set_present_mode(vsync_now); }
@@ -368,7 +370,7 @@
     std::vector<std::unique_ptr<CoopBot>> bots;
     struct {
         int stage{}, presses{}, waited{};
-        bool menus_ok{}, typed_ok{}, hosting_ok{}, listed_ok{}, joined_ok{}, world_ok{}, marines_ok{}, tags_ok{}, damage_ok{}, revive_ok{}, menu_runs_ok{}, left_ok{}, quit_ok{};
+        bool menus_ok{}, typed_ok{}, hosting_ok{}, listed_ok{}, joined_ok{}, world_ok{}, marines_ok{}, tags_ok{}, remote_fire_ok{}, damage_ok{}, revive_ok{}, menu_runs_ok{}, left_ok{}, quit_ok{};
         double t0{}, paused_at{};
         std::uint64_t host_ticks{};
         std::size_t tags{}, marines{};
@@ -469,10 +471,12 @@
                 ct.tags = coop_tags_drawn; ct.tags_ok = ct.tags >= 1;
                 // freeze the wave from here: only the test deals damage
                 session->arena.clear_targets(); session->horde->stage_wave(1, 50, 50, 0); session->god = true;
+                bots[0]->keys = cat::combat::key_fire;
                 ct.host_ticks = simulation.ticks(); ct.stage = 9; break;
             }
             case 9: {   // guest 1 is downed by the host's simulation, guest 2 stands next to it and holds F
                 if(simulation.ticks() < ct.host_ticks + 120) break;
+                bots[0]->keys = 0;
                 cat::combat::Teammate* m = mate_of(*bots[0]);
                 if(!m) { fail("no teammate for guest 1 on the host"); break; }
                 session->arena.remote_damage(*m, 500);
@@ -571,7 +575,12 @@
                     leave_server(); stop_game(); menu.show_multiplayer();
                     break;
                 case EK::restart: restart_pending = true; break;
-                case EK::remote_volley: if(session && !load.active) audio.gun(e.weapon); break;
+                case EK::remote_volley:
+                    if(session && !load.active) {
+                        audio.gun(e.weapon);
+                        if(e.positioned) session->effects.remote_fire(session->arena, e.weapon, e.x, e.y, e.z, e.yaw, e.pitch, e.crouch);
+                    }
+                    break;
             }
         }
         if(local_relay && relay_stop_at >= 0 && !coop.busy() && (local_relay->stats().peers == 0 || net_now() > relay_stop_at)) {
@@ -787,6 +796,12 @@
             }
             if(menu_input) lx = ly = sx = sy = 0;
             session->step({k, lx, ly, sx, sy}, aspect);
+            for(const auto& shot : session->arena.events().remote_shots) {
+                audio.gun(shot.weapon);
+                const auto* shooter = session->arena.teammate(shot.key);
+                if(shooter && shooter->pose_ms >= 0)
+                    session->effects.remote_fire(session->arena, shot.weapon, shooter->x, shooter->y, shooter->z, shooter->a, shooter->pitch, shooter->crouch);
+            }
             coop.after_step();
             if(coop.mode() == cat::net::Coop::Mode::host && session->arena.events().wipe) wipe_pending = true;
             const auto& pl = session->arena.player().state();
@@ -819,6 +834,11 @@
                     session->enemy_options.guests.push_back(g);
                 }
                 o = session->build(size); session->light(*view);
+                if(coop_selftest && ct.stage == 9 && !ct.remote_fire_ok) {
+                    ct.remote_fire_ok = std::any_of(session->frame.main.vertices.begin(), session->frame.main.vertices.end(), [](const cat::fx::Vertex& v) {
+                        return v.tile == static_cast<float>(cat::fx::tile_flash_star);
+                    });
+                }
                 cat::ui::HudView hv; hv.settings = &gs; hv.scale = scale; hv.safe = safe; hv.touch = modes.touch(); hv.captured = relative_on; hv.show_mouse_status = !modes.touch();
                 hv.perf = perf_lines(gs, perf.summary(), renderer.stats(), renderer.timestamps_supported());
                 hv.pressed = touch.pressed(); hv.knob_x = touch.stick_x(); hv.knob_y = touch.stick_y();
@@ -891,11 +911,11 @@
         std::error_code ec; if(!game_settings_file) std::filesystem::remove(settings_path, ec);
     }
     if(coop_selftest) {
-        const bool ok = ct.failure.empty() && ct.menus_ok && ct.typed_ok && ct.hosting_ok && ct.listed_ok && ct.joined_ok && ct.world_ok && ct.marines_ok && ct.tags_ok && ct.damage_ok && ct.revive_ok && ct.menu_runs_ok && ct.left_ok && ct.quit_ok;
+        const bool ok = ct.failure.empty() && ct.menus_ok && ct.typed_ok && ct.hosting_ok && ct.listed_ok && ct.joined_ok && ct.world_ok && ct.marines_ok && ct.tags_ok && ct.remote_fire_ok && ct.damage_ok && ct.revive_ok && ct.menu_runs_ok && ct.left_ok && ct.quit_ok;
         auto yn = [](bool b) { return b ? "yes" : "no"; };
         cat::log(ok ? "info" : "error", "app", std::string("Co-op self-test ") + (ok ? "PASS" : "FAIL") + ": hostMenus=" + yn(ct.menus_ok) + " typedName=" + yn(ct.typed_ok) + " hostOnThisPc=" + yn(ct.hosting_ok) +
                      " serverList=" + yn(ct.listed_ok) + " threeGuests=" + yn(ct.joined_ok) + " snapshots=" + yn(ct.world_ok) + " marineCats=" + std::to_string(ct.marines) + " nameTags=" + std::to_string(ct.tags) +
-                     " downed=" + yn(ct.damage_ok) + " revive=" + yn(ct.revive_ok) + " menuKeepsRunning=" + yn(ct.menu_runs_ok) + " leave=" + yn(ct.left_ok) + " exit=" + yn(ct.quit_ok) +
+                     " remoteFire=" + yn(ct.remote_fire_ok) + " downed=" + yn(ct.damage_ok) + " revive=" + yn(ct.revive_ok) + " menuKeepsRunning=" + yn(ct.menu_runs_ok) + " leave=" + yn(ct.left_ok) + " exit=" + yn(ct.quit_ok) +
                      " frames=" + std::to_string(rendered) + " ticks=" + std::to_string(simulation.ticks()) + (ct.failure.empty() ? "" : " failure=\"" + ct.failure + "\""));
         result = ok ? 0 : 3;
         std::error_code ec; if(!game_settings_file) std::filesystem::remove(settings_path, ec);

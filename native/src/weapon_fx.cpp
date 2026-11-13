@@ -12,8 +12,6 @@ using physics::js_hypot;
 using physics::js_hypot3;
 constexpr double kPi = 3.141592653589793;
 constexpr std::size_t kMaxEntities = 420, kMaxMarks = 200, kMaxLights = 64;
-constexpr double kDetail = 1;            // Q3R.S.effects (effects-detail setting), default 1
-constexpr double kRailTrailTime = .6;    // Q3R.S.railTrailTime
 constexpr std::array<double, 3> kWhite{1, 1, 1};
 double js_round(double v) { return std::floor(v + .5); }
 double or1(double v) { return v != 0 ? v : 1; }   // JS `x || 1`
@@ -92,6 +90,20 @@ bool beam(Batch& b, const Camera& cam, double ax, double ay, double az, double b
 
 // ---- effect state -------------------------------------------------------------------------------
 WeaponFx::WeaponFx(const physics::CollisionWorld& world, std::uint32_t seed) : world_(&world), rng_(seed) {}
+void WeaponFx::set_settings(EffectSettings settings) {
+    settings.detail = std::clamp(settings.detail, .45, 1.0);
+    settings.rail_seconds = std::clamp(settings.rail_seconds, .2, 1.6);
+    if(settings_.marks && !settings.marks) marks_.clear();
+    if(settings_.brass && !settings.brass) {
+        pending_.clear();
+        std::erase_if(le_, [](const Entity& e) { return e.tile == tile_brass || e.tile == tile_shell; });
+    }
+    if(settings_.blood && !settings.blood) {
+        std::erase_if(le_, [](const Entity& e) { return e.tile == tile_blood || e.blood; });
+        std::erase_if(marks_, [](const Mark& m) { return m.tile == tile_mark_blood; });
+    }
+    settings_ = settings;
+}
 void WeaponFx::clear() {
     le_.clear(); marks_.clear(); tracers_.clear(); rails_.clear(); pending_.clear(); flash_.reset(); bolt_until_ = -1; projectile_fx_.clear();
 }
@@ -101,7 +113,7 @@ WeaponFx::Entity& WeaponFx::le(const Entity& e) {
     return le_.back();
 }
 void WeaponFx::sparks(double x, double y, double z, double count, const std::array<double, 3>& col, double speed, double life, double nx, double ny, double nz) {
-    const int n = static_cast<int>(js_round(count * kDetail));
+    const int n = static_cast<int>(js_round(count * settings_.detail));
     for(int i = 0; i < n; ++i) {
         const double v = speed * (.4 + random());
         const double dx = nx * .8 + rnd(), dy = ny * .8 + rnd(), dz = nz * .8 + rnd() + .4, l = or1(js_hypot3(dx, dy, dz));
@@ -117,6 +129,7 @@ void WeaponFx::puff(double x, double y, double z, double size, double life, cons
         .r = col[0], .g = col[1], .b = col[2], .add = 0, .flags = 0, .tile = tile + pick, .fade_in = .08});
 }
 void WeaponFx::add_mark(double x, double y, double z, double nx, double ny, double nz, double size, int tile, const std::array<double, 3>& col, double alpha, const MarkOptions& opt) {   // addMark (cg_marks)
+    if(!settings_.marks) return;
     if(marks_.size() >= kMaxMarks) marks_.erase(marks_.begin());
     double ux = -ny, uy = nx, uz = 0;
     if(std::fabs(nz) > .9) { ux = 1; uy = 0; uz = 0; }
@@ -175,7 +188,8 @@ std::array<double, 3> WeaponFx::muzzle_world_at(const Camera& cam, int weapon, d
 // ---- impacts ------------------------------------------------------------------------------------
 void WeaponFx::blood(double x, double y, double z, double dx, double dy, double dz, double amount) {
     (void)dz;
-    const int n = static_cast<int>(std::max(1.0, js_round(2 * amount * kDetail)));
+    if(!settings_.blood) { sparks(x, y, z, 3, {1, .8, .6}, 3, .25); return; }
+    const int n = static_cast<int>(std::max(1.0, js_round(2 * amount * settings_.detail)));
     for(int i = 0; i < n; ++i) {
         const double bx = x + rnd(.08), by = y + rnd(.08), bz = z + rnd(.08), vx = -dx * 1.2 + rnd(1.4), vy = -dy * 1.2 + rnd(1.4), vz = rnd(.6) + .6;
         const double life = .5 + random() * .25, rot = random() * 6.28;
@@ -271,7 +285,7 @@ void WeaponFx::impact(int index, double hx, double hy, double hz, double dx, dou
 
 // ---- explosions -----------------------------------------------------------------------------------
 void WeaponFx::explosion(double x, double y, double z, double power, bool rift) {
-    const double d = kDetail;
+    const double d = settings_.detail;
     const std::array<double, 3> col = rift ? std::array<double, 3>{.8, .55, 1} : std::array<double, 3>{1, .62, .3};
     le({.life = .11, .x = x, .y = y, .z = z, .s0 = 2.2 * power, .s1 = 3.2 * power, .a0 = 1, .a1 = 0, .r = rift ? .85 : 1, .g = rift ? .7 : .88, .b = rift ? 1 : .6, .tile = tile_glow});
     if(rift) {
@@ -324,11 +338,11 @@ void WeaponFx::fire(const combat::Arena& arena, int index, const std::vector<com
     recoil_.k = def.recoil_k; recoil_.vb += def.recoil_back * 15; recoil_.vc += def.recoil_climb * 24;
     recoil_.vr += rnd(def.recoil_roll * 20); recoil_.vy += rnd(def.recoil_jitter * 20);
     le({.life = def.flash_life * 1.6, .x = m[0], .y = m[1], .z = m[2], .s0 = 0, .s1 = 0, .a0 = 0, .a1 = 0, .has_light = true, .light = {def.light[0] * 1.4, def.light[1] * 1.4, def.light[2] * 1.4, def.light[3]}});
-    if(def.smoke != 0) for(int i = 0; i < static_cast<int>(js_round(def.smoke * 2 * kDetail)); ++i) {
+    if(def.smoke != 0) for(int i = 0; i < static_cast<int>(js_round(def.smoke * 2 * settings_.detail)); ++i) {
         const double life = .8 + random() * .5;
         puff(m[0] + cam.forward[0] * .25, m[1] + cam.forward[1] * .25, m[2] + cam.forward[2] * .25, .45 * def.smoke, life, {.75, .73, .7}, .28, tile_smoke1, .35);
     }
-    if(def.brass != BrassKind::none) for(int i = 0; i < (def.brass_count ? def.brass_count : 1); ++i) pending_.push_back({def.brass_delay, def.brass, def.brass_scale});
+    if(settings_.brass && def.brass != BrassKind::none) for(int i = 0; i < (def.brass_count ? def.brass_count : 1); ++i) pending_.push_back({def.brass_delay, def.brass, def.brass_scale});
     if(def.kind == ShotKind::rail) rail_charge_ = 0;
     const auto& weapon = combat::weapons()[static_cast<std::size_t>(index)];
     for(std::size_t i = 0; i < shots.size(); ++i) {
@@ -338,7 +352,7 @@ void WeaponFx::fire(const combat::Arena& arena, int index, const std::vector<com
         const double dl = or1(js_hypot3(dir[0], dir[1], dir[2]));
         dir[0] /= dl; dir[1] /= dl; dir[2] /= dl;
         if(def.kind == ShotKind::rail) {
-            rails_.push_back({m[0], m[1], m[2], s.x, s.y, s.z, 0, std::max(.2, kRailTrailTime), random() * 6.28, def.color});
+            rails_.push_back({m[0], m[1], m[2], s.x, s.y, s.z, 0, settings_.rail_seconds, random() * 6.28, def.color});
             if(s.hit) impact(index, s.x, s.y, s.z, dir[0], dir[1], dir[2], s.target, 1);
         } else if(def.kind == ShotKind::bolt) {
             bolt_until_ = ctx.now + weapon.delay * 1.9; bolt_def_ = index; bolt_range_ = weapon.range;
@@ -347,7 +361,37 @@ void WeaponFx::fire(const combat::Arena& arena, int index, const std::vector<com
             // pellets: a few tracers, every impact (up to 8)
             const bool pellet = def.kind == ShotKind::pellet;
             tracers_.push_back({m[0], m[1], m[2], s.x, s.y, s.z, 0, dist / (def.speed != 0 ? def.speed : 80), index, s.hit, s.target, dir, !pellet || i < 3, random() * 6.28, 0,
-                                !pellet || i < static_cast<std::size_t>(std::max(3.0, js_round(8 * kDetail)))});
+                                !pellet || i < static_cast<std::size_t>(std::max(3.0, js_round(8 * settings_.detail)))});
+        }
+    }
+}
+void WeaponFx::remote_fire(const combat::Arena& arena, int index, double x, double y, double z, double yaw, double pitch, double crouch) {
+    if(index < 0 || index >= static_cast<int>(kFxDef.size())) return;
+    const auto& def = def_of(index);
+    const auto& weapon = combat::weapons()[static_cast<std::size_t>(index)];
+    const double cp = jsmath::cos(pitch), cy = jsmath::cos(yaw), sy = jsmath::sin(yaw);
+    const double eye_z = z + std::max(.83, 1.5 - crouch * .6);
+    const double gx = x + cy * cp * .55 + sy * .18, gy = y + sy * cp * .55 - cy * .18, gz = eye_z - jsmath::sin(pitch) * .55 - .14;
+    const auto& color = def.flash_color;
+    le({.life = .07, .x = gx, .y = gy, .z = gz, .s0 = .5 * def.flash_size, .s1 = .7 * def.flash_size,
+        .rot = random() * 6.28, .r = color[0], .g = color[1], .b = color[2], .tile = tile_flash_star});
+    le({.life = def.flash_life * 1.6, .x = gx, .y = gy, .z = gz, .s0 = 0, .s1 = 0, .a0 = 0,
+        .has_light = true, .light = {color[0], color[1], color[2], def.light[3] * .8}});
+    if(def.kind == ShotKind::rocket || def.kind == ShotKind::grenade || def.kind == ShotKind::rift) return;
+
+    // Trace the legacy cosmetic volley using the current world and the cosmetic random stream.
+    const int count = def.kind == ShotKind::pellet ? std::min(3, weapon.pellets) : 1;
+    for(int i = 0; i < count; ++i) {
+        const double az = yaw + rnd(weapon.spread), tilt = pitch + rnd(weapon.spread * .7), cq = jsmath::cos(tilt);
+        const double dx = jsmath::cos(az) * cq, dy = jsmath::sin(az) * cq, dz = -jsmath::sin(tilt);
+        const auto h = arena.shot_sweep(x, y, eye_z, x + dx * weapon.range, y + dy * weapon.range, eye_z + dz * weapon.range, .042);
+        const bool enemy = h.target >= 0;
+        if(def.kind == ShotKind::rail || def.kind == ShotKind::bolt) {
+            rails_.push_back({gx, gy, gz, h.x, h.y, h.z, 0, def.kind == ShotKind::bolt ? .09 : settings_.rail_seconds, random() * 6.28, def.color});
+            if(h.hit) impact(index, h.x, h.y, h.z, dx, dy, dz, enemy, 1);
+        } else {
+            const double duration = js_hypot3(h.x - gx, h.y - gy, h.z - gz) / (def.speed != 0 ? def.speed : 80);
+            tracers_.push_back({gx, gy, gz, h.x, h.y, h.z, 0, duration, index, h.hit, enemy, {dx, dy, dz}, true, random() * 6.28, 0, true});
         }
     }
 }
@@ -451,11 +495,11 @@ void WeaponFx::update(const combat::Arena& arena, double dt) {
         s.st -= dt;
         if(s.st > 0) continue;
         if(p.kind == combat::FireKind::rocket) {
-            s.st = .022 / kDetail;
+            s.st = .022 / settings_.detail;
             const double v = or1(js_hypot3(p.vx, p.vy, p.vz));
             puff(p.x - p.vx / v * .45, p.y - p.vy / v * .45, p.z - p.vz / v * .45, .7, 1.3, {.68, .66, .63}, .42, tile_smoke1, .25);
         } else if(p.kind == combat::FireKind::grenade) {
-            s.st = .04 / kDetail;
+            s.st = .04 / settings_.detail;
             puff(p.x, p.y, p.z, .4, .8, {.7, .7, .68}, .3, tile_smoke1, .2);
         } else {
             s.st = .03;

@@ -10,7 +10,6 @@ namespace {
 using physics::js_hypot;
 using physics::js_hypot3;
 constexpr double kPi = 3.14159265358979323846;
-constexpr double kDetail = 1;   // Q3R.S.effects
 double clampd(double v, double lo, double hi) { return std::max(lo, std::min(hi, v)); }
 double ss01(double a, double b, double t) { t = std::max(0.0, std::min(1.0, (t - a) / (b - a))); return t * t * (3 - 2 * t); }
 double js_round(double v) { return std::floor(v + .5); }
@@ -278,7 +277,8 @@ void EnemyFx::start_death(const combat::DeathEvent& e) {   // enemyStartDeath (1
 }
 void EnemyFx::gibs(double x, double y, double z, double scale) {   // WFX.gibs (10962)
     auto& f = *fx_;
-    const int n = static_cast<int>(js_round(9 * kDetail));
+    if(!f.settings_.blood) { f.explosion(x, y, z + .6, .5, false); return; }
+    const int n = static_cast<int>(js_round(9 * f.settings_.detail));
     for(int i = 0; i < n; ++i) {
         WeaponFx::Entity e;
         e.x = x + f.rnd(.3); e.y = y + f.rnd(.3); e.z = z + .4 + f.random() * 1.2; e.vx = f.rnd(5); e.vy = f.rnd(5); e.vz = 3 + f.random() * 6; e.grav = 16; e.drag = .2; e.life = 4 + f.random() * 2;

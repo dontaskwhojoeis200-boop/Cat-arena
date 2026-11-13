@@ -198,13 +198,13 @@ json::Value Coop::hero_local() const {   // netHero(player)
     const auto& p = arena_->player().state();
     json::Value h;
     h.set("x", q3(p.x)); h.set("y", q3(p.y)); h.set("z", q3(p.z)); h.set("a", q3(p.a)); h.set("pitch", q3(p.pitch)); h.set("vx", q3(p.vx)); h.set("vy", q3(p.vy));
-    h.set("hp", q2(arena_->health())); h.set("downed", p.downed); h.set("step", q3(arena_->player().view().bob_cycle));
+    h.set("hp", q2(arena_->health())); h.set("downed", p.downed); h.set("step", q3(arena_->player().view().bob_cycle)); h.set("crouchOffset", q3(p.crouch_offset));
     return h;
 }
 json::Value Coop::hero(const combat::Teammate& t) const {
     json::Value h;
     h.set("x", q3(t.x)); h.set("y", q3(t.y)); h.set("z", q3(t.z)); h.set("a", q3(t.a)); h.set("pitch", q3(t.pitch)); h.set("vx", q3(t.vx)); h.set("vy", q3(t.vy));
-    h.set("hp", q2(t.hp)); h.set("downed", t.downed); h.set("step", q3(t.step));
+    h.set("hp", q2(t.hp)); h.set("downed", t.downed); h.set("step", q3(t.step)); h.set("crouchOffset", q3(t.crouch));
     return h;
 }
 std::string Coop::world_message(const std::string& guest_id) const {   // netWorldShared + netWorldGuestPart + netSnapshotMessage (15903-15931)
@@ -380,6 +380,7 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
             r->x = safe(info["x"], r->x); r->y = safe(info["y"], r->y); r->z = safe(info["z"], r->z); r->a = safe(info["a"], r->a);
             r->pitch = safe(info["pitch"], 0); r->vx = safe(info["vx"], 0); r->vy = safe(info["vy"], 0); r->hp = safe(info["hp"], r->hp, 0, 100);
             r->downed = info["downed"].truthy(); r->step = safe(info["step"], 0);
+            r->crouch = safe(info["crouchOffset"], 0, 0, .6);
             r->placed = r->x != 0 || r->y != 0;
             r->is_host = id == peer_id_;
             if(r->is_host) { r->color = {.82F, 1.F, .87F}; r->name = peer_name_; }
@@ -411,7 +412,12 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
         const auto weapon = safe(d["weapon"], -1, -1, static_cast<double>(combat::kWeaponCount));
         if(weapon < 0 || weapon >= static_cast<double>(combat::kWeaponCount) || std::floor(weapon) != weapon) return;
         e.weapon = static_cast<int>(weapon);
-        if(r) { r->shoot_until = arena_->now() + .14; e.x = r->x; e.y = r->y; e.z = r->z; }
+        if(r && r->placed) {
+            r->shoot_until = arena_->now() + .14;
+            e.x = r->x; e.y = r->y; e.z = r->z;
+            e.yaw = r->a; e.pitch = r->pitch; e.crouch = r->crouch;
+            e.positioned = true;
+        }
         events_.push_back(e);
     }
 }
@@ -457,7 +463,7 @@ void Coop::sync_host_players() {   // host: display state of the other players f
     if(mode_ != Mode::host || !arena_) return;
     for(auto& p : players_) if(const combat::Teammate* t = arena_->teammate(p.key)) {
         p.x = t->x; p.y = t->y; p.z = t->z; p.a = t->a; p.pitch = t->pitch; p.vx = t->vx; p.vy = t->vy; p.step = t->step; p.hp = t->hp; p.downed = t->downed;
-        p.shoot_until = t->shoot_until; p.placed = t->pose_ms >= 0;
+        p.shoot_until = t->shoot_until; p.placed = t->pose_ms >= 0; p.crouch = t->crouch;
     }
 }
 void Coop::after_step() {

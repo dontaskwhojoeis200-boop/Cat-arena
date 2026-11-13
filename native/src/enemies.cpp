@@ -257,7 +257,7 @@ void Horde::enemy_died(const Target& dead) {   // enemyDeathFx: gibs below -40 h
     DeathEvent e;
     e.uid = dead.uid; e.type = dead.type; e.x = dead.x; e.y = dead.y; e.z = dead.z; e.a = dead.a; e.hp = dead.hp; e.hit_flash = dead.hit_flash;
     e.attack_progress = attack_progress(dead); e.now = arena_->now(); e.player_x = ps.x; e.player_y = ps.y; e.player_z = ps.z; e.flying = dead.flying;
-    e.gibbed = dead.hp <= -40;
+    e.gibbed = gibs_ && dead.hp <= -40;
     e.seq = arena_->next_event_seq();
     if(e.gibbed) { deaths_.push_back(e); return; }
     e.corpse_id = next_corpse_id_;
