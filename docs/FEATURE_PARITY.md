@@ -1,4 +1,4 @@
-# Native feature parity — N7
+# Native feature parity — N9
 
 Rendering parity below is measured against the unmodified legacy game captured in headless
 Chromium (WebGL2 on Mesa lavapipe) at identical poses; it is not a hardware-GPU or perceptual
@@ -13,7 +13,7 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Map selection, internal ids | **N4**: `--map`, `--list-maps`, keys 1-4; ids and wire ids preserved; **N7: maps page with the live preview from the legacy cameras, MAP ↻ button** | — |
 | C++20/CMake/core 120 Hz | Implemented, regression tests pass | — |
 | SDL3 window + Vulkan swapchain | **Executed** (Xvfb, lavapipe): FIFO 120 frames, MAILBOX 400 frames, validation clean | N2.1: live resize executed on 6 Vulkan paths. Hardware GPU and Windows untested |
-| Vulkan compatibility | **N2.1**: 1.2 baseline; optional dynamic rendering, synchronization2, extended dynamic state, push descriptors, host image copy with 1.2 fallbacks; identical frames on every path | Real 1.2/1.3 drivers and hardware GPUs untested (docs/N2_1_VULKAN_COMPATIBILITY.md) |
+| Vulkan compatibility | **N9**: Vulkan 1.1 baseline; Vulkan 1.2–1.4 optional features remain capability-gated; render matrix and simulated 1.1 test pass | Physical legacy Windows driver testing pending |
 | Offscreen Vulkan target + capture | Implemented, used by CI test and parity captures | — |
 | Helios world stream | **Matches legacy** (atlas, lightmap, colour-shift, hum, fog, posterize) | Uses runtime world atlas (assets/n2) |
 | Helios material surfaces (kits, lamps, coolant, strips, reactor beam/flare/glow) | **Matches legacy** at all 7 poses | — |
@@ -22,7 +22,6 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Lightmap | Shipped atlas, exact bytes, legacy sampling/filtering | Vertex-light mode (lightQuality 0) and light-volume mode not exposed |
 | Portal monitor (`$portalfeed`) | Drawn with black feed + scanlines | Live portal camera N10 |
 | Mirrors / MD3 models / PVS / flares | Not implemented | N10; effects, marks and dynamic lights are done (N5, N5.1) |
-| Four maps | Helios rendered; others load (N1) | Bastion Keep, Reactor Bastion, Arsenal N4 |
 | Player movement (walk, sprint, crouch, slide, jump, buffer/coyote, air strafe, slopes) | **N3: matches legacy trajectories** on Helios (21,820 ticks, worst difference 1.8e-15); **N7: sprint hold / toggle / auto, touch stick (legacy touchStick term)** | Touch stick not compared with a legacy tape |
 | Stacked floors/ramps/cavities/deck undersides, steps, walls | **N3: collision ported**, contact counters equal to legacy | Other maps: loads + sanity test only, reference N4 |
 | Jump pads | **N3: matches legacy** (2 pads) | — |
@@ -48,7 +47,7 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Menus: home, maps, loading, pause, exit, multiplayer page, HUD editor | **N7: legacy routing, layout and look** (captures in docs/n7-evidence) | N8 adds host setup, browser, connecting and co-op pause |
 | Settings (65 legacy controls) | **N7: same defaults / ranges / options; 32 applied, 8 partial, 25 stored**; keyboard-only navigation tested | Scene resolution, AA, culling modes, texture / effect detail: N10 |
 | Audio: samples, music, mix, compressor, voices, beeps | **N7: Web Audio graphs match Chromium (RMS 6e-8 … 5e-2); legacy rules tested** | Not heard on real hardware; sound uses its own random stream |
-| Input modes: keyboard / mouse, touch, gamepad, pointer capture | **N7: implemented; capture and mode rules unit-tested** | Android device NOT_RUN (N9); gamepad is a native addition |
+| Input modes: keyboard / mouse, touch, gamepad, pointer capture | **N7: implemented; capture and mode rules unit-tested** | N9 adds Windows movement layouts, mouse options and focus handling. Physical hardware validation is open. |
 | Four-player multiplayer | N8 implemented and tested on Windows loopback | Separate PCs, WAN/TLS and real GPU play remain unverified |
 | Android ARM64 APK | Historical target | Windows 10/11 x64 is the active release target |
 | Shipping EXE/APK | Not built | N11 |

@@ -1,3 +1,7 @@
+## Current Windows build
+
+See [README_N9](../README_N9.md) for the current commands and supported target. The instructions below record earlier milestones.
+
 # Building N0
 
 Run commands from the extracted project root unless noted. No JavaScript runtime

@@ -52,3 +52,22 @@ the value points to the directory containing the `ws` module. Run
 Physical Windows display switching, mouse behavior, audio-device changes and
 legacy GPU performance need hardware testing. The Windows-only roadmap and
 480 MiB application-memory target are in [docs/WINDOWS_ROADMAP.md](docs/WINDOWS_ROADMAP.md).
+
+## Development evidence
+
+- **Implemented** — desktop display controls and fallback, focus-safe
+  relative input, configurable movement and fire button, and audio recovery.
+  The render-pass compatibility path now accepts Vulkan 1.1. Vulkan 1.2–1.4
+  capability detection remains active on those devices.
+- **Tested on Linux** — 41 GPU-free tests passed, including the native
+  and original Node.js relays. The software-Vulkan suite passed 29 of 30
+  tests on the first run. The synthetic input test missed the slide at that
+  run's timing. It passed in an isolated rerun, as did the N8 comparison.
+  Window tests use SDL's offscreen video and dummy audio drivers.
+- **Unverified** — physical Windows launch with a GPU, exclusive fullscreen
+  and refresh switching, raw mouse behavior on physical devices, and WASAPI
+  hotplug. N10–N20 hardware and gameplay acceptance remain pending.
+
+Reactor Bastion retains the existing N4 collision and navigation data, covered
+by the traversal, navigation and enemy replay checks. N10 can use this package
+to test outstanding gameplay and visual parity items on the legacy rig.

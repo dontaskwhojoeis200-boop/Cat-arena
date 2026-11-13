@@ -1,0 +1,10 @@
+Test project /workspace/scratch/a16818ac3257/upstream-linux
+    Start 66: window_input_selftest
+1/1 Test #66: window_input_selftest ............   Passed    9.70 sec
+
+100% tests passed out of 1
+
+Label Time Summary:
+gpu    =   9.70 sec*proc (1 test)
+
+Total Test time (real) =   9.70 sec

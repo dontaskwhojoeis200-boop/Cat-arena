@@ -1,0 +1,22 @@
+Test project /workspace/scratch/a16818ac3257/n9-linux
+    Start  5: render_helios_offscreen
+1/7 Test  #5: render_helios_offscreen ..........   Passed    1.33 sec
+    Start  7: render_map_reactor-bastion
+2/7 Test  #7: render_map_reactor-bastion .......   Passed    0.32 sec
+    Start 28: render_path_matrix
+3/7 Test #28: render_path_matrix ...............   Passed    7.67 sec
+    Start 30: vk_sim_layer_selftest
+4/7 Test #30: vk_sim_layer_selftest ............   Passed    0.06 sec
+    Start 31: render_path_simulated_devices
+5/7 Test #31: render_path_simulated_devices ....   Passed    4.91 sec
+    Start 70: window_menu_selftest
+6/7 Test #70: window_menu_selftest .............   Passed   13.45 sec
+    Start 71: window_coop_selftest
+7/7 Test #71: window_coop_selftest .............   Passed   13.24 sec
+
+100% tests passed out of 7
+
+Label Time Summary:
+gpu    =  40.98 sec*proc (7 tests)
+
+Total Test time (real) =  41.05 sec

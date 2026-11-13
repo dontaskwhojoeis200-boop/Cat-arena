@@ -1,0 +1,10 @@
+Test project /workspace/scratch/a16818ac3257/n9-linux
+    Start 70: window_menu_selftest
+1/1 Test #70: window_menu_selftest .............   Passed   12.93 sec
+
+100% tests passed out of 1
+
+Label Time Summary:
+gpu    =  12.93 sec*proc (1 test)
+
+Total Test time (real) =  12.93 sec

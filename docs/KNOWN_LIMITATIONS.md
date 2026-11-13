@@ -1,4 +1,4 @@
-# Current known limitations — N7
+# Current and historical known limitations
 
 Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
 - 25 of the 65 legacy settings are shown and saved but do not change the game yet (N10): scene

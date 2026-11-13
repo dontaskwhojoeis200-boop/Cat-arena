@@ -1,6 +1,6 @@
 # Current milestone
 
-N8 is implemented and Windows CI passed 42 GPU-free tests. See [N8](../README_N8.md), the [migration log](MIGRATION_LOG.md) and [Windows roadmap](WINDOWS_ROADMAP.md). The status below describes the N7 baseline.
+N9 implements Windows platform integration and the Vulkan 1.1 fallback. See [N9](../README_N9.md), [N8](../README_N8.md), the [migration log](MIGRATION_LOG.md) and [Windows roadmap](WINDOWS_ROADMAP.md). The status below describes the N7 baseline.
 
 # Native rewrite progress — 2026-11-12
 
