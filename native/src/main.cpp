@@ -86,6 +86,8 @@
 #include "cat/weapon_fx.hpp"
 #include "cat/renderer.hpp"
 #include "cat/scene.hpp"
+#include "cat/coop.hpp"
+#include "cat/relay.hpp"
 #include <SDL3/SDL.h>
 #include <algorithm>
 #include <charconv>
@@ -579,6 +581,28 @@ void attach_ui(cat::Overlay& o, const cat::ui::Canvas& c) {
     o.ui = c.vertices().empty() ? nullptr : reinterpret_cast<const cat::UiVertex*>(c.vertices().data()); o.ui_vertices = c.vertices().size();
 }
 // The legacy keyboard handling of the menus (v0.18: arrows, Enter, Esc, Tab, Ctrl+Tab, PageUp / PageDown, Home / End).
+// N8 name tags: the point above another player's head on screen (nullopt behind the camera).
+std::optional<cat::ui::CoopTag> project_tag(const cat::fx::Camera& cam, const cat::physics::CollisionWorld& world, double x, double y, double z, bool downed, double width, double height) {
+    const double hz = z + (downed ? .9 : 2.15);
+    const double dx = x - cam.x, dy = y - cam.y, dz = hz - cam.z;
+    const double depth = dx * cam.forward[0] + dy * cam.forward[1] + dz * cam.forward[2];
+    if(depth < .3) return std::nullopt;
+    const double sx = (dx * cam.right[0] + dy * cam.right[1] + dz * cam.right[2]) / (depth * cam.tan_half * cam.aspect);
+    const double sy = (dx * cam.up[0] + dy * cam.up[1] + dz * cam.up[2]) / (depth * cam.tan_half);
+    cat::ui::CoopTag t;
+    t.x = (sx * .5 + .5) * width; t.y = (.5 - sy * .5) * height; t.distance = std::sqrt(dx * dx + dy * dy + dz * dz); t.downed = downed;
+    t.occluded = std::isfinite(world.shot_collision_t(cam.x, cam.y, cam.z, x, y, hz, .05));
+    return t;
+}
+// --relay-server: runs until the process is stopped (Ctrl+C / closing the console window).
+int run_relay_server(const std::string& bind, int port) {
+    cat::net::RelayServer relay;
+    relay.set_log([](const std::string& line) { cat::log("info", "relay", line); });
+    std::string error;
+    if(!relay.start(bind, port, error)) { cat::log("error", "relay", "Cannot start the relay on " + bind + ":" + std::to_string(port) + ": " + error); return 1; }
+    cat::log("info", "relay", "Cat Arena relay (" + std::string(cat::net::kBuildId) + ") on " + bind + ":" + std::to_string(relay.port()) + ": ws://<this-computer>:" + std::to_string(relay.port()) + "/ws, GET /rooms, GET /health");
+    for(;;) std::this_thread::sleep_for(std::chrono::seconds(60));
+}
 std::optional<cat::ui::NavKey> nav_key(SDL_Scancode code, SDL_Keymod mod) {
     using cat::ui::NavKey;
     const bool ctrl = (mod & SDL_KMOD_CTRL) != 0, shift = (mod & SDL_KMOD_SHIFT) != 0;
@@ -617,6 +641,16 @@ int main(int argc, char** argv) {
     for(int i = 1; i < argc; ++i) if(std::string_view(argv[i]) == "--headless-test") {
         bool ok = cat::self_test(); cat::log(ok ? "info" : "error", "self-test", ok ? "PASS" : "FAIL"); return ok ? 0 : 1;
     }
+    // N8: the multiplayer relay alone (reference/multiplayer/server.js in C++), no window: --relay-server [--port N] [--bind ADDRESS]
+    for(int i = 1; i < argc; ++i) if(std::string_view(argv[i]) == "--relay-server") {
+        int port = cat::net::kDefaultPort; std::string bind = "0.0.0.0";
+        for(int j = 1; j + 1 < argc; ++j) {
+            if(std::string_view(argv[j]) == "--port") port = std::stoi(argv[j + 1]);
+            if(std::string_view(argv[j]) == "--bind") bind = argv[j + 1];
+        }
+        if(const char* env = std::getenv("PORT"); env && *env) port = std::atoi(env);   // server.js: process.env.PORT
+        return run_relay_server(bind, port);
+    }
     cat::Settings settings; std::optional<int> cap; bool no_vsync = false, no_validation = false, triangle = false;
     int frames = 0, warmup = 1; std::optional<std::filesystem::path> config, shaders, assets, capture, capture_set, capture_dir, report;
     std::string map = "helios-crucible";
@@ -628,7 +662,7 @@ int main(int argc, char** argv) {
     bool hud_enabled = true; std::optional<Pose> player_pose; std::optional<std::filesystem::path> combat_fixture; std::string scenario_name; std::vector<double> capture_ticks;
     EnemyMode enemy_mode = EnemyMode::waves; bool enemies_given = false; int start_wave = 1, shadow_mode = 1; bool light_grid = true, third_person = false, god = false; std::optional<std::filesystem::path> enemy_fixture, enemy_lineup; std::string lineup_shot;
     bool overlay_enabled = true, practice_targets = true; std::optional<std::pair<int, int>> start_weapons; std::uint32_t game_seed = 1; bool seed_given = false;
-    bool menu_selftest = false, map_given = false, fov_given = false, force_touch = false; std::optional<std::filesystem::path> game_settings_file, ui_capture;   // N7
+    bool menu_selftest = false, coop_selftest = false, map_given = false, fov_given = false, force_touch = false; std::optional<std::filesystem::path> game_settings_file, ui_capture;   // N7
     for(int i = 1; i < argc; ++i) {
         std::string_view arg = argv[i];
         auto value = [&]() -> std::string_view { if(++i >= argc) throw std::runtime_error("Missing option value"); return argv[i]; };
@@ -646,6 +680,7 @@ int main(int argc, char** argv) {
         else if(arg == "--list-maps") { for(const auto& m : kMaps) std::cout << m.id << '\t' << m.wire_id << "\tCAT ARENA: FERAL CLAW // " << m.title << '\n'; return 0; }
         else if(arg == "--fov") { fov = real(std::string(value())); fov_given = true; }
         else if(arg == "--menu-selftest") menu_selftest = true;
+        else if(arg == "--coop-selftest") coop_selftest = true;   // N8: hosts through the menus, three in-process guests join over TCP
         else if(arg == "--game-settings") game_settings_file = cat::utf8_path(value());
         else if(arg == "--ui-capture") ui_capture = cat::utf8_path(value());
         else if(arg == "--touch") force_touch = true;
@@ -728,10 +763,10 @@ int main(int argc, char** argv) {
     // N6.5: a run started by hand in a window (no automation options) pauses while the mouse is
     // released, shows fatal errors in a message box and, on Windows, writes CatArena.log next to the
     // executable (the Windows build has no console).
-    const bool interactive = !offscreen && !vk_info && frames == 0 && !input_selftest && !map_cycle_test && !resize_test && !controls_selftest && !menu_selftest;
+    const bool interactive = !offscreen && !vk_info && frames == 0 && !input_selftest && !map_cycle_test && !resize_test && !controls_selftest && !menu_selftest && !coop_selftest;
     // N7: a run started by hand opens the menus (and so does the menu self-test); the automation options
     // (--frames, self-tests, captures) keep the N6.5 shell, which plays at once with the N5 HUD.
-    const bool menus = (interactive || menu_selftest) && !triangle && !fly;
+    const bool menus = (interactive || menu_selftest || coop_selftest) && !triangle && !fly;
     g_error_dialog = interactive;
     // --controls-selftest drives the interactive controls (pause, resume, F11, F5, Esc twice) with synthetic SDL events.
     const bool pausing = interactive || controls_selftest;
@@ -1054,8 +1089,13 @@ int main(int argc, char** argv) {
             const std::pair<std::uint32_t, std::uint32_t> size = *offscreen;
             std::optional<Session> session;
             std::ostringstream index;
+            // N8 pages: a staged server list (sample rows for the picture, not a live relay)
+            cat::ui::MultiplayerView mp;
+            mp.list_status = "3 LIVE SERVERS · 7 PLAYERS ONLINE";
+            mp.rooms = {{"K7PQ2M", "Ashs Server", "Ash", "REACTOR BASTION", 2, 4, true, true}, {"WX3RT9", "Night Shift", "Brick", "THE ARSENAL", 1, 4, true, true},
+                        {"HB4NZE", "Full House", "Cinder", "BASTION KEEP", 4, 4, false, true}};
             auto frame_of = [&](cat::ui::Canvas& c, bool in_game, const std::vector<cat::ui::HudElement>& hud) {
-                cat::ui::MenuFrame f; f.time = 1; f.scale = k; f.safe = {0, 0, W, H}; f.in_game = in_game; f.current_map = map; f.background = kit.background; f.touch = force_touch; f.hud = hud;
+                cat::ui::MenuFrame f; f.time = 1; f.scale = k; f.safe = {0, 0, W, H}; f.in_game = in_game; f.current_map = map; f.background = kit.background; f.touch = force_touch; f.hud = hud; f.mp = &mp;
                 f.platform = "DESKTOP";
                 cat::ui::Canvas scratch(&kit.atlas, W, H);
                 menu.build(scratch, f); menu.build(c, f);   // the second build draws the settled focus
@@ -1082,6 +1122,10 @@ int main(int argc, char** argv) {
                 cat::ui::LoadingState ls; ls.map_title = find_map(map)->title; ls.phase = 7; ls.ready = true; ls.info = "NATIVE LOAD · VULKAN";
                 menu.show_loading(ls); c.clear(); frame_of(c, false, {}); shot("loading_ready", nullptr, {}, c);
                 ls.phase = 3; ls.ready = false; menu.show_loading(ls); c.clear(); frame_of(c, false, {}); shot("loading_phase3", nullptr, {}, c);
+                menu.show_multiplayer(); c.clear(); frame_of(c, false, {}); shot("multiplayer", nullptr, {}, c);
+                menu.show_servers(); c.clear(); frame_of(c, false, {}); shot("servers", nullptr, {}, c);
+                mp.status = "Joining selected server..."; menu.show_connecting(); c.clear(); frame_of(c, false, {}); shot("connecting", nullptr, {}, c);
+                mp.status.clear();
             }
             {   // map selection over the live view of the map (preview camera)
                 const auto p = preview_pose(map);
@@ -1090,6 +1134,8 @@ int main(int argc, char** argv) {
                 menu.show_maps(); frame_of(c, false, {});
                 cat::Overlay o; o.world = false;
                 shot("maps", &view, o, c);
+                menu.show_host_maps(); c.clear(); frame_of(c, false, {});
+                shot("maps_host", &view, o, c);
             }
             if(overlay) {   // in-game HUD after two seconds of play, keyboard / mouse and touch layouts, pause, HUD editor
                 session.emplace(*collision, game_seed, fov, nav_graph ? &*nav_graph : nullptr);
@@ -1111,6 +1157,37 @@ int main(int argc, char** argv) {
                     menu.show_pause(); frame_of(c, true, hud); shot("pause", &view, o, c);
                     c.clear(); cat::ui::build_hud(c, hud_info(*session), hv); menu.show_settings(true); frame_of(c, true, hud); shot("settings_from_pause", &view, o, c);
                     hv.editing = true; hv.selected = menu.hud_selected(); c.clear(); const auto edit = cat::ui::build_hud(c, hud_info(*session), hv); menu.show_hud_editor(true); frame_of(c, true, edit); shot("hud_editor", &view, o, c);
+                }
+                {   // N8: three staged teammates in front of the player (Marine Cats, name tags, a downed one), revive line, room badge
+                    const auto& pl = session->arena.player().state();
+                    const double ca = std::cos(pl.a), sa = std::sin(pl.a);
+                    struct Mate { const char* name; double d, side; bool downed; double hp; };
+                    const Mate mates[] = {{"Ash", 4.5, .9, false, 82}, {"Brick", 3.2, -.8, true, 0}, {"Cinder", 9, .2, false, 41}};
+                    cat::ui::CoopHud ch; ch.badge = "HOSTING · 4/4 PLAYERS"; ch.revive = "HOLD F TO REVIVE Brick · 4 SECONDS";
+                    session->enemy_options.guests.clear();
+                    std::uint32_t id = 1;
+                    for(const auto& m : mates) {
+                        double x = pl.x + ca * m.d - sa * m.side, y = pl.y + sa * m.d + ca * m.side, z = pl.z;
+                        if(const auto s = collision->support(x, y, pl.z + .5, .6)) z = s->z;
+                        cat::fx::Guest g; g.id = id++; g.x = x; g.y = y; g.z = z; g.a = pl.a + 3.14159; g.downed = m.downed; g.color = {.81F, .89F, 1.F};
+                        session->enemy_options.guests.push_back(g);
+                    }
+                    cat::FrameView view{player_camera(session->arena.player(), size), session->arena.player().now(), features};
+                    auto o = session->build(size); session->light(view);
+                    std::size_t i = 0;
+                    for(const auto& g : session->enemy_options.guests) {
+                        const auto& m = mates[i++];
+                        if(auto t = project_tag(session->frame.camera, *collision, g.x, g.y, g.z, g.downed, W, H)) { t->name = m.name; t->hp = m.hp; t->host = false; ch.tags.push_back(*t); }
+                    }
+                    cat::ui::Canvas c(&kit.atlas, W, H);
+                    cat::ui::HudView hv; hv.settings = &gs; hv.scale = k; hv.safe = {0, 0, W, H}; hv.touch = force_touch; hv.captured = true;
+                    const auto hud = cat::ui::build_hud(c, hud_info(*session), hv);
+                    cat::ui::build_coop_hud(c, ch, hv);
+                    shot("coop_hud", &view, o, c);
+                    cat::log("info", "ui", "Co-op HUD: " + std::to_string(ch.tags.size()) + " name tags, " + std::to_string(session->enemy_frame.marines.size()) + " Marine Cat instances");
+                    mp.in_room = true; mp.hosting = true; mp.footer = "CO-OP · HOSTING · 4/4";
+                    menu.show_pause(); frame_of(c, true, hud); shot("pause_coop", &view, o, c);
+                    mp.in_room = false;
                 }
             }
             std::ofstream(*ui_capture / "index.tsv") << index.str();

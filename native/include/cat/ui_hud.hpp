@@ -48,6 +48,21 @@ struct HudElement { std::string id; Rect rect; };
 
 // Draws the HUD; returns the boxes of the editable / touchable elements (HUD editor, touch input).
 std::vector<HudElement> build_hud(Canvas& canvas, const HudInfo& info, const HudView& view);
+// N8 co-op HUD: teammates' name tags (new in the native game: the legacy drew none), the room badge
+// (#roomBadge: "HOSTING · 2/4 PLAYERS", bottom right) and the revive line (#coopReviveStatus, 67% down).
+struct CoopTag {
+    std::string name;
+    double x{}, y{};       // pixels: the point above the teammate's head
+    double distance{};     // metres from the camera
+    double hp{100};
+    bool downed{}, host{}, occluded{}, reviving{};
+};
+struct CoopHud {
+    std::string badge, revive;
+    bool revive_alert{};   // the local player is down / the squad is eliminated (red frame)
+    std::vector<CoopTag> tags;
+};
+void build_coop_hud(Canvas& canvas, const CoopHud& info, const HudView& view);
 // Where an element is drawn without a custom placement (pixels).
 Rect default_hud_rect(std::string_view id, const HudView& view, double width, double height);
 Rect placed_hud_rect(std::string_view id, const HudView& view, double width, double height);

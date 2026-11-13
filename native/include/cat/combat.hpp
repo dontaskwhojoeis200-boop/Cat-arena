@@ -49,7 +49,8 @@ enum Key : std::uint32_t {
     key_fire = 256, key_reload = 512, key_switch = 1024,
     // Fixture actions, not player inputs (tools/n6/legacy_enemies.cjs): remove the first enemy with
     // 9999 damage; deal 35 damage to the player. Applied after the fire transition, before the look.
-    key_fixture_kill = 2048, key_fixture_hurt = 4096
+    key_fixture_kill = 2048, key_fixture_hurt = 4096,
+    key_revive = 8192   // N8: F held (revive a downed teammate)
 };
 
 enum class TargetClass : std::uint8_t { standard, heavy, fast };   // enemyHitScale: (1, 1), (1.22, 1.10), (.86, .90)
@@ -82,10 +83,12 @@ struct Target {
     int nav_stride_frames{};
     bool nav_decision{}, nav_queued{}, has_goal{};
     double goal_x{}, goal_y{}, goal_z{};
+    double sync_x{}, sync_y{}, sync_z{};   // N8 guest: last position from the host (b.syncX), approached each tick
+    bool has_sync{};
     struct Probe { bool valid{}, ok{}; double t{}, bx{}, by{}, bz{}, tx{}, ty{}, tz{}; } direct;          // cached direct-path probe
     struct Segment { bool valid{}; std::uint32_t serial{}; std::size_t index{}; double t{}, x{}, y{}, z{}; } seg_ok;   // cached route-segment check
 };
-struct Projectile { FireKind kind{FireKind::rocket}; double x{}, y{}, z{}, vx{}, vy{}, vz{}, life{}; std::uint32_t id{}; };
+struct Projectile { FireKind kind{FireKind::rocket}; double x{}, y{}, z{}, vx{}, vy{}, vz{}, life{}; std::uint32_t id{}; std::uint32_t owner{}; };   // owner: N8 teammate key, 0 = local player
 struct Pickup { double x{}, y{}, z{}, cool{}; };
 struct ShotHit { bool hit{}; double t{1}; int target{-1}; bool head{}; double x{}, y{}, z{}; };
 
@@ -104,6 +107,25 @@ struct FireContext { physics::ViewCamera view, eye; double fov_scale{1}, now{}; 
 // N7: legacy playEnemyVoice() calls (presentation only; the hurt roll uses the gameplay draw the legacy makes).
 enum class VoiceKind : std::uint8_t { idle, attack, hurt, eliminated };
 struct VoiceEvent { double x, y, z; int type; VoiceKind kind; std::uint32_t id; };
+// ---- N8 multiplayer (port of js/net/multiplayer.js, index.html 15495-15990) ----
+// The host runs the only simulation of enemies, waves, damage and pickups; every other player runs
+// its own movement and weapons locally, sends its pose (48 ms) and shots, and shows the host's world.
+enum class NetRole : std::uint8_t { solo, host, guest };
+inline constexpr double kReviveSeconds = 4, kReviveDistance = 3.2;   // NET_REVIVE_SECONDS / NET_REVIVE_DISTANCE
+// Another player as the host simulates it (netPlayers entry): pose from that player's messages,
+// health / downed decided here.
+struct Teammate {
+    std::uint32_t key{};             // 1, 2, ... (0 is the local player)
+    std::string id, name;            // relay id and name
+    double x{}, y{}, z{}, a{}, pitch{}, vx{}, vy{}, crouch{}, step{};
+    double hp{kMaxHealth};
+    bool downed{}, holding_revive{};
+    double pose_ms{-1};              // wall clock of the last accepted pose (lastPoseMs)
+    double next_fire{};              // arena clock
+    double shoot_until{}, hurt_until{};   // presentation (_marineShootUntil / _marineHurtUntil)
+};
+struct RemoteFrag { std::uint32_t key{}; bool head{}; };
+struct RemoteShot { std::uint32_t key{}; int weapon{}; };
 struct Events {
     int fired_weapon{-1};                 // weapon index fired this step, -1 if none
     FireContext fire;                     // valid when fired_weapon >= 0; weapon_in_hand = slot weapon after the volley (a frag may have rerolled it)
@@ -117,6 +139,12 @@ struct Events {
     bool reload_started{}, reload_done{}, switched{};
     std::vector<VoiceEvent> voices;       // N7
     std::uint32_t player_hits{};          // N7: non-burn hits taken (each beeps)
+    // N8 (host): kills by other players (each gets a 'frag' message), their volleys ('shotFx'), players
+    // downed / revived this tick (0 = the local player), squad wipe (restart the round at wave 1).
+    std::vector<RemoteFrag> remote_frags;
+    std::vector<RemoteShot> remote_shots;
+    std::vector<std::uint32_t> downed, revived;
+    bool wipe{};
 };
 
 // mulberry32: the seeded generator also used when recording the legacy reference.
@@ -158,6 +186,33 @@ public:
 
     // One 1/120 s tick. `input.keys` may contain physics::Key and combat::Key bits.
     void step(const physics::TickInput& input);
+
+    // ---- N8 multiplayer ----
+    void set_role(NetRole role) { role_ = role; }
+    NetRole role() const { return role_; }
+    std::vector<Teammate>& team() { return team_; }          // host: the other players
+    const std::vector<Teammate>& team() const { return team_; }
+    Teammate* teammate(std::uint32_t key);
+    Teammate& add_teammate(const std::string& id, const std::string& name);   // host; returns the new entry
+    void remove_teammate(std::uint32_t key);
+    Box teammate_box(const Teammate& p) const;               // playerHitBox(p)
+    std::array<Box, 6> marine_boxes(const Teammate& p) const;   // marineHitBoxes(p): head, torso, arms, legs
+    // enemyTargetFor(b): the nearest live player (host), otherwise the local player.
+    struct Aim { double x, y, z, vx, vy; std::uint32_t key; };
+    Aim target_for(double bx, double by) const;
+    void remote_damage(Teammate& p, double damage);          // remoteApplyDamage (host)
+    void queue_remote_fire(std::uint32_t key, int weapon) { remote_fire_queue_.push_back({key, weapon}); }   // applied at the start of the next step
+    void remote_fire(Teammate& p, int weapon);               // netHostRemoteFire
+    void remote_frag(bool head);                             // guest: the host credited a kill to this player ('frag')
+    void queue_frag(bool head) { frag_queue_.push_back(head); }   // guest: applied at the start of the next step
+    void set_local_downed(bool downed);                      // guest: 'you.downed' from the host
+    void set_pickups(std::vector<Pickup> list) { pickups_ = std::move(list); }   // guest: the host's medkits
+    bool holding_revive() const { return (keys_ & key_revive) != 0; }   // F held this tick
+    double revive_seconds() const { return revive_seconds_; }
+    int revive_target() const { return revive_target_; }     // -1 none, 0 local, key of a teammate
+    int revive_holder() const { return revive_holder_; }
+    double wipe_clock() const { return wipe_clock_; }
+    bool near_revive(double ax, double ay, double az, bool a_downed, double bx, double by, double bz, bool b_downed) const;   // netNearRevive
     // Pieces, public for tests and direct callers.
     void fire();                        // fireWeapon
     void reload();                      // reloadWeapon
@@ -227,6 +282,16 @@ private:
     double burn_remaining_{}, burn_tick_{};
     Horde* horde_{};
     std::uint32_t event_seq_{};
+    // N8
+    NetRole role_{NetRole::solo};
+    std::vector<Teammate> team_;
+    std::uint32_t next_teammate_key_{1}, attacker_{};        // attacker_: whose shot is being resolved (0 local)
+    std::vector<RemoteShot> remote_fire_queue_;
+    std::vector<bool> frag_queue_;
+    int revive_target_{-1}, revive_holder_{-1};
+    double revive_seconds_{}, wipe_clock_{};
+    void coop_tick(double dt);                               // netHostTick
+    bool local_holding_revive() const { return holding_revive(); }
     std::function<void()> presentation_hook_;
     friend class Horde;
     void finish_respawn();

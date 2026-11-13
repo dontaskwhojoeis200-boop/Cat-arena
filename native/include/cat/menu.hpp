@@ -16,14 +16,17 @@
 
 namespace cat::ui {
 
-enum class Screen : std::uint8_t { none, home, maps, multiplayer, settings, exit_confirm, loading, pause, hud_editor };
-enum class NavKey : std::uint8_t { up, down, left, right, accept, back, next_tab, prev_tab, page_up, page_down, first, last, next_item, prev_item };
+// N8: `maps` doubles as the host's map choice (host_mode()), `servers` is the server browser (join),
+// `connecting` waits for the relay's answer.
+enum class Screen : std::uint8_t { none, home, maps, multiplayer, settings, exit_confirm, loading, pause, hud_editor, servers, connecting };
+enum class NavKey : std::uint8_t { up, down, left, right, accept, back, next_tab, prev_tab, page_up, page_down, first, last, next_item, prev_item, erase };   // erase: Backspace in a text field
 
 struct MenuEvent {
-    enum class Kind : std::uint8_t { key, pointer_move, pointer_down, pointer_up, wheel } kind{Kind::key};
+    enum class Kind : std::uint8_t { key, pointer_move, pointer_down, pointer_up, wheel, text } kind{Kind::key};
     NavKey key{};
     double x{}, y{}, wheel{};
     bool shift{};
+    std::string text;   // Kind::text: typed characters (UTF-8) for the focused text field
 };
 
 struct Command {
@@ -36,7 +39,15 @@ struct Command {
         change_map,        // pause: choose another map (legacy: return to menu, maps page)
         quit,              // exit dialog confirmed
         settings_changed,  // arg = control id ("" = several)
-        test_audio, fullscreen_now, debug_view, hud_editor_done, reset_hud
+        test_audio, fullscreen_now, debug_view, hud_editor_done, reset_hud,
+        // N8 multiplayer
+        host_server,       // CREATE SERVER (arg = map id) on the relay address typed in the form
+        host_local,        // HOST ON THIS PC (arg = map id): start the built-in relay, then create the server on it
+        refresh_servers,   // REFRESH LIST / opening the server browser
+        join_server,       // JOIN (arg = room code)
+        cancel_connect,    // CANCEL while connecting
+        leave_room,        // pause: leave the server (and return to the main menu)
+        form_changed       // a multiplayer text field changed (save the settings)
     } kind;
     std::string arg;
 };
@@ -48,6 +59,18 @@ struct LoadingState {
     std::string info, error;
     bool ready{};
     double millis{};
+};
+
+// N8: what the multiplayer pages show (the shell owns the connection and the server list).
+struct ServerRow { std::string id, title, host, map_title; int players{}, max_players{4}; bool open{}, joinable{}; };
+struct MultiplayerView {
+    std::string status;            // coopStatus: connection progress or the last error
+    bool status_error{};
+    std::string list_status;       // serverBrowserStatus
+    bool listing{};                // a server list request is running
+    std::vector<ServerRow> rooms;
+    bool in_room{}, hosting{};
+    std::string footer;            // pause footer, e.g. "CO-OP · HOSTING · 3/4"
 };
 
 struct MenuFrame {
@@ -62,6 +85,7 @@ struct MenuFrame {
     bool touch{};
     std::vector<HudElement> hud;        // HUD editor: the elements as drawn this frame
     Region background, crest;           // atlas images (background grain / cat crest), empty when absent
+    const MultiplayerView* mp{};        // N8 (nullptr: the multiplayer pages show "unavailable")
 };
 
 class Menu {
@@ -76,6 +100,13 @@ public:
     void show_settings(bool from_pause);
     void show_hud_editor(bool from_pause);
     void show_loading(const LoadingState& s);
+    void show_multiplayer() { go(Screen::multiplayer); }
+    void show_servers() { go(Screen::servers); focus_id_ = "servers.refresh"; }
+    void show_connecting() { go(Screen::connecting); }
+    void show_host_maps() { host_mode_ = true; go(Screen::maps); focus_id_ = "host.local"; }
+    bool host_mode() const { return host_mode_; }             // the maps page is the host's map choice
+    bool text_focused() const;                                 // a text field has focus: typed characters go to it
+    static constexpr std::size_t kNameMax = 20, kTitleMax = 32, kRelayMax = 200;   // the legacy input maxlength
     void update_loading(const LoadingState& s) { loading_ = s; }
     void close() { screen_ = Screen::none; dropdown_.clear(); }
     std::string selected_map() const { return selected_map_; }
@@ -91,7 +122,7 @@ public:
     const std::string& open_dropdown() const { return dropdown_; }
     const std::string& hud_selected() const { return hud_selected_; }   // HUD editor selection (drawn highlighted)
 private:
-    enum ItemKind { item_button = 0, item_slider = 1, item_choice = 2, item_check = 3, item_tab = 4, item_option = 5, item_hud = 6 };
+    enum ItemKind { item_button = 0, item_slider = 1, item_choice = 2, item_check = 3, item_tab = 4, item_option = 5, item_hud = 6, item_text = 7 };
     void go(Screen s);
     std::vector<Command> activate(const Item& item, double pointer_x, bool by_pointer);
     std::vector<Command> adjust(const Item& item, int direction);
@@ -108,6 +139,10 @@ private:
     void loading(Canvas& c, const MenuFrame& f);
     void pause(Canvas& c, const MenuFrame& f);
     void hud_editor(Canvas& c, const MenuFrame& f);
+    void servers(Canvas& c, const MenuFrame& f);
+    void connecting(Canvas& c, const MenuFrame& f);
+    void text_field(Canvas& c, const MenuFrame& f, const std::string& id, const Rect& r, const std::string& label, const std::string& value, const std::string& placeholder);
+    std::string* field_value(const std::string& id);
     void backdrop(Canvas& c, const MenuFrame& f, std::optional<Rect> hole = std::nullopt);
     bool button(Canvas& c, const MenuFrame& f, const std::string& id, const Rect& r, const std::string& label, const std::string& number = {}, bool primary = false, bool enabled = true, bool pointed = true);
 
@@ -115,6 +150,7 @@ private:
     std::vector<MapEntry> maps_;
     Screen screen_{Screen::home}, before_settings_{Screen::home}, before_editor_{Screen::none};
     std::string selected_map_;
+    bool host_mode_{};
     SettingsTab tab_{SettingsTab::view};
     double scroll_{}, content_height_{}, view_height_{};
     Rect list_view_;

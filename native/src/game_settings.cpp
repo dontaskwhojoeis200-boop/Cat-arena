@@ -227,7 +227,7 @@ void GameSettings::restore_viewmodel() { values_["vmAngleOffset"] = "0"; values_
 void GameSettings::save(std::ostream& out) const {
     out << "# Cat Arena: Feral Claw settings (legacy control ids)\n";
     for(const auto& [k, v] : values_) out << k << '=' << v << '\n';
-    out << "map=" << map << "\nplayerName=" << player_name << '\n';
+    out << "map=" << map << "\nplayerName=" << player_name << "\nserverName=" << server_name << "\nrelay=" << relay << '\n';
     for(const auto& [id, r] : hud_) out << "hud." << id << '=' << number_text(r.x) << ',' << number_text(r.y) << ',' << r.size << ',' << r.opacity << '\n';
 }
 GameSettings GameSettings::load(std::istream& in) {
@@ -239,7 +239,9 @@ GameSettings GameSettings::load(std::istream& in) {
         if(eq == std::string::npos) continue;
         const std::string key = line.substr(0, eq), value = line.substr(eq + 1);
         if(key == "map") { if(!value.empty() && value.size() < 64) s.map = value; continue; }
-        if(key == "playerName") { if(value.size() < 32) s.player_name = value; continue; }
+        if(key == "playerName") { if(value.size() <= 20) s.player_name = value; continue; }
+        if(key == "serverName") { if(value.size() <= 32) s.server_name = value; continue; }
+        if(key == "relay") { if(value.size() <= 200) s.relay = value; continue; }
         if(key.rfind("hud.", 0) == 0) {
             const std::string id = key.substr(4);
             if(std::none_of(hud_items().begin(), hud_items().end(), [&](const HudItem& h) { return id == h.id; })) continue;

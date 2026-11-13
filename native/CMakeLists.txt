@@ -10,7 +10,7 @@ option(CAT_BUILD_DESKTOP "Build SDL3/Vulkan triangle shell" ON)
 option(CAT_FETCH_SDL "Fetch pinned SDL3 when package not available" OFF)
 option(CAT_FETCH_GLSLANG "Build the pinned glslang (vulkan-sdk-1.4.309.0) when no glslc / glslangValidator is installed" OFF)
 option(CAT_WINDOWS_GUI "Windows: build CatArena.exe for the GUI subsystem (no console window; log in CatArena.log)" ON)
-set(CAT_MILESTONE "N7" CACHE STRING "Milestone name used in package names (CAT_ARENA_FERAL_CLAW_<milestone>_<platform>)")
+set(CAT_MILESTONE "N8" CACHE STRING "Milestone name used in package names (CAT_ARENA_FERAL_CLAW_<milestone>_<platform>)")
 set(CAT_GAME_DIR "." CACHE STRING "Directory below CMAKE_INSTALL_PREFIX that receives the game (executable, runtime libraries, assets)")
 option(CAT_SANITIZERS "Enable address and undefined behavior sanitizers" OFF)
 set(CMAKE_CXX_STANDARD 20)
@@ -141,7 +141,7 @@ if(CAT_BUILD_DESKTOP)
   add_dependencies(cat_arena_render cat_shaders)
   add_executable(cat_arena src/main.cpp src/audio_device.cpp src/platform_info.cpp)
   # N7: menus, settings, the new HUD and sound (libraries defined further down)
-  target_link_libraries(cat_arena PRIVATE cat_arena_render cat_arena_physics cat_arena_fx cat_arena_ui cat_arena_audio cat_warnings)
+  target_link_libraries(cat_arena PRIVATE cat_arena_render cat_arena_physics cat_arena_fx cat_arena_ui cat_arena_audio cat_arena_coop cat_warnings)
   if(WIN32)
     # N6.5: the Windows game is CatArena.exe. vulkan-1.dll is delay-loaded so that a PC without a Vulkan
     # driver gets an explanation (main.cpp checks LoadLibraryW before the first Vulkan call) instead of
@@ -427,6 +427,49 @@ if(BUILD_TESTING)
   add_test(NAME ui_menus_settings_hud COMMAND cat_arena_ui_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n7" "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/n7/legacy_settings.json")
 endif()
 
+# N8 networking: JSON, sockets, WebSocket client (ws:// here, wss:// through WinHTTP on Windows), HTTP GET
+# and the relay server (port of reference/multiplayer/server.js). No third-party library.
+add_library(cat_arena_net src/json.cpp src/net.cpp src/net_winhttp.cpp src/relay.cpp)
+target_include_directories(cat_arena_net PUBLIC include)
+target_compile_features(cat_arena_net PUBLIC cxx_std_20)
+target_link_libraries(cat_arena_net PRIVATE cat_warnings)
+if(WIN32)
+  target_link_libraries(cat_arena_net PUBLIC ws2_32 winhttp)
+endif()
+find_package(Threads REQUIRED)
+target_link_libraries(cat_arena_net PUBLIC Threads::Threads)
+# N8 co-op: the legacy multiplayer client on top of the network layer and the simulation.
+add_library(cat_arena_coop src/coop.cpp)
+target_link_libraries(cat_arena_coop PUBLIC cat_arena_net cat_arena_physics PRIVATE cat_warnings)
+if(BUILD_TESTING)
+  add_executable(cat_arena_coop_tests tests/coop_tests.cpp)
+  target_link_libraries(cat_arena_coop_tests PRIVATE cat_arena_coop cat_warnings)
+  add_test(NAME coop_multiplayer COMMAND cat_arena_coop_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1")
+  set_tests_properties(coop_multiplayer PROPERTIES TIMEOUT 300)
+  if(WIN32)   # the WinHTTP WebSocket / HTTP client (the wss:// and https:// path) against the native relay, without TLS
+    add_test(NAME net_relay_protocol_winhttp COMMAND cat_arena_net_tests)
+    add_test(NAME coop_multiplayer_winhttp COMMAND cat_arena_coop_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1")
+    set_tests_properties(net_relay_protocol_winhttp coop_multiplayer_winhttp PROPERTIES ENVIRONMENT "CAT_NET_WINHTTP=1" TIMEOUT 300)
+  endif()
+endif()
+if(BUILD_TESTING)
+  add_executable(cat_arena_net_tests tests/net_tests.cpp)
+  target_link_libraries(cat_arena_net_tests PRIVATE cat_arena_net cat_warnings)
+  add_test(NAME net_relay_protocol COMMAND cat_arena_net_tests)
+  # Interoperability with the ORIGINAL Node.js relay (reference/multiplayer/server.js): only when node and
+  # its `ws` package are available (CAT_NODE_WS_DIR = a node_modules folder containing ws).
+  find_program(CAT_NODE node)
+  set(CAT_NODE_WS_DIR "" CACHE PATH "node_modules directory that contains the ws package (interop test with server.js)")
+  if(CAT_NODE AND CAT_NODE_WS_DIR AND EXISTS "${CAT_NODE_WS_DIR}/ws")
+    add_test(NAME net_interop_legacy_relay COMMAND "${CAT_NODE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/n8/run_with_legacy_relay.cjs"
+             "${CMAKE_CURRENT_SOURCE_DIR}/../reference/multiplayer/server.js" "${CAT_NODE_WS_DIR}" $<TARGET_FILE:cat_arena_net_tests> --external)
+    set_tests_properties(net_interop_legacy_relay PROPERTIES TIMEOUT 120)
+    add_test(NAME coop_interop_legacy_relay COMMAND "${CAT_NODE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/n8/run_with_legacy_relay.cjs"
+             "${CMAKE_CURRENT_SOURCE_DIR}/../reference/multiplayer/server.js" "${CAT_NODE_WS_DIR}" $<TARGET_FILE:cat_arena_coop_tests> "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1" --external)
+    set_tests_properties(coop_interop_legacy_relay PROPERTIES TIMEOUT 120)
+  endif()
+endif()
+
 # N5 weapon presentation (viewmodel pose, muzzle flash, tracers, impacts, explosions): GPU-free.
 add_library(cat_arena_fx src/weapon_fx.cpp src/hud.cpp src/enemy_fx.cpp)
 target_link_libraries(cat_arena_fx PUBLIC cat_arena_physics PRIVATE cat_warnings)
@@ -500,11 +543,15 @@ endif()
 # machine without a GPU (a GitHub-hosted Windows runner) can run everything else: ctest -LE gpu.
 if(BUILD_TESTING AND CAT_BUILD_DESKTOP)
   add_test(NAME window_input_selftest COMMAND cat_arena --frames 100 --input-selftest --weapons 4,2)
+  set_tests_properties(window_input_selftest PROPERTIES RUN_SERIAL TRUE)   # synthetic X11 input: no other window may take focus
   add_test(NAME window_controls_selftest COMMAND cat_arena --controls-selftest)
   set_tests_properties(window_controls_selftest PROPERTIES TIMEOUT 300)
   # N7: the menus with synthetic key events: home, maps, loading, game, pause, settings (FOV, volume), main menu, exit
   add_test(NAME window_menu_selftest COMMAND cat_arena --menu-selftest)
   set_tests_properties(window_menu_selftest PROPERTIES TIMEOUT 300 RUN_SERIAL TRUE)   # needs keyboard focus and mouse capture: no other window may take them
+  # N8: hosts through the menus on the built-in relay (port 8787), three in-process guests join over TCP
+  add_test(NAME window_coop_selftest COMMAND cat_arena --coop-selftest)
+  set_tests_properties(window_coop_selftest PROPERTIES TIMEOUT 300 RUN_SERIAL TRUE)
   get_property(cat_all_tests DIRECTORY PROPERTY TESTS)
   foreach(cat_test IN LISTS cat_all_tests)
     if(cat_test MATCHES "^(render_|window_|vk_sim)")

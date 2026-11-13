@@ -1,4 +1,4 @@
-CAT ARENA: FERAL CLAW — native Windows build (milestone N7)
+CAT ARENA: FERAL CLAW — native Windows build (milestone N8)
 =========================================================
 
 A native C++20 / Vulkan game (no browser, no JavaScript runtime). This folder holds everything the
@@ -38,6 +38,7 @@ Controls
   C                     slide
   R                     reload
   Q or Tab              swap to the other weapon (a kill replaces the weapon in hand, as in the original)
+  F (hold)              multiplayer: revive a downed teammate (stand next to them for 4 seconds)
   1 2 3 4               change map: Helios Crucible, Bastion Keep, Reactor Bastion, The Arsenal
   V                     settings
   F5                    restart the current map at wave 1
@@ -46,7 +47,8 @@ Controls
   Esc                   pause menu: resume, settings, customize HUD, choose another map, main menu
                         (Esc again resumes; EXIT on the main menu quits, so does closing the window)
   Gamepad               left stick move, right stick look, RT / RB fire, A jump, B crouch,
-                        right stick click slide, X reload, Y / LB swap, left stick click sprint, Start pause
+                        right stick click slide, X reload, Y / LB swap, left stick click sprint, Start pause,
+                        D-pad down (hold) revive
 
 Playing
 -------
@@ -55,12 +57,29 @@ Enemies come in waves (20 types, including three flyers). Each wave is larger an
 are left and how many are active; when five or fewer are left they are outlined through walls.
 Medkits restore health. If you die, you respawn and the waves start again at wave 1 (or press F5).
 
+Multiplayer (up to 4 players, co-op against the waves)
+------------------------------------------------------
+MULTIPLAYER > HOST A SERVER: pick the arena, type your player name (and a server name), then
+  - HOST ON THIS PC: the game runs the server itself on port 8787. Friends on the same network type
+    this PC's address in SERVER ADDRESS (for example 192.168.1.20:8787) and press JOIN. Windows
+    Firewall asks the first time whether CatArena.exe may accept connections: allow it for private
+    networks. Over the internet the port has to be forwarded on your router (not tested).
+  - CREATE SERVER: uses the relay server typed in SERVER ADDRESS (the original Cat Arena relay,
+    reference/multiplayer/server.js, or `CatArena.exe --relay-server` on another computer).
+MULTIPLAYER > JOIN A SERVER lists the servers on the SERVER ADDRESS relay (refreshed every 9 s);
+press JOIN on one. You load the host's arena and spawn next to the host.
+The host runs the enemies and the waves; everyone's health, kills and shots are synchronised. At 0
+health you are DOWN: you can look around but not move or shoot until a teammate holds F next to you
+for 4 seconds. The wave restarts at 1 only when every player is down. The menu (Esc) does not pause
+a multiplayer game. If the host leaves, the server closes and the others return to the menu.
+
 Command-line options (optional; from a Command Prompt in this folder)
 ---------------------------------------------------------------------
   CatArena.exe --map bastion-keep     skip the menu: go to the loading screen of this map (helios-crucible, bastion-keep, reactor-bastion, q3-gallery)
   CatArena.exe --wave 5               start at wave 5
   CatArena.exe --enemies practice     static practice targets instead of waves
   CatArena.exe --no-vsync             do not wait for the display refresh
+  CatArena.exe --relay-server         run only the multiplayer server (no window; port 8787, or --port N)
 
 Troubleshooting
 ---------------
@@ -73,7 +92,10 @@ Troubleshooting
 
 Known limitations of this build
 -------------------------------
-- MULTIPLAYER is a placeholder page (milestone N8).
+- Multiplayer has been tested with four game clients on one computer (automated tests, also with the
+  original relay server.js); play between separate Windows PCs, over the internet, through NAT or
+  with a secure wss:// relay has not been tested yet.
+- A server keeps the map it was created on (CHOOSE ANOTHER MAP and the 1-4 keys are disabled in it).
 - Some settings are kept and saved but do not change the picture yet (they say so on the settings
   page): scene resolution, multisample / FXAA anti-aliasing, adaptive resolution, the three world
   culling modes, texture quality and filtering, lightmap filter, curve detail, mirrors (milestone N10).

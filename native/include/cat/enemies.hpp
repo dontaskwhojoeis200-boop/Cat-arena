@@ -47,7 +47,7 @@ inline constexpr double kEnemySlowSpeed = 4.617, kEnemyStandardSpeed = 8.80875, 
 inline constexpr int kNavWorkPerSlice = 110;        // NAV3_WORK_PER_SLICE: open-list pops per tick
 inline constexpr int kMaxEnemies = 20, kMaxEnemyShots = 105;
 
-struct EnemyShot { double x{}, y{}, z{}, vx{}, vy{}, vz{}, life{}; ShotKind kind{ShotKind::shot}; int type{}; double damage{}, trail{}; std::uint32_t id{}; };
+struct EnemyShot { double x{}, y{}, z{}, vx{}, vy{}, vz{}, life{}; ShotKind kind{ShotKind::shot}; int type{}; double damage{}, trail{}; std::uint32_t id{}; std::uint32_t target_key{}; };   // target_key: N8 teammate aimed at (0 local)
 // A dead enemy while its death animation plays (enemyStartDeath). `gibbed` deaths leave no corpse.
 struct Corpse { int type{}; double x{}, y{}, z{}, floor_z{}, vz{}, a{}, t{}; bool flyer{}; std::uint32_t id{}; };
 struct ShotImpact { double x, y, z; ShotKind kind; int type; bool player; double vx, vy, vz; std::uint32_t seq; };
@@ -61,7 +61,18 @@ struct DeathEvent {
     bool flying{}, gibbed{};
     std::uint32_t seq{};                                 // Arena::next_event_seq
 };
-double attack_progress(const Target& b);   // enemyAttackProgress: -1 idle, 0 .. .72 wind-up, .72 .. 1 recovery
+double attack_progress(const Target& b);
+const char* shot_kind_name(ShotKind k);   // 'shot', 'spike', 'fireball', 'voidorb'
+std::optional<ShotKind> shot_kind_from(const std::string& name);
+// N8 guest: the host's world snapshot ('world' message) in simulation terms.
+struct PuppetBot { std::uint32_t uid{}; int type{}; double x{}, y{}, z{}, a{}, hp{}, max_hp{100}, phase{}, walk{}, hit{}, wind{}, total_wind{}, recover{}, total_recover{}; };
+struct PuppetShot { double x{}, y{}, z{}, vx{}, vy{}, vz{}, life{}; ShotKind kind{ShotKind::shot}; int type{-1}; };
+struct WorldState {
+    int wave{1}, total{10}, kills{}, spawned{};
+    double cooldown{-1};
+    std::vector<PuppetBot> bots;
+    std::vector<PuppetShot> shots;
+};   // enemyAttackProgress: -1 idle, 0 .. .72 wind-up, .72 .. 1 recovery
 struct NavStats { std::uint64_t queries{}, success{}, failed{}, shared{}; };
 
 class Horde {
@@ -90,6 +101,10 @@ public:
     std::size_t nav_queue() const { return queue_.size(); }
     int nav_active_expanded() const { return job_ ? static_cast<int>(job_->expanded) : -1; }
     double decision_accumulator() const { return ai_acc_; }
+    // ---- N8 guest: no AI, waves or navigation; enemies follow the host's snapshots ----
+    void set_puppet(bool puppet) { puppet_ = puppet; }
+    bool puppet() const { return puppet_; }
+    void queue_world(WorldState w) { pending_world_ = std::move(w); }   // applied inside the next step
     // ---- called by Arena::step, in the legacy update() order ----
     bool decision_tick(double dt);
     void update(double dt, bool decision);     // enemies, route jobs, enemy projectiles
@@ -107,7 +122,7 @@ public:
     void stage_wave(int number, int total, int spawned, int kills) { wave_number_ = number; wave_total_ = total; wave_spawned_ = spawned; wave_kills_ = kills; wave_cooldown_ = -1; }
     std::uint32_t stage_corpse(int type, double x, double y, double z, double floor_z, double a, double t);
     // Pieces, public for tests.
-    bool line_of_sight(const Target& b) const;                 // enemy3DHasLineOfSight
+    bool line_of_sight(const Target& b) const;                 // enemy3DHasLineOfSight (towards enemyTargetFor(b))
     bool flyer_free(double x, double y, double z, double r, double h = 1.15) const;   // nav3FlyerFree
     static const nav::Profile& profile(int index);
 private:
@@ -145,5 +160,11 @@ private:
     std::vector<Shared> routes_;               // NAV3_ROUTES ring (24 entries, 0.75 s)
     std::size_t route_slot_{};
     NavStats nav_stats_;
+    // N8
+    bool puppet_{};
+    std::optional<WorldState> pending_world_;
+    void puppet_update(double dt);                             // netGuestInterp + the guest branches of update()
+    void apply_world(const WorldState& w);
+    bool line_of_sight(const Target& b, const Arena::Aim& t) const;
 };
 }  // namespace cat::combat

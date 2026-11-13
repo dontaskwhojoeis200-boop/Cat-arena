@@ -59,7 +59,9 @@ public:
     std::map<std::string, HudPlacement>& hud_layout() { return hud_; }
     const std::map<std::string, HudPlacement>& hud_layout() const { return hud_; }
     std::string map{"helios-crucible"};   // voidArena.map
-    std::string player_name{"Marine Cat"};
+    std::string player_name{"Marine Cat"};       // cat.name (coopUsername, 20 characters)
+    std::string server_name;                     // cat.serverName (coopServerName, 32 characters)
+    std::string relay{"ws://localhost:8787/ws"};  // cat.relay (coopServerUrl; the legacy default outside a web server)
     void save(std::ostream& out) const;
     static GameSettings load(std::istream& in);   // unknown or invalid lines are ignored
     bool operator==(const GameSettings&) const = default;

@@ -1,4 +1,4 @@
-# Cat Arena: Feral Claw - Windows x64 build, test and package (N6.5, N7; reusable for later milestones).
+# Cat Arena: Feral Claw - Windows x64 build, test and package (N6.5, N7, N8; reusable for later milestones).
 #
 # Produces the artifact CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS (downloads as a ZIP holding one folder
 # with CatArena.exe, SDL3.dll, assets/, README.txt, THIRD_PARTY_LICENSES.txt).
@@ -18,7 +18,7 @@ on:
       milestone:
         description: "Milestone in the package name (CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS)"
         required: false
-        default: "N7"
+        default: "N8"
   push:
     branches: [main, master]
     paths: ["native/**", "assets/**", "README_WINDOWS.md", ".github/workflows/windows-build.yml"]
@@ -37,7 +37,7 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 120
     env:
-      MILESTONE: ${{ github.event.inputs.milestone || 'N7' }}
+      MILESTONE: ${{ github.event.inputs.milestone || 'N8' }}
     defaults:
       run:
         shell: pwsh
@@ -61,11 +61,23 @@ jobs:
           python --version
           New-Item -ItemType Directory -Force -Path ci-logs | Out-Null
 
+      # N8: the `ws` package for the interop tests with the ORIGINAL relay (reference/multiplayer/server.js).
+      # Test-only: nothing from npm is built into or shipped with the game.
+      - name: Relay test dependency (npm ws, tests only)
+        run: |
+          $dir = Join-Path $env:RUNNER_TEMP "relay-deps"
+          New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          Push-Location $dir
+          npm install --no-save --no-audit --no-fund ws@8.18.3 2>&1 | Tee-Object -FilePath "$env:GITHUB_WORKSPACE/ci-logs/npm-ws.txt"
+          Pop-Location
+          node --version
+          "CAT_NODE_WS_DIR=$((Join-Path $dir 'node_modules') -replace '\\','/')" | Out-File -FilePath $env:GITHUB_ENV -Append
+
       # Stage 3: configure (Visual Studio 2022 generator, x64, static MSVC runtime, SDL3 + glslang fetched)
       - name: Configure
         working-directory: native
         run: |
-          cmake --preset windows-release "-DCAT_MILESTONE=$env:MILESTONE" 2>&1 | Tee-Object -FilePath ../ci-logs/configure.txt
+          cmake --preset windows-release "-DCAT_MILESTONE=$env:MILESTONE" "-DCAT_NODE_WS_DIR=$env:CAT_NODE_WS_DIR" 2>&1 | Tee-Object -FilePath ../ci-logs/configure.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       # Stage 4 + 5: compile the engine, the tests and the SPIR-V shaders (cat_shaders runs glslang)
@@ -124,6 +136,8 @@ jobs:
           $code = $LASTEXITCODE
           # Replay and js_math results in the job log (bit-exact tick counts and state hashes, for comparison with Linux)
           ctest --preset windows-release -R "legacy|js_math" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) (legacy|js_math|sin|cos|tan|atan2|pow)" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/replay-summary.txt
+          # N8 multiplayer: native relay, WinHTTP client, original server.js
+          ctest --preset windows-release -R "net_|coop_" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) |original relay|snapshot rounds" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/multiplayer-summary.txt
           ctest --preset windows-release-gpu -N 2>&1 | Tee-Object -FilePath ../ci-logs/ctest-gpu-not-run.txt
           exit $code
 
@@ -143,6 +157,7 @@ jobs:
           if (Test-Path ci-logs/validate.txt) { $lines += (Get-Content ci-logs/validate.txt | Select-String "Package check") }
           if (Test-Path ci-logs/archive.txt) { $lines += (Get-Content ci-logs/archive.txt | Select-String "Wrote") }
           if (Test-Path ci-logs/ctest.txt) { $lines += (Get-Content ci-logs/ctest.txt | Select-String "tests passed|tests failed") }
+          if (Test-Path ci-logs/multiplayer-summary.txt) { $lines += "Multiplayer:"; $lines += (Get-Content ci-logs/multiplayer-summary.txt | Select-String "^\s*\d*:? ?(PASS|FAIL) (coop|relay|four)") }
           $lines += "GPU / window tests were not run (no GPU on GitHub-hosted runners): rendering and gameplay on Windows are UNVERIFIED by this run."
           $lines -join "`n" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 

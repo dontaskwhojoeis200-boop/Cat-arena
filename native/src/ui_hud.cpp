@@ -307,4 +307,46 @@ std::vector<HudElement> build_hud(Canvas& c, const HudInfo& in, const HudView& v
     return out;
 }
 
+void build_coop_hud(Canvas& c, const CoopHud& in, const HudView& v) {
+    const double k = v.scale, W = c.width(), H = c.height();
+    // name tags: nearest drawn last (on top); smaller and fainter with distance, dimmed behind walls
+    std::vector<const CoopTag*> order;
+    for(const auto& t : in.tags) order.push_back(&t);
+    std::sort(order.begin(), order.end(), [](const CoopTag* a, const CoopTag* b) { return a->distance > b->distance; });
+    for(const CoopTag* t : order) {
+        if(t->x < -60 * k || t->x > W + 60 * k || t->y < -40 * k || t->y > H + 40 * k) continue;
+        const double near = std::clamp(1 - (t->distance - 6) / 60, .55, 1.0);
+        const float a = static_cast<float>((t->occluded ? .5 : 1) * std::clamp(1.25 - t->distance / 90, .35, 1.0));
+        std::string name = t->name.empty() ? "MARINE CAT" : t->name;
+        for(char& ch : name) if(ch >= 'a' && ch <= 'z') ch = static_cast<char>(ch - 32);
+        const TextStyle ns = style(Face::serif_regular, 12.5 * k * near, (t->downed ? Color::hex(0xff9a8a) : kBright).with_alpha(a), .1, Align::center, .2);
+        const double tw = std::max(c.measure(name, ns), 54 * k * near), bar_w = tw, y = t->y;
+        const Rect box{t->x - tw / 2 - 8 * k, y - 18 * k * near, tw + 16 * k, (t->downed ? 34 : 26) * k * near};
+        c.shape(Canvas::cut_shape(box, 5 * k * near), kPanel2.with_alpha(.55f * a), kPanel.with_alpha(.55f * a), std::max(1.0, k * .8), kLine.with_alpha(kLine.a * a));
+        c.text(t->x, y - 4 * k * near, name, ns);
+        const Rect bar{t->x - bar_w / 2, y + 1.5 * k * near, bar_w, 3 * k * near};
+        c.rect(bar, Color::hex(0x07090c, .9f * a));
+        const double hp = std::clamp(t->hp / 100, 0.0, 1.0);
+        c.rect({bar.x, bar.y, bar.w * hp, bar.h}, (hp > .5 ? Color::hex(0xc9d2c4) : hp > .25 ? Color::hex(0xd8bb83) : Color::hex(0xd8705e)).with_alpha(a));
+        if(t->downed) c.text(t->x, y + 12.5 * k * near, t->reviving ? "REVIVING" : "DOWN · HOLD F", style(Face::mono, 8.5 * k * near, Color::hex(0xffb09e, a), .1, Align::center, .35));
+        if(t->host) c.text(box.right() - 3 * k, box.y - 2 * k, "HOST", style(Face::mono, 7 * k * near, kBrass.with_alpha(a), .1, Align::right, .3));
+    }
+    // revive status (#coopReviveStatus)
+    if(!in.revive.empty()) {
+        const TextStyle rs = style(Face::serif, std::clamp(W * .016, 13.0 * k, 19.0 * k), Color::hex(0xfff0c7), .08, Align::center);
+        const double tw = std::min(c.measure(in.revive, rs), W * .85);
+        const Rect r{W / 2 - tw / 2 - 22 * k, H * (v.touch ? .55 : .67) - 20 * k, tw + 44 * k, 40 * k};
+        c.shape(Canvas::cut_shape(r, 9 * k), Color::hex(0x160b0b, .87f), Color::hex(0x0d0606, .87f), 2 * k, in.revive_alert ? Color::hex(0xe3a36a) : kLine);
+        c.text(W / 2, r.y + r.h / 2 + rs.size * .36, in.revive, rs);
+    }
+    // room badge (#roomBadge)
+    if(!in.badge.empty()) {
+        const TextStyle bs = style(Face::mono, (v.touch ? 10 : 12) * k, kText, .12, Align::center, .35);
+        const double bw = std::max(185 * k, c.measure(in.badge, bs) + 24 * k), bh = 34 * k;
+        const Rect r{v.safe.right() - 18 * k - bw, v.safe.bottom() - (v.touch ? 74 : 116) * k - bh, bw, bh};
+        panel(c, r, k, 1);
+        c.text(r.x + r.w / 2, r.y + r.h / 2 + 4.5 * k, in.badge, bs);
+    }
+}
+
 }  // namespace cat::ui

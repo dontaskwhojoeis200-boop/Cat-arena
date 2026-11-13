@@ -177,6 +177,73 @@ void Horde::tick_waves(double dt) {   // tickWaves (11494)
     if(wave_spawned_ < wave_total_ && alive < kMaxEnemies && wave_spawn_timer_ <= 0) { spawn_enemy(); ++wave_spawned_; wave_spawn_timer_ = .20; }
     if(wave_kills_ >= wave_total_ && arena_->targets_.empty()) wave_cooldown_ = 3.5;
 }
+// ---- N8 guest: the host's enemies as puppets ---------------------------------------------------------------
+const char* shot_kind_name(ShotKind k) {
+    switch(k) { case ShotKind::spike: return "spike"; case ShotKind::fireball: return "fireball"; case ShotKind::voidorb: return "voidorb"; default: return "shot"; }
+}
+std::optional<ShotKind> shot_kind_from(const std::string& n) {
+    if(n == "shot") return ShotKind::shot;
+    if(n == "spike") return ShotKind::spike;
+    if(n == "fireball") return ShotKind::fireball;
+    if(n == "voidorb") return ShotKind::voidorb;
+    return std::nullopt;
+}
+void Horde::apply_world(const WorldState& w) {   // netOnRelay 'world' (15709-15748)
+    wave_number_ = w.wave; wave_total_ = w.total; wave_kills_ = w.kills; wave_spawned_ = w.spawned; wave_cooldown_ = w.cooldown;
+    auto& targets = arena_->targets_;
+    std::vector<Target> next;
+    next.reserve(w.bots.size());
+    for(const auto& p : w.bots) {
+        if(next.size() >= 40) break;
+        auto it = std::find_if(targets.begin(), targets.end(), [&](const Target& t) { return t.uid == p.uid && t.type >= 0; });
+        Target b;
+        if(it != targets.end()) b = *it;
+        else {   // a creature this player has not seen yet: appears at the host's position
+            const int type = p.type >= 0 && p.type < static_cast<int>(kEnemyTypeCount) ? p.type : 0;
+            const auto& def = kTypes[static_cast<std::size_t>(type)];
+            b.type = type; b.uid = p.uid; b.id = arena_->next_target_id_++;
+            b.cls = def.hit_class; b.flying = def.flying;
+            b.x = p.x; b.y = p.y; b.z = p.z; b.a = p.a;
+            b.base_speed = b.speed = def.speed;
+        }
+        b.sync_x = p.x; b.sync_y = p.y; b.sync_z = p.z; b.has_sync = true;
+        b.a = p.a; b.anim_phase = p.phase; b.walk_amount = p.walk;
+        b.hp = p.hp; b.max_hp = p.max_hp; b.hit_flash = p.hit;
+        b.attack_wind = p.wind; b.attack_total = p.total_wind; b.attack_recover = p.recover; b.attack_recover_total = p.total_recover;
+        next.push_back(std::move(b));
+    }
+    // creatures that vanished from the host's snapshot died: play their death here (within 70 m)
+    const auto& me = arena_->player_.state();
+    for(const auto& old : targets) {
+        if(old.type < 0) continue;
+        const bool alive = std::any_of(next.begin(), next.end(), [&](const Target& t) { return t.uid == old.uid; });
+        if(!alive && js_hypot(old.x - me.x, old.y - me.y) < 70) enemy_died(old);
+    }
+    targets = std::move(next);
+    shots_.clear();
+    for(const auto& p : w.shots) {
+        if(shots_.size() >= 100) break;
+        EnemyShot e;
+        e.x = p.x; e.y = p.y; e.z = p.z; e.vx = p.vx; e.vy = p.vy; e.vz = p.vz; e.life = p.life; e.kind = p.kind; e.type = p.type < 0 ? 0 : p.type;
+        e.id = next_shot_id_++;
+        shots_.push_back(e);
+    }
+}
+void Horde::puppet_update(double dt) {
+    if(pending_world_) { apply_world(*pending_world_); pending_world_.reset(); }
+    const double a = 1 - std::exp(-dt * 16);   // netGuestInterp
+    for(auto& b : arena_->targets_) {
+        b.hit_flash = std::max(0.0, b.hit_flash - dt);
+        if(b.type < 0 || !b.has_sync) continue;
+        b.x += (b.sync_x - b.x) * a; b.y += (b.sync_y - b.y) * a; b.z += (b.sync_z - b.z) * a;
+    }
+    for(std::size_t i = shots_.size(); i-- > 0;) {   // the guest branch of the enemy-shot loop: move, no collision
+        auto& s = shots_[i];
+        s.life -= dt;
+        s.x += s.vx * dt; s.y += s.vy * dt; s.z += s.vz * dt;
+        if(s.life <= 0) shots_.erase(shots_.begin() + static_cast<std::ptrdiff_t>(i));
+    }
+}
 void Horde::player_respawned() { shots_.clear(); pending_purge_ = false; wave_reset_pending_ = true; }
 double attack_progress(const Target& b) {
     if(!(b.attack_total > 0)) return -1;
@@ -230,8 +297,8 @@ bool Horde::decision_tick(double dt) {
     if(decision) ai_acc_ -= 1.0 / 30;
     return decision;
 }
-bool Horde::line_of_sight(const Target& b) const {   // enemy3DHasLineOfSight (11948)
-    const auto& t = arena_->player_.state();
+bool Horde::line_of_sight(const Target& b) const { return line_of_sight(b, arena_->target_for(b.x, b.y)); }
+bool Horde::line_of_sight(const Target& b, const Arena::Aim& t) const {   // enemy3DHasLineOfSight (11948)
     const double az = b.z + (b.flying ? 1.18 : 1.30), tz = t.z + 1.15;
     const double d = js_hypot3(t.x - b.x, t.y - b.y, tz - az);
     if(d < .20) return true;
@@ -239,8 +306,8 @@ bool Horde::line_of_sight(const Target& b) const {   // enemy3DHasLineOfSight (1
 }
 void Horde::update(double dt, bool decision) {   // update() 12236-12305
     impacts_.clear();
+    if(puppet_) { puppet_update(dt); return; }
     auto& targets = arena_->targets_;
-    const auto& player = arena_->player_.state();
     if(decision) search_pool_ = 2;
     int budget = search_pool_;
     for(std::size_t i = 0; i < targets.size(); ++i) {
@@ -248,6 +315,7 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
         b.hit_flash = std::max(0.0, b.hit_flash - dt);
         if(b.type < 0) continue;   // practice target
         const auto& def = type_of(b);
+        const auto player = arena_->target_for(b.x, b.y);   // enemyTargetFor(b)
         const double dx = player.x - b.x, dy = player.y - b.y, dist = js_hypot(dx, dy);
         if(b.flying) { update_flyer(b, dt); b.nav_stride_acc = 0; }
         else {
@@ -279,7 +347,7 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
         } else if(b.attack_recover > 0) {
             b.attack_recover = std::max(0.0, b.attack_recover - dt);
         } else if(decision && b.cool <= 0 && dist < (def.ranged ? 28 : def.slam ? 2.5 : 1.9)) {
-            if(line_of_sight(b)) {
+            if(line_of_sight(b, player)) {
                 b.attack_wind = b.flying ? .66 : def.slam ? .88 : def.orb ? .73 : def.ranged ? .61 : .43;
                 b.attack_total = b.attack_wind;
                 b.attack_recover = 0; b.attack_recover_total = 0;
@@ -296,9 +364,12 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
         auto& s = shots_[i];
         s.life -= dt;
         const double nx = s.x + s.vx * dt, ny = s.y + s.vy * dt, nz = s.z + s.vz * dt;
-        const Box body = arena_->player_box();
+        const Teammate* mate = s.target_key ? arena_->teammate(s.target_key) : nullptr;
         const double radius = s.kind == ShotKind::voidorb ? .21 : s.kind == ShotKind::fireball ? .16 : .08;
-        const double hit_time = segment_box_time(s.x, s.y, s.z, nx, ny, nz, body, radius);
+        double hit_time = -1;
+        if(mate) {   // marineShotTime: the six Marine Cat parts of that player
+            for(const Box& part : arena_->marine_boxes(*mate)) { const double tt = segment_box_time(s.x, s.y, s.z, nx, ny, nz, part, radius); if(tt >= 0 && (hit_time < 0 || tt < hit_time)) hit_time = tt; }
+        } else hit_time = segment_box_time(s.x, s.y, s.z, nx, ny, nz, arena_->player_box(), radius);
         const double wall_time = arena_->world_->shot_collision_t(s.x, s.y, s.z, nx, ny, nz, radius * .70);
         const bool hit = hit_time >= 0 && hit_time <= wall_time, wall = wall_time != kInf;
         const double t = hit ? hit_time : wall ? wall_time : 1;
@@ -306,8 +377,12 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
         if(hit) {
             impacts_.push_back({hx, hy, hz, s.kind, s.type, true, s.vx, s.vy, s.vz, arena_->next_event_seq()});
             const bool fire = s.kind == ShotKind::fireball;
-            const bool died = arena_->take_damage(s.damage);
-            if(!died && arena_->respawn_grace_ <= 0 && fire) { arena_->burn_remaining_ = 3; arena_->burn_tick_ = .5; }   // igniteBurn
+            if(mate) arena_->remote_damage(*arena_->teammate(s.target_key), s.damage);
+            else if(s.target_key) {}   // aimed at a player who left: remoteApplyDamage finds nobody
+            else {
+                const bool died = arena_->take_damage(s.damage);
+                if(!died && arena_->respawn_grace_ <= 0 && fire) { arena_->burn_remaining_ = 3; arena_->burn_tick_ = .5; }   // igniteBurn
+            }
             shots_.erase(shots_.begin() + static_cast<std::ptrdiff_t>(i));
         } else if(wall || s.life <= 0) {
             if(wall || s.kind == ShotKind::fireball || s.kind == ShotKind::voidorb) impacts_.push_back({hx, hy, hz, s.kind, s.type, false, s.vx, s.vy, s.vz, arena_->next_event_seq()});
@@ -320,9 +395,9 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
 void Horde::attack(Target& b) {   // enemyAttack (11955)
     arena_->events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::attack, b.id});   // playEnemyVoice(b, 'attack') (11956)
     const auto& def = type_of(b);
-    const auto& target = arena_->player_.state();
+    const auto target = arena_->target_for(b.x, b.y);   // enemyTargetFor(b)
     const double dist = js_hypot(target.x - b.x, target.y - b.y);
-    if(!line_of_sight(b)) return;
+    if(!line_of_sight(b, target)) return;
     if(def.ranged) {
         const ShotKind kind = def.shot;
         const bool fire = kind == ShotKind::fireball, orb = kind == ShotKind::voidorb, burst = kind == ShotKind::spike;
@@ -350,10 +425,12 @@ void Horde::attack(Target& b) {   // enemyAttack (11955)
             s.life = dist / speed + 1.35; s.kind = kind; s.type = b.type;
             s.damage = (b.flying ? def.flying_attack : fire ? 4.0 : orb ? 19.0 : burst ? 6.0 : 9.0) * b.damage_scale;
             s.id = next_shot_id_++;
+            s.target_key = target.key;
             shots_.push_back(s);
         }
     } else if(dist < (def.slam ? 2.2 : 1.55) && std::fabs(target.z - b.z) < 1.55) {
-        arena_->take_damage(def.melee_damage * b.damage_scale);
+        if(target.key) { if(Teammate* m = arena_->teammate(target.key)) arena_->remote_damage(*m, def.melee_damage * b.damage_scale); }
+        else arena_->take_damage(def.melee_damage * b.damage_scale);
     }
 }
 
@@ -378,7 +455,7 @@ int Horde::navigate(Target& b, double dt, bool decision, int search_left) {   //
     const auto& p = profile(def.nav_profile);
     const double speed = b.base_speed * scale();
     b.speed = speed;
-    const auto& target = arena_->player_.state();
+    const auto target = arena_->target_for(b.x, b.y);   // enemyTargetFor(b)
     const double now = arena_->player_.now();
     const double tx = target.x, ty = target.y, tz = graph_->target_floor(target.x, target.y, target.z);
     const double dx = tx - b.x, dy = ty - b.y, d = js_hypot(dx, dy), vertical = std::fabs(tz - b.z);
@@ -478,12 +555,12 @@ std::optional<std::vector<std::uint32_t>> Horde::shared_route(std::uint32_t star
 }
 bool Horde::start_job() {   // nav3StartJob (6428)
     int shared_now = 0;
-    const auto& target = arena_->player_.state();
     while(!queue_.empty()) {
         const Request q = queue_.front();
         queue_.pop_front();
         Target* b = find(q.uid);
         if(q.epoch != epoch_ || !b) { if(b) b->nav_queued = false; continue; }
+        const auto target = arena_->target_for(b->x, b->y);   // enemyTargetFor(b)
         const auto& p = profile(q.profile);
         const double tz = graph_->target_floor(target.x, target.y, target.z);
         const auto* start = graph_->nearest(b->x, b->y, b->z, p);
@@ -554,7 +631,7 @@ bool Horde::flyer_sweep(double x, double y, double z, double nx, double ny, doub
     return true;
 }
 void Horde::update_flyer(Target& b, double dt) {   // updateFlyer (6597)
-    const auto& target = arena_->player_.state();
+    const auto target = arena_->target_for(b.x, b.y);   // enemyTargetFor(b)
     const double old_x = b.x, old_y = b.y;
     const double r = b.type == 19 ? .52 : b.type == 18 ? .37 : .29;
     const double target_z = target.z + 2.45;

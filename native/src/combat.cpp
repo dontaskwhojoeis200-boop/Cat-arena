@@ -117,6 +117,13 @@ void Arena::step(const physics::TickInput& in) {
     player_.clear_body_events();
     player_.set_stick(in.stick_x, in.stick_y);
     if(horde_) horde_->begin_step();
+    // N8: shots of other players that arrived since the last tick (netHostRemoteFire runs on message arrival)
+    if(!remote_fire_queue_.empty()) {
+        const auto queue = std::move(remote_fire_queue_);
+        remote_fire_queue_.clear();
+        for(const auto& r : queue) if(Teammate* m = teammate(r.key)) remote_fire(*m, r.weapon);
+    }
+    if(!frag_queue_.empty()) { const auto frags = std::move(frag_queue_); frag_queue_.clear(); for(const bool head : frags) remote_frag(head); }
     // Input events between ticks: keyboard in key-bit order (movement, then R, then Q), then the fire button.
     const std::uint32_t changed = in.keys ^ keys_;
     for(std::uint32_t bit = 1; bit <= physics::key_slide; bit <<= 1)
@@ -155,7 +162,8 @@ void Arena::step(const physics::TickInput& in) {
     else for(auto& t : targets_) t.hit_flash = std::max(0.0, t.hit_flash - dt);
     if(presentation_hook_) presentation_hook_();   // WFX.update, EFX.update (12347)
     finish_respawn();
-    if(horde_) horde_->tick_waves(dt);
+    if(role_ == NetRole::host) coop_tick(dt);   // netHostTick (12347)
+    if(horde_ && role_ != NetRole::guest) horde_->tick_waves(dt);
 }
 
 Arena::FirePose Arena::fire_position(double az, double pitch) const {   // firePosition (11811)
@@ -194,6 +202,11 @@ void Arena::reroll_one(bool) {   // rerollOne (11593): a frag replaces the weapo
 void Arena::damage_target(std::size_t index, double damage, double z_hit, int part) {   // damageBot (11585) + killBot
     if(index >= targets_.size()) return;
     auto& b = targets_[index];
+    if(role_ == NetRole::guest) {   // the host decides damage: hit feedback only (b.hitFlash = .17; hitFeedback)
+        b.hit_flash = .17;
+        events_.damage.push_back({b.id, damage, false, false});
+        return;
+    }
     const double rel = z_hit - b.z;
     const bool head = part >= 0 ? part == 1 : (rel >= b.height() * .66 && rel <= b.height() + .10);
     const double actual = damage * (head ? 2 : 1);
@@ -206,7 +219,8 @@ void Arena::damage_target(std::size_t index, double damage, double z_hit, int pa
         targets_.erase(targets_.begin() + static_cast<std::ptrdiff_t>(index));
         ++frags_;
         if(horde_) horde_->enemy_died(dead);
-        reroll_one(head);
+        if(role_ == NetRole::host && attacker_ != 0 && teammate(attacker_)) events_.remote_frags.push_back({attacker_, head});   // conn.send({type:'frag', head})
+        else reroll_one(head);
         if(horde_) horde_->count_kill();
     } else {
         if(rng_.next() < .52) events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::hurt, b.id});   // playEnemyVoice(b, 'hurt') (11590)
@@ -273,14 +287,20 @@ void Arena::fire() {   // fireWeapon (12054)
 }
 
 bool Arena::take_damage(double amount, bool burn) {   // takeDamage (11912)
-    if(player_.state().downed) return false;
+    if(role_ == NetRole::guest || player_.state().downed) return false;
     amount = std::max(0.0, amount);
     if(amount == 0 || !(amount == amount) || respawn_grace_ > 0) return false;
     hp_ -= amount; flash_ = std::max(flash_, burn ? .22 : .62);
     events_.player_damage += amount;
     if(!burn) ++events_.player_hits;   // beep(100, .08, 'sawtooth', .013) (11923)
     if(hp_ <= 0) {   // committed at the end of the tick (finishPendingRespawn), not inside the enemy / projectile loops
-        ++deaths_; hp_ = 0; respawn_queued_ = true; respawn_grace_ = 2.5;
+        ++deaths_; hp_ = 0;
+        if(role_ == NetRole::host && !team_.empty()) {   // co-op: down until a teammate revives (or the squad is wiped)
+            auto& p = player_.state();
+            p.downed = true; p.vx = p.vy = p.vz = 0;
+            fire_held_ = false;
+            events_.downed.push_back(0);
+        } else { respawn_queued_ = true; respawn_grace_ = 2.5; }
         burn_remaining_ = 0; burn_tick_ = 0;
         if(horde_) horde_->purge_shots_after_loop();
         return true;
@@ -304,6 +324,11 @@ void Arena::explode(double x, double y, double power, double z, FireKind kind) {
         if(distance < splash) damage_target(i, kEnemySplashDamage * power * (1 - distance / splash), -10, 0);
     }
     const double range = kPlayerSplashRadius * power;
+    if(role_ == NetRole::host) for(auto& other : team_) {   // other players (host): damage only, they move themselves
+        if(other.downed) continue;
+        const double rd = point_box_distance(x, y, z, teammate_box(other));
+        if(rd < range) remote_damage(other, std::max(1.0, std::floor(kPlayerSplashDamage * power * (1 - rd / range) + .5)));
+    }
     auto& p = player_.state();
     const double d = point_box_distance(x, y, z, player_box());
     if(d < range) {
@@ -325,26 +350,27 @@ void Arena::update_projectiles(double dt) {   // update() 12308-12343
         auto& p = rockets_[i];
         p.life -= dt;
         const auto hit = shot_sweep(p.x, p.y, p.z, p.x + p.vx * dt, p.y + p.vy * dt, p.z + p.vz * dt, kRocketRadius);
-        if(hit.hit || p.life <= 0) { rockets_.erase(rockets_.begin() + static_cast<std::ptrdiff_t>(i)); explode(hit.x, hit.y, kRocketPower, hit.z, FireKind::rocket); }
+        if(hit.hit || p.life <= 0) { attacker_ = p.owner; rockets_.erase(rockets_.begin() + static_cast<std::ptrdiff_t>(i)); explode(hit.x, hit.y, kRocketPower, hit.z, FireKind::rocket); attacker_ = 0; }
         else { p.x = hit.x; p.y = hit.y; p.z = hit.z; }
     }
     for(std::size_t i = grenades_.size(); i-- > 0;) {
         auto& p = grenades_[i];
         p.life -= dt; p.vz -= kGrenadeGravity * dt;
         const auto hit = shot_sweep(p.x, p.y, p.z, p.x + p.vx * dt, p.y + p.vy * dt, p.z + p.vz * dt, kGrenadeRadius);
-        if(hit.hit || p.life <= 0) { grenades_.erase(grenades_.begin() + static_cast<std::ptrdiff_t>(i)); explode(hit.x, hit.y, kGrenadePower, hit.z, FireKind::grenade); }
+        if(hit.hit || p.life <= 0) { attacker_ = p.owner; grenades_.erase(grenades_.begin() + static_cast<std::ptrdiff_t>(i)); explode(hit.x, hit.y, kGrenadePower, hit.z, FireKind::grenade); attacker_ = 0; }
         else { p.x = hit.x; p.y = hit.y; p.z = hit.z; }
     }
     for(std::size_t i = bolts_.size(); i-- > 0;) {
         auto& p = bolts_[i];
         p.life -= dt;
         const auto hit = shot_sweep(p.x, p.y, p.z, p.x + p.vx * dt, p.y + p.vy * dt, p.z + p.vz * dt, kRiftRadius);
-        if(hit.hit || p.life <= 0) { bolts_.erase(bolts_.begin() + static_cast<std::ptrdiff_t>(i)); explode(hit.x, hit.y, kRiftPower, hit.z, FireKind::rift); }
+        if(hit.hit || p.life <= 0) { attacker_ = p.owner; bolts_.erase(bolts_.begin() + static_cast<std::ptrdiff_t>(i)); explode(hit.x, hit.y, kRiftPower, hit.z, FireKind::rift); attacker_ = 0; }
         else { p.x = hit.x; p.y = hit.y; p.z = hit.z; }
     }
 }
 
 void Arena::update_pickups(double dt) {   // update() 12344: medkits
+    if(role_ == NetRole::guest) return;   // the host's medkits (world snapshot)
     const auto& p = player_.state();
     for(auto& k : pickups_) {
         if(k.cool > 0) k.cool -= dt;
@@ -381,5 +407,152 @@ void Arena::finish_respawn() {   // finishPendingRespawn (12097), single-player 
     respawn_grace_ = 2.5; gun_kick_ = 0; fire_held_ = false;   // held keys stay held; the fire button needs a new press
     if(horde_) horde_->player_respawned();   // enemy shots removed, wave restarts softly
     roll_loadout();
+}
+
+// ---- N8 multiplayer (js/net/multiplayer.js) --------------------------------------------------------------
+Teammate* Arena::teammate(std::uint32_t key) {
+    for(auto& m : team_) if(m.key == key) return &m;
+    return nullptr;
+}
+Teammate& Arena::add_teammate(const std::string& id, const std::string& name) {
+    Teammate m;
+    m.key = next_teammate_key_++; m.id = id; m.name = name;
+    const auto& p = player_.state();   // netMakePlayer: placed near the host until its first pose
+    m.x = p.x; m.y = p.y; m.z = p.z;
+    team_.push_back(m);
+    return team_.back();
+}
+void Arena::remove_teammate(std::uint32_t key) {
+    team_.erase(std::remove_if(team_.begin(), team_.end(), [&](const Teammate& m) { return m.key == key; }), team_.end());
+    if(revive_target_ == static_cast<int>(key) || revive_holder_ == static_cast<int>(key)) { revive_target_ = revive_holder_ = -1; revive_seconds_ = 0; }
+    // 'guest_left': the host, alone and down, gets up (player.downed = false; hp = 100; respawn)
+    if(role_ == NetRole::host && team_.empty() && player_.state().downed) {
+        player_.state().downed = false; hp_ = kMaxHealth;
+        respawn_queued_ = true;
+        finish_respawn();
+    }
+}
+Box Arena::teammate_box(const Teammate& p) const {   // playerHitBox(p)
+    const double duck = clamp(p.crouch / .49, 0, 1);
+    const double height = physics::kPlayerHeight + (physics::kPlayerCrouchHeight - physics::kPlayerHeight) * duck;
+    return {p.x - physics::kPlayerRadius, p.x + physics::kPlayerRadius, p.y - physics::kPlayerRadius, p.y + physics::kPlayerRadius, p.z + .035, p.z + height};
+}
+std::array<Box, 6> Arena::marine_boxes(const Teammate& p) const {   // marineHitBoxes (11548)
+    const double a = (std::isfinite(p.a) ? p.a : 0) - 3.141592653589793 / 2, c = jsmath::cos(a), s = jsmath::sin(a), z = std::isfinite(p.z) ? p.z : 0;
+    auto part = [&](double cx, double cy, double cz, double sx, double sy, double sz) {
+        const double ox = c * cx - s * cy, oy = s * cx + c * cy;
+        const double hx = (std::fabs(c) * sx + std::fabs(s) * sy) * .5, hy = (std::fabs(s) * sx + std::fabs(c) * sy) * .5;
+        return Box{p.x + ox - hx, p.x + ox + hx, p.y + oy - hy, p.y + oy + hy, z + cz - sz * .5, z + cz + sz * .5};
+    };
+    return {part(0, 0, 1.59, .72, .56, .60), part(0, 0, 1.16, .76, .52, .74), part(-.51, .11, .97, .36, .57, .62), part(.51, .11, .97, .36, .57, .62),
+            part(-.20, .04, .45, .44, .48, .90), part(.20, .04, .45, .44, .48, .90)};
+}
+Arena::Aim Arena::target_for(double bx, double by) const {   // enemyTargetFor (15801)
+    const auto& p = player_.state();
+    const Aim local{p.x, p.y, p.z, p.vx, p.vy, 0};
+    if(role_ != NetRole::host || team_.empty()) return local;
+    const Teammate* best = nullptr;
+    bool local_best = !p.downed;
+    double score = local_best ? js_hypot(p.x - bx, p.y - by) : 1e9;
+    for(const auto& m : team_) if(!m.downed && m.hp > 0) {
+        const double d = js_hypot(m.x - bx, m.y - by);
+        if(d < score) { score = d; best = &m; local_best = false; }
+    }
+    if(best) return {best->x, best->y, best->z, best->vx, best->vy, best->key};
+    return local;
+}
+void Arena::remote_damage(Teammate& p, double damage) {   // remoteApplyDamage (15794)
+    if(role_ != NetRole::host || p.downed || p.hp <= 0) return;
+    p.hp = std::max(0.0, p.hp - std::max(0.0, damage == damage ? damage : 0.0));
+    p.hurt_until = now() + .27;
+    if(p.hp == 0) { p.downed = true; p.holding_revive = false; p.vx = p.vy = 0; events_.downed.push_back(p.key); }
+}
+void Arena::remote_fire(Teammate& p, int i) {   // netHostRemoteFire (15773)
+    if(p.downed || p.hp <= 0 || i < 0 || i >= static_cast<int>(kWeaponCount)) return;
+    const WeaponDef& w = kWeapons[static_cast<std::size_t>(i)];
+    const double t = now();
+    if(t < p.next_fire) return;
+    p.shoot_until = t + .14;
+    p.next_fire = t + std::max(.06, w.delay * .88);
+    events_.remote_shots.push_back({p.key, i});
+    struct G { double x, y, z, dx, dy, dz; };
+    auto gunpos = [&](double ang, double tilt) {
+        const double co = jsmath::cos(tilt), dx = jsmath::cos(ang) * co, dy = jsmath::sin(ang) * co, dz = -jsmath::sin(tilt);
+        return G{p.x + dx * .24, p.y + dy * .24, p.z + std::max(.83, 1.5 - p.crouch * .60) + dz * .24, dx, dy, dz};
+    };
+    const G m = gunpos(p.a, p.pitch);
+    if(w.kind == FireKind::rocket) rockets_.push_back({FireKind::rocket, m.x, m.y, m.z, m.dx * 26, m.dy * 26, m.dz * 26, 2.6, next_projectile_id_++, p.key});
+    else if(w.kind == FireKind::grenade) grenades_.push_back({FireKind::grenade, m.x, m.y, m.z, m.dx * 22, m.dy * 22, m.dz * 22 + 1.5, 2.3, next_projectile_id_++, p.key});
+    else if(w.kind == FireKind::rift) bolts_.push_back({FireKind::rift, m.x, m.y, m.z, m.dx * 19, m.dy * 19, m.dz * 19, 2.6, next_projectile_id_++, p.key});
+    else {
+        attacker_ = p.key;
+        for(int n = 0; n < w.pellets; ++n) {
+            const double az = p.a + (rng_.next() - .5) * w.spread * 2, pitch = clamp(p.pitch + (rng_.next() - .5) * w.spread * 1.4, -1.49, 1.49);
+            const G at = gunpos(az, pitch);
+            const auto hit = shot_sweep(at.x, at.y, at.z, at.x + at.dx * w.range, at.y + at.dy * w.range, at.z + at.dz * w.range, w.pellets > 1 ? .025 : .042);
+            if(hit.target >= 0) damage_target(static_cast<std::size_t>(hit.target), w.damage, hit.z, hit.head ? 1 : 0);
+        }
+        attacker_ = 0;
+    }
+}
+void Arena::remote_frag(bool head) { ++frags_; reroll_one(head); }   // 'frag': score++; rerollOne(head)
+void Arena::set_local_downed(bool downed) {
+    auto& p = player_.state();
+    const bool was = p.downed;
+    p.downed = downed;
+    if(downed) { p.vx = p.vy = p.vz = 0; fire_held_ = false; if(!was) events_.downed.push_back(0); }
+    else if(was) { respawn_grace_ = 1.8; events_.revived.push_back(0); }
+}
+bool Arena::near_revive(double ax, double ay, double az, bool a_downed, double bx, double by, double bz, bool b_downed) const {   // netNearRevive (15814)
+    if(!b_downed || a_downed) return false;
+    const double distance = js_hypot(ax - bx, ay - by);
+    if(distance > kReviveDistance || std::fabs(az - bz) > 1.75 || distance < .01) return false;
+    return world_->shot_collision_t(ax, ay, az + 1.10, bx, by, bz + 1.0, .09) == kInf;   // a 3-D line of sight
+}
+void Arena::coop_tick(double dt) {   // netHostTick (15821)
+    // medkits for every live teammate
+    for(auto& p : team_) if(p.hp > 0 && !p.downed) {
+        for(auto& k : pickups_) {
+            if(k.cool <= 0 && js_hypot(k.x - p.x, k.y - p.y) < kMedkitRadius && std::fabs(p.z - k.z) < 1.2 && p.hp < kMaxHealth) { p.hp = std::min(kMaxHealth, p.hp + kMedkitHeal); k.cool = kMedkitCooldown; break; }
+        }
+    }
+    // any live player holding F near a downed one revives them in 4 s
+    struct P { int key; double x, y, z; bool downed; double hp; bool holding; };
+    const auto& me = player_.state();
+    std::vector<P> all{{0, me.x, me.y, me.z, me.downed, hp_, local_holding_revive()}};
+    for(const auto& m : team_) all.push_back({static_cast<int>(m.key), m.x, m.y, m.z, m.downed, m.hp, m.holding_revive});
+    int target = -1, holder = -1;
+    bool live_any = false;
+    for(const auto& src : all) {
+        if(src.downed || src.hp <= 0) continue;
+        live_any = true;
+        if(target >= 0 || !src.holding) continue;
+        const P* closest = nullptr;
+        double dist = kInf;
+        for(const auto& down : all) {
+            if(!down.downed || down.key == src.key || !near_revive(src.x, src.y, src.z, src.downed, down.x, down.y, down.z, down.downed)) continue;
+            const double d = js_hypot(src.x - down.x, src.y - down.y);
+            if(d < dist) { dist = d; closest = &down; }
+        }
+        if(closest) { target = closest->key; holder = src.key; }
+    }
+    if(target >= 0) {
+        if(target != revive_target_ || holder != revive_holder_) { revive_seconds_ = 0; revive_target_ = target; revive_holder_ = holder; }
+        revive_seconds_ += dt;
+        if(revive_seconds_ >= kReviveSeconds) {
+            if(target == 0) {
+                auto& p = player_.state();
+                p.downed = false; hp_ = 45; p.vx = p.vy = p.vz = 0;
+                respawn_grace_ = 2; burn_remaining_ = 0; burn_tick_ = 0;
+            } else if(Teammate* m = teammate(static_cast<std::uint32_t>(target))) { m->downed = false; m->hp = 45; m->vx = m->vy = 0; }
+            events_.revived.push_back(static_cast<std::uint32_t>(target));
+            revive_target_ = revive_holder_ = -1; revive_seconds_ = 0; wipe_clock_ = 0;
+        }
+    } else { revive_target_ = revive_holder_ = -1; revive_seconds_ = 0; }
+    // the squad is wiped when every connected player is down (solo-host play keeps the solo respawn)
+    if(!team_.empty() && !live_any) {
+        wipe_clock_ += dt;
+        if(wipe_clock_ > 2.7) { wipe_clock_ = 0; events_.wipe = true; }
+    } else wipe_clock_ = 0;
 }
 }  // namespace cat::combat

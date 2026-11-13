@@ -30,8 +30,15 @@ Menu::Menu(GameSettings& settings, std::vector<MapEntry> maps) : settings_(&sett
 }
 
 void Menu::go(Screen s) { screen_ = s; focus_id_.clear(); focus_ = 0; dropdown_.clear(); dragging_.clear(); }
-void Menu::show_home() { go(Screen::home); }
-void Menu::show_maps() { go(Screen::maps); focus_id_ = "maps.map." + selected_map_; }
+void Menu::show_home() { go(Screen::home); host_mode_ = false; }
+void Menu::show_maps() { go(Screen::maps); host_mode_ = false; focus_id_ = "maps.map." + selected_map_; }
+bool Menu::text_focused() const { return focus_ < items_.size() && items_[focus_].id == focus_id_ && items_[focus_].kind == item_text; }
+std::string* Menu::field_value(const std::string& id) {
+    if(id == "mp.name") return &settings_->player_name;
+    if(id == "mp.title") return &settings_->server_name;
+    if(id == "mp.relay") return &settings_->relay;
+    return nullptr;
+}
 void Menu::show_pause() { go(Screen::pause); }
 void Menu::show_settings(bool from_pause) {
     before_settings_ = from_pause ? Screen::pause : Screen::home;
@@ -84,7 +91,10 @@ void Menu::ensure_visible() {
 std::vector<Command> Menu::back() {
     if(!dropdown_.empty()) { dropdown_.clear(); return {}; }
     switch(screen_) {
-        case Screen::maps: case Screen::multiplayer: case Screen::exit_confirm: go(Screen::home); return {};
+        case Screen::maps: if(host_mode_) { go(Screen::multiplayer); host_mode_ = false; focus_id_ = "multi.host"; return {}; } go(Screen::home); return {};
+        case Screen::multiplayer: case Screen::exit_confirm: go(Screen::home); return {};
+        case Screen::servers: go(Screen::multiplayer); focus_id_ = "multi.join"; return {};
+        case Screen::connecting: go(Screen::multiplayer); return {{Command::Kind::cancel_connect, ""}};
         case Screen::home: go(Screen::exit_confirm); focus_id_ = "exit.cancel"; return {};   // catBack on the home page asks to exit
         case Screen::settings: go(before_settings_); return {};
         case Screen::pause: close(); return {{Command::Kind::resume, ""}};
@@ -139,8 +149,20 @@ std::vector<Command> Menu::activate(const Item& item, double px, bool by_pointer
         dropdown_.clear();
         return out;
     }
-    if(id == "home.play") { go(Screen::maps); focus_id_ = "maps.map." + selected_map_; return {{K::preview_map, selected_map_}}; }
+    if(item.kind == item_text) { move_focus(1); return {}; }   // Enter in a text field: the next control
+    if(id == "home.play") { host_mode_ = false; go(Screen::maps); focus_id_ = "maps.map." + selected_map_; return {{K::preview_map, selected_map_}}; }
     if(id == "home.multi") { go(Screen::multiplayer); return {}; }
+    // N8 multiplayer pages (legacy catHostChoice / catJoinChoice: host = the maps page with the server form)
+    if(id == "multi.host") { host_mode_ = true; go(Screen::maps); focus_id_ = "maps.map." + selected_map_; return {{K::preview_map, selected_map_}}; }
+    if(id == "multi.join") { show_servers(); return {{K::refresh_servers, ""}}; }
+    if(id == "host.create") return {{K::host_server, selected_map_}};
+    if(id == "host.local") return {{K::host_local, selected_map_}};
+    if(id == "servers.refresh") return {{K::refresh_servers, ""}};
+    if(id == "servers.back") { go(Screen::multiplayer); focus_id_ = "multi.join"; return {}; }
+    if(id.rfind("join.", 0) == 0) return {{K::join_server, id.substr(5)}};
+    if(id == "connect.cancel") { go(Screen::multiplayer); return {{K::cancel_connect, ""}}; }
+    if(id == "pause.leave") return {{K::leave_room, ""}};
+    if(id == "maps.back" && host_mode_) return back();
     if(id == "home.settings") { show_settings(false); return {}; }
     if(id == "home.exit") { go(Screen::exit_confirm); focus_id_ = "exit.cancel"; return {}; }
     if(id == "exit.confirm") return {{K::quit, ""}};
@@ -215,6 +237,9 @@ std::vector<Command> Menu::handle(const MenuEvent& e) {
             case NavKey::right: if(f && !modal) return adjust(*f, e.shift ? 5 : 1); move_focus(1); return {};
             case NavKey::accept: if(f) return activate(*f, 0, false); return {};
             case NavKey::back: return back();
+            case NavKey::erase:
+                if(f && f->kind == item_text) { if(std::string* v = field_value(f->id); v && !v->empty()) { v->pop_back(); return {{Command::Kind::form_changed, f->id}}; } return {}; }
+                return back();
             case NavKey::next_tab: case NavKey::prev_tab: case NavKey::page_up: case NavKey::page_down:   // v0.18 fix: Ctrl+Tab / PageUp / PageDown switch tabs
                 if(screen_ == Screen::settings && !modal) {
                     const bool next = e.key == NavKey::next_tab || e.key == NavKey::page_down;
@@ -230,6 +255,15 @@ std::vector<Command> Menu::handle(const MenuEvent& e) {
             }
         }
         return {};
+    }
+    if(e.kind == Kind::text) {   // printable ASCII only: the relay keeps names to the font's characters anyway
+        const Item* f = focus_ < items_.size() && items_[focus_].id == focus_id_ ? &items_[focus_] : nullptr;
+        std::string* v = f && f->kind == item_text ? field_value(f->id) : nullptr;
+        if(!v) return {};
+        const std::size_t max = f->id == "mp.name" ? kNameMax : f->id == "mp.title" ? kTitleMax : kRelayMax;
+        bool changed = false;
+        for(const char ch : e.text) if(ch >= 32 && ch < 127 && v->size() < max) { v->push_back(ch); changed = true; }
+        return changed ? std::vector<Command>{{Command::Kind::form_changed, f->id}} : std::vector<Command>{};
     }
     if(e.kind == Kind::wheel) {
         if(screen_ == Screen::settings && !modal) scroll_ = std::clamp(scroll_ - e.wheel * 60, 0.0, std::max(0.0, content_height_ - view_height_));
@@ -393,24 +427,37 @@ void Menu::maps(Canvas& c, const MenuFrame& f) {
     c.text(x0 + c.measure("CAT ARENA", ts(Face::serif_regular, 34 * k, kWhite, .12)) + 20 * k, frame.y + 64 * k, "FERAL CLAW", ts(Face::serif_regular, 10 * k, kAsh, .3));
     if(frame.w > 760 * k) { c.text(x1, frame.y + 48 * k, "THE FERAL CLAW", ts(Face::serif_regular, 10 * k, kAsh, .25, Align::right)); c.text(x1, frame.y + 65 * k, "IRON · ASH · BLOOD", ts(Face::serif_regular, 10 * k, kAsh, .25, Align::right)); }
     c.line(x0, frame.y + 86 * k, x1, frame.y + 86 * k, 1 * k, kLine.with_alpha(.3f));
-    c.text(x0, frame.y + 138 * k, "CHOOSE YOUR ARENA", ts(Face::serif_regular, std::min(36 * k, frame.w / 26), kWhite, .12));
+    c.text(x0, frame.y + 138 * k, host_mode_ ? "HOST · CHOOSE YOUR ARENA" : "CHOOSE YOUR ARENA", ts(Face::serif_regular, std::min(36 * k, frame.w / 26), kWhite, .12));
     button(c, f, "maps.back", {x1 - 100 * k, frame.y + 107 * k, 100 * k, 38 * k}, "← BACK", {}, false, true, true);
     c.line(x0, frame.y + 162 * k, x1, frame.y + 162 * k, 1 * k, kLine.with_alpha(.3f));
     double y = preview.y;
+    const double row_h = host_mode_ ? 42 * k : 52 * k, row_step = host_mode_ ? 48 * k : 62 * k;
     for(const auto& m : maps_) {
-        const Rect r{x0, y, list_w, 52 * k};
+        const Rect r{x0, y, list_w, row_h};
         add("maps.map." + m.id, r, item_button, true);
         const bool sel = m.id == selected_map_, focus = focus_id_ == "maps.map." + m.id;
         c.shape(Canvas::cut_shape(r, 12 * k), (focus ? Color::hex(0x2c3035, .95f) : Color::hex(0x191b1e, .92f)), Color::hex(0x0e1012, .92f), (sel || focus ? 1.6 : 1) * k,
                 sel ? kWhite : focus ? kText : kLine.with_alpha(.6f));
-        c.text(r.x + 18 * k, r.y + 22 * k, m.title, ts(Face::serif_regular, 12.5 * k, sel ? kWhite : kText, .1));
+        c.text(r.x + 18 * k, r.y + (host_mode_ ? 18 : 22) * k, m.title, ts(Face::serif_regular, 12.5 * k, sel ? kWhite : kText, .1));
         std::string tag = m.tag;   // .cat-map-option small: text-transform uppercase
         for(char& ch : tag) if(ch >= 'a' && ch <= 'z') ch = static_cast<char>(ch - 32);
-        c.text(r.x + 18 * k, r.y + 38 * k, tag, ts(Face::sans, 9 * k, kAsh, .1));
+        c.text(r.x + 18 * k, r.y + (host_mode_ ? 33 : 38) * k, tag, ts(Face::sans, 9 * k, kAsh, .1));
         c.line(r.right() - 14 * k, r.y + r.h * .62, r.right() - 8 * k, r.y + r.h * .38, 1 * k, kLine.with_alpha(.5f)); c.line(r.right() - 18 * k, r.y + r.h * .62, r.right() - 12 * k, r.y + r.h * .38, 1 * k, kLine.with_alpha(.5f));
-        y += 62 * k;
+        y += row_step;
     }
-    button(c, f, "maps.enter", {x0, y, list_w, 40 * k}, "ENTER ARENA →", {}, true);
+    if(!host_mode_) button(c, f, "maps.enter", {x0, y, list_w, 40 * k}, "ENTER ARENA →", {}, true);
+    else {   // the legacy coopFields + coopHost on the host's map page; HOST ON THIS PC is the native built-in relay
+        const bool busy = f.mp && (f.mp->in_room || f.mp->listing);
+        text_field(c, f, "mp.name", {x0, y, list_w, 32 * k}, "PLAYER NAME", settings_->player_name, "Marine Cat"); y += 37 * k;
+        text_field(c, f, "mp.title", {x0, y, list_w, 32 * k}, "SERVER NAME", settings_->server_name, "Your server name"); y += 37 * k;
+        text_field(c, f, "mp.relay", {x0, y, list_w, 32 * k}, "SERVER ADDRESS", settings_->relay, "ws://host:8787/ws"); y += 39 * k;
+        const double half = (list_w - 8 * k) / 2;
+        button(c, f, "host.local", {x0, y, half, 38 * k}, "HOST ON THIS PC", {}, true, !busy, false);
+        button(c, f, "host.create", {x0 + half + 8 * k, y, half, 38 * k}, "CREATE SERVER", {}, false, !busy, false);
+        y += 46 * k;
+        if(f.mp && !f.mp->status.empty())
+            c.paragraph({x0, y, list_w, 40 * k}, f.mp->status, ts(Face::mono, 9.5 * k, f.mp->status_error ? Color::hex(0xe08a7a) : kBrass, 0, Align::left, .3, false), 13 * k);
+    }
     // preview frame and caption (the map itself is the live render behind this hole)
     c.frame(preview, 1 * k, kLine.with_alpha(.5f));
     const MapEntry* cur = nullptr;
@@ -425,10 +472,10 @@ void Menu::maps(Canvas& c, const MenuFrame& f) {
     }
     c.line(x0, frame.bottom() - 58 * k, x1, frame.bottom() - 58 * k, 1 * k, kLine.with_alpha(.25f));
     c.text(x0, frame.bottom() - 37 * k, "✦ THE FERAL CLAW", ts(Face::serif_regular, 10 * k, kAsh, .2));
-    c.text(x1, frame.bottom() - 37 * k, "CAT ARENA · NATIVE N7", ts(Face::serif_regular, 10 * k, kAsh, .2, Align::right));
+    c.text(x1, frame.bottom() - 37 * k, host_mode_ ? "HOST ON THIS PC: FRIENDS JOIN WITH YOUR ADDRESS, PORT 8787" : "CAT ARENA · NATIVE N8", ts(Face::serif_regular, 10 * k, kAsh, .2, Align::right));
 }
 
-void Menu::multiplayer(Canvas& c, const MenuFrame& f) {
+void Menu::multiplayer(Canvas& c, const MenuFrame& f) {   // catMulti: "Fight together"
     backdrop(c, f);
     const double k = f.scale, W = c.width();
     const double left = f.safe.x + std::max(24 * k, std::min(98 * k, W * .077));
@@ -436,12 +483,94 @@ void Menu::multiplayer(Canvas& c, const MenuFrame& f) {
     c.text(left, y, "FIGHT TOGETHER", ts(Face::serif_regular, std::min(40 * k, W / 18), kWhite, .12)); y += 40 * k;
     c.text(left, y, "Stand together. Survive together. Up to four players.", ts(Face::sans, 13 * k, kText)); y += 30 * k;
     const double bw = std::min(400 * k, W - 2 * left);
-    button(c, f, "multi.host", {left, y, bw, 54 * k}, "HOST A SERVER", "CREATE", true, false); y += 64 * k;
-    button(c, f, "multi.join", {left, y, bw, 54 * k}, "JOIN A SERVER", "BROWSE", false, false); y += 74 * k;
-    c.paragraph({left, y, bw, 80 * k}, "The native multiplayer client (WebSocket protocol of reference/multiplayer/server.js) is milestone N8. Hosting and joining are not available in this build.",
-                ts(Face::mono, 11 * k, kBrass, 0, Align::left, .2, false), 17 * k);
-    y += 70 * k;
+    button(c, f, "multi.host", {left, y, bw, 54 * k}, "HOST A SERVER", "CREATE", true); y += 64 * k;
+    button(c, f, "multi.join", {left, y, bw, 54 * k}, "JOIN A SERVER", "BROWSE"); y += 74 * k;
+    const std::string note = f.mp && !f.mp->status.empty() ? f.mp->status
+        : "F: hold for 4 seconds near a downed teammate to revive. Downed players can look around, but cannot move or shoot. The wave resets only when all teammates are down.";
+    c.paragraph({left, y, bw, 80 * k}, note, ts(Face::mono, 11 * k, f.mp && f.mp->status_error ? Color::hex(0xe08a7a) : kBrass, 0, Align::left, .2, false), 17 * k);
+    y += 80 * k;
     button(c, f, "multi.back", {left, y, 140 * k, 40 * k}, "← BACK");
+}
+
+void Menu::text_field(Canvas& c, const MenuFrame& f, const std::string& id, const Rect& r, const std::string& label, const std::string& value, const std::string& placeholder) {
+    add(id, r, item_text);
+    const double k = f.scale;
+    const bool focus = focus_id_ == id;
+    c.shape(Canvas::cut_shape(r, 6 * k), Color::hex(0x0d0f12, .95f), Color::hex(0x0a0b0d, .95f), (focus ? 1.5 : 1) * k, focus ? kWhite : kLine.with_alpha(.45f));
+    const double label_w = 118 * k;
+    c.text(r.x + 10 * k, r.y + r.h / 2 + 3.5 * k, label, ts(Face::mono, 8.5 * k, kAsh, .1, Align::left, .3, false));
+    TextStyle t = ts(Face::sans, 12 * k, value.empty() ? kDim : kText, 0, Align::left, .1, false);
+    const std::string shown = value.empty() && !focus ? placeholder : value;
+    std::string clipped = shown;
+    const double room = r.w - label_w - 16 * k;
+    while(!clipped.empty() && c.measure(clipped, t) > room) clipped.erase(0, 1);   // keep the end (the caret) in view
+    const double tx = r.x + label_w;
+    c.text(tx, r.y + r.h / 2 + 4.5 * k, clipped, t);
+    if(focus && std::fmod(f.time, 1.0) < .55) {
+        const double cx = tx + (value.empty() ? 0 : c.measure(clipped, t)) + 1.5 * k;
+        c.line(cx, r.y + 7 * k, cx, r.bottom() - 7 * k, 1.2 * k, kWhite);
+    }
+}
+
+void Menu::servers(Canvas& c, const MenuFrame& f) {   // catServers + the legacy server browser (serverList / serverBrowserStatus / coopStatus)
+    backdrop(c, f);
+    const double k = f.scale, W = c.width(), H = c.height();
+    const Rect panel{std::max(f.safe.x + 8 * k, (W - 820 * k) / 2), std::max(f.safe.y + 8 * k, (H - 600 * k) / 2), std::min(820 * k, f.safe.w - 16 * k), std::min(600 * k, f.safe.h - 16 * k)};
+    c.shape(Canvas::cut_shape(panel, 16 * k), Color::hex(0x121417, .95f), Color::hex(0x0a0b0d, .95f), 1 * k, kLine.with_alpha(.45f));
+    const double pad = 24 * k, x0 = panel.x + pad, w = panel.w - 2 * pad;
+    c.text(x0, panel.y + 48 * k, "AVAILABLE SERVERS", ts(Face::serif_regular, std::min(30 * k, panel.w / 22), kWhite, .12));
+    button(c, f, "servers.back", {panel.right() - pad - 100 * k, panel.y + 20 * k, 100 * k, 38 * k}, "← BACK", {}, false, true, true);
+    c.line(panel.x, panel.y + 70 * k, panel.right(), panel.y + 70 * k, 1 * k, kLine.with_alpha(.3f));
+    double y = panel.y + 84 * k;
+    const double fw = (w - 8 * k) / 2;
+    text_field(c, f, "mp.name", {x0, y, fw, 32 * k}, "PLAYER NAME", settings_->player_name, "Marine Cat");
+    text_field(c, f, "mp.relay", {x0 + fw + 8 * k, y, fw, 32 * k}, "SERVER ADDRESS", settings_->relay, "ws://host:8787/ws");
+    y += 44 * k;
+    const bool listing = f.mp && f.mp->listing, busy = f.mp && f.mp->in_room;
+    button(c, f, "servers.refresh", {x0, y, 170 * k, 34 * k}, listing ? "CHECKING..." : "REFRESH LIST", {}, true, !listing && !busy, false);
+    const std::string list_status = f.mp ? f.mp->list_status : "Multiplayer is not available in this build.";
+    c.text(x0 + 186 * k, y + 22 * k, list_status, ts(Face::mono, 10.5 * k, kBrass, .02, Align::left, .3, false));
+    y += 46 * k;
+    const double list_bottom = panel.bottom() - 74 * k, row_h = 50 * k;
+    if(!f.mp || f.mp->rooms.empty()) {
+        const Rect r{x0, y, w, 56 * k};
+        c.shape(Canvas::cut_shape(r, 8 * k), Color::hex(0x101315, .75f), Color::hex(0x101315, .75f), 1 * k, kLine.with_alpha(.3f));
+        const std::string empty = !f.mp ? "" : listing ? "Checking the multiplayer server..." : f.mp->list_status.find("LIVE SERVER") != std::string::npos ? "NO LIVE SERVERS · Host a server from the Multiplayer menu."
+                                                                                                           : "Cannot reach the server directory. Check your connection and the server address above, then refresh.";
+        c.text(r.x + r.w / 2, r.y + 33 * k, empty, ts(Face::mono, 10.5 * k, kText, 0, Align::center, .3, false));
+    } else {
+        std::size_t shown = 0;
+        for(const auto& room : f.mp->rooms) {
+            if(y + row_h > list_bottom) break;
+            const Rect r{x0, y, w, row_h - 6 * k};
+            c.shape(Canvas::cut_shape(r, 8 * k), Color::hex(0x161a1d, .9f), Color::hex(0x101315, .9f), 1 * k, kLine.with_alpha(.35f));
+            c.rect({r.x, r.y, 3 * k, r.h}, kBrass.with_alpha(.8f));
+            c.text(r.x + 14 * k, r.y + 18 * k, room.title, ts(Face::sans, 13 * k, kWhite, 0, Align::left, .25, false));
+            c.text(r.x + 14 * k, r.y + 35 * k, "HOST " + room.host + " · " + room.map_title + " · " + std::to_string(room.players) + "/" + std::to_string(room.max_players) + " PLAYERS · CODE " + room.id,
+                   ts(Face::mono, 9.5 * k, kAsh, 0, Align::left, .25, false));
+            const bool full = room.players >= room.max_players || !room.open;
+            button(c, f, "join." + room.id, {r.right() - 104 * k, r.y + 6 * k, 96 * k, r.h - 12 * k}, !room.joinable ? "OTHER MAP" : full ? "FULL" : "JOIN", {}, true, room.joinable && !full && !busy, false);
+            y += row_h; ++shown;
+        }
+        if(shown < f.mp->rooms.size()) c.text(x0, y + 12 * k, "+" + std::to_string(f.mp->rooms.size() - shown) + " MORE", ts(Face::mono, 10 * k, kAsh, 0, Align::left, .3, false));
+    }
+    const double sy = panel.bottom() - 58 * k;
+    c.line(x0, sy, x0 + w, sy, 1 * k, kLine.with_alpha(.25f));
+    const std::string status = f.mp && !f.mp->status.empty() ? f.mp->status : "Pick an available server above, or create your own. No join codes needed.";
+    c.paragraph({x0, sy + 8 * k, w, 44 * k}, status, ts(Face::mono, 10 * k, f.mp && f.mp->status_error ? Color::hex(0xe08a7a) : kBrass, 0, Align::left, .3, false), 14 * k);
+    if(focus_id_.empty()) focus_id_ = "servers.refresh";
+}
+
+void Menu::connecting(Canvas& c, const MenuFrame& f) {
+    backdrop(c, f);
+    const double k = f.scale, W = c.width(), H = c.height();
+    const Rect card{(W - std::min(460 * k, W - 20 * k)) / 2, (H - 230 * k) / 2, std::min(460 * k, W - 20 * k), 230 * k};
+    c.shape(Canvas::cut_shape(card, 14 * k), Color::hex(0x15171a, .98f), Color::hex(0x0b0c0e, .98f), 1 * k, kLine.with_alpha(.6f));
+    c.text(card.x + card.w / 2, card.y + 36 * k, "MULTIPLAYER", ts(Face::serif_regular, 10 * k, kAsh, .3, Align::center));
+    const int dots = static_cast<int>(f.time * 3) % 4;
+    c.text(card.x + card.w / 2, card.y + 80 * k, "CONNECTING" + std::string(static_cast<std::size_t>(dots), '.'), ts(Face::serif_regular, 26 * k, kWhite, .12, Align::center));
+    c.paragraph({card.x + 30 * k, card.y + 100 * k, card.w - 60 * k, 60 * k}, f.mp ? f.mp->status : "", ts(Face::mono, 10.5 * k, f.mp && f.mp->status_error ? Color::hex(0xe08a7a) : kBrass, 0, Align::center, .3, false), 15 * k);
+    button(c, f, "connect.cancel", {card.x + 30 * k, card.bottom() - 58 * k, card.w - 60 * k, 40 * k}, "CANCEL");
 }
 
 void Menu::settings(Canvas& c, const MenuFrame& f) {
@@ -592,7 +721,7 @@ void Menu::loading(Canvas& c, const MenuFrame& f) {
     const double pad = 25 * k;
     c.text(card.x + pad, card.y + 26 * k, "// FERAL CLAW // " + loading_.map_title + " //", ts(Face::serif_regular, 10 * k, kAsh, .25));
     c.text(card.x + pad, card.y + 64 * k, "CAT ARENA", ts(Face::serif_regular, 36 * k, kWhite, .1));
-    c.text(card.right() - pad, card.y + 40 * k, "NATIVE N7", ts(Face::mono, 10.5 * k, Color::hex(0xc9a874), .03, Align::right, .45));
+    c.text(card.right() - pad, card.y + 40 * k, "NATIVE N8", ts(Face::mono, 10.5 * k, Color::hex(0xc9a874), .03, Align::right, .45));
     c.text(card.right() - pad, card.y + 54 * k, "CAT ARENA", ts(Face::mono, 10.5 * k, Color::hex(0xc9a874), .03, Align::right, .45));
     // scenery band: keep silhouettes (the legacy SVG towers), drawn as outlines
     const Rect band{card.x, card.y + 82 * k, card.w, 166 * k};
@@ -648,13 +777,18 @@ void Menu::pause(Canvas& c, const MenuFrame& f) {
     std::string map_title = f.current_map;
     for(const auto& m : maps_) if(m.id == f.current_map) map_title = m.title;
     c.text(card.x + card.w / 2, card.y + 30 * k, "// CAT ARENA · " + map_title + " //", ts(Face::serif_regular, 10 * k, kAsh, .25, Align::center));
-    c.text(card.x + card.w / 2, card.y + 68 * k, "GAME PAUSED", ts(Face::serif_regular, 34 * k, kWhite, .1, Align::center));
-    c.paragraph({card.x + 30 * k, card.y + 82 * k, card.w - 60 * k, 40 * k}, f.touch ? "Resume, open settings or edit your touch layout without losing the arena." : "Resume, open settings or edit your HUD layout without losing the arena.",
+    const bool in_room = f.mp && f.mp->in_room;
+    c.text(card.x + card.w / 2, card.y + 68 * k, in_room ? "GAME MENU" : "GAME PAUSED", ts(Face::serif_regular, 34 * k, kWhite, .1, Align::center));
+    c.paragraph({card.x + 30 * k, card.y + 82 * k, card.w - 60 * k, 40 * k}, in_room ? "Your squad is still fighting: the arena keeps running while this menu is open."
+                : f.touch ? "Resume, open settings or edit your touch layout without losing the arena." : "Resume, open settings or edit your HUD layout without losing the arena.",
                 ts(Face::sans, 12.5 * k, kText.with_alpha(.85f), 0, Align::center, 0, false), 20 * k);
     double y = card.y + 134 * k;
-    const std::pair<const char*, const char*> b[] = {{"pause.resume", "▶ RESUME GAME"}, {"pause.settings", "⚙ SETTINGS / CONTROLS"}, {"pause.customize", "✥ CUSTOMIZE HUD"}, {"pause.change_map", "CHOOSE ANOTHER MAP"}, {"pause.return", "RETURN TO MAIN MENU"}};
-    for(int i = 0; i < 5; ++i) { button(c, f, b[i].first, {card.x + 28 * k, y, card.w - 56 * k, 40 * k}, b[i].second, {}, i == 0); y += 46 * k; }
-    c.text(card.x + card.w / 2, card.bottom() - 18 * k, f.platform + " · VULKAN · SOLO", ts(Face::mono, 10 * k, Color::hex(0xb7bdc4), .06, Align::center, .35));
+    // N8: in a server the map is the room's (no CHOOSE ANOTHER MAP) and RETURN leaves the server; the game keeps running
+    const bool room = f.mp && f.mp->in_room;
+    const std::pair<const char*, const char*> b[] = {{"pause.resume", "▶ RESUME GAME"}, {"pause.settings", "⚙ SETTINGS / CONTROLS"}, {"pause.customize", "✥ CUSTOMIZE HUD"}, {"pause.change_map", "CHOOSE ANOTHER MAP"},
+                                                     {room ? "pause.leave" : "pause.return", room ? "LEAVE SERVER · MAIN MENU" : "RETURN TO MAIN MENU"}};
+    for(int i = 0; i < 5; ++i) { button(c, f, b[i].first, {card.x + 28 * k, y, card.w - 56 * k, 40 * k}, b[i].second, {}, i == 0, !(room && i == 3)); y += 46 * k; }
+    c.text(card.x + card.w / 2, card.bottom() - 18 * k, f.platform + " · VULKAN · " + (room ? f.mp->footer : std::string("SOLO")), ts(Face::mono, 10 * k, Color::hex(0xb7bdc4), .06, Align::center, .35));
     if(focus_id_.empty()) focus_id_ = "pause.resume";
 }
 
@@ -707,6 +841,8 @@ void Menu::build(Canvas& c, const MenuFrame& f) {
         case Screen::loading: loading(c, f); break;
         case Screen::pause: pause(c, f); break;
         case Screen::hud_editor: hud_editor(c, f); break;
+        case Screen::servers: servers(c, f); break;
+        case Screen::connecting: connecting(c, f); break;
         case Screen::none: break;
     }
     focus_ = items_.size();
