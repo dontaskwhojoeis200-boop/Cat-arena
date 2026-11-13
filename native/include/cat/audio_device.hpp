@@ -16,6 +16,7 @@ public:
     ~Device();
     Device(const Device&) = delete;
     Device& operator=(const Device&) = delete;
+    bool owns_device(std::uint32_t id) const;
     bool ok() const { return stream_ != nullptr; }
     const std::string& status() const { return status_; }   // device name / driver, or the error
 private:

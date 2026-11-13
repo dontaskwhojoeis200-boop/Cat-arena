@@ -81,6 +81,7 @@ struct MenuFrame {
     std::string current_map;            // map loaded in the shell
     std::string platform{"DESKTOP"};    // pause footer
     std::string status;                 // one-line status (audio / device notes)
+    std::string display_status;         // actual window extent and monitor refresh
     double pointer_x{-1}, pointer_y{-1};   // parallax and proximity glow
     bool touch{};
     std::vector<HudElement> hud;        // HUD editor: the elements as drawn this frame

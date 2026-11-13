@@ -52,8 +52,12 @@
     // ---- sound: mixer on the device thread, legacy sample bank and the ASHEN DRIVE theme
     cat::audio::Mixer mixer(48000);
     std::optional<cat::audio::Device> device;
-    device.emplace(mixer);
-    cat::log(device->ok() ? "info" : "warning", "audio", device->ok() ? "Audio: " + device->status() : "Silent: " + device->status());
+    auto open_audio = [&] {
+        device.emplace(mixer);
+        cat::log(device->ok() ? "info" : "warning", "audio", device->ok() ? "Audio: " + device->status() : "Silent: " + device->status());
+    };
+    open_audio();
+    bool reconnect_audio = false;
     auto bank = std::make_shared<const cat::audio::SampleBank>(cat::audio::SampleBank::load(n7 / "audio" / "sfx", mixer.rate()));
     cat::audio::GameAudio audio(mixer, bank);
     mixer.set_music(cat::audio::open_mp3(cat::audio::read_file(n7 / "audio" / "main-theme.mp3")));
@@ -63,6 +67,12 @@
     std::vector<SDL_Gamepad*> pads;
     std::array<double, 6> axes{};   // left x / y, right x / y, left / right trigger (-1..1, 0..1)
     std::uint32_t keys = 0, taps = 0, pad_keys = 0;
+    std::array<bool, SDL_SCANCODE_COUNT> held_keys{};
+    std::string keyboard_layout, mouse_fire;
+    double mouse_sensitivity = 1, mouse_y = 1;
+    bool focused = (SDL_GetWindowFlags(window) & SDL_WINDOW_INPUT_FOCUS) != 0;
+    pointer.set_focused(focused);
+    cat::DesktopDisplay display(window, settings.width, settings.height);
     bool shift_held = false, pad_sprint = false, relative_on = false, fullscreen_launch_done = false;
     std::optional<SDL_FingerID> menu_finger;
     std::vector<cat::ui::HudElement> hud_elements;
@@ -71,6 +81,16 @@
     bool vsync_now = settings.vsync; int frame_cap = settings.frame_cap; int applied = 0;
     auto apply_settings = [&] {
         if(!fov_given) fov = gs.number("fovControl");
+        display.configure(gs.text("displayResolution"), static_cast<int>(gs.number("displayRefresh")));
+        const auto new_layout = gs.text("keyboardLayout"), new_fire = gs.text("mouseFire");
+        if(new_layout != keyboard_layout || new_fire != mouse_fire) {
+            keys = taps = 0;
+            held_keys.fill(false);
+        }
+        keyboard_layout = new_layout; mouse_fire = new_fire;
+        mouse_sensitivity = gs.number("mouseSensitivity") / 100;
+        mouse_y = gs.flag("mouseInvertY") ? -1 : 1;
+        SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE, gs.flag("mouseRaw") ? "0" : "1");
         features.dynamic_lights = gs.flag("gfxDynamicLights"); features.clouds = gs.flag("gfxSky"); features.culling = gs.flag("gfxVis"); features.fog = gs.number("fogQuality") > 0;
         light_grid = gs.flag("gfxEntityGrid"); shadow_mode = std::stoi(gs.text("gfxShadows"));
         if(session) {
@@ -199,8 +219,8 @@
         coop.host(relay, gs.player_name, gs.server_name, m->wire_id);
         if(coop.busy()) { connect_from = Screen::maps; menu.show_connecting(); }
     };
-    auto set_fullscreen = [&](bool on) { SDL_SetWindowFullscreen(window, on); };
-    auto is_fullscreen = [&] { return (SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN) != 0; };
+    auto set_fullscreen = [&](bool on) { display.fullscreen(on); };
+    auto is_fullscreen = [&] { return display.fullscreen(); };
     auto run = [&](const std::vector<Command>& commands) {
         for(const auto& c : commands) {
             switch(c.kind) {
@@ -481,10 +501,17 @@
     // ---- the loop
     const auto t_start = std::chrono::steady_clock::now();
     auto pixels = [&](double wx, double wy) { const double d = SDL_GetWindowPixelDensity(window); return std::pair{wx * d, wy * d}; };
-    auto game_bit = [](SDL_Scancode code) -> std::uint32_t {   // the legacy key codes, by physical key
+    auto game_bit = [&](SDL_Scancode code) -> std::uint32_t {   // the legacy key codes, by physical key
         using namespace cat::physics;
+        const auto forward = keyboard_layout == "zqsd" ? SDL_SCANCODE_Z : keyboard_layout == "arrows" ? SDL_SCANCODE_UP : SDL_SCANCODE_W;
+        const auto left = keyboard_layout == "zqsd" ? SDL_SCANCODE_Q : keyboard_layout == "arrows" ? SDL_SCANCODE_LEFT : SDL_SCANCODE_A;
+        const auto back = keyboard_layout == "arrows" ? SDL_SCANCODE_DOWN : SDL_SCANCODE_S;
+        const auto right = keyboard_layout == "arrows" ? SDL_SCANCODE_RIGHT : SDL_SCANCODE_D;
+        if(code == forward) return key_forward;
+        if(code == back) return key_back;
+        if(code == left) return key_left;
+        if(code == right) return key_right;
         switch(code) {
-            case SDL_SCANCODE_W: return key_forward; case SDL_SCANCODE_S: return key_back; case SDL_SCANCODE_A: return key_left; case SDL_SCANCODE_D: return key_right;
             case SDL_SCANCODE_SPACE: return key_jump; case SDL_SCANCODE_C: return key_slide;
             case SDL_SCANCODE_LCTRL: case SDL_SCANCODE_RCTRL: return key_crouch;
             case SDL_SCANCODE_R: return cat::combat::key_reload; case SDL_SCANCODE_Q: case SDL_SCANCODE_TAB: return cat::combat::key_switch;
@@ -492,7 +519,14 @@
             default: return 0;
         }
     };
-    auto open_pause = [&] { if(session && !menu.active()) { menu.show_pause(); keys = taps = pad_keys = 0; touch.reset(); } };
+    auto clear_input = [&] {
+        held_keys.fill(false);
+        keys = taps = pad_keys = 0;
+        shift_held = pad_sprint = false;
+        axes = {};
+        touch.reset();
+    };
+    auto open_pause = [&] { if(session && !menu.active()) { menu.show_pause(); clear_input(); } };
     auto hud_hit = [&](double x, double y) -> std::string { for(const auto& e : hud_elements) if((e.id == "pauseButton" || e.id == "fovToggle" || e.id == "mapbutton") && e.rect.contains(x, y)) return e.id; return {}; };
     auto hud_action = [&](const std::string& id) {
         if(id == "pauseButton") open_pause();
@@ -549,10 +583,18 @@
             switch(event.type) {
                 case SDL_EVENT_QUIT: case SDL_EVENT_WINDOW_CLOSE_REQUESTED: running = false; break;
                 case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED: renderer.resize(); break;
+                case SDL_EVENT_WINDOW_DISPLAY_CHANGED: display.display_changed(); break;
+                case SDL_EVENT_AUDIO_DEVICE_ADDED: case SDL_EVENT_AUDIO_DEVICE_REMOVED:
+                    if(!event.adevice.recording && (!device->ok() ||
+                        (event.type == SDL_EVENT_AUDIO_DEVICE_REMOVED && device->owns_device(event.adevice.which)))) reconnect_audio = true;
+                    break;
                 case SDL_EVENT_WINDOW_RESTORED: case SDL_EVENT_WINDOW_SHOWN: renderer.resize(); audio.set_visible(true); break;
                 case SDL_EVENT_WINDOW_MINIMIZED: case SDL_EVENT_WINDOW_HIDDEN: audio.set_visible(false); break;   // document.hidden pauses the soundtrack
-                case SDL_EVENT_WINDOW_FOCUS_LOST: pointer.set_focused(false); if(!menu_selftest && !coop_selftest) open_pause(); keys = taps = 0; shift_held = false; break;   // blur releases the capture
-                case SDL_EVENT_WINDOW_FOCUS_GAINED: pointer.set_focused(true); break;
+                case SDL_EVENT_WINDOW_FOCUS_LOST:
+                    focused = false; pointer.set_focused(false); clear_input();
+                    if(!menu_selftest && !coop_selftest) open_pause();
+                    break;
+                case SDL_EVENT_WINDOW_FOCUS_GAINED: focused = true; pointer.set_focused(true); break;
                 case SDL_EVENT_GAMEPAD_ADDED: if(SDL_Gamepad* g = SDL_OpenGamepad(event.gdevice.which)) { pads.push_back(g); cat::log("info", "input", std::string("Gamepad: ") + (SDL_GetGamepadName(g) ? SDL_GetGamepadName(g) : "unnamed")); } break;
                 case SDL_EVENT_GAMEPAD_REMOVED:
                     if(SDL_Gamepad* g = SDL_GetGamepadFromID(event.gdevice.which)) { pads.erase(std::remove(pads.begin(), pads.end(), g), pads.end()); SDL_CloseGamepad(g); }
@@ -580,10 +622,21 @@
                     if(down && !event.key.repeat && code == SDL_SCANCODE_V) { hud_action("fovToggle"); break; }   // V: settings (showFovPanel)
                     if(down && !event.key.repeat && code == SDL_SCANCODE_F9) { features.debug_view = (features.debug_view + 1) % 4; break; }
                     if(down && !event.key.repeat && code >= SDL_SCANCODE_1 && code <= SDL_SCANCODE_4) { if(!coop.busy()) run({{Command::Kind::start_game, kMaps[code - SDL_SCANCODE_1].id}}); break; }
-                    if(code == SDL_SCANCODE_LSHIFT || code == SDL_SCANCODE_RSHIFT) { if(down && !event.key.repeat) sprint.press(); shift_held = down; break; }
-                    if(event.key.repeat) break;
+                    if(!focused || event.key.repeat) break;
+                    if(code <= SDL_SCANCODE_UNKNOWN || code >= SDL_SCANCODE_COUNT) break;
+                    held_keys[static_cast<std::size_t>(code)] = down;
+                    if(code == SDL_SCANCODE_LSHIFT || code == SDL_SCANCODE_RSHIFT) {
+                        if(down && !shift_held) sprint.press();
+                        shift_held = held_keys[SDL_SCANCODE_LSHIFT] || held_keys[SDL_SCANCODE_RSHIFT];
+                        break;
+                    }
                     const std::uint32_t bit = game_bit(code);
-                    if(down) { keys |= bit; taps |= bit; } else keys &= ~bit;
+                    if(down) { keys |= bit; taps |= bit; }
+                    else if(bit != 0) {
+                        keys &= ~bit;
+                        for(std::size_t i = 1; i < held_keys.size(); ++i)
+                            if(held_keys[i] && game_bit(static_cast<SDL_Scancode>(i)) == bit) { keys |= bit; break; }
+                    }
                     break;
                 }
                 case SDL_EVENT_TEXT_INPUT:
@@ -594,7 +647,10 @@
                     const auto [x, y] = pixels(event.motion.x, event.motion.y);
                     pointer_x = x; pointer_y = y;
                     if(menu.active()) { run(menu.handle({MenuEvent::Kind::pointer_move, {}, x, y})); break; }
-                    if(session && relative_on) { modes.note(cat::InputKind::kbm); session->arena.player().aim(double(event.motion.xrel), double(event.motion.yrel)); }   // legacy aim(): 0.003 rad per count
+                    if(session && focused && relative_on) {
+                        modes.note(cat::InputKind::kbm);
+                        session->arena.player().aim(event.motion.xrel * mouse_sensitivity, event.motion.yrel * mouse_sensitivity * mouse_y);
+                    }   // legacy aim(): 0.003 rad per count
                     break;
                 }
                 case SDL_EVENT_MOUSE_BUTTON_DOWN: case SDL_EVENT_MOUSE_BUTTON_UP: {
@@ -608,11 +664,12 @@
                         run(menu.handle({down ? MenuEvent::Kind::pointer_down : MenuEvent::Kind::pointer_up, {}, x, y}));
                         break;
                     }
-                    if(!session || event.button.button != SDL_BUTTON_LEFT) break;
+                    if(!session || !focused) break;
                     if(!relative_on) {   // not captured: HUD buttons, otherwise this click captures (attemptLock)
-                        if(down) { const auto id = hud_hit(x, y); if(!id.empty()) hud_action(id); else pointer.request(); }
+                        if(down && event.button.button == SDL_BUTTON_LEFT) { const auto id = hud_hit(x, y); if(!id.empty()) hud_action(id); else pointer.request(); }
                         break;
                     }
+                    if(event.button.button != (mouse_fire == "right" ? SDL_BUTTON_RIGHT : SDL_BUTTON_LEFT)) break;
                     if(down) { keys |= cat::combat::key_fire; taps |= cat::combat::key_fire; } else keys &= ~static_cast<std::uint32_t>(cat::combat::key_fire);
                     break;
                 }
@@ -678,30 +735,37 @@
             }
         }
         if(!running) break;
+        if(reconnect_audio) { reconnect_audio = false; open_audio(); }
         if(wipe_pending || restart_pending) { wipe_pending = restart_pending = false; if(coop.in_room() && session) restart_round(); }
         for(int n = touch.take_sprint_presses(); n > 0; --n) sprint.press();
         // pointer capture (v0.18): only in play, never with a menu open, in touch mode or without focus
         pointer.set_game_active(session.has_value() && !load.active);
         pointer.set_menu_open(menu.active());
         pointer.set_touch_mode(modes.touch());
+        relative_on = SDL_GetWindowRelativeMouseMode(window);
+        if(!pointer.wanted() && !relative_on) pointer.platform_result(false);
         if(pointer.wanted() != relative_on) {
             const bool want = pointer.wanted();
             const bool ok = SDL_SetWindowRelativeMouseMode(window, want);
-            relative_on = want && ok;
-            if(want) pointer.platform_result(relative_on);
+            relative_on = SDL_GetWindowRelativeMouseMode(window);
+            pointer.platform_result(want && ok && relative_on);
+            if(!ok) {
+                cat::log("warning", "input", std::string("Mouse capture: ") + SDL_GetError());
+                pointer.release();
+            }
             if(!want) keys &= ~static_cast<std::uint32_t>(cat::combat::key_fire);
         }
         audio.set_in_game(session.has_value() && !load.active);
         // ---- simulation (stopped while any menu is open: the legacy pause)
         simulation.advance(timer.lap(), [&](double) {
             // N8: in a server the arena keeps running behind the menus (the other players are still playing); the menu keeps the input
-            const bool menu_input = menu.active();
+            const bool menu_input = menu.active() || !focused;
             if(!session || (menu.blocks_game() && !coop.in_room()) || load.active) { taps = 0; touch.end_tick(); return; }
             int pw = 0, ph = 0;
             const double aspect = SDL_GetWindowSizeInPixels(window, &pw, &ph) && pw > 0 && ph > 0 ? double(pw) / double(ph) : 16.0 / 9.0;
             std::uint32_t k = menu_input ? 0U : keys | taps | pad_keys | touch.keys();
             if(axes[5] > .35 && !menu_input) k |= cat::combat::key_fire;   // right trigger
-            if(sprint.requested(shift_held || touch.sprint_held() || pad_sprint)) k |= cat::physics::key_sprint;
+            if(!menu_input && sprint.requested(shift_held || touch.sprint_held() || pad_sprint)) k |= cat::physics::key_sprint;
             double sx = touch.stick_x(), sy = touch.stick_y();
             if(sx == 0 && sy == 0 && std::hypot(axes[0], axes[1]) > .2) { sx = axes[0]; sy = axes[1]; }   // left stick: direction as the touch stick
             double lx = touch.look_dx(), ly = touch.look_dy();
@@ -776,6 +840,7 @@
                 f.platform = "DESKTOP";
 #endif
                 f.status = device->ok() ? "" : "SOUND: NO AUDIO DEVICE";
+                if(menu.screen() == Screen::settings) f.display_status = display.status();
                 menu.build(canvas, f);
             }
             attach_ui(o, canvas);

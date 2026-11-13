@@ -111,6 +111,24 @@ std::vector<SettingDef> make_defs() {
     d.push_back(action(T::hud, "resetHudLayout", "RESET ALL HUD POSITIONS"));
     d.push_back(toggle(T::hud, "autoFullscreen", "Fullscreen when launching", true));
     d.push_back(action(T::hud, "fullscreenNow", "ENTER FULLSCREEN NOW"));
+    auto native = [&](SettingDef setting) { setting.native_only = true; d.push_back(std::move(setting)); };
+    native(select(T::hud, "displayResolution", "DISPLAY RESOLUTION", "default",
+        {{"default", "Desktop / default window"}, {"960x540", "960 × 540"}, {"1280x720", "1280 × 720"},
+         {"1600x900", "1600 × 900"}, {"1920x1080", "1920 × 1080"}, {"2560x1440", "2560 × 1440"},
+         {"3840x2160", "3840 × 2160"}}, S::applied, "Changes the window size or fullscreen display mode.", "WINDOWS DISPLAY"));
+    native(select(T::hud, "displayRefresh", "FULLSCREEN REFRESH RATE", "0",
+        {{"0", "Desktop refresh rate"}, {"60", "60 Hz"}, {"75", "75 Hz"}, {"90", "90 Hz"}, {"100", "100 Hz"},
+         {"120", "120 Hz"}, {"144", "144 Hz"}, {"165", "165 Hz"}, {"180", "180 Hz"}, {"240", "240 Hz"}},
+        S::partial, "Requires a supported mode at the selected resolution. The display status shows the mode in use."));
+    native(range(T::input, "mouseSensitivity", "MOUSE SENSITIVITY", 100, 10, 300, 5,
+                 S::applied, "100% keeps the original mouse sensitivity.", "KEYBOARD & MOUSE"));
+    native(toggle(T::input, "mouseInvertY", "Invert mouse look Y", false));
+    native(toggle(T::input, "mouseRaw", "Raw relative mouse input", true, S::applied,
+                  "Off applies the Windows mouse acceleration curve where supported."));
+    native(select(T::input, "keyboardLayout", "KEYBOARD MOVEMENT", "wasd",
+                  {{"wasd", "WASD"}, {"zqsd", "ZQSD"}, {"arrows", "Arrow keys"}}));
+    native(select(T::input, "mouseFire", "PRIMARY FIRE BUTTON", "left",
+                  {{"left", "Left mouse"}, {"right", "Right mouse"}}));
     return d;
 }
 const std::map<std::string, std::map<std::string, std::string>>& presets() {   // Q3R_PRESETS (2787), mapped to the controls
@@ -140,7 +158,7 @@ const char* tab_title(SettingsTab t) {
         case SettingsTab::view: return "VIEW & CAMERA";
         case SettingsTab::graphics: return "GRAPHICS";
         case SettingsTab::performance: return "PERFORMANCE";
-        case SettingsTab::input: return "MOBILE / INPUT";
+        case SettingsTab::input: return "CONTROLS";
         case SettingsTab::audio: return "AUDIO";
         case SettingsTab::hud: return "HUD / UI";
     }

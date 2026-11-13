@@ -472,7 +472,7 @@ void Menu::maps(Canvas& c, const MenuFrame& f) {
     }
     c.line(x0, frame.bottom() - 58 * k, x1, frame.bottom() - 58 * k, 1 * k, kLine.with_alpha(.25f));
     c.text(x0, frame.bottom() - 37 * k, "✦ THE FERAL CLAW", ts(Face::serif_regular, 10 * k, kAsh, .2));
-    c.text(x1, frame.bottom() - 37 * k, host_mode_ ? "HOST ON THIS PC: FRIENDS JOIN WITH YOUR ADDRESS, PORT 8787" : "CAT ARENA · NATIVE N8", ts(Face::serif_regular, 10 * k, kAsh, .2, Align::right));
+    c.text(x1, frame.bottom() - 37 * k, host_mode_ ? "HOST ON THIS PC: FRIENDS JOIN WITH YOUR ADDRESS, PORT 8787" : "CAT ARENA · NATIVE N9", ts(Face::serif_regular, 10 * k, kAsh, .2, Align::right));
 }
 
 void Menu::multiplayer(Canvas& c, const MenuFrame& f) {   // catMulti: "Fight together"
@@ -676,7 +676,8 @@ void Menu::settings(Canvas& c, const MenuFrame& f) {
     }
     const bool from_pause = before_settings_ == Screen::pause;
     button(c, f, "settings.close", {panel.x + pad, panel.bottom() - 54 * k, panel.w - 2 * pad, 42 * k}, from_pause ? "← PAUSE MENU" : "BACK TO MAIN MENU", {}, true);
-    if(!f.status.empty()) c.text(panel.right() - pad, panel.y + 42 * k, f.status, ts(Face::mono, 9.5 * k, kAsh, 0, Align::right, .2));
+    const auto& status = tab_ == SettingsTab::hud && !f.display_status.empty() ? f.display_status : f.status;
+    if(!status.empty()) c.text(panel.right() - pad, panel.y + 42 * k, status, ts(Face::mono, 9.5 * k, kAsh, 0, Align::right, .2));
     if(dropdown_anchor && dropdown_def) {   // the open <select>
         const double oh = 34 * k;
         const double total = oh * static_cast<double>(dropdown_def->options.size());
@@ -721,7 +722,7 @@ void Menu::loading(Canvas& c, const MenuFrame& f) {
     const double pad = 25 * k;
     c.text(card.x + pad, card.y + 26 * k, "// FERAL CLAW // " + loading_.map_title + " //", ts(Face::serif_regular, 10 * k, kAsh, .25));
     c.text(card.x + pad, card.y + 64 * k, "CAT ARENA", ts(Face::serif_regular, 36 * k, kWhite, .1));
-    c.text(card.right() - pad, card.y + 40 * k, "NATIVE N8", ts(Face::mono, 10.5 * k, Color::hex(0xc9a874), .03, Align::right, .45));
+    c.text(card.right() - pad, card.y + 40 * k, "NATIVE N9", ts(Face::mono, 10.5 * k, Color::hex(0xc9a874), .03, Align::right, .45));
     c.text(card.right() - pad, card.y + 54 * k, "CAT ARENA", ts(Face::mono, 10.5 * k, Color::hex(0xc9a874), .03, Align::right, .45));
     // scenery band: keep silhouettes (the legacy SVG towers), drawn as outlines
     const Rect band{card.x, card.y + 82 * k, card.w, 166 * k};

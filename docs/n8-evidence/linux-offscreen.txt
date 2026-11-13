@@ -1,0 +1,12 @@
+Test project /workspace/scratch/a16818ac3257/upstream-linux
+    Start 5: render_helios_offscreen
+1/2 Test #5: render_helios_offscreen ..........   Passed    1.65 sec
+    Start 7: render_map_reactor-bastion
+2/2 Test #7: render_map_reactor-bastion .......   Passed    0.34 sec
+
+100% tests passed out of 2
+
+Label Time Summary:
+gpu    =   1.99 sec*proc (2 tests)
+
+Total Test time (real) =   1.99 sec

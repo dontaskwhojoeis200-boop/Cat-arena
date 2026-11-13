@@ -1,4 +1,4 @@
-CAT ARENA: FERAL CLAW — native Windows build (milestone N8)
+CAT ARENA: FERAL CLAW — native Windows build (milestone N9)
 =========================================================
 
 A native C++20 / Vulkan game (no browser, no JavaScript runtime). This folder holds everything the
@@ -43,12 +43,20 @@ Controls
   V                     settings
   F5                    restart the current map at wave 1
   F9                    renderer debug views (lightmap only, fullbright, normals, off)
-  F11                   fullscreen on / off
+  F11                   fullscreen on / off (resolution and refresh in SETTINGS > HUD / UI)
   Esc                   pause menu: resume, settings, customize HUD, choose another map, main menu
                         (Esc again resumes; EXIT on the main menu quits, so does closing the window)
   Gamepad               left stick move, right stick look, RT / RB fire, A jump, B crouch,
                         right stick click slide, X reload, Y / LB swap, left stick click sprint, Start pause,
                         D-pad down (hold) revive
+
+Windows display and controls
+----------------------------
+SETTINGS > HUD / UI includes display resolution and fullscreen refresh rate.
+Unavailable fullscreen modes fall back to the desktop. The page shows the
+actual extent and monitor refresh. SETTINGS > CONTROLS includes movement
+layout, mouse sensitivity, vertical inversion, raw relative input and fire
+button. Use Tab to switch weapons with the ZQSD movement layout.
 
 Playing
 -------

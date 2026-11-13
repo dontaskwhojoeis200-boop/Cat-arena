@@ -45,10 +45,10 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Creature rendering: textures, light volume, dynamic lights, sheen, fog; final-five outline; blob / projected shadows | **N6: frames 42.5-63.6 dB, staged scenes 48.5-52.8 dB** | Helios pictures only (other maps: data compared) |
 | Enemy effects (projectile looks and trails, casting glows, melee arcs, muzzle flashes, impacts, blood, gibs) | **N6: cosmetic draws equal to the legacy on every tick**; **N7: voices, attacks, deaths audible (legacy limits)** | — |
 | Cat Marine model, skin joints, hit parts | **N6: runtime mesh = shipped GLB vertices; joints and 6 parts per vertex; posed as the legacy (soldier gait + offsets)** | The 7 GLB clips: not used by the legacy runtime, not used natively. Mirror view N10; networked players N8 |
-| Menus: home, maps, loading, pause, exit, multiplayer page, HUD editor | **N7: legacy routing, layout and look** (captures in docs/n7-evidence) | Multiplayer page is a placeholder (N8) |
+| Menus: home, maps, loading, pause, exit, multiplayer page, HUD editor | **N7: legacy routing, layout and look** (captures in docs/n7-evidence) | N8 adds host setup, browser, connecting and co-op pause |
 | Settings (65 legacy controls) | **N7: same defaults / ranges / options; 32 applied, 8 partial, 25 stored**; keyboard-only navigation tested | Scene resolution, AA, culling modes, texture / effect detail: N10 |
 | Audio: samples, music, mix, compressor, voices, beeps | **N7: Web Audio graphs match Chromium (RMS 6e-8 … 5e-2); legacy rules tested** | Not heard on real hardware; sound uses its own random stream |
 | Input modes: keyboard / mouse, touch, gamepad, pointer capture | **N7: implemented; capture and mode rules unit-tested** | Android device NOT_RUN (N9); gamepad is a native addition |
-| Four-player multiplayer | Not started | N8 |
-| Android ARM64 APK | Not started | N9 |
+| Four-player multiplayer | N8 implemented and tested on Windows loopback | Separate PCs, WAN/TLS and real GPU play remain unverified |
+| Android ARM64 APK | Historical target | Windows 10/11 x64 is the active release target |
 | Shipping EXE/APK | Not built | N11 |

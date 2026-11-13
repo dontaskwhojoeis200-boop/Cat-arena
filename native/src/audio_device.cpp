@@ -20,6 +20,10 @@ Device::Device(Mixer& mixer) : mixer_(&mixer) {
     if(!SDL_ResumeAudioStreamDevice(stream_)) { status_ = std::string("audio device did not start: ") + SDL_GetError(); SDL_DestroyAudioStream(stream_); stream_ = nullptr; }
 }
 
+bool Device::owns_device(std::uint32_t id) const {
+    return stream_ && SDL_GetAudioStreamDevice(stream_) == id;
+}
+
 Device::~Device() {
     if(stream_) SDL_DestroyAudioStream(stream_);   // stops the callback before the mixer goes away
 }

@@ -73,6 +73,7 @@
 #include "cat/audio.hpp"
 #include "cat/audio_device.hpp"
 #include "cat/combat.hpp"
+#include "cat/desktop_display.hpp"
 #include "cat/enemy_fx.hpp"
 #include "cat/game_settings.hpp"
 #include "cat/input_modes.hpp"

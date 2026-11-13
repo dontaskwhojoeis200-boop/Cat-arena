@@ -1,0 +1,3 @@
+headless self-test exit code: 0
+vk-info exit code: 1 (0 = a Vulkan device was found; 1 = no Vulkan, see vk-info.log)
+level="error" subsystem="app" message="Vulkan is not available: vulkan-1.dll (the Vulkan loader, installed with the graphics driver) was not found. Install or update the GPU driver; Cat Arena needs Vulkan 1.2 or newer."

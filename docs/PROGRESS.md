@@ -1,3 +1,7 @@
+# Current milestone
+
+N8 is implemented and Windows CI passed 42 GPU-free tests. See [N8](../README_N8.md), the [migration log](MIGRATION_LOG.md) and [Windows roadmap](WINDOWS_ROADMAP.md). The status below describes the N7 baseline.
+
 # Native rewrite progress — 2026-11-12
 
 N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 baseline, optional

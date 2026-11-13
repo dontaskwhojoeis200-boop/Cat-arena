@@ -1,3 +1,7 @@
+# Current development direction
+
+Read [README_N9.md](README_N9.md) and the [Windows roadmap](docs/WINDOWS_ROADMAP.md) first. The instructions below record earlier milestones.
+
 # Cat Arena: Feral Claw — C++20 / Vulkan rewrite handoff
 
 **Read `CLAUDE_MASTER_PROMPT.md` first and give that file to Claude with this folder.** The latest *audited* executable game reference is `legacy/index.html` (v0.17 Cat Marine build). All essential code is inside the HTML's 55 inline `<script>` blocks; it is not missing just because there is no current unbundled source directory. `reference/multiplayer/server.js` is the matching multiplayer relay. `reference/character/` contains the model archive. `reference/patches/` contains the still-unapplied mouse/settings fix branch. A separate older by timestamp `v0.18` soundtrack branch is deliberately kept separate.

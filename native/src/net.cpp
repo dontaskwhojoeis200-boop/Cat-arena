@@ -137,7 +137,7 @@ void Socket::close() { if(fd_ != kInvalid) { close_native(fd_); fd_ = kInvalid; 
 bool Socket::set_blocking(bool blocking) {
 #ifdef _WIN32
     u_long mode = blocking ? 0 : 1;
-    return ioctlsocket(raw(fd_), FIONBIO, &mode) == 0;
+    return ioctlsocket(raw(fd_), static_cast<long>(FIONBIO), &mode) == 0;
 #else
     const int flags = fcntl(fd_, F_GETFL, 0);
     return flags >= 0 && fcntl(fd_, F_SETFL, blocking ? (flags & ~O_NONBLOCK) : (flags | O_NONBLOCK)) == 0;
@@ -290,7 +290,7 @@ std::array<std::uint8_t, 20> sha1(std::string_view data) {
     auto rol = [](std::uint32_t v, int n) { return (v << n) | (v >> (32 - n)); };
     for(std::size_t off = 0; off < m.size(); off += 64) {
         std::uint32_t w[80];
-        for(int i = 0; i < 16; ++i) w[i] = (std::uint32_t(std::uint8_t(m[off + i * 4])) << 24) | (std::uint32_t(std::uint8_t(m[off + i * 4 + 1])) << 16) | (std::uint32_t(std::uint8_t(m[off + i * 4 + 2])) << 8) | std::uint32_t(std::uint8_t(m[off + i * 4 + 3]));
+        for(std::size_t i = 0; i < 16; ++i) w[i] = (std::uint32_t(std::uint8_t(m[off + i * 4])) << 24) | (std::uint32_t(std::uint8_t(m[off + i * 4 + 1])) << 16) | (std::uint32_t(std::uint8_t(m[off + i * 4 + 2])) << 8) | std::uint32_t(std::uint8_t(m[off + i * 4 + 3]));
         for(int i = 16; i < 80; ++i) w[i] = rol(w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16], 1);
         std::uint32_t a = h[0], b = h[1], c = h[2], d = h[3], e = h[4];
         for(int i = 0; i < 80; ++i) {

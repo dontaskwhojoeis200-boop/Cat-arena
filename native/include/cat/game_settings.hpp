@@ -32,6 +32,7 @@ struct SettingDef {
     std::vector<SettingOption> options;
     Support support{Support::applied};
     std::string note;                // help text / why it is not applied natively
+    bool native_only{};
 };
 
 const std::vector<SettingDef>& setting_defs();

@@ -48,15 +48,24 @@ void settings_match_legacy(const std::filesystem::path& fixture) {
         matched += ok;
     }
     int extra = 0;
-    for(const auto& d : setting_defs()) if(d.kind != SettingKind::action && !legacy_ids.count(d.id)) { ++extra; check(false, "native control not in the legacy page: " + d.id); }
+    for(const auto& d : setting_defs()) if(d.kind != SettingKind::action && !d.native_only && !legacy_ids.count(d.id)) { ++extra; check(false, "native control not in the legacy page: " + d.id); }
     int applied = 0, partial = 0, stored = 0;
-    for(const auto& d : setting_defs()) if(d.kind != SettingKind::action) { applied += d.support == Support::applied; partial += d.support == Support::partial; stored += d.support == Support::stored; }
+    for(const auto& d : setting_defs()) if(d.kind != SettingKind::action && !d.native_only) { applied += d.support == Support::applied; partial += d.support == Support::partial; stored += d.support == Support::stored; }
     std::printf("%s settings: %d of %zu legacy controls match (default, range, options, labels of options); native: %d applied, %d applied with a difference, %d stored only (N10)\n",
                 matched == static_cast<int>(j.size()) && extra == 0 ? "PASS" : "FAIL", matched, j.size(), applied, partial, stored);
 }
 
 void settings_behaviour() {
     GameSettings s;
+    check(s.text("displayResolution") == "default" && s.text("displayRefresh") == "0" && s.flag("mouseRaw"), "Windows settings defaults");
+    check(!s.set("displayResolution", "1080p") && s.set("displayResolution", "1920x1080") &&
+          s.set("displayRefresh", "144") && s.set("keyboardLayout", "arrows"), "Windows options validated");
+    std::stringstream windows;
+    s.save(windows);
+    const auto restored = GameSettings::load(windows);
+    check(restored.text("displayResolution") == "1920x1080" && restored.text("displayRefresh") == "144" &&
+          restored.text("keyboardLayout") == "arrows", "Windows settings round trip");
+    s = GameSettings{};
     check(s.number("fovControl") == 105 && s.text("gfxPreset") == "normal" && s.flag("musicEnabled"), "defaults");
     check(s.set("fovControl", "200") && s.number("fovControl") == 125, "range clamps");
     check(s.set("motionStrength", "103") && s.number("motionStrength") == 105, "range snaps to the step");

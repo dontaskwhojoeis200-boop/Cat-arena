@@ -15,7 +15,7 @@ Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
   a deliberate difference that keeps replays independent of audio.
 - Fonts: Liberation (metric-compatible with Times New Roman / Arial / Courier New) instead of the
   browser's choice among Noto Serif / Georgia / system fonts; glyph shapes differ slightly.
-- MULTIPLAYER is a placeholder page (N8). The pause footer says SOLO.
+- N8 multiplayer uses the native or original Cat Arena relay. Separate PCs, live Render, WAN/TLS, and physical Windows graphics/audio are unverified.
 - Android pointer capture, touch controls and safe areas are unit-tested and drawn at phone sizes,
   but not run on an Android device (N9). Touch input on desktop Linux was not exercised with a
   real touch screen.
@@ -107,7 +107,7 @@ Vulkan compatibility (N2.1)
 - The optional paths reduce objects and upload work; no frame-time benefit was measured or claimed.
   Extended dynamic state saves one pipeline on Helios; push descriptors save one descriptor set.
 - Depth formats with stencil were not exercised on the dynamic-rendering path.
-- The Android target is still N9: the renderer follows Android's constraints (1.0 + WSI imports,
+- Historical Android work: the renderer follows Android's constraints (1.0 + WSI imports,
   run-time lookup) but was never compiled for Android. Windows was not built either.
 - The test layer and its self-test are Linux-only; on other systems the simulated-device tests are
   not built and the path matrix covers what the installed driver offers.
