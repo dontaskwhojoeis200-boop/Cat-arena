@@ -295,6 +295,15 @@
         switch(mt.stage) {
             case 0: if(++mt.waited < 3) break;
                 mt.home_ok = menu.screen() == Screen::home && menu.focused() == "home.play";
+                if(mt.waited == 3) {
+                    if(!gs.set("displayResolution", "960x540")) { fail("test display mode was rejected"); break; }
+                    apply_settings();
+                    if(!SDL_SyncWindow(window)) { fail("could not synchronize the resized window"); break; }
+                    int w = 0, h = 0;
+                    SDL_GetWindowSize(window, &w, &h);
+                    if(w > 960 || h > 540 || w <= 0 || h <= 0) { fail("display setting did not resize the window"); break; }
+                    gs.reset("displayResolution"); apply_settings();
+                }
                 push_key(SDL_SCANCODE_RETURN); mt.stage = 1; break;
             case 1: if(menu.screen() != Screen::maps) { if(++mt.waited > 200) fail("PLAY did not open the maps page"); break; }
                 mt.preview_ok = scene_map == menu.selected_map();
