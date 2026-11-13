@@ -55,7 +55,7 @@ if(CAT_BUILD_DESKTOP)
   if(ANDROID)
     message(FATAL_ERROR "The Cat Arena release targets Windows desktop. Historical core sources can be built with CAT_BUILD_DESKTOP=OFF.")
   endif()
-  # N2.1: the runtime baseline is Vulkan 1.2. The build needs only a Vulkan loader library of any
+  # N2.1: the runtime baseline is Vulkan 1.1. The build needs only a Vulkan loader library of any
   # version (Vulkan 1.0 + WSI symbols are linked; everything newer is resolved at run time) and
   # compiles against the pinned C headers in third_party/vulkan-headers (1.4.309), so no particular
   # SDK version is required. CAT_VULKAN_HEADERS overrides the header directory.
@@ -197,7 +197,7 @@ if(CAT_BUILD_DESKTOP)
         --capture "${CMAKE_CURRENT_BINARY_DIR}/render_map_${cat_map}.png" --shaders "${CMAKE_CURRENT_BINARY_DIR}/shaders" --assets "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1")
       set_tests_properties(render_map_${cat_map} PROPERTIES LABELS gpu)
     endforeach()
-    # N2.1: every selectable Vulkan path renders the same frames (baseline 1.2 ... 1.4).
+    # N2.1: every selectable Vulkan path renders the same frames (baseline 1.1 ... 1.4).
     # N5: weapons through the whole pipeline (model, effects, HUD) with the validation layer; then the
     # first-person view of four weapons against pictures of the legacy game.
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n5/fx-atlas.png")

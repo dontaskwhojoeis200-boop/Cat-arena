@@ -23,9 +23,8 @@ available for comparison. New development and release acceptance target Windows
 | N20 | Validate and package the Windows release |
 
 N7's actual device floor is Vulkan 1.2, with shaders targeting Vulkan 1.1.
-Preserve the working capability paths during N8. Verify the installed driver and
-device API on the GTX 660. A Vulkan 1.1 device path needs implementation and
-validation before it can be advertised. Optional features require capability
+N8 preserves that floor. N9 adds the Vulkan 1.1 fallback. Verify the installed
+driver and device API on the GTX 660 and test the fallback on that device. Optional features require capability
 checks and fallbacks. N6 reaching a 144 FPS cap on the legacy rig is a user
 observation. Sustained FPS and frame-time percentiles are pending measurement.
 

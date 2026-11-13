@@ -4,7 +4,7 @@
 //   clusters -> sky cloud layers at the far plane -> translucent clusters back to front.
 //
 // N2.1 compatibility model (docs/N2_1_VULKAN_COMPATIBILITY.md):
-//   * Mandatory baseline: a Vulkan 1.2 device. The baseline path uses VkRenderPass + framebuffers,
+//   * Mandatory baseline: a Vulkan 1.1 device. The baseline path uses VkRenderPass + framebuffers,
 //     vkCmdPipelineBarrier / vkQueueSubmit, static pipeline state, a dynamic-offset uniform buffer
 //     and staging-buffer texture uploads. It calls Vulkan 1.0 device commands only.
 //   * Optional paths, each selected independently at run time by cat::vk::select_path() from the
@@ -636,6 +636,11 @@ struct Renderer::Impl {
         for(const auto& e : available) caps.extensions.emplace_back(e.extensionName);
         std::sort(caps.extensions.begin(), caps.extensions.end());
         const auto api = vk::negotiated_api(caps, request);
+        if(api < vk::kApi12) {
+            // The 1.1 fallback uses neither optional features nor 1.2 driver properties.
+            driver_name.clear(); driver_info.clear();
+            return;
+        }
         if(api >= vk::kApi13) {
             VkPhysicalDeviceVulkan13Features v13{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES};
             VkPhysicalDeviceVulkan14Features v14{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_FEATURES};
@@ -688,7 +693,7 @@ struct Renderer::Impl {
             VkImageFormatProperties2 ip{VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2, &perf};
             caps.host_copy_optimal = fn.image_format_properties2(physical, &ii, &ip) == VK_SUCCESS && perf.optimalDeviceAccess == VK_TRUE;
         }
-        // Driver identification is Vulkan 1.2 core (the device passed the 1.2 check above).
+        // Vulkan 1.2 driver identification is only queried on a negotiated 1.2+ path.
         VkPhysicalDeviceVulkan12Properties p12{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES};
         VkPhysicalDeviceProperties2 p2{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2, &p12};
         fn.properties2(physical, &p2);
@@ -775,7 +780,7 @@ struct Renderer::Impl {
         loader_api = VK_API_VERSION_1_0;
         if(enumerate_version) check(enumerate_version(&loader_api), "loader version");
         if(loader_api < VK_API_VERSION_1_1) throw std::runtime_error("Vulkan 1.1 loader required");
-        if(request.max_api < vk::kBaselineApi) throw std::runtime_error("Requested Vulkan API cap is below the 1.2 baseline");
+        if(request.max_api < vk::kBaselineApi) throw std::runtime_error("Requested Vulkan API cap is below the 1.1 baseline");
         // VkApplicationInfo::apiVersion is the highest version this run may use. A 1.1+ loader accepts
         // any value; the device may still be older, which the per-device negotiation below handles.
         // Capping it (vk::Request::max_api) makes the validation layer check the lower-version path
@@ -834,7 +839,7 @@ struct Renderer::Impl {
         std::string rejected;
         for(auto candidate : devices) {
             VkPhysicalDeviceProperties props{}; vkGetPhysicalDeviceProperties(candidate, &props);
-            if(props.apiVersion < VK_API_VERSION_1_2) {   // mandatory baseline
+            if(props.apiVersion < VK_API_VERSION_1_1) {   // mandatory baseline
                 log("warning", "vulkan", std::string("Skipping device ") + props.deviceName + ": API " + version_string(props.apiVersion) + " is below the Vulkan 1.2 baseline");
                 rejected += std::string(rejected.empty() ? "" : ", ") + props.deviceName + " (API " + version_string(props.apiVersion) + ")";
                 continue;
@@ -863,9 +868,9 @@ struct Renderer::Impl {
                 break;
             }
         }
-        if(!physical) throw std::runtime_error(std::string(offscreen ? "No Vulkan 1.2+ device with a graphics queue"
-                                                                    : "No Vulkan 1.2+ device with swapchain and combined graphics/present queue") +
-                                               (rejected.empty() ? "" : "; below the 1.2 baseline: " + rejected));
+        if(!physical) throw std::runtime_error(std::string(offscreen ? "No Vulkan 1.1+ device with a graphics queue"
+                                                                    : "No Vulkan 1.1+ device with swapchain and combined graphics/present queue") +
+                                               (rejected.empty() ? "" : "; below the 1.1 baseline: " + rejected));
         vkGetPhysicalDeviceProperties(physical, &properties);
         VkPhysicalDeviceFeatures supported{}; vkGetPhysicalDeviceFeatures(physical, &supported);
         anisotropy = supported.samplerAnisotropy == VK_TRUE;   // optional capability; 1x fallback

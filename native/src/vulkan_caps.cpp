@@ -30,10 +30,11 @@ std::string api_string(std::uint32_t v, bool with_patch) {
     return s;
 }
 std::uint32_t parse_api(std::string_view text) {
+    if(text == "1.1") return kApi11;
     if(text == "1.2") return kApi12;
     if(text == "1.3") return kApi13;
     if(text == "1.4") return kApi14;
-    throw std::runtime_error("Vulkan API cap must be 1.2, 1.3 or 1.4 (got '" + std::string(text) + "')");
+    throw std::runtime_error("Vulkan API cap must be 1.1, 1.2, 1.3 or 1.4 (got '" + std::string(text) + "')");
 }
 const std::array<FeatureInfo, kFeatureCount>& feature_table() { return kTable; }
 const FeatureInfo& info(Feature f) { return kTable[index(f)]; }
@@ -82,7 +83,7 @@ bool meets_baseline(const DeviceCaps& caps, std::string* why) {
         return false;
     }
     if(caps.device_api < kBaselineApi) {
-        if(why) *why = "device API " + api_string(caps.device_api) + " is older than the Vulkan 1.2 baseline";
+        if(why) *why = "device API " + api_string(caps.device_api) + " is older than the Vulkan 1.1 baseline";
         return false;
     }
     return true;
@@ -95,8 +96,8 @@ std::uint32_t negotiated_api(const DeviceCaps& caps, const Request& request) {
 
 Path select_path(const DeviceCaps& caps, const Request& request) {
     std::string why;
-    if(!meets_baseline(caps, &why)) throw std::runtime_error("No Vulkan 1.2 capable device: " + why);
-    if(request.max_api < kBaselineApi) throw std::runtime_error("Requested API cap " + api_string(request.max_api, false) + " is below the Vulkan 1.2 baseline");
+    if(!meets_baseline(caps, &why)) throw std::runtime_error("No Vulkan 1.1 capable device: " + why);
+    if(request.max_api < kBaselineApi) throw std::runtime_error("Requested API cap " + api_string(request.max_api, false) + " is below the Vulkan 1.1 baseline");
     Path path;
     path.api = negotiated_api(caps, request);
     auto enable = [&](const char* ext) {
@@ -106,6 +107,7 @@ Path select_path(const DeviceCaps& caps, const Request& request) {
         const auto i = index(f.id);
         const std::string name = f.name;
         auto reject = [&](const std::string& reason) { path.notes.push_back(name + ": unavailable (" + reason + "); fallback: " + f.fallback); };
+        if(path.api < kApi12) { reject("Vulkan 1.1 uses the baseline path"); continue; }
         if(request.disabled[i]) { reject("disabled by request"); continue; }
         Source chosen = Source::unavailable;
         std::string reason;

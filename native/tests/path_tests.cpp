@@ -63,8 +63,8 @@ void verify(Context& ctx, const std::string& name, const vk::Request& request, c
         if(p.source[i] == vk::Source::core) check(p.api >= f.promoted, name + ": " + f.name + " used as core below its promotion version");
         if(p.source[i] == vk::Source::extension) check(request.allow_extensions && r.caps.has_extension(f.extension), name + ": " + f.name + " extension path without the extension");
     }
-    check(p.api <= request.max_api && p.api >= vk::kBaselineApi, name + ": negotiated API outside [1.2, cap]");
-    check(vk::api_minor(r.caps.device_api) >= 2, name + ": device below the 1.2 baseline was accepted");
+    check(p.api <= request.max_api && p.api >= vk::kBaselineApi, name + ": negotiated API outside [1.1, cap]");
+    check(vk::api_minor(r.caps.device_api) >= 1, name + ": device below the 1.1 baseline was accepted");
     for(const auto& e : r.enabled_extensions)
         check(r.caps.has_extension(e), name + ": enabled extension the device does not advertise: " + e);
     check(r.enabled_extensions.size() == p.extensions.size(), name + ": enabled extensions differ from the selected path's list");
@@ -153,9 +153,9 @@ int main(int argc, char** argv) {
             // ---- every path selectable on the installed driver ---------------------------------------
             struct Case { std::string name; vk::Request request; std::function<void(const Run&)> expect; };
             std::vector<Case> cases;
-            cases.push_back({"baseline (Vulkan 1.2, no optional feature)", vk::Request::baseline(), [](const Run& r) {
-                check(r.report.path.is_baseline() && r.report.negotiated_api == "1.2" && r.report.instance_api == "1.2" && r.report.enabled_extensions.empty(),
-                      "Request::baseline() must run the pure 1.2 path");
+            cases.push_back({"baseline (Vulkan 1.1, no optional feature)", vk::Request::baseline(), [](const Run& r) {
+                check(r.report.path.is_baseline() && r.report.negotiated_api == "1.1" && r.report.instance_api == "1.1" && r.report.enabled_extensions.empty(),
+                      "Request::baseline() must run the pure 1.1 path");
             }});
             vk::Request r12; r12.max_api = vk::kApi12;
             cases.push_back({"Vulkan 1.2 + extensions", r12, [](const Run& r) {
@@ -269,14 +269,21 @@ int main(int argc, char** argv) {
                         check(run.report.caps.core_bit[static_cast<std::size_t>(f.id)], std::string(f.name) + " was reported by the device in this scenario");
                 }
             } else std::cout << "NOTE driver is below 1.4: simulated 1.4 devices not run\n";
-            set_sim("1.1", nullptr, nullptr);
+            set_sim("1.1", "*", nullptr);
+            {
+                const auto run = render(ctx, {});
+                verify(ctx, "SIM bare Vulkan 1.1 device", {}, run);
+                check(run.report.path.is_baseline() && run.report.negotiated_api == "1.1" &&
+                      run.report.enabled_extensions.empty(), "a bare Vulkan 1.1 device must render with baseline features");
+            }
+            set_sim("1.0", "*", nullptr);
             {
                 bool rejected = false;
                 std::string what;
-                try { (void)render(ctx, {}); } catch(const std::exception& e) { what = e.what(); rejected = what.find("No Vulkan 1.2") != std::string::npos; }
-                check(rejected, "a Vulkan 1.1 device must be rejected with a clear message, got: " + (what.empty() ? std::string("no error") : what));
+                try { (void)render(ctx, {}); } catch(const std::exception& e) { what = e.what(); rejected = what.find("No Vulkan 1.1") != std::string::npos; }
+                check(rejected, "a Vulkan 1.0 device must be rejected with a clear message: " + what);
                 ++ctx.passed;
-                std::cout << "PASS SIM Vulkan 1.1 device is rejected: " << what << '\n';
+                std::cout << "PASS SIM Vulkan 1.0 device is rejected: " << what << '\n';
             }
             set_sim(nullptr, nullptr, nullptr);
         }

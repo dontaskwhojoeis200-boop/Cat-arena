@@ -48,11 +48,11 @@
 //   --offscreen WxH --enemy-lineup lineup.txt --lineup-shot windup --capture out.png
 //                                  one staged scene written by tools/n6/legacy_enemies.cjs --lineup-dir (all 20 types,
 //                                  attack wind-up, final five, bodies, Marine Cats); every random draw is 0.5 as there
-// N2.1 Vulkan path control (default: highest path the device supports, Vulkan 1.2 minimum):
+// N2.1 Vulkan path control (default: highest path the device supports, Vulkan 1.1 minimum):
 //   --resize-test                  window mode with --frames N: resize the window halfway (swapchain recreation)
 //   --vk-info                      print detected capabilities and the selected path as JSON, then exit
-//   --vk-baseline                  force the mandatory Vulkan 1.2 path (no optional feature)
-//   --vk-max-api 1.2|1.3|1.4       cap the API version used
+//   --vk-baseline                  force the mandatory Vulkan 1.1 path (no optional feature)
+//   --vk-max-api 1.1|1.2|1.3|1.4       cap the API version used
 //   --vk-no-extensions             use core-promoted features only
 //   --vk-disable a,b               disable features: dynamic_rendering, synchronization2,
 //                                  extended_dynamic_state, push_descriptor, host_image_copy
@@ -186,7 +186,7 @@ std::string vulkan_json(const cat::DeviceReport& d, const char* indent) {
     std::ostringstream o;
     const std::string in = indent, in2 = in + "  ";
     auto b = [](bool v) { return v ? "true" : "false"; };
-    o << "{\n" << in2 << "\"baselineApi\": \"1.2\",\n" << in2 << "\"device\": \"" << json_escape(d.device) << "\",\n" << in2 << "\"deviceType\": \"" << d.device_type
+    o << "{\n" << in2 << "\"baselineApi\": \"1.1\",\n" << in2 << "\"device\": \"" << json_escape(d.device) << "\",\n" << in2 << "\"deviceType\": \"" << d.device_type
       << "\",\n" << in2 << "\"driver\": \"" << json_escape(d.driver_name) << "\",\n" << in2 << "\"driverInfo\": \"" << json_escape(d.driver_info)
       << "\",\n" << in2 << "\"deviceApi\": \"" << d.api << "\",\n" << in2 << "\"loaderApi\": \"" << d.loader_api << "\",\n" << in2 << "\"instanceApi\": \"" << d.instance_api
       << "\",\n" << in2 << "\"negotiatedApi\": \"" << d.negotiated_api << "\",\n" << in2 << "\"path\": \"" << d.path.tier() << "\",\n" << in2 << "\"features\": {";
@@ -779,7 +779,7 @@ int main(int argc, char** argv) {
     // vulkan-1.dll is delay-loaded (CMakeLists.txt): check that the loader is there before the first Vulkan call.
     if(!SDL_LoadObject("vulkan-1.dll"))
         throw std::runtime_error("Vulkan is not available: vulkan-1.dll (the Vulkan loader, installed with the graphics driver) was not found. "
-                                 "Install or update the GPU driver; Cat Arena needs Vulkan 1.2 or newer.");
+                                 "Install or update the GPU driver; Cat Arena needs Vulkan 1.1 or newer.");
 #endif
     // The input self-test checks the input path (move, turn, jump, slide, crouch, fire, reload, swap). Without
     // enemies unless asked: a frag rerolls the weapon in hand with a full magazine, which makes R a no-op.

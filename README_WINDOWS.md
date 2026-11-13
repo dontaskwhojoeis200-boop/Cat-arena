@@ -7,7 +7,7 @@ game needs except the graphics driver.
 Requirements
 ------------
 - Windows 10 or 11, 64-bit (x64).
-- A graphics card and driver with Vulkan 1.2 or newer (NVIDIA, AMD and Intel drivers of the last
+- A graphics card and driver with Vulkan 1.1 or newer (NVIDIA, AMD and Intel drivers of the last
   several years install Vulkan automatically). Nothing else needs to be installed: no Visual C++
   Redistributable (the runtime is built in), no Vulkan SDK, no development tools.
 - About 100 MB of disk space.
@@ -94,7 +94,7 @@ Troubleshooting
 - Every run writes CatArena.log next to CatArena.exe (Vulkan device, driver, loading times, errors).
   If the folder is not writable (e.g. inside Program Files), move the game folder to Documents or Desktop.
 - "Vulkan is not available: vulkan-1.dll ... was not found": install or update the graphics driver.
-- An error naming a Vulkan device or feature: the GPU or driver does not offer Vulkan 1.2; update the
+- An error naming a Vulkan device or feature: the GPU or driver does not offer Vulkan 1.1; update the
   driver. On PCs with two GPUs, make sure the dedicated one is used.
 - A message box shows any error that stops the game; the same text is in CatArena.log.
 

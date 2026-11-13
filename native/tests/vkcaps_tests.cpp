@@ -42,14 +42,17 @@ int main() {
             check(p.tier() == "vulkan-1.2-baseline", "tier name: " + p.tier());
             check(p.notes.size() == kFeatureCount, "one note per feature");
         }
-        check(throws(device(make_api(1, 1, 200), true, true)), "a Vulkan 1.1 device must be rejected, whatever it advertises");
+        const auto bare11 = select_path(device(make_api(1, 1, 200), false, false));
+        check(bare11.api == kApi11 && bare11.is_baseline() && bare11.tier() == "vulkan-1.1-baseline",
+              "a bare Vulkan 1.1 device uses the baseline");
+        check(select_path(device(kApi11, true, true)).extensions.empty(), "1.1 uses the baseline even when optional extensions are advertised");
         check(throws(device(make_api(1, 0, 3), true, true)), "a Vulkan 1.0 device must be rejected");
         {
             auto c = device(kApi14, true, true);
             c.loader_api = make_api(1, 0, 0);
             check(throws(c), "a 1.0 loader must be rejected");
-            Request r; r.max_api = kApi11;
-            check(throws(device(kApi14, true, true), r), "an API cap below 1.2 is invalid");
+            Request r; r.max_api = make_api(1, 0);
+            check(throws(device(kApi14, true, true), r), "an API cap below 1.1 is invalid");
         }
         // --- 1.2 + extensions ---------------------------------------------------------------------
         {
@@ -119,7 +122,7 @@ int main() {
             r.allow_extensions = false;
             check(!select_path(device(kApi14, true, true), r).uses(F::push_descriptor), "cap 1.3 without extensions: no push descriptors");
             const auto b = select_path(device(kApi14, true, true), Request::baseline());
-            check(b.api == kApi12 && b.is_baseline() && b.extensions.empty(), "Request::baseline() forces the 1.2 path on a 1.4 device");
+            check(b.api == kApi11 && b.is_baseline() && b.extensions.empty(), "Request::baseline() forces the 1.1 path on a 1.4 device");
         }
         for(const auto& f : feature_table()) {
             Request r; r.disable(f.id);
@@ -142,10 +145,10 @@ int main() {
             p.drop(F::synchronization2, "again");
             check(p.notes.size() == notes + 1, "dropping twice records once");
         }
-        check(parse_api("1.2") == kApi12 && parse_api("1.3") == kApi13 && parse_api("1.4") == kApi14, "parse_api");
+        check(parse_api("1.1") == kApi11 && parse_api("1.2") == kApi12 && parse_api("1.3") == kApi13 && parse_api("1.4") == kApi14, "parse_api");
         bool bad = false;
-        try { (void)parse_api("1.1"); } catch(const std::runtime_error&) { bad = true; }
-        check(bad, "parse_api rejects 1.1");
+        try { (void)parse_api("1.0"); } catch(const std::runtime_error&) { bad = true; }
+        check(bad, "parse_api rejects 1.0");
         bad = false;
         try { (void)parse_feature("ray_tracing"); } catch(const std::runtime_error&) { bad = true; }
         check(bad, "parse_feature rejects unknown names");

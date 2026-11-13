@@ -17,7 +17,7 @@ Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
   browser's choice among Noto Serif / Georgia / system fonts; glyph shapes differ slightly.
 - N8 multiplayer uses the native or original Cat Arena relay. Separate PCs, live Render, WAN/TLS, and physical Windows graphics/audio are unverified.
 - Android pointer capture, touch controls and safe areas are unit-tested and drawn at phone sizes,
-  but not run on an Android device (N9). Touch input on desktop Linux was not exercised with a
+  in the historical desktop tests. Touch input on desktop Linux was not exercised with a
   real touch screen.
 - Gamepad support is a native addition (the legacy has none); it was not tested with a real pad.
 - The menu shell (interactive runs, `--menu-selftest`) uses the N7 HUD; the automation paths
@@ -103,7 +103,7 @@ Vulkan compatibility (N2.1)
 - One test device: Mesa lavapipe (Vulkan 1.4, CPU). Vulkan 1.1/1.2/1.3 devices and missing feature
   bits were simulated with the test-only layer `VK_LAYER_CAT_device_sim`; that proves what the
   engine requests and calls, not how a real older driver behaves.
-- Devices that only support Vulkan 1.1 are rejected (N0-N2 accepted them). Requested policy.
+- N9 accepts Vulkan 1.1 with baseline features. Physical Vulkan 1.1 driver behavior is unverified.
 - The optional paths reduce objects and upload work; no frame-time benefit was measured or claimed.
   Extended dynamic state saves one pipeline on Helios; push descriptors save one descriptor set.
 - Depth formats with stencil were not exercised on the dynamic-rendering path.

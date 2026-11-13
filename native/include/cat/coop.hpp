@@ -129,7 +129,7 @@ private:
     std::string role_wanted_, pending_code_, name_, title_, map_id_, room_, self_id_, peer_id_, peer_name_, status_;
     bool status_error_{};
     int slot_{};
-    double connect_started_{}, last_pose_{-1e9}, last_world_sent_{-1e9}, last_world_{-1}, now_ms_{};
+    double last_pose_{-1e9}, last_world_sent_{-1e9}, last_world_{-1}, now_ms_{};
     std::vector<RemotePlayer> players_;
     combat::Arena* arena_{};
     combat::Horde* horde_{};

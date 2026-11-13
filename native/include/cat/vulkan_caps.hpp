@@ -4,13 +4,13 @@
 // used. Everything here is unit-tested with synthetic devices (tests/vkcaps_tests.cpp).
 //
 // Policy
-//   * Vulkan 1.2 is the mandatory device baseline. A 1.2 device with no optional extension renders
+//   * Vulkan 1.1 is the mandatory device baseline. A 1.1 device with no optional extension renders
 //     everything (render passes + framebuffers, vkCmdPipelineBarrier/vkQueueSubmit, static pipeline
 //     state, dynamic-offset uniform buffers, staging-buffer texture uploads).
 //   * Each optional feature is selected independently, highest path first:
 //       core      - promoted into the negotiated API version AND its feature bit is reported
 //       extension - the KHR/EXT extension (and its dependencies) is advertised AND its bit is reported
-//       unavailable -> the 1.2 fallback is used
+//       unavailable -> the baseline fallback is used
 //   * An API version alone never enables a feature: the feature bit (or, for bit-less extensions,
 //     the extension itself) must be reported, and the entry points must resolve at run time.
 #include <array>
@@ -27,10 +27,10 @@ constexpr std::uint32_t api_major(std::uint32_t v) { return (v >> 22U) & 0x7FU; 
 constexpr std::uint32_t api_minor(std::uint32_t v) { return (v >> 12U) & 0x3FFU; }
 constexpr std::uint32_t api_patch(std::uint32_t v) { return v & 0xFFFU; }
 constexpr std::uint32_t kApi11 = make_api(1, 1), kApi12 = make_api(1, 2), kApi13 = make_api(1, 3), kApi14 = make_api(1, 4);
-constexpr std::uint32_t kBaselineApi = kApi12;   // minimum device version
+constexpr std::uint32_t kBaselineApi = kApi11;   // minimum device version
 constexpr std::uint32_t kHighestApi = kApi14;    // highest version the engine has code paths for
 std::string api_string(std::uint32_t v, bool with_patch = true);
-std::uint32_t parse_api(std::string_view text);   // "1.2", "1.3", "1.4"; throws on anything else
+std::uint32_t parse_api(std::string_view text);   // "1.1" through "1.4"; throws on anything else
 
 enum class Feature : std::uint8_t {
     dynamic_rendering,        // 1.3 core / VK_KHR_dynamic_rendering      -> fallback: VkRenderPass + framebuffers
@@ -81,7 +81,7 @@ struct Request {
     std::uint32_t max_api{kHighestApi};          // caps the negotiated API (and VkApplicationInfo::apiVersion)
     bool allow_extensions{true};                 // false: only core-promoted features
     std::array<bool, kFeatureCount> disabled{};  // per-feature opt-out
-    static Request baseline();                   // strict Vulkan 1.2 path: max_api 1.2, no optional extension
+    static Request baseline();                   // strict Vulkan 1.1 path: max_api 1.1, no optional extension
     Request& disable(Feature f) { disabled[static_cast<std::size_t>(f)] = true; return *this; }
 };
 
@@ -94,13 +94,13 @@ struct Path {
     Source operator[](Feature f) const { return source[static_cast<std::size_t>(f)]; }
     bool uses(Feature f) const { return (*this)[f] != Source::unavailable; }
     bool is_baseline() const;              // no optional feature in use
-    std::string tier() const;              // "vulkan-1.2-baseline", "vulkan-1.2+extensions", "vulkan-1.3", "vulkan-1.4"
+    std::string tier() const;              // for example "vulkan-1.1-baseline" or "vulkan-1.4"
     std::string describe() const;          // tier + per-feature sources, one line
     // Renderer: a selected feature turned out unusable (missing entry point, ...). Falls back for that feature only.
     void drop(Feature f, const std::string& reason);
 };
 
-// True when the device meets the mandatory baseline (device API >= 1.2 and loader >= 1.1).
+// True when the device meets the mandatory baseline (device API >= 1.1 and loader >= 1.1).
 bool meets_baseline(const DeviceCaps& caps, std::string* why = nullptr);
 // The API version whose core functionality may be used with this device and request.
 std::uint32_t negotiated_api(const DeviceCaps& caps, const Request& request);

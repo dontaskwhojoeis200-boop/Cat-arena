@@ -47,7 +47,7 @@ the value points to the directory containing the `ws` module. Run
 4. Start music and gun effects. Unplug the active playback device and
    reconnect it or select another default device.
 5. Run `CatArena.exe --vk-info` and keep its output on the GTX 660. The
-   validated renderer still requires Vulkan 1.2.
+   baseline is Vulkan 1.1. Use `--vk-baseline` to force that path.
 
 Physical Windows display switching, mouse behavior, audio-device changes and
 legacy GPU performance need hardware testing. The Windows-only roadmap and
