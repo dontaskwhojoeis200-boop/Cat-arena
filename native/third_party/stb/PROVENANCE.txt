@@ -15,3 +15,10 @@ unit (src/image_codec.cpp) without the project's strict warning flags.
 
 JPEG note: stb_image's IDCT/upsampling is not bit-identical to the browser's libjpeg-turbo
 decoder; kit texels may differ by small amounts from the legacy WebGL build.
+
+N7 additions (same upstream commit 4e9b368bfc071e97206ea5c6adba68dd0cbf8897):
+            stb_vorbis.c       v1.22  sha256 4c7cb2ff1f7011e9d67950446b7eb9ca044f2e464d76bfbb0b84dd2e23e65636
+            stb_truetype.h     v1.26  sha256 ecd30b05e0dd4fea3a13c26810dd9e1992dc379049482c393d5a19e6b5090aab
+Justification: the legacy sample bank is Ogg Vorbis (48 samples, decoded at load, src/audio_codec.cpp);
+the UI text is rendered from signed-distance glyphs that stb_truetype rasterizes at start from the
+shipped fonts (src/ui_font.cpp). Unmodified, compiled without the strict warning flags.

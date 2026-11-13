@@ -1,4 +1,4 @@
-# Cat Arena: Feral Claw - Windows x64 build, test and package (N6.5; reusable for later milestones).
+# Cat Arena: Feral Claw - Windows x64 build, test and package (N6.5, N7; reusable for later milestones).
 #
 # Produces the artifact CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS (downloads as a ZIP holding one folder
 # with CatArena.exe, SDL3.dll, assets/, README.txt, THIRD_PARTY_LICENSES.txt).
@@ -18,7 +18,7 @@ on:
       milestone:
         description: "Milestone in the package name (CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS)"
         required: false
-        default: "N6"
+        default: "N7"
   push:
     branches: [main, master]
     paths: ["native/**", "assets/**", "README_WINDOWS.md", ".github/workflows/windows-build.yml"]
@@ -37,7 +37,7 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 120
     env:
-      MILESTONE: ${{ github.event.inputs.milestone || 'N6' }}
+      MILESTONE: ${{ github.event.inputs.milestone || 'N7' }}
     defaults:
       run:
         shell: pwsh

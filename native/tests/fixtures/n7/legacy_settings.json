@@ -1,0 +1,831 @@
+{
+ "tool": "tools/n7/legacy_settings_defaults.cjs",
+ "sha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "browser": "153.0.8010.12",
+ "controls": [
+  {
+   "panel": "viewSettings",
+   "id": "fovControl",
+   "type": "range",
+   "label": "HORIZONTAL FOV105°",
+   "value": "105",
+   "min": 75,
+   "max": 125,
+   "step": 1
+  },
+  {
+   "panel": "viewSettings",
+   "id": "crosshairStyle",
+   "type": "select",
+   "label": "CROSSHAIR STYLE",
+   "value": "classic",
+   "options": [
+    {
+     "value": "classic",
+     "label": "Classic (4 ticks)"
+    },
+    {
+     "value": "dot",
+     "label": "Dot"
+    },
+    {
+     "value": "plus",
+     "label": "Precision plus"
+    },
+    {
+     "value": "ring",
+     "label": "Circle + dot"
+    },
+    {
+     "value": "bullseye",
+     "label": "Bullseye"
+    },
+    {
+     "value": "circle",
+     "label": "Circle only"
+    },
+    {
+     "value": "t",
+     "label": "T-shaped"
+    },
+    {
+     "value": "none",
+     "label": "Off"
+    }
+   ]
+  },
+  {
+   "panel": "viewSettings",
+   "id": "crosshairColor",
+   "type": "select",
+   "label": "CROSSHAIR COLOR",
+   "value": "#f2cf93",
+   "options": [
+    {
+     "value": "#f2cf93",
+     "label": "Classic amber"
+    },
+    {
+     "value": "#6dff77",
+     "label": "Neon green"
+    },
+    {
+     "value": "#f7f7e9",
+     "label": "White"
+    },
+    {
+     "value": "#65e9ff",
+     "label": "Cyan"
+    },
+    {
+     "value": "#ff6480",
+     "label": "Red"
+    }
+   ]
+  },
+  {
+   "panel": "viewSettings",
+   "id": "vmAngleOffset",
+   "type": "range",
+   "label": "WEAPON DIRECTION (YAW)LEVEL · 0°",
+   "value": "0",
+   "min": -20,
+   "max": 20,
+   "step": 1
+  },
+  {
+   "panel": "viewSettings",
+   "id": "vmSizeFov",
+   "type": "range",
+   "label": "WEAPON SIZE (INDEPENDENT FOV)60°",
+   "value": "60",
+   "min": 48,
+   "max": 80,
+   "step": 1
+  },
+  {
+   "panel": "viewSettings",
+   "id": "vmVerticalOffset",
+   "type": "range",
+   "label": "WEAPON VERTICAL POSITIONLEVEL · 0%",
+   "value": "0",
+   "min": -15,
+   "max": 15,
+   "step": 1
+  },
+  {
+   "panel": "viewSettings",
+   "id": "motionStrength",
+   "type": "range",
+   "label": "VIEW & WEAPON MOTION100%",
+   "value": "100",
+   "min": 0,
+   "max": 200,
+   "step": 5
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "perfFps",
+   "type": "checkbox",
+   "label": "Show FPS",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "perfCpu",
+   "type": "checkbox",
+   "label": "Show CPU frame time",
+   "value": false
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "perfGpu",
+   "type": "checkbox",
+   "label": "Show GPU frame time",
+   "value": false
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "perfRam",
+   "type": "checkbox",
+   "label": "Live JS heap (RAM)",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "perfAppMem",
+   "type": "checkbox",
+   "label": "Active webpage RAM (if available)",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "perfVram",
+   "type": "checkbox",
+   "label": "Tracked GPU allocations (estimate)",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxPreset",
+   "type": "select",
+   "label": "GRAPHICS",
+   "value": "normal",
+   "options": [
+    {
+     "value": "high",
+     "label": "HIGH QUALITY"
+    },
+    {
+     "value": "normal",
+     "label": "NORMAL"
+    },
+    {
+     "value": "fast",
+     "label": "FAST"
+    },
+    {
+     "value": "fastest",
+     "label": "FASTEST"
+    },
+    {
+     "value": "custom",
+     "label": "CUSTOM"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "lightQuality",
+   "type": "select",
+   "label": "LIGHTING",
+   "value": "1",
+   "options": [
+    {
+     "value": "0",
+     "label": "VERTEX · r_vertexLight, per-vertex bake"
+    },
+    {
+     "value": "1",
+     "label": "LIGHTMAP · baked per-surface shadows"
+    },
+    {
+     "value": "2",
+     "label": "LIGHT VOLUME · classic 3-D grid"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxOverbright",
+   "type": "checkbox",
+   "label": "Overbright lighting",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxEntityGrid",
+   "type": "checkbox",
+   "label": "Light grid on models [entity lighting]",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxDynamicLights",
+   "type": "checkbox",
+   "label": "Dynamic lights",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxFlares",
+   "type": "checkbox",
+   "label": "Light flares / coronas",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxSky",
+   "type": "checkbox",
+   "label": "High quality sky & clouds",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxGamma",
+   "type": "range",
+   "label": "BRIGHTNESS1.00",
+   "value": "1",
+   "min": 0.6,
+   "max": 1.8,
+   "step": 0.05
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxPicmip",
+   "type": "range",
+   "label": "TEXTURE DETAILHIGH",
+   "value": "0",
+   "min": 0,
+   "max": 3,
+   "step": 1
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxBits",
+   "type": "select",
+   "label": "TEXTURE QUALITY",
+   "value": "32",
+   "options": [
+    {
+     "value": "32",
+     "label": "32-BIT · smooth"
+    },
+    {
+     "value": "16",
+     "label": "16-BIT · retro banding"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxFilter",
+   "type": "select",
+   "label": "TEXTURE FILTER",
+   "value": "trilinear",
+   "options": [
+    {
+     "value": "trilinear",
+     "label": "TRILINEAR · LINEAR_MIPMAP_LINEAR"
+    },
+    {
+     "value": "bilinear",
+     "label": "BILINEAR · LINEAR_MIPMAP_NEAREST"
+    },
+    {
+     "value": "nearest",
+     "label": "NEAREST · crisp pixels"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxAniso",
+   "type": "select",
+   "label": "ANISOTROPY",
+   "value": "4",
+   "options": [
+    {
+     "value": "0",
+     "label": "OFF"
+    },
+    {
+     "value": "2",
+     "label": "2×"
+    },
+    {
+     "value": "4",
+     "label": "4×"
+    },
+    {
+     "value": "8",
+     "label": "8×"
+    },
+    {
+     "value": "16",
+     "label": "16×"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxShadows",
+   "type": "select",
+   "label": "SHADOWS",
+   "value": "1",
+   "options": [
+    {
+     "value": "0",
+     "label": "OFF"
+    },
+    {
+     "value": "1",
+     "label": "BLOB · soft disc"
+    },
+    {
+     "value": "3",
+     "label": "PROJECTED · body silhouette"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxEffects",
+   "type": "select",
+   "label": "EFFECTS DETAIL",
+   "value": "1",
+   "options": [
+    {
+     "value": "1",
+     "label": "HIGH · full particles"
+    },
+    {
+     "value": "0.7",
+     "label": "MEDIUM"
+    },
+    {
+     "value": "0.45",
+     "label": "LOW · fewer particles"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxMarks",
+   "type": "checkbox",
+   "label": "Marks on walls",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxBrass",
+   "type": "checkbox",
+   "label": "Ejecting brass",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxBlood",
+   "type": "checkbox",
+   "label": "Blood [com_blood]",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxGibs",
+   "type": "checkbox",
+   "label": "Gibs",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxRail",
+   "type": "range",
+   "label": "RAIL TRAIL TIME0.60 s",
+   "value": "0.6",
+   "min": 0.2,
+   "max": 1.6,
+   "step": 0.05
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxLmFilter",
+   "type": "select",
+   "label": "LIGHTMAP FILTER",
+   "value": "bilinear",
+   "options": [
+    {
+     "value": "bilinear",
+     "label": "BILINEAR · SMOOTH"
+    },
+    {
+     "value": "nearest",
+     "label": "NEAREST · visible luxels"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxLmIntensity",
+   "type": "range",
+   "label": "LIGHTMAP INTENSITY1.00",
+   "value": "1",
+   "min": 0.6,
+   "max": 1.6,
+   "step": 0.05
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxCurves",
+   "type": "select",
+   "label": "CURVE DETAIL",
+   "value": "2",
+   "options": [
+    {
+     "value": "0",
+     "label": "LOW · 16 cm error"
+    },
+    {
+     "value": "1",
+     "label": "MEDIUM · 6 cm"
+    },
+    {
+     "value": "2",
+     "label": "HIGH · 2.5 cm"
+    },
+    {
+     "value": "3",
+     "label": "ULTRA · 1 cm"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxDetail",
+   "type": "checkbox",
+   "label": "Detail textures",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxMirrors",
+   "type": "checkbox",
+   "label": "Mirrors & portal views",
+   "value": true
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxPortalScale",
+   "type": "select",
+   "label": "MIRROR / PORTAL RESOLUTION",
+   "value": "0.5",
+   "options": [
+    {
+     "value": "0.25",
+     "label": "25% · fastest"
+    },
+    {
+     "value": "0.5",
+     "label": "50%"
+    },
+    {
+     "value": "1",
+     "label": "100% · sharpest"
+    }
+   ]
+  },
+  {
+   "panel": "graphicsSettings",
+   "id": "gfxVis",
+   "type": "checkbox",
+   "label": "PVS visibility culling",
+   "value": true
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "worldCullingMode",
+   "type": "select",
+   "label": "WORLD VISIBILITY",
+   "value": "balanced",
+   "options": [
+    {
+     "value": "balanced",
+     "label": "BALANCED · conservative sector culling"
+    },
+    {
+     "value": "quality",
+     "label": "QUALITY · smooth, frustum only"
+    },
+    {
+     "value": "legacy",
+     "label": "FAST · legacy aggressive culling"
+    }
+   ]
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "fogQuality",
+   "type": "select",
+   "label": "FOG QUALITY",
+   "value": "1",
+   "options": [
+    {
+     "value": "0",
+     "label": "OFF · maximum visibility"
+    },
+    {
+     "value": "0.5",
+     "label": "LOW · lighter fog"
+    },
+    {
+     "value": "1",
+     "label": "STANDARD · atmospheric"
+    },
+    {
+     "value": "1.25",
+     "label": "DENSE · cinematic"
+    }
+   ]
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "sceneResolution",
+   "type": "range",
+   "label": "SCENE RESOLUTION720p",
+   "value": "720",
+   "min": 480,
+   "max": 1080,
+   "step": 10
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "msaaSamples",
+   "type": "select",
+   "label": "MULTISAMPLE AA",
+   "value": "0",
+   "options": [
+    {
+     "value": "0",
+     "label": "OFF · fastest"
+    },
+    {
+     "value": "2",
+     "label": "2× MSAA"
+    },
+    {
+     "value": "4",
+     "label": "4× MSAA"
+    },
+    {
+     "value": "8",
+     "label": "8× MSAA"
+    }
+   ]
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "fxaaEnabled",
+   "type": "checkbox",
+   "label": "FXAA (fast post-process anti-aliasing)",
+   "value": false
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "adaptiveResolution",
+   "type": "checkbox",
+   "label": "Adaptive resolution (optional)",
+   "value": false
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "targetFps",
+   "type": "select",
+   "label": "ADAPTIVE FPS TARGET",
+   "value": "120",
+   "options": [
+    {
+     "value": "90",
+     "label": "90 FPS"
+    },
+    {
+     "value": "120",
+     "label": "120 FPS"
+    },
+    {
+     "value": "144",
+     "label": "144 FPS"
+    },
+    {
+     "value": "165",
+     "label": "165 FPS"
+    },
+    {
+     "value": "200",
+     "label": "200 FPS"
+    },
+    {
+     "value": "240",
+     "label": "240 FPS"
+    }
+   ]
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "vsyncEnabled",
+   "type": "checkbox",
+   "label": "VSync preference",
+   "value": true
+  },
+  {
+   "panel": "performanceSettings",
+   "id": "fpsLimit",
+   "type": "range",
+   "label": "FRAME RATE LIMITUNLIMITED",
+   "value": "241",
+   "min": 0,
+   "max": 241,
+   "step": 1
+  },
+  {
+   "panel": "touchSettings",
+   "id": "inputMode",
+   "type": "select",
+   "label": "CONTROL MODE",
+   "value": "auto",
+   "options": [
+    {
+     "value": "auto",
+     "label": "AUTO · last input used"
+    },
+    {
+     "value": "touch",
+     "label": "TOUCH"
+    },
+    {
+     "value": "kbm",
+     "label": "KEYBOARD & MOUSE / DeX"
+    }
+   ]
+  },
+  {
+   "panel": "touchSettings",
+   "id": "touchSensitivity",
+   "type": "range",
+   "label": "LOOK SENSITIVITY 100%",
+   "value": "100",
+   "min": 25,
+   "max": 250,
+   "step": 5
+  },
+  {
+   "panel": "touchSettings",
+   "id": "touchSize",
+   "type": "range",
+   "label": "TOUCH BUTTON SIZE 100%",
+   "value": "100",
+   "min": 75,
+   "max": 125,
+   "step": 5
+  },
+  {
+   "panel": "touchSettings",
+   "id": "touchOpacity",
+   "type": "range",
+   "label": "BUTTON OPACITY 80%",
+   "value": "80",
+   "min": 25,
+   "max": 100,
+   "step": 5
+  },
+  {
+   "panel": "touchSettings",
+   "id": "touchInvert",
+   "type": "checkbox",
+   "label": "Invert touch look Y",
+   "value": false
+  },
+  {
+   "panel": "touchSettings",
+   "id": "sprintMode",
+   "type": "select",
+   "label": "SPRINT BEHAVIOR",
+   "value": "hold",
+   "options": [
+    {
+     "value": "hold",
+     "label": "HOLD · Shift / Sprint button"
+    },
+    {
+     "value": "toggle",
+     "label": "TOGGLE · Shift / Sprint button"
+    },
+    {
+     "value": "auto",
+     "label": "AUTO · while moving"
+    }
+   ]
+  },
+  {
+   "panel": "audioSettings",
+   "id": "masterVolume",
+   "type": "range",
+   "label": "MASTER VOLUME 70%",
+   "value": "70",
+   "min": 0,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "panel": "audioSettings",
+   "id": "weaponVolume",
+   "type": "range",
+   "label": "WEAPONS & EFFECTS 85%",
+   "value": "85",
+   "min": 0,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "panel": "audioSettings",
+   "id": "enemyVolume",
+   "type": "range",
+   "label": "ENEMY VOICES & ATTACKS 80%",
+   "value": "80",
+   "min": 0,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "panel": "audioSettings",
+   "id": "musicVolume",
+   "type": "range",
+   "label": "SOUNDTRACK 46%",
+   "value": "46",
+   "min": 0,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "panel": "audioSettings",
+   "id": "musicEnabled",
+   "type": "checkbox",
+   "label": "Play ASHEN DRIVE · original instrumental theme",
+   "value": true
+  },
+  {
+   "panel": "uiSettings",
+   "id": "hudScale",
+   "type": "range",
+   "label": "HUD SIZE 115%",
+   "value": "115",
+   "min": 85,
+   "max": 145,
+   "step": 5
+  },
+  {
+   "panel": "uiSettings",
+   "id": "showScore",
+   "type": "checkbox",
+   "label": "Show kill/death counter",
+   "value": true
+  },
+  {
+   "panel": "uiSettings",
+   "id": "showHitFeedback",
+   "type": "checkbox",
+   "label": "Show hitmarkers and damage numbers",
+   "value": true
+  },
+  {
+   "panel": "uiSettings",
+   "id": "showControlTips",
+   "type": "checkbox",
+   "label": "Show keyboard control tips",
+   "value": false
+  },
+  {
+   "panel": "uiSettings",
+   "id": "showStance",
+   "type": "checkbox",
+   "label": "Show movement stance",
+   "value": true
+  },
+  {
+   "panel": "uiSettings",
+   "id": "autoFullscreen",
+   "type": "checkbox",
+   "label": "Fullscreen when launching",
+   "value": true
+  }
+ ]
+}

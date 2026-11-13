@@ -101,6 +101,9 @@ struct DamageEvent { std::uint32_t target_id{}; double amount{}; bool head{}, ki
 // The moment of the shot, for presentation: the legacy starts tracers and the muzzle flash from the
 // view as it was when fireWeapon() ran (before or after this tick's movement).
 struct FireContext { physics::ViewCamera view, eye; double fov_scale{1}, now{}; int weapon_in_hand{-1}; };
+// N7: legacy playEnemyVoice() calls (presentation only; the hurt roll uses the gameplay draw the legacy makes).
+enum class VoiceKind : std::uint8_t { idle, attack, hurt, eliminated };
+struct VoiceEvent { double x, y, z; int type; VoiceKind kind; std::uint32_t id; };
 struct Events {
     int fired_weapon{-1};                 // weapon index fired this step, -1 if none
     FireContext fire;                     // valid when fired_weapon >= 0; weapon_in_hand = slot weapon after the volley (a frag may have rerolled it)
@@ -112,6 +115,8 @@ struct Events {
     double healed{};
     int reroll{-1};                       // new weapon index after a kill
     bool reload_started{}, reload_done{}, switched{};
+    std::vector<VoiceEvent> voices;       // N7
+    std::uint32_t player_hits{};          // N7: non-burn hits taken (each beeps)
 };
 
 // mulberry32: the seeded generator also used when recording the legacy reference.

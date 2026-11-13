@@ -1,4 +1,30 @@
-# Current known limitations — N6.5
+# Current known limitations — N7
+
+Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
+- 25 of the 65 legacy settings are shown and saved but do not change the game yet (N10): scene
+  resolution, multisample AA, FXAA, adaptive resolution and FPS target, the three world culling
+  modes, texture quality / bits / filter / anisotropy, gamma, overbright, flares, effect detail,
+  marks, brass, blood, gibs, rail trail, lightmap filter / intensity, curve detail, detail textures,
+  mirrors, portal resolution. The renderer draws at window resolution without anti-aliasing.
+  Partial: lighting (lightmap only), fog (off / standard), sky (clouds on / off), preset, RAM rows.
+- Not heard on a real sound card: the build machine has no audio device. The mixer matches
+  Chromium's Web Audio on recorded graphs (docs/N7_UI_AUDIO.md §2) and the SDL device path ran with
+  SDL's dummy driver; loudness, latency and drivers on Windows / Android are unverified.
+- Sound bank decoding and resampling take about 1 s at start (before the first menu frame).
+- Sound has its own random stream (the legacy's sound calls drew from the gameplay generator):
+  a deliberate difference that keeps replays independent of audio.
+- Fonts: Liberation (metric-compatible with Times New Roman / Arial / Courier New) instead of the
+  browser's choice among Noto Serif / Georgia / system fonts; glyph shapes differ slightly.
+- MULTIPLAYER is a placeholder page (N8). The pause footer says SOLO.
+- Android pointer capture, touch controls and safe areas are unit-tested and drawn at phone sizes,
+  but not run on an Android device (N9). Touch input on desktop Linux was not exercised with a
+  real touch screen.
+- Gamepad support is a native addition (the legacy has none); it was not tested with a real pad.
+- The menu shell (interactive runs, `--menu-selftest`) uses the N7 HUD; the automation paths
+  (`--frames`, `--input-selftest`, `--controls-selftest`, offscreen captures) keep the N5 HUD so that
+  earlier picture comparisons stay valid.
+- In the build tree the shaders next to cat_arena are copied when cat_arena is relinked; after a
+  shader-only change pass `--shaders <build>/shaders` (installed packages are not affected).
 
 Windows (N6.5)
 - CatArena.exe is built, packaged and tested (GPU-free tests) by GitHub Actions, but has not been run
@@ -20,8 +46,6 @@ Enemies (N6)
   only in mirrors (not implemented, N10). Other players' Marine Cats are drawn when present (N8
   networking will supply them).
 - The Marine Cat's seven GLB clips are not played (the legacy runtime does not play them either).
-- No sound: enemy voices, attacks, deaths, wave announcements are silent (N7).
-- The HUD's wave box and banner follow the legacy's text, not its look (native 5 x 7 font).
 - Creature JPEG textures are decoded by stb_image (as in N5).
 - Fixture actions KILL / HURT drive waves and deaths in the recordings; they are not game inputs.
 
@@ -29,14 +53,13 @@ Enemies (N6)
 Weapons, effects, HUD (N5)
 - Dynamic lights (N5.1) light world, material surfaces and (N6) creatures. Lens flares are not
   implemented.
-- The HUD is a native layout with a built-in 5 x 7 font. It carries the legacy HUD's information
-  but not its look; damage numbers and the incoming-hit indicator are missing.
+- N7: the HUD follows the legacy layout and look. Damage numbers and the incoming-hit indicator are
+  still missing.
 - Practice targets (`--enemies practice`) are static boxes with the legacy hit boxes.
-- No sound.
 - The N5 weapon tapes cover Helios Crucible only. (N6: player death, the scored respawn point and
   the wave restart are compared on all four maps.)
-- Effect settings (detail, marks, brass, blood, rail-trail time) and the viewmodel calibration are
-  fixed at the legacy defaults.
+- Effect settings (detail, marks, brass, blood, rail-trail time) are fixed at the legacy defaults
+  (N7: the viewmodel calibration is a setting now).
 - Weapon textures are JPEG decoded by stb_image; the browser's decoder differs slightly.
 - A press and release inside one simulation tick counts as one tick of input (latched).
 - Preserved legacy behaviour (not defects of the port): level shots are headshots; world hits are
@@ -66,9 +89,9 @@ Physics and traversal (N3)
   wall-strafe speed, step-down falls, position recovery).
 - Bit-identical simulation was shown across compilers and optimisation levels on Linux/glibc only.
   `sin`/`cos`/`atan2` come from the platform library, so other platforms may differ in last bits.
-- Sprint is "hold" only; no touch stick, arrow-key look or edge-turn (settings/UI, N7).
+- N7: sprint hold / toggle / auto and the touch stick are implemented; arrow-key look and edge-turn are not.
 - No downed state handling beyond the legacy guard, no blast impulses or knockback (N5/N6).
-- Footsteps, jumps, landings and slides are counted but silent (N7). The weapon viewmodel is not
+- N7: footsteps, jumps, landings and slides play the legacy body sounds. The weapon viewmodel is not
   drawn (N5).
 - The window renders the latest simulation tick without interpolation (as the legacy does).
 - Keyboard/mouse capture was tested with synthetic SDL events under Xvfb; real devices and Windows

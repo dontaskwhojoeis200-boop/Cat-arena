@@ -521,3 +521,34 @@ runtime's, and are built without FMA contraction (`-ffp-contract=off`, MSVC `/fp
 that way for any new code whose results are compared with the legacy game. `js_math_browser` checks
 the functions against Chromium; `tools/js_math/gen_tables.py` regenerates their tables and
 `tools/js_math/record_chromium_math.cjs` the Chromium fixture.
+
+## N7 — menus, settings, HUD, audio (2026-11-12)
+
+No new build dependency: the decoders (stb_vorbis 1.22, dr_mp3 0.7.4, stb_truetype 1.26) are in
+`native/third_party`, the fonts and sounds in `assets/n7` (installed with the game). SDL3's audio
+and gamepad subsystems are used; a missing audio device is not an error.
+
+```
+cmake --build build -j
+ctest --test-dir build -R "audio_webaudio_parity|ui_menus_settings_hud"      # no GPU
+ctest --test-dir build -R window_menu_selftest                                # window + Vulkan (label gpu)
+# by hand
+build/cat_arena                                   # main menu
+build/cat_arena --map bastion-keep                # straight to the loading screen
+build/cat_arena --game-settings my-settings.txt   # settings file of your choice
+build/cat_arena --offscreen 1280x720 --ui-capture out/ui [--touch] [--map q3-gallery]
+SDL_AUDIO_DRIVER=dummy build/cat_arena --menu-selftest   # exercise the audio device path without a sound card
+```
+
+Settings are saved in `SDL_GetPrefPath("CatArena", "FeralClaw")/settings.txt`
+(Windows `%APPDATA%\CatArena\FeralClaw`, Linux `~/.local/share/CatArena/FeralClaw`).
+
+Reference tools (not product; Node >= 22 with Playwright + Chromium, run against `legacy/index.html`):
+```
+node tools/n7/legacy_ui_capture.cjs                 # docs/n7-evidence/legacy-ui (pages + element rectangles)
+node tools/n7/legacy_settings_defaults.cjs          # native/tests/fixtures/n7/legacy_settings.json
+python3 -I native/tools/n7/extract_n7_assets.py     # assets/n7 audio + backdrop, N7_ASSET_MANIFEST.json
+node native/tools/n7/record_webaudio.cjs            # native/tests/fixtures/n7 decode.json, graph.f32/json
+python3 -I native/tools/n7/set_browser_lengths.py   # browser decode lengths into bank.txt
+python3 -I native/tools/n7/font_manifest.py assets/n7/fonts
+```

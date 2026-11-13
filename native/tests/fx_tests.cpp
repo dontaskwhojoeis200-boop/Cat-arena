@@ -114,7 +114,7 @@ int replay(const std::string& assets_root, const std::string& combat_fixture, co
             effects.build(arena, fov, aspect, frame);
             double got[kWidth];
             snapshot(effects, frame, got);
-            const auto m = fx::WeaponFx::muzzle_world(frame.camera, arena.current_weapon());
+            const auto m = effects.muzzle_world(frame.camera, arena.current_weapon());
             got[34] = m[0]; got[35] = m[1]; got[36] = m[2];
             for(const double value : got) { unsigned char bytes[8]; std::memcpy(bytes, &value, 8); for(const auto b : bytes) { hash ^= b; hash *= 1099511628211ULL; } }
             bool same = true;
@@ -204,7 +204,7 @@ void unit_tests() {
         check(!fx::beam(u, cam, 5, 0, 0, 5, 0, 0, 1, 0, 1, 1, 1, 1) && fx::beam(u, cam, 5, 0, 0, 9, 0, 3, .5, 2, 1, 1, 1, 1), "zero-length beam is skipped");
         check(near(u.vertices[0].y, .25, 1e-6) || near(u.vertices[0].y, -.25, 1e-6), "beam is half a width wide on each side, perpendicular to the view");
         check(near(u.vertices[0].x, 5, 1e-6) && near(u.vertices[1].x, 9, 1e-6) && u.vertices[0].u == 0 && u.vertices[1].u == 1, "beam runs from a to b");
-        const auto m = fx::WeaponFx::muzzle_world(fx::make_camera({0, 0, 1.5, {1, 0, 0}, {0, 1, 0}, {0, 0, 1}, 0}, fov, 1, aspect), 0);
+        const auto m = fx::WeaponFx::muzzle_world_at(fx::make_camera({0, 0, 1.5, {1, 0, 0}, {0, 1, 0}, {0, 0, 1}, 0}, fov, 1, aspect), 0);
         check(near(m[0], .62, 1e-12) && m[1] > 0 && m[2] < 1.5, "the muzzle is 0.62 m ahead, right of and below the eye");
     }
     // ---- viewmodel: muzzle anchored on screen, raise on switch, reload dip, recoil ----------------------

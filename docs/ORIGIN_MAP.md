@@ -26,7 +26,9 @@ Logical JS paths are inline labels, not existing standalone files.
 | Animation/effects | 10443–11315, marine 13268–13327 | N6, GLB clips differ from actual JS pose evaluation |
 | Weapon/movement update | 11811–12347 | N3/N5/N6 |
 | Fixed timestep | 14803–14813 | N0 exact 120Hz, .055 elapsed clamp, .06 accumulator, 7-step ceiling |
-| Desktop/touch input | 14909–15007, 16364–16529 | N0 basic key/button bridge; N7/N9 full input |
+| Desktop/touch input | 14909–15007, 16364–16529 | **N7**: keyboard / mouse / touch / gamepad, control modes, pointer capture (`app_controls.hpp`, `input_modes.hpp`, `main_menus.inc`); Android device N9 |
+| Audio graph, samples, music | 807–826, 11604–11800 | **N7**: `audio_mixer.cpp`, `audio_game.cpp`, `assets/n7/audio` (docs/N7_UI_AUDIO.md) |
+| Menus, settings, HUD, perf overlay | 525–627 (HUD DOM / CSS), 14684–14740, 14869, 16529–16698, graphics-menu.js, mobile-hud.js, entry.js | **N7**: `menu.cpp`, `game_settings.cpp`, `ui_hud.cpp`, `app_controls.hpp` |
 | Multiplayer | 15495–16096 | N8 native client pending |
 | Menus/HUD/entry | 1–806, 14616+, 16097–17100 | N7 pending; N0 window title only |
 

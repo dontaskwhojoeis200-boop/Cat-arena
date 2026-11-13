@@ -263,7 +263,10 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
             }
         }
         b.voice_cooldown -= dt;
-        if(b.voice_cooldown <= 0) b.voice_cooldown = 4.4 + arena_->rng_.next() * 5.3;   // idle voice (sound is N7; the draw keeps the stream aligned)
+        if(b.voice_cooldown <= 0) {   // playEnemyVoice(b, 'idle') (12256)
+            arena_->events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::idle, b.id});
+            b.voice_cooldown = 4.4 + arena_->rng_.next() * 5.3;
+        }
         b.cool -= dt;
         // The hit lands once, when the wind-up ends (72 % of the visible attack); recovery is animation only.
         if(b.attack_wind > 0) {
@@ -315,6 +318,7 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
 }
 
 void Horde::attack(Target& b) {   // enemyAttack (11955)
+    arena_->events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::attack, b.id});   // playEnemyVoice(b, 'attack') (11956)
     const auto& def = type_of(b);
     const auto& target = arena_->player_.state();
     const double dist = js_hypot(target.x - b.x, target.y - b.y);

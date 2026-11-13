@@ -5,7 +5,10 @@ set(text "Cat Arena: Feral Claw - native engine (C++20 / Vulkan)\nThird-party so
 string(APPEND text "Build tools (CMake, the C++ compiler, glslang for compiling shaders) are not shipped and are not listed.\n")
 foreach(entry
     "SDL3 3.2.10 (SDL3.dll / libSDL3.so.0: window, input, Vulkan surface)|SDL3/LICENSE.txt"
-    "stb_image / stb_image_write (image decoding, compiled in)|stb/LICENSE"
+    "stb_image / stb_image_write / stb_truetype / stb_vorbis (image, font and Ogg Vorbis decoding, compiled in)|stb/LICENSE"
+    "dr_mp3 0.7.4 (MP3 decoding of the soundtrack, compiled in)|dr_libs/LICENSE"
+    "Liberation Serif Regular / Bold, Sans Bold, Mono Bold 2.1.5 (menu and HUD fonts, shipped in assets/n7/fonts)|fonts/LICENSE-Liberation-OFL.txt"
+    "DejaVu Sans Bold 2.37 (symbol fallback font, shipped in assets/n7/fonts)|fonts/LICENSE-DejaVu.txt"
     "fdlibm 5.3 (reduction of very large trigonometric arguments in cat/js_math.hpp, compiled in)|fdlibm/NOTICE.txt"
     "Khronos Vulkan-Headers 1.4.309 (declarations compiled in, licensed Apache-2.0 OR MIT and used here under MIT, the Vulkan loader itself comes with the graphics driver)|vulkan-headers/MIT.txt")
   string(REPLACE "|" ";" parts "${entry}")

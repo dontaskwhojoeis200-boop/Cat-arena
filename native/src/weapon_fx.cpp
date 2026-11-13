@@ -165,9 +165,9 @@ std::optional<WeaponFx::SurfacePoint> WeaponFx::surface_at(double ex, double ey,
     }
     return SurfacePoint{(*p0)[0], (*p0)[1], (*p0)[2], n[0], n[1], n[2]};
 }
-std::array<double, 3> WeaponFx::muzzle_world(const Camera& cam, int weapon) {   // muzzleWorld: where the viewmodel muzzle appears, 0.62 m in front of the eye
+std::array<double, 3> WeaponFx::muzzle_world_at(const Camera& cam, int weapon, double vertical_offset) {   // muzzleWorld: where the viewmodel muzzle appears, 0.62 m in front of the eye
     const double tV = cam.tan_half, tH = tV * cam.aspect, d = .62;
-    const double nx = 2 * kRefMuzzleX - 1, ny = 1 - 2 * std::max(.5, std::min(.95, kMuzzleHeight[static_cast<std::size_t>(weapon)]));
+    const double nx = 2 * kRefMuzzleX - 1, ny = 1 - 2 * std::max(.5, std::min(.95, kMuzzleHeight[static_cast<std::size_t>(weapon)] + vertical_offset * .01));
     const auto& f = cam.forward; const auto& r = cam.right; const auto& u = cam.up;
     return {cam.x + f[0] * d + r[0] * nx * d * tH + u[0] * ny * d * tV, cam.y + f[1] * d + r[1] * nx * d * tH + u[1] * ny * d * tV, cam.z + f[2] * d + r[2] * nx * d * tH + u[2] * ny * d * tV};
 }
@@ -625,15 +625,15 @@ void WeaponFx::build(const combat::Arena& arena, double fov, double aspect, Fram
     const auto q3w = player.weapon_motion();
     const auto vo = viewmodel_offsets(gun, arena.reloading());
     const auto& muzzle = kGunMuzzle[static_cast<std::size_t>(gun)];
-    const double yaw = kPoseToeIn, cy = jsmath::cos(yaw), sy = jsmath::sin(yaw);
+    const double yaw = kPoseToeIn + vm_.yaw_deg * kPi / 180, cy = jsmath::cos(yaw), sy = jsmath::sin(yaw);
     const double muzzle_depth = kPoseMuzzleY - kPoseY, legacy_shift = .20 * muzzle_depth * jsmath::tan(65 * kPi / 360);
     const double rest_x = kPoseX + legacy_shift + (muzzle[0] - kPoseMuzzleX), rest_y = kPoseY + (muzzle[1] - kPoseMuzzleY), rest_z = kPoseZ + (muzzle[2] - kPoseMuzzleZ);
     const double vx = muzzle[0] - rest_x, vy = muzzle[1] - rest_y, vz = muzzle[2] - rest_z;
     const double depth = std::max(.08, vx * sy + vy * cy);
-    const double tan_h = jsmath::tan(kRefFov * kPi / 360), tan_v = tan_h / aspect;
+    const double tan_h = jsmath::tan(vm_.size_fov * kPi / 360), tan_v = tan_h / aspect;   // vmSizeFov (default kRefFov = 60)
     const double rx = cy, ry = -sy;
     const double projected_x = (vx * rx + vy * ry) / (depth * tan_h), projected_y = vz / (depth * tan_v);
-    const double desired_x = 2 * kRefMuzzleX - 1, desired_y = 1 - 2 * std::max(.50, std::min(.95, kMuzzleHeight[static_cast<std::size_t>(gun)]));
+    const double desired_x = 2 * kRefMuzzleX - 1, desired_y = 1 - 2 * std::max(.50, std::min(.95, kMuzzleHeight[static_cast<std::size_t>(gun)] + vm_.vertical * .01));
     const double offset_r = (projected_x - desired_x) * depth * tan_h, offset_u = (projected_y - desired_y) * depth * tan_v;
     const double cx = rest_x + offset_r * rx, cy0 = rest_y + offset_r * ry + vo.back, cz = rest_z + offset_u - q3w.drop + vo.drop + vo.lift;
     std::array<double, 3> F{sy, cy, 0}, Rv{cy, -sy, 0}, U{0, 0, 1};

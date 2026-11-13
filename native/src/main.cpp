@@ -56,8 +56,30 @@
 //   --vk-no-extensions             use core-promoted features only
 //   --vk-disable a,b               disable features: dynamic_rendering, synchronization2,
 //                                  extended_dynamic_state, push_descriptor, host_image_copy
+// N7 menus, settings, HUD and sound (assets/n7):
+//   cat_arena                      opens the main menu (PLAY / MULTIPLAYER / SETTINGS / EXIT) in the legacy
+//                                  routing: map selection with the live map view, loading screen, ENTER THE ARENA,
+//                                  Esc = pause menu (resume, settings, HUD editor, another map, main menu).
+//                                  Keyboard, mouse, touch and gamepad drive every page. Settings are saved in the
+//                                  user folder (SDL_GetPrefPath "CatArena/FeralClaw/settings.txt").
+//   cat_arena --map reactor-bastion  goes straight to the loading screen of that map
+//   --game-settings <file>         read / write the settings here instead of the user folder
+//   --menu-selftest                window mode: drives the menus with synthetic key events (home -> maps -> loading ->
+//                                  game -> pause -> settings: FOV and master volume -> main menu -> exit) and
+//                                  fails (exit 3) unless every step took effect
+//   --offscreen 1280x720 --ui-capture <dir> [--touch]
+//                                  writes every menu page, the settings tabs and the in-game HUD as PNG files
+#include "cat/app_controls.hpp"
+#include "cat/audio.hpp"
+#include "cat/audio_device.hpp"
 #include "cat/combat.hpp"
 #include "cat/enemy_fx.hpp"
+#include "cat/game_settings.hpp"
+#include "cat/input_modes.hpp"
+#include "cat/menu.hpp"
+#include "cat/platform_info.hpp"
+#include "cat/ui.hpp"
+#include "cat/ui_hud.hpp"
 #include "cat/core.hpp"
 #include "cat/hud.hpp"
 #include "cat/physics.hpp"
@@ -466,6 +488,121 @@ struct Session {
         return o.str();
     }
 };
+
+// ---- N7: menus, HUD, settings and sound ----
+std::filesystem::path n7_asset_dir(const std::filesystem::path& asset_root) {
+    for(const auto& dir : {asset_root.parent_path() / "n7", asset_root / ".." / "n7"}) if(std::filesystem::exists(dir / "N7_ASSET_MANIFEST.json")) return dir;
+    return {};
+}
+struct UiKit { cat::ui::Atlas atlas; cat::ui::Region background; };
+UiKit load_ui_kit(const std::filesystem::path& dir) {
+    const auto f = dir / "fonts";
+    UiKit k{cat::ui::Atlas::build({f / "LiberationSerif-Bold.ttf", f / "LiberationSans-Bold.ttf", f / "LiberationMono-Bold.ttf", f / "LiberationSerif-Regular.ttf"}, f / "DejaVuSans-Bold.ttf"), {}};
+    k.background = k.atlas.add_image(cat::scene::load_image(dir / "ui" / "feral-bg.png"));   // --feral-bg (the legacy menu backdrop)
+    return k;
+}
+// The map cards of the legacy maps page (titles of VOID_MAPS; tag line and description from the card table, index.html).
+std::vector<cat::ui::MapEntry> menu_maps() {
+    return {{"helios-crucible", "HELIOS CRUCIBLE", "Three levels · Live reactor", "A burning heart of iron. Cross the gantries above the crucible and descend into its coolant halls."},
+            {"bastion-keep", "BASTION KEEP", "Three levels · Fortress", "A broken military stronghold. Fight through fortified chambers, bridges and the shattered upper keep."},
+            {"reactor-bastion", "REACTOR BASTION", "Industrial · Survival", "The original reactor fortress. Interconnected decks, hard cover and close-quarters routes."},
+            {"q3-gallery", "THE ARSENAL", "Exhibition · Combat lab", "The Arsenal: an arena of experimental materials, machinery and combat spaces."}};
+}
+// The menu preview shot of each map (legacy previewShot cameras: x, y, z, yaw, pitch).
+Pose preview_pose(std::string_view map) {
+    if(map == "bastion-keep") return {"preview", 78, 38, 0, 2.36, .1};
+    if(map == "reactor-bastion") return {"preview", 78.5, 60.5, 0, 3.14, .05};
+    if(map == "q3-gallery") return {"preview", 42, 46, 0, .73, .12};
+    return kHeliosPreview;
+}
+// The stance line (q3 movement: stance + slopeTag, 12209-12211).
+std::string stance_label(const cat::physics::PlayerController& pc) {
+    using cat::physics::Stance;
+    std::string s;
+    switch(pc.stance()) {
+        case Stance::air_control: s = "AIR STRAFE · CONTROL"; break;
+        case Stance::air_momentum: s = "AIR STRAFE · MOMENTUM"; break;
+        case Stance::slide: s = "CROUCH SLIDE"; break;
+        case Stance::crouch: s = "CROUCH"; break;
+        case Stance::sprint: s = "SPRINT"; break;
+        case Stance::run: s = "RUN"; break;
+    }
+    if(pc.slope_angle() > .085) s += " · UPHILL"; else if(pc.slope_angle() < -.085) s += " · DOWNHILL";
+    return s;
+}
+cat::ui::HudInfo hud_info(Session& s) {
+    cat::ui::HudInfo h;
+    auto& a = s.arena;
+    const auto& w = cat::combat::weapons();
+    const auto& d = w[static_cast<std::size_t>(a.current_weapon())];
+    const auto& p = a.player().state();
+    h.health = a.health(); h.speed = std::hypot(p.vx, p.vy);
+    h.ammo = a.ammo(a.slot()); h.clip = d.clip; h.reloading = a.reloading(); h.reload_time = d.reload;
+    h.weapon = d.name; h.other_weapon = w[static_cast<std::size_t>(a.weapon(1 - a.slot()))].name; h.map_title = s.map_title;
+    h.stance = stance_label(a.player());
+    h.frags = a.frags(); h.deaths = a.deaths();
+    if(s.horde) {
+        h.wave = s.horde->wave_number(); h.wave_remaining = s.horde->remaining(); h.enemies_alive = static_cast<int>(a.targets().size()); h.wave_cooldown = s.horde->wave_cooldown();
+        h.final_five = s.enemy_frame.xray_on; h.burning = a.burn_remaining();
+    }
+    h.damage_flash = a.damage_flash(); h.hit_marker = s.hit_marker; h.hit_was_kill = s.hit_kill; h.hit_was_head = s.hit_head; h.respawn_grace = a.respawn_grace();
+    h.notice = s.notice; h.notice_alpha = s.notice_time;
+    for(std::size_t at = 0; (at = h.notice.find(" - ", at)) != std::string::npos;) h.notice.replace(at, 3, " · ");   // the N5 bitmap HUD has no '·'; the legacy text does
+    return h;
+}
+std::string mib(std::uint64_t bytes) { char b[32]; std::snprintf(b, sizeof b, "%.1f MiB", double(bytes) / 1048576.0); return b; }
+// The performance overlay rows (index.html 627 #perfOverlay), each behind its settings toggle.
+std::vector<cat::ui::PerfLine> perf_lines(const cat::GameSettings& gs, const cat::PerfMeter::Summary& p, const cat::RenderStats& st, bool gpu_timer) {
+    std::vector<cat::ui::PerfLine> out;
+    char b[48];
+    auto fps = [&](double v) { if(v <= 0) return std::string("--"); std::snprintf(b, sizeof b, "%.0f", v); return std::string(b); };
+    if(gs.flag("perfFps")) {
+        out.push_back({"FPS LIVE", fps(p.fps_live)}); out.push_back({"FPS AVG · 60s", fps(p.fps_avg)});
+        out.push_back({"1% LOW", fps(p.low1)}); out.push_back({"0.1% LOW", fps(p.low01)}); out.push_back({"HITCHES 25ms+", std::to_string(p.hitches)});
+    }
+    if(gs.flag("perfCpu")) { std::snprintf(b, sizeof b, "%.2f ms", p.cpu_ms); out.push_back({"CPU", p.cpu_ms > 0 ? b : "--"}); }
+    if(gs.flag("perfGpu")) { std::snprintf(b, sizeof b, "%.2f ms", st.gpu_ms); out.push_back({"GPU", !gpu_timer ? "N/A (unsupported)" : st.gpu_ms < 0 ? "WAITING" : b}); }
+    const auto mem = (gs.flag("perfRam") || gs.flag("perfAppMem")) ? cat::process_memory() : cat::ProcessMemory{};
+    if(gs.flag("perfRam")) out.push_back({"PROCESS RAM", mem.ok ? mib(mem.current) : "N/A"});
+    if(gs.flag("perfAppMem")) out.push_back({"PEAK RAM*", mem.ok && mem.peak ? mib(mem.peak) : "N/A"});
+    if(gs.flag("perfVram")) out.push_back({"GPU ALLOC~", mib(st.tracked_bytes)});
+    return out;
+}
+// UI pixels per legacy CSS pixel: the display scale, at least the 1280 x 720 fit, at most what keeps a
+// 640 x 360 CSS viewport (the menus' smallest layout).
+double ui_scale(double width, double height, double display_scale) {
+    const double fit = std::min(width / 1280.0, height / 720.0);
+    return std::clamp(std::max(display_scale, fit), .5, std::max(.5, std::min(width / 640.0, height / 360.0)));
+}
+static_assert(sizeof(cat::ui::Vertex) == sizeof(cat::UiVertex));
+void attach_ui(cat::Overlay& o, const cat::ui::Canvas& c) {
+    o.ui = c.vertices().empty() ? nullptr : reinterpret_cast<const cat::UiVertex*>(c.vertices().data()); o.ui_vertices = c.vertices().size();
+}
+// The legacy keyboard handling of the menus (v0.18: arrows, Enter, Esc, Tab, Ctrl+Tab, PageUp / PageDown, Home / End).
+std::optional<cat::ui::NavKey> nav_key(SDL_Scancode code, SDL_Keymod mod) {
+    using cat::ui::NavKey;
+    const bool ctrl = (mod & SDL_KMOD_CTRL) != 0, shift = (mod & SDL_KMOD_SHIFT) != 0;
+    switch(code) {
+        case SDL_SCANCODE_UP: return NavKey::up; case SDL_SCANCODE_DOWN: return NavKey::down;
+        case SDL_SCANCODE_LEFT: return NavKey::left; case SDL_SCANCODE_RIGHT: return NavKey::right;
+        case SDL_SCANCODE_RETURN: case SDL_SCANCODE_KP_ENTER: case SDL_SCANCODE_SPACE: return NavKey::accept;
+        case SDL_SCANCODE_ESCAPE: case SDL_SCANCODE_BACKSPACE: case SDL_SCANCODE_AC_BACK: return NavKey::back;
+        case SDL_SCANCODE_TAB: return ctrl ? (shift ? NavKey::prev_tab : NavKey::next_tab) : (shift ? NavKey::prev_item : NavKey::next_item);
+        case SDL_SCANCODE_PAGEUP: return NavKey::page_up; case SDL_SCANCODE_PAGEDOWN: return NavKey::page_down;
+        case SDL_SCANCODE_HOME: return NavKey::first; case SDL_SCANCODE_END: return NavKey::last;
+        default: return std::nullopt;
+    }
+}
+std::optional<cat::ui::NavKey> pad_nav(std::uint8_t button) {   // native addition: the legacy has no gamepad support
+    using cat::ui::NavKey;
+    switch(button) {
+        case SDL_GAMEPAD_BUTTON_DPAD_UP: return NavKey::up; case SDL_GAMEPAD_BUTTON_DPAD_DOWN: return NavKey::down;
+        case SDL_GAMEPAD_BUTTON_DPAD_LEFT: return NavKey::left; case SDL_GAMEPAD_BUTTON_DPAD_RIGHT: return NavKey::right;
+        case SDL_GAMEPAD_BUTTON_SOUTH: return NavKey::accept; case SDL_GAMEPAD_BUTTON_EAST: case SDL_GAMEPAD_BUTTON_BACK: case SDL_GAMEPAD_BUTTON_START: return NavKey::back;
+        case SDL_GAMEPAD_BUTTON_LEFT_SHOULDER: return NavKey::prev_tab; case SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER: return NavKey::next_tab;
+        default: return std::nullopt;
+    }
+}
 }  // namespace
 
 // SDL_main.h last: on Windows it does `#define main SDL_main` (SDL then supplies WinMain / main with UTF-8
@@ -491,6 +628,7 @@ int main(int argc, char** argv) {
     bool hud_enabled = true; std::optional<Pose> player_pose; std::optional<std::filesystem::path> combat_fixture; std::string scenario_name; std::vector<double> capture_ticks;
     EnemyMode enemy_mode = EnemyMode::waves; bool enemies_given = false; int start_wave = 1, shadow_mode = 1; bool light_grid = true, third_person = false, god = false; std::optional<std::filesystem::path> enemy_fixture, enemy_lineup; std::string lineup_shot;
     bool overlay_enabled = true, practice_targets = true; std::optional<std::pair<int, int>> start_weapons; std::uint32_t game_seed = 1; bool seed_given = false;
+    bool menu_selftest = false, map_given = false, fov_given = false, force_touch = false; std::optional<std::filesystem::path> game_settings_file, ui_capture;   // N7
     for(int i = 1; i < argc; ++i) {
         std::string_view arg = argv[i];
         auto value = [&]() -> std::string_view { if(++i >= argc) throw std::runtime_error("Missing option value"); return argv[i]; };
@@ -501,12 +639,16 @@ int main(int argc, char** argv) {
         else if(arg == "--settings") config = cat::utf8_path(value());
         else if(arg == "--shaders") shaders = cat::utf8_path(value());
         else if(arg == "--assets") assets = cat::utf8_path(value());
-        else if(arg == "--map") map = value();
+        else if(arg == "--map") { map = value(); map_given = true; }
         else if(arg == "--triangle") triangle = true;
         else if(arg == "--camera") { pose = parse_pose(value()); camera_given = true; }
         else if(arg == "--map-cycle-test") map_cycle_test = true;
         else if(arg == "--list-maps") { for(const auto& m : kMaps) std::cout << m.id << '\t' << m.wire_id << "\tCAT ARENA: FERAL CLAW // " << m.title << '\n'; return 0; }
-        else if(arg == "--fov") fov = real(std::string(value()));
+        else if(arg == "--fov") { fov = real(std::string(value())); fov_given = true; }
+        else if(arg == "--menu-selftest") menu_selftest = true;
+        else if(arg == "--game-settings") game_settings_file = cat::utf8_path(value());
+        else if(arg == "--ui-capture") ui_capture = cat::utf8_path(value());
+        else if(arg == "--touch") force_touch = true;
         else if(arg == "--time") { time = real(std::string(value())); fixed_time = true; }
         else if(arg == "--features") apply_features(features, value());
         else if(arg == "--debug-view") features.debug_view = number(value());
@@ -586,7 +728,10 @@ int main(int argc, char** argv) {
     // N6.5: a run started by hand in a window (no automation options) pauses while the mouse is
     // released, shows fatal errors in a message box and, on Windows, writes CatArena.log next to the
     // executable (the Windows build has no console).
-    const bool interactive = !offscreen && !vk_info && frames == 0 && !input_selftest && !map_cycle_test && !resize_test && !controls_selftest;
+    const bool interactive = !offscreen && !vk_info && frames == 0 && !input_selftest && !map_cycle_test && !resize_test && !controls_selftest && !menu_selftest;
+    // N7: a run started by hand opens the menus (and so does the menu self-test); the automation options
+    // (--frames, self-tests, captures) keep the N6.5 shell, which plays at once with the N5 HUD.
+    const bool menus = (interactive || menu_selftest) && !triangle && !fly;
     g_error_dialog = interactive;
     // --controls-selftest drives the interactive controls (pause, resume, F11, F5, Esc twice) with synthetic SDL events.
     const bool pausing = interactive || controls_selftest;
@@ -614,10 +759,14 @@ int main(int argc, char** argv) {
     std::optional<cat::nav::NavGraph> nav_graph;                // N6: route graph of the map (wave play only)
     std::filesystem::path root;
     // Loads render scene and collision world of one map. Used at start and for in-window map changes.
-    auto load_map = [&](const std::string& id) {
+    // N7: in three parts, so that the loading screen can show its stages.
+    auto load_render_scene = [&](const std::string& id) {
         const auto* entry = find_map(id);
         if(!entry) throw std::runtime_error("Unknown map '" + id + "' (use --list-maps)");
         map = id;
+        nav_graph.reset();
+        collision.reset();
+        map_document.reset();
         cat::Stopwatch load;
         cat::scene::SceneOptions options;
         options.runtime_world_atlas = cat::scene::default_runtime_world_atlas(root);
@@ -631,29 +780,31 @@ int main(int argc, char** argv) {
         const auto ms = std::chrono::duration<double, std::milli>(load.lap()).count();
         cat::log("info", "scene", std::string("Map: ") + entry->id + " (" + entry->wire_id + ") CAT ARENA: FERAL CLAW // " + entry->title);
         cat::log("info", "scene", "Loaded " + scene->id + " from " + cat::path_utf8(root) + " in " + std::to_string(static_cast<int>(ms)) + " ms (CPU preparation, not a GPU benchmark)");
-        nav_graph.reset();
-        collision.reset();
+    };
+    auto load_collision = [&] {
         map_document = cat::assets::load_data(root / "maps" / map / "map.cadata");
         collision.emplace(map_document->at("compiled"));
-        if(enemy_mode == EnemyMode::waves) {
-            cat::Stopwatch build;
-            nav_graph.emplace(*collision);
-            const auto layers = nav_graph->layer_counts();
-            cat::log("info", "navigation", "Route graph: " + std::to_string(nav_graph->nodes().size()) + " nodes (" + std::to_string(layers[0]) + " / " + std::to_string(layers[1]) + " / " + std::to_string(layers[2]) + " per layer) in " +
-                                               std::to_string(static_cast<int>(std::chrono::duration<double, std::milli>(build.lap()).count())) + " ms");
-        }
         cat::log("info", "physics", "Collision world: " + std::to_string(collision->slabs().size()) + " slabs, " + std::to_string(collision->walls().size()) + " wall segments, " +
                                         std::to_string(collision->pads().size()) + " jump pads, " + std::to_string(collision->spawns().size()) + " spawns");
     };
+    auto build_navigation = [&] {
+        if(enemy_mode != EnemyMode::waves) return;
+        cat::Stopwatch build;
+        nav_graph.emplace(*collision);
+        const auto layers = nav_graph->layer_counts();
+        cat::log("info", "navigation", "Route graph: " + std::to_string(nav_graph->nodes().size()) + " nodes (" + std::to_string(layers[0]) + " / " + std::to_string(layers[1]) + " / " + std::to_string(layers[2]) + " per layer) in " +
+                                           std::to_string(static_cast<int>(std::chrono::duration<double, std::milli>(build.lap()).count())) + " ms");
+    };
+    auto load_map = [&](const std::string& id) { load_render_scene(id); load_collision(); build_navigation(); };
     if(!triangle) {
         if(assets) root = *assets;
         else if(std::filesystem::exists(base / "assets/n1/catalog.cadata")) root = base / "assets/n1";
         else root = CAT_DEFAULT_ASSET_ROOT;
         if(root.empty() || !std::filesystem::exists(root / "catalog.cadata"))
             throw std::runtime_error("Baked assets not found (expected assets/n1 next to the executable or --assets <dir>)");
-        load_map(std::string(map));
+        if(!menus) load_map(std::string(map));   // N7: the menus load a map when one is chosen (loading screen)
         // The default capture pose is the Helios menu preview; other maps default to their first spawn.
-        if(!camera_given && map != "helios-crucible" && !collision->spawns().empty()) {
+        if(!menus && !camera_given && map != "helios-crucible" && !collision->spawns().empty()) {
             const auto& sp = collision->spawns()[0];
             pose = Pose{"spawn0", sp.x, sp.y, sp.z, sp.a, .05};
         }
@@ -888,6 +1039,83 @@ int main(int argc, char** argv) {
                                             " draws, " + std::to_string(st.effect_quads) + " effect quads -> " + cat::path_utf8(*capture));
             return renderer.validation_errors() ? 2 : 0;
         }
+        if(ui_capture) {   // N7: every menu page, the settings tabs and the in-game HUD (comparison with docs/n7-evidence/legacy-ui)
+            const auto n7 = n7_asset_dir(root);
+            if(n7.empty()) throw std::runtime_error("--ui-capture needs assets/n7 next to the map assets");
+            std::filesystem::create_directories(*ui_capture);
+            UiKit kit = load_ui_kit(n7);
+            renderer.load_ui(kit.atlas.image());
+            const bool overlay = attach_overlay(renderer);
+            cat::GameSettings gs;
+            gs.map = map;
+            cat::ui::Menu menu(gs, menu_maps());
+            menu.select_map(map);
+            const double W = offscreen->first, H = offscreen->second, k = ui_scale(W, H, 1);
+            const std::pair<std::uint32_t, std::uint32_t> size = *offscreen;
+            std::optional<Session> session;
+            std::ostringstream index;
+            auto frame_of = [&](cat::ui::Canvas& c, bool in_game, const std::vector<cat::ui::HudElement>& hud) {
+                cat::ui::MenuFrame f; f.time = 1; f.scale = k; f.safe = {0, 0, W, H}; f.in_game = in_game; f.current_map = map; f.background = kit.background; f.touch = force_touch; f.hud = hud;
+                f.platform = "DESKTOP";
+                cat::ui::Canvas scratch(&kit.atlas, W, H);
+                menu.build(scratch, f); menu.build(c, f);   // the second build draws the settled focus
+            };
+            auto shot = [&](const std::string& name, const cat::FrameView* view, cat::Overlay o, const cat::ui::Canvas& c) {
+                attach_ui(o, c);
+                if(view) renderer.draw(*view, o); else renderer.draw_ui(o);
+                const auto file = *ui_capture / (name + ".png");
+                cat::scene::write_png(file, renderer.capture());
+                const auto st = renderer.stats();
+                index << name << ".png\t" << st.ui_triangles << " UI triangles\t" << st.draw_calls << " draws\n";
+                cat::log("info", "ui", "Wrote " + cat::path_utf8(file) + " (" + std::to_string(st.ui_triangles) + " UI triangles)");
+            };
+            {   // pages without the world
+                cat::ui::Canvas c(&kit.atlas, W, H);
+                menu.show_home(); frame_of(c, false, {}); shot("home", nullptr, {}, c);
+                menu.handle({cat::ui::MenuEvent::Kind::key, cat::ui::NavKey::back}); c.clear(); frame_of(c, false, {}); shot("exit_dialog", nullptr, {}, c);
+                static const char* const tabs[] = {"view", "graphics", "performance", "input", "audio", "hud"};
+                menu.show_settings(false);
+                for(int t = 0; t < 6; ++t) {
+                    while(menu.settings_tab() != t) menu.handle({cat::ui::MenuEvent::Kind::key, cat::ui::NavKey::next_tab});
+                    c.clear(); frame_of(c, false, {}); shot(std::string("settings_") + tabs[t], nullptr, {}, c);
+                }
+                cat::ui::LoadingState ls; ls.map_title = find_map(map)->title; ls.phase = 7; ls.ready = true; ls.info = "NATIVE LOAD · VULKAN";
+                menu.show_loading(ls); c.clear(); frame_of(c, false, {}); shot("loading_ready", nullptr, {}, c);
+                ls.phase = 3; ls.ready = false; menu.show_loading(ls); c.clear(); frame_of(c, false, {}); shot("loading_phase3", nullptr, {}, c);
+            }
+            {   // map selection over the live view of the map (preview camera)
+                const auto p = preview_pose(map);
+                cat::FrameView view{camera_for(p, size), time, features};
+                cat::ui::Canvas c(&kit.atlas, W, H);
+                menu.show_maps(); frame_of(c, false, {});
+                cat::Overlay o; o.world = false;
+                shot("maps", &view, o, c);
+            }
+            if(overlay) {   // in-game HUD after two seconds of play, keyboard / mouse and touch layouts, pause, HUD editor
+                session.emplace(*collision, game_seed, fov, nav_graph ? &*nav_graph : nullptr);
+                spawn_session(*session);
+                session->show_hud = false;
+                const double aspect = W / H;
+                for(int t = 0; t < 240; ++t) session->step({}, aspect);
+                cat::RenderStats st0{}; st0.tracked_bytes = renderer.stats().tracked_bytes;
+                cat::PerfMeter::Summary perf; perf.fps_live = 0;
+                for(const bool touch : {false, true}) {
+                    cat::FrameView view{player_camera(session->arena.player(), size), session->arena.player().now(), features};
+                    auto o = session->build(size); session->light(view);
+                    cat::ui::Canvas c(&kit.atlas, W, H);
+                    cat::ui::HudView hv; hv.settings = &gs; hv.scale = k; hv.safe = {0, 0, W, H}; hv.touch = touch || force_touch; hv.captured = true;
+                    hv.perf = perf_lines(gs, perf, st0, renderer.timestamps_supported());
+                    const auto hud = cat::ui::build_hud(c, hud_info(*session), hv);
+                    shot(touch ? "hud_touch" : "hud_kbm", &view, o, c);
+                    if(touch) continue;
+                    menu.show_pause(); frame_of(c, true, hud); shot("pause", &view, o, c);
+                    c.clear(); cat::ui::build_hud(c, hud_info(*session), hv); menu.show_settings(true); frame_of(c, true, hud); shot("settings_from_pause", &view, o, c);
+                    hv.editing = true; hv.selected = menu.hud_selected(); c.clear(); const auto edit = cat::ui::build_hud(c, hud_info(*session), hv); menu.show_hud_editor(true); frame_of(c, true, edit); shot("hud_editor", &view, o, c);
+                }
+            }
+            std::ofstream(*ui_capture / "index.tsv") << index.str();
+            return renderer.validation_errors() ? 2 : 0;
+        }
         if(walk) {   // headless first-person traversal: fixed 120 Hz ticks, a frame every --capture-every ticks
             if(!capture_dir) throw std::runtime_error("--walk needs --capture-dir");
             const auto tape = parse_walk(*walk);
@@ -970,7 +1198,8 @@ int main(int argc, char** argv) {
     // ---------------------------------------------------------------- interactive window
     if(!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS)) throw std::runtime_error(SDL_GetError());
     cat::ScopeExit quit([] { SDL_Quit(); });
-    SDL_Window* window = SDL_CreateWindow(scene ? "Cat Arena: Feral Claw - N6 enemies" : "Cat Arena: Feral Claw - N0",
+    if(menus) SDL_SetHint(SDL_HINT_TOUCH_MOUSE_EVENTS, "0");   // N7: fingers are handled as touches (menus, touch controls), not as a mouse
+    SDL_Window* window = SDL_CreateWindow(menus ? "Cat Arena: Feral Claw" : scene ? "Cat Arena: Feral Claw - N6 enemies" : "Cat Arena: Feral Claw - N0",
                                           settings.width, settings.height, SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY);
     if(!window) throw std::runtime_error(SDL_GetError());
     cat::ScopeExit destroy([&] { SDL_DestroyWindow(window); });
@@ -989,6 +1218,9 @@ int main(int argc, char** argv) {
     // count for one tick, like the legacy keydown / mousedown handlers that act on the event itself.
     std::uint32_t tapped_keys = 0;
     bool played = false;   // N6.5: the pause panel says "PAUSED" once this game has run
+    if(menus) {
+#include "main_menus.inc"
+    }
     if(walking) start_session();
     cat::log("info", "app", walking ? "N6: click to capture the mouse; WASD move, Shift sprint, Space jump, Ctrl crouch, C slide; left mouse fires, R reloads, Q/Tab swaps weapons; 1-4 change map, F5 restarts, F11 fullscreen; Esc releases the mouse (pauses a game started by hand), Esc again quits. Enemies come in waves (--enemies practice|none for the N5 targets or an empty map)."
                             : scene ? "Fly camera (--fly): click to capture the mouse, WASD/Space/Ctrl fly, Shift fast, Esc release/quit. No collision."

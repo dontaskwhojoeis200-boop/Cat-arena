@@ -110,7 +110,9 @@ private:
 // Input bits = the legacy key codes the movement code reads. One mask per tick; press/release
 // events are derived from changes between ticks, like non-repeating keydown/keyup events.
 enum Key : std::uint32_t { key_forward = 1, key_back = 2, key_left = 4, key_right = 8, key_jump = 16, key_crouch = 32, key_sprint = 64, key_slide = 128 };
-struct TickInput { std::uint32_t keys{}; double look_dx{}, look_dy{}; };   // look: mouse counts since the previous tick
+// look: mouse counts since the previous tick. N7: stick = the touch joystick / gamepad stick (legacy
+// touchStick: x right, y down, |v| <= 1), added to the movement keys as update() does; 0 for keyboard play.
+struct TickInput { std::uint32_t keys{}; double look_dx{}, look_dy{}; double stick_x{}, stick_y{}; };
 
 struct PlayerState {
     double x{}, y{}, z{};          // feet position; z is up
@@ -132,6 +134,9 @@ struct ViewState {   // Q3 object (q3-view-motion.js)
 struct ViewCamera { double x{}, y{}, z{}; std::array<double, 3> forward{}, right{}, up{}; double roll{}; };
 struct WeaponMotion { double pitch{}, yaw{}, roll{}, drop{}; };   // radians; drop in viewmodel units
 enum class Stance { run, sprint, crouch, slide, air_control, air_momentum };
+// N7: body sounds of one step() (legacy playBodySound calls); presentation only, no effect on the simulation.
+enum class BodySound : std::uint8_t { jump, land, step, slide };
+struct BodyEvent { BodySound kind; double force; };
 
 class PlayerController {
 public:
@@ -165,6 +170,11 @@ public:
     ViewCamera shot_origin() const;       // eye without cosmetic motion (q3ShotOrigin)
     ViewCamera view_camera() const;       // rendered eye: bob, landing dip, step smoothing, run pitch/roll
     WeaponMotion weapon_motion() const;   // viewmodel sway for N5 (q3WeaponMotion)
+    // N7: playBodySound() calls of the last step() (cleared when step() begins).
+    const std::vector<BodyEvent>& body_events() const { return body_events_; }
+    void note_body(BodySound kind, double force) { body_events_.push_back({kind, force}); }
+    void clear_body_events() { body_events_.clear(); }                    // callers that drive tick() themselves (combat::Arena)
+    void set_stick(double x, double y) { stick_x_ = x; stick_y_ = y; }   // touchStick for the next tick()
 private:
     bool held(Key k) const { return (keys_ & k) != 0; }
     bool begin_slide(bool from_buffer);
@@ -183,9 +193,11 @@ private:
     Contacts contacts_;
     ViewState q3_;
     std::uint32_t keys_{};
+    double stick_x_{}, stick_y_{};
     double now_{}, slope_angle_{}, fov_scale_{1}, air_strafe_gained_{};
     Stance stance_{Stance::run};
     std::uint64_t pad_launches_{}, jumps_{};
+    std::vector<BodyEvent> body_events_;
 };
 
 // Math.hypot as V8 computes it (scaled Kahan sum); used wherever the legacy code calls Math.hypot so

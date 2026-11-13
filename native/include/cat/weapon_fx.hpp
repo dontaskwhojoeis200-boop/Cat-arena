@@ -72,10 +72,15 @@ bool beam(Batch& b, const Camera& cam, double ax, double ay, double az, double b
           double u0 = 0, double u1 = 1, int flags = 4);
 
 class EnemyFx;
+// N7: the "Retro reference viewmodel" settings (vmAngleOffset, vmSizeFov, vmVerticalOffset, 14493).
+// The defaults reproduce the N5 picture bit for bit.
+struct ViewmodelCalibration { double yaw_deg{0}, size_fov{60}, vertical{0}; };
 class WeaponFx {
     friend class EnemyFx;   // N6: enemy effects are added to the same entity / mark lists
 public:
     WeaponFx(const physics::CollisionWorld& world, std::uint32_t seed);
+    void set_viewmodel(const ViewmodelCalibration& c) { vm_ = c; }
+    const ViewmodelCalibration& viewmodel() const { return vm_; }
     void clear();
     // Once per simulation tick, right after Arena::step(): starts the effects of the step's events
     // (WFX.fire, WFX.explosion) and advances every effect by one tick (WFX.update).
@@ -92,7 +97,8 @@ public:
     void fire(const combat::Arena& arena, int index, const std::vector<combat::ShotEvent>& shots, const combat::FireContext& context, double horizontal_fov_deg, double aspect);
     void explosion(double x, double y, double z, double power, bool rift);
     Offsets viewmodel_offsets(int index, double reloading);
-    static std::array<double, 3> muzzle_world(const Camera& cam, int weapon);
+    std::array<double, 3> muzzle_world(const Camera& cam, int weapon) const { return muzzle_world_at(cam, weapon, vm_.vertical); }
+    static std::array<double, 3> muzzle_world_at(const Camera& cam, int weapon, double vertical_offset = 0);
     struct SurfacePoint { double x, y, z, nx, ny, nz; };
     std::optional<SurfacePoint> surface_at(double ex, double ey, double ez, double dx, double dy, double dz) const;
 
@@ -105,6 +111,7 @@ public:
     const combat::Rng& rng() const { return rng_; }
     combat::Rng& random_stream() { return rng_; }
 private:
+    ViewmodelCalibration vm_;
     struct Entity {   // localEntity
         double t{}, life{1}, x{}, y{}, z{}, vx{}, vy{}, vz{}, grav{}, drag{}, s0{.2}, s1{.2}, a0{1}, a1{}, rot{}, rot_v{}, r{1}, g{1}, b{1}, add{1};
         int flags{4}, tile{}, frames{};

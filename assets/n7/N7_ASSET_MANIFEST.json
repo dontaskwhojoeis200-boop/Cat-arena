@@ -1,0 +1,326 @@
+{
+ "milestone": "N7",
+ "legacy": "legacy/index.html",
+ "legacySha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+ "provenance": [
+  "All files come from the owner-supplied legacy game (v0.17, identifier VA-MODULAR-RB-011); none was downloaded or generated.",
+  "Sample bank: legacy comment (line 11647 area) \"v3.18: offline-rendered original sampled audio assets. No external URLs.\"",
+  "Soundtrack: legacy comment \"v3.10.3: An actual produced alt-metal soundtrack replaces the old WebAudio sequencer\"; settings label \"Play ASHEN DRIVE \u00b7 original instrumental theme\".",
+  "Rights: stated as original by the legacy source; not independently verified by this tool. Redistribution decisions stay with the owner.",
+  "Not imported: the unmerged v0.18 \"SOUND BREAK\" branch soundtrack (reference/alternate_branches), see docs/N7_UI_AUDIO.md."
+ ],
+ "files": [
+  {
+   "path": "audio/sfx/gun0_0.ogg",
+   "bytes": 6719,
+   "sha256": "5f0e675312ccece7f5309bd29ae162f30ab04072d26d3f55e2fbb2f1eac0cfa0",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun0:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun0_1.ogg",
+   "bytes": 6735,
+   "sha256": "fede388cc32b2b20b9138224c9f4ba5c943f0579368ab28e82a9b7961dd5d77b",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun0:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun1_0.ogg",
+   "bytes": 8523,
+   "sha256": "cf98810268711f4651fb3510085b0fd43672ea3c32f7fb68c817b9a3a71079d8",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun1:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun1_1.ogg",
+   "bytes": 8622,
+   "sha256": "614b707825cabed8e0cb997443810681aade1fd4baf1cb014181ce9978021ec7",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun1:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun2_0.ogg",
+   "bytes": 7860,
+   "sha256": "dd22f3b95d96b930f968e88dc3b78b2e5a52568dc169aab6e3294d77823fda4a",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun2:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun2_1.ogg",
+   "bytes": 7946,
+   "sha256": "d38b2f3228d2fae86282863d690e9c59250e9eece634b45b6c89f3407d5021a6",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun2:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun3_0.ogg",
+   "bytes": 7447,
+   "sha256": "e1f3c24174fad268707a67012e7423577700a5e074da5962384e01fc769668ab",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun3:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun3_1.ogg",
+   "bytes": 7391,
+   "sha256": "116966d8125f39cc021daf9c1b96d974175ab7744ef3c6e35572f7c37b69e48b",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun3:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun4_0.ogg",
+   "bytes": 8205,
+   "sha256": "ff9508d7e67445e37baf6004fdb4900279c6c3be116aa966724f707c45fe6b40",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun4:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun4_1.ogg",
+   "bytes": 8157,
+   "sha256": "a99478cd8431d9241198837e2ed19a5193938c67aa8b2d3ab778f4ad0844da71",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun4:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun5_0.ogg",
+   "bytes": 6720,
+   "sha256": "a2f5dc547b7da05b381eb09db44128e05ce211ce938df85f6e712967ec7acfbf",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun5:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun5_1.ogg",
+   "bytes": 6726,
+   "sha256": "203bab1698ecda42b2d5a10915909e9ab6a3dd844559f80af0831ed27e8c21c1",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun5:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun6_0.ogg",
+   "bytes": 7513,
+   "sha256": "36ce9fb57e435fe0de17c30874826b96f5499fad1572519752618ae12403f559",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun6:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun6_1.ogg",
+   "bytes": 7508,
+   "sha256": "dd2846b35e4ae436173cdf255c356ab8f0d8e125e36da606347c135ce9ddb5dc",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun6:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun7_0.ogg",
+   "bytes": 8498,
+   "sha256": "0410eea42525457e9401b1446a282fbcb6045450eeacb7277df3fde86e68066c",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun7:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun7_1.ogg",
+   "bytes": 8531,
+   "sha256": "3d7fbe75c69b75c2899dc26161b690dba83132421c4d77c62a1a734480b8fbef",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun7:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun8_0.ogg",
+   "bytes": 7533,
+   "sha256": "0e406e0cad35203c92a206ec915e14c38f1e347b078f437bec27d4ba1352c0ff",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun8:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun8_1.ogg",
+   "bytes": 7447,
+   "sha256": "1dc3c399e7cd64769b8035e9291362a66c737f26f5a288f7fb8b504e4c150220",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun8:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun9_0.ogg",
+   "bytes": 6743,
+   "sha256": "904c52ccd19a0a666f291864781113c381cbcdc6d407fdbd1df7f652c50bd8f1",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun9:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun9_1.ogg",
+   "bytes": 6766,
+   "sha256": "7d15c537d9a12daa4b81dce4220a92c9ef5175fb5773ebe3cf4e74045d8c656c",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun9:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun10_0.ogg",
+   "bytes": 8092,
+   "sha256": "4c47594606181e1214296831c431cf0cc785edb46446d55c0a789233f79b6fbf",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun10:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun10_1.ogg",
+   "bytes": 8049,
+   "sha256": "3ee2b38d64fc8d281a457b74aa599f40477e6c5ac47ce325bbe9e268e679af13",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun10:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun11_0.ogg",
+   "bytes": 6668,
+   "sha256": "bd9a98448d9440d689602d6fd6a39cafe29fc809f1d4e9d1864fd608e94f5745",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun11:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun11_1.ogg",
+   "bytes": 6749,
+   "sha256": "cc92cf36f608caec6a06e4fd7d67c65f4497b172a055cc37bc99cb22de4ebc29",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun11:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun12_0.ogg",
+   "bytes": 8502,
+   "sha256": "047d66efffa0675fdfa64bf8ea1b72ed5e9fad15c0a731877f299850aeae5f96",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun12:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun12_1.ogg",
+   "bytes": 8564,
+   "sha256": "8a2e1b0a1bbb74bf100945e77d8e8efbc6464173d2ee3a54582cbf2cd52801a8",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun12:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun13_0.ogg",
+   "bytes": 7372,
+   "sha256": "874a607a7627f0e94edf0d065b490a96d537aba5df2a784590d733714320260d",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun13:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun13_1.ogg",
+   "bytes": 7414,
+   "sha256": "89e66f1b8b869b10ced61372614596b8c6f3446f9669cf7966c9e75ed2416452",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun13:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun14_0.ogg",
+   "bytes": 6813,
+   "sha256": "b704d0ba14bab42d3758a288c7694b5dac7506bad004ba877178b74dd89ab520",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun14:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun14_1.ogg",
+   "bytes": 6779,
+   "sha256": "b0e074818720721639fda2650acf6df6104ba99677ce366c9139edfefd64164f",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun14:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun15_0.ogg",
+   "bytes": 8462,
+   "sha256": "bdcad6430160e0580300876ff78312b90e1f262beff346a9ec9d9375a1eac857",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun15:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/gun15_1.ogg",
+   "bytes": 8475,
+   "sha256": "da6f89f07c22a5e5e2fc0a5dd6210bcc34662c9f6299ecb7332d027f8f7afcf1",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"gun15:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_idle_0.ogg",
+   "bytes": 6789,
+   "sha256": "19400837dabea4e32bd66d0312c3c72f1f17b50d324657664ecb5dd19dc65cc7",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:idle:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_idle_1.ogg",
+   "bytes": 7274,
+   "sha256": "b21d1f61b097c8d4d9c171940b5ba70b0cc8c0062aa3c7ccc1acf383d47e3074",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:idle:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_idle_2.ogg",
+   "bytes": 7899,
+   "sha256": "76e9b3f74e200e9a485dc5138814d398cfeae9679fb285dc1a33a5b15ea4ec4b",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:idle:2\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_attack_0.ogg",
+   "bytes": 6227,
+   "sha256": "f06192abf3b9f6d52d40a158fc6b29989eb3c9b21698272e49c7d994f8a37e8e",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:attack:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_attack_1.ogg",
+   "bytes": 6673,
+   "sha256": "153ab687f550e52941472f40fbd0a1fa946f1dc1aba672c1d11909e722e96a20",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:attack:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_attack_2.ogg",
+   "bytes": 7097,
+   "sha256": "25cd3d7eedc5fe80b6347d3f97d228e6ee1673dfd132297b8c0d16cc9945558c",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:attack:2\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_hurt_0.ogg",
+   "bytes": 5438,
+   "sha256": "6170effee198b3976c82b6ae21caf9b957bce919c3ca1783a78d82a068e0a5fd",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:hurt:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_hurt_1.ogg",
+   "bytes": 5728,
+   "sha256": "a39d0234b0a6279d6590ec76cbbed52845809d524860517c327ba983fa2b057a",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:hurt:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_hurt_2.ogg",
+   "bytes": 6000,
+   "sha256": "b7ad7f1fc15e320d030d2d245b7723a21595ac350afac3535250325b7b6cfbca",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:hurt:2\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_eliminated_0.ogg",
+   "bytes": 7779,
+   "sha256": "f5657ec1d449c41e71498ebfd9ab4d915443b453a20e37aae05ec0b29ec6f91b",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:eliminated:0\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_eliminated_1.ogg",
+   "bytes": 8466,
+   "sha256": "99dbe4cf6b342785978d63be1f668a2f12f71c834c99a4f39ec74f0cb87648fe",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:eliminated:1\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/cat_eliminated_2.ogg",
+   "bytes": 9159,
+   "sha256": "016b5aab2d33b6487b3df9dd3c79385c122ff081574d2fb5fee749ea8e01f7b7",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"cat:eliminated:2\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/explosion.ogg",
+   "bytes": 10978,
+   "sha256": "0880cf24e434821e5c9e03059e6b81a3d5c648698e54b38a65156782441825f3",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"explosion\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/body_jump.ogg",
+   "bytes": 5413,
+   "sha256": "ff7f9fa447e278741d7431a804f5e894b1c362524307de55400dbb2fd0236e05",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"body:jump\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/body_land.ogg",
+   "bytes": 5258,
+   "sha256": "94b588d5f4742bc72169005b980a5456efbc27958b9c134fab3678bc17834c7b",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"body:land\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/body_slide.ogg",
+   "bytes": 6675,
+   "sha256": "1b581343c945e58a70876892acf7de3be08c1a8d230530e261c2470e9773cd13",
+   "source": "index.html line 824 VOID_V318_SAMPLE_BANK[\"body:slide\"] (base64)"
+  },
+  {
+   "path": "audio/sfx/bank.txt",
+   "bytes": 1344,
+   "sha256": "62fea2c895338808f7ab4ea5ac79b99ea527ce062df58f9b1a3e5171380104de",
+   "source": "key -> file in VOID_V318_SAMPLE_BANK order (written by this tool; tools/n7/set_browser_lengths.py adds a third column); third column = browser decode length (set_browser_lengths.py)"
+  },
+  {
+   "path": "audio/main-theme.mp3",
+   "bytes": 2801276,
+   "sha256": "6145237cf664191502e0fdc30662d47a868eeafbd61b3549de9e081c9e442e66",
+   "source": "index.html line 809 VOID_EMBEDDED_ASSETS[\"assets/audio/main-theme.mp3\"] (base64)"
+  },
+  {
+   "path": "ui/feral-bg.webp",
+   "bytes": 9964,
+   "sha256": "119dad14a0178ad2caa112dea20854107237aa623be47194130326b6ad41c370",
+   "source": "index.html line 16713 CSS --feral-bg (base64 WebP)"
+  },
+  {
+   "path": "ui/feral-bg.png",
+   "bytes": 190862,
+   "sha256": "34297dd2ebaa3d77b3f08a3f143d7e2bc45576b19bc5f2498d60ada419e9d6a7",
+   "source": "ui/feral-bg.webp decoded with ffmpeg (lossless PNG of the decoded pixels)"
+  }
+ ]
+}

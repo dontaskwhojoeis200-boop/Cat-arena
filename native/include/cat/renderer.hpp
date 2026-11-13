@@ -42,6 +42,8 @@ struct OverlayBatch {   // effect quads: 12 floats per vertex (position | u v ti
 };
 struct HudVertex { float x, y, r, g, b, a; };   // normalized device coordinates, x right, y down
 struct SolidVertex { float x, y, z, r, g, b, a; };   // world space, opaque, depth tested (practice targets)
+// N7 UI: NDC position, atlas UV, colour, mode (0 solid, [1, 2) distance-field glyph, 2 image). Drawn after the HUD.
+struct UiVertex { float x, y, u, v, r, g, b, a, mode; };
 // N6: one instanced draw of a creature mesh. `instances` are 112-byte records (cat::fx::EnemyInstance:
 // position + facing, state, 16 pose angles, tint). mesh: 0..19 creature type, 20 Marine Cat.
 enum class EnemyPass : std::uint8_t { solid, outline, shadow, marine };
@@ -64,6 +66,8 @@ struct Overlay {
     const EnemyBatch* enemies{}; std::size_t enemy_batches{};
     float shadow_dir[2]{};             // projected-shadow offset per metre of height
     bool light_grid{true};             // Q3R.S.entityGrid: creatures sample the baked light volume
+    const UiVertex* ui{}; std::size_t ui_vertices{};   // N7: menus, new HUD, touch controls (needs load_ui)
+    bool world{true};                  // N7: false = UI only (no effects, weapon, creatures, HUD)
 };
 struct WeaponModel { std::vector<float> vertices; scene::Image base, metal_rough, normal; };   // 12 floats per vertex
 struct OverlayAssets { scene::Image fx_atlas; std::vector<WeaponModel> weapons; };
@@ -76,6 +80,9 @@ struct RenderStats {
     std::uint32_t draw_calls{}, material_passes{}, visible_clusters{}, culled_clusters{};
     std::uint32_t overlay_draws{}, effect_quads{}, hud_triangles{}, dynamic_lights{};
     std::uint32_t enemy_draws{}, enemy_instances{};
+    std::uint32_t ui_triangles{};
+    double gpu_ms{-1};                 // N7: GPU time of the previous frame from timestamp queries; < 0 = not available
+    std::uint64_t tracked_bytes{};     // N7: device memory this renderer allocated (exact sum of its vkAllocateMemory sizes)
 };
 struct DeviceReport {
     std::string device, device_type, driver, api, loader_api, color_format, depth_format, present_mode;
@@ -116,7 +123,12 @@ public:
     bool enemies_loaded() const;
     void set_light_volume(const scene::Image& atlas);      // per map: the 624 x 234 probe atlas (empty image = flat grey)
     bool overlay_loaded() const;
+    void load_ui(const scene::Image& atlas);              // N7: UI atlas (fonts + images); once
+    bool ui_loaded() const;
+    void set_present_mode(bool vsync);                     // N7: recreates the swapchain (FIFO vs mailbox / immediate)
+    bool timestamps_supported() const;
     void draw(const FrameView&, const Overlay&);
+    void draw_ui(const Overlay&);  // N7: only the overlay's UI vertices over a dark clear (menus that cover the screen)
     scene::Image capture();        // offscreen target only: pixels of the last frame (RGBA, top row first)
     std::pair<std::uint32_t, std::uint32_t> extent() const;
     RenderStats stats() const;

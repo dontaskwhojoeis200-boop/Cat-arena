@@ -114,6 +114,8 @@ std::vector<Projectile> Arena::projectiles() const {
 void Arena::step(const physics::TickInput& in) {
     events_ = Events{};
     event_seq_ = 0;
+    player_.clear_body_events();
+    player_.set_stick(in.stick_x, in.stick_y);
     if(horde_) horde_->begin_step();
     // Input events between ticks: keyboard in key-bit order (movement, then R, then Q), then the fire button.
     const std::uint32_t changed = in.keys ^ keys_;
@@ -199,6 +201,7 @@ void Arena::damage_target(std::size_t index, double damage, double z_hit, int pa
     DamageEvent e{b.id, actual, head, b.hp <= 0};
     events_.damage.push_back(e);
     if(b.hp <= 0) {   // killBot: remove, score, death presentation, reroll, wave count
+        events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::eliminated, b.id});   // playEnemyVoice(b, 'eliminated') (11589)
         const Target dead = b;
         targets_.erase(targets_.begin() + static_cast<std::ptrdiff_t>(index));
         ++frags_;
@@ -206,7 +209,7 @@ void Arena::damage_target(std::size_t index, double damage, double z_hit, int pa
         reroll_one(head);
         if(horde_) horde_->count_kill();
     } else {
-        (void)rng_.next();   // the legacy rolls Math.random() < .52 for a hurt voice here; the draw is kept so the stream stays aligned
+        if(rng_.next() < .52) events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::hurt, b.id});   // playEnemyVoice(b, 'hurt') (11590)
     }
 }
 
@@ -219,6 +222,7 @@ void Arena::shotgun_recoil(int index) {   // applyShotgunRecoil (11992)
         p.vx += bx * force * .55; p.vy += by * force * .55;
         p.vz = std::max(p.vz, index == 15 ? 8.2 : index == 7 ? 7.8 : 7.3);   // mid-air double jump
         p.ground = false;
+        player_.note_body(physics::BodySound::jump, 1);   // playBodySound('jump') (12003)
     }
 }
 
@@ -274,6 +278,7 @@ bool Arena::take_damage(double amount, bool burn) {   // takeDamage (11912)
     if(amount == 0 || !(amount == amount) || respawn_grace_ > 0) return false;
     hp_ -= amount; flash_ = std::max(flash_, burn ? .22 : .62);
     events_.player_damage += amount;
+    if(!burn) ++events_.player_hits;   // beep(100, .08, 'sawtooth', .013) (11923)
     if(hp_ <= 0) {   // committed at the end of the tick (finishPendingRespawn), not inside the enemy / projectile loops
         ++deaths_; hp_ = 0; respawn_queued_ = true; respawn_grace_ = 2.5;
         burn_remaining_ = 0; burn_tick_ = 0;

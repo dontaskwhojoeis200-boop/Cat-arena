@@ -1,0 +1,16 @@
+home.png	670 UI triangles	1 draws
+exit_dialog.png	1118 UI triangles	1 draws
+settings_view.png	1894 UI triangles	1 draws
+settings_graphics.png	1599 UI triangles	1 draws
+settings_performance.png	1890 UI triangles	1 draws
+settings_input.png	1028 UI triangles	1 draws
+settings_audio.png	1148 UI triangles	1 draws
+settings_hud.png	1598 UI triangles	1 draws
+loading_ready.png	1709 UI triangles	1 draws
+loading_phase3.png	1627 UI triangles	1 draws
+maps.png	1602 UI triangles	72 draws
+hud_kbm.png	1474 UI triangles	78 draws
+pause.png	2428 UI triangles	78 draws
+settings_from_pause.png	2482 UI triangles	78 draws
+hud_editor.png	2256 UI triangles	78 draws
+hud_touch.png	2110 UI triangles	78 draws

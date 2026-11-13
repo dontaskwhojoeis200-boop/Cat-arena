@@ -1,12 +1,38 @@
-# Native rewrite progress — 2026-11-11
+# Native rewrite progress — 2026-11-12
 
 N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 baseline, optional
 1.3/1.4), N3 (player physics and traversal) implemented. N4 (four maps, navigation) delivered with
 open items (MD3 prop models, portal / mirror feeds, PVS — still open).
 N5 (16 weapons, projectiles, damage, pickups, weapon viewmodel, effects, HUD), N5.1 (dynamic
-lights, medkit billboards) and N6 (enemies, waves, AI, animation, Marine Cats) delivered.
-**N6.5 (Windows build and packaging): CatArena.exe built, packaged, validated and tested (GPU-free)
-by GitHub Actions on Windows; not yet run on Windows with a GPU** (N6_5_BUILD_REPORT.md). Earlier trackers: docs/history/N0 … N6.
+lights, medkit billboards), N6 (enemies, waves, AI, animation, Marine Cats) and N6.5 (Windows
+build in GitHub Actions) delivered.
+**N7 (menus, settings, HUD, audio): implemented and tested on Linux; Windows build in GitHub Actions
+(README_N7.md). Not yet played on Windows with a GPU or heard on a real sound card.**
+Earlier trackers: docs/history/N0 … N6_5.
+
+## N7 result (docs/N7_UI_AUDIO.md, docs/DEVELOPMENT_LOG_N7.md)
+
+- Menus in the legacy routing and look: home (backdrop, parallax, PLAY / MULTIPLAYER / SETTINGS /
+  EXIT), map selection with the live view of each map from the legacy preview cameras, seven-stage
+  loading screen with ENTER THE ARENA, pause menu, exit dialog, settings in six tabs, HUD editor.
+  MULTIPLAYER is a placeholder page (N8).
+- Settings: the 65 legacy controls with the legacy defaults, ranges and options (recorded from the
+  running page); 32 applied, 8 applied with a stated difference, 25 stored for N10 (scene
+  resolution, AA, culling modes among them). Saved per user (SDL_GetPrefPath).
+- HUD in the legacy layout and look (measured element boxes, safe area, keyboard / mouse and touch
+  layouts, HUD scale and editor placements); performance overlay with the legacy FPS formulas,
+  CPU, GPU timestamps, process RAM and exact GPU allocations.
+- Input: keyboard-only navigation of every page and all 47 enabled settings controls (tested);
+  mouse, touch (legacy joystick / look / buttons, analog stick in the simulation input), gamepad
+  (native addition); control mode AUTO with the v0.18 Android / DeX mouse rule; pointer capture
+  state machine (unit-tested; Android device NOT_RUN).
+- Audio: 48 legacy sample takes and the ASHEN DRIVE soundtrack extracted with provenance; mixer,
+  compressor, panners, filters and oscillators match Chromium's Web Audio on recorded graphs
+  (relative RMS 6e-8 to 5e-2); legacy sound rules (guns, explosions, body sounds, enemy voices with
+  their limits, beeps, music sync) fed by simulation events; SDL3 output. Legacy replays unchanged
+  (bit-identical to N6.5). The v0.18 SOUND BREAK branch is catalogued, not imported.
+- Tests: `audio_webaudio_parity`, `ui_menus_settings_hud` (936 checks), `window_menu_selftest`;
+  Linux matrix 36 core / 67 desktop tests (TEST_MATRIX.md).
 
 ## N6.5 result (N6_5_BUILD_REPORT.md, docs/DEVELOPMENT_LOG_N6_5.md)
 
@@ -71,7 +97,7 @@ by GitHub Actions on Windows; not yet run on Windows with a GPU** (N6_5_BUILD_RE
 
 | Area | Status |
 |---|---|
-| Core / timing / settings / input | N0 complete; **N5: fire / reload / swap input, tap latching** |
+| Core / timing / settings / input | N0 complete; N5: fire / reload / swap input; **N7: touch stick, sprint modes, gamepad, settings file** |
 | Baked content + loaders | N1 complete; **N5: assets/n5 (weapon models, effect atlas)** |
 | Rendering, four maps | Geometry, materials, lightmaps, skies match; models, portals / mirrors, PVS open (N4) |
 | Vulkan compatibility | N2.1: 1.2 baseline + optional 1.3/1.4 paths; **overlay passes on both** |
@@ -82,13 +108,15 @@ by GitHub Actions on Windows; not yet run on Windows with a GPU** (N6_5_BUILD_RE
 | Dynamic lights on the map, medkit billboards | **N5.1: match legacy (selection exact; frames 41-59 dB)** |
 | Enemies: types, waves, AI, routes, flyers, attacks, damage, bodies | **N6: match legacy tapes on four maps** |
 | Enemy animation, models, effects, final-five outline, shadows, Marine Cats | **N6: match legacy data; pictures 42.5-63.6 dB** |
-| HUD | N5: native HUD with the legacy's information; **N6: wave box, last-five banner, announcements**; legacy look not reproduced |
-| Audio, UI / menus, network, Android | Not started (N7-N9) |
+| HUD | **N7: legacy layout and look, touch layout, editor, performance overlay** |
+| Menus, settings | **N7: legacy routing and look; 40 of 65 settings act (8 with a difference), 25 stored (N10)** |
+| Audio | **N7: legacy sounds and music; mixer matches Chromium Web Audio graphs; not heard on real hardware** |
+| Network, Android | Not started (N8, N9) |
 | Windows build | **N6.5: built and GPU-free tests pass in GitHub Actions; not run with a GPU** |
 | Android build | NOT_RUN (no toolchain / device in runner) |
 
 ## Next
 
-Play the Windows artifact on a Windows PC with a GPU (N6_5_BUILD_REPORT.md section 10). Then N7 (audio, UI, settings): enemy voices / attack and death sounds have their trigger points in the
-simulation events. Open items that can be closed alongside: MD3 prop models, portal / mirror feeds
-(the legacy's only view of the local Marine Cat), PVS (N4); the legacy HUD look.
+Play the N7 Windows artifact on a Windows PC with a GPU and speakers (README_N7.md). Then N8
+(multiplayer). Open items that can be closed alongside: the 25 stored settings (scene resolution,
+AA, culling modes, effects detail …), MD3 prop models, portal / mirror feeds, PVS (N10).

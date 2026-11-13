@@ -25,7 +25,7 @@ void PlayerController::spawn(double x, double y, double z, double yaw, double pi
     const double scale = q3_.bob_scale;
     q3_ = ViewState{};   // q3Reset()
     q3_.bob_scale = scale;
-    keys_ = 0; now_ = now; slope_angle_ = 0; fov_scale_ = 1; air_strafe_gained_ = 0; stance_ = Stance::run;
+    keys_ = 0; stick_x_ = stick_y_ = 0; now_ = now; slope_angle_ = 0; fov_scale_ = 1; air_strafe_gained_ = 0; stance_ = Stance::run;
     pad_launches_ = 0; jumps_ = 0;
 }
 
@@ -37,12 +37,14 @@ void PlayerController::respawn(double x, double y, double z, double yaw) {   // 
 }
 
 void PlayerController::step(const TickInput& in) {
+    body_events_.clear();
     // Key transitions first, in key-bit order, as non-repeating keydown/keyup events would arrive
     // between two simulation ticks; then mouse look; then the tick.
     const std::uint32_t changed = in.keys ^ keys_;
     for(std::uint32_t bit = 1; bit <= key_slide; bit <<= 1)
         if(changed & bit) key_event(static_cast<Key>(bit), (in.keys & bit) != 0);
     if(in.look_dx != 0 || in.look_dy != 0) aim(in.look_dx, in.look_dy);
+    stick_x_ = in.stick_x; stick_y_ = in.stick_y;
     tick(kTick);
 }
 
@@ -67,8 +69,8 @@ void PlayerController::aim(double dx, double dy) {
 void PlayerController::tick(double dt) {
     now_ += dt;
     if(p_.downed) { p_.vx = p_.vy = p_.vz = 0; t_.slide_time = 0; }
-    const double f = p_.downed ? 0 : (held(key_forward) ? 1 : 0) - (held(key_back) ? 1 : 0);
-    const double s = p_.downed ? 0 : (held(key_right) ? 1 : 0) - (held(key_left) ? 1 : 0);
+    const double f = p_.downed ? 0 : (held(key_forward) ? 1 : 0) - (held(key_back) ? 1 : 0) - stick_y_;   // ... - touchStick.y
+    const double s = p_.downed ? 0 : (held(key_right) ? 1 : 0) - (held(key_left) ? 1 : 0) + stick_x_;    // ... + touchStick.x
     const double m = js_hypot(f, s), mf = m != 0 ? f / m : 0, ms = m != 0 ? s / m : 0;
     const double ca = jsmath::cos(p_.a), sa = jsmath::sin(p_.a), wx = ca * mf - sa * ms, wy = sa * mf + ca * ms;
     move_marine(dt, wx, wy, m);
@@ -83,6 +85,7 @@ bool PlayerController::begin_slide(bool from_buffer) {
     if(!p_.ground) { if(!from_buffer) t_.slide_buffer = kLandingSlideBuffer; return false; }
     const double speed = js_hypot(p_.vx, p_.vy);
     if(speed < kWalkSpeed * .72) return false;
+    note_body(BodySound::slide, std::min(1.2, speed / 10));   // playBodySound('slide', min(1.2, speed / 10)) (14958)
     const double multiplier = std::min(kSlideBoost, kMaxSkillSpeed / speed);
     p_.vx *= multiplier; p_.vy *= multiplier;
     t_.slide_time = kSlideDuration; t_.slide_cooldown = kSlideCooldown;
@@ -144,6 +147,7 @@ void PlayerController::move_marine(double dt, double wx, double wy, double m) {
         p_.vz = kJumpImpulse;
         p_.ground = false; t_.coyote_time = 0; t_.jump_buffer = 0; t_.slide_time = 0; t_.slide_buffer = 0;
         ++jumps_;
+        note_body(BodySound::jump, 1);   // playBodySound('jump') (12165)
     }
     const bool airborne = !p_.ground;
     t_.slide_time = std::max(0.0, t_.slide_time - dt);
@@ -273,7 +277,10 @@ void PlayerController::stage4_movement(double dt) {
         if(std::fabs(dy) > .000001) moved = accept(candidate(p_.x, p_.y + dy)) || moved;
         if(!moved) { p_.vx *= .20; p_.vy *= .20; }
     }
-    if(landed) crash_land(landing_speed);
+    if(landed) {
+        if(landing_speed > 1.9) note_body(BodySound::land, std::min(1.3, landing_speed / 10));   // (8665)
+        crash_land(landing_speed);
+    }
 }
 
 // worldTriggerUpdate() / worldPadLaunch() (9765-9785): jump pads.
@@ -289,6 +296,7 @@ void PlayerController::trigger_update(double dt) {
         p_.ground = false;
         t_.pad_cooldown = pad.cooldown + .4;
         ++pad_launches_;
+        note_body(BodySound::jump, 1);   // worldTriggerUpdate: playBodySound('jump') (9759)
         break;
     }
 }
@@ -305,8 +313,8 @@ void PlayerController::post_move(double dt) {
         }
     }
     q3_.last_z = p_.z; q3_.has_last_z = true; q3_.last_ground = p_.ground;
-    const bool moving = std::fabs((held(key_forward) ? 1.0 : 0.0) - (held(key_back) ? 1.0 : 0.0)) > .01 ||
-                        std::fabs((held(key_right) ? 1.0 : 0.0) - (held(key_left) ? 1.0 : 0.0)) > .01;
+    const bool moving = std::fabs((held(key_forward) ? 1.0 : 0.0) - (held(key_back) ? 1.0 : 0.0) - stick_y_) > .01 ||
+                        std::fabs((held(key_right) ? 1.0 : 0.0) - (held(key_left) ? 1.0 : 0.0) + stick_x_) > .01;
     const bool sliding = t_.slide_time > 0;
     const bool sprinting = held(key_sprint) && !q3_.crouched;
     if(p_.downed) q3_.bob_cycle = 0;
@@ -317,7 +325,7 @@ void PlayerController::post_move(double dt) {
         const auto old = static_cast<int>(std::floor(q3_.bob_cycle));
         q3_.bob_cycle = std::fmod(q3_.bob_cycle + bobmove * dt * 1000, 256.0);
         const auto cur = static_cast<int>(std::floor(q3_.bob_cycle));
-        if(!q3_.crouched && (((old + 64) ^ (cur + 64)) & 128)) ++q3_.footsteps;
+        if(!q3_.crouched && (((old + 64) ^ (cur + 64)) & 128)) { ++q3_.footsteps; note_body(BodySound::step, sprinting ? .6 : .48); }   // (10497)
     }
     const auto c = static_cast<int>(std::floor(q3_.bob_cycle));
     q3_.bobfracsin = std::fabs(jsmath::sin((c & 127) / 127.0 * kPi));

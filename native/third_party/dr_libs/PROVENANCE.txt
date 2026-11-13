@@ -1,0 +1,9 @@
+dr_mp3, vendored for N7 (the legacy soundtrack assets/audio/main-theme.mp3 is MP3).
+
+Upstream:   https://github.com/mackron/dr_libs
+Commit:     aec2dd20667f54acfdb66031217df6d240f56c52 (2026-10-31, "dr_mp3 - v0.7.4 - 2026-10-31")
+Files:      dr_mp3.h   v0.7.4  sha256 f5c8020eeebb79877184432efdd2651f24869f5bb8f379d45450fd0aed1ee915
+            LICENSE           sha256 dd1c647e6f767f8ff4b2dfae0fed314726600a01e0cf1ef556afddd5fa96ff15
+License:    public domain (Unlicense) or MIT No Attribution (dual, see LICENSE)
+Use:        streamed decoding of the soundtrack on the audio thread (src/audio_codec.cpp). Unmodified;
+            compiled without the strict warning flags.

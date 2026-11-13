@@ -29,6 +29,7 @@
 #include <map>
 #include <numbers>
 #include <stdexcept>
+#include <unordered_map>
 #include <vector>
 
 namespace cat {
@@ -124,6 +125,7 @@ static_assert(sizeof(DrawData) == 160 + 8 * 176);
 namespace {
 struct Buffer { VkBuffer buffer{}; VkDeviceMemory memory{}; VkDeviceSize size{}; void* mapped{}; };
 struct Texture { VkImage image{}; VkDeviceMemory memory{}; VkImageView view{}; };
+constexpr std::size_t kUiMaxVertices = 240000;
 struct PipelineKey {
     int kind{};   // 0 material/cloud
     int cull{}, src{1}, dst{0};
@@ -150,6 +152,7 @@ struct PipelineState {
     VkBlendFactor src{VK_BLEND_FACTOR_ONE}, dst{VK_BLEND_FACTOR_ZERO};
     bool dynamic_raster{};   // extended dynamic state: cull mode, depth write and depth compare set per draw
     float offset_units{-2};  // polygonOffset units when polygon_offset is set
+    bool opaque_alpha{};     // N7 UI: destination alpha stays 1 (alpha blends ONE / ONE_MINUS_SRC_ALPHA), so captures are opaque
 };
 struct OverlayPush { float cam_pos[4], forward[4], right[4], up[4], extra[4]; };   // shaders/overlay.glsl
 struct EnemyPush { float rig0[4], rig1[4], rig2[4], mode[4]; };                    // shaders/enemy.glsl
@@ -194,6 +197,14 @@ struct Renderer::Impl {
     VkInstance instance{}; VkDebugUtilsMessengerEXT messenger{}; VkSurfaceKHR surface{};
     VkPhysicalDevice physical{}; VkDevice device{}; std::uint32_t family{}; VkQueue queue{};
     VkPhysicalDeviceProperties properties{};
+    // N7: tracked device memory, GPU timestamps, UI layer
+    std::unordered_map<VkDeviceMemory, VkDeviceSize> allocations;
+    std::uint64_t tracked_bytes{};
+    VkQueryPool timestamps{};
+    bool timestamps_written{};
+    double last_gpu_ms{-1};
+    Texture ui_tex; VkSampler sampler_ui{}; VkDescriptorSetLayout ui_set_layout{}; VkDescriptorPool ui_pool{}; VkDescriptorSet ui_set{};
+    VkPipelineLayout ui_layout{}; VkPipeline ui_pipeline{}; Buffer ui_vb; bool ui_ready{};
     std::uint32_t loader_api{};
     bool validation{}, anisotropy{};
     float max_anisotropy{1};
@@ -352,6 +363,10 @@ struct Renderer::Impl {
             if((bits & (1U << i)) && (mp.memoryTypes[i].propertyFlags & flags) == flags) return i;
         throw std::runtime_error("No suitable Vulkan memory type");
     }
+    void untrack(VkDeviceMemory m) noexcept {
+        const auto it = allocations.find(m);
+        if(it != allocations.end()) { tracked_bytes -= it->second; allocations.erase(it); }
+    }
     Buffer make_buffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags flags) {
         Buffer b; b.size = size;
         VkBufferCreateInfo bi{VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO};
@@ -361,6 +376,7 @@ struct Renderer::Impl {
         VkMemoryAllocateInfo ai{VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO};
         ai.allocationSize = req.size; ai.memoryTypeIndex = memory_type(req.memoryTypeBits, flags);
         check(vkAllocateMemory(device, &ai, nullptr, &b.memory), "allocate buffer memory");
+        allocations[b.memory] = ai.allocationSize; tracked_bytes += ai.allocationSize;
         check(vkBindBufferMemory(device, b.buffer, b.memory, 0), "bind buffer memory");
         if(flags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT) check(vkMapMemory(device, b.memory, 0, VK_WHOLE_SIZE, 0, &b.mapped), "map buffer");
         return b;
@@ -368,13 +384,13 @@ struct Renderer::Impl {
     void destroy(Buffer& b) noexcept {
         if(b.mapped) vkUnmapMemory(device, b.memory);
         if(b.buffer) vkDestroyBuffer(device, b.buffer, nullptr);
-        if(b.memory) vkFreeMemory(device, b.memory, nullptr);
+        if(b.memory) { untrack(b.memory); vkFreeMemory(device, b.memory, nullptr); }
         b = {};
     }
     void destroy(Texture& t) noexcept {
         if(t.view) vkDestroyImageView(device, t.view, nullptr);
         if(t.image) vkDestroyImage(device, t.image, nullptr);
-        if(t.memory) vkFreeMemory(device, t.memory, nullptr);
+        if(t.memory) { untrack(t.memory); vkFreeMemory(device, t.memory, nullptr); }
         t = {};
     }
     Texture make_image(VkExtent2D size, VkFormat fmt, VkImageUsageFlags usage, VkImageAspectFlags aspect,
@@ -389,6 +405,7 @@ struct Renderer::Impl {
         VkMemoryAllocateInfo ai{VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO};
         ai.allocationSize = req.size; ai.memoryTypeIndex = memory_type(req.memoryTypeBits, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
         check(vkAllocateMemory(device, &ai, nullptr, &t.memory), "allocate image memory");
+        allocations[t.memory] = ai.allocationSize; tracked_bytes += ai.allocationSize;
         check(vkBindImageMemory(device, t.image, t.memory, 0), "bind image memory");
         VkImageViewCreateInfo vi{VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO};
         vi.image = t.image; vi.viewType = view_type; vi.format = fmt; vi.subresourceRange = {aspect, 0, levels, 0, layers};
@@ -514,7 +531,7 @@ struct Renderer::Impl {
         for(auto& [key, p] : material_pipelines) vkDestroyPipeline(device, p, nullptr);
         material_pipelines.clear();
         for(auto& m : gpu_materials) for(auto& p : m.passes) p.pipeline = {};
-        for(VkPipeline* p : {&fx_pipeline, &fx_mark_pipeline, &fx_gun_pipeline, &gun_pipeline, &hud_pipeline, &solid_pipeline}) { if(*p) vkDestroyPipeline(device, *p, nullptr); *p = {}; }
+        for(VkPipeline* p : {&fx_pipeline, &fx_mark_pipeline, &fx_gun_pipeline, &gun_pipeline, &hud_pipeline, &solid_pipeline, &ui_pipeline}) { if(*p) vkDestroyPipeline(device, *p, nullptr); *p = {}; }
         if(pass) vkDestroyRenderPass(device, pass, nullptr);
         pass = {};
         pipelines_built = false;
@@ -586,6 +603,8 @@ struct Renderer::Impl {
             cleanup_scene();
             cleanup_overlay();
             cleanup_enemies();
+            cleanup_ui();
+            if(timestamps) vkDestroyQueryPool(device, timestamps, nullptr);
             if(fence) vkDestroyFence(device, fence, nullptr);
             if(acquired) vkDestroySemaphore(device, acquired, nullptr);
             if(pool) vkDestroyCommandPool(device, pool, nullptr);
@@ -878,6 +897,18 @@ struct Renderer::Impl {
         check(vkCreateSemaphore(device, &si, nullptr, &acquired), "acquire semaphore");
         VkFenceCreateInfo fi{VK_STRUCTURE_TYPE_FENCE_CREATE_INFO}; fi.flags = VK_FENCE_CREATE_SIGNALED_BIT;
         check(vkCreateFence(device, &fi, nullptr, &fence), "frame fence");
+        {   // N7: GPU frame time when the queue writes timestamps
+            std::uint32_t nf = 0;
+            vkGetPhysicalDeviceQueueFamilyProperties(physical, &nf, nullptr);
+            std::vector<VkQueueFamilyProperties> fams(nf);
+            vkGetPhysicalDeviceQueueFamilyProperties(physical, &nf, fams.data());
+            if(family < nf && fams[family].timestampValidBits > 0 && properties.limits.timestampPeriod > 0) {
+                VkQueryPoolCreateInfo qi{VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO};
+                qi.queryType = VK_QUERY_TYPE_TIMESTAMP; qi.queryCount = 2;
+                check(vkCreateQueryPool(device, &qi, nullptr, &timestamps), "timestamp query pool");
+            }
+            log("info", "vulkan", std::string("GPU timestamps: ") + (timestamps ? "available (period " + std::to_string(properties.limits.timestampPeriod) + " ns)" : "not available on this queue"));
+        }
         depth_format = VK_FORMAT_UNDEFINED;
         for(auto candidate : {VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_X8_D24_UNORM_PACK32, VK_FORMAT_D24_UNORM_S8_UINT, VK_FORMAT_D16_UNORM}) {
             VkFormatProperties fp{}; vkGetPhysicalDeviceFormatProperties(physical, candidate, &fp);
@@ -927,6 +958,7 @@ struct Renderer::Impl {
             attachment.blendEnable = VK_TRUE;
             attachment.srcColorBlendFactor = attachment.srcAlphaBlendFactor = st.src;
             attachment.dstColorBlendFactor = attachment.dstAlphaBlendFactor = st.dst;
+            if(st.opaque_alpha) { attachment.srcAlphaBlendFactor = VK_BLEND_FACTOR_ONE; attachment.dstAlphaBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA; }
             attachment.colorBlendOp = attachment.alphaBlendOp = VK_BLEND_OP_ADD;
         }
         VkPipelineColorBlendStateCreateInfo blend{VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO};
@@ -1160,6 +1192,62 @@ struct Renderer::Impl {
         PipelineState solid; solid.compare = VK_COMPARE_OP_LESS;
         solid_pipeline = make_pipeline("solid.vert.spv", "hud.frag.spv", {28, {{0, 0, VK_FORMAT_R32G32B32_SFLOAT, 0}, {1, 0, VK_FORMAT_R32G32B32A32_SFLOAT, 12}}}, solid_layout, solid);
     }
+    void set_vsync(bool on) { if(settings.vsync != on) { settings.vsync = on; dirty = true; } }   // the next frame recreates the swapchain
+    void build_ui_pipeline() {
+        if(!ui_ready || ui_pipeline) return;
+        PipelineState ui; ui.depth_test = false; ui.depth_write = false; ui.blend = true; ui.src = VK_BLEND_FACTOR_SRC_ALPHA; ui.dst = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA; ui.opaque_alpha = true;
+        ui_pipeline = make_pipeline("ui.vert.spv", "ui.frag.spv", {36, {{0, 0, VK_FORMAT_R32G32_SFLOAT, 0}, {1, 0, VK_FORMAT_R32G32_SFLOAT, 8}, {2, 0, VK_FORMAT_R32G32B32A32_SFLOAT, 16}, {3, 0, VK_FORMAT_R32_SFLOAT, 32}}}, ui_layout, ui);
+    }
+    void load_ui(const scene::Image& atlas) {
+        if(ui_ready) throw std::runtime_error("load_ui: the UI atlas is already loaded");
+        check(vkDeviceWaitIdle(device), "ui idle");
+        VkDescriptorSetLayoutBinding b{0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr};
+        VkDescriptorSetLayoutCreateInfo li{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO};
+        li.bindingCount = 1; li.pBindings = &b;
+        check(vkCreateDescriptorSetLayout(device, &li, nullptr, &ui_set_layout), "ui set layout");
+        VkPipelineLayoutCreateInfo pl{VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO};
+        pl.setLayoutCount = 1; pl.pSetLayouts = &ui_set_layout;
+        check(vkCreatePipelineLayout(device, &pl, nullptr, &ui_layout), "ui pipeline layout");
+        VkDescriptorPoolSize size{VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1};
+        VkDescriptorPoolCreateInfo pi{VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO};
+        pi.maxSets = 1; pi.poolSizeCount = 1; pi.pPoolSizes = &size;
+        check(vkCreateDescriptorPool(device, &pi, nullptr, &ui_pool), "ui descriptor pool");
+        VkSamplerCreateInfo si{VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO};
+        si.magFilter = si.minFilter = VK_FILTER_LINEAR; si.mipmapMode = VK_SAMPLER_MIPMAP_MODE_NEAREST;
+        si.addressModeU = si.addressModeV = si.addressModeW = VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE; si.maxAnisotropy = 1; si.maxLod = 0;
+        check(vkCreateSampler(device, &si, nullptr, &sampler_ui), "ui sampler");
+        ui_tex = texture({atlas}, false, false);
+        VkDescriptorSetAllocateInfo ai{VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO};
+        ai.descriptorPool = ui_pool; ai.descriptorSetCount = 1; ai.pSetLayouts = &ui_set_layout;
+        check(vkAllocateDescriptorSets(device, &ai, &ui_set), "ui descriptor set");
+        VkDescriptorImageInfo info{sampler_ui, ui_tex.view, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL};
+        VkWriteDescriptorSet w{VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET};
+        w.dstSet = ui_set; w.dstBinding = 0; w.descriptorCount = 1; w.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER; w.pImageInfo = &info;
+        vkUpdateDescriptorSets(device, 1, &w, 0, nullptr);
+        ui_vb = make_buffer(kUiMaxVertices * sizeof(UiVertex), VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+        ui_ready = true;
+        if(pipelines_built) build_ui_pipeline();
+    }
+    void cleanup_ui() noexcept {
+        if(ui_pipeline) vkDestroyPipeline(device, ui_pipeline, nullptr);
+        if(ui_layout) vkDestroyPipelineLayout(device, ui_layout, nullptr);
+        if(ui_pool) vkDestroyDescriptorPool(device, ui_pool, nullptr);
+        if(ui_set_layout) vkDestroyDescriptorSetLayout(device, ui_set_layout, nullptr);
+        if(sampler_ui) vkDestroySampler(device, sampler_ui, nullptr);
+        destroy(ui_tex); destroy(ui_vb);
+        ui_pipeline = {}; ui_layout = {}; ui_pool = {}; ui_set_layout = {}; sampler_ui = {}; ui_ready = false;
+    }
+    void record_ui(VkCommandBuffer cb, const Overlay& o) {
+        if(!ui_ready || !ui_pipeline || !o.ui || !o.ui_vertices) return;
+        const VkDeviceSize zero = 0;
+        const std::size_t n = std::min(o.ui_vertices, kUiMaxVertices) / 3 * 3;
+        std::memcpy(ui_vb.mapped, o.ui, n * sizeof(UiVertex));
+        vkCmdBindPipeline(cb, VK_PIPELINE_BIND_POINT_GRAPHICS, ui_pipeline);
+        vkCmdBindDescriptorSets(cb, VK_PIPELINE_BIND_POINT_GRAPHICS, ui_layout, 0, 1, &ui_set, 0, nullptr);
+        vkCmdBindVertexBuffers(cb, 0, 1, &ui_vb.buffer, &zero);
+        vkCmdDraw(cb, static_cast<std::uint32_t>(n), 1, 0, 0); ++stats.draw_calls; ++stats.overlay_draws;
+        stats.ui_triangles = static_cast<std::uint32_t>(n / 3);
+    }
     void load_overlay(const OverlayAssets& a) {
         check(vkDeviceWaitIdle(device), "overlay idle");
         for(VkPipeline* p : {&fx_pipeline, &fx_mark_pipeline, &fx_gun_pipeline, &gun_pipeline, &hud_pipeline, &solid_pipeline}) { if(*p) vkDestroyPipeline(device, *p, nullptr); *p = {}; }
@@ -1332,6 +1420,7 @@ struct Renderer::Impl {
             build_pipelines();
             build_overlay_pipelines();
             pipelines_built = true;
+            build_ui_pipeline();
         }
         const std::size_t n = use_dynamic_rendering ? 0 : offscreen ? 1 : views.size();   // framebuffers: baseline only
         for(std::size_t i = 0; i < n; ++i) {
@@ -1751,6 +1840,11 @@ struct Renderer::Impl {
     void frame(const FrameView* view, const Overlay* overlay = nullptr) {
         if(dirty && !recreate()) return;
         check(vkWaitForFences(device, 1, &fence, VK_TRUE, UINT64_MAX), "wait frame");
+        if(timestamps && timestamps_written) {   // the previous frame finished (fence): its two timestamps are available
+            std::uint64_t t[2]{};
+            if(vkGetQueryPoolResults(device, timestamps, 0, 2, sizeof(t), t, sizeof(std::uint64_t), VK_QUERY_RESULT_64_BIT) == VK_SUCCESS && t[1] >= t[0])
+                last_gpu_ms = double(t[1] - t[0]) * properties.limits.timestampPeriod / 1e6;
+        }
         std::uint32_t index = 0;
         bool suboptimal = false;
         if(!offscreen) {
@@ -1770,6 +1864,7 @@ struct Renderer::Impl {
         VkCommandBufferBeginInfo bi{VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO};
         bi.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
         check(vkBeginCommandBuffer(command, &bi), "begin command");
+        if(timestamps) { vkCmdResetQueryPool(command, timestamps, 0, 2); vkCmdWriteTimestamp(command, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, timestamps, 0); }
         VkClearValue clears[2]{};
         if(scene_frame) clears[0].color = {{theme.sky[0], theme.sky[1], theme.sky[2], 1.F}};   // gl.clearColor(...t.sky,1)
         else clears[0].color = {{.015F, .015F, .02F, 1.F}};
@@ -1803,7 +1898,12 @@ struct Renderer::Impl {
         VkRect2D rect{{0, 0}, extent};
         vkCmdSetViewport(command, 0, 1, &vp);
         vkCmdSetScissor(command, 0, 1, &rect);
-        if(scene_frame) { record_scene(command, *view); if(overlay && overlay_ready) record_overlay(command, *overlay); }
+        if(scene_frame) {
+            record_scene(command, *view);
+            if(overlay && overlay_ready && overlay->world) record_overlay(command, *overlay);
+            if(overlay) record_ui(command, *overlay);
+        }
+        else if(overlay) record_ui(command, *overlay);   // N7: menus without a world picture (draw_ui)
         else { vkCmdBindPipeline(command, VK_PIPELINE_BIND_POINT_GRAPHICS, triangle_pipeline); vkCmdDraw(command, 3, 1, 0, 0); stats.draw_calls = 1; }
         if(use_dynamic_rendering) {
             fn.end_rendering(command);
@@ -1819,6 +1919,8 @@ struct Renderer::Impl {
             vkCmdCopyImageToBuffer(command, color_target.image, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL, readback.buffer, 1, &copy);
             buffer_barrier(command, readback.buffer, VK_PIPELINE_STAGE_TRANSFER_BIT, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_HOST_BIT, VK_ACCESS_HOST_READ_BIT);
         }
+        if(timestamps) { vkCmdWriteTimestamp(command, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, timestamps, 1); timestamps_written = true; }
+        stats.gpu_ms = last_gpu_ms; stats.tracked_bytes = tracked_bytes;
         check(vkEndCommandBuffer(command), "end command");
         // Reset only after successful acquire/record: out-of-date must not strand an unsignaled fence.
         check(vkResetFences(device, 1, &fence), "reset fence");
@@ -1851,11 +1953,16 @@ void Renderer::load_scene(const scene::MapScene& s) { impl_->load(s); }
 void Renderer::draw(const Snapshot&) { impl_->frame(nullptr); }
 void Renderer::draw(const FrameView& v) { impl_->frame(&v); }
 void Renderer::draw(const FrameView& v, const Overlay& o) { impl_->frame(&v, &o); }
+void Renderer::draw_ui(const Overlay& o) { impl_->frame(nullptr, &o); }
 void Renderer::load_overlay(const OverlayAssets& a) { impl_->load_overlay(a); }
 void Renderer::load_enemies(const EnemyAssets& a) { impl_->load_enemies(a); }
 bool Renderer::enemies_loaded() const { return impl_->enemies_ready; }
 void Renderer::set_light_volume(const scene::Image& atlas) { impl_->set_light_volume(atlas); }
 bool Renderer::overlay_loaded() const { return impl_->overlay_ready; }
+void Renderer::load_ui(const scene::Image& atlas) { impl_->load_ui(atlas); }
+bool Renderer::ui_loaded() const { return impl_->ui_ready; }
+void Renderer::set_present_mode(bool vsync) { impl_->set_vsync(vsync); }
+bool Renderer::timestamps_supported() const { return impl_->timestamps != VK_NULL_HANDLE; }
 scene::Image Renderer::capture() {
     if(!impl_->offscreen) throw std::runtime_error("capture() requires the offscreen renderer");
     if(!impl_->have_capture) throw std::runtime_error("capture() before any frame was rendered");
