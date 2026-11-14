@@ -493,7 +493,12 @@ struct Session {
         return o;
     }
     // After build(): hands the frame's lights to the map renderer.
-    void light(cat::FrameView& view) const { view.lights = lights.empty() ? nullptr : lights.data(); view.light_count = lights.size(); }
+    void light(cat::FrameView& view) const {
+        view.lights = lights.empty() ? nullptr : lights.data();
+        view.light_count = lights.size();
+        const auto& p = arena.player().state();
+        view.player_position = cat::scene::V3{p.x, p.y, p.z};
+    }
     std::string json() const {
         std::ostringstream o;
         o << "{\"health\": " << arena.health() << ", \"weapons\": [" << arena.weapon(0) << ", " << arena.weapon(1) << "], \"slot\": " << arena.slot() << ", \"magazines\": [" << arena.ammo(0) << ", " << arena.ammo(1)
@@ -1285,7 +1290,8 @@ int main(int argc, char** argv) {
             const double pixels = double(image.width) * image.height;
             json << "    {\"name\": \"" << p.name << "\", \"file\": \"" << json_escape(cat::path_utf8(out.filename())) << "\", \"pose\": [" << p.x << ", " << p.y
                  << ", " << p.z << ", " << p.yaw << ", " << p.pitch << "], \"drawCalls\": " << st.draw_calls << ", \"materialPasses\": " << st.material_passes
-                 << ", \"visibleClusters\": " << st.visible_clusters << ", \"culledClusters\": " << st.culled_clusters << ", \"meanLuma\": "
+                 << ", \"visibleClusters\": " << st.visible_clusters << ", \"culledClusters\": " << st.culled_clusters
+                 << ", \"propDraws\": " << st.prop_draws << ", \"propTriangles\": " << st.prop_triangles << ", \"meanLuma\": "
                  << std::fixed << std::setprecision(2) << double(sum) / (pixels * 3) << ", \"clearColorFraction\": " << std::setprecision(4) << double(sky) / pixels
                  << std::defaultfloat << "}" << (i + 1 < poses.size() ? "," : "") << "\n";
             cat::log("info", "capture", "Wrote " + cat::path_utf8(out) + " draws=" + std::to_string(st.draw_calls) + " passes=" + std::to_string(st.material_passes) +
@@ -1349,56 +1355,38 @@ int main(int argc, char** argv) {
     };
     // --input-selftest: events are pushed into SDL's queue and then handled by the same code as real input.
     const double selftest_yaw0 = player ? player->state().a : 0, selftest_x0 = player ? player->state().x : 0, selftest_y0 = player ? player->state().y : 0;
-    int selftest_motions = 0; bool selftest_slid = false, selftest_crouched = false, selftest_captured = false;
+    int selftest_motions = 0;
+    bool selftest_sprinted = false, selftest_slid = false, selftest_crouched = false, selftest_captured = false;
     auto push_key = [&](SDL_Scancode code, bool down) {
         SDL_Event e{}; e.type = down ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP; e.key.windowID = SDL_GetWindowID(window); e.key.scancode = code; e.key.down = down; e.key.repeat = false;
         SDL_PushEvent(&e);
     };
+    std::uint64_t input_script_step = 0;
     auto inject = [&](std::uint64_t tick) {
-        static std::uint64_t done = 0;   // each step once, in order, as simulation time passes
-        auto at = [&](std::uint64_t when, std::uint64_t id) { if(tick >= when && done < id) { done = id; return true; } return false; };
+        auto at = [&](std::uint64_t when, std::uint64_t id) { if(tick >= when && input_script_step < id) { input_script_step = id; return true; } return false; };
         if(at(5, 1)) { SDL_Event e{}; e.type = SDL_EVENT_MOUSE_BUTTON_DOWN; e.button.windowID = SDL_GetWindowID(window); e.button.button = SDL_BUTTON_LEFT; e.button.down = true; SDL_PushEvent(&e); }
         if(at(10, 2)) push_key(SDL_SCANCODE_W, true);
         if(tick >= 30 && selftest_motions < 40 && captured) { SDL_Event e{}; e.type = SDL_EVENT_MOUSE_MOTION; e.motion.windowID = SDL_GetWindowID(window); e.motion.xrel = 5; e.motion.yrel = 1; SDL_PushEvent(&e); ++selftest_motions; }
         if(at(120, 3)) push_key(SDL_SCANCODE_LSHIFT, true);
-        if(at(240, 4)) push_key(SDL_SCANCODE_SPACE, true);
-        if(at(246, 5)) push_key(SDL_SCANCODE_SPACE, false);
-        if(at(400, 6)) push_key(SDL_SCANCODE_C, true);
-        if(at(404, 7)) push_key(SDL_SCANCODE_C, false);
-        if(at(600, 8)) { push_key(SDL_SCANCODE_LSHIFT, false); push_key(SDL_SCANCODE_RCTRL, true); }
-        if(at(720, 9)) { push_key(SDL_SCANCODE_RCTRL, false); push_key(SDL_SCANCODE_W, false); }
+        if(at(132, 4)) push_key(SDL_SCANCODE_C, true);
+        if(at(136, 5)) push_key(SDL_SCANCODE_C, false);
+        if(at(165, 6)) push_key(SDL_SCANCODE_SPACE, true);
+        if(at(171, 7)) push_key(SDL_SCANCODE_SPACE, false);
+        if(at(240, 8)) { push_key(SDL_SCANCODE_LSHIFT, false); push_key(SDL_SCANCODE_W, false); }
+        if(at(540, 9)) push_key(SDL_SCANCODE_RCTRL, true);
+        if(at(660, 10)) push_key(SDL_SCANCODE_RCTRL, false);
         // N5: hold the fire button, release, reload, swap weapons
         auto push_button = [&](bool down) { SDL_Event e{}; e.type = down ? SDL_EVENT_MOUSE_BUTTON_DOWN : SDL_EVENT_MOUSE_BUTTON_UP; e.button.windowID = SDL_GetWindowID(window); e.button.button = SDL_BUTTON_LEFT; e.button.down = down; SDL_PushEvent(&e); };
-        if(at(728, 10)) push_button(true);
-        if(at(742, 11)) push_button(false);
-        if(at(748, 12)) push_key(SDL_SCANCODE_R, true);
-        if(at(750, 13)) push_key(SDL_SCANCODE_R, false);
-        if(at(760, 14)) push_key(SDL_SCANCODE_Q, true);
-        if(at(762, 15)) push_key(SDL_SCANCODE_Q, false);
+        if(at(728, 11)) push_button(true);
+        if(at(742, 12)) push_button(false);
+        if(at(748, 13)) push_key(SDL_SCANCODE_R, true);
+        if(at(750, 14)) push_key(SDL_SCANCODE_R, false);
+        if(at(760, 15)) push_key(SDL_SCANCODE_Q, true);
+        if(at(762, 16)) push_key(SDL_SCANCODE_Q, false);
     };
     std::optional<std::string> pending_map;
     int map_switches = 0;
-    while(running) {
-        auto start = std::chrono::steady_clock::now();
-        if(map_cycle_test && scene && frames >= 8 && rendered > 0 && rendered % (frames / 4) == 0 && map_switches < 3 && !pending_map)
-            pending_map = kMaps[(static_cast<std::size_t>(find_map(map) - kMaps) + 1) % 4].id;
-        if(pending_map) {   // in-window map change: new scene, new collision world, player at the new map's spawn
-            const std::string next = *pending_map;
-            pending_map.reset();
-            if(next != map) {
-                player = nullptr; session.reset();
-                load_map(next);
-                renderer.load_scene(*scene);
-                attach_light_volume(renderer);
-                if(walking) { spawn_index = 0; start_session(); player_keys = 0; played = false; }
-                else if(!collision->spawns().empty()) { const auto& sp = collision->spawns()[0]; pose = Pose{"spawn0", sp.x, sp.y, sp.z, sp.a, .05}; }
-                SDL_SetWindowTitle(window, (std::string("Cat Arena: Feral Claw - ") + find_map(map)->title).c_str());
-                ++map_switches;
-                timer.lap();   // loading time is not simulation time
-            }
-        }
-        if(input_selftest && walking) inject(simulation.ticks());
-        if(controls_selftest && walking) controls_step(simulation.ticks());
+    auto poll_events = [&] {
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
             if(event.type == SDL_EVENT_QUIT || event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED) running = false;
@@ -1453,8 +1441,33 @@ int main(int argc, char** argv) {
                 }
             }
         }
+    };
+    while(running) {
+        auto start = std::chrono::steady_clock::now();
+        if(map_cycle_test && scene && frames >= 8 && rendered > 0 && rendered % (frames / 4) == 0 && map_switches < 3 && !pending_map)
+            pending_map = kMaps[(static_cast<std::size_t>(find_map(map) - kMaps) + 1) % 4].id;
+        if(pending_map) {   // in-window map change: new scene, new collision world, player at the new map's spawn
+            const std::string next = *pending_map;
+            pending_map.reset();
+            if(next != map) {
+                player = nullptr; session.reset();
+                load_map(next);
+                renderer.load_scene(*scene);
+                attach_light_volume(renderer);
+                if(walking) { spawn_index = 0; start_session(); player_keys = 0; played = false; }
+                else if(!collision->spawns().empty()) { const auto& sp = collision->spawns()[0]; pose = Pose{"spawn0", sp.x, sp.y, sp.z, sp.a, .05}; }
+                SDL_SetWindowTitle(window, (std::string("Cat Arena: Feral Claw - ") + find_map(map)->title).c_str());
+                ++map_switches;
+                timer.lap();   // loading time is not simulation time
+            }
+        }
+        if(controls_selftest && walking) controls_step(simulation.ticks());
+        poll_events();
         if(!running) break;
         simulation.advance(timer.lap(), [&](double dt) {
+            // Use the normal SDL event path for the fixture, even when one frame runs several ticks.
+            if(input_selftest && walking) { inject(simulation.ticks()); poll_events(); }
+            if(!running) return;
             if(input[cat::Action::pause].pressed) running = false;
             if(!fixed_time) sim_time += dt;
             if(walking && pausing && !captured) {   // N6.5: paused while the mouse is released (no game time passes)
@@ -1468,6 +1481,7 @@ int main(int argc, char** argv) {
                 const double aspect = SDL_GetWindowSizeInPixels(window, &pw, &ph) && pw > 0 && ph > 0 ? double(pw) / double(ph) : 16.0 / 9.0;
                 session->step({player_keys | tapped_keys, 0, 0}, aspect);
                 tapped_keys = 0;
+                selftest_sprinted = selftest_sprinted || player->stance() == cat::physics::Stance::sprint;
                 selftest_slid = selftest_slid || player->stance() == cat::physics::Stance::slide;
                 selftest_crouched = selftest_crouched || player->stance() == cat::physics::Stance::crouch;
                 selftest_captured = selftest_captured || captured;
@@ -1523,10 +1537,10 @@ int main(int argc, char** argv) {
     int selftest_result = 0;
     if(input_selftest && player) {
         const double moved = std::hypot(player->state().x - selftest_x0, player->state().y - selftest_y0), turned = player->state().a - selftest_yaw0;
-        const bool ok = selftest_captured && selftest_motions == 40 && std::abs(turned - 40 * 5 * cat::physics::kLookYaw) < 1e-9 && moved > 3 && player->jumps() >= 1 && selftest_slid && selftest_crouched && session->volleys >= 1 && session->reloads >= 1 && session->swaps == 1;
+        const bool ok = selftest_captured && selftest_motions == 40 && std::abs(turned - 40 * 5 * cat::physics::kLookYaw) < 1e-9 && moved > 3 && player->jumps() >= 1 && selftest_sprinted && selftest_slid && selftest_crouched && session->volleys >= 1 && session->reloads >= 1 && session->swaps == 1;
         cat::log(ok ? "info" : "error", "app", std::string("Input self-test ") + (ok ? "PASS" : "FAIL") + ": relativeMouse=" + (selftest_captured ? "on" : "off") + " mouseEvents=" +
                  std::to_string(selftest_motions) + " yawChange=" + std::to_string(turned) + " (expected 0.6) moved=" + std::to_string(moved) + "m jumps=" + std::to_string(player->jumps()) +
-                 " slid=" + (selftest_slid ? "yes" : "no") + " crouched=" + (selftest_crouched ? "yes" : "no") + " volleys=" + std::to_string(session->volleys) +
+                 " sprinted=" + (selftest_sprinted ? "yes" : "no") + " slid=" + (selftest_slid ? "yes" : "no") + " crouched=" + (selftest_crouched ? "yes" : "no") + " volleys=" + std::to_string(session->volleys) +
                  " reloads=" + std::to_string(session->reloads) + " swaps=" + std::to_string(session->swaps) + " ticks=" + std::to_string(simulation.ticks()));
         selftest_result = ok ? 0 : 3;
     }

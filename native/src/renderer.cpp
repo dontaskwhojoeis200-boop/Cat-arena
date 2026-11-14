@@ -230,6 +230,9 @@ struct Renderer::Impl {
     Buffer frame_ubo, draw_ubo;
     VkDeviceSize draw_stride{};
     Buffer world_vb, world_ib, sky_vb, sky_ib, mat_vb, mat_ib, cloud_vb, cloud_ib;
+    Buffer prop_vb, prop_ib;
+    scene::PropScene map_props;
+    std::vector<scene::PropMotion> prop_motion;
     std::uint32_t world_indices{}, sky_indices{}, cloud_indices{};
     Texture world_tex, lightmap_tex, mat_tex, kit_tex, portal_tex, box_tex;
     VkPipeline skybox_pipeline{};
@@ -560,7 +563,9 @@ struct Renderer::Impl {
         destroy_enemy_pipelines();   // their layout uses set 0 of the scene
         if(enemy_layout) vkDestroyPipelineLayout(device, enemy_layout, nullptr);
         enemy_layout = {};
-        for(Buffer* b : {&frame_ubo, &draw_ubo, &world_vb, &world_ib, &sky_vb, &sky_ib, &mat_vb, &mat_ib, &cloud_vb, &cloud_ib}) destroy(*b);
+        for(Buffer* b : {&frame_ubo, &draw_ubo, &world_vb, &world_ib, &sky_vb, &sky_ib, &mat_vb, &mat_ib, &cloud_vb, &cloud_ib, &prop_vb, &prop_ib}) destroy(*b);
+        map_props = {};
+        prop_motion.clear();
         for(Texture* t : {&world_tex, &lightmap_tex, &mat_tex, &kit_tex, &portal_tex, &box_tex}) destroy(*t);
         if(sampler_repeat) vkDestroySampler(device, sampler_repeat, nullptr);
         if(sampler_clamp) vkDestroySampler(device, sampler_clamp, nullptr);
@@ -1564,6 +1569,13 @@ struct Renderer::Impl {
         sky_vb = vb(s.sky); sky_ib = ib(s.sky); sky_indices = static_cast<std::uint32_t>(s.sky.indices.size());
         mat_vb = vb(s.materials); mat_ib = ib(s.materials);
         cloud_vb = vb(s.clouds); cloud_ib = ib(s.clouds); cloud_indices = static_cast<std::uint32_t>(s.clouds.indices.size());
+        map_props = s.props;
+        if(!map_props.indices.empty()) {
+            prop_motion.resize(map_props.placements.size());
+            prop_vb = make_buffer(map_props.vertex_count * scene::kMaterialVertexStride * sizeof(float), VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
+                                  VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+            prop_ib = device_buffer(map_props.indices.data(), map_props.indices.size() * sizeof(std::uint32_t), VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
+        }
         // Textures
         world_tex = texture(s.world_layers, true, true);
         lightmap_tex = texture({s.lightmap}, false, false);
@@ -1713,6 +1725,7 @@ struct Renderer::Impl {
         d.skyp[0] = float(m.sky_rotate * std::numbers::pi / 180 * time);
         d.skyp[1] = float(m.sky.cloud_height);
         d.skyp[2] = float(std::fmod(time, 1000.0));
+        d.skyp[3] = m.md3 ? 1.0F : 0.0F;
         for(std::size_t k = 0; k < p.stages.size(); ++k) {
             const auto si = p.stages[k];
             const auto& st = m.stages[si];
@@ -1720,6 +1733,7 @@ struct Renderer::Impl {
             auto src = static_cast<std::int32_t>(st.source);
             if(ft.debug_view == 2 && (st.source == scene::Source::lightmap || st.source == scene::Source::vertex_light)) src = 2;   // r_fullbright
             o.a[0] = src; o.a[1] = static_cast<std::int32_t>(st.tcgen); o.a[2] = scene::rgb_code(st.rgb); o.a[3] = scene::alpha_code(st.alpha);
+            if(m.md3 && st.rgb == scene::RgbGen::entity) o.a[2] = scene::rgb_code(scene::RgbGen::vertex);
             o.b[0] = st.has_blend ? st.blend_src : 1; o.b[1] = st.has_blend ? st.blend_dst : 0;
             o.b[2] = static_cast<std::int32_t>(st.alpha_func); o.b[3] = st.clamp ? 1 : 0;
             const auto c = scene::stage_color(st, time);
@@ -1823,6 +1837,20 @@ struct Renderer::Impl {
             vkCmdBindIndexBuffer(cb, cloud_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
             draw_material(cb, sky_material, {{0, cloud_indices}});
         }
+        if(ft.materials && prop_vb.buffer) {
+            vkCmdBindVertexBuffers(cb, 0, 1, &prop_vb.buffer, &zero);
+            vkCmdBindIndexBuffer(cb, prop_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
+            for(const auto& prop : map_props.placements) {
+                const auto& p = prop.position;
+                if(ft.culling && !scene::in_view(v.camera, p[0], p[1], p[2] + 1, prop.radius)) continue;
+                for(const auto& part : prop.parts) for(const auto& draw : part.draws) {
+                    const auto before = stats.draw_calls;
+                    draw_material(cb, draw.material, {{draw.first, draw.count}});
+                    stats.prop_draws += stats.draw_calls - before;
+                    stats.prop_triangles += draw.count / 3;
+                }
+            }
+        }
         if(ft.materials && ft.translucent) {   // translucentOrder: sort ascending, then farthest first
             std::vector<std::pair<double, std::uint32_t>> order;
             for(auto i : visible) {
@@ -1861,6 +1889,10 @@ struct Renderer::Impl {
         const bool scene_frame = view && scene_loaded;
         if(scene_frame) {
             write_frame(*view);
+            if(view->features.materials && prop_vb.mapped) {
+                scene::animate_props(map_props, prop_motion, {static_cast<float*>(prop_vb.mapped), map_props.vertex_count * scene::kMaterialVertexStride},
+                                     view->time, view->player_position ? &*view->player_position : nullptr);
+            }
             for(std::size_t i = 0; i < materials.size(); ++i)
                 for(const auto& p : gpu_materials[i].passes) write_pass(materials[i], bindings[i], p, view->time, i == sky_material, view->features, &p == &gpu_materials[i].passes.front());
         }

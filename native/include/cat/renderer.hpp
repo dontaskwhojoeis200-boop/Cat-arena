@@ -9,6 +9,7 @@
 #include "cat/vulkan_caps.hpp"
 #include <cstdint>
 #include <memory>
+#include <optional>
 #include <string>
 #include <utility>
 #include <vector>
@@ -34,6 +35,7 @@ struct FrameView {
     // opaque materials. Empty = the static N2-N4 lighting, bit for bit.
     const DynamicLight* lights{};
     std::size_t light_count{};
+    std::optional<scene::V3> player_position;   // absent in map previews and free-camera captures
 };
 // ---- N5 overlay: effects, first-person weapon, HUD. Plain data so the renderer does not depend on
 // the gameplay/effect libraries; cat::fx fills it (see main.cpp).
@@ -83,6 +85,7 @@ struct RenderStats {
     std::uint32_t overlay_draws{}, effect_quads{}, hud_triangles{}, dynamic_lights{};
     std::uint32_t enemy_draws{}, enemy_instances{};
     std::uint32_t ui_triangles{};
+    std::uint32_t prop_draws{}, prop_triangles{};
     double gpu_ms{-1};                 // N7: GPU time of the previous frame from timestamp queries; < 0 = not available
     std::uint64_t tracked_bytes{};     // N7: device memory this renderer allocated (exact sum of its vkAllocateMemory sizes)
 };
@@ -107,7 +110,7 @@ class Renderer {
     std::unique_ptr<Impl> impl_;
 public:
     // `request` limits the Vulkan path (default: highest path the device supports, up to 1.4).
-    // vk::Request::baseline() forces the mandatory Vulkan 1.2 path. A device below 1.2 throws.
+    // vk::Request::baseline() forces the Vulkan 1.1 compatibility path.
     Renderer(SDL_Window*, const Settings&, std::filesystem::path shader_dir, const vk::Request& request = {});
     Renderer(std::uint32_t width, std::uint32_t height, const Settings&, std::filesystem::path shader_dir, const vk::Request& request = {});
     ~Renderer();

@@ -19,7 +19,7 @@ layout(set = 1, binding = 0, std140) uniform Draw {
     ivec4 dType;  // deform types (1 wave, 2 bulge, 3 move, 4 normal)
     vec4 dA[3];
     vec4 dB[3];
-    vec4 skyp;    // x sky rotation, y cloud height, z material time (frame.time % 1000), w unused
+    vec4 skyp;    // x sky rotation, y cloud height, z material time (frame.time % 1000), w MD3 prop
     StageData st[8];
 } D;
 const float Q3U = 32.0;

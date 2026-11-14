@@ -94,6 +94,18 @@ int main(int argc, char** argv) {
 
         const auto later = render(preview, 12.5);
         std::cout << "INFO material animation: t=10 vs t=12.5 differ in " << differing(full, later) << " pixels\n";
+        auto arsenal = scene::load_map_scene(argv[2], "q3-gallery", options);
+        RenderFeatures props_only;
+        props_only.world = props_only.sky = props_only.culling = false;
+        arsenal.clusters.clear();
+        renderer->load_scene(arsenal);
+        const auto flag = scene::legacy_camera(82.8, 77.5, 6.4, 1.57079632679, 0, 85, aspect);
+        const auto flag_initial = render(flag, 0, props_only);
+        check(renderer->stats().prop_triangles == 502 && renderer->stats().prop_draws >= 7, "all Arsenal prop parts submitted");
+        check(differing(flag_initial, render(flag, .125, props_only)) > 0, "flag animation changes rendered pixels");
+        props_only.materials = false;
+        check(differing(flag_initial, render(flag, 0, props_only)) > 0, "Arsenal prop geometry reaches the framebuffer");
+        std::cout << "PASS Arsenal: visible animated MD3 props on the native material path\n";
         check(renderer->validation_errors() == 0, "validation errors: " + std::to_string(renderer->validation_errors()));
         std::cout << "PASS validation: " << renderer->validation_errors() << " errors, " << renderer->validation_warnings() << " warnings (layer "
                   << (dev.validation ? "active" : "NOT installed") << ")\n";
