@@ -6,7 +6,7 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 
 | Feature | Native status | Evidence / remaining |
 |---|---|---|
-| Four maps: geometry, materials, lightmaps, skies | **N4**: Bastion Keep, Reactor Bastion match the legacy (44-64 dB); The Arsenal matches with its image sky box (48 dB) | The Arsenal's 3 MD3 models and portal/mirror surfaces not drawn |
+| Four maps: geometry, materials, lightmaps, skies | **N4**: Bastion Keep, Reactor Bastion match the legacy (44-64 dB); The Arsenal matches with its image sky box (48 dB) | N10 restores the original animated flag and two turrets. Live feeds remain open. |
 | Collision on every map | **N4**: legacy trajectories match on all four maps (62,780 ticks in total) | — |
 | Stacked navigation (graph, A*, smoothing) | **N4**: identical to the legacy on all four maps; **N6**: sliced route jobs, queue, shared routes match the legacy tapes | Route budget: 110 expansions only (legacy also cuts at 1.8 ms wall time, see N6_ENEMIES.md §3) |
 | Rooms / sectors | **N4**: region lookup from baked data | Not used for culling; no legacy reference |
@@ -21,7 +21,8 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Depth/projection/winding/culling | Ported; winding verified by normals test | — |
 | Lightmap | Shipped atlas, exact bytes, legacy sampling/filtering | Vertex-light mode (lightQuality 0) and light-volume mode not exposed |
 | Portal monitor (`$portalfeed`) | Drawn with black feed + scanlines | Live portal camera N10 |
-| Mirrors / MD3 models / PVS / flares | Not implemented | N10; effects, marks and dynamic lights are done (N5, N5.1) |
+| Arsenal MD3 props | N10 renders the three authored placements with interpolated vertex and tag frames, baked ambient light and original materials | Original model files and transforms; turret idle phase is deterministic |
+| Mirrors / PVS / flares | Open | Effects, marks and dynamic lights are implemented (N5, N5.1) |
 | Player movement (walk, sprint, crouch, slide, jump, buffer/coyote, air strafe, slopes) | **N3: matches legacy trajectories** on Helios (21,820 ticks, worst difference 1.8e-15); **N7: sprint hold / toggle / auto, touch stick (legacy touchStick term)** | Touch stick not compared with a legacy tape |
 | Stacked floors/ramps/cavities/deck undersides, steps, walls | **N3: collision ported**, contact counters equal to legacy | Other maps: loads + sanity test only, reference N4 |
 | Jump pads | **N3: matches legacy** (2 pads) | — |

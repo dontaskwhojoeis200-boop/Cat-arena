@@ -1,0 +1,51 @@
+{
+  "map": "q3-gallery",
+  "device": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "deviceType": "cpu",
+  "api": "1.4.305",
+  "loaderApi": "1.4.309",
+  "colorFormat": "R8G8B8A8_UNORM",
+  "depthFormat": "D32_SFLOAT",
+  "anisotropy": 4,
+  "validationLayer": true,
+  "pipelines": 11,
+  "vulkan": {
+    "baselineApi": "1.1",
+    "device": "llvmpipe (LLVM 19.1.7, 256 bits)",
+    "deviceType": "cpu",
+    "driver": "",
+    "driverInfo": "",
+    "deviceApi": "1.4.305",
+    "loaderApi": "1.4.309",
+    "instanceApi": "1.1",
+    "negotiatedApi": "1.1",
+    "path": "vulkan-1.1-baseline",
+    "features": {
+      "dynamic_rendering": {"selected": "unavailable", "extension": "VK_KHR_dynamic_rendering", "extensionAdvertised": true, "coreBit": false, "extensionBit": false, "fallback": "VkRenderPass + one framebuffer per target image"},
+      "synchronization2": {"selected": "unavailable", "extension": "VK_KHR_synchronization2", "extensionAdvertised": true, "coreBit": false, "extensionBit": false, "fallback": "vkCmdPipelineBarrier + vkQueueSubmit"},
+      "extended_dynamic_state": {"selected": "unavailable", "extension": "VK_EXT_extended_dynamic_state", "extensionAdvertised": true, "coreBit": false, "extensionBit": false, "fallback": "one static pipeline per cull/depth-write/depth-compare combination"},
+      "push_descriptor": {"selected": "unavailable", "extension": "VK_KHR_push_descriptor", "extensionAdvertised": true, "coreBit": false, "extensionBit": false, "fallback": "allocated descriptor set with a dynamic uniform-buffer offset"},
+      "host_image_copy": {"selected": "unavailable", "extension": "VK_EXT_host_image_copy", "extensionAdvertised": true, "coreBit": false, "extensionBit": false, "fallback": "staging buffer + vkCmdCopyBufferToImage"}
+    },
+    "hostImageCopyChecks": {"format": false, "layout": false, "optimalDeviceAccess": false},
+    "deviceExtensionsAdvertised": 153,
+    "enabledExtensions": [],
+    "selection": [
+      "dynamic_rendering: unavailable (Vulkan 1.1 uses the baseline path); fallback: VkRenderPass + one framebuffer per target image",
+      "synchronization2: unavailable (Vulkan 1.1 uses the baseline path); fallback: vkCmdPipelineBarrier + vkQueueSubmit",
+      "extended_dynamic_state: unavailable (Vulkan 1.1 uses the baseline path); fallback: one static pipeline per cull/depth-write/depth-compare combination",
+      "push_descriptor: unavailable (Vulkan 1.1 uses the baseline path); fallback: allocated descriptor set with a dynamic uniform-buffer offset",
+      "host_image_copy: unavailable (Vulkan 1.1 uses the baseline path); fallback: staging buffer + vkCmdCopyBufferToImage"
+    ],
+    "objects": {"renderPasses": 1, "framebuffers": 1, "pipelines": 11, "materialPipelines": 7, "descriptorSets": 2, "stagingTextureBytes": 19357640, "hostCopyTextureBytes": 0},
+    "anisotropy": 4, "colorFormat": "R8G8B8A8_UNORM", "depthFormat": "D32_SFLOAT"
+  },
+  "extent": [960, 540],
+  "fov": 105,
+  "time": 0.125,
+  "frames": [
+    {"name": "camera", "file": "flag-baseline.png", "pose": [82.8, 77.5, 6.4, 1.5708, 0], "drawCalls": 6, "materialPasses": 4, "visibleClusters": 1, "culledClusters": 78, "propDraws": 1, "propTriangles": 90, "meanLuma": 45.12, "clearColorFraction": 0.0000}
+  ],
+  "validationWarnings": 0,
+  "validationErrors": 0
+}

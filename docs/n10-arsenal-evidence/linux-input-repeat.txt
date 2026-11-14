@@ -1,0 +1,5 @@
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=15.139304m jumps=1 sprinted=yes slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=800"
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=14.845542m jumps=1 sprinted=yes slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=805"
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=15.080420m jumps=1 sprinted=yes slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=801"
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=15.080420m jumps=1 sprinted=yes slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=801"
+level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=14.904161m jumps=1 sprinted=yes slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=804"

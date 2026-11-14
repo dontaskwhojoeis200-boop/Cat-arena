@@ -29,6 +29,11 @@ forward. See [N9](README_N9.md) for platform options and
 - Effects detail, marks, brass, blood, gibs and rail trail duration now apply
   during play. The normal preset retains the existing settings.
 
+- The Arsenal renders the original animated flag and two tag-attached turrets.
+  The turrets turn toward the player and cycle their barrel animation in range.
+- The SDL input self-test schedules its events on simulation ticks and checks
+  sprint, slide, jump and crouch during the intended traversal sequence.
+
 ## Build
 
 On Windows x64, with Visual Studio 2022 C++ Build Tools, the Windows SDK,
@@ -51,8 +56,7 @@ separate.
 ## Acceptance still open
 
 Physical Windows gameplay, live relay over the internet, and the GTX 660
-driver still need validation. The older mirror and portal feeds, Arsenal MD3
-props and some rendering controls remain listed in
+driver still need validation. The live mirror and portal feeds and some rendering controls remain listed in
 [FEATURE_PARITY.md](docs/FEATURE_PARITY.md). N11's performance baseline and
 the 480 MiB acceptance measurement remain open.
 

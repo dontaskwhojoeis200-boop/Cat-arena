@@ -77,3 +77,31 @@ SDL_VIDEODRIVER=offscreen SDL_AUDIODRIVER=dummy \
 Linux testing used Mesa llvmpipe with LLVM 19.1.7 and Vulkan loader 1.4.309.
 The original relay compatibility test requires Node.js and the `ws` module
 via the `CAT_NODE_WS_DIR` CMake option.
+
+## Arsenal and input follow-up
+
+Code revision `9a7979895667814c9842e4cf98995080da5b9186` loads the three original
+Arsenal placements. The flag, two turret bases, two heads and two barrels total
+502 submitted triangles before material passes. Instances share four MD3 files.
+The native path interpolates vertices and attachment tags, samples baked ambient
+light and uses the original multistage materials. Turret idle phases are
+deterministic and tracking uses the local player's position in gameplay.
+
+Linux passed 41 GPU-free checks and 30 software-Vulkan checks. The tests verify
+asset decoding, winding, tag attachment, turret tracking, and a change in
+rendered pixels during flag animation. A 960×540 flag capture was byte-identical
+on Vulkan 1.1 and the automatic Vulkan 1.4 path. Both runs had zero validation
+warnings and errors. The source archive contains the capture and test logs in
+`docs/n10-arsenal-evidence`.
+
+The SDL input fixture now delivers scheduled SDL events at simulation ticks.
+Its revised sequence exercises sprint, slide, jump, crouch, fire, reload and swap.
+
+[Windows run 43543747717](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43543747717)
+compiled and packaged Windows x64, passed all 42 GPU-free checks and ran the
+packaged headless test with exit code 0. The runner reports a missing Vulkan
+loader, as expected for that environment. Physical Windows GPU play remains open.
+
+Windows artifact `14093536125`, SHA-256
+`d72a9f9461b2ee6640d803c4da8131c7de3884a127cb6983a43eeb81105a4c89`.
+The downloaded ZIP passed decompression and package validation.
