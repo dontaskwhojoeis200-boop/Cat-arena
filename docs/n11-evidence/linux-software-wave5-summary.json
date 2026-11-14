@@ -1,0 +1,28 @@
+[
+  {
+    "segment": 1,
+    "map": "reactor-bastion",
+    "mode": "host",
+    "width": 1280,
+    "height": 720,
+    "present_mode": "FIFO",
+    "warmup_seconds": 0,
+    "measured_seconds": 7.826042394,
+    "frame_intervals": 373,
+    "average_fps": 47.661382499789205,
+    "low_1_percent_fps": 28.01851303635918,
+    "low_0_1_percent_fps": null,
+    "cpu_mean_ms": 1.3629542868632707,
+    "gpu_mean_ms": 19.149812002688172,
+    "gpu_samples": 372,
+    "frames_over_25_ms": 33,
+    "mean_draw_calls": 12.13941018766756,
+    "mean_submitted_triangles": 30397.2654155496,
+    "peak_active_enemies": 20,
+    "peak_vulkan_allocated_bytes": 109093528,
+    "peak_sampled_working_set_bytes": 368508928,
+    "process_lifetime_peak_working_set_bytes": 428318720,
+    "peak_sampled_private_commit_bytes": null,
+    "process_memory_samples": 30
+  }
+]
