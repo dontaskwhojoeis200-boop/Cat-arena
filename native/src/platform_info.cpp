@@ -23,9 +23,15 @@ namespace cat {
 ProcessMemory process_memory() {
     ProcessMemory m;
 #ifdef _WIN32
-    PROCESS_MEMORY_COUNTERS c{};
+    PROCESS_MEMORY_COUNTERS_EX c{};
     c.cb = sizeof c;
-    if(K32GetProcessMemoryInfo(GetCurrentProcess(), &c, sizeof c)) { m.current = c.WorkingSetSize; m.peak = c.PeakWorkingSetSize; m.ok = true; }
+    if(K32GetProcessMemoryInfo(GetCurrentProcess(), reinterpret_cast<PROCESS_MEMORY_COUNTERS*>(&c), sizeof c)) {
+        m.current = c.WorkingSetSize;
+        m.peak = c.PeakWorkingSetSize;
+        m.ok = true;
+        m.private_commit = c.PrivateUsage;
+        m.private_commit_ok = true;
+    }
 #else
     std::ifstream in("/proc/self/status");   // Linux and Android
     std::string key;

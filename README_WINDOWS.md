@@ -1,4 +1,4 @@
-CAT ARENA: FERAL CLAW — native Windows build (milestone N10)
+CAT ARENA: FERAL CLAW — native Windows baseline candidate (N11)
 =========================================================
 
 A native C++20 / Vulkan game (no browser, no JavaScript runtime). This folder holds everything the
@@ -107,10 +107,18 @@ Known limitations of this build
 - Some settings are kept and saved but do not change the picture yet (they say so on the settings
   page): scene resolution, multisample / FXAA anti-aliasing, adaptive resolution, the three world
   culling modes, texture quality and filtering, lightmap filter, curve detail, mirrors (milestone N10).
-- Mirrors / portal views, detailed prop models and some lens effects of the original are not drawn yet.
+- The Arsenal uses the original animated flag and turret props. Live mirror and portal feeds and
+  some lens effects remain open.
 - If Windows has no sound device the game runs silent and the menus say so.
 - This Windows build is produced by the GitHub Actions workflow in the source package, which also
   runs the game's GPU-free tests on Windows (including the replays of recordings of the original
   game). The runner has no graphics card, so the game has not yet been played on Windows hardware by
   the developers. Please report what you see (and attach CatArena.log).
 - Third-party licences: THIRD_PARTY_LICENSES.txt.
+
+Gameplay measurements
+---------------------
+Start the executable with --benchmark-csv run.csv. Play a match and exit from the menu to save the
+recording. Use a separate file for each run. CSV fields include submitted frame intervals, CPU and
+GPU timing, draw calls, submitted triangles, working set, private commit and tracked Vulkan
+allocation bytes. The last three measure different things and should not be added together.

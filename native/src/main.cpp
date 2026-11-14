@@ -69,6 +69,7 @@
 //                                  fails (exit 3) unless every step took effect
 //   --offscreen 1280x720 --ui-capture <dir> [--touch]
 //                                  writes every menu page, the settings tabs and the in-game HUD as PNG files
+//   --benchmark-csv <file>         capture gameplay frames and sampled memory until the game closes
 #include "cat/app_controls.hpp"
 #include "cat/audio.hpp"
 #include "cat/audio_device.hpp"
@@ -682,7 +683,8 @@ int main(int argc, char** argv) {
         return run_relay_server(bind, port);
     }
     cat::Settings settings; std::optional<int> cap; bool no_vsync = false, no_validation = false, triangle = false;
-    int frames = 0, warmup = 1; std::optional<std::filesystem::path> config, shaders, assets, capture, capture_set, capture_dir, report;
+    int frames = 0, warmup = 1;
+    std::optional<std::filesystem::path> config, shaders, assets, capture, capture_set, capture_dir, report, benchmark_csv;
     std::string map = "helios-crucible";
     std::optional<std::pair<std::uint32_t, std::uint32_t>> offscreen;
     Pose pose = kHeliosPreview; double fov = cat::scene::kDefaultFov, time = 0; bool fixed_time = false;
@@ -722,6 +724,7 @@ int main(int argc, char** argv) {
         else if(arg == "--capture-set") capture_set = cat::utf8_path(value());
         else if(arg == "--capture-dir") capture_dir = cat::utf8_path(value());
         else if(arg == "--report") report = cat::utf8_path(value());
+        else if(arg == "--benchmark-csv") benchmark_csv = cat::utf8_path(value());
         else if(arg == "--vk-info") vk_info = true;
         else if(arg == "--fly") fly = true;
         else if(arg == "--input-selftest") input_selftest = true;
@@ -797,6 +800,7 @@ int main(int argc, char** argv) {
     // N7: a run started by hand opens the menus (and so does the menu self-test); the automation options
     // (--frames, self-tests, captures) keep the N6.5 shell, which plays at once with the N5 HUD.
     const bool menus = (interactive || menu_selftest || coop_selftest) && !triangle && !fly;
+    if(benchmark_csv && !menus) throw std::runtime_error("--benchmark-csv requires the game window with menus");
     g_error_dialog = interactive;
     // --controls-selftest drives the interactive controls (pause, resume, F11, F5, Esc twice) with synthetic SDL events.
     const bool pausing = interactive || controls_selftest;

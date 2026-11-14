@@ -4,6 +4,11 @@
 #include <cstdint>
 
 namespace cat {
-struct ProcessMemory { std::uint64_t current{}, peak{}; bool ok{}; };   // bytes: resident / working set and its peak
+struct ProcessMemory {
+    std::uint64_t current{}, peak{};   // bytes: resident / working set and its peak
+    bool ok{};
+    std::uint64_t private_commit{};
+    bool private_commit_ok{};
+};
 ProcessMemory process_memory();
 }  // namespace cat

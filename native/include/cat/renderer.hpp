@@ -86,6 +86,8 @@ struct RenderStats {
     std::uint32_t enemy_draws{}, enemy_instances{};
     std::uint32_t ui_triangles{};
     std::uint32_t prop_draws{}, prop_triangles{};
+    std::uint64_t submitted_triangles{};   // all passes and instances, including UI
+    double record_cpu_ms{};           // CPU command preparation and recording, after acquire
     double gpu_ms{-1};                 // N7: GPU time of the previous frame from timestamp queries; < 0 = not available
     std::uint64_t tracked_bytes{};     // N7: device memory this renderer allocated (exact sum of its vkAllocateMemory sizes)
 };
@@ -132,6 +134,8 @@ public:
     bool ui_loaded() const;
     void set_present_mode(bool vsync);                     // N7: recreates the swapchain (FIFO vs mailbox / immediate)
     bool timestamps_supported() const;
+    std::uint64_t frames_submitted() const;
+    const char* present_mode_name() const;
     void draw(const FrameView&, const Overlay&);
     void draw_ui(const Overlay&);  // N7: only the overlay's UI vertices over a dark clear (menus that cover the screen)
     scene::Image capture();        // offscreen target only: pixels of the last frame (RGBA, top row first)

@@ -77,6 +77,22 @@
     std::optional<SDL_FingerID> menu_finger;
     std::vector<cat::ui::HudElement> hud_elements;
     double pointer_x = -1, pointer_y = -1;
+    std::ofstream benchmark;
+    std::optional<std::chrono::steady_clock::time_point> previous_submission;
+    std::chrono::steady_clock::time_point next_memory_sample{};
+    std::uint64_t benchmark_segment = 0;
+    std::string benchmark_map;
+    std::pair<std::uint32_t, std::uint32_t> benchmark_extent{};
+    cat::net::Coop::Mode benchmark_mode{};
+    std::string_view benchmark_present;
+    double benchmark_time{};
+    if(benchmark_csv) {
+        benchmark.open(*benchmark_csv, std::ios::out | std::ios::trunc);
+        if(!benchmark) throw std::runtime_error("Cannot open gameplay benchmark CSV");
+        benchmark << "segment,map,mode,width,height,present_mode,tick,frame_ms,cpu_ms,previous_gpu_ms,draw_calls,submitted_triangles,enemies,"
+                     "vulkan_allocated_bytes,working_set_bytes,peak_working_set_bytes,private_commit_bytes\n";
+        benchmark << std::fixed << std::setprecision(6);
+    }
     // ---- settings applied to the renderer, the session and the mixer
     bool vsync_now = settings.vsync; int frame_cap = settings.frame_cap; int applied = 0;
     auto apply_settings = [&] {
@@ -877,9 +893,53 @@
                 menu.build(canvas, f);
             }
             attach_ui(o, canvas);
+            const bool benchmark_playing = benchmark_csv && session && !load.active && !menu.active() &&
+                                           (focused || menu_selftest || coop_selftest);
+            const auto submission_before = benchmark_playing ? renderer.frames_submitted() : 0;
+            const auto draw_start = benchmark_playing ? std::chrono::steady_clock::now() : frame_start;
             if(view) renderer.draw(*view, o); else renderer.draw_ui(o);
+            if(benchmark_playing && renderer.frames_submitted() != submission_before) {
+                const auto now = std::chrono::steady_clock::now();
+                const auto ms = [](auto duration) { return std::chrono::duration<double, std::milli>(duration).count(); };
+                const auto extent = renderer.extent();
+                const auto mode = coop.mode();
+                const std::string_view presentation = renderer.present_mode_name();
+                const double arena_time = session->arena.now();
+                if(benchmark_map != map || benchmark_extent != extent || benchmark_mode != mode || benchmark_present != presentation ||
+                   arena_time < benchmark_time)
+                    previous_submission.reset();
+                if(!previous_submission) {
+                    ++benchmark_segment;
+                    next_memory_sample = now;
+                    benchmark_map = map;
+                    benchmark_extent = extent;
+                    benchmark_mode = mode;
+                    benchmark_present = presentation;
+                }
+                benchmark_time = arena_time;
+                const auto st = renderer.stats();
+                benchmark << benchmark_segment << ',' << map << ',' << (mode == cat::net::Coop::Mode::host ? "host" :
+                    mode == cat::net::Coop::Mode::guest ? "guest" : "solo") << ',' << extent.first << ',' << extent.second
+                    << ',' << presentation << ',' << std::llround(arena_time * cat::FixedClock::hz) << ',';
+                if(previous_submission) benchmark << ms(now - *previous_submission);
+                benchmark << ',' << ms(draw_start - frame_start) + st.record_cpu_ms << ',';
+                if(previous_submission && st.gpu_ms >= 0) benchmark << st.gpu_ms;
+                benchmark << ',' << st.draw_calls << ',' << st.submitted_triangles << ',' << session->arena.targets().size() << ',' << st.tracked_bytes;
+                if(now >= next_memory_sample) {
+                    const auto mem = cat::process_memory();
+                    benchmark << ',';
+                    if(mem.ok) benchmark << mem.current;
+                    benchmark << ',';
+                    if(mem.ok) benchmark << mem.peak;
+                    benchmark << ',';
+                    if(mem.private_commit_ok) benchmark << mem.private_commit;
+                    next_memory_sample = now + std::chrono::milliseconds(250);
+                } else benchmark << ",,,";
+                benchmark << '\n';
+                previous_submission = now;
+            } else previous_submission.reset();
             ++rendered;
-        }
+        } else previous_submission.reset();
         perf.frame(std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - t_start).count(), cpu_ms);
         if(coop_selftest && rendered > 9000) { ct.failure = "timed out at stage " + std::to_string(ct.stage); running = false; }
         if(menu_selftest && rendered > 6000) { mt.failure = "timed out at stage " + std::to_string(mt.stage); running = false; }
@@ -887,6 +947,10 @@
         else if(frame_cap > 0) std::this_thread::sleep_until(frame_start + std::chrono::nanoseconds(1'000'000'000 / frame_cap));
     }
     if(relative_on) SDL_SetWindowRelativeMouseMode(window, false);
+    if(benchmark_csv) {
+        benchmark.close();
+        if(!benchmark) throw std::runtime_error("Could not finish writing the gameplay benchmark CSV");
+    }
     if(text_input_on) SDL_StopTextInput(window);
     detach_coop(); leave_server();
     if(local_relay) { std::this_thread::sleep_for(std::chrono::milliseconds(100)); local_relay->stop(); local_relay.reset(); }

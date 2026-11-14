@@ -200,6 +200,7 @@ struct Renderer::Impl {
     std::uint64_t tracked_bytes{};
     VkQueryPool timestamps{};
     bool timestamps_written{};
+    std::uint64_t submitted_frames{};
     double last_gpu_ms{-1};
     Texture ui_tex; VkSampler sampler_ui{}; VkDescriptorSetLayout ui_set_layout{}; VkDescriptorPool ui_pool{}; VkDescriptorSet ui_set{};
     VkPipelineLayout ui_layout{}; VkPipeline ui_pipeline{}; Buffer ui_vb; bool ui_ready{};
@@ -1176,6 +1177,7 @@ struct Renderer::Impl {
             p.mode[0] = static_cast<float>(static_cast<int>(batch.pass)); p.mode[1] = o.shadow_dir[0]; p.mode[2] = o.shadow_dir[1]; p.mode[3] = o.light_grid ? 1.0F : 0.0F;
             vkCmdPushConstants(cb, enemy_layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(p), &p);
             vkCmdDraw(cb, enemy_vertex_count[m], static_cast<std::uint32_t>(n), 0, 0);
+            stats.submitted_triangles += std::uint64_t(enemy_vertex_count[m] / 3) * n;
             ++stats.draw_calls; ++stats.overlay_draws; ++stats.enemy_draws; stats.enemy_instances += static_cast<std::uint32_t>(n);
             at += n;
         }
@@ -1255,6 +1257,7 @@ struct Renderer::Impl {
         vkCmdBindVertexBuffers(cb, 0, 1, &ui_vb.buffer, &zero);
         vkCmdDraw(cb, static_cast<std::uint32_t>(n), 1, 0, 0); ++stats.draw_calls; ++stats.overlay_draws;
         stats.ui_triangles = static_cast<std::uint32_t>(n / 3);
+        stats.submitted_triangles += stats.ui_triangles;
     }
     void load_overlay(const OverlayAssets& a) {
         check(vkDeviceWaitIdle(device), "overlay idle");
@@ -1355,6 +1358,7 @@ struct Renderer::Impl {
             vkCmdBindIndexBuffer(cb, fx_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
             push(fx_layout, c, fog_on, last_fog, last_fog[3]);
             vkCmdDrawIndexed(cb, r.count, 1, r.first_index, r.base_vertex, 0); ++stats.draw_calls; ++stats.overlay_draws;
+            stats.submitted_triangles += r.count / 3;
         };
         if(o.atlas && o.atlas_vertices && dynamic_pipeline) {   // legacy order: dynamic geometry before marks and effects
             const std::size_t n = std::min(o.atlas_vertices, kAtlasMaxVertices) / 3 * 3;
@@ -1363,6 +1367,7 @@ struct Renderer::Impl {
             vkCmdBindDescriptorSets(cb, VK_PIPELINE_BIND_POINT_GRAPHICS, scene_layout, 0, 1, &set0, 0, nullptr);
             vkCmdBindVertexBuffers(cb, 0, 1, &atlas_vb.buffer, &zero);
             vkCmdDraw(cb, static_cast<std::uint32_t>(n), 1, 0, 0); ++stats.draw_calls; ++stats.overlay_draws;
+            stats.submitted_triangles += n / 3;
         }
         if(o.solid && o.solid_vertices) {
             const std::size_t n = std::min(o.solid_vertices, kSolidMaxVertices) / 3 * 3;
@@ -1372,6 +1377,7 @@ struct Renderer::Impl {
             const float none[3]{};
             push(solid_layout, o.camera, 0, none, 0);
             vkCmdDraw(cb, static_cast<std::uint32_t>(n), 1, 0, 0); ++stats.draw_calls; ++stats.overlay_draws;
+            stats.submitted_triangles += n / 3;
         }
         draw_batch(fx_mark_pipeline, mark, o.camera, 1);
         draw_batch(fx_pipeline, main, o.camera, 1);
@@ -1387,6 +1393,7 @@ struct Renderer::Impl {
             vkCmdBindVertexBuffers(cb, 0, 1, &gun_vb[g].buffer, &zero);
             push(gun_layout, o.gun_camera, 0, o.gun_glow, 0);
             vkCmdDraw(cb, gun_vertex_count[g], 1, 0, 0); ++stats.draw_calls; ++stats.overlay_draws;
+            stats.submitted_triangles += gun_vertex_count[g] / 3;
             draw_batch(fx_gun_pipeline, flash, o.gun_camera, 0);
         }
         if(o.hud && o.hud_vertices) {
@@ -1396,6 +1403,7 @@ struct Renderer::Impl {
             vkCmdBindVertexBuffers(cb, 0, 1, &hud_vb.buffer, &zero);
             vkCmdDraw(cb, static_cast<std::uint32_t>(n), 1, 0, 0); ++stats.draw_calls; ++stats.overlay_draws;
             stats.hud_triangles = static_cast<std::uint32_t>(n / 3);
+            stats.submitted_triangles += stats.hud_triangles;
         }
     }
 
@@ -1774,7 +1782,7 @@ struct Renderer::Impl {
                 vkCmdBindDescriptorSets(cb, VK_PIPELINE_BIND_POINT_GRAPHICS, scene_layout, 1, 1, &set1, 1, &offset);
             }
             ++stats.material_passes;
-            for(const auto& [first, count] : ranges) { vkCmdDrawIndexed(cb, count, 1, first, 0, 0); ++stats.draw_calls; }
+            for(const auto& [first, count] : ranges) { vkCmdDrawIndexed(cb, count, 1, first, 0, 0); ++stats.draw_calls; stats.submitted_triangles += count / 3; }
         }
     }
 
@@ -1787,6 +1795,7 @@ struct Renderer::Impl {
             vkCmdBindVertexBuffers(cb, 0, 1, &sky_vb.buffer, &zero);
             vkCmdBindIndexBuffer(cb, sky_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
             vkCmdDrawIndexed(cb, sky_indices, 1, 0, 0, 0); ++stats.draw_calls;
+            stats.submitted_triangles += sky_indices / 3;
             VkClearAttachment clear{VK_IMAGE_ASPECT_DEPTH_BIT, 0, {}};
             clear.clearValue.depthStencil = {1.0F, 0};
             VkClearRect rect{{{0, 0}, extent}, 0, 1};
@@ -1797,6 +1806,7 @@ struct Renderer::Impl {
             vkCmdBindVertexBuffers(cb, 0, 1, &world_vb.buffer, &zero);
             vkCmdBindIndexBuffer(cb, world_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
             vkCmdDrawIndexed(cb, world_indices, 1, 0, 0, 0); ++stats.draw_calls;
+            stats.submitted_triangles += world_indices / 3;
         }
         // Visible static clusters (legacy q3ClusterVisibleMain without PVS: inView only).
         std::vector<std::uint32_t> visible;
@@ -1831,6 +1841,7 @@ struct Renderer::Impl {
         if(ft.sky && has_sky_box) {   // Q3MAT.drawSky: image box behind everything (LEQUAL, no depth write), then the cloud stages
             vkCmdBindPipeline(cb, VK_PIPELINE_BIND_POINT_GRAPHICS, skybox_pipeline);
             vkCmdDraw(cb, 3, 1, 0, 0); ++stats.draw_calls;
+            ++stats.submitted_triangles;
         }
         if(ft.clouds && ft.sky) {   // Q3MAT.drawSky cloud stages on the dome, depth LEQUAL at the far plane
             vkCmdBindVertexBuffers(cb, 0, 1, &cloud_vb.buffer, &zero);
@@ -1885,6 +1896,7 @@ struct Renderer::Impl {
             if(result != VK_SUBOPTIMAL_KHR) check(result, "acquire");
             suboptimal = result == VK_SUBOPTIMAL_KHR;
         }
+        const auto record_start = std::chrono::steady_clock::now();
         stats = {};
         const bool scene_frame = view && scene_loaded;
         if(scene_frame) {
@@ -1940,7 +1952,7 @@ struct Renderer::Impl {
             if(overlay) record_ui(command, *overlay);
         }
         else if(overlay) record_ui(command, *overlay);   // N7: menus without a world picture (draw_ui)
-        else { vkCmdBindPipeline(command, VK_PIPELINE_BIND_POINT_GRAPHICS, triangle_pipeline); vkCmdDraw(command, 3, 1, 0, 0); stats.draw_calls = 1; }
+        else { vkCmdBindPipeline(command, VK_PIPELINE_BIND_POINT_GRAPHICS, triangle_pipeline); vkCmdDraw(command, 3, 1, 0, 0); stats.draw_calls = 1; stats.submitted_triangles = 1; }
         if(use_dynamic_rendering) {
             fn.end_rendering(command);
             // Same final layouts the baseline render pass declares as finalLayout.
@@ -1958,10 +1970,12 @@ struct Renderer::Impl {
         if(timestamps) { vkCmdWriteTimestamp(command, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, timestamps, 1); timestamps_written = true; }
         stats.gpu_ms = last_gpu_ms; stats.tracked_bytes = tracked_bytes;
         check(vkEndCommandBuffer(command), "end command");
+        stats.record_cpu_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - record_start).count();
         // Reset only after successful acquire/record: out-of-date must not strand an unsignaled fence.
         check(vkResetFences(device, 1, &fence), "reset fence");
         if(offscreen) submit(command, VK_NULL_HANDLE, 0, VK_NULL_HANDLE, fence, "submit");
         else submit(command, acquired, VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, presented.at(index), fence, "submit");
+        ++submitted_frames;
         if(offscreen) { check(vkWaitForFences(device, 1, &fence, VK_TRUE, UINT64_MAX), "offscreen frame"); have_capture = true; return; }
         VkPresentInfoKHR present{VK_STRUCTURE_TYPE_PRESENT_INFO_KHR};
         present.waitSemaphoreCount = 1; present.pWaitSemaphores = &presented.at(index); present.swapchainCount = 1; present.pSwapchains = &swapchain; present.pImageIndices = &index;
@@ -1999,6 +2013,8 @@ void Renderer::load_ui(const scene::Image& atlas) { impl_->load_ui(atlas); }
 bool Renderer::ui_loaded() const { return impl_->ui_ready; }
 void Renderer::set_present_mode(bool vsync) { impl_->set_vsync(vsync); }
 bool Renderer::timestamps_supported() const { return impl_->timestamps != VK_NULL_HANDLE; }
+std::uint64_t Renderer::frames_submitted() const { return impl_->submitted_frames; }
+const char* Renderer::present_mode_name() const { return present_name(impl_->present_mode); }
 scene::Image Renderer::capture() {
     if(!impl_->offscreen) throw std::runtime_error("capture() requires the offscreen renderer");
     if(!impl_->have_capture) throw std::runtime_error("capture() before any frame was rendered");
