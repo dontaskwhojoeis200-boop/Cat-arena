@@ -1,0 +1,61 @@
+
+Dump of file dist\CAT_ARENA_FERAL_CLAW_N11_WINDOWS\CatArena.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Image has the following dependencies:
+
+    SDL3.dll
+    WS2_32.dll
+    WINHTTP.dll
+    KERNEL32.dll
+
+  Image has the following delay load dependencies:
+
+    vulkan-1.dll
+
+  Summary
+
+        8000 .data
+        1000 .fptable
+       10000 .pdata
+       78000 .rdata
+        2000 .reloc
+        1000 .rsrc
+      1C0000 .text
+
+
+Dump of file dist\CAT_ARENA_FERAL_CLAW_N11_WINDOWS\SDL3.dll
+
+File Type: DLL
+
+  Image has the following dependencies:
+
+    KERNEL32.dll
+    USER32.dll
+    GDI32.dll
+    WINMM.dll
+    IMM32.dll
+    ole32.dll
+    OLEAUT32.dll
+    VERSION.dll
+    ADVAPI32.dll
+    SETUPAPI.dll
+    SHELL32.dll
+
+  Summary
+
+       10000 .data
+        1000 .fptable
+       19000 .pdata
+       90000 .rdata
+        3000 .reloc
+        1000 .rsrc
+      1CA000 .text
+
+
+            8664 machine (x64)
+            6.00 subsystem version
+               2 subsystem (Windows GUI)
+
+

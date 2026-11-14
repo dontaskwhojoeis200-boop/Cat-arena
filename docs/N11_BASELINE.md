@@ -103,3 +103,16 @@ A separate software-Vulkan run started at wave 5 and reached 20 active enemies.
 The fixture then freezes the wave to check revive and disconnection. It is a
 short validation workload with an active-enemy peak, not a sustained
 large-wave benchmark.
+
+## Windows package verification
+
+[Windows CI run 43544175903](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43544175903)
+built revision `5b9634cae2cb7aac923bfcd92b0283daf8322a79`, validated the Windows
+x64 package and passed all 42 GPU-free tests, including both relay implementations.
+The packaged executable's headless test returned 0. The GPU-free runner reported
+the expected missing Vulkan loader. Its logs are in [n11-evidence](n11-evidence).
+
+The Windows ZIP is artifact `14092968952`, SHA-256
+`3ce2935561a3b4636b3ac47fcc4bfd5a2fc5375245d3f05baac4606e105c9449`.
+It contains 766 files. Its 762 asset and SPIR-V files match the refreshed N10
+package byte for byte. Extracted contents passed package validation.

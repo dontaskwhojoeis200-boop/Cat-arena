@@ -1,0 +1,22 @@
+47: PASS co-op rules (targeting, downed, revive, wipe, remote kills, medkits, guest puppets)
+47:   host sent 194 snapshot rounds, 81.1 KiB/s of snapshots to three guests over 17.7 s of play; 1065 poses received
+47: PASS four players through the native relay (join, snapshots, poses, remote kill, damage, downed, revive, wipe, leave)
+47: PASS coop (57 checks)
+48: PASS JSON, SHA-1, WebSocket frames, URLs
+48: PASS relay protocol against the native relay (ws://127.0.0.1:49476/ws)
+48: PASS net (79 checks)
+49: PASS co-op rules (targeting, downed, revive, wipe, remote kills, medkits, guest puppets)
+49:   host sent 194 snapshot rounds, 81.1 KiB/s of snapshots to three guests over 17.7 s of play; 1065 poses received
+49: PASS four players through the native relay (join, snapshots, poses, remote kill, damage, downed, revive, wipe, leave)
+49: PASS coop (57 checks)
+50: PASS JSON, SHA-1, WebSocket frames, URLs
+50: PASS relay protocol against the native relay (ws://127.0.0.1:49497/ws)
+50: PASS net (79 checks)
+51: original relay D:/a/Cat-arena/Cat-arena/native/../reference/multiplayer/server.js (sha256 8fbf00bbb8a3505825d10eeb4028629cb12513dc153cf37467d4ff029cab6fb3) on port 49511; ws 8.18.3
+51: PASS JSON, SHA-1, WebSocket frames, URLs
+51: PASS relay protocol against the external (original server.js) relay (ws://127.0.0.1:49511/ws)
+51: PASS net (78 checks)
+52: original relay D:/a/Cat-arena/Cat-arena/native/../reference/multiplayer/server.js (sha256 8fbf00bbb8a3505825d10eeb4028629cb12513dc153cf37467d4ff029cab6fb3) on port 49530; ws 8.18.3
+52:   host sent 194 snapshot rounds, 81.1 KiB/s of snapshots to three guests over 17.7 s of play; 1065 poses received
+52: PASS four players through the relay at ws://127.0.0.1:49530 (join, snapshots, poses, remote kill, damage, downed, revive, wipe, leave)
+52: PASS coop (33 checks)
