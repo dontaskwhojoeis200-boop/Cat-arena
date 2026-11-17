@@ -1,0 +1,275 @@
+{
+  "legacySha256": "e3c914bc9c1e216616a2bca125066eb2f3a660d4db1b76574c439df0d3510393",
+  "checks": [
+    {
+      "ok": true,
+      "what": "A: the browser server list shows the native host's room",
+      "detail": "Native ServerHOST: Native Host · 1/4 PLAYERS · OPEN · MAP: REACTOR BASTIONJOIN"
+    },
+    {
+      "ok": true,
+      "what": "A: browser guest sees the native host and its enemies (snapshots)",
+      "detail": {
+        "browserBots": 10,
+        "nativeEnemies": 10,
+        "wave": 1,
+        "players": [
+          {
+            "name": "Native Host",
+            "x": 52.3,
+            "y": 26.9,
+            "hp": 100,
+            "downed": false
+          }
+        ]
+      }
+    },
+    {
+      "ok": true,
+      "what": "A: the native host clears the wave and restores the guest (browser: 0 enemies, 100 HP)",
+      "detail": {
+        "bots": 0,
+        "hp": 100,
+        "downed": false
+      }
+    },
+    {
+      "ok": true,
+      "what": "A: the browser guest's movement reaches the native host",
+      "detail": {
+        "movedInBrowser": 1.35,
+        "browser": {
+          "x": 53.34,
+          "y": 29.6
+        },
+        "nativeView": {
+          "name": "Browser Guest",
+          "x": 53.33913,
+          "y": 29.604371,
+          "hp": 100,
+          "downed": false,
+          "host": false
+        }
+      }
+    },
+    {
+      "ok": true,
+      "what": "A: native host damage (30) reaches the browser guest",
+      "detail": {
+        "hp": 70
+      }
+    },
+    {
+      "ok": true,
+      "what": "A: the browser guest is downed by the native host",
+      "detail": {
+        "hp": 0,
+        "downed": true
+      }
+    },
+    {
+      "ok": true,
+      "what": "A: closing the browser tab is seen by the native host (guest_left)"
+    },
+    {
+      "ok": true,
+      "what": "B: the native server list shows the browser host's room",
+      "detail": {
+        "event": "listed",
+        "room": "9DXSAJ",
+        "title": "Browser Server",
+        "host": "Browser Host",
+        "players": 1
+      }
+    },
+    {
+      "ok": true,
+      "what": "B: browser host and native guest see each other",
+      "detail": {
+        "browser": [
+          {
+            "name": "Native Guest",
+            "x": 60.5,
+            "y": 61.5,
+            "hp": 100,
+            "downed": false
+          }
+        ],
+        "native": [
+          {
+            "name": "Browser Host",
+            "x": 0,
+            "y": 0,
+            "hp": 100,
+            "downed": false,
+            "host": true
+          }
+        ]
+      }
+    },
+    {
+      "ok": true,
+      "what": "B: the native guest shows the browser host's enemies (snapshots)",
+      "detail": {
+        "nativeEnemies": 10,
+        "browserBots": 10,
+        "wave": 1,
+        "worldAgeMs": 2593,
+        "browserSnapshotRounds": {
+          "ticks": 2,
+          "bytes": 6977,
+          "ms": 17.600000000034925
+        }
+      }
+    },
+    {
+      "ok": true,
+      "what": "B: the native guest's position reaches the browser host",
+      "detail": {
+        "browserView": {
+          "name": "Native Guest",
+          "x": 37.98,
+          "y": 25.92,
+          "hp": 100,
+          "downed": false
+        },
+        "native": {
+          "x": 37.977569,
+          "y": 25.92258
+        }
+      }
+    },
+    {
+      "ok": true,
+      "what": "B: the browser host's damage reaches the native guest",
+      "detail": {
+        "hp": 70
+      }
+    },
+    {
+      "ok": true,
+      "what": "B: the browser host quitting closes the native guest's server",
+      "detail": {
+        "event": "disconnected",
+        "text": "Host disconnected. This server is closed. Select another from the server browser."
+      }
+    }
+  ],
+  "scenarios": {
+    "A": {
+      "browserFps": 1.2,
+      "browser": {
+        "netMode": "guest",
+        "room": "FHS28H",
+        "players": [
+          {
+            "name": "Native Host",
+            "x": 52.3,
+            "y": 26.9,
+            "hp": 100,
+            "downed": false
+          }
+        ],
+        "bots": 0,
+        "wave": 1,
+        "hp": 0,
+        "downed": true,
+        "x": 53.78,
+        "y": 30,
+        "active": true,
+        "loading": false,
+        "socket": 1,
+        "snapshots": {
+          "ticks": 0,
+          "bytes": 0,
+          "ms": 0
+        },
+        "queued": 0
+      },
+      "native": {
+        "t": 44001,
+        "mode": 2,
+        "players": 2,
+        "hp": 100,
+        "downed": false,
+        "x": 52.3,
+        "y": 26.9,
+        "enemies": 0,
+        "wave": 1,
+        "frags": 0,
+        "worldAgeMs": 43997,
+        "posesReceived": 34,
+        "others": [
+          {
+            "name": "Browser Guest",
+            "x": 53.642606,
+            "y": 29.878479,
+            "hp": 0,
+            "downed": true,
+            "host": false
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    "B": {
+      "browserFps": 0.3,
+      "browser": {
+        "netMode": "host",
+        "room": "9DXSAJ",
+        "players": [
+          {
+            "name": "Native Guest",
+            "x": 37.98,
+            "y": 25.92,
+            "hp": 70,
+            "downed": false
+          }
+        ],
+        "bots": 10,
+        "wave": 1,
+        "hp": 100,
+        "downed": false,
+        "x": 52.3,
+        "y": 26.9,
+        "active": true,
+        "loading": false,
+        "socket": 1,
+        "snapshots": {
+          "ticks": 14,
+          "bytes": 49391,
+          "ms": 40.800000000104774
+        },
+        "queued": 0
+      },
+      "native": {
+        "t": 85001,
+        "mode": 3,
+        "players": 2,
+        "hp": 70,
+        "downed": false,
+        "x": 42.256811,
+        "y": 21.640501,
+        "enemies": 10,
+        "wave": 1,
+        "frags": 0,
+        "worldAgeMs": 3223,
+        "posesReceived": 0,
+        "others": [
+          {
+            "name": "Browser Host",
+            "x": 52.3,
+            "y": 26.9,
+            "hp": 100,
+            "downed": false,
+            "host": true
+          }
+        ]
+      },
+      "pageErrors": [],
+      "nativeVolleysSeenByGuest": 0
+    }
+  },
+  "chromium": "153.0.8010.12",
+  "viewport": "480x270"
+}

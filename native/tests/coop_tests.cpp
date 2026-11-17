@@ -169,6 +169,7 @@ struct Client {
     std::unique_ptr<combat::Horde> horde;
     net::Coop coop;   // last: destroyed first, while the arena it points to still exists
     std::uint32_t keys{};
+    std::uint64_t first_round{};   // soak: snapshot rounds the host sent before this guest joined
     std::vector<net::CoopEvent> events;
     void start(const World& w, std::uint32_t seed, double x, double y, double z, double a) {
         coop.attach(nullptr, nullptr);
@@ -324,13 +325,121 @@ void network(const World& w, const std::string& external) {
     std::printf("%s four players through %s (join, snapshots, poses, remote kill, damage, downed, revive, wipe, leave)\n", failures == before ? "PASS" : "FAIL", external.empty() ? "the native relay" : ("the relay at " + external).c_str());
     relay.stop();
 }
+
+// ---- 3. soak: four clients with live waves for `seconds` of game time --------------------------------------------
+// Guests and host move, jump and fire at random; a squad wipe restarts the round as the game does.
+// Checks that nobody is disconnected, snapshots keep coming and the guests keep the host's wave.
+void soak(const World& w, double seconds) {
+    const int before = failures;
+    net::RelayServer relay;
+    std::string error;
+    if(!relay.start("127.0.0.1", 0, error)) { check(false, "relay: " + error); return; }
+    const std::string addr = "127.0.0.1:" + std::to_string(relay.port());
+    std::vector<std::unique_ptr<Client>> c;
+    for(const char* n : {"Host", "Ash", "Brick", "Cinder"}) { c.push_back(std::make_unique<Client>()); c.back()->name = n; }
+    double clock = 0;
+    auto pump_all = [&] { for(auto& x : c) x->pump(clock); };
+    auto until = [&](const std::function<bool()>& pred) { for(int i = 0; i < 3000 && !pred(); ++i) { pump_all(); std::this_thread::sleep_for(std::chrono::milliseconds(1)); } return pred(); };
+    const auto& sp = w.collision->spawns().front();
+    c[0]->coop.host(addr, "Host", "Soak", "reactor-bastion-v1");
+    check(until([&] { return c[0]->saw(net::CoopEvent::Kind::ready); }), "soak: host");
+    c[0]->start(w, 77, sp.x, sp.y, sp.z, sp.a);
+    for(std::size_t i = 1; i < 4; ++i) {
+        c[i]->coop.join(addr, c[0]->coop.room_code(), c[i]->name, "reactor-bastion-v1");
+        check(until([&] { return c[i]->saw(net::CoopEvent::Kind::ready); }), "soak: " + c[i]->name + " joined");
+        const auto s = c[i]->coop.find_spawn(*w.collision, sp.x, sp.y, sp.z, c[i]->coop.slot());
+        c[i]->start(w, static_cast<std::uint32_t>(80 + i), s[0], s[1], s[2], sp.a);
+    }
+    check(until([&] { return c[0]->arena->team().size() == 3; }), "soak: 3 teammates");
+    combat::Rng rng(12345);
+    const int ticks = static_cast<int>(seconds * 120);
+    int wipes = 0, guest_restarts = 0, highest_wave = 1, disconnects = 0, late_rounds = 0;
+    for(std::size_t i = 1; i < 4; ++i) c[i]->first_round = c[0]->coop.stats().snapshots - c[i]->coop.stats().snapshots;   // rounds sent before this guest was in the room
+    double worst_gap = 0;
+    std::uint64_t kills_by_guests = 0;
+    const auto t_real = std::chrono::steady_clock::now();
+    for(int t = 0; t < ticks; ++t) {
+        if(t % 60 == 0) for(auto& x : c) {   // a new random intention every half second
+            const std::uint32_t moves[] = {physics::key_forward, physics::key_back, physics::key_left, physics::key_right, physics::key_forward | physics::key_left, 0};
+            x->keys = moves[static_cast<std::size_t>(rng.next() * 6) % 6] | (rng.next() < .45 ? combat::key_fire : 0U) | (rng.next() < .1 ? physics::key_jump : 0U) | (rng.next() < .2 ? combat::key_revive : 0U);
+            x->arena->player().aim((rng.next() - .5) * 300, 0);
+        }
+        bool wiped = false;
+        for(auto& x : c) {
+            x->arena->step({x->keys});
+            x->coop.after_step();
+        }
+        wiped = c[0]->arena->events().wipe;
+        clock += 1000.0 / 120;
+        const auto rounds = c[0]->coop.stats().snapshots;
+        pump_all();
+        if(c[0]->coop.stats().snapshots != rounds) {   // a snapshot round went out: give the network (real time) up to 0.5 s to deliver it
+            const auto sent = c[0]->coop.stats().snapshots;
+            const auto t_wait = std::chrono::steady_clock::now();
+            auto delivered = [&] { for(std::size_t i = 1; i < 4; ++i) if(c[i]->coop.stats().snapshots < sent - c[i]->first_round) return false; return true; };
+            while(!delivered() && std::chrono::steady_clock::now() - t_wait < std::chrono::milliseconds(500)) { std::this_thread::sleep_for(std::chrono::microseconds(100)); pump_all(); }
+            if(!delivered()) ++late_rounds;
+        }
+        if(wiped) {   // the shell: a new arena on the same map, wave 1, guests told to restart
+            ++wipes;
+            c[0]->start(w, static_cast<std::uint32_t>(200 + wipes), sp.x, sp.y, sp.z, sp.a);
+            c[0]->coop.round_restarted();
+        }
+        for(std::size_t i = 1; i < 4; ++i) {
+            auto& x = *c[i];
+            for(const auto& e : x.events) {
+                if(e.kind == net::CoopEvent::Kind::disconnected) ++disconnects;
+                if(e.kind == net::CoopEvent::Kind::restart) {
+                    ++guest_restarts;
+                    const auto s = x.coop.find_spawn(*w.collision, sp.x, sp.y, sp.z, x.coop.slot());
+                    const auto frags = x.arena->frags();
+                    x.start(w, static_cast<std::uint32_t>(300 + guest_restarts), s[0], s[1], s[2], sp.a);
+                    kills_by_guests += frags;
+                }
+            }
+            x.events.clear();
+            const double gap = x.coop.stats().last_world_age_ms;
+            if(t > 240) worst_gap = std::max(worst_gap, gap);
+        }
+        c[0]->events.clear();
+        highest_wave = std::max(highest_wave, c[0]->horde->wave_number());
+    }
+    for(std::size_t i = 1; i < 4; ++i) kills_by_guests += c[i]->arena->frags();
+    // settle: the last snapshot reaches everybody
+    for(int i = 0; i < 40; ++i) { clock += 10; pump_all(); std::this_thread::sleep_for(std::chrono::milliseconds(2)); }
+    bool waves = true;
+    for(std::size_t i = 1; i < 4; ++i) waves = waves && c[i]->horde->wave_number() == c[0]->horde->wave_number();
+    const double real = std::chrono::duration<double>(std::chrono::steady_clock::now() - t_real).count();
+    const auto st = c[0]->coop.stats();
+    check(disconnects == 0 && c[0]->coop.players_in_room() == 4 && c[0]->arena->team().size() == 3, "soak: nobody disconnected (" + std::to_string(disconnects) + ")");
+    check(worst_gap < 1000 && late_rounds == 0, "soak: snapshots kept coming (worst gap " + std::to_string(static_cast<int>(worst_gap)) + " ms of game time, " + std::to_string(late_rounds) + " rounds not delivered within 0.5 s)");
+    check(waves, "soak: guests on the host's wave");
+    check(guest_restarts == wipes * 3, "soak: every wipe restarted the three guests (" + std::to_string(guest_restarts) + " / " + std::to_string(wipes * 3) + ")");
+    std::printf("  soak: %.0f s of game time in %.1f s; highest wave %d, %d squad wipes, %llu kills by guests; host sent %llu snapshot rounds (%.1f KiB/s), received %llu poses; relay relayed %llu messages\n",
+                seconds, real, highest_wave, wipes, static_cast<unsigned long long>(kills_by_guests), static_cast<unsigned long long>(st.snapshots), static_cast<double>(st.snapshot_bytes) / 1024 / seconds,
+                static_cast<unsigned long long>(st.poses), static_cast<unsigned long long>(relay.stats().messages_relayed));
+    std::printf("  soak: guest upload (poses, volleys, relay envelope) %.1f / %.1f / %.1f KiB/s; host total upload %.1f KiB/s\n", static_cast<double>(c[1]->coop.stats().bytes_sent) / 1024 / seconds,
+                static_cast<double>(c[2]->coop.stats().bytes_sent) / 1024 / seconds, static_cast<double>(c[3]->coop.stats().bytes_sent) / 1024 / seconds, static_cast<double>(st.bytes_sent) / 1024 / seconds);
+    std::printf("%s soak with four players (%.0f s of game time)\n", failures == before ? "PASS" : "FAIL", seconds);
+    for(auto& x : c) x->coop.leave();
+    relay.stop();
+}
 }  // namespace
 
 int main(int argc, char** argv) {
     if(argc < 2) { std::printf("usage: cat_arena_coop_tests <assets/n1> [--external ws://host:port]\n"); return 2; }
     std::string external;
-    for(int i = 2; i + 1 < argc; ++i) if(std::string(argv[i]) == "--external") external = argv[i + 1];
+    double soak_seconds = 0;
+    for(int i = 2; i + 1 < argc; ++i) {
+        if(std::string(argv[i]) == "--external") external = argv[i + 1];
+        if(std::string(argv[i]) == "--soak") soak_seconds = std::stod(argv[i + 1]);
+    }
     const World w = load(argv[1], "reactor-bastion");
+    if(soak_seconds > 0) {
+        soak(w, soak_seconds);
+        std::printf("%s coop soak (%d checks)\n", failures ? "FAIL" : "PASS", checks);
+        return failures ? 1 : 0;
+    }
     if(external.empty()) rules(w);
     network(w, external);
     std::printf("%s coop (%d checks)\n", failures ? "FAIL" : "PASS", checks);

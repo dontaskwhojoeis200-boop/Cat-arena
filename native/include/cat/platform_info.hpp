@@ -4,6 +4,8 @@
 #include <cstdint>
 
 namespace cat {
-struct ProcessMemory { std::uint64_t current{}, peak{}; bool ok{}; };   // bytes: resident / working set and its peak
+// bytes: resident / working set and its peak; `private_bytes`: Windows PrivateUsage (private commit charge),
+// Linux RssAnon (resident anonymous memory; the closest available figure, not a commit charge).
+struct ProcessMemory { std::uint64_t current{}, peak{}, private_bytes{}; bool ok{}; };
 ProcessMemory process_memory();
 }  // namespace cat

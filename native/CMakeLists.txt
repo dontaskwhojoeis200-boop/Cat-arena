@@ -446,6 +446,10 @@ if(BUILD_TESTING)
   target_link_libraries(cat_arena_coop_tests PRIVATE cat_arena_coop cat_warnings)
   add_test(NAME coop_multiplayer COMMAND cat_arena_coop_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1")
   set_tests_properties(coop_multiplayer PROPERTIES TIMEOUT 300)
+  add_executable(cat_arena_coop_crossplay tests/coop_crossplay.cpp)   # with tools/n8/crossplay_legacy.cjs (the original browser game)
+  target_link_libraries(cat_arena_coop_crossplay PRIVATE cat_arena_coop cat_warnings)
+  add_test(NAME coop_soak COMMAND cat_arena_coop_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1" --soak 900)   # 15 min of game time, live waves
+  set_tests_properties(coop_soak PROPERTIES TIMEOUT 1800)
   if(WIN32)   # the WinHTTP WebSocket / HTTP client (the wss:// and https:// path) against the native relay, without TLS
     add_test(NAME net_relay_protocol_winhttp COMMAND cat_arena_net_tests)
     add_test(NAME coop_multiplayer_winhttp COMMAND cat_arena_coop_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1")
