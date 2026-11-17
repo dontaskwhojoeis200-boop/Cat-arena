@@ -91,18 +91,32 @@ Every multiplayer path is behind `NetRole != solo` or a non-empty team: the solo
 | Situation | Host upload (snapshots to 3 guests) | Per guest |
 |---|---|---|
 | `coop_multiplayer` (wave 1, part of the time frozen) | 80.4 KiB/s | ≈ 27 KiB/s |
-| `coop_soak` / 1 h soak (live waves, 4 players moving and firing) | 115.9 KiB/s | ≈ 39 KiB/s |
-| Guest upload (poses + volleys) | ≈ 2–3 KiB/s | |
+| `coop_soak` (live waves, 4 players moving and firing, 900 s of game time) | 115.9 KiB/s of snapshots, 116.7 KiB/s in all | ≈ 39 KiB/s |
+| Guest upload (poses, volleys, relay envelope), same run | | 4.0–4.1 KiB/s |
 
 Snapshots are JSON as in the legacy (no compression). The relay forwards each message once.
 
 ## 4. Memory
 
-Measured with the window self-tests on the Linux development machine (software Vulkan, lavapipe:
-"GPU" allocations live in system memory there, so the working set already contains them — the
-two numbers must not be added). See section 6 for the figures. The network layer itself is small
-(a few hundred KiB of buffers per connection at most); the in-process relay holds one entry per
-peer and room. Measurement on Windows with a real GPU: Unverified (no GPU run yet).
+First figures for the 192 MiB objective (docs/ROADMAP_N8_N20.md), measured at the end of the
+window self-tests on the Linux development machine. That machine renders with lavapipe (software
+Vulkan): "GPU" allocations live in process memory, so the working set already contains them and
+the two numbers must not be added; the working set also contains the software rasteriser.
+
+| Run | Working set (peak) | Private | Renderer's Vulkan allocations |
+|---|---|---|---|
+| `window_menu_selftest` (solo: the scripted tour of menus, settings and a game) | 534.6 MiB (534.8) | 302.0 MiB | 149.9 MiB |
+| `window_coop_selftest` (host + 3 guest simulations in the same process) | 437.4 MiB (437.4) | 248.7 MiB | 104.0 MiB |
+
+What this says, and what not: the engine's own GPU allocations (exact sums of `vkAllocateMemory`,
+independent of the device) are already 104–150 MiB, above the 64 MiB GPU budget before any
+art replacement — the first concrete target for N12 (categories) and N15 (reduction). CPU-side
+figures on lavapipe are not representative of a Windows PC with a GPU. Networking memory was not
+separable in these process-level figures: the client keeps one connection with its receive buffer
+and a packet queue (≤ 60 while loading), the relay one entry per peer and room; per-subsystem CPU
+accounting arrives with N12. An upper bound for networking plus simulation without rendering: the
+1 h soak process (relay, four clients, four simulations of Reactor Bastion) peaked at 26.0 MiB
+resident (Linux `VmHWM`). Windows with a real GPU: Unverified.
 
 ## 5. Tests
 
@@ -114,19 +128,64 @@ peer and room. Measurement on Windows with a real GPU: Unverified (no GPU run ye
 | `coop_multiplayer` | rules (targeting, downed, revive timing 4 s, wipe 2.7 s, remote kills incl. rockets, medkits, guest puppets) + 4 clients over TCP: list, join, snapshots, poses, remote kill, damage, downed, revive by a guest holding F, wipe and restart, leave, host leaves (52 checks) | Tested | Tested |
 | `coop_multiplayer_winhttp` | the 4-client part with WinHTTP clients | — | Tested |
 | `coop_interop_legacy_relay` | the 4-client part through the ORIGINAL server.js (30 checks) | Tested | Tested |
-| `coop_soak` | 4 clients, live waves, random movement / fire, 15 min of game time; wipes restart everybody | Tested | Tested |
-| 1 h soak (`--soak 3600`, by hand) | 3600 s game time: 82 squad wipes, 39 277 snapshot rounds, 216 024 poses, 456 354 relayed messages, no disconnect, worst snapshot gap < 1 s | Tested | — |
-| `window_coop_selftest` | the real game: MULTIPLAYER → HOST A SERVER → typed name (SDL text input) → HOST ON THIS PC → ENTER THE ARENA; 3 in-process guests join over TCP; snapshots, Marine Cats (3) and name tags (3) drawn, downed + revive, game menu keeps running, LEAVE SERVER, guests told, exit | Tested | Unverified (needs a GPU) |
+| `coop_soak` | 4 clients, live waves, random movement / fire, 900 s of game time (23 squad wipes, 9 823 snapshot rounds, 54 024 poses, 119 688 relayed messages); every snapshot round delivered within 0.5 s, nobody disconnected, guests on the host's wave | Tested | Tested (11 wipes; timing-dependent) |
+| 1 h soak (`--soak 3600`, by hand) | 3600 s of game time in 82 s: 89 squad wipes, 39 277 snapshot rounds (114.7 KiB/s), 216 024 poses, 459 841 relayed messages; every round delivered within 0.5 s, no disconnect; peak resident memory of the whole test process (relay + 4 clients + 4 simulations, no rendering) 26.0 MiB | Tested | — |
+| `window_coop_selftest` | the real game: MULTIPLAYER → HOST A SERVER → typed name (SDL text input) → HOST ON THIS PC → ENTER THE ARENA; 3 in-process guests join over TCP; snapshots, Marine Cats (3) and name tags (3) drawn, downed + revive, game menu keeps running, LEAVE SERVER, guests told, exit | Tested (4 desktop builds) | Unverified (needs a GPU) |
 | `--ui-capture` pages | multiplayer, servers, connecting, host map page, co-op HUD (staged teammates), game menu in a server | Executed (pictures in docs/n8-evidence) | — |
 | Cross-play with the original browser game (`tools/n8/crossplay_legacy.cjs`) | see section 5.1 | see 5.1 | — |
 
 ### 5.1 Cross-play with the original browser game
 
-CROSSPLAY_RESULTS
+`tools/n8/crossplay_legacy.cjs` runs the **unmodified legacy page** (SHA-256 checked) in headless
+Chromium 153 against native clients. Browser actions are real clicks on the legacy buttons and
+real key presses; game state is read from the page's globals. Evidence:
+`docs/n8-evidence/crossplay` (JSON results, native logs, relay log, screenshots).
+
+| Check | Result |
+|---|---|
+| A. Browser server list shows the native host's room (title, host, 1/4) | PASS |
+| A. Browser guest sees the native host and its 10 enemies (wave 1) | PASS |
+| A. Native host clears the wave and restores the guest: browser shows 0 enemies, 100 HP | PASS |
+| A. Browser guest walks (W): the native host has it at the same spot (< 0.5 m) | PASS |
+| A. Native host damage 30 → browser HP 70; 200 → browser downed | PASS, PASS |
+| A. Closing the browser tab → native host "TEAMMATE LEFT" | PASS |
+| B. Native server list shows the browser host's room (relay: `cat_arena --relay-server`) | PASS |
+| B. Browser host and native guest see each other | PASS |
+| B. Native guest shows the browser host's 10 enemies (snapshots) | PASS |
+| B. Native guest's position reaches the browser host (< 0.5 m) | PASS |
+| B. Browser host's `remoteApplyDamage(30)` → native guest HP 70 | PASS |
+| B. Browser host quits → native guest "Host disconnected …" | PASS |
+
+13 of 13 checks pass. Caveat: the headless page renders with software WebGL at 480×270 and ran
+at 1.2 FPS (as guest) and 0.3 FPS (as host), so the browser side was slow (two snapshot rounds
+from the browser host during the B checks); the checks poll with timeouts. Timing behaviour
+(interpolation smoothness, latency) between the native game and a real browser was not judged.
 
 ## 6. Results of this milestone
 
-RESULTS_TABLE
+Classification of the N8 requirements of the handoff.
+
+| Requirement | Status | Basis |
+|---|---|---|
+| Host / join | **Tested** | window self-test (menus), 4-client tests, cross-play both ways |
+| Server browser | **Tested** | `/rooms` against the native relay and server.js; browser lists native rooms and vice versa |
+| Four-player sessions | **Tested** | 4 clients in `coop_multiplayer`, soak, window self-test; a fifth player is refused (`net_relay_protocol`, native relay and server.js) |
+| Player synchronisation | **Tested** | pose distance checks (< 0.5 m) native ↔ native and native ↔ browser |
+| Enemy synchronisation | **Tested** | same enemy ids / counts / wave on guests; puppets and deaths |
+| Projectile synchronisation | **Tested** for enemy shots and for kills by players' projectiles; other players' rockets not drawn (legacy behaviour) | `coop_multiplayer` rules, snapshot checks |
+| Damage synchronisation | **Tested** | host damage → guest HP (native and browser), browser host damage → native guest |
+| Downed and revive | **Tested** | 4 s / 3.2 m / line of sight, 45 HP; wipe after 2.7 s; in the window self-test with a guest holding F |
+| Name tags | **Tested** on Linux (drawn count, pictures) | new in N8 |
+| Disconnection handling | **Tested** | guest leaves, host leaves, browser tab closed, browser host quits, refused joins, closed relay |
+| Preserve original mechanics | **Tested** | solo replays bit-identical to N7 (Linux, Windows); legacy rules ported line by line |
+| No unnecessary network dependencies | Done | sockets + WinHTTP (system); npm `ws` only for interop tests |
+| Networking memory tracking | **Executed** (first figures, §4) | per-subsystem accounting is N12 |
+| Windows multiplayer build | **Compiled, Tested without GPU** | CI run 44014040537: 43 / 43 GPU-free tests incl. WinHTTP, server.js interop, soak |
+| Windows play with a GPU, LAN / internet, NAT, TLS relay | **Unverified** | no Windows PC with a GPU, one machine only, no TLS relay reachable |
+
+Linux matrix (seven configurations: GCC / clang, Debug / Release, ASan + UBSan): every build PASS
+(41 core / 73 desktop tests), 0 warnings, solo replays identical in all of them (TEST_MATRIX.md).
+
 
 ## 7. Not verified / open
 

@@ -1,3 +1,30 @@
+# N8 test matrix — 2026-11-16
+
+Linux: Ubuntu 24.04 container, GCC 13.3 / clang 18.1, Mesa lavapipe (llvmpipe), Xvfb, Node 22.23
+(npm `ws` for the interop tests). Windows: GitHub Actions windows-2022, MSVC (VS 2022), no GPU.
+Legacy side: Chromium 153 + Playwright. Logs: docs/n8-evidence.
+
+| Check | Result | Evidence / scope |
+|---|---|---|
+| Core-only build + CTest: GCC Debug, GCC Release, clang Release (41 tests each) | PASS 41/41 each, 0 compiler warnings | linux-matrix/core-*, core-release-*, clang-release-* |
+| Desktop build + CTest: GCC Debug, GCC Release, clang Debug (73 tests each) | PASS 73/73 each, 0 compiler warnings | linux-matrix/desktop-*, clang-desktop-* |
+| Desktop ASan + UBSan + LeakSanitizer + CTest (73) | PASS 73/73, no sanitizer report | linux-matrix/asan-desktop-tests.txt |
+| Earlier matrix runs during N8 | run 1: both clang builds FAIL (`-Wsign-conversion` in SHA-1, unused member; fixed). Run 2: clang Debug 5 tests FAIL — stale object files (the sync copied sources with modification times older than the objects, so CMake did not rebuild them; a free() of a vector with a foreign layout). Re-run 3 with freshly stamped sources: all PASS (above) | DEVELOPMENT_LOG_N8 §11 |
+| Legacy replays (15 lines: replay hashes, bit-exact counts, js_math) in the 7 Linux builds | PASS: identical in all 7 builds, identical to N7 and to Windows | linux-matrix/replay-*.txt, windows-ci/run-44014040537-job.log |
+| `net_relay_protocol` (79): JSON, WebSocket codec, URLs, relay protocol and limits | PASS (Linux, Windows) | |
+| `net_interop_legacy_relay` (78): the same against the original server.js | PASS (Linux, Windows) | |
+| `coop_multiplayer` (52): co-op rules + 4 clients over TCP | PASS (Linux, Windows, Windows with WinHTTP clients) | |
+| `coop_interop_legacy_relay` (30): 4 clients through the original server.js | PASS (Linux, Windows) | |
+| `coop_soak`: 900 s of game time, live waves, 4 players | PASS (Linux: 23 wipes; Windows: 11 wipes) | |
+| 1 h soak by hand (3600 s of game time) | PASS: 89 wipes, 39,277 snapshot rounds, 459,841 relayed messages, peak RSS 26.0 MiB | linux/soak-3600.txt |
+| `window_coop_selftest`: menus → HOST ON THIS PC → 3 in-process guests → revive → game menu keeps running → leave | PASS in all 4 desktop builds | linux-matrix/desktop-*-tests.txt |
+| Cross-play with the original browser game (both directions) | PASS 13/13 (browser at 1.2 / 0.3 FPS on software WebGL) | crossplay/ |
+| UI captures of the multiplayer pages and co-op HUD | Executed, checked by eye | ui/ |
+| Windows run 1 (43359148828, commit a0fd083) | PASS: build, package, 42/42 GPU-free tests incl. WinHTTP and server.js interop | windows-ci/run-43359148828-job.log |
+| Windows run 2 (44014040537, commit 21bed9e): MSVC build, package, artifact, CTest without GPU (43), start without GPU | PASS: artifact `CAT_ARENA_FERAL_CLAW_N8_WINDOWS` 14297264643 (35,393,484 bytes), 43/43 | windows-ci/run-44014040537-job.log |
+| Windows with a GPU: menus, multiplayer, rendering | NOT_RUN (no GPU on hosted runners, no Windows PC) | — |
+| Two or more PCs (LAN), internet, NAT, TLS relay | NOT_RUN | — |
+
 # N7 test matrix — 2026-11-12
 
 Linux: Ubuntu 24.04 container, GCC 13.3 / clang 18.1, Mesa lavapipe (llvmpipe), Xvfb, no sound card.
