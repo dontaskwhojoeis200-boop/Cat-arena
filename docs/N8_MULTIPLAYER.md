@@ -24,7 +24,7 @@ Status classification used below: **Implemented** (code exists) · **Compiled** 
 | Projectiles: enemy shots synchronised; players' rockets / grenades / rift bolts simulated by the host and credited to their owner | Tested | Other players' rockets are not drawn on other machines (legacy behaviour: snapshots carry enemy shots only) |
 | Kills by guests: `frag` → their score and weapon reroll | Tested | |
 | Damage to guests, medkits for guests (host-side) | Tested | |
-| Downed state at 0 HP, revive by holding F for 4 s within 3.2 m with line of sight (45 HP) | Tested | Gamepad: hold D-pad down. Touch revive button: not added (touch is out of scope) |
+| Downed state at 0 HP, revive by holding F for 4 s within 3.2 m with line of sight (45 HP) | Tested | Gamepad: hold D-pad down (Implemented, no pad to test). Touch revive button: not added (touch is out of scope) |
 | Squad wipe: everyone down for 2.7 s → wave 1 restarts for all | Tested | Restart in place on the loaded map (no loading screen) |
 | Name tags over teammates (name, health bar, DOWN / HOST) | Tested (capture, self-test counts drawn tags) | New: the legacy had no name tags. Dimmed when a wall is in between |
 | Revive status line (`HOLD F TO REVIVE …`, `REVIVING … %`, `YOU ARE DOWN …`, `SQUAD ELIMINATED …`) | Tested | Texts of `coopReviveStatus` |

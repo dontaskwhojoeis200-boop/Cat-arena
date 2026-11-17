@@ -26,6 +26,8 @@ Status:
   https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44014040537 on branch `n8`;
   game folder = artifact `CAT_ARENA_FERAL_CLAW_N8_WINDOWS`
   (https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44014040537/artifacts/14297264643).
+  The artifact is built from commit 21bed9e; later commits on `n8` change documentation only
+  (one sentence of the packaged README_WINDOWS.md about the firewall prompt was reworded since).
 - Not yet: play between separate PCs, over the internet, through NAT, with a TLS (`wss://`) relay,
   or on Windows with a GPU.
 

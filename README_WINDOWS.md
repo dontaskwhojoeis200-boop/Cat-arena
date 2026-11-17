@@ -62,8 +62,8 @@ Multiplayer (up to 4 players, co-op against the waves)
 MULTIPLAYER > HOST A SERVER: pick the arena, type your player name (and a server name), then
   - HOST ON THIS PC: the game runs the server itself on port 8787. Friends on the same network type
     this PC's address in SERVER ADDRESS (for example 192.168.1.20:8787) and press JOIN. Windows
-    Firewall asks the first time whether CatArena.exe may accept connections: allow it for private
-    networks. Over the internet the port has to be forwarded on your router (not tested).
+    Firewall is expected to ask the first time whether CatArena.exe may accept connections: allow
+    it for private networks (not yet seen on a real PC). Over the internet the port has to be forwarded on your router (not tested).
   - CREATE SERVER: uses the relay server typed in SERVER ADDRESS (the original Cat Arena relay,
     reference/multiplayer/server.js, or `CatArena.exe --relay-server` on another computer).
 MULTIPLAYER > JOIN A SERVER lists the servers on the SERVER ADDRESS relay (refreshed every 9 s);

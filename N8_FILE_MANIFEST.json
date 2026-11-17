@@ -144,8 +144,8 @@
   },
   {
    "path": "README_N8.md",
-   "bytes": 2808,
-   "sha256": "86cb92892432942ccfbc30e9913d66317d3b8112979977794ebe3f4c8c799481"
+   "bytes": 2998,
+   "sha256": "520896e06e67fd6fba099a60fc92c1db003e6ac5d9074ebd3257a87098cd47b4"
   },
   {
    "path": "README_START_HERE.md",
@@ -154,8 +154,8 @@
   },
   {
    "path": "README_WINDOWS.md",
-   "bytes": 7194,
-   "sha256": "5b5b06da7c61655f16439a31ce38dcb21f6d586a4fddcaeda000affab835d7ed"
+   "bytes": 7236,
+   "sha256": "82ca8160516f67cc588ce77d0a8471c17df53d94b326c427b39b69f8f058d207"
   },
   {
    "path": "assets/n1/audio/body_jump.ogg",
@@ -4099,8 +4099,8 @@
   },
   {
    "path": "docs/N8_MULTIPLAYER.md",
-   "bytes": 16657,
-   "sha256": "fca8d4f5ffc38a60e2894f21f6657945c964cb63023d72f3bf3fec75cc4f3c4f"
+   "bytes": 16687,
+   "sha256": "266619ba40749d8e6ea0bb74e4b6a42bd8fd0ee88e208aae2caacf9f5f973d19"
   },
   {
    "path": "docs/ORIGINAL_HANDOFF_HASHES.json",
