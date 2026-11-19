@@ -18,7 +18,7 @@ foreach(needle "crash report" "Build:   Cat Arena: Feral Claw" "Reason:" "Last l
   endif()
 endforeach()
 set(dump_note "")
-if(WIN32)
+if(CMAKE_HOST_WIN32)   # script mode: WIN32 is not defined here
   file(GLOB dumps "${DIR}/CatArena-crash-*.dmp")
   list(LENGTH dumps nd)
   if(NOT nd EQUAL 1)

@@ -138,6 +138,8 @@ jobs:
           ctest --preset windows-release -R "legacy|js_math" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) (legacy|js_math|sin|cos|tan|atan2|pow)" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/replay-summary.txt
           # N8 multiplayer: native relay, WinHTTP client, original server.js
           ctest --preset windows-release -R "net_|coop_" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) |original relay|snapshot rounds" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/multiplayer-summary.txt
+          # N9 crash reports (minidump + text)
+          ctest --preset windows-release -R "crash_report" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) crash test" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/crash-summary.txt
           ctest --preset windows-release-gpu -N 2>&1 | Tee-Object -FilePath ../ci-logs/ctest-gpu-not-run.txt
           exit $code
 
