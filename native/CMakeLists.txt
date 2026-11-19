@@ -139,7 +139,18 @@ if(CAT_BUILD_DESKTOP)
   # Link the loader library only; Vulkan::Vulkan would also add the SDK's (possibly older) headers.
   target_link_libraries(cat_arena_render PUBLIC cat_arena_core cat_arena_scene cat_arena_vkcaps SDL3::SDL3 ${Vulkan_LIBRARIES} PRIVATE cat_warnings)
   add_dependencies(cat_arena_render cat_shaders)
-  add_executable(cat_arena src/main.cpp src/audio_device.cpp src/platform_info.cpp src/desktop_display.cpp)
+  add_executable(cat_arena src/main.cpp src/audio_device.cpp src/platform_info.cpp src/desktop_display.cpp src/crash_report.cpp)
+  # N9: milestone in the crash reports and the Windows version resource
+  string(REGEX MATCH "[0-9]+" CAT_MILESTONE_NUMBER "${CAT_MILESTONE}")
+  if(NOT CAT_MILESTONE_NUMBER)
+    set(CAT_MILESTONE_NUMBER 0)
+  endif()
+  target_compile_definitions(cat_arena PRIVATE CAT_BUILD_MILESTONE="${CAT_MILESTONE}")
+  if(WIN32)   # N9: icon, version information and application manifest of CatArena.exe
+    set(CAT_RESOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/resources")
+    configure_file(resources/cat_arena.rc.in "${CMAKE_CURRENT_BINARY_DIR}/cat_arena.rc" @ONLY)
+    target_sources(cat_arena PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/cat_arena.rc" resources/cat_arena.manifest)
+  endif()
   # N7: menus, settings, the new HUD and sound (libraries defined further down)
   target_link_libraries(cat_arena PRIVATE cat_arena_render cat_arena_physics cat_arena_fx cat_arena_ui cat_arena_audio cat_arena_coop cat_warnings)
   if(WIN32)
@@ -554,6 +565,17 @@ if(BUILD_TESTING AND CAT_BUILD_DESKTOP)
   add_test(NAME window_menu_selftest COMMAND cat_arena --menu-selftest)
   set_tests_properties(window_menu_selftest PROPERTIES TIMEOUT 300 RUN_SERIAL TRUE)   # needs keyboard focus and mouse capture: no other window may take them
   # N8: hosts through the menus on the built-in relay (port 8787), three in-process guests join over TCP
+  # N9: crash reporting (no window, no GPU: --crash-test crashes before SDL starts)
+  if(WIN32)
+    set(cat_crash_access "access violation")
+  else()
+    set(cat_crash_access "SIGSEGV")
+  endif()
+  add_test(NAME crash_report_access COMMAND ${CMAKE_COMMAND} -DEXE=$<TARGET_FILE:cat_arena> -DKIND=access -DDIR=${CMAKE_CURRENT_BINARY_DIR}/crash-test-access
+           "-DEXPECT=${cat_crash_access}" -P ${CMAKE_CURRENT_SOURCE_DIR}/tools/n9/crash_test.cmake)
+  add_test(NAME crash_report_terminate COMMAND ${CMAKE_COMMAND} -DEXE=$<TARGET_FILE:cat_arena> -DKIND=terminate -DDIR=${CMAKE_CURRENT_BINARY_DIR}/crash-test-terminate
+           "-DEXPECT=std::terminate" -P ${CMAKE_CURRENT_SOURCE_DIR}/tools/n9/crash_test.cmake)
+  set_tests_properties(crash_report_access crash_report_terminate PROPERTIES TIMEOUT 180)
   add_test(NAME window_coop_selftest COMMAND cat_arena --coop-selftest)
   set_tests_properties(window_coop_selftest PROPERTIES TIMEOUT 300 RUN_SERIAL TRUE)
   get_property(cat_all_tests DIRECTORY PROPERTY TESTS)

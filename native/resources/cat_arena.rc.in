@@ -1,0 +1,32 @@
+// N9: CatArena.exe resources (configured by CMake): icon and version information.
+#include <winver.h>
+
+1 ICON "@CAT_RESOURCE_DIR@/cat_arena.ico"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,@CAT_MILESTONE_NUMBER@,0,0
+ PRODUCTVERSION 0,@CAT_MILESTONE_NUMBER@,0,0
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS 0
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904B0"
+    BEGIN
+      VALUE "CompanyName", "Cat Arena"
+      VALUE "FileDescription", "Cat Arena: Feral Claw"
+      VALUE "FileVersion", "0.@CAT_MILESTONE_NUMBER@.0.0 (@CAT_MILESTONE@)"
+      VALUE "InternalName", "CatArena"
+      VALUE "OriginalFilename", "CatArena.exe"
+      VALUE "ProductName", "Cat Arena: Feral Claw"
+      VALUE "ProductVersion", "@CAT_MILESTONE@"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0409, 1200
+  END
+END

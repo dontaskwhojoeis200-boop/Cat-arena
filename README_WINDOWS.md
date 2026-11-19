@@ -92,7 +92,12 @@ Command-line options (optional; from a Command Prompt in this folder)
 Troubleshooting
 ---------------
 - Every run writes CatArena.log next to CatArena.exe (Vulkan device, driver, loading times, errors).
-  If the folder is not writable (e.g. inside Program Files), move the game folder to Documents or Desktop.
+  If that folder is not writable (e.g. inside Program Files), the log goes to
+  %APPDATA%\CatArena\FeralClaw instead (paste that into the Explorer address bar).
+- If the game crashes, it says so in a message box and saves a crash report in the CrashReports
+  folder next to the log: CatArena-crash-<date>-<time>.txt (what happened, the last log lines) and
+  a .dmp file of the same name (a minidump for the developers). Please send both with CatArena.log
+  and a few words about what you were doing.
 - "Vulkan is not available: vulkan-1.dll ... was not found": install or update the graphics driver.
 - An error naming a Vulkan device or feature: the GPU or driver does not offer Vulkan 1.1; update the
   driver. On PCs with two GPUs, make sure the dedicated one is used.

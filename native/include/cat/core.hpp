@@ -6,6 +6,7 @@
 #include <functional>
 #include <iosfwd>
 #include <string>
+#include <vector>
 #include <string_view>
 #include <utility>
 #include "cat/utf8_path.hpp"
@@ -14,6 +15,8 @@ namespace cat {
 void log(std::string_view level, std::string_view subsystem, std::string_view message);
 // N6.5: also append every log line to this file (empty path: stop). Returns false if it cannot be opened.
 bool set_log_file(const std::filesystem::path& path);
+// The last (up to 64) log lines, oldest first. `from_crash_handler`: never block on the log lock.
+std::vector<std::string> recent_log_lines(bool from_crash_handler = false);
 
 struct Settings {
     int width{1280}, height{720}, frame_cap{0};

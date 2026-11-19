@@ -12,6 +12,18 @@ namespace cat {
 namespace {
 std::mutex log_mutex;
 std::ofstream log_file;
+// N9: the last log lines, for crash reports (cat::crash).
+constexpr std::size_t kRecentLines = 64;
+std::string recent[kRecentLines];
+std::size_t recent_next = 0, recent_count = 0;
+}
+std::vector<std::string> recent_log_lines(bool from_crash_handler) {
+    std::unique_lock lock(log_mutex, std::defer_lock);
+    // A crash can happen while this thread holds the lock: never wait for it then.
+    if(from_crash_handler ? !lock.try_lock() : (lock.lock(), false)) return {"(log lines unavailable: the log was being written when the crash happened)"};
+    std::vector<std::string> out;
+    for(std::size_t i = 0; i < recent_count; ++i) out.push_back(recent[(recent_next + kRecentLines - recent_count + i) % kRecentLines]);
+    return out;
 }
 bool set_log_file(const std::filesystem::path& path) {
     std::lock_guard lock(log_mutex);
@@ -29,6 +41,11 @@ void log(std::string_view level, std::string_view subsystem, std::string_view me
     std::clog << "level=" << std::quoted(std::string(level)) << " subsystem=" << std::quoted(std::string(subsystem))
               << " message=" << std::quoted(clean) << '\n';
     if(log_file.is_open()) log_file << "level=" << std::quoted(std::string(level)) << " subsystem=" << std::quoted(std::string(subsystem)) << " message=" << std::quoted(clean) << std::endl;
+    std::ostringstream line;
+    line << "level=" << std::quoted(std::string(level)) << " subsystem=" << std::quoted(std::string(subsystem)) << " message=" << std::quoted(clean);
+    recent[recent_next] = line.str();
+    recent_next = (recent_next + 1) % kRecentLines;
+    recent_count = std::min(recent_count + 1, kRecentLines);
 }
 void Settings::validate() const {
     if(width<320 || width>16384 || height<200 || height>16384 || frame_cap<0 || frame_cap>1000 ||

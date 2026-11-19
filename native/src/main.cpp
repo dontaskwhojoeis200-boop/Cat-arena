@@ -88,6 +88,7 @@
 #include "cat/renderer.hpp"
 #include "cat/scene.hpp"
 #include "cat/coop.hpp"
+#include "cat/crash_report.hpp"
 #include "cat/relay.hpp"
 #include <SDL3/SDL.h>
 #include <algorithm>
@@ -664,6 +665,7 @@ int main(int argc, char** argv) {
     EnemyMode enemy_mode = EnemyMode::waves; bool enemies_given = false; int start_wave = 1, shadow_mode = 1; bool light_grid = true, third_person = false, god = false; std::optional<std::filesystem::path> enemy_fixture, enemy_lineup; std::string lineup_shot;
     bool overlay_enabled = true, practice_targets = true; std::optional<std::pair<int, int>> start_weapons; std::uint32_t game_seed = 1; bool seed_given = false;
     bool menu_selftest = false, coop_selftest = false, map_given = false, fov_given = false, force_touch = false; std::optional<std::filesystem::path> game_settings_file, ui_capture;   // N7
+    std::optional<std::filesystem::path> crash_dir; std::optional<std::string> crash_test;   // N9
     for(int i = 1; i < argc; ++i) {
         std::string_view arg = argv[i];
         auto value = [&]() -> std::string_view { if(++i >= argc) throw std::runtime_error("Missing option value"); return argv[i]; };
@@ -701,6 +703,8 @@ int main(int argc, char** argv) {
         else if(arg == "--capture-every") capture_every = std::max(1, std::stoi(std::string(value())));
         else if(arg == "--resize-test") resize_test = true;
         else if(arg == "--log-file") log_file = cat::utf8_path(value());
+        else if(arg == "--crash-dir") crash_dir = cat::utf8_path(value());   // N9: where crash reports go (default: next to the log)
+        else if(arg == "--crash-test") crash_test = std::string(value());     // N9: crash on purpose (access, abort, terminate, divide)
         else if(arg == "--controls-selftest") controls_selftest = true;
         else if(arg == "--no-overlay") overlay_enabled = false;
         else if(arg == "--no-targets") practice_targets = false;
@@ -771,10 +775,34 @@ int main(int argc, char** argv) {
     g_error_dialog = interactive;
     // --controls-selftest drives the interactive controls (pause, resume, F11, F5, Esc twice) with synthetic SDL events.
     const bool pausing = interactive || controls_selftest;
+    // N9: the log and crash reports go next to CatArena.exe when that folder is writable (an unzipped
+    // game folder), otherwise to the user folder (SDL_GetPrefPath: %APPDATA%\CatArena\FeralClaw on
+    // Windows), e.g. when the game was copied to Program Files.
+    const std::filesystem::path data_dir = [&] {
+        std::error_code ec;
+        const auto probe = base / "CatArena.write-test";
+        if(std::ofstream(probe, std::ios::binary | std::ios::trunc).is_open()) { std::filesystem::remove(probe, ec); return base; }
+        if(char* pref = SDL_GetPrefPath("CatArena", "FeralClaw")) { const auto dir = cat::utf8_path(pref); SDL_free(pref); return dir; }
+        return base;
+    }();
 #ifdef _WIN32
-    if(!log_file && interactive) log_file = base / "CatArena.log";
+    if(!log_file && interactive) log_file = data_dir / "CatArena.log";
 #endif
     if(log_file && !cat::set_log_file(*log_file)) cat::log("warning", "app", "Cannot write the log file " + cat::path_utf8(*log_file));
+    if(interactive || crash_dir || crash_test) {
+#ifdef NDEBUG
+        constexpr const char* build_config = "Release";
+#else
+        constexpr const char* build_config = "Debug";
+#endif
+#ifdef _WIN32
+        constexpr const char* platform = "windows-x64";
+#else
+        constexpr const char* platform = "linux-x64";
+#endif
+        cat::crash::install({crash_dir.value_or(data_dir / "CrashReports"), std::string("Cat Arena: Feral Claw ") + CAT_BUILD_MILESTONE + " (" + platform + ", " + build_config + ")", interactive && !crash_test});
+    }
+    if(crash_test) cat::crash::deliberate(*crash_test);
 #ifdef _WIN32
     // vulkan-1.dll is delay-loaded (CMakeLists.txt): check that the loader is there before the first Vulkan call.
     if(!SDL_LoadObject("vulkan-1.dll"))
