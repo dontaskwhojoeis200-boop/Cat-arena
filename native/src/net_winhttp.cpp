@@ -44,8 +44,28 @@ HINTERNET open_session(int timeout_ms) {
 
 class WinHttpConnection final : public Connection {
 public:
-    WinHttpConnection(const Url& url, int timeout_ms) : url_(url), timeout_(timeout_ms) { worker_ = std::thread([this] { run(); }); }
-    ~WinHttpConnection() override { close(); if(worker_.joinable()) worker_.join(); }
+    WinHttpConnection(const Url& url, int timeout_ms) : url_(url), timeout_(timeout_ms) {
+        worker_ = std::thread([this] {
+            run();
+            std::lock_guard<std::mutex> l(done_m_);
+            done_ = true;
+            done_cv_.notify_all();
+        });
+    }
+    ~WinHttpConnection() override {
+        close();
+        // Normally the server answers the close frame and the worker's receive returns at once. If it
+        // does not within 3 s (server gone silent), closing the handle cancels the pending receive;
+        // by then the worker is certainly inside WinHttpWebSocketReceive or finished.
+        {
+            std::unique_lock<std::mutex> l(done_m_);
+            if(!done_cv_.wait_for(l, std::chrono::seconds(3), [this] { return done_; })) {
+                std::lock_guard<std::mutex> s(send_m_);
+                if(HINTERNET socket = socket_.exchange(nullptr)) WinHttpCloseHandle(socket);
+            }
+        }
+        if(worker_.joinable()) worker_.join();
+    }
     State state() const override { return state_.load(); }
     const std::string& error() const override { std::lock_guard<std::mutex> l(m_); return error_; }
     std::uint64_t bytes_sent() const override { return sent_; }
@@ -57,19 +77,29 @@ public:
     }
     bool send(std::string_view text) override {
         if(state_ != State::open) return false;
-        std::lock_guard<std::mutex> l(send_m_);
-        if(WinHttpWebSocketSend(socket_, WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE, const_cast<char*>(text.data()), static_cast<DWORD>(text.size())) != NO_ERROR) {
+        std::lock_guard<std::mutex> l(send_m_);   // close() takes it too: the handle stays valid during a send
+        HINTERNET socket = socket_.load();
+        if(!socket) return false;
+        if(WinHttpWebSocketSend(socket, WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE, const_cast<char*>(text.data()), static_cast<DWORD>(text.size())) != NO_ERROR) {
             fail("Connection lost");
             return false;
         }
         sent_ += text.size();
         return true;
     }
+    // N9: never waits for the server. N8 called WinHttpWebSocketClose here, which waits for the
+    // server's close frame while the worker thread is blocked in WinHttpWebSocketReceive on the same
+    // handle; when that frame did not come, the destructor's join() hung (seen once in Windows CI,
+    // coop_multiplayer_winhttp). Now only our close frame is sent (WinHttpWebSocketShutdown does not
+    // wait for the answer); the worker closes the handle when its receive returns, or the destructor
+    // cancels it. Whoever takes socket_ out closes it, exactly once.
     void close() override {
         const State was = state_.exchange(State::closed);
-        if(was == State::open && socket_) WinHttpWebSocketClose(socket_, WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS, nullptr, 0);
-        HINTERNET r = request_.exchange(nullptr);
-        if(r) WinHttpCloseHandle(r);   // unblocks a pending connect / receive
+        if(was == State::open) {
+            std::lock_guard<std::mutex> l(send_m_);
+            if(HINTERNET socket = socket_.load()) WinHttpWebSocketShutdown(socket, WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS, nullptr, 0);
+        }
+        if(HINTERNET r = request_.exchange(nullptr)) WinHttpCloseHandle(r);   // unblocks a pending connect / handshake
     }
 private:
     void fail(const std::string& why) {
@@ -92,17 +122,25 @@ private:
         DWORD status = 0, size = sizeof status;
         WinHttpQueryHeaders(req, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &status, &size, WINHTTP_NO_HEADER_INDEX);
         if(status != 101) return fail("The server refused the WebSocket upgrade (HTTP " + std::to_string(status) + ")");
-        socket_ = WinHttpWebSocketCompleteUpgrade(req, 0);
-        if(!socket_) return fail(error_text("WebSocket upgrade"));
+        HINTERNET upgraded = WinHttpWebSocketCompleteUpgrade(req, 0);
+        if(!upgraded) return fail(error_text("WebSocket upgrade"));
         if(HINTERNET r = request_.exchange(nullptr)) WinHttpCloseHandle(r);   // the request handle is no longer needed
-        State expected = State::connecting;
-        if(!state_.compare_exchange_strong(expected, State::open)) { WinHttpCloseHandle(socket_); socket_ = nullptr; return; }
+        {
+            std::lock_guard<std::mutex> l(send_m_);
+            State expected = State::connecting;
+            if(!state_.compare_exchange_strong(expected, State::open)) { WinHttpCloseHandle(upgraded); return; }   // closed while connecting
+            socket_ = upgraded;
+        }
         std::string message;
         std::vector<char> buf(64 * 1024);
         while(state_ == State::open) {
             DWORD read = 0;
             WINHTTP_WEB_SOCKET_BUFFER_TYPE type{};
-            const DWORD r = WinHttpWebSocketReceive(socket_, buf.data(), static_cast<DWORD>(buf.size()), &read, &type);
+            HINTERNET socket = socket_.load();
+            if(!socket) break;
+            const DWORD r = WinHttpWebSocketReceive(socket, buf.data(), static_cast<DWORD>(buf.size()), &read, &type);
+            // a close frame from the server is answered by closing below (it does not wait); after our own
+            // close() the server's answer arrives here as a close buffer or an error
             if(r != NO_ERROR) { if(state_ == State::open) fail("Connection closed"); break; }
             received_ += read;
             if(type == WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE) { fail("Connection closed by the server"); break; }
@@ -111,15 +149,18 @@ private:
             if(type == WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE) { std::lock_guard<std::mutex> l(m_); inbox_.push_back(std::move(message)); message.clear(); }
             else if(type == WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE) message.clear();
         }
-        WinHttpCloseHandle(socket_);
-        socket_ = nullptr;
+        std::lock_guard<std::mutex> l(send_m_);
+        if(HINTERNET socket = socket_.exchange(nullptr)) WinHttpCloseHandle(socket);
     }
     Url url_;
     int timeout_;
     std::thread worker_;
     std::atomic<State> state_{State::connecting};
     std::atomic<HINTERNET> request_{nullptr};
-    HINTERNET socket_{};
+    std::atomic<HINTERNET> socket_{nullptr};
+    std::mutex done_m_;
+    std::condition_variable done_cv_;
+    bool done_{};
     mutable std::mutex m_;
     std::mutex send_m_;
     std::vector<std::string> inbox_;

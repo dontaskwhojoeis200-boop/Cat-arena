@@ -141,6 +141,10 @@ jobs:
           # N9 crash reports (minidump + text)
           ctest --preset windows-release -R "crash_report" -V 2>&1 | Select-String -Pattern "(PASS|FAIL) crash test" | ForEach-Object { $_.Line } | Tee-Object -FilePath ../ci-logs/crash-summary.txt
           ctest --preset windows-release-gpu -N 2>&1 | Tee-Object -FilePath ../ci-logs/ctest-gpu-not-run.txt
+          # N9 stress: the WinHTTP client (the wss:// path) 15 times in a row with a short timeout, so
+          # that an intermittent hang on connect / leave fails the job instead of passing by luck
+          ctest --preset windows-release -R "_winhttp$" --repeat until-fail:15 --timeout 90 2>&1 | Tee-Object -FilePath ../ci-logs/winhttp-stress.txt
+          if ($LASTEXITCODE -ne 0) { Write-Host "FAIL WinHTTP stress (see winhttp-stress.txt)"; $code = 1 } else { Write-Host "PASS WinHTTP stress: 15 rounds of net_relay_protocol_winhttp and coop_multiplayer_winhttp" }
           exit $code
 
       - name: Smoke start without a GPU (expects a clean Vulkan error, not a crash)
