@@ -31,7 +31,8 @@ art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: do
   effects settings applied; The Arsenal's animated flag and turrets.
 - Weapon tapes from the original game on all four maps: 72,880 ticks bit-identical.
 - 17 renderer settings still stored only; the menu names N13 / N14 / N16 for them.
-- Linux 78/78; cross-play 13/13; one-hour soak; solo replays identical to N9.
+- Linux 78/78; Windows CI run 44560790833: 48/48; cross-play 13/13; one-hour soak; solo replays
+  identical on Linux and Windows to N9.
 
 ## N9 result (README_N9.md, docs/DEVELOPMENT_LOG_N9.md)
 

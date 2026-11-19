@@ -53,6 +53,11 @@ forward. See [N9](README_N9.md) for platform options and
   scene resolution, mirrors, culling modes …). Their in-game notes now name the tier that builds
   them (N13, N14 or N16), after the memory instrumentation of N12.
 
+Windows CI [run 44560790833](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44560790833)
+built and packaged the final N10 code and passed all 48 GPU-free tests, including the crash
+reports and the four-map weapon tapes (identical to Linux). The Windows ZIP is the run's
+`CAT_ARENA_FERAL_CLAW_N10_WINDOWS` artifact.
+
 ## Build
 
 On Windows x64, with Visual Studio 2022 C++ Build Tools, the Windows SDK,

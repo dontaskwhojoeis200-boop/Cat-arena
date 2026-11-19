@@ -85,3 +85,9 @@ Branched from `n9-windows` (Part 1 of N9).
    mirror feeds and PVS stay open with them.
 6. **Final Linux check.** 78/78 tests (n10-evidence/part2/linux-ctest.txt); the 16 solo replay
    and rule lines are identical to N9 (n10-evidence/part2/replay-lines.txt).
+7. **Windows CI, run 44560790833** (58195f3): build, package, 48/48 GPU-free tests (three more than
+   N9: the new weapon tapes), crash tests with minidumps (320,171 and 283,954 bytes), WinHTTP stress
+   15/15 rounds, `coop_multiplayer` 59 checks through both relays. The four-map weapon tapes and the
+   15 replay lines the job prints are identical to Linux (and to N9). Artifact
+   `CAT_ARENA_FERAL_CLAW_N10_WINDOWS` (id 14549960826, 35,498,398 bytes, expires 2026-12-19).
+   Job log: n10-evidence/part2/windows-ci/.

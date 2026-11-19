@@ -13,7 +13,8 @@ Part 1 (branch `n10-gameplay`) results are in docs/N10_TEST_REPORT.md.
 | Original server.js relay interop, native relay protocol, window co-op self-test | PASS | linux-ctest.txt |
 | Linux desktop build + CTest, final (GCC Release, lavapipe) | PASS 78/78 | n10-evidence/part2/linux-ctest.txt |
 | Solo replay and rule lines vs N9 (16 lines) | identical | n10-evidence/part2/replay-lines.txt |
-| Windows CI (GPU-free tests, package) | see README_N10.md | windows-ci |
+| Windows CI run 44560790833: build, package, GPU-free CTest | PASS 48/48; crash tests with minidumps; WinHTTP stress 15/15 | n10-evidence/part2/windows-ci |
+| Weapon tapes and replay lines, Windows vs Linux | identical | same |
 | Physical Windows PC with a GPU, two PCs over LAN / internet | NOT_RUN | docs/N10_ACCEPTANCE.md |
 
 # N9 test matrix — 2026-11-18 (branch n9)
