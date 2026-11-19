@@ -95,8 +95,6 @@ const char* present_name(VkPresentModeKHR m) {
 // Y down) makes "clockwise" mean clockwise as displayed - exactly GL's CW. An earlier revision used
 // COUNTER_CLOCKWISE and culled every floor top; render_tests' normals check caught it.
 constexpr VkFrontFace kLegacyFrontFace = VK_FRONT_FACE_CLOCKWISE;
-constexpr float kLightScale = 1.9F * 1.0F * 1.32F;   // Q3MAT frame.lightScale (normal preset overbright)
-constexpr float kMapOverbright = 1.32F, kLmIntensity = 1.0F, kFogStrength = 1.0F;
 }  // namespace
 
 namespace gpu {
@@ -232,6 +230,9 @@ struct Renderer::Impl {
     Buffer frame_ubo, draw_ubo;
     VkDeviceSize draw_stride{};
     Buffer world_vb, world_ib, sky_vb, sky_ib, mat_vb, mat_ib, cloud_vb, cloud_ib;
+    Buffer prop_vb, prop_ib;
+    scene::PropScene map_props;
+    std::vector<scene::PropMotion> prop_motion;
     std::uint32_t world_indices{}, sky_indices{}, cloud_indices{};
     Texture world_tex, lightmap_tex, mat_tex, kit_tex, portal_tex, box_tex;
     VkPipeline skybox_pipeline{};
@@ -562,7 +563,9 @@ struct Renderer::Impl {
         destroy_enemy_pipelines();   // their layout uses set 0 of the scene
         if(enemy_layout) vkDestroyPipelineLayout(device, enemy_layout, nullptr);
         enemy_layout = {};
-        for(Buffer* b : {&frame_ubo, &draw_ubo, &world_vb, &world_ib, &sky_vb, &sky_ib, &mat_vb, &mat_ib, &cloud_vb, &cloud_ib}) destroy(*b);
+        for(Buffer* b : {&frame_ubo, &draw_ubo, &world_vb, &world_ib, &sky_vb, &sky_ib, &mat_vb, &mat_ib, &cloud_vb, &cloud_ib, &prop_vb, &prop_ib}) destroy(*b);
+        map_props = {};
+        prop_motion.clear();
         for(Texture* t : {&world_tex, &lightmap_tex, &mat_tex, &kit_tex, &portal_tex, &box_tex}) destroy(*t);
         if(sampler_repeat) vkDestroySampler(device, sampler_repeat, nullptr);
         if(sampler_clamp) vkDestroySampler(device, sampler_clamp, nullptr);
@@ -1566,6 +1569,13 @@ struct Renderer::Impl {
         sky_vb = vb(s.sky); sky_ib = ib(s.sky); sky_indices = static_cast<std::uint32_t>(s.sky.indices.size());
         mat_vb = vb(s.materials); mat_ib = ib(s.materials);
         cloud_vb = vb(s.clouds); cloud_ib = ib(s.clouds); cloud_indices = static_cast<std::uint32_t>(s.clouds.indices.size());
+        map_props = s.props;
+        if(!map_props.indices.empty()) {
+            prop_motion.resize(map_props.placements.size());
+            prop_vb = make_buffer(map_props.vertex_count * scene::kMaterialVertexStride * sizeof(float), VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
+                                  VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+            prop_ib = device_buffer(map_props.indices.data(), map_props.indices.size() * sizeof(std::uint32_t), VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
+        }
         // Textures
         world_tex = texture(s.world_layers, true, true);
         lightmap_tex = texture({s.lightmap}, false, false);
@@ -1674,8 +1684,10 @@ struct Renderer::Impl {
         put(f.cam_pos, c.position, v.time);
         put(f.cam_forward, c.forward, c.tan_half_x);
         put(f.cam_right, c.right, c.tan_half_y);
-        put(f.cam_up, c.up, kLightScale);
-        f.fog_color[0] = theme.fog[0]; f.fog_color[1] = theme.fog[1]; f.fog_color[2] = theme.fog[2]; f.fog_color[3] = kFogStrength;
+        const auto& ft = v.features;
+        const float overbright = ft.overbright ? 1.32F : 1.0F;
+        put(f.cam_up, c.up, 1.9F * ft.lightmap_intensity * overbright);
+        f.fog_color[0] = theme.fog[0]; f.fog_color[1] = theme.fog[1]; f.fog_color[2] = theme.fog[2]; f.fog_color[3] = ft.fog ? ft.fog_strength : 0;
         for(int i = 0; i < 4; ++i) last_fog[i] = f.fog_color[i];   // effects use the same theme fog (fxOpts)
         const std::size_t lights = v.features.dynamic_lights && v.lights ? std::min<std::size_t>(v.light_count, 16) : 0;
         f.dl[0] = static_cast<std::int32_t>(lights);
@@ -1685,11 +1697,10 @@ struct Renderer::Impl {
             f.dl_col[i][0] = l.r; f.dl_col[i][1] = l.g; f.dl_col[i][2] = l.b; f.dl_col[i][3] = 1;
         }
         stats.dynamic_lights = static_cast<std::uint32_t>(lights);
-        f.params[0] = kLmIntensity; f.params[1] = kMapOverbright; f.params[2] = float(extent.width); f.params[3] = float(extent.height);
+        f.params[0] = ft.lightmap_intensity; f.params[1] = overbright; f.params[2] = float(extent.width); f.params[3] = float(extent.height);
         f.sky_eye[0] = float(sky_center[0]); f.sky_eye[1] = float(sky_center[1]); f.sky_eye[2] = float(sky_eye_z);
         f.sky_box[0] = float(sky_rotate_deg * std::numbers::pi / 180 * v.time);   // drawSky: rot = skyRotate * pi/180 * time
         f.sky_box[1] = float(sky_fog); f.sky_box[2] = has_sky_box ? 1.0F : 0.0F;
-        const auto& ft = v.features;
         f.flags[0] = (ft.lightmap ? 1 : 0) | (ft.fog ? 2 : 0) | (ft.posterize ? 4 : 0);
         f.flags[1] = ft.debug_view;
         std::memcpy(frame_ubo.mapped, &f, sizeof f);
@@ -1714,6 +1725,7 @@ struct Renderer::Impl {
         d.skyp[0] = float(m.sky_rotate * std::numbers::pi / 180 * time);
         d.skyp[1] = float(m.sky.cloud_height);
         d.skyp[2] = float(std::fmod(time, 1000.0));
+        d.skyp[3] = m.md3 ? 1.0F : 0.0F;
         for(std::size_t k = 0; k < p.stages.size(); ++k) {
             const auto si = p.stages[k];
             const auto& st = m.stages[si];
@@ -1721,6 +1733,7 @@ struct Renderer::Impl {
             auto src = static_cast<std::int32_t>(st.source);
             if(ft.debug_view == 2 && (st.source == scene::Source::lightmap || st.source == scene::Source::vertex_light)) src = 2;   // r_fullbright
             o.a[0] = src; o.a[1] = static_cast<std::int32_t>(st.tcgen); o.a[2] = scene::rgb_code(st.rgb); o.a[3] = scene::alpha_code(st.alpha);
+            if(m.md3 && st.rgb == scene::RgbGen::entity) o.a[2] = scene::rgb_code(scene::RgbGen::vertex);
             o.b[0] = st.has_blend ? st.blend_src : 1; o.b[1] = st.has_blend ? st.blend_dst : 0;
             o.b[2] = static_cast<std::int32_t>(st.alpha_func); o.b[3] = st.clamp ? 1 : 0;
             const auto c = scene::stage_color(st, time);
@@ -1824,6 +1837,20 @@ struct Renderer::Impl {
             vkCmdBindIndexBuffer(cb, cloud_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
             draw_material(cb, sky_material, {{0, cloud_indices}});
         }
+        if(ft.materials && prop_vb.buffer) {
+            vkCmdBindVertexBuffers(cb, 0, 1, &prop_vb.buffer, &zero);
+            vkCmdBindIndexBuffer(cb, prop_ib.buffer, 0, VK_INDEX_TYPE_UINT32);
+            for(const auto& prop : map_props.placements) {
+                const auto& p = prop.position;
+                if(ft.culling && !scene::in_view(v.camera, p[0], p[1], p[2] + 1, prop.radius)) continue;
+                for(const auto& part : prop.parts) for(const auto& draw : part.draws) {
+                    const auto before = stats.draw_calls;
+                    draw_material(cb, draw.material, {{draw.first, draw.count}});
+                    stats.prop_draws += stats.draw_calls - before;
+                    stats.prop_triangles += draw.count / 3;
+                }
+            }
+        }
         if(ft.materials && ft.translucent) {   // translucentOrder: sort ascending, then farthest first
             std::vector<std::pair<double, std::uint32_t>> order;
             for(auto i : visible) {
@@ -1862,6 +1889,10 @@ struct Renderer::Impl {
         const bool scene_frame = view && scene_loaded;
         if(scene_frame) {
             write_frame(*view);
+            if(view->features.materials && prop_vb.mapped) {
+                scene::animate_props(map_props, prop_motion, {static_cast<float*>(prop_vb.mapped), map_props.vertex_count * scene::kMaterialVertexStride},
+                                     view->time, view->player_position ? &*view->player_position : nullptr);
+            }
             for(std::size_t i = 0; i < materials.size(); ++i)
                 for(const auto& p : gpu_materials[i].passes) write_pass(materials[i], bindings[i], p, view->time, i == sky_material, view->features, &p == &gpu_materials[i].passes.front());
         }

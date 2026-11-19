@@ -24,6 +24,8 @@ struct HudInfo {
     bool final_five{};
     double burning{}, damage_flash{}, hit_marker{}, respawn_grace{};
     bool hit_was_kill{}, hit_was_head{};
+    double outgoing_damage{}, outgoing_time{}, incoming_time{};
+    std::string incoming_text;
     std::string notice;
     double notice_alpha{};
     bool dead{};

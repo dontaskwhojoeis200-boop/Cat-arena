@@ -89,7 +89,9 @@ void main() {
     // rgbGen lightingDiffuse / alphaGen lightingSpecular with Q3MAT DEFAULT_LIGHT
     vec3 L = normalize(vec3(-.3, -.6, .75));
     float ndl = max(dot(n, L), 0.); vec3 vw = normalize(camPos - p); vec3 refl = 2. * dot(n, L) * n - L;
-    vDiffuse = vec4(vec3(.45, .45, .48) + vec3(.55, .52, .5) * ndl, pow(max(dot(refl, vw), 0.), 4.));
+    // Props reuse the sprite attributes to carry baked ambient + directed diffuse per vertex.
+    vec3 diffuse = D.skyp.w > 0. ? aSprite.xyz : vec3(.45, .45, .48) + vec3(.55, .52, .5) * ndl;
+    vDiffuse = vec4(diffuse, pow(max(dot(refl, vw), 0.), 4.));
     // vertex-lit models: their lightmap texel per vertex (uKitBaked=1 once the lightmap is ready)
     vKit = D.h1.y == 1 ? textureLod(uLightmap, aLmUV, 0.).rgb * F.camUp.w : vec3(1.);
     vec2 sts[8];

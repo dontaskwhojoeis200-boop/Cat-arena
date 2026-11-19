@@ -1,6 +1,7 @@
 // N2 scene-preparation tests. No GPU. With an asset root argument, also validates the real
 // Helios Crucible scene built from the N1 bake.
 #include "cat/scene.hpp"
+#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <set>
@@ -197,6 +198,28 @@ void helios(const std::filesystem::path& root) {
               << " materials, " << s.stats.textures256 << "x256 + " << s.stats.textures512 << "x512 textures, vertex light "
               << s.stats.vertex_light_min << ".." << s.stats.vertex_light_max << " on " << s.stats.lit_vertices_changed << " vertices\n";
     reject([&] { (void)load_map_scene(root, "not-a-map"); }, "unknown map accepted");
+
+    SceneOptions arsenal_options = options;
+    arsenal_options.sky_box_dir = default_sky_box_dir(root);
+    const auto arsenal = load_map_scene(root, "q3-gallery", arsenal_options);
+    const auto& props = arsenal.props;
+    check(props.models.size() == 4 && props.placements.size() == 3, "Arsenal rigs share four original MD3 files");
+    check(props.indices.size() / 3 == 502 && props.vertex_count == 452, "all seven Arsenal prop parts are present");
+    std::vector<PropMotion> motion(props.placements.size());
+    std::vector<float> vertices(props.vertex_count * kMaterialVertexStride);
+    animate_props(props, motion, vertices, 0, nullptr);
+    const auto initial = vertices;
+    const V3 nearby{90, 58, 0};
+    animate_props(props, motion, vertices, .125, &nearby);
+    const auto& turret = props.placements.at(1);
+    const auto head = turret.parts.at(1).first_vertex * kMaterialVertexStride;
+    check(!std::equal(vertices.begin(), vertices.begin() + 60 * kMaterialVertexStride, initial.begin()),
+          "flag vertices interpolate across frames");
+    check(motion[1].yaw < 0 && motion[1].yaw >= -.25 && vertices[head] != initial[head], "turret turns toward a nearby player at the legacy rate");
+    check(std::all_of(vertices.begin(), vertices.end(), [](float v) { return std::isfinite(v); }), "transformed vertices stay finite");
+    const std::array<std::uint8_t, 108> invalid{};
+    reject([&] { (void)decode_md3(invalid); }, "invalid MD3 header accepted");
+    std::cout << "PASS Arsenal: three animated prop rigs, 502 triangles and shared source models\n";
 }
 }  // namespace
 

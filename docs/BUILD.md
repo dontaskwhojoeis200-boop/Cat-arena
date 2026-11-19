@@ -491,7 +491,7 @@ cd native
 cmake --preset windows-release                 :: Visual Studio 17 2022, x64; fetches SDL3 3.2.10 and glslang vulkan-sdk-1.4.309.0
 cmake --build --preset windows-release --parallel
 ctest --preset windows-release                 :: tests without GPU / window (what CI runs)
-ctest --preset windows-release-gpu             :: rendering and window tests: needs a Vulkan 1.2 GPU and driver
+ctest --preset windows-release-gpu             :: rendering and window tests: needs a Vulkan-capable GPU and driver
 cmake --install build/windows-release --config Release --prefix ../dist/CAT_ARENA_FERAL_CLAW_N6_WINDOWS
 cmake -DPACKAGE_DIR=../dist/CAT_ARENA_FERAL_CLAW_N6_WINDOWS -DPLATFORM=windows -P tools/package/validate_package.cmake
 cmake -DPACKAGE_DIR=../dist/CAT_ARENA_FERAL_CLAW_N6_WINDOWS -DZIP=../dist/CAT_ARENA_FERAL_CLAW_N6_WINDOWS.zip -P tools/package/zip_package.cmake

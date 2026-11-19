@@ -10,7 +10,6 @@
 // Arena is the same with or without presentation.
 // Verified against the unmodified legacy game: tools/n5/legacy_combat.cjs --fx, tests/fx_tests.cpp.
 // N5.1: Frame::lights, reduced with select_lights, light the map (renderer: FrameView::lights).
-// Not ported: blood/gib effects of dying enemies (N6), remote players' shots (N8).
 #include "cat/combat.hpp"
 #include <array>
 #include <cstdint>
@@ -52,6 +51,7 @@ struct Frame {
     GunView gun_view;
     std::vector<Light> lights;         // Q3R.addLight calls of this frame (max 64)
     std::vector<float> atlas;          // N5.1 renderGeometry(): medkit billboards, 12 floats per vertex (world-atlas layout)
+    const Batch& world_effects() const { return main; }
 };
 struct MarkOptions { std::optional<double> rot; double add{}; double life{12}; bool glow{}; };   // addMark options
 struct Offsets { double back{}, lift{}, pitch{}, roll{}, yaw{}, drop{}; };   // WFX.viewmodelOffsets
@@ -75,12 +75,14 @@ class EnemyFx;
 // N7: the "Retro reference viewmodel" settings (vmAngleOffset, vmSizeFov, vmVerticalOffset, 14493).
 // The defaults reproduce the N5 picture bit for bit.
 struct ViewmodelCalibration { double yaw_deg{0}, size_fov{60}, vertical{0}; };
+struct EffectSettings { double detail{1}, rail_seconds{.6}; bool marks{true}, brass{true}, blood{true}; };
 class WeaponFx {
     friend class EnemyFx;   // N6: enemy effects are added to the same entity / mark lists
 public:
     WeaponFx(const physics::CollisionWorld& world, std::uint32_t seed);
     void set_viewmodel(const ViewmodelCalibration& c) { vm_ = c; }
     const ViewmodelCalibration& viewmodel() const { return vm_; }
+    void set_settings(EffectSettings settings);
     void clear();
     // Once per simulation tick, right after Arena::step(): starts the effects of the step's events
     // (WFX.fire, WFX.explosion) and advances every effect by one tick (WFX.update).
@@ -89,6 +91,7 @@ public:
     // (fx::EnemyFx): start the effects of one event, then advance every effect by one tick.
     void start_fire(const combat::Arena& arena, double horizontal_fov_deg, double aspect);
     void start_blast(const combat::BlastEvent& b);
+    void remote_fire(const combat::Arena& arena, int weapon, double x, double y, double z, double yaw, double pitch, double crouch);
     void advance(const combat::Arena& arena);
     // Once per rendered frame: fills the batches, the lights and the weapon view.
     void build(const combat::Arena& arena, double horizontal_fov_deg, double aspect, Frame& out);
@@ -112,6 +115,7 @@ public:
     combat::Rng& random_stream() { return rng_; }
 private:
     ViewmodelCalibration vm_;
+    EffectSettings settings_;
     struct Entity {   // localEntity
         double t{}, life{1}, x{}, y{}, z{}, vx{}, vy{}, vz{}, grav{}, drag{}, s0{.2}, s1{.2}, a0{1}, a1{}, rot{}, rot_v{}, r{1}, g{1}, b{1}, add{1};
         int flags{4}, tile{}, frames{};

@@ -10,6 +10,7 @@
 #include "cat/navigation.hpp"
 #include "cat/relay.hpp"
 
+#include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <cstdio>
@@ -104,7 +105,7 @@ void rules(const World& w) {
         const int loadout = a.current_weapon();
         a.queue_remote_fire(m.key, 0);
         a.step({});
-        check(a.events().remote_shots.size() == 1 && a.events().remote_frags.size() == 1 && a.current_weapon() == loadout, "a teammate's hitscan kill: 'frag' for them, the host keeps its weapon");
+        check(a.events().remote_shots.size() == 1 && a.events().remote_frags.size() == 1 && a.current_weapon() == loadout && a.frags() == 0 && a.events().damage.empty(), "a teammate's hitscan kill: 'frag' for them, the host keeps its weapon");
         a.queue_remote_fire(m.key, 0);
         a.step({});
         check(a.events().remote_shots.empty(), "teammate fire rate limited (delay x 0.88)");
@@ -114,7 +115,7 @@ void rules(const World& w) {
         a.queue_remote_fire(m.key, 2);   // rocket launcher
         bool frag = false;
         for(int i = 0; i < 120 && !frag; ++i) { a.step({}); frag = !a.events().remote_frags.empty(); }
-        check(frag, "a teammate's rocket kill is credited to them (projectile owner)");
+        check(frag && a.frags() == 0, "a teammate's rocket kill is credited to them (projectile owner)");
     }
     {   // medkits for teammates
         combat::Arena a(*w.collision, 7);
@@ -128,6 +129,18 @@ void rules(const World& w) {
             a.step({});
             check(std::abs(a.teammate(m.key)->hp - 70) < 1e-9 && a.pickups().front().cool > 12.9, "a teammate on a medkit heals 40, cooldown 13 s");
         }
+    }
+    {
+        combat::Arena a(*w.collision, 7);
+        a.spawn(sp.x, sp.y, sp.z, sp.a);
+        combat::Horde h(a, *w.graph);
+        auto dead = h.stage_enemy(0, sp.x, sp.y, sp.z, sp.a);
+        dead.hp = -50;
+        h.enemy_died(dead);
+        check(h.deaths().back().gibbed && h.corpses().empty(), "default overkill produces gibs");
+        h.set_gibs(false);
+        h.enemy_died(dead);
+        check(!h.deaths().back().gibbed && h.corpses().size() == 1, "gibs off preserves a normal death animation");
     }
     {   // guest side: no damage authority, puppets from snapshots
         combat::Arena a(*w.collision, 8);
@@ -262,7 +275,30 @@ void network(const World& w, const std::string& external) {
         c[1]->keys = 0;
         play(60);
         check(c[1]->arena->frags() == frags + 1, "guest 1's shot killed the host's enemy and the 'frag' came back");
-        check(c[2]->saw(net::CoopEvent::Kind::remote_volley), "the other guests saw guest 1's volley (shotFx)");
+        const auto& seen = c[2]->events;
+        check(std::any_of(seen.begin(), seen.end(), [&](const net::CoopEvent& e) {
+            return e.kind == net::CoopEvent::Kind::remote_volley && e.positioned && std::hypot(e.x - gp.x, e.y - gp.y) < .5;
+        }), "another guest received a positioned shotFx for guest 1's volley");
+    }
+    {
+        auto& host = *c[0]->arena;
+        host.set_loadout(4, 2);
+        host.player().state().pitch = -.55;
+        host.clear_targets();
+        c[0]->horde->stage_wave(1, 50, 50, 0);
+        play(40);
+        c[0]->keys = combat::key_fire;
+        bool replicated = false, blasted = false;
+        play(340, [&](int tick) {
+            if(tick == 2) c[0]->keys = 0;
+            const auto projectiles = c[2]->arena->projectiles();
+            for(const auto& p : projectiles)
+                if((p.id & 0x80000000U) != 0 && p.kind == combat::FireKind::rocket) replicated = true;
+            if(!c[2]->arena->events().blasts.empty()) blasted = true;
+        });
+        check(replicated, "a spectator guest receives a host rocket in flight");
+        check(blasted, "a spectator guest receives the host detonation");
+        check(c[2]->arena->projectiles().empty(), "host projectile is removed from subsequent snapshots");
     }
     // damage, downed, revive by another guest holding F. The host's wave is frozen first (no enemies,
     // nothing left to spawn) so that only the test deals damage.

@@ -33,7 +33,7 @@ inline constexpr double kPoseIntervalMs = 48, kWorldIntervalMs = 90, kSnapshotSt
 struct RemotePlayer {
     std::string id, name;
     std::uint32_t key{};      // host: the Arena teammate key; guest: 0
-    double x{}, y{}, z{}, a{}, pitch{}, vx{}, vy{}, step{};
+    double x{}, y{}, z{}, a{}, pitch{}, vx{}, vy{}, step{}, crouch{};
     double hp{100};
     bool downed{}, is_host{};
     bool placed{};            // a position has arrived (pose / snapshot): drawn and tagged only then
@@ -53,7 +53,8 @@ struct CoopEvent {
     std::string text, map_id;
     bool heal{};
     int weapon{-1};
-    double x{}, y{}, z{};
+    double x{}, y{}, z{}, yaw{}, pitch{}, crouch{};
+    bool positioned{};
 };
 
 struct ServerEntry { std::string id, title, host, map_id; int players{}, max_players{4}; bool open{}; };

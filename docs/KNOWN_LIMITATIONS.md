@@ -39,6 +39,11 @@ Multiplayer (N8, docs/N8_MULTIPLAYER.md)
 - A server's map is fixed; the game menu does not pause a server (deliberate differences).
 - As in the legacy, guests get no wave-start or wave-cleared announcement, only the wave counter.
 
+N10 checkpoint ([test report](N10_TEST_REPORT.md))
+- Physical Windows GPU play, exclusive fullscreen, raw input, playback-device changes, and four-player LAN/WAN are open. Windows CI covers GPU-free loopback. Linux software Vulkan covers the co-op UI and rendering path.
+- The HUD now draws damage numbers and incoming hit feedback. Guest health feedback reflects the change between host snapshots and has no source direction. Remote hitscan visuals are cosmetic traces from the last known pose. Fog strength, lightmap intensity, overbright and weapon effects controls are active.
+- Live mirrors and portals, internal scene resolution, anti-aliasing, and several texture controls remain open. No FPS or combined memory result exists for the Pentium G2020 and GTX 660.
+
 Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
 - 25 of the 65 legacy settings are shown and saved but do not change the game yet (N10): scene
   resolution, multisample AA, FXAA, adaptive resolution and FPS target, the three world culling

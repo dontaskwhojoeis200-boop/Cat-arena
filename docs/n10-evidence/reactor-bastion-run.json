@@ -1,0 +1,13 @@
+{
+  "map": "reactor-bastion", "spawn": 0, "ticks": 1084, "tickSeconds": "1/120", "script": "w+shift:120,w+jump+fire@2:120,w+slide+fire@-2:120,swap:2,fire@3:240,reload:2,a+fire@-2:240,fire@2:240",
+  "frames": [
+    {"tick": 0, "file": "walk_00000.png", "feet": [52.3, 26.9, 0], "velocity": [0, 0, 0], "yaw": 0.734594, "pitch": 0, "ground": true, "stance": "run", "eyeZ": 1.5, "roll": 0, "fovScale": 1, "colliderHeight": 1.8},
+    {"tick": 360, "file": "walk_00360.png", "feet": [63.8781, 48.1548, -2.2575], "velocity": [3.39639, 7.57815, -11.7], "yaw": 0.734594, "pitch": 0, "ground": false, "stance": "air", "eyeZ": -0.754421, "roll": -0.00841887, "fovScale": 1.00138, "colliderHeight": 1.8},
+    {"tick": 720, "file": "walk_00720.png", "feet": [21.9862, 60.2551, 0], "velocity": [-7.99004, -0.235865, 0], "yaw": -1.2262, "pitch": 0, "ground": true, "stance": "run", "eyeZ": 1.50198, "roll": 0.0202044, "fovScale": 1.00043, "colliderHeight": 1.8},
+    {"tick": 1080, "file": "walk_01080.png", "feet": [20.9527, 61.7956, 0], "velocity": [0, 0, 0], "yaw": -0.554202, "pitch": 0, "ground": true, "stance": "run", "eyeZ": 1.5, "roll": 0, "fovScale": 1, "colliderHeight": 1.8},
+    {"tick": 1084, "file": "walk_01084.png", "feet": [20.9527, 61.7956, 0], "velocity": [0, 0, 0], "yaw": -0.530202, "pitch": 0, "ground": true, "stance": "run", "eyeZ": 1.5, "roll": 0, "fovScale": 1, "colliderHeight": 1.8}
+  ],
+  "contacts": {"horizontal": 145, "ceiling": 1, "landings": 3, "steps": 0, "recoveries": 0}, "jumps": 2, "padLaunches": 1, "footsteps": 10,
+  "combat": {"health": 100, "weapons": [12, 10], "slot": 0, "magazines": [2, 5], "volleys": 11, "pellets": 5, "pelletHits": 5, "targetHits": 8, "headHits": 0, "damageDealt": 611.252, "detonations": 6, "frags": 1, "deaths": 1, "damageTaken": 138.681, "healed": 0, "reloads": 0, "swaps": 1, "targetsAlive": 10, "gameplayRandomDraws": 632, "cosmeticRandomDraws": 2643, "waves": {"wave": 1, "highestWave": 5, "total": 10, "spawned": 10, "kills": 0, "remaining": 10, "scale": 1, "enemiesAlive": 10, "mostEnemies": 20, "enemyShots": 0, "mostEnemyShots": 6, "enemyShotImpacts": 14, "corpses": 1, "deathAnimations": 1, "gibbed": 0, "routes": 73, "routeQueries": 73, "sharedRoutes": 6, "mostCreatureInstances": 10, "mostOutlines": 0, "animationRandomDraws": 51}}, "overlay": true,
+  "validationWarnings": 0, "validationErrors": 0
+}

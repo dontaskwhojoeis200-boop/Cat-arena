@@ -1,0 +1,1 @@
+Package check PASS: D:/a/Cat-arena/Cat-arena/dist/CAT_ARENA_FERAL_CLAW_N10_WINDOWS: CatArena.exe, SDL3.dll, 23 shaders, 4 maps, 16 weapon models, 20 creature meshes, README.txt, THIRD_PARTY_LICENSES.txt; 766 files, 97 MiB; no development files

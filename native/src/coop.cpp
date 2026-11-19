@@ -16,6 +16,13 @@ double clampd(double v, double lo, double hi) { return std::max(lo, std::min(hi,
 double safe(const json::Value& v, double def, double lo = -9999, double hi = 9999) { return v.finite_number() ? clampd(v.as_number(), lo, hi) : def; }
 double q3(double v) { return std::isfinite(v) ? std::floor(v * 1000 + .5) / 1000 : v; }   // netQ: Math.round(v * 1000) / 1000
 double q2(double v) { return std::isfinite(v) ? std::floor(v * 100 + .5) / 100 : v; }
+std::optional<combat::FireKind> explosive_kind(const json::Value& v) {
+    if(!v.finite_number()) return {};
+    const double kind = v.as_number();
+    for(auto k : {combat::FireKind::rocket, combat::FireKind::grenade, combat::FireKind::rift})
+        if(kind == static_cast<int>(k)) return k;
+    return {};
+}
 std::string clean_name(const std::string& raw, std::size_t limit) {   // .replace(/[^\w .-]/g, '')
     std::string s;
     for(char c : raw) if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_' || c == ' ' || c == '.' || c == '-') s += c;
@@ -191,13 +198,13 @@ json::Value Coop::hero_local() const {   // netHero(player)
     const auto& p = arena_->player().state();
     json::Value h;
     h.set("x", q3(p.x)); h.set("y", q3(p.y)); h.set("z", q3(p.z)); h.set("a", q3(p.a)); h.set("pitch", q3(p.pitch)); h.set("vx", q3(p.vx)); h.set("vy", q3(p.vy));
-    h.set("hp", q2(arena_->health())); h.set("downed", p.downed); h.set("step", q3(arena_->player().view().bob_cycle));
+    h.set("hp", q2(arena_->health())); h.set("downed", p.downed); h.set("step", q3(arena_->player().view().bob_cycle)); h.set("crouchOffset", q3(p.crouch_offset));
     return h;
 }
 json::Value Coop::hero(const combat::Teammate& t) const {
     json::Value h;
     h.set("x", q3(t.x)); h.set("y", q3(t.y)); h.set("z", q3(t.z)); h.set("a", q3(t.a)); h.set("pitch", q3(t.pitch)); h.set("vx", q3(t.vx)); h.set("vy", q3(t.vy));
-    h.set("hp", q2(t.hp)); h.set("downed", t.downed); h.set("step", q3(t.step));
+    h.set("hp", q2(t.hp)); h.set("downed", t.downed); h.set("step", q3(t.step)); h.set("crouchOffset", q3(t.crouch));
     return h;
 }
 std::string Coop::world_message(const std::string& guest_id) const {   // netWorldShared + netWorldGuestPart + netSnapshotMessage (15903-15931)
@@ -229,6 +236,18 @@ std::string Coop::world_message(const std::string& guest_id) const {   // netWor
         shots.push_back(e);
     }
     d.set("shots", shots);
+    json::Array projectiles;
+    for(const auto& p : arena_->projectiles()) {
+        if(projectiles.size() >= 96) break;
+        const auto* owner = p.owner ? arena_->teammate(p.owner) : nullptr;
+        if(owner && owner->id == guest_id) continue;  // the firing client predicts its own projectile
+        json::Value e;
+        e.set("id", p.id); e.set("kind", static_cast<int>(p.kind));
+        e.set("x", q3(p.x)); e.set("y", q3(p.y)); e.set("z", q3(p.z));
+        e.set("vx", q3(p.vx)); e.set("vy", q3(p.vy)); e.set("vz", q3(p.vz)); e.set("life", q3(p.life));
+        projectiles.push_back(e);
+    }
+    d.set("projectiles", projectiles);
     json::Array players;
     {
         json::Value me = hero_local();
@@ -280,11 +299,23 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
             m->holding_revive = d["holdingRevive"].truthy(); m->step = safe(d["step"], 0, 0, 30000);
             return;
         }
-        if(type == "fire") arena_->queue_remote_fire(m->key, static_cast<int>(d["weapon"].as_number(-1)));   // netHostRemoteFire, at the next tick
+        if(type == "fire") {
+            const double weapon = safe(d["weapon"], -1, -1, static_cast<double>(combat::kWeaponCount));
+            if(weapon >= 0 && weapon < static_cast<double>(combat::kWeaponCount) && std::floor(weapon) == weapon)
+                arena_->queue_remote_fire(m->key, static_cast<int>(weapon));
+        }
         return;
     }
     if(mode_ != Mode::guest || from != peer_id_) return;   // guests take game state from the host only
     if(type == "map") return;   // the room's map is fixed (the legacy index 0..2 is a layout variant of the old engine)
+    if(type == "blast") {
+        if(d["shooter"].as_string() == self_id_) return;
+        if(const auto kind = explosive_kind(d["kind"])) {
+            const double power = safe(d["power"], 0, 0, 2);
+            if(power > 0) arena_->queue_remote_blast({safe(d["x"], 0), safe(d["y"], 0), safe(d["z"], 0), power, *kind});
+        }
+        return;
+    }
     if(type == "world") {
         last_world_ = now_ms; ++stats_.snapshots;
         std::vector<combat::Pickup> pickups;
@@ -298,6 +329,18 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
             pickups.push_back(k);
         }
         arena_->set_pickups(std::move(pickups));
+        std::vector<combat::Projectile> projectiles;
+        for(const auto& p : d["projectiles"].as_array()) {
+            if(projectiles.size() >= 96) break;
+            const auto kind = explosive_kind(p["kind"]);
+            const auto id = safe(p["id"], 0, 0, 2147483647);
+            const auto life = safe(p["life"], 0, 0, 3);
+            if(!kind || id < 1 || std::floor(id) != id || life <= 0) continue;
+            projectiles.push_back({*kind, safe(p["x"], 0), safe(p["y"], 0), safe(p["z"], 0),
+                safe(p["vx"], 0, -60, 60), safe(p["vy"], 0, -60, 60), safe(p["vz"], 0, -60, 60),
+                life, 0x80000000U | static_cast<std::uint32_t>(id)});
+        }
+        arena_->set_remote_projectiles(std::move(projectiles));
         combat::WorldState w;
         w.wave = static_cast<int>(d["wave"].as_number()); w.total = static_cast<int>(d["total"].as_number());
         w.kills = static_cast<int>(d["kills"].as_number()); w.spawned = static_cast<int>(d["spawned"].as_number());
@@ -327,6 +370,7 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
         // other players (the host first)
         std::vector<std::string> keep;
         for(const auto& info : d["players"].as_array()) {
+            if(keep.size() >= 3) break;
             if(!info["id"].is_string() || info["id"].as_string() == self_id_) continue;
             const std::string id = info["id"].as_string();
             keep.push_back(id);
@@ -336,6 +380,7 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
             r->x = safe(info["x"], r->x); r->y = safe(info["y"], r->y); r->z = safe(info["z"], r->z); r->a = safe(info["a"], r->a);
             r->pitch = safe(info["pitch"], 0); r->vx = safe(info["vx"], 0); r->vy = safe(info["vy"], 0); r->hp = safe(info["hp"], r->hp, 0, 100);
             r->downed = info["downed"].truthy(); r->step = safe(info["step"], 0);
+            r->crouch = safe(info["crouchOffset"], 0, 0, .6);
             r->placed = r->x != 0 || r->y != 0;
             r->is_host = id == peer_id_;
             if(r->is_host) { r->color = {.82F, 1.F, .87F}; r->name = peer_name_; }
@@ -343,7 +388,7 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
         players_.erase(std::remove_if(players_.begin(), players_.end(), [&](const RemotePlayer& p) { return std::find(keep.begin(), keep.end(), p.id) == keep.end(); }), players_.end());
         if(d["you"].is_object()) {
             const bool was = arena_->player().state().downed;
-            arena_->set_health(safe(d["you"]["hp"], arena_->health(), 0, 100));
+            arena_->queue_guest_health(safe(d["you"]["hp"], arena_->health(), 0, 100));
             const bool down = d["you"]["downed"].truthy();
             arena_->set_local_downed(down);
             if(down && !was) say("YOU ARE DOWN · WAIT FOR REVIVE");
@@ -364,8 +409,15 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
         if(!shooter.empty() && shooter == self_id_) return;
         RemotePlayer* r = shooter.empty() ? player(peer_id_) : player(shooter);   // a host volley names no shooter in the legacy client
         CoopEvent e{CoopEvent::Kind::remote_volley};
-        e.weapon = static_cast<int>(d["weapon"].as_number(-1));
-        if(r) { r->shoot_until = arena_->now() + .14; e.x = r->x; e.y = r->y; e.z = r->z; }
+        const auto weapon = safe(d["weapon"], -1, -1, static_cast<double>(combat::kWeaponCount));
+        if(weapon < 0 || weapon >= static_cast<double>(combat::kWeaponCount) || std::floor(weapon) != weapon) return;
+        e.weapon = static_cast<int>(weapon);
+        if(r && r->placed) {
+            r->shoot_until = arena_->now() + .14;
+            e.x = r->x; e.y = r->y; e.z = r->z;
+            e.yaw = r->a; e.pitch = r->pitch; e.crouch = r->crouch;
+            e.positioned = true;
+        }
         events_.push_back(e);
     }
 }
@@ -411,7 +463,7 @@ void Coop::sync_host_players() {   // host: display state of the other players f
     if(mode_ != Mode::host || !arena_) return;
     for(auto& p : players_) if(const combat::Teammate* t = arena_->teammate(p.key)) {
         p.x = t->x; p.y = t->y; p.z = t->z; p.a = t->a; p.pitch = t->pitch; p.vx = t->vx; p.vy = t->vy; p.step = t->step; p.hp = t->hp; p.downed = t->downed;
-        p.shoot_until = t->shoot_until; p.placed = t->pose_ms >= 0;
+        p.shoot_until = t->shoot_until; p.placed = t->pose_ms >= 0; p.crouch = t->crouch;
     }
 }
 void Coop::after_step() {
@@ -423,6 +475,14 @@ void Coop::after_step() {
         else { m.set("type", "shotFx"); m.set("from", "host"); m.set("weapon", e.fired_weapon); m.set("shooter", self_id_); relay(m); }   // (12063) + shooter
     }
     if(mode_ != Mode::host) return;
+    for(const auto& blast : e.blasts) {
+        const auto* owner = blast.owner ? arena_->teammate(blast.owner) : nullptr;
+        json::Value m;
+        m.set("type", "blast"); m.set("kind", static_cast<int>(blast.kind));
+        m.set("x", q3(blast.x)); m.set("y", q3(blast.y)); m.set("z", q3(blast.z)); m.set("power", blast.power);
+        m.set("shooter", owner ? owner->id : self_id_);
+        relay(m);
+    }
     auto name_of = [&](std::uint32_t key) -> std::string { if(const auto* t = arena_->teammate(key)) return t->name; return "Marine Cat"; };
     for(const auto& f : e.remote_frags) if(const auto* t = arena_->teammate(f.key)) { json::Value m; m.set("type", "frag"); m.set("head", f.head); relay(m, t->id); }
     for(const auto& s : e.remote_shots) if(const auto* t = arena_->teammate(s.key)) { json::Value m; m.set("type", "shotFx"); m.set("weapon", s.weapon); m.set("shooter", t->id); relay(m); }

@@ -1,0 +1,37 @@
+Test project /workspace/scratch/a16818ac3257/n10-linux
+    Start 53: coop_interop_legacy_relay
+    Start 52: net_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.59 sec
+    Start 52: net_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.53 sec
+    Start 52: net_interop_legacy_relay
+    Test #53: coop_interop_legacy_relay ........   Passed    1.56 sec
+    Start 53: coop_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.54 sec
+    Start 52: net_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.46 sec
+    Start 52: net_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.58 sec
+    Start 52: net_interop_legacy_relay
+    Test #53: coop_interop_legacy_relay ........   Passed    1.56 sec
+    Start 53: coop_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.56 sec
+    Start 52: net_interop_legacy_relay
+    Test #52: net_interop_legacy_relay .........   Passed    0.54 sec
+    Start 52: net_interop_legacy_relay
+1/2 Test #52: net_interop_legacy_relay .........   Passed    0.46 sec
+    Test #53: coop_interop_legacy_relay ........   Passed    1.54 sec
+    Start 53: coop_interop_legacy_relay
+    Test #53: coop_interop_legacy_relay ........   Passed    1.54 sec
+    Start 53: coop_interop_legacy_relay
+    Test #53: coop_interop_legacy_relay ........   Passed    1.61 sec
+    Start 53: coop_interop_legacy_relay
+    Test #53: coop_interop_legacy_relay ........   Passed    1.45 sec
+    Start 53: coop_interop_legacy_relay
+    Test #53: coop_interop_legacy_relay ........   Passed    1.47 sec
+    Start 53: coop_interop_legacy_relay
+2/2 Test #53: coop_interop_legacy_relay ........   Passed    1.50 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  12.25 sec

@@ -1,6 +1,6 @@
 # Current development direction
 
-Read [README_N9.md](README_N9.md) and the [Windows roadmap](docs/WINDOWS_ROADMAP.md) first. The instructions below record earlier milestones.
+Read [README_N10.md](README_N10.md) and the [Windows roadmap](docs/WINDOWS_ROADMAP.md) first. The instructions below record earlier milestones.
 
 # Cat Arena: Feral Claw — C++20 / Vulkan rewrite handoff
 

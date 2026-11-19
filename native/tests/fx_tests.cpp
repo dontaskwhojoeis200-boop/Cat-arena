@@ -6,6 +6,7 @@
 // shader, the weapon glow, quad counts and checksums of the three effect batches, the dynamic
 // lights, the recoil spring, the world-space muzzle point and the number of cosmetic random draws.
 #include "cat/weapon_fx.hpp"
+#include <algorithm>
 #include <cmath>
 #include <cstring>
 #include <fstream>
@@ -311,6 +312,41 @@ void unit_tests() {
         const auto f = w.surface_at(10, 10, .02, 0, 0, -1);
         check(f && near(f->nz, 1, 1e-9) && near(f->z, 0, .02), "surface_at finds the floor");
         check(!w.surface_at(10, 10, 5, 1, 0, 0), "no surface in mid air");
+    }
+    {
+        combat::Arena arena(world, 3);
+        arena.spawn(5, 20, 0, 0);
+        arena.set_loadout(1, 3);
+        fx::WeaponFx normal(world, 4), reduced(world, 4);
+        reduced.set_settings({.detail = .45, .rail_seconds = .2, .marks = false, .brass = false, .blood = false});
+        normal.explosion(20, 20, .3, 1.15, false);
+        reduced.explosion(20, 20, .3, 1.15, false);
+        check(normal.marks() == 1 && reduced.marks() == 0 && reduced.entities() < normal.entities(), "marks and particle detail follow the settings");
+        arena.step({combat::key_fire});
+        normal.tick(arena, fov, aspect); reduced.tick(arena, fov, aspect);
+        check(normal.pending_brass() == 1 && reduced.pending_brass() == 0, "brass setting controls shotgun shell ejection");
+        normal.set_settings({.marks = false, .brass = false});
+        check(normal.pending_brass() == 0 && normal.marks() == 0, "turning off brass and marks clears pending shells and existing marks");
+
+        fx::Frame frame;
+        arena.add_target(10, 20, 0, combat::TargetClass::standard, 1000);
+        const auto before = arena_hash(arena);
+        normal.clear(); reduced.clear();
+        normal.remote_fire(arena, 3, 6, 20, 0, 0, 0, 0);
+        reduced.remote_fire(arena, 3, 6, 20, 0, 0, 0, 0);
+        normal.build(arena, fov, aspect, frame);
+        const auto has_blood = [](const fx::Frame& f) {
+            return std::any_of(f.main.vertices.begin(), f.main.vertices.end(), [](const fx::Vertex& v) { return v.tile == static_cast<float>(fx::tile_blood); });
+        };
+        check(has_blood(frame) && frame.gun.quads() == 0 && !frame.lights.empty(), "remote rail draws a world-space flash and hit without changing the local weapon view");
+        reduced.build(arena, fov, aspect, frame);
+        check(!has_blood(frame), "blood-off uses the legacy spark effect");
+        for(int i = 0; i < 30; ++i) { normal.advance(arena); reduced.advance(arena); }
+        check(normal.rails() == 1 && reduced.rails() == 0, "remote rail uses the configured trail duration");
+        reduced.remote_fire(arena, 1, 6, 20, 0, 0, 0, .4);
+        check(reduced.tracers() == 3, "remote shotgun draws three tracers");
+        reduced.remote_fire(arena, 4, 6, 20, 0, 0, 0, .4);
+        check(reduced.tracers() == 3 && arena_hash(arena) == before, "remote rockets use the authoritative projectile and cosmetic fire leaves simulation state unchanged");
     }
 }
 }  // namespace

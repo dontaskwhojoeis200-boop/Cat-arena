@@ -1,0 +1,45 @@
+Test project /workspace/scratch/a16818ac3257/n10-linux
+    Start 53: coop_interop_legacy_relay
+    Start 50: coop_multiplayer
+    Test #50: coop_multiplayer .................   Passed    1.99 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    2.56 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.79 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.87 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.46 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.74 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.37 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.50 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.24 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.38 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.26 sec
+    Start 50: coop_multiplayer
+    Test #50: coop_multiplayer .................   Passed    1.24 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.40 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.22 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.42 sec
+    Start 53: coop_interop_legacy_relay
+    Test #50: coop_multiplayer .................   Passed    1.25 sec
+    Start 50: coop_multiplayer
+    Test #53: coop_interop_legacy_relay ........   Passed    1.41 sec
+    Start 53: coop_interop_legacy_relay
+1/2 Test #50: coop_multiplayer .................   Passed    1.27 sec
+    Test #53: coop_interop_legacy_relay ........   Passed    1.43 sec
+    Start 53: coop_interop_legacy_relay
+2/2 Test #53: coop_interop_legacy_relay ........   Passed    1.35 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  16.08 sec

@@ -238,6 +238,20 @@ std::vector<HudElement> build_hud(Canvas& c, const HudInfo& in, const HudView& v
                 c.line(W / 2 + std::cos(ang) * d0, H / 2 + std::sin(ang) * d0, W / 2 + std::cos(ang) * d1, H / 2 + std::sin(ang) * d1, 2.4 * k, hc);
         }
     }
+    if(in.outgoing_time > 0 && (!s || s->flag("showHitFeedback"))) {
+        char number[48];
+        std::snprintf(number, sizeof number, "%.0f", std::round(in.outgoing_damage));
+        const auto label = std::string(in.hit_was_head ? "CRITICAL  " : "DMG  ") + number;
+        const auto alpha = static_cast<float>(std::clamp(in.outgoing_time / .55, 0.0, 1.0));
+        const double rise = (1.0 - alpha) * 20 * v.scale;
+        c.text(W * .57, H * .43 - rise, label,
+               style(Face::mono, 14 * v.scale, Color::hex(in.hit_was_head ? 0xffd36b : 0xf2eee4, alpha), .04, Align::left, .4));
+    }
+    if(in.incoming_time > 0 && !in.incoming_text.empty()) {
+        const auto alpha = static_cast<float>(std::clamp(in.incoming_time / .7, 0.0, 1.0));
+        c.text(W * .5, H * .19 - (1.0 - alpha) * 10 * v.scale, in.incoming_text,
+               style(Face::mono, 14 * v.scale, Color::hex(0xffa28c, alpha), .04, Align::center, .4));
+    }
     // notices (#event), burn status, death notice
     if(!in.notice.empty() && in.notice_alpha > 0) {   // #event as measured at 1280 x 720: right 2 %, top 27 %, max-width 41 %, 3px double #bb8053
         const float a = static_cast<float>(std::min(1.0, in.notice_alpha * 1.5));
@@ -271,9 +285,15 @@ std::vector<HudElement> build_hud(Canvas& c, const HudInfo& in, const HudView& v
     }
     if(in.dead || in.respawn_grace > 2.2) c.text(W / 2, H * .42, "FRAGGED · RESPAWNING", style(Face::serif, 26 * v.scale, Color::hex(0xe8c0b8), .14, Align::center, .1));
     // keyboard control tips (#tip)
-    if(s && s->flag("showControlTips") && !v.touch)
-        c.text(W / 2, H - 14 * v.scale, "WASD MOVE · SHIFT SPRINT · SPACE JUMP · CTRL/C CROUCH-SLIDE · LMB FIRE · R RELOAD · Q SWAP · V SETTINGS · ESC PAUSE",
+    if(s && s->flag("showControlTips") && !v.touch) {
+        const auto layout = s->text("keyboardLayout");
+        const auto movement = layout == "arrows" ? "ARROWS" : layout == "zqsd" ? "ZQSD" : "WASD";
+        const auto fire = s->text("mouseFire") == "right" ? "RMB" : "LMB";
+        const auto swap = layout == "zqsd" ? "TAB" : "Q/TAB";
+        c.text(W / 2, H - 14 * v.scale, std::string(movement) + " MOVE · SHIFT SPRINT · SPACE JUMP · CTRL/C CROUCH-SLIDE · " +
+               fire + " FIRE · R RELOAD · " + swap + " SWAP · V SETTINGS · ESC PAUSE",
                style(Face::mono, 10 * v.scale, kMuted, .02, Align::center, .25));
+    }
     // touch controls
     if(v.touch) {
         const double opacity_setting = s ? s->number("touchOpacity") / 100.0 : .8;

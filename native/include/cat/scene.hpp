@@ -6,6 +6,7 @@
 #include <array>
 #include <cstdint>
 #include <filesystem>
+#include <functional>
 #include <span>
 #include <string>
 #include <string_view>
@@ -121,7 +122,7 @@ struct Material {
     SkyParams sky;
     double sky_rotate{};
     // Q3MAT.resolve()
-    bool vertex_lit{}, lightmapped{}, all_add{}, has_detail{};
+    bool vertex_lit{}, lightmapped{}, all_add{}, has_detail{}, md3{};
 };
 Material parse_material(const assets::Value&);
 std::vector<const Stage*> active_stages(const Material&, bool detail_textures);
@@ -157,6 +158,45 @@ struct Cluster {
     double radius{};
 };
 struct MaterialBinding { std::vector<std::vector<std::uint32_t>> stage_layers; };   // per stage, per animMap frame
+struct Md3FrameVertex { V3 position, normal; };
+struct Md3Tag { std::string name; V3 origin; std::array<V3, 3> axes; };
+struct Md3Surface {
+    std::string material;
+    std::vector<std::array<float, 2>> uv;
+    std::vector<std::uint32_t> indices;
+    std::vector<Md3FrameVertex> vertices;   // frames packed consecutively
+};
+struct Md3Model {
+    std::size_t frame_count{};
+    std::vector<std::vector<Md3Tag>> tags;
+    std::vector<Md3Surface> surfaces;
+};
+Md3Model decode_md3(std::span<const std::uint8_t> bytes);
+
+struct PropPart {
+    std::size_t model{};
+    std::vector<Cluster> draws;   // material and index ranges in the shared prop index buffer
+    std::size_t first_vertex{};
+    std::size_t parent{}, tag{};
+    double fps{};
+};
+struct MapProp {
+    V3 position, ambient, directed, direction;
+    double yaw{}, scale{1}, radius{}, phase{};
+    bool turret{};
+    std::vector<PropPart> parts;
+};
+struct PropScene {
+    std::vector<Md3Model> models;
+    std::vector<MapProp> placements;
+    std::vector<std::uint32_t> indices;
+    std::size_t vertex_count{};
+};
+struct PropMotion { double last_time{}, yaw{}; bool initialized{}; };
+inline constexpr std::size_t kMaterialVertexStride = 18;
+void animate_props(const PropScene&, std::span<PropMotion>, std::span<float> vertices, double time, const V3* player);
+void load_props(PropScene&, const assets::Value& document, const std::filesystem::path& root,
+                const std::function<std::uint32_t(const std::string&)>& material_index);
 struct SceneStats {
     std::string world_atlas_source;
     std::size_t world_triangles{}, sky_triangles{}, material_triangles{}, clusters{}, materials{};
@@ -172,6 +212,7 @@ struct MapScene {
     std::vector<Material> material_defs;          // used materials + sky material (last)
     std::vector<MaterialBinding> bindings;        // parallel to material_defs
     std::vector<Cluster> clusters;                // legacy buildStatic order: (sort, id), then insertion
+    PropScene props;
     std::size_t sky_material_index{};
     Image lightmap;
     // N4: image sky box (skyParms <farbox> other than $baked). Empty for baked-geometry skies.

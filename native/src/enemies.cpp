@@ -257,7 +257,7 @@ void Horde::enemy_died(const Target& dead) {   // enemyDeathFx: gibs below -40 h
     DeathEvent e;
     e.uid = dead.uid; e.type = dead.type; e.x = dead.x; e.y = dead.y; e.z = dead.z; e.a = dead.a; e.hp = dead.hp; e.hit_flash = dead.hit_flash;
     e.attack_progress = attack_progress(dead); e.now = arena_->now(); e.player_x = ps.x; e.player_y = ps.y; e.player_z = ps.z; e.flying = dead.flying;
-    e.gibbed = dead.hp <= -40;
+    e.gibbed = gibs_ && dead.hp <= -40;
     e.seq = arena_->next_event_seq();
     if(e.gibbed) { deaths_.push_back(e); return; }
     e.corpse_id = next_corpse_id_;
@@ -367,9 +367,9 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
         const Teammate* mate = s.target_key ? arena_->teammate(s.target_key) : nullptr;
         const double radius = s.kind == ShotKind::voidorb ? .21 : s.kind == ShotKind::fireball ? .16 : .08;
         double hit_time = -1;
-        if(mate) {   // marineShotTime: the six Marine Cat parts of that player
+        if(mate && !mate->downed) {   // marineShotTime: the six Marine Cat parts of that player
             for(const Box& part : arena_->marine_boxes(*mate)) { const double tt = segment_box_time(s.x, s.y, s.z, nx, ny, nz, part, radius); if(tt >= 0 && (hit_time < 0 || tt < hit_time)) hit_time = tt; }
-        } else hit_time = segment_box_time(s.x, s.y, s.z, nx, ny, nz, arena_->player_box(), radius);
+        } else if(s.target_key == 0) hit_time = segment_box_time(s.x, s.y, s.z, nx, ny, nz, arena_->player_box(), radius);
         const double wall_time = arena_->world_->shot_collision_t(s.x, s.y, s.z, nx, ny, nz, radius * .70);
         const bool hit = hit_time >= 0 && hit_time <= wall_time, wall = wall_time != kInf;
         const double t = hit ? hit_time : wall ? wall_time : 1;
@@ -378,9 +378,8 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
             impacts_.push_back({hx, hy, hz, s.kind, s.type, true, s.vx, s.vy, s.vz, arena_->next_event_seq()});
             const bool fire = s.kind == ShotKind::fireball;
             if(mate) arena_->remote_damage(*arena_->teammate(s.target_key), s.damage);
-            else if(s.target_key) {}   // aimed at a player who left: remoteApplyDamage finds nobody
             else {
-                const bool died = arena_->take_damage(s.damage);
+                const bool died = arena_->take_damage(s.damage, false, std::array{ s.x, s.y });
                 if(!died && arena_->respawn_grace_ <= 0 && fire) { arena_->burn_remaining_ = 3; arena_->burn_tick_ = .5; }   // igniteBurn
             }
             shots_.erase(shots_.begin() + static_cast<std::ptrdiff_t>(i));
@@ -430,7 +429,7 @@ void Horde::attack(Target& b) {   // enemyAttack (11955)
         }
     } else if(dist < (def.slam ? 2.2 : 1.55) && std::fabs(target.z - b.z) < 1.55) {
         if(target.key) { if(Teammate* m = arena_->teammate(target.key)) arena_->remote_damage(*m, def.melee_damage * b.damage_scale); }
-        else arena_->take_damage(def.melee_damage * b.damage_scale);
+        else arena_->take_damage(def.melee_damage * b.damage_scale, false, std::array{b.x, b.y});
     }
 }
 

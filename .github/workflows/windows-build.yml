@@ -18,9 +18,9 @@ on:
       milestone:
         description: "Milestone in the package name (CAT_ARENA_FERAL_CLAW_<milestone>_WINDOWS)"
         required: false
-        default: "N9"
+        default: "N10"
   push:
-    branches: [main, master, n9-windows]
+    branches: [main, master, n9-windows, n10-gameplay]
     paths: ["native/**", "assets/**", "README_WINDOWS.md", ".github/workflows/windows-build.yml"]
   pull_request:
     paths: ["native/**", "assets/**", "README_WINDOWS.md", ".github/workflows/windows-build.yml"]
@@ -37,7 +37,7 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 120
     env:
-      MILESTONE: ${{ github.event.inputs.milestone || 'N9' }}
+      MILESTONE: ${{ github.event.inputs.milestone || 'N10' }}
     defaults:
       run:
         shell: pwsh

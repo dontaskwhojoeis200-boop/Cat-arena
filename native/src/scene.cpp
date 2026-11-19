@@ -627,12 +627,14 @@ MapScene load_map_scene(const std::filesystem::path& root, std::string_view map_
     std::unordered_map<std::string, const assets::Value*> definitions;
     for(const auto& d : doc.at("materialDefinitions").array()) definitions[d.at("name").string()] = &d;
     std::unordered_map<std::string, std::uint32_t> material_index;
-    auto add_material = [&](const std::string& name) -> std::uint32_t {
-        if(auto it = material_index.find(name); it != material_index.end()) return it->second;
+    auto add_material = [&](const std::string& name, bool md3 = false) -> std::uint32_t {
+        const auto key = md3 ? "MD3:" + name : name;
+        if(auto it = material_index.find(key); it != material_index.end()) return it->second;
         need(definitions.contains(name), "missing material definition " + name);
         scene.material_defs.push_back(parse_material(*definitions.at(name)));
+        scene.material_defs.back().md3 = md3;
         const auto index = static_cast<std::uint32_t>(scene.material_defs.size() - 1);
-        material_index[name] = index;
+        material_index[key] = index;
         return index;
     };
 
@@ -692,6 +694,7 @@ MapScene load_map_scene(const std::filesystem::path& root, std::string_view map_
         scene.clusters.push_back(c);
     }
     need(scene.materials.indices.size() == materials.indices.size(), "cluster rebuild lost triangles");
+    load_props(scene.props, doc, root, [&](const std::string& name) { return add_material(name, true); });
 
     // Sky (q3InitSky 15079-15101): WORLD.meta.sky.shader or sky/reactor_bastion.
     const auto& meta = doc.at("authored").at("meta");

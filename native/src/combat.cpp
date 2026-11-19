@@ -80,6 +80,7 @@ Arena::Arena(const physics::CollisionWorld& world, std::uint32_t seed) : world_(
 void Arena::spawn(double x, double y, double z, double yaw, double pitch, double now) {
     player_.spawn(x, y, z, yaw, pitch, now);
     rockets_.clear(); grenades_.clear(); bolts_.clear();
+    remote_projectiles_.clear(); remote_blasts_.clear(); guest_hit_.reset();
     for(auto& p : pickups_) p.cool = 0;
     events_ = Events{};
     hp_ = kMaxHealth; cooldown_ = 0; reloading_ = 0; gun_kick_ = 0; muzzle_flash_ = 0; flash_ = 0; respawn_grace_ = 0;
@@ -108,6 +109,7 @@ std::vector<Projectile> Arena::projectiles() const {
     std::vector<Projectile> all = rockets_;
     all.insert(all.end(), grenades_.begin(), grenades_.end());
     all.insert(all.end(), bolts_.begin(), bolts_.end());
+    all.insert(all.end(), remote_projectiles_.begin(), remote_projectiles_.end());
     return all;
 }
 
@@ -117,6 +119,18 @@ void Arena::step(const physics::TickInput& in) {
     player_.clear_body_events();
     player_.set_stick(in.stick_x, in.stick_y);
     if(horde_) horde_->begin_step();
+    if(guest_hit_) {
+        events_.incoming_hit = guest_hit_;
+        events_.player_damage += guest_hit_->amount;
+        ++events_.player_hits;
+        flash_ = std::max(flash_, .62);
+        guest_hit_.reset();
+    }
+    for(auto& blast : remote_blasts_) {
+        blast.seq = next_event_seq();
+        events_.blasts.push_back(blast);
+    }
+    remote_blasts_.clear();
     // N8: shots of other players that arrived since the last tick (netHostRemoteFire runs on message arrival)
     if(!remote_fire_queue_.empty()) {
         const auto queue = std::move(remote_fire_queue_);
@@ -157,6 +171,12 @@ void Arena::step(const physics::TickInput& in) {
     }
     if(horde_) horde_->update(dt, ai_decision);   // enemies, route jobs, enemy projectiles
     update_projectiles(dt);
+    for(auto& p : remote_projectiles_) {
+        if(p.kind == FireKind::grenade) p.vz -= kGrenadeGravity * dt;
+        p.x += p.vx * dt; p.y += p.vy * dt; p.z += p.vz * dt;
+        p.life -= dt;
+    }
+    std::erase_if(remote_projectiles_, [](const Projectile& p) { return p.life <= 0; });
     update_pickups(dt);
     if(horde_) horde_->update_corpses(dt);
     else for(auto& t : targets_) t.hit_flash = std::max(0.0, t.hit_flash - dt);
@@ -202,25 +222,28 @@ void Arena::reroll_one(bool) {   // rerollOne (11593): a frag replaces the weapo
 void Arena::damage_target(std::size_t index, double damage, double z_hit, int part) {   // damageBot (11585) + killBot
     if(index >= targets_.size()) return;
     auto& b = targets_[index];
-    if(role_ == NetRole::guest) {   // the host decides damage: hit feedback only (b.hitFlash = .17; hitFeedback)
-        b.hit_flash = .17;
-        events_.damage.push_back({b.id, damage, false, false});
-        return;
-    }
     const double rel = z_hit - b.z;
     const bool head = part >= 0 ? part == 1 : (rel >= b.height() * .66 && rel <= b.height() + .10);
     const double actual = damage * (head ? 2 : 1);
+    if(role_ == NetRole::guest) {
+        b.hit_flash = .17;
+        events_.damage.push_back({b.id, actual, head, false});
+        return;
+    }
     b.hp -= actual; b.hit_flash = .21;
     DamageEvent e{b.id, actual, head, b.hp <= 0};
-    events_.damage.push_back(e);
+    if(attacker_ == 0) events_.damage.push_back(e);
     if(b.hp <= 0) {   // killBot: remove, score, death presentation, reroll, wave count
         events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::eliminated, b.id});   // playEnemyVoice(b, 'eliminated') (11589)
         const Target dead = b;
         targets_.erase(targets_.begin() + static_cast<std::ptrdiff_t>(index));
-        ++frags_;
         if(horde_) horde_->enemy_died(dead);
-        if(role_ == NetRole::host && attacker_ != 0 && teammate(attacker_)) events_.remote_frags.push_back({attacker_, head});   // conn.send({type:'frag', head})
-        else reroll_one(head);
+        if(attacker_ != 0) {
+            if(teammate(attacker_)) events_.remote_frags.push_back({attacker_, head});
+        } else {
+            ++frags_;
+            reroll_one(head);
+        }
         if(horde_) horde_->count_kill();
     } else {
         if(rng_.next() < .52) events_.voices.push_back({b.x, b.y, b.z, b.type, VoiceKind::hurt, b.id});   // playEnemyVoice(b, 'hurt') (11590)
@@ -286,12 +309,13 @@ void Arena::fire() {   // fireWeapon (12054)
     if(mag_[slot] <= 0) reload();
 }
 
-bool Arena::take_damage(double amount, bool burn) {   // takeDamage (11912)
+bool Arena::take_damage(double amount, bool burn, std::optional<std::array<double, 2>> source) {   // takeDamage (11912)
     if(role_ == NetRole::guest || player_.state().downed) return false;
     amount = std::max(0.0, amount);
     if(amount == 0 || !(amount == amount) || respawn_grace_ > 0) return false;
     hp_ -= amount; flash_ = std::max(flash_, burn ? .22 : .62);
     events_.player_damage += amount;
+    events_.incoming_hit = IncomingHit{amount, burn, source};
     if(!burn) ++events_.player_hits;   // beep(100, .08, 'sawtooth', .013) (11923)
     if(hp_ <= 0) {   // committed at the end of the tick (finishPendingRespawn), not inside the enemy / projectile loops
         ++deaths_; hp_ = 0;
@@ -315,7 +339,7 @@ Box Arena::player_box() const {   // playerHitBox (11539): the nominal crouch he
 }
 
 void Arena::explode(double x, double y, double power, double z, FireKind kind) {   // explode (12015)
-    events_.blasts.push_back({x, y, z, power, kind, next_event_seq()});
+    events_.blasts.push_back({x, y, z, power, kind, next_event_seq(), attacker_});
     // Blast damage comes from the detonation point; a projectile impact deals no separate direct-hit damage.
     const double splash = kEnemySplashRadius * power;
     for(std::size_t i = targets_.size(); i-- > 0;) {
@@ -332,7 +356,7 @@ void Arena::explode(double x, double y, double power, double z, FireKind kind) {
     auto& p = player_.state();
     const double d = point_box_distance(x, y, z, player_box());
     if(d < range) {
-        const bool died = take_damage(std::max(1.0, std::floor(kPlayerSplashDamage * power * (1 - d / range) + .5)));   // Math.round
+        const bool died = take_damage(std::max(1.0, std::floor(kPlayerSplashDamage * power * (1 - d / range) + .5)), false, std::array{x, y});   // Math.round
         if(!died && hp_ > 0) {
             const double pct = clamp((range - d) / (range * .58), 0, 1);
             const double launch = std::sqrt(2 * physics::kGravity * physics::kPlayerHeight * 2.25) * pct;   // 2.25 player heights at full blast
@@ -496,6 +520,17 @@ void Arena::remote_fire(Teammate& p, int i) {   // netHostRemoteFire (15773)
     }
 }
 void Arena::remote_frag(bool head) { ++frags_; reroll_one(head); }   // 'frag': score++; rerollOne(head)
+void Arena::queue_remote_blast(const BlastEvent& blast) {
+    if(remote_blasts_.size() < 64) remote_blasts_.push_back(blast);
+}
+void Arena::queue_guest_health(double health) {
+    if(health < hp_) {
+        const double loss = hp_ - health;
+        if(guest_hit_) guest_hit_->amount += loss;
+        else guest_hit_ = IncomingHit{loss, false, {}};
+    }
+    hp_ = health;
+}
 void Arena::set_local_downed(bool downed) {
     auto& p = player_.state();
     const bool was = p.downed;

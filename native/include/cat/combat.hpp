@@ -15,6 +15,7 @@
 #include <array>
 #include <cstdint>
 #include <functional>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -98,8 +99,10 @@ struct BlastEvent {
     double x{}, y{}, z{}, power{};        // detonation point used for damage
     FireKind kind{FireKind::rocket};
     std::uint32_t seq{};                  // order among this step's presentation events (Arena::next_event_seq)
+    std::uint32_t owner{};                // host teammate key, or zero for the local player
     double fx_z() const { return z > .05 ? z : .05; }   // height the legacy draws the explosion at (spawnExplosionVisual)
 };
+struct IncomingHit { double amount{}; bool burn{}; std::optional<std::array<double, 2>> source; };
 struct DamageEvent { std::uint32_t target_id{}; double amount{}; bool head{}, killed{}; };
 // The moment of the shot, for presentation: the legacy starts tracers and the muzzle flash from the
 // view as it was when fireWeapon() ran (before or after this tick's movement).
@@ -133,6 +136,7 @@ struct Events {
     std::vector<ShotEvent> shots;         // hitscan pellet end points
     std::vector<BlastEvent> blasts;
     std::vector<DamageEvent> damage;      // damage dealt to targets
+    std::optional<IncomingHit> incoming_hit;
     double player_damage{};               // damage taken by the player
     double healed{};
     int reroll{-1};                       // new weapon index after a kill
@@ -205,7 +209,10 @@ public:
     void remote_fire(Teammate& p, int weapon);               // netHostRemoteFire
     void remote_frag(bool head);                             // guest: the host credited a kill to this player ('frag')
     void queue_frag(bool head) { frag_queue_.push_back(head); }   // guest: applied at the start of the next step
-    void set_local_downed(bool downed);                      // guest: 'you.downed' from the host
+    void set_local_downed(bool downed);
+    void set_remote_projectiles(std::vector<Projectile> projectiles) { remote_projectiles_ = std::move(projectiles); }
+    void queue_remote_blast(const BlastEvent& blast);
+    void queue_guest_health(double health);                      // guest: 'you.downed' from the host
     void set_pickups(std::vector<Pickup> list) { pickups_ = std::move(list); }   // guest: the host's medkits
     bool holding_revive() const { return (keys_ & key_revive) != 0; }   // F held this tick
     double revive_seconds() const { return revive_seconds_; }
@@ -218,7 +225,7 @@ public:
     void reload();                      // reloadWeapon
     void switch_weapon();               // switchWeapon
     void explode(double x, double y, double power, double z, FireKind kind);
-    bool take_damage(double amount, bool burn = false);   // takeDamage; returns true when the player died
+    bool take_damage(double amount, bool burn = false, std::optional<std::array<double, 2>> source = {});   // takeDamage; returns true when the player died
     void damage_target(std::size_t index, double damage, double z_hit, int part);   // damageBot; part: -1 by height, 0 body, 1 head
     Box player_box() const;             // playerHitBox
     // N6: enemies, waves and enemy projectiles of this arena (cat/enemies.hpp). Null = none (N5 behaviour).
@@ -271,6 +278,9 @@ private:
     Rng rng_;
     std::vector<Target> targets_;
     std::vector<Projectile> rockets_, grenades_, bolts_;    // separate lists, updated in this order (as the legacy)
+    std::vector<Projectile> remote_projectiles_;
+    std::vector<BlastEvent> remote_blasts_;
+    std::optional<IncomingHit> guest_hit_;
     std::vector<Pickup> pickups_;
     Events events_;
     std::array<int, 2> loadout_{0, 1}, mag_{50, 8};

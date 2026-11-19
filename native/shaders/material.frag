@@ -56,7 +56,7 @@ void main() {
             if(alphaOk(D.st[k].b.z, c.a)) acc = clamp(c * bf(D.st[k].b.x, c, acc) + acc * bf(D.st[k].b.y, c, acc), 0., 1.);
         }
     }
-    if(F.flags.y == 1) acc = vec4((D.h1.y == 1 ? vKit : texture(uLightmap, vLm).rgb * F.camUp.w) * .62, 1.);
+    if(F.flags.y == 1 && D.skyp.w == 0.) acc = vec4((D.h1.y == 1 ? vKit : texture(uLightmap, vLm).rgb * F.camUp.w) * .62, 1.);
     if(F.flags.y == 3) acc = vec4(normalize(vNormal) * .5 + .5, 1.);
     // Dynamic lights (Q3MAT fragment shader, 3955): only on lightmapped opaque materials and only in
     // the first pass of a multi-pass material (D.h1.w, set by the renderer like dlightUniforms / 4144).
