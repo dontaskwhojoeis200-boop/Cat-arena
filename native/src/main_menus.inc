@@ -886,6 +886,8 @@
                      (mt.failure.empty() ? "" : " failure=\"" + mt.failure + "\""));
         result = ok ? 0 : 3;
         std::error_code ec; if(!game_settings_file) std::filesystem::remove(settings_path, ec);
+        const auto pm = cat::process_memory();
+        cat::log("info", "memory", "Menu self-test end (solo): working set " + mib(pm.current) + ", peak " + mib(pm.peak) + ", private " + mib(pm.private_bytes) + "; GPU allocations by the renderer " + mib(renderer.stats().tracked_bytes));
     }
     if(coop_selftest) {
         const bool ok = ct.failure.empty() && ct.menus_ok && ct.typed_ok && ct.hosting_ok && ct.listed_ok && ct.joined_ok && ct.world_ok && ct.marines_ok && ct.tags_ok && ct.damage_ok && ct.revive_ok && ct.menu_runs_ok && ct.left_ok && ct.quit_ok;
@@ -896,6 +898,9 @@
                      " frames=" + std::to_string(rendered) + " ticks=" + std::to_string(simulation.ticks()) + (ct.failure.empty() ? "" : " failure=\"" + ct.failure + "\""));
         result = ok ? 0 : 3;
         std::error_code ec; if(!game_settings_file) std::filesystem::remove(settings_path, ec);
+        const auto pm = cat::process_memory();
+        cat::log("info", "memory", "Co-op self-test end (host + 3 in-process guest simulations): working set " + mib(pm.current) + ", peak " + mib(pm.peak) + ", private " + mib(pm.private_bytes) +
+                                       "; GPU allocations by the renderer " + mib(renderer.stats().tracked_bytes) + " (a software Vulkan device keeps these in system memory)");
     }
     if(report) {
         std::ofstream r(*report);

@@ -1,4 +1,29 @@
-# Current and historical known limitations
+# Current known limitations — N8
+
+Platform and direction (revised handoff, docs/ROADMAP_N8_N20.md)
+- Windows-only from N8: Android / touch code is kept and compiles but is no longer developed or
+  tested; the touch layout has no revive button and no on-screen text entry.
+- The renderer rejects Vulkan devices below API 1.2; the revised handoff wants 1.1 as the intended
+  baseline (planned for N9, docs/ROADMAP_N8_N20.md).
+- Memory: no figure is close to the 192 MiB target yet. The renderer's own Vulkan allocations are
+  104–150 MiB in the self-tests (GPU budget 64 MiB); CPU-side figures were measured on lavapipe
+  only (docs/N8_MULTIPLAYER.md §4). No per-category accounting before N12.
+
+Multiplayer (N8, docs/N8_MULTIPLAYER.md)
+- Tested on one machine only (loopback TCP; four clients in tests, the original server.js, the
+  original browser game in headless Chromium). Not run between separate PCs, over the internet,
+  through NAT / port forwarding or with real latency and jitter.
+- HOST ON THIS PC listens on all interfaces, port 8787; the Windows Firewall prompt and LAN play
+  were not exercised. Over the internet the port must be forwarded (no NAT traversal).
+- `wss://` / `https://` relays (TLS) work only through WinHTTP on Windows; the WinHTTP path was
+  tested without TLS in CI, a TLS relay was never reached. Linux builds (development only) have no
+  TLS.
+- The interactive multiplayer was exercised on Linux (window self-test) only; on Windows with a
+  GPU it is unverified.
+- As in the legacy: no host migration (the server closes when the host leaves); other players'
+  rockets, grenades and explosions are not drawn on the other machines; snapshots are plain JSON.
+- A server's map is fixed; the game menu does not pause a server (deliberate differences).
+- As in the legacy, guests get no wave-start or wave-cleared announcement, only the wave counter.
 
 Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
 - 25 of the 65 legacy settings are shown and saved but do not change the game yet (N10): scene
@@ -15,7 +40,6 @@ Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
   a deliberate difference that keeps replays independent of audio.
 - Fonts: Liberation (metric-compatible with Times New Roman / Arial / Courier New) instead of the
   browser's choice among Noto Serif / Georgia / system fonts; glyph shapes differ slightly.
-- N8 multiplayer uses the native or original Cat Arena relay. Separate PCs, live Render, WAN/TLS, and physical Windows graphics/audio are unverified.
 - Android pointer capture, touch controls and safe areas are unit-tested and drawn at phone sizes,
   in the historical desktop tests. Touch input on desktop Linux was not exercised with a
   real touch screen.
@@ -43,8 +67,7 @@ Enemies (N6)
   maps the simulation, animation and effect random draws are compared, not pictures.
 - Not compared with a legacy picture: projected shadows away from spawn 0, the Marine Cat moving.
 - The local Marine Cat is visible only in the native third-person debug view; the legacy shows it
-  only in mirrors (not implemented, N10). Other players' Marine Cats are drawn when present (N8
-  networking will supply them).
+  only in mirrors (not implemented, N10). Other players' Marine Cats are drawn in multiplayer (N8).
 - The Marine Cat's seven GLB clips are not played (the legacy runtime does not play them either).
 - Creature JPEG textures are decoded by stb_image (as in N5).
 - Fixture actions KILL / HURT drive waves and deaths in the recordings; they are not game inputs.
@@ -107,8 +130,7 @@ Vulkan compatibility (N2.1)
 - The optional paths reduce objects and upload work; no frame-time benefit was measured or claimed.
   Extended dynamic state saves one pipeline on Helios; push descriptors save one descriptor set.
 - Depth formats with stencil were not exercised on the dynamic-rendering path.
-- Historical Android work: the renderer follows Android's constraints (1.0 + WSI imports,
-  run-time lookup) but was never compiled for Android. Windows was not built either.
+- Android is out of scope since N8 (the renderer was never compiled for Android).
 - The test layer and its self-test are Linux-only; on other systems the simulated-device tests are
   not built and the path matrix covers what the installed driver offers.
 - Frames-in-flight is still 1 and there is one Vulkan allocation per resource (unchanged from N2).

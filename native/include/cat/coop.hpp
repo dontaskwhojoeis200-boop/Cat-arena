@@ -105,6 +105,7 @@ public:
     // HUD lines: revive status (coopReviveStatus), room badge.
     std::string revive_status() const;
     std::string badge() const;
+    // snapshots: host = rounds sent (one message per guest each), guest = snapshots received
     struct Stats { std::uint64_t snapshots{}, snapshot_bytes{}, poses{}, bytes_sent{}, bytes_received{}; double last_world_age_ms{-1}; };
     Stats stats() const;
     // Message builders / readers, public for tests.

@@ -556,3 +556,31 @@ node native/tools/n7/record_webaudio.cjs            # native/tests/fixtures/n7 d
 python3 -I native/tools/n7/set_browser_lengths.py   # browser decode lengths into bank.txt
 python3 -I native/tools/n7/font_manifest.py assets/n7/fonts
 ```
+
+## N8 — multiplayer (2026-11-16)
+
+No new build dependency. Sockets are the system's (Winsock `ws2_32` on Windows); TLS relays
+(`wss://`, `https://`) use WinHTTP (`winhttp`, part of Windows). Linux builds speak `ws://` /
+`http://` only. New libraries `cat_arena_net` and `cat_arena_coop`.
+
+```
+cmake --build build -j
+ctest --test-dir build -R "net_relay_protocol|coop_multiplayer|coop_soak"     # no GPU
+ctest --test-dir build -R window_coop_selftest                                # window + Vulkan, uses port 8787
+# interop with the ORIGINAL relay (reference/multiplayer/server.js): configure with the npm `ws` package
+cmake -S native -B build -DCAT_NODE_WS_DIR=/path/to/node_modules             # adds net_interop_legacy_relay, coop_interop_legacy_relay
+# by hand
+build/cat_arena --relay-server [--port 8787] [--bind 0.0.0.0]                 # the relay alone, no window
+build/cat_arena --coop-selftest                                              # menus → host → 3 in-process guests → leave
+build/cat_arena_coop_tests assets/n1 --soak 3600                             # long soak (game seconds)
+CAT_NET_WINHTTP=1 build/cat_arena_net_tests                                  # Windows: the WinHTTP client without TLS
+```
+
+Cross-play with the original browser game (reference tool, not product; Node >= 22, Playwright +
+Chromium, a Vulkan / WebGL-capable software or hardware device):
+```
+NODE_PATH=$(npm root -g) node tools/n8/crossplay_legacy.cjs --build build --assets assets/n1 --out docs/n8-evidence/crossplay
+```
+
+Windows CI installs npm `ws@8.18.3` into a temporary folder for the two interop tests only; nothing
+from npm is built into or shipped with the game.

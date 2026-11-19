@@ -1,62 +1,40 @@
-# Cat Arena: Feral Claw — N8 multiplayer
+# Cat Arena: Feral Claw — native rewrite, N8 (four-player co-op multiplayer)
 
-The N8 Windows build adds four-player co-op using the built-in LAN relay or the
-existing Cat Arena relay. The server browser lists live compatible rooms. The
-host runs the enemies, waves, damage and revive rules. Guests receive world
-snapshots and simulate their own traversal. Teammates appear as Marine Cats
-with name tags.
+Complete source tree after N8. Read `docs/N8_MULTIPLAYER.md` for what was built and how it was
+checked, `docs/ROADMAP_N8_N20.md` for the revised direction (Windows-only, 192 MiB combined memory,
+Quake III Arena-inspired art); players read `README_WINDOWS.md`.
 
-## Play
+- **Host / join**: MULTIPLAYER > HOST A SERVER (map, player name, server name; HOST ON THIS PC runs
+  the relay inside the game on port 8787, CREATE SERVER uses a typed relay address) and JOIN A
+  SERVER (live server list, refreshed every 9 s). `CatArena.exe --relay-server` runs the relay alone.
+- **Up to four players** against the same waves. The host simulates enemies, waves, damage and
+  pickups; guests send their movement and shots and show the host's world.
+- **Synchronised**: player movement and aim, weapon fire and its kills (credited to the shooter),
+  enemies and their shots, damage, medkits, wave numbers.
+- **Downed and revive**: at 0 health a player is down; a teammate holds **F** (gamepad: D-pad down)
+  next to them for 4 seconds; when everybody is down the wave restarts at 1.
+- **Name tags** over teammates (name, health, DOWN / HOST), revive line, room badge.
+- **Disconnections**: join / leave messages, host leaving closes the server for everybody with a
+  message, lost connections and refused joins return to the menu with the reason.
+- The wire protocol is the legacy one: the native game works with the original relay
+  (`reference/multiplayer/server.js`) and with the original browser game (tested both ways).
 
-Extract the Windows ZIP and run `CatArena.exe`. For LAN play, open
-**Multiplayer → Host a Server**, select a map, then choose **Host on This PC**.
-Guests open **Multiplayer → Join a Server**, enter the host's LAN IP and port
-`8787`, and select the room. For an existing relay, enter its address in both
-clients' multiplayer settings and use **Create Server** on the host. Hold
-**F** near a downed teammate for four seconds. The squad restarts at wave 1
-after every player is down.
+Status:
+- Linux: built and tested in seven configurations (41 core / 73 desktop tests each, all PASS, 0 warnings); solo replays identical to N7.
+- Windows: built, packaged and tested (43 GPU-free tests PASS, including the WinHTTP client, the
+  original server.js and a 15-minute four-player soak) by GitHub Actions run
+  https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44014040537 on branch `n8`;
+  game folder = artifact `CAT_ARENA_FERAL_CLAW_N8_WINDOWS`
+  (https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44014040537/artifacts/14297264643).
+  The artifact is built from commit 21bed9e; later commits on `n8` change documentation only
+  (one sentence of the packaged README_WINDOWS.md about the firewall prompt was reworded since).
+- Not yet: play between separate PCs, over the internet, through NAT, with a TLS (`wss://`) relay,
+  or on Windows with a GPU.
 
-See [README_WINDOWS.md](README_WINDOWS.md) for controls and troubleshooting.
-See [docs/WINDOWS_ROADMAP.md](docs/WINDOWS_ROADMAP.md) for N9–N20, Windows
-exclusivity, and the 480 MiB measurement target.
+Try it on Windows: unzip the artifact, start `CatArena.exe` on two PCs of one network; on the first
+MULTIPLAYER > HOST A SERVER > HOST ON THIS PC (allow the firewall prompt for private networks), on
+the second MULTIPLAYER > JOIN A SERVER, type the first PC's address (for example
+`192.168.1.20:8787`) in SERVER ADDRESS, REFRESH LIST, JOIN.
 
-## Reproduce the Windows build
-
-From the `native` directory on Windows x64 with Visual Studio 2022 C++ Build
-Tools, the Windows SDK, CMake 3.24+, Git, and network access for the pinned
-build dependencies:
-
-```powershell
-cmake --preset windows-release -DCAT_MILESTONE=N8
-cmake --build --preset windows-release --parallel
-ctest --preset windows-release
-cmake --install build/windows-release --config Release --prefix ../dist/CAT_ARENA_FERAL_CLAW_N8_WINDOWS
-cmake -DPACKAGE_DIR=../dist/CAT_ARENA_FERAL_CLAW_N8_WINDOWS -DPLATFORM=windows -P tools/package/validate_package.cmake
-```
-
-Node.js and its `ws` module are needed only for the original-relay interop
-tests. Pass the directory containing `ws` as `-DCAT_NODE_WS_DIR=...`. The
-Windows build includes its own relay and has no Node.js runtime dependency.
-
-## Verification
-
-- **Implemented** — built-in and external hosting, browser/join, four-player
-  snapshots, remote combat, health, revive, wipe, names and disconnect handling.
-- **Compiled / Executed / Tested** — GitHub Windows x64 CI run
-  [43359148828](https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/43359148828)
-  compiled the executable, validated the package and passed all 42 GPU-free
-  tests, including native and WinHTTP co-op and the original Node.js relay.
-  The packaged executable was launched for the expected no-GPU error smoke test.
-- **Tested locally** — the untouched N7 archive passed 35 core tests. The N8
-  GitHub source passed 39 GPU-free tests and the Helios and Reactor Bastion
-  offscreen tests on Linux using software Vulkan.
-- **Unverified** — interactive Windows play on the GTX 660, separate Windows
-  machines, WAN/NAT, live Render and TLS/WebSocket interoperability. A room's
-  map stays fixed for its lifetime. The 480 MiB, 60 FPS and 120 FPS targets
-  are pending representative hardware measurement.
-
-The Windows artifact contains the binary from GitHub commit
-`a0fd083bd4f8d78bdbf81e19b9b19a8796a23d14`, SDL3, 23 SPIR-V shaders,
-four maps, 16 weapon models, 20 creature meshes, UI, fonts, sound and notices.
-The source archive adds the Windows roadmap and milestone documentation
-to that build's source.
+Run (developers): `cat_arena --coop-selftest`, `cat_arena --relay-server`, `cat_arena_coop_tests
+assets/n1 [--soak 3600]`, `tools/n8/crossplay_legacy.cjs` (docs/BUILD.md, N8).

@@ -1,19 +1,32 @@
-# Current milestone
-
-N9 implements Windows platform integration and the Vulkan 1.1 fallback. See [N9](../README_N9.md), [N8](../README_N8.md), the [migration log](MIGRATION_LOG.md) and [Windows roadmap](WINDOWS_ROADMAP.md). The status below describes the N7 baseline.
-
-# Native rewrite progress — 2026-11-12
+# Native rewrite progress — 2026-11-16
 
 N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 baseline, optional
 1.3/1.4), N3 (player physics and traversal) implemented. N4 (four maps, navigation) delivered with
 open items (MD3 prop models, portal / mirror feeds, PVS — still open).
 N5 (16 weapons, projectiles, damage, pickups, weapon viewmodel, effects, HUD), N5.1 (dynamic
-lights, medkit billboards), N6 (enemies, waves, AI, animation, Marine Cats) and N6.5 (Windows
-build in GitHub Actions) delivered.
-**N7 (menus, settings, HUD, audio): implemented; Linux matrix PASS; Windows build, package and
-GPU-free tests PASS in GitHub Actions (run 43336140592, artifact CAT_ARENA_FERAL_CLAW_N7_WINDOWS).
-Not yet played on Windows with a GPU or heard on a real sound card.**
-Earlier trackers: docs/history/N0 … N6_5.
+lights, medkit billboards), N6 (enemies, waves, AI, animation, Marine Cats), N6.5 (Windows build in
+GitHub Actions) and N7 (menus, settings, HUD, audio) delivered.
+**N8 (four-player co-op multiplayer): implemented and tested on one machine — 4 clients over TCP
+(native relay and the original server.js), cross-play with the original browser game, soak,
+window self-test; Windows build and GPU-free tests in GitHub Actions. Not yet played between
+separate PCs, over the internet, or on Windows with a GPU.**
+Direction since 2026-11-16: Windows-only, 192 MiB combined memory target, Quake III Arena-inspired
+art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: docs/history/N0 … N6_5.
+
+## N8 result (docs/N8_MULTIPLAYER.md, docs/DEVELOPMENT_LOG_N8.md)
+
+- Port of the legacy v3.24 co-op: WebSocket relay protocol (the native relay = server.js in C++,
+  built into the game as HOST ON THIS PC and as `--relay-server`), host-authoritative world with
+  90 ms snapshots, 48 ms poses, remote fire, kills, damage, medkits, nearest-player targeting,
+  downed / revive (hold F 4 s) / squad wipe, join / leave / host-left handling, server browser.
+- New: name tags over teammates; a guest loads the room's map itself; the game menu does not
+  pause a server; map changes locked in a server.
+- Tests: `net_relay_protocol` (79), interop with the original server.js (78 / 30),
+  `coop_multiplayer` (52), `coop_soak` (900 s of game time), `window_coop_selftest`, cross-play
+  with the original browser game (13 / 13), WinHTTP client on Windows CI. Solo replays identical
+  to N7.
+- Memory, first figures (lavapipe): renderer Vulkan allocations 104–150 MiB, working set
+  437–535 MiB (docs/N8_MULTIPLAYER.md §4) — far from the 192 MiB target; N12 / N15 work.
 
 ## N7 result (docs/N7_UI_AUDIO.md, docs/DEVELOPMENT_LOG_N7.md)
 
@@ -116,12 +129,14 @@ Earlier trackers: docs/history/N0 … N6_5.
 | HUD | **N7: legacy layout and look, touch layout, editor, performance overlay** |
 | Menus, settings | **N7: legacy routing and look; 40 of 65 settings act (8 with a difference), 25 stored (N10)** |
 | Audio | **N7: legacy sounds and music; mixer matches Chromium Web Audio graphs; not heard on real hardware** |
-| Network, Android | Not started (N8, N9) |
+| Network | **N8: co-op multiplayer, tested on one machine (incl. original relay and browser game)** |
+| Android | Out of scope since N8 (code kept) |
 | Windows build | **N7: built, packaged, 36 GPU-free tests pass in GitHub Actions; not run with a GPU** |
-| Android build | NOT_RUN (no toolchain / device in runner) |
+| Android build | Not pursued (Windows-only since N8) |
 
 ## Next
 
-Play the N7 Windows artifact on a Windows PC with a GPU and speakers (README_N7.md). Then N8
-(multiplayer). Open items that can be closed alongside: the 25 stored settings (scene resolution,
-AA, culling modes, effects detail …), MD3 prop models, portal / mirror feeds, PVS (N10).
+N9 (Windows platform completion): play the N8 Windows artifact on a Windows PC with a GPU (menus,
+multiplayer between two PCs on a LAN, sound), fullscreen / resolution / refresh handling, raw
+mouse, crash reports, Vulkan 1.1 device baseline. Then N10 (feature parity: the 25 stored
+settings, MD3 props, portals / mirrors) and N11 (measured baseline).

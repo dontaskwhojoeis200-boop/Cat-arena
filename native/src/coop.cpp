@@ -286,7 +286,7 @@ void Coop::on_relay(const std::string& from, const json::Value& d, double now_ms
     if(mode_ != Mode::guest || from != peer_id_) return;   // guests take game state from the host only
     if(type == "map") return;   // the room's map is fixed (the legacy index 0..2 is a layout variant of the old engine)
     if(type == "world") {
-        last_world_ = now_ms;
+        last_world_ = now_ms; ++stats_.snapshots;
         std::vector<combat::Pickup> pickups;
         for(const auto& p : d["pickups"].as_array()) {
             if(pickups.size() >= 64) break;
