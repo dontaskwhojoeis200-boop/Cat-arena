@@ -142,6 +142,37 @@ void rules(const World& w) {
         h.enemy_died(dead);
         check(!h.deaths().back().gibbed && h.corpses().size() == 1, "gibs off preserves a normal death animation");
     }
+    {   // enemy shots aimed at a teammate (legacy 12285-12297)
+        combat::Arena a(*w.collision, 9);
+        a.spawn(sp.x, sp.y, sp.z, sp.a);
+        a.set_loadout(0, 1);
+        nav::NavGraph graph(*w.collision);
+        combat::Horde h(a, graph);
+        a.attach(&h);
+        a.set_role(combat::NetRole::host);
+        h.stage_wave(1, 50, 50, 0);
+        auto& m = a.add_teammate("g1", "Guest");
+        const double dx = std::cos(sp.a), dy = std::sin(sp.a);
+        m.x = sp.x + dx * 2.5; m.y = sp.y + dy * 2.5; m.z = sp.z; m.a = sp.a;
+        const std::uint32_t key = m.key;
+        a.remote_damage(*a.teammate(key), 150);
+        // fly a shot from 1 m in front of the host towards the downed teammate; true when it struck a player
+        auto fly = [&](double from, std::uint32_t target) {
+            combat::EnemyShot s;
+            s.x = sp.x + dx * from; s.y = sp.y + dy * from; s.z = sp.z + 1.16; s.vx = dx * 10; s.vy = dy * 10; s.life = 3; s.damage = 12; s.target_key = target;
+            h.stage_shot(s);
+            bool struck = false;
+            for(int i = 0; i < 40 && !h.shots().empty(); ++i) {
+                a.clear_targets();
+                a.step({});
+                for(const auto& im : h.impacts()) struck = struck || im.player;
+            }
+            return struck && h.shots().empty();
+        };
+        check(fly(1.0, key) && a.teammate(key)->downed && a.teammate(key)->hp == 0, "a shot at a downed teammate hits their body and is consumed, no damage");
+        // a shot aimed at a player who left is tested against the host's box (q = target || player), no damage
+        check(fly(-1.2, 999) && a.health() == 100, "a shot aimed at a departed player stops on the host, no damage");
+    }
     {   // guest side: no damage authority, puppets from snapshots
         combat::Arena a(*w.collision, 8);
         a.spawn(sp.x, sp.y, sp.z, sp.a);

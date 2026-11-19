@@ -121,6 +121,7 @@ public:
     // `t` seconds into its death animation and returns its id.
     Target& stage_enemy(int type, double x, double y, double z, double a);
     void stage_wave(int number, int total, int spawned, int kills) { wave_number_ = number; wave_total_ = total; wave_spawned_ = spawned; wave_kills_ = kills; wave_cooldown_ = -1; }
+    void stage_shot(EnemyShot s) { s.id = next_shot_id_++; shots_.push_back(s); }   // an enemy projectile in flight
     std::uint32_t stage_corpse(int type, double x, double y, double z, double floor_z, double a, double t);
     // Pieces, public for tests.
     bool line_of_sight(const Target& b) const;                 // enemy3DHasLineOfSight (towards enemyTargetFor(b))

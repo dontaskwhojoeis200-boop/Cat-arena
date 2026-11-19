@@ -367,9 +367,12 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
         const Teammate* mate = s.target_key ? arena_->teammate(s.target_key) : nullptr;
         const double radius = s.kind == ShotKind::voidorb ? .21 : s.kind == ShotKind::fireball ? .16 : .08;
         double hit_time = -1;
-        if(mate && !mate->downed) {   // marineShotTime: the six Marine Cat parts of that player
+        // Legacy 12285-12289: a teammate target is tested with its Marine Cat parts even while downed (the
+        // shot is consumed, remoteApplyDamage ignores downed players); a target who left falls back to the
+        // host's box (q = target || player) and is consumed without damage.
+        if(mate) {   // marineShotTime: the six Marine Cat parts of that player
             for(const Box& part : arena_->marine_boxes(*mate)) { const double tt = segment_box_time(s.x, s.y, s.z, nx, ny, nz, part, radius); if(tt >= 0 && (hit_time < 0 || tt < hit_time)) hit_time = tt; }
-        } else if(s.target_key == 0) hit_time = segment_box_time(s.x, s.y, s.z, nx, ny, nz, arena_->player_box(), radius);
+        } else hit_time = segment_box_time(s.x, s.y, s.z, nx, ny, nz, arena_->player_box(), radius);
         const double wall_time = arena_->world_->shot_collision_t(s.x, s.y, s.z, nx, ny, nz, radius * .70);
         const bool hit = hit_time >= 0 && hit_time <= wall_time, wall = wall_time != kInf;
         const double t = hit ? hit_time : wall ? wall_time : 1;
@@ -378,6 +381,7 @@ void Horde::update(double dt, bool decision) {   // update() 12236-12305
             impacts_.push_back({hx, hy, hz, s.kind, s.type, true, s.vx, s.vy, s.vz, arena_->next_event_seq()});
             const bool fire = s.kind == ShotKind::fireball;
             if(mate) arena_->remote_damage(*arena_->teammate(s.target_key), s.damage);
+            else if(s.target_key) {}   // aimed at a player who left: remoteApplyDamage finds nobody
             else {
                 const bool died = arena_->take_damage(s.damage, false, std::array{ s.x, s.y });
                 if(!died && arena_->respawn_grace_ <= 0 && fire) { arena_->burn_remaining_ = 3; arena_->burn_tick_ = .5; }   // igniteBurn
