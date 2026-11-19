@@ -151,26 +151,27 @@ art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: do
 |---|---|
 | Core / timing / settings / input | N0 complete; N5: fire / reload / swap input; **N7: touch stick, sprint modes, gamepad, settings file** |
 | Baked content + loaders | N1 complete; **N5: assets/n5 (weapon models, effect atlas)** |
-| Rendering, four maps | Geometry, materials, lightmaps, skies match; models, portals / mirrors, PVS open (N4) |
+| Rendering, four maps | Geometry, materials, lightmaps, skies match; **N10: Arsenal MD3 flag and turrets**; portals / mirrors, PVS open (N16 / N14) |
 | Vulkan compatibility | N2.1: 1.2 baseline + optional 1.3/1.4 paths; **overlay passes on both** |
 | Player physics and traversal | N3 / N4, verified on four maps; **N5: blast and recoil impulses** |
 | Navigation topology | N4: identical to legacy on four maps; **N6: sliced route jobs and shared routes match** |
-| Weapons, projectiles, damage, pickups | **N5: match legacy tapes (Helios)** |
+| Weapons, projectiles, damage, pickups | N5: match legacy tapes (Helios); **N10: all four maps, 72,880 ticks** |
 | Weapon viewmodel, muzzle flash, tracers, impacts, explosions, marks | N5: match legacy data |
 | Dynamic lights on the map, medkit billboards | **N5.1: match legacy (selection exact; frames 41-59 dB)** |
 | Enemies: types, waves, AI, routes, flyers, attacks, damage, bodies | **N6: match legacy tapes on four maps** |
 | Enemy animation, models, effects, final-five outline, shadows, Marine Cats | **N6: match legacy data; pictures 42.5-63.6 dB** |
 | HUD | **N7: legacy layout and look, touch layout, editor, performance overlay** |
-| Menus, settings | **N7: legacy routing and look; 40 of 65 settings act (8 with a difference), 25 stored (N10)** |
+| Menus, settings | N7: legacy routing and look; **N10: 48 of 65 settings act (8 with a difference), 17 renderer settings stored (N13 / N14 / N16)** |
 | Audio | **N7: legacy sounds and music; mixer matches Chromium Web Audio graphs; not heard on real hardware** |
-| Network | **N8: co-op multiplayer, tested on one machine (incl. original relay and browser game)** |
+| Network | N8: co-op multiplayer, tested on one machine (incl. original relay and browser game); **N10: explosives drawn on every machine, legacy enemy-shot rules, 1 h soak** |
 | Android | Out of scope since N8 (code kept) |
 | Windows build | **N7: built, packaged, 36 GPU-free tests pass in GitHub Actions; not run with a GPU** |
 | Android build | Not pursued (Windows-only since N8) |
 
 ## Next
 
-Play the N9 Windows package on a Windows PC with a GPU (README_N9.md checklist: display modes,
-F11, focus, mouse, audio unplug, `--vk-info`, `--crash-test access`). Then N10 (gameplay parity):
-review and merge the `n10-gameplay` work (co-op explosive replication, Arsenal props, effects
-settings), then the open parity items (stored-but-unapplied settings, MD3 props, portals).
+Play the N10 Windows package (CI run 44560790833) on a Windows PC with a GPU: the README_N9.md
+checklist plus docs/N10_ACCEPTANCE.md (weapons, waves, co-op on two PCs). Then N11 (stable
+baseline): review the `n11-baseline` branch and prepare the benchmark build and instructions; the
+FPS / frame-time / RAM / VRAM figures have to be measured by the owner on the Pentium G2020 +
+GTX 660 PC.
