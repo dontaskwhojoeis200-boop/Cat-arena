@@ -1,0 +1,15 @@
+PASS A: the browser server list shows the native host's room — "Native ServerHOST: Native Host · 1/4 PLAYERS · OPEN · MAP: REACTOR BASTIONJOIN"
+PASS A: browser guest sees the native host and its enemies (snapshots) — {"browserBots":10,"nativeEnemies":10,"wave":1,"players":[{"name":"Native Host","x":52.3,"y":26.9,"hp":100,"downed":false}]}
+PASS A: the native host clears the wave and restores the guest (browser: 0 enemies, 100 HP) — {"bots":0,"hp":100,"downed":false}
+PASS A: the browser guest's movement reaches the native host — {"movedInBrowser":1.37,"browser":{"x":53.35,"y":29.62},"nativeView":{"name":"Browser Guest","x":53.353308,"y":29.617177,"hp":100,"downed":false,"host":false}}
+PASS A: native host damage (30) reaches the browser guest — {"hp":70}
+PASS A: the browser guest is downed by the native host — {"hp":0,"downed":true}
+PASS A: closing the browser tab is seen by the native host (guest_left)
+PASS B: the native server list shows the browser host's room — {"event":"listed","room":"XRCXNW","title":"Browser Server","host":"Browser Host","players":1}
+PASS B: browser host and native guest see each other — {"browser":[{"name":"Native Guest","x":60.5,"y":61.5,"hp":100,"downed":false}],"native":[{"name":"Browser Host","x":0,"y":0,"hp":100,"downed":false,"host":true}]}
+PASS B: the native guest shows the browser host's enemies (snapshots) — {"nativeEnemies":10,"browserBots":10,"wave":1,"worldAgeMs":2480,"browserSnapshotRounds":{"ticks":1,"bytes":3464,"ms":0.6000000000931323}}
+PASS B: the native guest's position reaches the browser host — {"browserView":{"name":"Native Guest","x":47.94,"y":30.65,"hp":100,"downed":false},"native":{"x":47.941344,"y":30.649795}}
+PASS B: the browser host's damage reaches the native guest — {"hp":70}
+PASS B: the browser host quitting closes the native guest's server — {"event":"disconnected","text":"Host disconnected. This server is closed. Select another from the server browser."}
+PASS cross-play with the original browser game (13/13 checks)
+EXIT 0

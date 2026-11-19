@@ -1,3 +1,21 @@
+# N10 test matrix — 2026-11-19 (branch n10)
+
+Part 1 (branch `n10-gameplay`) results are in docs/N10_TEST_REPORT.md.
+
+| Check | Result | Evidence |
+|---|---|---|
+| Merge of n10-gameplay onto the final N9, Linux build + CTest | PASS 75/75 | — |
+| Enemy shots at a downed / departed teammate (legacy rule): new co-op checks | PASS (both FAIL on the Part 1 code) | coop_multiplayer, 59 checks |
+| Weapon tapes from the original game, Bastion Keep / Reactor Bastion / The Arsenal (29 scenarios each) | PASS 3 × 18,220 ticks bit-exact, worst error 0 | n10-evidence/part2/weapon-tapes, combat_legacy_tapes_* |
+| Weapon tapes, Helios Crucible (N5) | PASS, unchanged | combat_legacy_tapes |
+| Cross-play with the original browser game (native host + browser guest, browser host + native guest) | PASS 13/13 | n10-evidence/part2/crossplay |
+| Four-player soak with live waves, 3,600 s game time | PASS | n10-evidence/part2/soak-3600s.txt |
+| Original server.js relay interop, native relay protocol, window co-op self-test | PASS | linux-ctest.txt |
+| Linux desktop build + CTest, final (GCC Release, lavapipe) | PASS 78/78 | n10-evidence/part2/linux-ctest.txt |
+| Solo replay and rule lines vs N9 (16 lines) | identical | n10-evidence/part2/replay-lines.txt |
+| Windows CI (GPU-free tests, package) | see README_N10.md | windows-ci |
+| Physical Windows PC with a GPU, two PCs over LAN / internet | NOT_RUN | docs/N10_ACCEPTANCE.md |
+
 # N9 test matrix — 2026-11-18 (branch n9)
 
 | Check | Result | Evidence |

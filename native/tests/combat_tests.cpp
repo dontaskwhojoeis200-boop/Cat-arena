@@ -1,8 +1,8 @@
 // N5 weapon, projectile, damage and pickup tests. GPU-free.
 //   cat_arena_combat_tests                                  unit tests on a small synthetic world
-//   cat_arena_combat_tests <assets/n1> <combat fixture>     replay of tapes recorded from the legacy game
+//   cat_arena_combat_tests <assets/n1> <combat fixture> [map]   replay of tapes recorded from the legacy game
 // The fixture (tools/n5/legacy_combat.cjs) holds, for every 1/120 s tick of 29 scripted scenarios on
-// Helios Crucible, 48 values of the unmodified legacy game: player state, loadout, magazines, timers,
+// one map (Helios Crucible since N5; the other three maps since N10), 48 values of the unmodified legacy game: player state, loadout, magazines, timers,
 // number of random draws, projectile counts and positions, hitscan end points, detonations, target
 // health, frags and pickup cooldowns. The native Arena must reproduce all of them.
 #include "cat/combat.hpp"
@@ -57,8 +57,8 @@ void snapshot(const Arena& a, double* o) {
     o[46] = p.a; o[47] = p.pitch;
 }
 
-int replay(const std::string& assets_root, const std::string& fixture) {
-    const auto doc = assets::load_data(assets_root + "/maps/helios-crucible/map.cadata");
+int replay(const std::string& assets_root, const std::string& fixture, const std::string& map) {
+    const auto doc = assets::load_data(assets_root + "/maps/" + map + "/map.cadata");
     const physics::CollisionWorld world(doc.at("compiled"));
     std::ifstream in(fixture, std::ios::binary);
     if(!in) throw std::runtime_error("cannot open " + fixture);
@@ -117,7 +117,7 @@ int replay(const std::string& assets_root, const std::string& fixture) {
     std::size_t fired = 0;
     for(const bool f : weapon_fired) fired += f;
     if(fired != kWeaponCount) { ++failures; std::cout << "FAIL only " << fired << " of 16 weapons fired in the fixture\n"; }
-    std::cout << (failures ? "FAIL " : "PASS ") << "legacy combat: " << scenarios << " scenarios, " << total_ticks << " ticks (" << static_cast<double>(total_ticks) / 120.0 << " s), bit-exact ticks " << exact_ticks
+    std::cout << (failures ? "FAIL " : "PASS ") << "legacy combat" << (map == "helios-crucible" ? std::string() : " " + map) << ": " << scenarios << " scenarios, " << total_ticks << " ticks (" << static_cast<double>(total_ticks) / 120.0 << " s), bit-exact ticks " << exact_ticks
               << ", worst |error| " << worst << ", tolerance " << tolerance << "; weapons fired " << fired << "/16, pellets " << shots << " (world or target hit " << shot_hits << ", target " << target_hits
               << "), detonations " << blasts << ", frags " << frags << ", random draws " << draws << "; native state hash " << std::hex << hash << std::dec << '\n';
     return failures ? 1 : 0;
@@ -128,8 +128,8 @@ void unit_tests();
 int main(int argc, char** argv) {
     try {
         if(argc == 1) { unit_tests(); std::cout << "PASS combat unit tests: " << checks << " checks\n"; return 0; }
-        if(argc == 3) return replay(argv[1], argv[2]);
-        std::cerr << "usage: cat_arena_combat_tests [<assets/n1> <combat fixture>]\n";
+        if(argc == 3 || argc == 4) return replay(argv[1], argv[2], argc == 4 ? argv[3] : "helios-crucible");
+        std::cerr << "usage: cat_arena_combat_tests [<assets/n1> <combat fixture> [map id, default helios-crucible]]\n";
         return 2;
     } catch(const std::exception& e) {
         std::cerr << "FAIL " << e.what() << '\n';

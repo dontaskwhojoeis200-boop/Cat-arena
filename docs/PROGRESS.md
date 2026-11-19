@@ -1,4 +1,4 @@
-# Native rewrite progress — 2026-11-18
+# Native rewrite progress — 2026-11-19
 
 N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 baseline, optional
 1.3/1.4), N3 (player physics and traversal) implemented. N4 (four maps, navigation) delivered with
@@ -13,10 +13,25 @@ separate PCs, over the internet, or on Windows with a GPU.**
 **N9 (Windows platform): implemented — display modes and refresh, controls, focus, audio device
 recovery, Vulkan 1.1 baseline (branch `n9-windows`), plus crash reports, EXE icon / version /
 manifest and a writable log folder (branch `n9`). Tested on Linux and in Windows CI without a GPU;
-not yet run on a Windows PC.** Branches `n10-gameplay` and `n11-baseline` (another session,
-2026-11-13) hold further work not yet reviewed or merged into this line.
+not yet run on a Windows PC.**
+**N10 (gameplay parity): implemented — `n10-gameplay` (another session) merged onto N9 and reviewed
+against the original game (branch `n10`): two co-op enemy-shot rules restored, weapon tapes on all
+four maps bit-identical, cross-play and a one-hour soak pass. Not yet played on a Windows PC.**
+Branch `n11-baseline` (another session, 2026-11-13) is not yet reviewed or merged.
 Direction since 2026-11-16: Windows-only, 192 MiB combined memory target, Quake III Arena-inspired
 art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: docs/history/N0 … N6_5.
+
+## N10 result (README_N10.md, docs/DEVELOPMENT_LOG_N10.md)
+
+- Co-op: rockets, grenades, rift bolts and detonations of every player drawn on every machine;
+  remote muzzle flashes, tracers and beams; guest kills credit the guest only (deliberate
+  difference: the original host counted them too). Enemy shots aimed at a downed or departed
+  teammate behave as in the original again (stop on the body / on the host, no damage).
+- HUD damage numbers and incoming-hit indicator; fog, lightmap intensity, overbright and the
+  effects settings applied; The Arsenal's animated flag and turrets.
+- Weapon tapes from the original game on all four maps: 72,880 ticks bit-identical.
+- 17 renderer settings still stored only; the menu names N13 / N14 / N16 for them.
+- Linux 78/78; cross-play 13/13; one-hour soak; solo replays identical to N9.
 
 ## N9 result (README_N9.md, docs/DEVELOPMENT_LOG_N9.md)
 

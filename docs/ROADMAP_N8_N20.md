@@ -95,7 +95,7 @@ baked lighting, few dynamic lights, light fog. No asset replacement before N13.
 |---|---|---|
 | N8 | Multiplayer completion | Port of the legacy v3.24 co-op (relay protocol, host-authoritative world, 4 players, revive, server browser, name tags, disconnects); networking memory tracked from here |
 | N9 | Windows platform completion | EXE packaging (icon, version, manifest), fullscreen / resolution / refresh rate, raw mouse, keyboard layouts, audio device recovery, focus, writable log folder, crash reports; Vulkan 1.1 device baseline — implemented, Windows hardware checks open |
-| N10 | Gameplay feature parity | Verify movement, weapons, enemies, AI, physics, explosions, waves, health, animation, maps, UI, audio, multiplayer; fix before graphics work (the 25 stored settings, MD3 props, portals) |
+| N10 | Gameplay feature parity | Verify movement, weapons, enemies, AI, physics, explosions, waves, health, animation, maps, UI, audio, multiplayer; fix before graphics work — implemented: weapon tapes on all four maps, co-op fixes, MD3 props, 8 settings applied; the 17 remaining renderer settings and portal / mirror feeds moved to N13 / N14 / N16 (they cost memory measured from N12) |
 | N11 | Stable baseline | Preserved Windows build + report: average FPS, 1 % / 0.1 % lows, CPU / GPU frame time, RAM, VRAM, draws, triangles |
 | N12 | Instrumentation | CPU / Vulkan memory tracking by category, budgets, peaks, per-resource accounting, CPU subsystem and GPU timing; official 192 MiB methodology; baseline memory report |
 | N13 | Quake III fidelity prototype | One Reactor Bastion benchmark area with the new textures, lightmaps, enemy and weapon models; measured RAM / VRAM; cost-benefit of each feature |

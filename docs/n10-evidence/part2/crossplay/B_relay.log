@@ -1,0 +1,5 @@
+level="info" subsystem="relay" message="CAT ARENA co-op relay (up to 4 players) listening on 127.0.0.1:34591"
+level="info" subsystem="relay" message="Cat Arena relay (VA-MODULAR-RB-011) on 127.0.0.1:34591: ws://<this-computer>:34591/ws, GET /rooms, GET /health"
+level="info" subsystem="relay" message="Room created XRCXNW 1/4"
+level="info" subsystem="relay" message="Guest joined XRCXNW 2/4"
+level="info" subsystem="relay" message="Host closed room XRCXNW"

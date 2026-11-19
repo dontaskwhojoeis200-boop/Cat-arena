@@ -27,7 +27,12 @@ SettingDef toggle(T tab, std::string id, std::string label, bool def, S sup = S:
 SettingDef action(T tab, std::string id, std::string label, S sup = S::applied, std::string note = {}, std::string section = {}) {
     return {std::move(id), tab, K::action, std::move(label), std::move(section), "", 0, 0, 1, {}, sup, std::move(note)};
 }
-const std::string kN10 = "Stored; the native renderer does not have this yet (N10).";
+// Renderer features not built yet. Revised roadmap (docs/ROADMAP_N8_N20.md): they cost memory or
+// passes that are measured against the 192 MiB budget first (N12), so they land with the art
+// prototype (N13), the texture / asset pipeline (N14) or the render-target work (N16).
+const std::string kN13 = "Stored; the native renderer does not have this yet (planned for N13, the art prototype).";
+const std::string kN14 = "Stored; the native renderer does not have this yet (planned for N14, the texture and asset pipeline).";
+const std::string kN16 = "Stored; the native renderer does not have this yet (planned for N16: extra render targets are measured against the memory budget first).";
 
 std::vector<SettingDef> make_defs() {
     std::vector<SettingDef> d;
@@ -50,17 +55,17 @@ std::vector<SettingDef> make_defs() {
     d.push_back(select(T::graphics, "gfxPreset", "GRAPHICS", "normal", {{"high", "HIGH QUALITY"}, {"normal", "NORMAL"}, {"fast", "FAST"}, {"fastest", "FASTEST"}, {"custom", "CUSTOM"}}, S::partial,
                        "Fine-tune the look and performance of your arena. Changes apply immediately; picking any option switches the preset to CUSTOM. Native: the preset writes every value below; only the applied ones change the picture.", "CAT ARENA · GRAPHICS"));
     d.push_back(select(T::graphics, "lightQuality", "LIGHTING", "1", {{"0", "VERTEX · r_vertexLight, per-vertex bake"}, {"1", "LIGHTMAP · baked per-surface shadows"}, {"2", "LIGHT VOLUME · classic 3-D grid"}}, S::partial,
-                       "Native: LIGHTMAP is the renderer's lighting; VERTEX and LIGHT VOLUME world lighting are N10.", "LIGHTING & DISPLAY"));
+                       "Native: LIGHTMAP is the renderer's lighting; VERTEX and LIGHT VOLUME world lighting are planned for N13.", "LIGHTING & DISPLAY"));
     d.push_back(toggle(T::graphics, "gfxOverbright", "Overbright lighting", true));
     d.push_back(toggle(T::graphics, "gfxEntityGrid", "Light grid on models [entity lighting]", true));
     d.push_back(toggle(T::graphics, "gfxDynamicLights", "Dynamic lights", true));
-    d.push_back(toggle(T::graphics, "gfxFlares", "Light flares / coronas", true, S::stored, kN10));
+    d.push_back(toggle(T::graphics, "gfxFlares", "Light flares / coronas", true, S::stored, kN13));
     d.push_back(toggle(T::graphics, "gfxSky", "High quality sky & clouds", true, S::partial, "Native: off hides the cloud layers (r_fastsky)."));
-    d.push_back(range(T::graphics, "gfxGamma", "BRIGHTNESS", 1, .6, 1.8, .05, S::stored, kN10));
-    d.push_back(range(T::graphics, "gfxPicmip", "TEXTURE DETAIL", 0, 0, 3, 1, S::stored, kN10, "TEXTURES"));
-    d.push_back(select(T::graphics, "gfxBits", "TEXTURE QUALITY", "32", {{"32", "32-BIT · smooth"}, {"16", "16-BIT · retro banding"}}, S::stored, kN10));
-    d.push_back(select(T::graphics, "gfxFilter", "TEXTURE FILTER", "trilinear", {{"trilinear", "TRILINEAR · LINEAR_MIPMAP_LINEAR"}, {"bilinear", "BILINEAR · LINEAR_MIPMAP_NEAREST"}, {"nearest", "NEAREST · crisp pixels"}}, S::stored, kN10));
-    d.push_back(select(T::graphics, "gfxAniso", "ANISOTROPY", "4", {{"0", "OFF"}, {"2", "2×"}, {"4", "4×"}, {"8", "8×"}, {"16", "16×"}}, S::stored, "Native: fixed at 4× (the normal preset) where supported; switching is N10."));
+    d.push_back(range(T::graphics, "gfxGamma", "BRIGHTNESS", 1, .6, 1.8, .05, S::stored, kN13));
+    d.push_back(range(T::graphics, "gfxPicmip", "TEXTURE DETAIL", 0, 0, 3, 1, S::stored, kN14, "TEXTURES"));
+    d.push_back(select(T::graphics, "gfxBits", "TEXTURE QUALITY", "32", {{"32", "32-BIT · smooth"}, {"16", "16-BIT · retro banding"}}, S::stored, kN14));
+    d.push_back(select(T::graphics, "gfxFilter", "TEXTURE FILTER", "trilinear", {{"trilinear", "TRILINEAR · LINEAR_MIPMAP_LINEAR"}, {"bilinear", "BILINEAR · LINEAR_MIPMAP_NEAREST"}, {"nearest", "NEAREST · crisp pixels"}}, S::stored, kN14));
+    d.push_back(select(T::graphics, "gfxAniso", "ANISOTROPY", "4", {{"0", "OFF"}, {"2", "2×"}, {"4", "4×"}, {"8", "8×"}, {"16", "16×"}}, S::stored, "Native: fixed at 4× (the normal preset) where supported; switching is planned for N14."));
     d.push_back(select(T::graphics, "gfxShadows", "SHADOWS", "1", {{"0", "OFF"}, {"1", "BLOB · soft disc"}, {"3", "PROJECTED · body silhouette"}}, S::applied, {}, "EFFECTS (GAME OPTIONS)"));
     d.push_back(select(T::graphics, "gfxEffects", "EFFECTS DETAIL", "1", {{"1", "HIGH · full particles"}, {"0.7", "MEDIUM"}, {"0.45", "LOW · fewer particles"}}));
     d.push_back(toggle(T::graphics, "gfxMarks", "Marks on walls", true));
@@ -68,23 +73,23 @@ std::vector<SettingDef> make_defs() {
     d.push_back(toggle(T::graphics, "gfxBlood", "Blood [com_blood]", true));
     d.push_back(toggle(T::graphics, "gfxGibs", "Gibs", true));
     d.push_back(range(T::graphics, "gfxRail", "RAIL TRAIL TIME", .6, .2, 1.6, .05));
-    d.push_back(select(T::graphics, "gfxLmFilter", "LIGHTMAP FILTER", "bilinear", {{"bilinear", "BILINEAR · SMOOTH"}, {"nearest", "NEAREST · visible luxels"}}, S::stored, kN10, "ID TECH 3 RENDERER"));
+    d.push_back(select(T::graphics, "gfxLmFilter", "LIGHTMAP FILTER", "bilinear", {{"bilinear", "BILINEAR · SMOOTH"}, {"nearest", "NEAREST · visible luxels"}}, S::stored, kN14, "ID TECH 3 RENDERER"));
     d.push_back(range(T::graphics, "gfxLmIntensity", "LIGHTMAP INTENSITY", 1, .6, 1.6, .05));
-    d.push_back(select(T::graphics, "gfxCurves", "CURVE DETAIL", "2", {{"0", "LOW · 16 cm error"}, {"1", "MEDIUM · 6 cm"}, {"2", "HIGH · 2.5 cm"}, {"3", "ULTRA · 1 cm"}}, S::stored, kN10));
-    d.push_back(toggle(T::graphics, "gfxDetail", "Detail textures", true, S::stored, kN10));
-    d.push_back(toggle(T::graphics, "gfxMirrors", "Mirrors & portal views", true, S::stored, "Mirrors and portal views are not drawn natively yet (N10)."));
-    d.push_back(select(T::graphics, "gfxPortalScale", "MIRROR / PORTAL RESOLUTION", "0.5", {{"0.25", "25% · fastest"}, {"0.5", "50%"}, {"1", "100% · sharpest"}}, S::stored, kN10));
+    d.push_back(select(T::graphics, "gfxCurves", "CURVE DETAIL", "2", {{"0", "LOW · 16 cm error"}, {"1", "MEDIUM · 6 cm"}, {"2", "HIGH · 2.5 cm"}, {"3", "ULTRA · 1 cm"}}, S::stored, kN14));
+    d.push_back(toggle(T::graphics, "gfxDetail", "Detail textures", true, S::stored, kN14));
+    d.push_back(toggle(T::graphics, "gfxMirrors", "Mirrors & portal views", true, S::stored, "Mirrors and portal views are not drawn natively yet (planned for N16; each view is an extra render pass and target)."));
+    d.push_back(select(T::graphics, "gfxPortalScale", "MIRROR / PORTAL RESOLUTION", "0.5", {{"0.25", "25% · fastest"}, {"0.5", "50%"}, {"1", "100% · sharpest"}}, S::stored, kN16));
     d.push_back(toggle(T::graphics, "gfxVis", "PVS visibility culling", true, S::partial, "Native: switches the renderer's cluster culling."));
     d.push_back(action(T::graphics, "gfxDebugOpen", "OPEN GRAPHICS DEBUG VIEW · F9", S::partial, "Native: F9 cycles the renderer's debug views (lightmap only, fullbright, normals, off)."));
     d.push_back(action(T::graphics, "gfxReset", "RESTORE NORMAL GRAPHICS"));
     // ---- PERFORMANCE
-    d.push_back(select(T::performance, "worldCullingMode", "WORLD VISIBILITY", "balanced", {{"balanced", "BALANCED · conservative sector culling"}, {"quality", "QUALITY · smooth, frustum only"}, {"legacy", "FAST · legacy aggressive culling"}}, S::stored, "Native: one cluster-culling mode (PVS toggle in Graphics); the three legacy modes are N10."));
+    d.push_back(select(T::performance, "worldCullingMode", "WORLD VISIBILITY", "balanced", {{"balanced", "BALANCED · conservative sector culling"}, {"quality", "QUALITY · smooth, frustum only"}, {"legacy", "FAST · legacy aggressive culling"}}, S::stored, "Native: one cluster-culling mode (PVS toggle in Graphics); the three legacy modes are planned for N14 (visibility)."));
     d.push_back(select(T::performance, "fogQuality", "FOG QUALITY", "1", {{"0", "OFF · maximum visibility"}, {"0.5", "LOW · lighter fog"}, {"1", "STANDARD · atmospheric"}, {"1.25", "DENSE · cinematic"}}, S::applied, "Adjusts environmental fog strength."));
-    d.push_back(range(T::performance, "sceneResolution", "SCENE RESOLUTION", 720, 480, 1080, 10, S::stored, "Native: renders at the window resolution; render scaling is N10."));
-    d.push_back(select(T::performance, "msaaSamples", "MULTISAMPLE AA", "0", {{"0", "OFF · fastest"}, {"2", "2× MSAA"}, {"4", "4× MSAA"}, {"8", "8× MSAA"}}, S::stored, kN10));
-    d.push_back(toggle(T::performance, "fxaaEnabled", "FXAA (fast post-process anti-aliasing)", false, S::stored, kN10));
-    d.push_back(toggle(T::performance, "adaptiveResolution", "Adaptive resolution (optional)", false, S::stored, kN10));
-    d.push_back(select(T::performance, "targetFps", "ADAPTIVE FPS TARGET", "120", {{"90", "90 FPS"}, {"120", "120 FPS"}, {"144", "144 FPS"}, {"165", "165 FPS"}, {"200", "200 FPS"}, {"240", "240 FPS"}}, S::stored, kN10));
+    d.push_back(range(T::performance, "sceneResolution", "SCENE RESOLUTION", 720, 480, 1080, 10, S::stored, "Native: renders at the window resolution; render scaling is planned for N16 (an intermediate scene target, measured against the memory budget)."));
+    d.push_back(select(T::performance, "msaaSamples", "MULTISAMPLE AA", "0", {{"0", "OFF · fastest"}, {"2", "2× MSAA"}, {"4", "4× MSAA"}, {"8", "8× MSAA"}}, S::stored, kN16));
+    d.push_back(toggle(T::performance, "fxaaEnabled", "FXAA (fast post-process anti-aliasing)", false, S::stored, kN16));
+    d.push_back(toggle(T::performance, "adaptiveResolution", "Adaptive resolution (optional)", false, S::stored, kN16));
+    d.push_back(select(T::performance, "targetFps", "ADAPTIVE FPS TARGET", "120", {{"90", "90 FPS"}, {"120", "120 FPS"}, {"144", "144 FPS"}, {"165", "165 FPS"}, {"200", "200 FPS"}, {"240", "240 FPS"}}, S::stored, kN16));
     d.push_back(toggle(T::performance, "vsyncEnabled", "VSync preference", true, S::applied, "Native: FIFO when on; mailbox or immediate presentation when off (where the display offers them)."));
     d.push_back(range(T::performance, "fpsLimit", "FRAME RATE LIMIT", 241, 0, 241, 1, S::partial, "241 = unlimited. Native: limits below 10 frames per second are raised to 10 so the menus stay usable."));
     // ---- MOBILE / INPUT

@@ -1,0 +1,4 @@
+  soak: 3600 s of game time in 87.6 s; highest wave 1, 76 squad wipes, 128 kills by guests; host sent 39277 snapshot rounds (116.7 KiB/s), received 216024 poses; relay relayed 446419 messages
+  soak: guest upload (poses, volleys, relay envelope) 3.9 / 4.0 / 4.0 KiB/s; host total upload 117.4 KiB/s
+PASS soak with four players (3600 s of game time)
+PASS coop soak (9 checks)

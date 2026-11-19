@@ -28,7 +28,7 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Jump pads | **N3: matches legacy** (2 pads) | — |
 | Camera bob, run pitch/roll, landing dip, step smoothing, movement FOV | **N3: matches legacy values**; **N7: motion strength and FOV settings** | — |
 | Gun bob (weapon motion values) | **N3: values match legacy**; **N5: drawn** | — |
-| 16 weapons: magazine, cadence, reload, pellets, spread, range, hitscan / rocket / grenade / rift | **N5: match legacy tapes** (18,220 ticks bit-identical, Helios) | Other maps not compared |
+| 16 weapons: magazine, cadence, reload, pellets, spread, range, hitscan / rocket / grenade / rift | **N5: match legacy tapes** (18,220 ticks bit-identical, Helios); **N10: the same 29 scenarios on Bastion Keep, Reactor Bastion and The Arsenal, bit-identical** (72,880 ticks on four maps) | — |
 | Hit boxes, headshots, frag reroll, splash damage and falloff | **N5: match legacy** against static targets; **N6: on real enemies, four maps** | — |
 | Rocket / grenade jump, blast knockback, shotgun recoil and air jump | **N5: match legacy** | — |
 | Medkits (rules) | **N5: match legacy**; **N7: pickup beep** | — |
@@ -46,9 +46,9 @@ sign-off. Previous trackers: docs/history/N3, N2_1, N2, N1, N0. N2.1 and N3 chan
 | Enemy effects (projectile looks and trails, casting glows, melee arcs, muzzle flashes, impacts, blood, gibs) | **N6: cosmetic draws equal to the legacy on every tick**; **N7: voices, attacks, deaths audible (legacy limits)** | — |
 | Cat Marine model, skin joints, hit parts | **N6: runtime mesh = shipped GLB vertices; joints and 6 parts per vertex; posed as the legacy (soldier gait + offsets)** | The 7 GLB clips: not used by the legacy runtime, not used natively. Mirror view N10; networked players N8 |
 | Menus: home, maps, loading, pause, exit, multiplayer page, HUD editor | **N7: legacy routing, layout and look** (captures in docs/n7-evidence) | N8 adds host setup, browser, connecting and co-op pause |
-| Settings (65 legacy controls) | **N7: same defaults / ranges / options**; keyboard-only navigation tested; **N10:** fog, lightmap intensity, overbright, particle detail, marks, brass, blood, gibs and rail trail duration affect gameplay rendering | Internal scene resolution, AA, culling modes and texture controls remain open |
+| Settings (65 legacy controls) | **N7: same defaults / ranges / options**; keyboard-only navigation tested; **N10:** fog, lightmap intensity, overbright, particle detail, marks, brass, blood, gibs and rail trail duration affect gameplay rendering | 17 renderer settings remain stored only; their notes name N13 / N14 / N16 (after the N12 memory instrumentation) |
 | Audio: samples, music, mix, compressor, voices, beeps | **N7: Web Audio graphs match Chromium (RMS 6e-8 … 5e-2); legacy rules tested** | Not heard on real hardware; sound uses its own random stream |
 | Input modes: keyboard / mouse, touch, gamepad, pointer capture | **N7: implemented; capture and mode rules unit-tested** | N9 adds Windows movement layouts, mouse options and focus handling. Physical hardware validation is open. |
-| Four-player multiplayer | N8 implemented and tested on Windows loopback. N10 adds host-authoritative explosive flight and detonation visuals and attributes eliminations to the shooter. | Separate PCs, WAN/TLS and real GPU play remain unverified |
+| Four-player multiplayer | N8 implemented and tested on Windows loopback. N10 adds host-authoritative explosive flight and detonation visuals and attributes eliminations to the shooter. | **N10 (branch n10):** enemy shots at downed / departed teammates restored to the legacy rule; cross-play with the original browser game 13/13; one-hour soak. Guest kills credit only the shooter (deliberate difference). Separate PCs, WAN/TLS and real GPU play remain unverified |
 | Android ARM64 APK | Historical target | Windows 10/11 x64 is the active release target |
 | Windows executable | Packaged Windows checkpoints start in GPU-free CI | Physical Windows launch and the N11 hardware benchmark remain open |

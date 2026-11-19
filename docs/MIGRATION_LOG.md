@@ -16,6 +16,7 @@ milestone documents and `docs/PROGRESS.md`.
 | N7 | Menus, settings, HUD, audio | recorded legacy UI, Web Audio graphs, self-tests | docs/N7_UI_AUDIO.md |
 | N8 | Four-player co-op: relay (server.js), client, host-authoritative world, revive, server browser, name tags | 4-client tests, original server.js, original browser game (cross-play), soak, window self-test, Windows CI | docs/N8_MULTIPLAYER.md |
 | N9 | Windows platform: display modes, refresh, controls, focus, audio recovery, Vulkan 1.1 baseline, crash reports, EXE icon / version / manifest | Linux suites, simulated Vulkan 1.1 device, crash tests, Windows CI (no GPU) | README_N9.md, docs/DEVELOPMENT_LOG_N9.md |
+| N10 | Gameplay parity: co-op explosives and detonations on every machine, remote fire effects, HUD hit feedback, 8 more settings applied, Arsenal MD3 flag and turrets; legacy enemy-shot rules restored | weapon tapes on all four maps, 1 h soak, cross-play with the original browser game, Windows CI (no GPU) | README_N10.md, docs/DEVELOPMENT_LOG_N10.md |
 
 Direction changes
 - 2026-11-12: Windows-only from N8 (Android removed from the requirements, code kept).

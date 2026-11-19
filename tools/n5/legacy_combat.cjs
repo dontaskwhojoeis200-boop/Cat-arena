@@ -3,6 +3,7 @@
 // records weapon, projectile, damage and player state for every 1/120 s tick of scripted input.
 //
 //   node tools/n5/legacy_combat.cjs --out native/tests/fixtures/n5/helios_combat.bin [--report file.json]
+//   node tools/n5/legacy_combat.cjs --map bastion-keep --out native/tests/fixtures/n5/bastion-keep_combat.bin   (N10: any map, default helios-crucible)
 //                                   [--fx-out native/tests/fixtures/n5/helios_weapon_fx.bin]
 //
 // A tick (page state only; the file is hash-checked and never modified):
@@ -58,8 +59,8 @@ function or(t, from, to, mask) { for (let i = Math.max(0, from); i < Math.min(t.
 function look(t, at, dx, dy) { t.data[at * 3 + 1] += dx; t.data[at * 3 + 2] += dy; }
 
 (async () => {
-  const v = process.argv.slice(2); let out = null, reportFile = null, fxOut = null, framesArg = null, framesDir = null, viewsDir = null, width = 1280, height = 720;
-  for (let i = 0; i < v.length; i++) { if (v[i] === '--out') out = v[++i]; else if (v[i] === '--report') reportFile = v[++i]; else if (v[i] === '--fx-out') fxOut = v[++i]; else if (v[i] === '--frames') framesArg = v[++i]; else if (v[i] === '--frames-dir') framesDir = v[++i]; else if (v[i] === '--views-dir') viewsDir = v[++i]; else if (v[i] === '--width') width = Number(v[++i]); else if (v[i] === '--height') height = Number(v[++i]); else throw new Error('unknown option ' + v[i]); }
+  const v = process.argv.slice(2); let out = null, map = 'helios-crucible', reportFile = null, fxOut = null, framesArg = null, framesDir = null, viewsDir = null, width = 1280, height = 720;
+  for (let i = 0; i < v.length; i++) { if (v[i] === '--out') out = v[++i]; else if (v[i] === '--map') map = v[++i]; else if (v[i] === '--report') reportFile = v[++i]; else if (v[i] === '--fx-out') fxOut = v[++i]; else if (v[i] === '--frames') framesArg = v[++i]; else if (v[i] === '--frames-dir') framesDir = v[++i]; else if (v[i] === '--views-dir') viewsDir = v[++i]; else if (v[i] === '--width') width = Number(v[++i]); else if (v[i] === '--height') height = Number(v[++i]); else throw new Error('unknown option ' + v[i]); }
   if (!out) throw new Error('usage: --out <file.bin> [--report file.json]');
   const root = path.resolve(__dirname, '../..');
   const bytes = fs.readFileSync(path.join(root, 'legacy/index.html'));
@@ -73,7 +74,7 @@ function look(t, at, dx, dy) { t.data[at * 3 + 1] += dx; t.data[at * 3 + 2] += d
     const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
     page.on('pageerror', e => errors.push(String(e).slice(0, 300)));
     page.setDefaultTimeout(900000);
-    await page.goto(`http://127.0.0.1:${server.address().port}/index.html?map=helios-crucible`, { waitUntil: 'load', timeout: 900000 });
+    await page.goto(`http://127.0.0.1:${server.address().port}/index.html?map=${map}`, { waitUntil: 'load', timeout: 900000 });
     await page.evaluate(() => document.getElementById('start').click());
     await page.waitForFunction(() => { const b = document.getElementById('loadReady'); return b && b.offsetParent !== null && !b.disabled; }, null, { timeout: 900000, polling: 1000 });
     await page.click('#loadReady');
@@ -101,6 +102,7 @@ function look(t, at, dx, dy) { t.data[at * 3 + 1] += dx; t.data[at * 3 + 2] += d
       }
       return { map: window.VOID_ACTIVE_MAP, lane: best, pickups: pk.length, pickupLane: pick, weapons: WEAPONS.map(w => w.name) };
     });
+    if (world.map !== map) throw new Error(`the legacy page loaded ${world.map}, not ${map}`);
     const L = world.lane; if (!L || L.free < 15) throw new Error('no firing lane found: ' + JSON.stringify(L));
     const at = (d, side = 0) => ({ x: L.x + Math.cos(L.a) * d - Math.sin(L.a) * side, y: L.y + Math.sin(L.a) * d + Math.cos(L.a) * side, z: L.z });
     const target = (d, side, cls, hp) => ({ ...at(d, side), cls, hp });

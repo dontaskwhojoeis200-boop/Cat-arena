@@ -1,4 +1,17 @@
-# Current known limitations — N9
+# Current known limitations — N10
+
+Gameplay parity (N10, README_N10.md, docs/DEVELOPMENT_LOG_N10.md)
+- Deliberate difference: a guest's kill counts only in that guest's frags. The legacy host added
+  every kill (its own and its guests') to its own score; wave progress counts every kill as before.
+- 17 of the 65 legacy settings are still shown and saved without changing the game: renderer
+  features (flares, brightness, texture detail / bits / filter / anisotropy, lightmap filter,
+  curve detail, detail textures, mirrors / portal resolution, world culling modes, scene resolution,
+  MSAA, FXAA, adaptive resolution and its FPS target) plus the VERTEX / LIGHT VOLUME lighting modes.
+  Planned for N13 / N14 / N16, after the memory instrumentation of N12; the menu names the tier.
+- Live portal and mirror feeds, PVS and light flares are not drawn (with the settings above).
+- Gameplay parity is checked against legacy tapes and automated runs; none of it has been played
+  on a Windows PC (docs/N10_ACCEPTANCE.md has the checklist).
+
 
 Windows platform (N9, README_N9.md)
 - None of the N9 behaviour has been run on a physical Windows PC with a GPU: exclusive fullscreen
@@ -34,18 +47,20 @@ Multiplayer (N8, docs/N8_MULTIPLAYER.md)
   TLS.
 - The interactive multiplayer was exercised on Linux (window self-test) only; on Windows with a
   GPU it is unverified.
-- As in the legacy: no host migration (the server closes when the host leaves); other players'
-  rockets, grenades and explosions are not drawn on the other machines; snapshots are plain JSON.
+- As in the legacy: no host migration (the server closes when the host leaves); snapshots are
+  plain JSON. Since N10 other players' rockets, grenades, rift bolts and detonations are drawn on
+  every machine (the original browser game ignores the added fields).
 - A server's map is fixed; the game menu does not pause a server (deliberate differences).
 - As in the legacy, guests get no wave-start or wave-cleared announcement, only the wave counter.
 
 N10 checkpoint ([test report](N10_TEST_REPORT.md))
 - Physical Windows GPU play, exclusive fullscreen, raw input, playback-device changes, and four-player LAN/WAN are open. Windows CI covers GPU-free loopback. Linux software Vulkan covers the co-op UI and rendering path.
 - The HUD now draws damage numbers and incoming hit feedback. Guest health feedback reflects the change between host snapshots and has no source direction. Remote hitscan visuals are cosmetic traces from the last known pose. Fog strength, lightmap intensity, overbright and weapon effects controls are active.
-- Live mirrors and portals, internal scene resolution, anti-aliasing, and several texture controls remain open. No FPS or combined memory result exists for the Pentium G2020 and GTX 660.
+- No FPS or combined memory result exists for the Pentium G2020 and GTX 660 (N11 / N19).
 
 Menus, settings, HUD, audio (N7, docs/N7_UI_AUDIO.md)
-- 25 of the 65 legacy settings are shown and saved but do not change the game yet (N10): scene
+- (N7 state; N10 applied 8 of these — see the N10 section) 25 of the 65 legacy settings were shown
+  and saved without changing the game: scene
   resolution, multisample AA, FXAA, adaptive resolution and FPS target, the three world culling
   modes, texture quality / bits / filter / anisotropy, gamma, overbright, flares, effect detail,
   marks, brass, blood, gibs, rail trail, lightmap filter / intensity, curve detail, detail textures,

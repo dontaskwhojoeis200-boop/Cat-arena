@@ -1,5 +1,9 @@
 # N10 gameplay checkpoint test report
 
+This report covers Part 1 of N10 (branch `n10-gameplay`). Part 2 — the merge onto the final N9,
+the review against the legacy game and the four-map weapon tapes — is in
+[DEVELOPMENT_LOG_N10.md](DEVELOPMENT_LOG_N10.md) and [TEST_MATRIX.md](TEST_MATRIX.md).
+
 The latest source is `9b340fa56d622f3652372951f72d23da98e746cc` on
 `n10-gameplay`. It follows the first N10 build,
 `80428e7b8d02825a3072536b4c59ca52396b28a9`. The four maps, weapon models,
@@ -18,7 +22,7 @@ the Windows packages match in size and ZIP CRC.
 | Tested | Linux software Vulkan | 30 of 30 passed in the full suite, including the render-path matrix, lighting options, image regressions, simulated Vulkan 1.1, menus and co-op. The synthetic input test missed crouch in an earlier run and missed slide on the second repetition in a follow-up. The deterministic traversal fixtures passed. |
 | Executed | Installed Linux package | Ran from a separate working directory. The headless test passed and the Vulkan 1.1 window test exercised Reactor Bastion hosting, three guests, three name tags, guest muzzle flash on the host, downed/revive, pause, disconnect and shutdown. Vulkan validation reported zero warnings and errors. |
 | Tested | Reactor Bastion combat | 1,084 simulation ticks, starting at wave 5 with 20 active enemies at peak, 11 volleys, 6 detonations, 1 elimination, 1 death and a reset to wave 1. The report and five captures match the first N10 run byte for byte. Vulkan validation reported zero warnings and errors. |
-| Unverified | Physical Windows and legacy PC | Graphics, display switching, audio output and hotplug, and input on Windows hardware. FPS, frame-time lows and the combined 480 MiB target require a hardware run. |
+| Unverified | Physical Windows and legacy PC | Graphics, display switching, audio output and hotplug, and input on Windows hardware. FPS, frame-time lows and the combined memory target (192 MiB under the revised handoff; this report was written against the earlier 480 MiB) require a hardware run. |
 | Unverified | Multiplayer across machines | WAN/TLS, the hosted public service, and multi-PC play under sustained waves. |
 
 The co-op test verifies host rocket flight, detonation and removal on a

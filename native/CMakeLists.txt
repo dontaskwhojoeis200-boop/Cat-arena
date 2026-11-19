@@ -529,6 +529,12 @@ if(BUILD_TESTING)
   if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1/maps/helios-crucible/map.cadata")
     add_test(NAME combat_legacy_tapes COMMAND cat_arena_combat_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1" "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/n5/helios_combat.bin")
   endif()
+  # N10: the same 29 weapon scenarios recorded on the other three maps
+  foreach(cat_map bastion-keep reactor-bastion q3-gallery)
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1/maps/${cat_map}/map.cadata" AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/n5/${cat_map}_combat.bin")
+      add_test(NAME combat_legacy_tapes_${cat_map} COMMAND cat_arena_combat_tests "${CMAKE_CURRENT_SOURCE_DIR}/../assets/n1" "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/n5/${cat_map}_combat.bin" ${cat_map})
+    endif()
+  endforeach()
 endif()
 
 # N4 stacked navigation (part of cat_arena_physics): graph, adjacency and routes compared with the

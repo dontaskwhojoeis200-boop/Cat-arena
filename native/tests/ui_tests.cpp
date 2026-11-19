@@ -51,7 +51,7 @@ void settings_match_legacy(const std::filesystem::path& fixture) {
     for(const auto& d : setting_defs()) if(d.kind != SettingKind::action && !d.native_only && !legacy_ids.count(d.id)) { ++extra; check(false, "native control not in the legacy page: " + d.id); }
     int applied = 0, partial = 0, stored = 0;
     for(const auto& d : setting_defs()) if(d.kind != SettingKind::action && !d.native_only) { applied += d.support == Support::applied; partial += d.support == Support::partial; stored += d.support == Support::stored; }
-    std::printf("%s settings: %d of %zu legacy controls match (default, range, options, labels of options); native: %d applied, %d applied with a difference, %d stored only (N10)\n",
+    std::printf("%s settings: %d of %zu legacy controls match (default, range, options, labels of options); native: %d applied, %d applied with a difference, %d stored only (renderer work, N13-N16)\n",
                 matched == static_cast<int>(j.size()) && extra == 0 ? "PASS" : "FAIL", matched, j.size(), applied, partial, stored);
 }
 

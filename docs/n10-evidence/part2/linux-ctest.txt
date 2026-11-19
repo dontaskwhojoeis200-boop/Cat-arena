@@ -1,0 +1,164 @@
+Test project /home/claude/n2/build-repo
+      Start 51: coop_soak
+      Start 74: window_controls_selftest
+      Start 28: render_path_matrix
+      Start 31: render_path_simulated_devices
+      Start 23: render_enemy_frame_fight_spin_530
+      Start 25: render_enemy_frame_flyers_wave5_2003
+ 1/78 Test #23: render_enemy_frame_fight_spin_530 .............   Passed    6.82 sec
+      Start 24: render_enemy_frame_fight_spin_1300
+ 2/78 Test #25: render_enemy_frame_flyers_wave5_2003 ..........   Passed    7.23 sec
+      Start  9: render_weapons_overlay
+ 3/78 Test #24: render_enemy_frame_fight_spin_1300 ............   Passed    7.40 sec
+      Start 10: render_weapons_overlay_baseline
+ 4/78 Test  #9: render_weapons_overlay ........................   Passed    7.43 sec
+      Start 14: render_weapon_view_10
+ 5/78 Test #31: render_path_simulated_devices .................   Passed   16.60 sec
+      Start 12: render_weapon_view_04
+ 6/78 Test #14: render_weapon_view_10 .........................   Passed    6.11 sec
+      Start 11: render_weapon_view_00
+ 7/78 Test #10: render_weapons_overlay_baseline ...............   Passed    7.36 sec
+      Start 13: render_weapon_view_07
+ 8/78 Test #12: render_weapon_view_04 .........................   Passed    6.21 sec
+      Start 26: render_enemy_frame_wave_progression_2400
+ 9/78 Test #28: render_path_matrix ............................   Passed   24.85 sec
+      Start 27: render_enemy_frame_stand_still_400
+10/78 Test #74: window_controls_selftest ......................   Passed   26.51 sec
+      Start 15: render_effect_frame_rocket_at_feet_moving
+11/78 Test #11: render_weapon_view_00 .........................   Passed    5.92 sec
+      Start 17: render_effect_frame_health_pickup
+12/78 Test #13: render_weapon_view_07 .........................   Passed    5.92 sec
+      Start 16: render_effect_frame_rocket_and_grenade_jump
+13/78 Test #26: render_enemy_frame_wave_progression_2400 ......   Passed    6.52 sec
+      Start 19: render_enemy_lineup_windup
+14/78 Test #27: render_enemy_frame_stand_still_400 ............   Passed    6.21 sec
+      Start  5: render_helios_offscreen
+15/78 Test #17: render_effect_frame_health_pickup .............   Passed    4.61 sec
+      Start 21: render_enemy_lineup_bodies
+16/78 Test #15: render_effect_frame_rocket_at_feet_moving .....   Passed    4.92 sec
+      Start 18: render_enemy_lineup_idle
+17/78 Test #16: render_effect_frame_rocket_and_grenade_jump ...   Passed    4.84 sec
+      Start 20: render_enemy_lineup_strike_final5
+18/78 Test #19: render_enemy_lineup_windup ....................   Passed    4.61 sec
+      Start 22: render_enemy_lineup_marines
+19/78 Test  #5: render_helios_offscreen .......................   Passed    5.20 sec
+      Start 48: audio_webaudio_parity
+20/78 Test #21: render_enemy_lineup_bodies ....................   Passed    5.14 sec
+      Start  6: render_map_bastion-keep
+21/78 Test #18: render_enemy_lineup_idle ......................   Passed    5.15 sec
+      Start 33: baked_maps
+22/78 Test #20: render_enemy_lineup_strike_final5 .............   Passed    5.15 sec
+      Start 35: helios_scene
+23/78 Test #33: baked_maps ....................................   Passed    2.09 sec
+      Start  8: render_map_q3-gallery
+24/78 Test #22: render_enemy_lineup_marines ...................   Passed    4.90 sec
+      Start 70: navigation_reactor-bastion
+25/78 Test  #6: render_map_bastion-keep .......................   Passed    2.99 sec
+      Start  7: render_map_reactor-bastion
+26/78 Test #35: helios_scene ..................................   Passed    2.32 sec
+      Start 68: navigation_helios-crucible
+27/78 Test  #8: render_map_q3-gallery .........................   Passed    1.37 sec
+      Start 69: navigation_bastion-keep
+28/78 Test #70: navigation_reactor-bastion ....................   Passed    1.39 sec
+      Start 43: enemy_units
+29/78 Test  #7: render_map_reactor-bastion ....................   Passed    0.90 sec
+      Start 71: navigation_q3-gallery
+30/78 Test #48: audio_webaudio_parity .........................   Passed    4.26 sec
+      Start 38: physics_all_maps
+31/78 Test #68: navigation_helios-crucible ....................   Passed    1.00 sec
+      Start 58: enemy_fx_units
+32/78 Test #71: navigation_q3-gallery .........................   Passed    0.55 sec
+      Start 72: windows_vulkan_import_library
+33/78 Test #69: navigation_bastion-keep .......................   Passed    0.92 sec
+      Start 52: net_relay_protocol
+34/78 Test #72: windows_vulkan_import_library .................   Passed    0.11 sec
+      Start 50: coop_multiplayer
+35/78 Test #38: physics_all_maps ..............................   Passed    0.51 sec
+      Start 29: vulkan_link_imports
+36/78 Test #29: vulkan_link_imports ...........................   Passed    0.08 sec
+      Start 30: vk_sim_layer_selftest
+37/78 Test #52: net_relay_protocol ............................   Passed    0.24 sec
+      Start 54: coop_interop_legacy_relay
+38/78 Test #30: vk_sim_layer_selftest .........................   Passed    0.11 sec
+      Start 59: enemy_fx_legacy_animation_helios-crucible
+39/78 Test #43: enemy_units ...................................   Passed    1.02 sec
+      Start 44: enemy_legacy_tapes_helios-crucible
+40/78 Test #58: enemy_fx_units ................................   Passed    0.66 sec
+      Start 61: enemy_fx_legacy_animation_reactor-bastion
+41/78 Test #50: coop_multiplayer ..............................   Passed    2.17 sec
+      Start 60: enemy_fx_legacy_animation_bastion-keep
+42/78 Test #54: coop_interop_legacy_relay .....................   Passed    2.52 sec
+      Start 62: enemy_fx_legacy_animation_q3-gallery
+43/78 Test #44: enemy_legacy_tapes_helios-crucible ............   Passed    5.28 sec
+      Start 46: enemy_legacy_tapes_reactor-bastion
+44/78 Test #61: enemy_fx_legacy_animation_reactor-bastion .....   Passed    5.28 sec
+      Start 67: combat_legacy_tapes_q3-gallery
+45/78 Test #67: combat_legacy_tapes_q3-gallery ................   Passed    0.39 sec
+      Start 45: enemy_legacy_tapes_bastion-keep
+46/78 Test #60: enemy_fx_legacy_animation_bastion-keep ........   Passed    5.10 sec
+      Start 66: combat_legacy_tapes_reactor-bastion
+47/78 Test #66: combat_legacy_tapes_reactor-bastion ...........   Passed    0.31 sec
+      Start 47: enemy_legacy_tapes_q3-gallery
+48/78 Test #62: enemy_fx_legacy_animation_q3-gallery ..........   Passed    5.14 sec
+      Start 49: ui_menus_settings_hud
+49/78 Test #59: enemy_fx_legacy_animation_helios-crucible .....   Passed    8.50 sec
+      Start 63: combat_units
+50/78 Test #63: combat_units ..................................   Passed    0.08 sec
+      Start 65: combat_legacy_tapes_bastion-keep
+51/78 Test #65: combat_legacy_tapes_bastion-keep ..............   Passed    0.24 sec
+      Start 36: physics_units
+52/78 Test #36: physics_units .................................   Passed    0.04 sec
+      Start 53: net_interop_legacy_relay
+53/78 Test #49: ui_menus_settings_hud .........................   Passed    1.43 sec
+      Start 57: weapon_fx_legacy_tapes
+54/78 Test #46: enemy_legacy_tapes_reactor-bastion ............   Passed    3.95 sec
+      Start  1: core_foundation
+55/78 Test  #1: core_foundation ...............................   Passed    0.02 sec
+      Start 56: hud_units
+56/78 Test #56: hud_units .....................................   Passed    0.01 sec
+      Start 32: asset_format
+57/78 Test #32: asset_format ..................................   Passed    0.01 sec
+      Start 34: scene_units
+58/78 Test #45: enemy_legacy_tapes_bastion-keep ...............   Passed    3.42 sec
+      Start 55: weapon_fx_units
+59/78 Test #34: scene_units ...................................   Passed    0.01 sec
+      Start 76: crash_report_access
+60/78 Test #55: weapon_fx_units ...............................   Passed    0.03 sec
+      Start  2: headless_smoke
+61/78 Test #76: crash_report_access ...........................   Passed    0.03 sec
+      Start  3: vulkan_path_selection
+62/78 Test  #2: headless_smoke ................................   Passed    0.01 sec
+      Start 77: crash_report_terminate
+63/78 Test  #3: vulkan_path_selection .........................   Passed    0.01 sec
+      Start  4: desktop_headless_smoke
+64/78 Test  #4: desktop_headless_smoke ........................   Passed    0.01 sec
+      Start 37: physics_legacy_trajectories
+65/78 Test #77: crash_report_terminate ........................   Passed    0.04 sec
+      Start 41: physics_legacy_trajectories_q3-gallery
+66/78 Test #53: net_interop_legacy_relay ......................   Passed    0.57 sec
+      Start 40: physics_legacy_trajectories_reactor-bastion
+67/78 Test #41: physics_legacy_trajectories_q3-gallery ........   Passed    0.38 sec
+      Start 39: physics_legacy_trajectories_bastion-keep
+68/78 Test #40: physics_legacy_trajectories_reactor-bastion ...   Passed    0.37 sec
+      Start 64: combat_legacy_tapes
+69/78 Test #37: physics_legacy_trajectories ...................   Passed    0.45 sec
+      Start 42: js_math_browser
+70/78 Test #42: js_math_browser ...............................   Passed    0.05 sec
+71/78 Test #64: combat_legacy_tapes ...........................   Passed    0.22 sec
+72/78 Test #39: physics_legacy_trajectories_bastion-keep ......   Passed    0.26 sec
+73/78 Test #57: weapon_fx_legacy_tapes ........................   Passed    1.28 sec
+74/78 Test #47: enemy_legacy_tapes_q3-gallery .................   Passed    3.09 sec
+75/78 Test #51: coop_soak .....................................   Passed   57.46 sec
+      Start 78: window_coop_selftest
+76/78 Test #78: window_coop_selftest ..........................   Passed   16.45 sec
+      Start 73: window_input_selftest
+77/78 Test #73: window_input_selftest .........................   Passed   11.26 sec
+      Start 75: window_menu_selftest
+78/78 Test #75: window_menu_selftest ..........................   Passed   23.07 sec
+
+100% tests passed, 0 tests failed out of 78
+
+Label Time Summary:
+gpu    = 241.76 sec*proc (30 tests)
+
+Total Test time (real) = 108.25 sec
