@@ -1,4 +1,4 @@
-# Native rewrite progress — 2026-11-16
+# Native rewrite progress — 2026-11-18
 
 N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 baseline, optional
 1.3/1.4), N3 (player physics and traversal) implemented. N4 (four maps, navigation) delivered with
@@ -10,8 +10,26 @@ GitHub Actions) and N7 (menus, settings, HUD, audio) delivered.
 (native relay and the original server.js), cross-play with the original browser game, soak,
 window self-test; Windows build and GPU-free tests in GitHub Actions. Not yet played between
 separate PCs, over the internet, or on Windows with a GPU.**
+**N9 (Windows platform): implemented — display modes and refresh, controls, focus, audio device
+recovery, Vulkan 1.1 baseline (branch `n9-windows`), plus crash reports, EXE icon / version /
+manifest and a writable log folder (branch `n9`). Tested on Linux and in Windows CI without a GPU;
+not yet run on a Windows PC.** Branches `n10-gameplay` and `n11-baseline` (another session,
+2026-11-13) hold further work not yet reviewed or merged into this line.
 Direction since 2026-11-16: Windows-only, 192 MiB combined memory target, Quake III Arena-inspired
 art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: docs/history/N0 … N6_5.
+
+## N9 result (README_N9.md, docs/DEVELOPMENT_LOG_N9.md)
+
+- Settings → HUD / UI: display resolution (window or exclusive fullscreen) and fullscreen refresh
+  rate with fallback and status; Settings → Controls: WASD / ZQSD / arrows, mouse sensitivity,
+  invert Y, raw input, fire button. Focus loss clears input; audio reopens after device changes.
+- Vulkan 1.1 device baseline; 1.2–1.4 features behind runtime checks (simulated 1.1 device PASS).
+- Crash reports (minidump + text with the last log lines) in CrashReports next to the log; log
+  falls back to %APPDATA%\CatArena\FeralClaw when the game folder is read-only.
+- CatArena.exe with icon, version information and manifest.
+- Fixed an intermittent hang when a `wss://` (WinHTTP) connection closed — the Render relay path.
+- Linux 75/75; Windows CI run 44469465569: 45/45, crash reports with minidumps, WinHTTP stress
+  15/15; solo replays identical on Linux and Windows to N8.
 
 ## N8 result (docs/N8_MULTIPLAYER.md, docs/DEVELOPMENT_LOG_N8.md)
 
@@ -136,7 +154,7 @@ art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: do
 
 ## Next
 
-N9 (Windows platform completion): play the N8 Windows artifact on a Windows PC with a GPU (menus,
-multiplayer between two PCs on a LAN, sound), fullscreen / resolution / refresh handling, raw
-mouse, crash reports, Vulkan 1.1 device baseline. Then N10 (feature parity: the 25 stored
-settings, MD3 props, portals / mirrors) and N11 (measured baseline).
+Play the N9 Windows package on a Windows PC with a GPU (README_N9.md checklist: display modes,
+F11, focus, mouse, audio unplug, `--vk-info`, `--crash-test access`). Then N10 (gameplay parity):
+review and merge the `n10-gameplay` work (co-op explosive replication, Arsenal props, effects
+settings), then the open parity items (stored-but-unapplied settings, MD3 props, portals).

@@ -1,10 +1,24 @@
-# Current known limitations — N8
+# Current known limitations — N9
+
+Windows platform (N9, README_N9.md)
+- None of the N9 behaviour has been run on a physical Windows PC with a GPU: exclusive fullscreen
+  and refresh switching, F11 size restore, multi-monitor moves, raw vs accelerated mouse, focus
+  changes, WASAPI device unplug / replug, the crash dialog, the icon and version display. The
+  Windows CI runner has no GPU, and the CI tests do not open an audio device.
+- Refresh rates are chosen from the modes the monitor advertises (±1.1 Hz); an unlisted rate falls
+  back to desktop fullscreen. The setting lists fixed resolutions, not the monitor's own list.
+- Key layouts are fixed presets (WASD / ZQSD / arrows); individual keys cannot be rebound.
+- Crash reports cover crashes, not hangs (a frozen game writes nothing).
+- DPI awareness is SDL's default; behaviour on scaled displays (125 %, 150 %) is unverified.
+- An intermittent hang when a WinHTTP (`wss://`) connection closed was fixed in N9; the fix passed
+  15 stress rounds in CI, but the original hang was rare, so it is likely rather than proven fixed.
+  Never exercised against the live Render relay from Windows.
 
 Platform and direction (revised handoff, docs/ROADMAP_N8_N20.md)
 - Windows-only from N8: Android / touch code is kept and compiles but is no longer developed or
   tested; the touch layout has no revive button and no on-screen text entry.
-- The renderer rejects Vulkan devices below API 1.2; the revised handoff wants 1.1 as the intended
-  baseline (planned for N9, docs/ROADMAP_N8_N20.md).
+- Vulkan 1.1 is the device baseline since N9; a physical 1.1-only driver was never available for
+  testing (simulated with the test layer only).
 - Memory: no figure is close to the 192 MiB target yet. The renderer's own Vulkan allocations are
   104–150 MiB in the self-tests (GPU budget 64 MiB); CPU-side figures were measured on lavapipe
   only (docs/N8_MULTIPLAYER.md §4). No per-category accounting before N12.

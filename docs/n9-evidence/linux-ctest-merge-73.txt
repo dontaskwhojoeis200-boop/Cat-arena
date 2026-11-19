@@ -1,0 +1,1455 @@
+UpdateCTestConfiguration  from :/home/claude/n2/build-repo/DartConfiguration.tcl
+Parse Config file:/home/claude/n2/build-repo/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/claude/n2/build-repo/DartConfiguration.tcl
+Parse Config file:/home/claude/n2/build-repo/DartConfiguration.tcl
+Test project /home/claude/n2/build-repo
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 72
+      Start 72: window_menu_selftest
+
+72: Test command: /home/claude/n2/build-repo/cat_arena "--menu-selftest"
+72: Working Directory: /home/claude/n2/build-repo
+72: Test timeout computed to be: 300
+72: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=window"
+72: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+72: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+72: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+72: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+72: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+72: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+72: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+72: level="info" subsystem="settings" message="No saved settings yet: legacy defaults (/tmp/cat_arena_menu_selftest_settings.txt)"
+72: level="info" subsystem="ui" message="UI atlas: 544 glyphs (Liberation Serif Regular / Bold, Sans Bold, Mono Bold + DejaVu Sans Bold symbols) and the menu backdrop in 666 ms"
+72: level="warning" subsystem="audio" message="Silent: no audio: No available audio device"
+72: level="info" subsystem="audio" message="Sound bank and soundtrack from /home/claude/cat-arena/native/../assets/n7/audio in 1468 ms"
+72: level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=FIFO"
+72: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+72: level="info" subsystem="scene" message="Map: helios-crucible (helios-crucible-v1) CAT ARENA: FERAL CLAW // HELIOS CRUCIBLE"
+72: level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/cat-arena/native/../assets/n1 in 1574 ms (CPU preparation, not a GPU benchmark)"
+72: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+72: level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=FIFO"
+72: level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=FIFO"
+72: level="info" subsystem="physics" message="Collision world: 167 slabs, 2479 wall segments, 2 jump pads, 28 spawns"
+72: level="info" subsystem="navigation" message="Route graph: 5270 nodes (824 / 2683 / 1763 per layer) in 4 ms"
+72: level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/cat-arena/native/../assets/n6 in 182 ms"
+72: level="info" subsystem="overlay" message="Weapon models and effect atlas from /home/claude/cat-arena/native/../assets/n5 in 278 ms"
+72: level="info" subsystem="enemies" message="Wave 1: 10 enemies, health / speed / damage x 1.000000, 10 spawned at once"
+72: level="info" subsystem="physics" message="Player at spawn 0 'bay-0' (81.500000, 61.500000, 0.000000)"
+72: level="info" subsystem="combat" message="Loadout: ROCKET LAUNCHER + RIFT CANNON; enemies 10; medkits 26; seed 1458698773"
+72: level="info" subsystem="app" message="Loaded helios-crucible in 486 ms: waiting for ENTER THE ARENA"
+72: level="info" subsystem="audio" message="Sounds: 6 gun, 5 explosion, 0 body, 3 voices (11 suppressed by the legacy limits), 5 beeps; 0 frames mixed"
+72: level="info" subsystem="app" message="Menu self-test PASS: home=yes mapPreview=yes loadingReady=yes enterArena=yes fireSound=yes escPause=yes fov110=yes master60=yes returnToMenu=yes exitDialog=yes settingsSaved=yes captureSupported=yes audioDevice=none (no audio: No available audio device) frames=183 ticks=1150"
+72: level="info" subsystem="memory" message="Menu self-test end (solo): working set 537.6 MiB, peak 537.6 MiB, private 304.7 MiB; GPU allocations by the renderer 149.9 MiB"
+72: level="info" subsystem="app" message="Clean shutdown; frames=183 validationWarnings=0 validationErrors=0"
+ 1/73 Test #72: window_menu_selftest ..........................   Passed   28.09 sec
+test 71
+      Start 71: window_controls_selftest
+
+71: Test command: /home/claude/n2/build-repo/cat_arena "--controls-selftest"
+71: Working Directory: /home/claude/n2/build-repo
+71: Test timeout computed to be: 300
+test 28
+      Start 28: render_path_matrix
+
+28: Test command: /home/claude/n2/build-repo/cat_arena_path_tests "/home/claude/n2/build-repo/shaders" "/home/claude/cat-arena/native/../assets/n1"
+28: Working Directory: /home/claude/n2/build-repo
+28: Test timeout computed to be: 1800
+test 51
+      Start 51: coop_soak
+
+51: Test command: /home/claude/n2/build-repo/cat_arena_coop_tests "/home/claude/cat-arena/native/../assets/n1" "--soak" "900"
+51: Working Directory: /home/claude/n2/build-repo
+51: Test timeout computed to be: 1800
+test 31
+      Start 31: render_path_simulated_devices
+
+31: Test command: /home/claude/n2/build-repo/cat_arena_path_tests "/home/claude/n2/build-repo/shaders" "/home/claude/cat-arena/native/../assets/n1" "--sim" "/home/claude/n2/build-repo/vk_sim_layer"
+31: Working Directory: /home/claude/n2/build-repo
+31: Test timeout computed to be: 1800
+test 9
+      Start  9: render_weapons_overlay
+
+9: Test command: /home/claude/n2/build-repo/cat_arena "--offscreen" "640x360" "--enemies" "practice" "--weapons" "4,1" "--seed" "3" "--walk" "fire:3,-:40,swap:2,-:30,fire:3,-:25,reload:2,-:20,w+fire@3:60" "--capture-every" "30" "--capture-dir" "/home/claude/n2/build-repo/n5-overlay"
+9: Working Directory: /home/claude/n2/build-repo
+9: Test timeout computed to be: 1500
+test 10
+      Start 10: render_weapons_overlay_baseline
+
+10: Test command: /home/claude/n2/build-repo/cat_arena "--vk-baseline" "--offscreen" "640x360" "--enemies" "practice" "--weapons" "10,6" "--seed" "3" "--walk" "fire:3,-:40,swap:2,-:30,fire:40,-:25" "--capture-every" "30" "--capture-dir" "/home/claude/n2/build-repo/n5-overlay-baseline"
+10: Working Directory: /home/claude/n2/build-repo
+10: Test timeout computed to be: 1500
+71: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+71: level="info" subsystem="scene" message="Map: helios-crucible (helios-crucible-v1) CAT ARENA: FERAL CLAW // HELIOS CRUCIBLE"
+71: level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/cat-arena/native/../assets/n1 in 1684 ms (CPU preparation, not a GPU benchmark)"
+9: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+9: level="info" subsystem="scene" message="Map: helios-crucible (helios-crucible-v1) CAT ARENA: FERAL CLAW // HELIOS CRUCIBLE"
+9: level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/cat-arena/native/../assets/n1 in 1699 ms (CPU preparation, not a GPU benchmark)"
+71: level="info" subsystem="physics" message="Collision world: 167 slabs, 2479 wall segments, 2 jump pads, 28 spawns"
+71: level="info" subsystem="navigation" message="Route graph: 5270 nodes (824 / 2683 / 1763 per layer) in 12 ms"
+9: level="info" subsystem="physics" message="Collision world: 167 slabs, 2479 wall segments, 2 jump pads, 28 spawns"
+9: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+9: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+9: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+9: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+9: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+9: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+9: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+9: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+71: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=window"
+71: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+71: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+71: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+71: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+71: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+71: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+71: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+9: level="info" subsystem="vulkan" message="Offscreen target 640x360 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+10: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+10: level="info" subsystem="scene" message="Map: helios-crucible (helios-crucible-v1) CAT ARENA: FERAL CLAW // HELIOS CRUCIBLE"
+10: level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/cat-arena/native/../assets/n1 in 1902 ms (CPU preparation, not a GPU benchmark)"
+10: level="info" subsystem="physics" message="Collision world: 167 slabs, 2479 wall segments, 2 jump pads, 28 spawns"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+31: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+10: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver= () loader=1.3.275 instanceApi=1.1 negotiated=1.1 anisotropy=4.000000 validation=on target=offscreen"
+10: level="info" subsystem="vulkan" message="Render path: vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+10: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (Vulkan 1.1 uses the baseline path); fallback: VkRenderPass + one framebuffer per target image"
+10: level="info" subsystem="vulkan" message="  synchronization2: unavailable (Vulkan 1.1 uses the baseline path); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+10: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (Vulkan 1.1 uses the baseline path); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+10: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (Vulkan 1.1 uses the baseline path); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+10: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (Vulkan 1.1 uses the baseline path); fallback: staging buffer + vkCmdCopyBufferToImage"
+10: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+10: level="info" subsystem="vulkan" message="Offscreen target 640x360 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+71: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, pipelines are created with the first render target; textures: 0 bytes via staging, 35177776 bytes via host copy"
+71: level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/cat-arena/native/../assets/n6 in 242 ms"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+9: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+71: level="info" subsystem="overlay" message="Weapon models and effect atlas from /home/claude/cat-arena/native/../assets/n5 in 304 ms"
+71: level="info" subsystem="enemies" message="Wave 1: 10 enemies, health / speed / damage x 1.000000, 10 spawned at once"
+71: level="info" subsystem="physics" message="Player at spawn 0 'bay-0' (81.500000, 61.500000, 0.000000)"
+71: level="info" subsystem="combat" message="Loadout: HAND CANNON + GRENADE LAUNCHER; enemies 10; medkits 26; seed 773720914"
+71: level="info" subsystem="app" message="N6: click to capture the mouse; WASD move, Shift sprint, Space jump, Ctrl crouch, C slide; left mouse fires, R reloads, Q/Tab swaps weapons; 1-4 change map, F5 restarts, F11 fullscreen; Esc releases the mouse (pauses a game started by hand), Esc again quits. Enemies come in waves (--enemies practice|none for the N5 targets or an empty map)."
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+9: level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/cat-arena/native/../assets/n6 in 398 ms"
+10: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.2 hide=all optional + 0 extension(s) maskedFeatures=0
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.2.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.2 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.2-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (needs 1.3 core (negotiated 1.2) or VK_KHR_dynamic_rendering, which the device does not advertise); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: unavailable (needs 1.3 core (negotiated 1.2) or VK_KHR_synchronization2, which the device does not advertise); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (needs 1.3 core (negotiated 1.2) or VK_EXT_extended_dynamic_state, which the device does not advertise); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+31: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (needs 1.4 core (negotiated 1.2) or VK_KHR_push_descriptor, which the device does not advertise); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (needs 1.4 core (negotiated 1.2) or VK_EXT_host_image_copy, which the device does not advertise); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver= () loader=1.3.275 instanceApi=1.1 negotiated=1.1 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (Vulkan 1.1 uses the baseline path); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (Vulkan 1.1 uses the baseline path); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (Vulkan 1.1 uses the baseline path); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (Vulkan 1.1 uses the baseline path); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (Vulkan 1.1 uses the baseline path); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+9: level="info" subsystem="overlay" message="Weapon models and effect atlas from /home/claude/cat-arena/native/../assets/n5 in 341 ms"
+9: level="info" subsystem="physics" message="Player at spawn 0 'bay-0' (81.500000, 61.500000, 0.000000)"
+9: level="info" subsystem="combat" message="Loadout: ROCKET LAUNCHER + SHOTGUN; practice targets 4; medkits 26; seed 3"
+10: level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/cat-arena/native/../assets/n6 in 388 ms"
+71: level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=FIFO"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+10: level="info" subsystem="overlay" message="Weapon models and effect atlas from /home/claude/cat-arena/native/../assets/n5 in 592 ms"
+10: level="info" subsystem="physics" message="Player at spawn 0 'bay-0' (81.500000, 61.500000, 0.000000)"
+10: level="info" subsystem="combat" message="Loadout: RIFT CANNON + THUNDERBOLT; practice targets 4; medkits 26; seed 3"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.2 hide=all optional + 0 extension(s) maskedFeatures=0
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.2.318 driver= () loader=1.3.275 instanceApi=1.1 negotiated=1.1 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (Vulkan 1.1 uses the baseline path); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: unavailable (Vulkan 1.1 uses the baseline path); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (Vulkan 1.1 uses the baseline path); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+31: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (Vulkan 1.1 uses the baseline path); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (Vulkan 1.1 uses the baseline path); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.2 negotiated=1.2 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.2+extensions [dynamic_rendering=extension synchronization2=extension extended_dynamic_state=extension push_descriptor=extension host_image_copy=extension]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: extension VK_KHR_dynamic_rendering"
+28: level="info" subsystem="vulkan" message="  synchronization2: extension VK_KHR_synchronization2"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: extension VK_EXT_extended_dynamic_state"
+28: level="info" subsystem="vulkan" message="  push_descriptor: extension VK_KHR_push_descriptor"
+28: level="info" subsystem="vulkan" message="  host_image_copy: extension VK_EXT_host_image_copy"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.3 negotiated=1.3 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.3 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=extension host_image_copy=extension]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: extension VK_KHR_push_descriptor"
+28: level="info" subsystem="vulkan" message="  host_image_copy: extension VK_EXT_host_image_copy"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.2 hide=0 extension(s) maskedFeatures=0
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.2.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.2 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.2+extensions [dynamic_rendering=extension synchronization2=extension extended_dynamic_state=extension push_descriptor=extension host_image_copy=extension]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: extension VK_KHR_dynamic_rendering"
+31: level="info" subsystem="vulkan" message="  synchronization2: extension VK_KHR_synchronization2"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: extension VK_EXT_extended_dynamic_state"
+31: level="info" subsystem="vulkan" message="  push_descriptor: extension VK_KHR_push_descriptor"
+31: level="info" subsystem="vulkan" message="  host_image_copy: extension VK_EXT_host_image_copy"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+9: level="info" subsystem="physics" message="Walk finished after 185 ticks at (78.588189, 60.483948, 0.000000)"
+ 2/73 Test  #9: render_weapons_overlay ........................   Passed    6.23 sec
+test 25
+      Start 25: render_enemy_frame_flyers_wave5_2003
+
+25: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DKIND=enemy" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin" "-DSCENARIO=flyers_wave5" "-DTICK=2003" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/frames/flyers_wave5_02003.png" "-DOUT=/home/claude/n2/build-repo/n6-frame-flyers_wave5-2003" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+25: Working Directory: /home/claude/n2/build-repo
+25: Test timeout computed to be: 1500
+10: level="info" subsystem="physics" message="Walk finished after 140 ticks at (81.500000, 61.500000, 0.000000)"
+ 3/73 Test #10: render_weapons_overlay_baseline ...............   Passed    6.62 sec
+test 23
+      Start 23: render_enemy_frame_fight_spin_530
+
+23: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DKIND=enemy" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin" "-DSCENARIO=fight_spin" "-DTICK=530" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/frames/fight_spin_00530.png" "-DOUT=/home/claude/n2/build-repo/n6-frame-fight_spin-530" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+23: Working Directory: /home/claude/n2/build-repo
+23: Test timeout computed to be: 1500
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.3 negotiated=1.3 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.3 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (needs 1.4 core (negotiated 1.3) and extensions are not allowed); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (needs 1.4 core (negotiated 1.3) and extensions are not allowed); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.2 hide=0 extension(s) maskedFeatures=1
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.2.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.2 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.2+extensions [dynamic_rendering=unavailable synchronization2=extension extended_dynamic_state=extension push_descriptor=extension host_image_copy=extension]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (VK_KHR_dynamic_rendering is advertised but its feature bit is not reported); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: extension VK_KHR_synchronization2"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: extension VK_EXT_extended_dynamic_state"
+31: level="info" subsystem="vulkan" message="  push_descriptor: extension VK_KHR_push_descriptor"
+31: level="info" subsystem="vulkan" message="  host_image_copy: extension VK_EXT_host_image_copy"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.3 hide=all optional + 0 extension(s) maskedFeatures=0
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.3.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.3 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.3 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+31: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (needs 1.4 core (negotiated 1.3) or VK_KHR_push_descriptor, which the device does not advertise); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (needs 1.4 core (negotiated 1.3) or VK_EXT_host_image_copy, which the device does not advertise); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (disabled by request); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.3 hide=all optional + 0 extension(s) maskedFeatures=2
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.3.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.3 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.3 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (core in 1.3 but the device does not report the feature bit); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: unavailable (core in 1.3 but the device does not report the feature bit); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+31: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (needs 1.4 core (negotiated 1.3) or VK_KHR_push_descriptor, which the device does not advertise); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (needs 1.4 core (negotiated 1.3) or VK_EXT_host_image_copy, which the device does not advertise); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (disabled by request); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (disabled by request); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (disabled by request); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (disabled by request); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.4 hide=all optional + 0 extension(s) maskedFeatures=1
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+31: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (core in 1.4 but the device does not report the feature bit); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=unavailable extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (disabled by request); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.4 hide=all optional + 0 extension(s) maskedFeatures=4
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (core in 1.3 but the device does not report the feature bit); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: unavailable (core in 1.3 but the device does not report the feature bit); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+31: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (core in 1.4 but the device does not report the feature bit); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (core in 1.4 but the device does not report the feature bit); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=core extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (disabled by request); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (disabled by request); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (disabled by request); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (disabled by request); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.4 hide=all optional + 0 extension(s) maskedFeatures=0
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+31: level="warning" subsystem="vulkan" message="dynamic_rendering selected but entry point vkCmdEndRendering is not provided; using the fallback"
+31: level="warning" subsystem="vulkan" message="synchronization2 selected but entry point vkQueueSubmit2 is not provided; using the fallback"
+31: level="warning" subsystem="vulkan" message="extended_dynamic_state selected but entry point vkCmdSetDepthCompareOp is not provided; using the fallback"
+31: level="warning" subsystem="vulkan" message="push_descriptor selected but entry point vkCmdPushDescriptorSet is not provided; using the fallback"
+31: level="warning" subsystem="vulkan" message="host_image_copy selected but entry point vkCopyMemoryToImage is not provided; using the fallback"
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.4-baseline-fallbacks [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+31: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: dropped at run time (entry point vkCmdEndRendering is not provided by the device); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: dropped at run time (entry point vkQueueSubmit2 is not provided by the device); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: dropped at run time (entry point vkCmdSetDepthCompareOp is not provided by the device); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+31: level="info" subsystem="vulkan" message="  push_descriptor: dropped at run time (entry point vkCmdPushDescriptorSet is not provided by the device); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: dropped at run time (entry point vkCopyMemoryToImage is not provided by the device); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=unavailable push_descriptor=core host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (disabled by request); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+23: PASS /home/claude/n2/build-repo/n6-frame-fight_spin-530/fight_spin_00530.png vs reference: PSNR 63.5541 dB (minimum 40)
+23: 
+ 4/73 Test #23: render_enemy_frame_fight_spin_530 .............   Passed    8.08 sec
+test 24
+      Start 24: render_enemy_frame_fight_spin_1300
+
+24: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DKIND=enemy" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin" "-DSCENARIO=fight_spin" "-DTICK=1300" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/frames/fight_spin_01300.png" "-DOUT=/home/claude/n2/build-repo/n6-frame-fight_spin-1300" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+24: Working Directory: /home/claude/n2/build-repo
+24: Test timeout computed to be: 1500
+25: PASS /home/claude/n2/build-repo/n6-frame-flyers_wave5-2003/flyers_wave5_02003.png vs reference: PSNR 46.8294 dB (minimum 40)
+25: 
+ 5/73 Test #25: render_enemy_frame_flyers_wave5_2003 ..........   Passed    8.48 sec
+test 14
+      Start 14: render_weapon_view_10
+
+14: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DWEAPON=10" "-DOTHER=15" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/views/view_10.png" "-DOUT=/home/claude/n2/build-repo/n5-view-10" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/weapon_view_check.cmake"
+14: Working Directory: /home/claude/n2/build-repo
+14: Test timeout computed to be: 1500
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+31: driver: llvmpipe (LLVM 20.1.2, 256 bits) (llvmpipe, Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)), device API 1.4.318, loader 1.3.275, 161 device extensions
+31: PASS auto (reference): vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM bare Vulkan 1.2 device (no optional extension): vulkan-1.2-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.2.318, negotiated 1.2, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM bare Vulkan 1.2 device, Request::baseline(): vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.2.318, negotiated 1.1, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.2 device with the driver's extensions: vulkan-1.2+extensions [dynamic_rendering=extension synchronization2=extension extended_dynamic_state=extension push_descriptor=extension host_image_copy=extension] | device API 1.2.318, negotiated 1.2, extensions enabled 7 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.2 device, VK_KHR_dynamic_rendering advertised but feature bit off: vulkan-1.2+extensions [dynamic_rendering=unavailable synchronization2=extension extended_dynamic_state=extension push_descriptor=extension host_image_copy=extension] | device API 1.2.318, negotiated 1.2, extensions enabled 6 | renderPasses 1, framebuffers 1, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM bare Vulkan 1.3 device: vulkan-1.3 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable] | device API 1.3.318, negotiated 1.3, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.3 device reporting no dynamicRendering/synchronization2 bits: vulkan-1.3 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable] | device API 1.3.318, negotiated 1.3, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 4, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.4 device without hostImageCopy: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.4 device reporting no optional feature bits: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 4, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.4 device with unresolvable entry points: vulkan-1.4-baseline-fallbaclevel="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.1 hide=all optional + 0 extension(s) maskedFeatures=0
+31: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.1.318 driver= () loader=1.3.275 instanceApi=1.4 negotiated=1.1 anisotropy=4.000000 validation=on target=offscreen"
+31: level="info" subsystem="vulkan" message="Render path: vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+31: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (Vulkan 1.1 uses the baseline path); fallback: VkRenderPass + one framebuffer per target image"
+31: level="info" subsystem="vulkan" message="  synchronization2: unavailable (Vulkan 1.1 uses the baseline path); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+31: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (Vulkan 1.1 uses the baseline path); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+31: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (Vulkan 1.1 uses the baseline path); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+31: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (Vulkan 1.1 uses the baseline path); fallback: staging buffer + vkCmdCopyBufferToImage"
+31: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+31: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: driver: llvmpipe (LLVM 20.1.2, 256 bits) (llvmpipe, Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)), device API 1.4.318, loader 1.3.275, 161 device extensions
+28: PASS auto (reference): vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS baseline (Vulkan 1.1, no optional feature): vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.1, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS Vulkan 1.2 + extensions: vulkan-1.2+extensions [dynamic_rendering=extension synchronization2=extension extended_dynamic_state=extension push_descriptor=extension host_image_copy=extension] | device API 1.4.318, negotiated 1.2, extensions enabled 7 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS Vulkan 1.3 + extensions: vulkan-1.3 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=extension host_image_copy=extension] | device API 1.4.318, negotiated 1.3, extensions enabled 2 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS Vulkan 1.3 core only: vulkan-1.3 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.3, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS Vulkan 1.4 core only: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS without dynamic_rendering: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS only dynamic_rendering: vulkan-1.4 [dynamic_rendering=core synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS without synchronization2: vulkan-1.4 [dynamic_rendering=core synchronization2=unavailable extended_dynamic_state=core push_descriptor=core host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS only synchronization2: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=core extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: Plevel="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (disabled by request); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (disabled by request); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (disabled by request); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (disabled by request); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=unavailable host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (disabled by request); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: level="warning" subsystem="vulkan-validation" message="env var 'VK_INSTANCE_LAYERS' defined and adding layers \"VK_LAYER_CAT_device_sim\""
+31: VK_LAYER_CAT_device_sim: simulating api=1.0 hide=all optional + 0 extension(s) maskedFeatures=0
+31: level="warning" subsystem="vulkan" message="Skipping device llvmpipe (LLVM 20.1.2, 256 bits): API 1.0.318 is below the Vulkan 1.2 baseline"
+31: ks [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM bare Vulkan 1.1 device: vulkan-1.1-baseline [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.1.318, negotiated 1.1, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 2 warnings
+31: PASS SIM Vulkan 1.0 device is rejected: No Vulkan 1.1+ device with a graphics queue; below the 1.1 baseline: llvmpipe (LLVM 20.1.2, 256 bits) (API 1.0.318)
+31: PASS 12 path configurations
+ 6/73 Test #31: render_path_simulated_devices .................   Passed   17.14 sec
+test 12
+      Start 12: render_weapon_view_04
+
+12: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DWEAPON=4" "-DOTHER=9" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/views/view_04.png" "-DOUT=/home/claude/n2/build-repo/n5-view-04" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/weapon_view_check.cmake"
+12: Working Directory: /home/claude/n2/build-repo
+12: Test timeout computed to be: 1500
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=core host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (disabled by request); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (disabled by request); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (disabled by request); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (disabled by request); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+28: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (disabled by request); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+14: PASS /home/claude/n2/build-repo/n5-view-10/walk_00000.png vs reference: PSNR 52.0735 dB (minimum 40)
+14: 
+ 7/73 Test #14: render_weapon_view_10 .........................   Passed    5.95 sec
+test 11
+      Start 11: render_weapon_view_00
+
+11: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DWEAPON=0" "-DOTHER=5" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/views/view_00.png" "-DOUT=/home/claude/n2/build-repo/n5-view-00" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/weapon_view_check.cmake"
+11: Working Directory: /home/claude/n2/build-repo
+11: Test timeout computed to be: 1500
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=core]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (disabled by request); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (disabled by request); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (disabled by request); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (disabled by request); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+71: level="info" subsystem="enemies" message="Wave 1: 10 enemies, health / speed / damage x 1.000000, 10 spawned at once"
+71: level="info" subsystem="physics" message="Player at spawn 0 'bay-0' (81.500000, 61.500000, 0.000000)"
+71: level="info" subsystem="combat" message="Loadout: PLASMA REPEATER + RAILGUN; enemies 10; medkits 26; seed 773720915"
+71: level="info" subsystem="app" message="Restarted helios-crucible (F5)"
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+28: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+28: level="info" subsystem="vulkan" message="Render path: vulkan-1.4-baseline-fallbacks [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable]"
+28: level="info" subsystem="vulkan" message="  dynamic_rendering: unavailable (disabled by request); fallback: VkRenderPass + one framebuffer per target image"
+28: level="info" subsystem="vulkan" message="  synchronization2: unavailable (disabled by request); fallback: vkCmdPipelineBarrier + vkQueueSubmit"
+28: level="info" subsystem="vulkan" message="  extended_dynamic_state: unavailable (disabled by request); fallback: one static pipeline per cull/depth-write/depth-compare combination"
+28: level="info" subsystem="vulkan" message="  push_descriptor: unavailable (disabled by request); fallback: allocated descriptor set with a dynamic uniform-buffer offset"
+28: level="info" subsystem="vulkan" message="  host_image_copy: unavailable (disabled by request); fallback: staging buffer + vkCmdCopyBufferToImage"
+28: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+28: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+24: PASS /home/claude/n2/build-repo/n6-frame-fight_spin-1300/fight_spin_01300.png vs reference: PSNR 45.9899 dB (minimum 40)
+24: 
+ 8/73 Test #24: render_enemy_frame_fight_spin_1300 ............   Passed    7.92 sec
+test 13
+      Start 13: render_weapon_view_07
+
+13: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DWEAPON=7" "-DOTHER=12" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/views/view_07.png" "-DOUT=/home/claude/n2/build-repo/n5-view-07" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/weapon_view_check.cmake"
+13: Working Directory: /home/claude/n2/build-repo
+13: Test timeout computed to be: 1500
+28: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 5 material pipelines; textures: 35177776 bytes via staging, 0 bytes via host copy"
+12: PASS /home/claude/n2/build-repo/n5-view-04/walk_00000.png vs reference: PSNR 52.0521 dB (minimum 40)
+12: 
+ 9/73 Test #12: render_weapon_view_04 .........................   Passed    6.21 sec
+test 15
+      Start 15: render_effect_frame_rocket_at_feet_moving
+
+15: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n5/helios_combat.bin" "-DSCENARIO=rocket_at_feet_moving" "-DTICK=62" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/frames/rocket_at_feet_moving_00062.png" "-DOUT=/home/claude/n2/build-repo/n5-frame-rocket_at_feet_moving" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+15: Working Directory: /home/claude/n2/build-repo
+15: Test timeout computed to be: 1500
+28: ASS without extended_dynamic_state: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=unavailable push_descriptor=core host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 5, descriptorSets 1, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS only extended_dynamic_state: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=core push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 4, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS without push_descriptor: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=unavailable host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 2, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS only push_descriptor: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=core host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 1, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS without host_image_copy: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 0, framebuffers 0, materialPipelines 4, descriptorSets 1, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS only host_image_copy: vulkan-1.4 [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=core] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 0 B, hostCopy 35177776 B | frames identical, validation 0 errors / 0 warnings
+28: PASS all optional features disabled at the driver's API: vulkan-1.4-baseline-fallbacks [dynamic_rendering=unavailable synchronization2=unavailable extended_dynamic_state=unavailable push_descriptor=unavailable host_image_copy=unavailable] | device API 1.4.318, negotiated 1.4, extensions enabled 0 | renderPasses 1, framebuffers 1, materialPipelines 5, descriptorSets 2, staging 35177776 B, hostCopy 0 B | frames identical, validation 0 errors / 0 warnings
+28: PASS 17 path configurations
+10/73 Test #28: render_path_matrix ............................   Passed   23.50 sec
+test 26
+      Start 26: render_enemy_frame_wave_progression_2400
+
+26: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DKIND=enemy" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin" "-DSCENARIO=wave_progression" "-DTICK=2400" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/frames/wave_progression_02400.png" "-DOUT=/home/claude/n2/build-repo/n6-frame-wave_progression-2400" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+26: Working Directory: /home/claude/n2/build-repo
+26: Test timeout computed to be: 1500
+71: level="info" subsystem="app" message="Controls self-test PASS: pausedByEsc=yes resumedByClick=yes f11Fullscreen=no (not granted by this display server) f11Windowed=yes f5Restart=yes quitByEsc=yes"
+71: level="info" subsystem="app" message="Clean shutdown; ticks=390 frames=0 validationWarnings=0 validationErrors=0"
+11/73 Test #71: window_controls_selftest ......................   Passed   25.68 sec
+test 27
+      Start 27: render_enemy_frame_stand_still_400
+
+27: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DKIND=enemy" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin" "-DSCENARIO=stand_still" "-DTICK=400" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/frames/stand_still_00400.png" "-DOUT=/home/claude/n2/build-repo/n6-frame-stand_still-400" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+27: Working Directory: /home/claude/n2/build-repo
+27: Test timeout computed to be: 1500
+11: PASS /home/claude/n2/build-repo/n5-view-00/walk_00000.png vs reference: PSNR 52.2016 dB (minimum 40)
+11: 
+12/73 Test #11: render_weapon_view_00 .........................   Passed    5.85 sec
+test 17
+      Start 17: render_effect_frame_health_pickup
+
+17: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n5/helios_combat.bin" "-DSCENARIO=health_pickup" "-DTICK=5" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/frames/health_pickup_00005.png" "-DOUT=/home/claude/n2/build-repo/n5-frame-health_pickup" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+17: Working Directory: /home/claude/n2/build-repo
+17: Test timeout computed to be: 1500
+13: PASS /home/claude/n2/build-repo/n5-view-07/walk_00000.png vs reference: PSNR 52.2889 dB (minimum 40)
+13: 
+13/73 Test #13: render_weapon_view_07 .........................   Passed    5.58 sec
+test 16
+      Start 16: render_effect_frame_rocket_and_grenade_jump
+
+16: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DFIXTURE=/home/claude/cat-arena/native/tests/fixtures/n5/helios_combat.bin" "-DSCENARIO=rocket_and_grenade_jump" "-DTICK=44" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n5/frames/rocket_and_grenade_jump_00044.png" "-DOUT=/home/claude/n2/build-repo/n5-frame-rocket_and_grenade_jump" "-DMIN_PSNR=40" "-P" "/home/claude/cat-arena/native/tests/effect_frame_check.cmake"
+16: Working Directory: /home/claude/n2/build-repo
+16: Test timeout computed to be: 1500
+15: PASS /home/claude/n2/build-repo/n5-frame-rocket_at_feet_moving/rocket_at_feet_moving_00062.png vs reference: PSNR 50.155 dB (minimum 40)
+15: 
+14/73 Test #15: render_effect_frame_rocket_at_feet_moving .....   Passed    5.40 sec
+test 5
+      Start  5: render_helios_offscreen
+
+5: Test command: /home/claude/n2/build-repo/cat_arena_render_tests "/home/claude/n2/build-repo/shaders" "/home/claude/cat-arena/native/../assets/n1"
+5: Working Directory: /home/claude/n2/build-repo
+5: Test timeout computed to be: 1500
+5: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+5: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+5: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+5: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+5: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+5: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+5: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+5: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+5: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+26: PASS /home/claude/n2/build-repo/n6-frame-wave_progression-2400/wave_progression_02400.png vs reference: PSNR 62.0844 dB (minimum 40)
+26: 
+15/73 Test #26: render_enemy_frame_wave_progression_2400 ......   Passed    6.43 sec
+test 19
+      Start 19: render_enemy_lineup_windup
+
+19: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DLINEUP=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/lineup.txt" "-DSHOT=windup" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/windup.png" "-DOUT=/home/claude/n2/build-repo/n6-lineup" "-DMIN_PSNR=45" "-P" "/home/claude/cat-arena/native/tests/lineup_check.cmake"
+19: Working Directory: /home/claude/n2/build-repo
+19: Test timeout computed to be: 1500
+17: PASS /home/claude/n2/build-repo/n5-frame-health_pickup/health_pickup_00005.png vs reference: PSNR 57.371 dB (minimum 40)
+17: 
+16/73 Test #17: render_effect_frame_health_pickup .............   Passed    4.47 sec
+test 21
+      Start 21: render_enemy_lineup_bodies
+
+21: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DLINEUP=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/lineup.txt" "-DSHOT=bodies" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/bodies.png" "-DOUT=/home/claude/n2/build-repo/n6-lineup" "-DMIN_PSNR=45" "-P" "/home/claude/cat-arena/native/tests/lineup_check.cmake"
+21: Working Directory: /home/claude/n2/build-repo
+21: Test timeout computed to be: 1500
+5: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+27: PASS /home/claude/n2/build-repo/n6-frame-stand_still-400/stand_still_00400.png vs reference: PSNR 45.6769 dB (minimum 40)
+27: 
+17/73 Test #27: render_enemy_frame_stand_still_400 ............   Passed    6.20 sec
+test 48
+      Start 48: audio_webaudio_parity
+
+48: Test command: /home/claude/n2/build-repo/cat_arena_audio_tests "/home/claude/cat-arena/native/../assets/n7" "/home/claude/cat-arena/native/tests/fixtures/n7"
+48: Working Directory: /home/claude/n2/build-repo
+48: Test timeout computed to be: 1500
+16: PASS /home/claude/n2/build-repo/n5-frame-rocket_and_grenade_jump/rocket_and_grenade_jump_00044.png vs reference: PSNR 57.1886 dB (minimum 40)
+16: 
+18/73 Test #16: render_effect_frame_rocket_and_grenade_jump ...   Passed    4.43 sec
+test 18
+      Start 18: render_enemy_lineup_idle
+
+18: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DLINEUP=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/lineup.txt" "-DSHOT=idle" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/idle.png" "-DOUT=/home/claude/n2/build-repo/n6-lineup" "-DMIN_PSNR=45" "-P" "/home/claude/cat-arena/native/tests/lineup_check.cmake"
+18: Working Directory: /home/claude/n2/build-repo
+18: Test timeout computed to be: 1500
+5: world atlas: runtime capture world-atlas-runtime.png
+5: device=llvmpipe (LLVM 20.1.2, 256 bits) (cpu) api=1.4.318 validation=on
+5: PASS preview frame: mean luma 41.0538, clear-colour pixels 1, draws 71
+5: PASS determinism: repeated frame is byte-identical
+5: PASS feature lightmap: disabling changes 40876 pixels
+5: PASS feature fog: disabling changes 17002 pixels
+5: PASS feature posterize: disabling changes 56009 pixels
+5: PASS feature materials: disabling changes 10388 pixels
+5: PASS feature world: disabling changes 40782 pixels
+5: PASS feature sky: disabling changes 6267 pixels
+5: PASS winding: floor seen from above has an up normal (128,128,255)
+5: INFO material animation: t=10 vs t=12.5 differ in 5602 pixels
+5: PASS validation: 0 errors, 0 warnings (layer active)
+19/73 Test  #5: render_helios_offscreen .......................   Passed    4.03 sec
+test 20
+      Start 20: render_enemy_lineup_strike_final5
+
+20: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DLINEUP=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/lineup.txt" "-DSHOT=strike_final5" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/strike_final5.png" "-DOUT=/home/claude/n2/build-repo/n6-lineup" "-DMIN_PSNR=45" "-P" "/home/claude/cat-arena/native/tests/lineup_check.cmake"
+20: Working Directory: /home/claude/n2/build-repo
+20: Test timeout computed to be: 1500
+19: PASS /home/claude/n2/build-repo/n6-lineup/windup.png vs reference: PSNR 48.4768 dB (minimum 45)
+19: 
+20/73 Test #19: render_enemy_lineup_windup ....................   Passed    4.80 sec
+test 22
+      Start 22: render_enemy_lineup_marines
+
+22: Test command: /usr/bin/cmake "-DAPP=/home/claude/n2/build-repo/cat_arena" "-DCOMPARE=/home/claude/n2/build-repo/cat_arena_image_compare" "-DLINEUP=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/lineup.txt" "-DSHOT=marines" "-DREFERENCE=/home/claude/cat-arena/native/tests/fixtures/n6/lineup/marines.png" "-DOUT=/home/claude/n2/build-repo/n6-lineup" "-DMIN_PSNR=45" "-P" "/home/claude/cat-arena/native/tests/lineup_check.cmake"
+22: Working Directory: /home/claude/n2/build-repo
+22: Test timeout computed to be: 1500
+21: PASS /home/claude/n2/build-repo/n6-lineup/bodies.png vs reference: PSNR 52.2796 dB (minimum 45)
+21: 
+21/73 Test #21: render_enemy_lineup_bodies ....................   Passed    4.89 sec
+test 59
+      Start 59: enemy_fx_legacy_animation_helios-crucible
+
+59: Test command: /home/claude/n2/build-repo/cat_arena_enemy_fx_tests "/home/claude/cat-arena/native/../assets/n1" "helios-crucible" "/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin" "/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_poses.bin"
+59: Working Directory: /home/claude/n2/build-repo
+59: Test timeout computed to be: 1500
+48: PASS mixer units (panner, up-mix, biquad, compressor curve, voices, buses, music stream)
+48:   main-theme.mp3: native 4364800 frames, browser 4364800 frames
+48: PASS decode: 49 files (48 Ogg Vorbis + MP3), equal length 2 (others: browser drops the end padding), worst RMS difference 2.38e-07, worst probe difference 1.53e-05 (main-theme)
+48: PASS graph rate          relative RMS error 2.55e-04 (limit 1e-03), max |error| 3.28e-03, browser RMS 0.1076
+48: PASS graph filters_pan   relative RMS error 2.86e-04 (limit 1e-03), max |error| 2.32e-03, browser RMS 0.1081
+48: PASS graph stereo_pan    relative RMS error 6.14e-08 (limit 1e-04), max |error| 5.96e-08, browser RMS 0.1642
+48: PASS graph sine_beep     relative RMS error 9.41e-04 (limit 1e-02), max |error| 4.82e-04, browser RMS 0.0043
+48: PASS graph triangle_beep relative RMS error 5.83e-03 (limit 5e-02), max |error| 1.27e-04, browser RMS 0.0023
+48: PASS graph saw_beep      relative RMS error 4.93e-02 (limit 1e-01), max |error| 9.59e-03, browser RMS 0.0090
+48: PASS graph compressor    relative RMS error 3.83e-04 (limit 1e-02), max |error| 1.71e-02, browser RMS 0.3801
+48: PASS legacy sound rules (gun, explosion, body, voices, beeps, mix, music sync)
+48: PASS audio
+22/73 Test #48: audio_webaudio_parity .........................   Passed    4.26 sec
+test 6
+      Start  6: render_map_bastion-keep
+
+6: Test command: /home/claude/n2/build-repo/cat_arena "--map" "bastion-keep" "--offscreen" "320x180" "--time" "10" "--capture" "/home/claude/n2/build-repo/render_map_bastion-keep.png" "--shaders" "/home/claude/n2/build-repo/shaders" "--assets" "/home/claude/cat-arena/native/../assets/n1"
+6: Working Directory: /home/claude/n2/build-repo
+6: Test timeout computed to be: 1500
+18: PASS /home/claude/n2/build-repo/n6-lineup/idle.png vs reference: PSNR 51.4194 dB (minimum 45)
+18: 
+23/73 Test #18: render_enemy_lineup_idle ......................   Passed    4.48 sec
+test 44
+      Start 44: enemy_legacy_tapes_helios-crucible
+
+44: Test command: /home/claude/n2/build-repo/cat_arena_enemy_tests "/home/claude/cat-arena/native/../assets/n1" "helios-crucible" "/home/claude/cat-arena/native/tests/fixtures/n6/helios-crucible_enemies.bin"
+44: Working Directory: /home/claude/n2/build-repo
+44: Test timeout computed to be: 1500
+20: PASS /home/claude/n2/build-repo/n6-lineup/strike_final5.png vs reference: PSNR 52.7705 dB (minimum 45)
+20: 
+24/73 Test #20: render_enemy_lineup_strike_final5 .............   Passed    4.72 sec
+test 61
+      Start 61: enemy_fx_legacy_animation_reactor-bastion
+
+61: Test command: /home/claude/n2/build-repo/cat_arena_enemy_fx_tests "/home/claude/cat-arena/native/../assets/n1" "reactor-bastion" "/home/claude/cat-arena/native/tests/fixtures/n6/reactor-bastion_enemies.bin" "/home/claude/cat-arena/native/tests/fixtures/n6/reactor-bastion_poses.bin"
+61: Working Directory: /home/claude/n2/build-repo
+61: Test timeout computed to be: 1500
+6: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+6: level="info" subsystem="scene" message="Map: bastion-keep (bastion-keep-v1) CAT ARENA: FERAL CLAW // BASTION KEEP"
+6: level="info" subsystem="scene" message="Loaded bastion-keep from /home/claude/cat-arena/native/../assets/n1 in 2078 ms (CPU preparation, not a GPU benchmark)"
+6: level="info" subsystem="physics" message="Collision world: 156 slabs, 2652 wall segments, 2 jump pads, 12 spawns"
+6: level="info" subsystem="navigation" message="Route graph: 6359 nodes (558 / 3179 / 2622 per layer) in 5 ms"
+6: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+6: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+6: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+6: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+6: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+6: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+6: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+6: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+6: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+6: level="info" subsystem="renderer" message="Scene bastion-keep uploaded: 5462 world, 126814 material, 1142 sky triangles; 45 materials, 46 material passes, 3 material pipelines; textures: 0 bytes via staging, 51426588 bytes via host copy"
+6: level="info" subsystem="vulkan" message="Scene objects: 3 material pipelines, 1 descriptor sets"
+22: PASS /home/claude/n2/build-repo/n6-lineup/marines.png vs reference: PSNR 50.8687 dB (minimum 45)
+22: 
+25/73 Test #22: render_enemy_lineup_marines ...................   Passed    4.49 sec
+test 62
+      Start 62: enemy_fx_legacy_animation_q3-gallery
+
+62: Test command: /home/claude/n2/build-repo/cat_arena_enemy_fx_tests "/home/claude/cat-arena/native/../assets/n1" "q3-gallery" "/home/claude/cat-arena/native/tests/fixtures/n6/q3-gallery_enemies.bin" "/home/claude/cat-arena/native/tests/fixtures/n6/q3-gallery_poses.bin"
+62: Working Directory: /home/claude/n2/build-repo
+62: Test timeout computed to be: 1500
+6: level="info" subsystem="capture" message="Wrote /home/claude/n2/build-repo/render_map_bastion-keep.png draws=90 passes=72 visibleClusters=374"
+26/73 Test  #6: render_map_bastion-keep .......................   Passed    3.40 sec
+test 60
+      Start 60: enemy_fx_legacy_animation_bastion-keep
+
+60: Test command: /home/claude/n2/build-repo/cat_arena_enemy_fx_tests "/home/claude/cat-arena/native/../assets/n1" "bastion-keep" "/home/claude/cat-arena/native/tests/fixtures/n6/bastion-keep_enemies.bin" "/home/claude/cat-arena/native/tests/fixtures/n6/bastion-keep_poses.bin"
+60: Working Directory: /home/claude/n2/build-repo
+60: Test timeout computed to be: 1500
+44: PASS stand_still: 3000 ticks, bit-exact 2331, max |error| 4.44089e-16 (yaw @ tick 2331), wave 1, kills 0, deaths 3, routes 34/34 (shared 1), random draws 858
+44: PASS fight_spin: 3600 ticks, bit-exact 3479, max |error| 1.77636e-15 (vx @ tick 3496), wave 1, kills 1, deaths 3, routes 202/213 (shared 6), random draws 1701
+44: PASS sprint_circuit: 3600 ticks, bit-exact 3600, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 188/193 (shared 6), random draws 768
+44: PASS wave_progression: 4200 ticks, bit-exact 4200, max |error| 0 (x @ tick 0), wave 3, kills 64, deaths 1, routes 63/63 (shared 1), random draws 1737
+44: PASS flyers_wave5: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 3, routes 83/89 (shared 0), random draws 1072
+44: PASS death_and_restart: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 2, routes 58/79 (shared 2), random draws 777
+44: PASS legacy enemies helios-crucible: 6 scenarios, 19200 ticks (160 s), bit-exact ticks 18410, worst |error| 1.77636e-15, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 65, player deaths 13, routes 628 (16 shared), random draws 6913; native state hash 4be9d78b976ce18d
+27/73 Test #44: enemy_legacy_tapes_helios-crucible ............   Passed    5.81 sec
+test 33
+      Start 33: baked_maps
+
+33: Test command: /home/claude/n2/build-repo/cat_arena_asset_check "/home/claude/cat-arena/native/../assets/n1"
+33: Working Directory: /home/claude/n2/build-repo
+33: Test timeout computed to be: 1500
+61: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+61: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 54
+61: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+61: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+61: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 78
+61: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+61: PASS legacy enemy animation reactor-bastion: 6 scenarios, 9600 ticks, 91349 poses evaluated, bit-exact ticks 9600, worst |error| 0, tolerance 2e-05; most bodies 3, animation draws 354; native pose hash 7eae7a5f5120e22d
+28/73 Test #61: enemy_fx_legacy_animation_reactor-bastion .....   Passed    5.59 sec
+test 35
+      Start 35: helios_scene
+
+35: Test command: /home/claude/n2/build-repo/cat_arena_scene_tests "/home/claude/cat-arena/native/../assets/n1"
+35: Working Directory: /home/claude/n2/build-repo
+35: Test timeout computed to be: 1500
+62: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+62: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 53
+62: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+62: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 83
+62: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 68
+62: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+62: PASS legacy enemy animation q3-gallery: 6 scenarios, 9600 ticks, 89587 poses evaluated, bit-exact ticks 9600, worst |error| 0, tolerance 2e-05; most bodies 1, animation draws 344; native pose hash df4ca5ce583572d4
+29/73 Test #62: enemy_fx_legacy_animation_q3-gallery ..........   Passed    4.95 sec
+test 46
+      Start 46: enemy_legacy_tapes_reactor-bastion
+
+46: Test command: /home/claude/n2/build-repo/cat_arena_enemy_tests "/home/claude/cat-arena/native/../assets/n1" "reactor-bastion" "/home/claude/cat-arena/native/tests/fixtures/n6/reactor-bastion_enemies.bin"
+46: Working Directory: /home/claude/n2/build-repo
+46: Test timeout computed to be: 1500
+60: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+60: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 47
+60: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (poseSum.hipL @ tick 0), animation draws 22
+60: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+60: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 63
+60: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 56
+60: PASS legacy enemy animation bastion-keep: 6 scenarios, 9600 ticks, 92841 poses evaluated, bit-exact ticks 9600, worst |error| 0, tolerance 2e-05; most bodies 0, animation draws 312; native pose hash e92ff4f26aab2c8d
+30/73 Test #60: enemy_fx_legacy_animation_bastion-keep ........   Passed    4.92 sec
+test 8
+      Start  8: render_map_q3-gallery
+
+8: Test command: /home/claude/n2/build-repo/cat_arena "--map" "q3-gallery" "--offscreen" "320x180" "--time" "10" "--capture" "/home/claude/n2/build-repo/render_map_q3-gallery.png" "--shaders" "/home/claude/n2/build-repo/shaders" "--assets" "/home/claude/cat-arena/native/../assets/n1"
+8: Working Directory: /home/claude/n2/build-repo
+8: Test timeout computed to be: 1500
+8: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+8: level="info" subsystem="scene" message="Sky box: env/gallery_nebula (512 px faces)"
+8: level="info" subsystem="scene" message="Map: q3-gallery (q3-gallery-v1) CAT ARENA: FERAL CLAW // THE ARSENAL"
+8: level="info" subsystem="scene" message="Loaded q3-gallery from /home/claude/cat-arena/native/../assets/n1 in 356 ms (CPU preparation, not a GPU benchmark)"
+8: level="info" subsystem="physics" message="Collision world: 988 slabs, 3083 wall segments, 1 jump pads, 7 spawns"
+8: level="info" subsystem="navigation" message="Route graph: 2535 nodes (102 / 2223 / 210 per layer) in 1 ms"
+33: PASS helios-crucible slabs=167 walls=2479 ramps=8 spawns=28 kits=420 lightmap=matched
+33: PASS bastion-keep slabs=156 walls=2652 ramps=10 spawns=12 kits=339 lightmap=matched
+33: PASS reactor-bastion slabs=343 walls=3789 ramps=20 spawns=12 kits=0 lightmap=matched
+33: PASS q3-gallery slabs=988 walls=3083 ramps=931 spawns=7 kits=0 lightmap=matched
+8: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+8: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+8: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+8: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+8: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+8: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+8: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+31/73 Test #33: baked_maps ....................................   Passed    2.10 sec
+test 45
+      Start 45: enemy_legacy_tapes_bastion-keep
+
+45: Test command: /home/claude/n2/build-repo/cat_arena_enemy_tests "/home/claude/cat-arena/native/../assets/n1" "bastion-keep" "/home/claude/cat-arena/native/tests/fixtures/n6/bastion-keep_enemies.bin"
+45: Working Directory: /home/claude/n2/build-repo
+45: Test timeout computed to be: 1500
+8: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+8: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+35: PASS waves: tables, period, noise golden values
+35: PASS tcMods: scroll fract, composition order, turb split, rotation centre
+35: PASS camera: legacy basis, Vulkan depth/clip mapping, FOV, inView
+35: PASS images: atlas layer extraction/flip, row flip, mips, decode rejection
+35: PASS materials: resolve, collapse, fog modes, sprites, validation
+35: PASS vertex light: walk grid, mapCell bounds, lightVertexColor golden values
+35: PASS helios: 7308 world / 161014 material / 1142 sky triangles, 404 clusters, 34 materials, 14x256 + 19x512 textures, vertex light 0.6241..1 on 13520 vertices
+32/73 Test #35: helios_scene ..................................   Passed    2.06 sec
+test 47
+      Start 47: enemy_legacy_tapes_q3-gallery
+
+47: Test command: /home/claude/n2/build-repo/cat_arena_enemy_tests "/home/claude/cat-arena/native/../assets/n1" "q3-gallery" "/home/claude/cat-arena/native/tests/fixtures/n6/q3-gallery_enemies.bin"
+47: Working Directory: /home/claude/n2/build-repo
+47: Test timeout computed to be: 1500
+59: PASS stand_still: 3000 ticks, bit-exact 3000, max |error| 0 (poseSum.hipL @ tick 0), animation draws 82
+59: PASS fight_spin: 3600 ticks, bit-exact 3600, max |error| 0 (poseSum.hipL @ tick 0), animation draws 90
+59: PASS sprint_circuit: 3600 ticks, bit-exact 3600, max |error| 0 (poseSum.hipL @ tick 0), animation draws 42
+59: PASS wave_progression: 4200 ticks, bit-exact 4200, max |error| 0 (poseSum.hipL @ tick 0), animation draws 162
+59: PASS flyers_wave5: 2400 ticks, bit-exact 2400, max |error| 0 (poseSum.hipL @ tick 0), animation draws 91
+59: PASS death_and_restart: 2400 ticks, bit-exact 2400, max |error| 0 (poseSum.hipL @ tick 0), animation draws 76
+59: PASS legacy enemy animation helios-crucible: 6 scenarios, 19200 ticks, 168213 poses evaluated, bit-exact ticks 19200, worst |error| 0, tolerance 2e-05; most bodies 1, animation draws 543; native pose hash 942cc6a4769e3472
+33/73 Test #59: enemy_fx_legacy_animation_helios-crucible .....   Passed    9.37 sec
+test 49
+      Start 49: ui_menus_settings_hud
+
+49: Test command: /home/claude/n2/build-repo/cat_arena_ui_tests "/home/claude/cat-arena/native/../assets/n7" "/home/claude/cat-arena/native/tests/fixtures/n7/legacy_settings.json"
+49: Working Directory: /home/claude/n2/build-repo
+49: Test timeout computed to be: 1500
+8: level="info" subsystem="renderer" message="Scene q3-gallery uploaded: 2398 world, 1000 material, 1142 sky triangles; 32 materials, 36 material passes, 4 material pipelines; textures: 0 bytes via staging, 19357640 bytes via host copy"
+8: level="info" subsystem="vulkan" message="Scene objects: 4 material pipelines, 1 descriptor sets"
+8: level="info" subsystem="capture" message="Wrote /home/claude/n2/build-repo/render_map_q3-gallery.png draws=59 passes=57 visibleClusters=63"
+34/73 Test  #8: render_map_q3-gallery .........................   Passed    1.49 sec
+test 7
+      Start  7: render_map_reactor-bastion
+
+7: Test command: /home/claude/n2/build-repo/cat_arena "--map" "reactor-bastion" "--offscreen" "320x180" "--time" "10" "--capture" "/home/claude/n2/build-repo/render_map_reactor-bastion.png" "--shaders" "/home/claude/n2/build-repo/shaders" "--assets" "/home/claude/cat-arena/native/../assets/n1"
+7: Working Directory: /home/claude/n2/build-repo
+7: Test timeout computed to be: 1500
+7: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+7: level="info" subsystem="scene" message="Map: reactor-bastion (reactor-bastion-v1) CAT ARENA: FERAL CLAW // REACTOR BASTION"
+7: level="info" subsystem="scene" message="Loaded reactor-bastion from /home/claude/cat-arena/native/../assets/n1 in 366 ms (CPU preparation, not a GPU benchmark)"
+7: level="info" subsystem="physics" message="Collision world: 343 slabs, 3789 wall segments, 4 jump pads, 12 spawns"
+7: level="info" subsystem="navigation" message="Route graph: 6182 nodes (920 / 3245 / 2017 per layer) in 13 ms"
+7: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=offscreen"
+7: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+7: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+7: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+7: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+7: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+7: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+7: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+7: level="info" subsystem="vulkan" message="Offscreen target 320x180 color=R8G8B8A8_UNORM depth=D32_SFLOAT"
+49: PASS settings: 65 of 65 legacy controls match (default, range, options, labels of options); native: 32 applied, 8 applied with a difference, 25 stored only (N10)
+49: PASS settings behaviour (validation, presets, persistence)
+49: PASS font atlas: 544 glyphs from 4 faces, 0 requested code points missing (Liberation + DejaVu fallback), "CAT ARENA" at 20 px is 115.4 px wide
+49:   keyboard reached 54 of 54 enabled settings controls in the six tabs
+49: PASS keyboard-only navigation (menus, all settings tabs, selects, sliders, toggles, pause, exit)
+49: PASS mouse / touch navigation (buttons, maps, tabs, slider drag, wheel, touch scroll, selects)
+49: PASS HUD layout (5 screen sizes incl. a notched phone, keyboard and touch layouts, placements, scale, editor drag)
+49: PASS control mode and pointer capture rules (legacy + v0.18 Android / DeX fix); device behaviour on Android: NOT_RUN
+49: PASS shell helpers (legacy FPS statistics, sprint modes, touch joystick / look / buttons)
+49: PASS ui (968 checks)
+35/73 Test #49: ui_menus_settings_hud .........................   Passed    1.30 sec
+test 54
+      Start 54: coop_interop_legacy_relay
+
+54: Test command: /opt/node22/bin/node "/home/claude/cat-arena/native/tools/n8/run_with_legacy_relay.cjs" "/home/claude/cat-arena/native/../reference/multiplayer/server.js" "/opt/npm-tools/node_modules" "/home/claude/n2/build-repo/cat_arena_coop_tests" "/home/claude/cat-arena/native/../assets/n1" "--external"
+54: Working Directory: /home/claude/n2/build-repo
+54: Test timeout computed to be: 120
+7: level="info" subsystem="renderer" message="Scene reactor-bastion uploaded: 24398 world, 0 material, 1142 sky triangles; 1 materials, 2 material passes, 1 material pipelines; textures: 0 bytes via staging, 6739288 bytes via host copy"
+7: level="info" subsystem="vulkan" message="Scene objects: 1 material pipelines, 1 descriptor sets"
+7: level="info" subsystem="capture" message="Wrote /home/claude/n2/build-repo/render_map_reactor-bastion.png draws=4 passes=2 visibleClusters=0"
+54: original relay /home/claude/cat-arena/native/../reference/multiplayer/server.js (sha256 ca1343efc3bf442bce1d609cb004e4e29d521b912483f02b2d5cb4185c7dd836) on port 32999; ws 8.21.3
+36/73 Test  #7: render_map_reactor-bastion ....................   Passed    0.96 sec
+test 67
+      Start 67: navigation_reactor-bastion
+
+67: Test command: /home/claude/n2/build-repo/cat_arena_nav_tests "/home/claude/cat-arena/native/../assets/n1" "reactor-bastion" "/home/claude/cat-arena/native/tests/fixtures/n4/reactor-bastion_navigation.bin"
+67: Working Directory: /home/claude/n2/build-repo
+67: Test timeout computed to be: 1500
+46: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 17/22 (shared 1), random draws 356
+46: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 4, deaths 1, routes 112/130 (shared 4), random draws 702
+46: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 103/106 (shared 3), random draws 602
+46: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 27/58 (shared 1), random draws 871
+46: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 3, deaths 1, routes 69/75 (shared 5), random draws 915
+46: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 44/49 (shared 1), random draws 484
+46: PASS legacy enemies reactor-bastion: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9600, worst |error| 0, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 37, player deaths 5, routes 372 (15 shared), random draws 3930; native state hash 9be6af56284c9973
+37/73 Test #46: enemy_legacy_tapes_reactor-bastion ............   Passed    3.64 sec
+test 65
+      Start 65: navigation_helios-crucible
+
+65: Test command: /home/claude/n2/build-repo/cat_arena_nav_tests "/home/claude/cat-arena/native/../assets/n1" "helios-crucible" "/home/claude/cat-arena/native/tests/fixtures/n4/helios-crucible_navigation.bin"
+65: Working Directory: /home/claude/n2/build-repo
+65: Test timeout computed to be: 1500
+45: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 14/14 (shared 1), random draws 349
+45: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 97/103 (shared 1), random draws 730
+45: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 0, routes 72/77 (shared 2), random draws 340
+45: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 29/32 (shared 1), random draws 891
+45: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 71/72 (shared 2), random draws 658
+45: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 53/54 (shared 1), random draws 625
+45: PASS legacy enemies bastion-keep: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9600, worst |error| 0, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 10, highest wave 5, kills 30, player deaths 4, routes 336 (8 shared), random draws 3593; native state hash c7b6fc877e60b407
+38/73 Test #45: enemy_legacy_tapes_bastion-keep ...............   Passed    3.27 sec
+test 57
+      Start 57: weapon_fx_legacy_tapes
+
+57: Test command: /home/claude/n2/build-repo/cat_arena_fx_tests "/home/claude/cat-arena/native/../assets/n1" "/home/claude/cat-arena/native/tests/fixtures/n5/helios_combat.bin" "/home/claude/cat-arena/native/tests/fixtures/n5/helios_weapon_fx.bin"
+57: Working Directory: /home/claude/n2/build-repo
+57: Test timeout computed to be: 1500
+47: PASS stand_still: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 22/22 (shared 1), random draws 522
+47: PASS fight_spin: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 1, deaths 1, routes 106/122 (shared 2), random draws 927
+47: PASS sprint_circuit: 1800 ticks, bit-exact 1800, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 87/87 (shared 5), random draws 850
+47: PASS wave_progression: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), wave 3, kills 30, deaths 0, routes 40/40 (shared 4), random draws 878
+47: PASS flyers_wave5: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 2, deaths 1, routes 78/78 (shared 5), random draws 1313
+47: PASS death_and_restart: 1200 ticks, bit-exact 1200, max |error| 0 (x @ tick 0), wave 1, kills 0, deaths 1, routes 47/47 (shared 4), random draws 821
+47: PASS legacy enemies q3-gallery: 6 scenarios, 9600 ticks (80 s), bit-exact ticks 9600, worst |error| 0, tolerance 1e-09; enemy types seen 20, most enemies 20, most enemy shots 8, highest wave 5, kills 33, player deaths 5, routes 380 (21 shared), random draws 5311; native state hash 9e0d1a1a69c65505
+39/73 Test #47: enemy_legacy_tapes_q3-gallery .................   Passed    3.23 sec
+test 66
+      Start 66: navigation_bastion-keep
+
+66: Test command: /home/claude/n2/build-repo/cat_arena_nav_tests "/home/claude/cat-arena/native/../assets/n1" "bastion-keep" "/home/claude/cat-arena/native/tests/fixtures/n4/bastion-keep_navigation.bin"
+66: Working Directory: /home/claude/n2/build-repo
+66: Test timeout computed to be: 1500
+67: PASS navigation reactor-bastion: 6182 nodes (L1 920, L2 3245, L3 2017) identical to legacy; edges light/standard/heavy 37550/37112/33381 identical; 50 route queries identical (49 routes, 20 between floors, longest chain 93 nodes); regions 18, spawns inside a region 12/12, nav nodes inside a region 6182/6182; 29118 checks
+40/73 Test #67: navigation_reactor-bastion ....................   Passed    1.57 sec
+test 43
+      Start 43: enemy_units
+
+43: Test command: /home/claude/n2/build-repo/cat_arena_enemy_tests "--units" "/home/claude/cat-arena/native/../assets/n1"
+43: Working Directory: /home/claude/n2/build-repo
+43: Test timeout computed to be: 1500
+65: PASS navigation helios-crucible: 5270 nodes (L1 824, L2 2683, L3 1763) identical to legacy; edges light/standard/heavy 34812/34726/34468 identical; 50 route queries identical (49 routes, 28 between floors, longest chain 91 nodes); regions 9, spawns inside a region 28/28, nav nodes inside a region 5270/5270; 24647 checks
+41/73 Test #65: navigation_helios-crucible ....................   Passed    1.03 sec
+test 68
+      Start 68: navigation_q3-gallery
+
+68: Test command: /home/claude/n2/build-repo/cat_arena_nav_tests "/home/claude/cat-arena/native/../assets/n1" "q3-gallery" "/home/claude/cat-arena/native/tests/fixtures/n4/q3-gallery_navigation.bin"
+68: Working Directory: /home/claude/n2/build-repo
+68: Test timeout computed to be: 1500
+54:   host sent 159 snapshot rounds, 80.4 KiB/s of snapshots to three guests over 14.5 s of play; 873 poses received
+54: PASS four players through the relay at ws://127.0.0.1:32999 (join, snapshots, poses, remote kill, damage, downed, revive, wipe, leave)
+54: PASS coop (30 checks)
+54: --- relay log ---
+54: CAT ARENA v0.17 co-op (up to 4 players) listening on 127.0.0.1:32999
+54: Health check: http://127.0.0.1:32999/health
+54: Open the public HTTPS game URL on every player device.
+42/73 Test #54: coop_interop_legacy_relay .....................   Passed    2.31 sec
+test 50
+      Start 50: coop_multiplayer
+
+50: Test command: /home/claude/n2/build-repo/cat_arena_coop_tests "/home/claude/cat-arena/native/../assets/n1"
+50: Working Directory: /home/claude/n2/build-repo
+50: Test timeout computed to be: 300
+66: PASS navigation bastion-keep: 6359 nodes (L1 558, L2 3179, L3 2622) identical to legacy; edges light/standard/heavy 43706/43706/43018 identical; 50 route queries identical (50 routes, 39 between floors, longest chain 99 nodes); regions 16, spawns inside a region 12/12, nav nodes inside a region 6359/6359; 29075 checks
+43/73 Test #66: navigation_bastion-keep .......................   Passed    0.90 sec
+test 38
+      Start 38: physics_all_maps
+
+38: Test command: /home/claude/n2/build-repo/cat_arena_physics_tests "--maps" "/home/claude/cat-arena/native/../assets/n1"
+38: Working Directory: /home/claude/n2/build-repo
+38: Test timeout computed to be: 1500
+68: PASS navigation q3-gallery: 2535 nodes (L1 102, L2 2223, L3 210) identical to legacy; edges light/standard/heavy 18055/18017/16692 identical; 50 route queries identical (50 routes, 7 between floors, longest chain 65 nodes); regions 4, spawns inside a region 7/7, nav nodes inside a region 2535/2535; 12789 checks
+44/73 Test #68: navigation_q3-gallery .........................   Passed    0.56 sec
+test 69
+      Start 69: windows_vulkan_import_library
+
+69: Test command: /usr/bin/cmake "-DTOOL=/usr/bin/llvm-lib" "-DNM=/usr/bin/llvm-nm" "-DALLOW=/home/claude/cat-arena/native/tests/vulkan_baseline_imports.txt" "-DOUT=/home/claude/n2/build-repo/vulkan-import-check" "-P" "/home/claude/cat-arena/native/tests/vulkan_import_library_check.cmake"
+69: Working Directory: /home/claude/n2/build-repo
+69: Test timeout computed to be: 1500
+43: PASS enemy unit tests (tables and Helios Crucible): 8759 checks
+45/73 Test #43: enemy_units ...................................   Passed    1.08 sec
+test 58
+      Start 58: enemy_fx_units
+
+58: Test command: /home/claude/n2/build-repo/cat_arena_enemy_fx_tests "/home/claude/cat-arena/native/../assets/n6"
+58: Working Directory: /home/claude/n2/build-repo
+58: Test timeout computed to be: 1500
+69: PASS vulkan-1.lib: 151 commands imported from vulkan-1.dll (151 in the .def)
+46/73 Test #69: windows_vulkan_import_library .................   Passed    0.32 sec
+test 52
+      Start 52: net_relay_protocol
+
+52: Test command: /home/claude/n2/build-repo/cat_arena_net_tests
+52: Working Directory: /home/claude/n2/build-repo
+52: Test timeout computed to be: 1500
+38: PASS helios-crucible: 167 slabs, 2479 walls, 2 pads, 28 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 997, ceiling 0, landings 109, steps 212, recoveries 31
+38: PASS bastion-keep: 156 slabs, 2652 walls, 2 pads, 12 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 985, ceiling 2, landings 48, steps 5, recoveries 37
+38: PASS reactor-bastion: 343 slabs, 3789 walls, 4 pads, 12 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 744, ceiling 0, landings 47, steps 33, recoveries 26
+38: PASS q3-gallery: 988 slabs, 3083 walls, 1 pads, 7 spawns all clear and supported; 5 s random play per spawn: contacts horizontal 382, ceiling 0, landings 29, steps 2, recoveries 7
+47/73 Test #38: physics_all_maps ..............................   Passed    0.46 sec
+test 29
+      Start 29: vulkan_link_imports
+
+29: Test command: /usr/bin/cmake "-DNM=/usr/bin/nm" "-DBINARIES=/home/claude/n2/build-repo/libcat_arena_render.a|/home/claude/n2/build-repo/cat_arena" "-DALLOW=/home/claude/cat-arena/native/tests/vulkan_baseline_imports.txt" "-P" "/home/claude/cat-arena/native/tests/check_vulkan_imports.cmake"
+29: Working Directory: /home/claude/n2/build-repo
+29: Test timeout computed to be: 1500
+29: -- PASS /home/claude/n2/build-repo/libcat_arena_render.a: 95 Vulkan imports, all Vulkan 1.0 + WSI
+29: -- PASS /home/claude/n2/build-repo/cat_arena: 95 Vulkan imports, all Vulkan 1.0 + WSI
+48/73 Test #29: vulkan_link_imports ...........................   Passed    0.08 sec
+test 37
+      Start 37: physics_legacy_trajectories
+
+37: Test command: /home/claude/n2/build-repo/cat_arena_physics_tests "/home/claude/cat-arena/native/../assets/n1" "/home/claude/cat-arena/native/tests/fixtures/n3/helios_trajectories.bin"
+37: Working Directory: /home/claude/n2/build-repo
+37: Test timeout computed to be: 1500
+58: PASS enemy presentation unit tests: 83061 checks
+49/73 Test #58: enemy_fx_units ................................   Passed    0.43 sec
+test 30
+      Start 30: vk_sim_layer_selftest
+
+30: Test command: /home/claude/n2/build-repo/cat_arena_vk_sim_selftest "/home/claude/n2/build-repo/vk_sim_layer"
+30: Working Directory: /home/claude/n2/build-repo
+30: Test timeout computed to be: 1500
+52: PASS JSON, SHA-1, WebSocket frames, URLs
+52: PASS relay protocol against the native relay (ws://127.0.0.1:37653/ws)
+52: PASS net (79 checks)
+57: PASS weapon_00_nailgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 26126, cosmetic draws 877
+57: PASS weapon_01_shotgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 28668, cosmetic draws 624
+57: PASS weapon_02_grenade_launcher: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 32744, cosmetic draws 902
+57: PASS weapon_03_railgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 21459, cosmetic draws 214
+57: PASS weapon_04_rocket_launcher: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 31267, cosmetic draws 815
+57: PASS weapon_05_super_nailgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 24827, cosmetic draws 618
+57: PASS weapon_06_thunderbolt: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 26235, cosmetic draws 1101
+57: PASS weapon_07_super_shotgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 26054, cosmetic draws 485
+57: PASS weapon_08_plasma_repeater: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 23020, cosmetic draws 436
+57: PASS weapon_09_triple_spike: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 27837, cosmetic draws 756
+57: PASS weapon_10_rift_cannon: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 23099, cosmetic draws 540
+57: PASS weapon_11_iron_chaingun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 44378, cosmetic draws 1453
+57: PASS weapon_12_hand_cannon: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 20268, cosmetic draws 321
+57: PASS weapon_13_hellfire_carbine: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 23790, cosmetic draws 497
+57: PASS weapon_14_sawblade_driver: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 20916, cosmetic draws 471
+57: PASS weapon_15_quad_shotgun: 560 ticks, bit-exact 560, worst camera/recoil error 0, worst checksum error 0, quads 28744, cosmetic draws 677
+57: PASS kills_and_reroll: 900 ticks, bit-exact 900, worst camera/recoil error 0, worst checksum error 0, quads 45455, cosmetic draws 892
+57: PASS rocket_and_grenade_jump: 700 ticks, bit-exact 700, worst camera/recoil error 0, worst checksum error 0, quads 27297, cosmetic draws 384
+57: PASS rocket_at_feet_moving: 420 ticks, bit-exact 420, worst camera/recoil error 0, worst checksum error 0, quads 21044, cosmetic draws 436
+57: PASS splash_falloff_rocket: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 31599, cosmetic draws 771
+57: PASS splash_falloff_grenade: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 27879, cosmetic draws 678
+57: PASS splash_falloff_rift: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 21445, cosmetic draws 507
+57: PASS grenade_arcs: 900 ticks, bit-exact 900, worst camera/recoil error 0, worst checksum error 0, quads 48933, cosmetic draws 1207
+57: PASS recoil_shotgun: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 16930, cosmetic draws 159
+57: PASS recoil_super_shotgun: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 18795, cosmetic draws 238
+57: PASS recoil_quad_shotgun: 520 ticks, bit-exact 520, worst camera/recoil error 0, worst checksum error 0, quads 20217, cosmetic draws 319
+57: PASS headshots_rail_handcannon: 420 ticks, bit-exact 420, worst camera/recoil error 0, worst checksum error 0, quads 14791, cosmetic draws 112
+57: PASS health_pickup: 2100 ticks, bit-exact 2100, worst camera/recoil error 0, worst checksum error 0, quads 52739, cosmetic draws 0
+57: PASS fire_while_moving: 700 ticks, bit-exact 700, worst camera/recoil error 0, worst checksum error 0, quads 38331, cosmetic draws 1088
+50/73 Test #52: net_relay_protocol ............................   Passed    0.30 sec
+test 41
+      Start 41: physics_legacy_trajectories_q3-gallery
+
+41: Test command: /home/claude/n2/build-repo/cat_arena_physics_tests "/home/claude/cat-arena/native/../assets/n1" "/home/claude/cat-arena/native/tests/fixtures/n4/q3-gallery_trajectories.bin" "q3-gallery"
+41: Working Directory: /home/claude/n2/build-repo
+41: Test timeout computed to be: 1500
+57: PASS legacy weapon effects: 29 scenarios, 18220 ticks, bit-exact ticks 18220; viewmodel camera / glow / recoil / muzzle worst |error| 0 (tolerance 1e-09); batch checksums worst |error| 0; quad counts, light counts and 17578 cosmetic random draws identical; 814887 quads built, largest main batch 98, 8603 lights requested, 8603 uploaded to the shaders (selection equal to the legacy); native state hash db998305f47476f0
+51/73 Test #57: weapon_fx_legacy_tapes ........................   Passed    1.73 sec
+test 53
+      Start 53: net_interop_legacy_relay
+
+53: Test command: /opt/node22/bin/node "/home/claude/cat-arena/native/tools/n8/run_with_legacy_relay.cjs" "/home/claude/cat-arena/native/../reference/multiplayer/server.js" "/opt/npm-tools/node_modules" "/home/claude/n2/build-repo/cat_arena_net_tests" "--external"
+53: Working Directory: /home/claude/n2/build-repo
+53: Test timeout computed to be: 120
+30: VK_LAYER_CAT_device_sim: simulating api=1.2 hide=all optional + 0 extension(s) maskedFeatures=0
+30: VK_LAYER_CAT_device_sim: REJECTED vkCreateDevice - VkPhysicalDeviceVulkan13Features passed to a pre-1.3 device is not available on the simulated device
+30: VK_LAYER_CAT_device_sim: simulating api=1.3 hide=all optional + 0 extension(s) maskedFeatures=1
+30: VK_LAYER_CAT_device_sim: REJECTED vkCreateDevice - synchronization2 is not available on the simulated device
+30: driver: llvmpipe (LLVM 20.1.2, 256 bits) API 1.4.318, 161 extensions
+30: PASS device simulation layer: 31 checks
+52/73 Test #30: vk_sim_layer_selftest .........................   Passed    0.19 sec
+test 40
+      Start 40: physics_legacy_trajectories_reactor-bastion
+
+40: Test command: /home/claude/n2/build-repo/cat_arena_physics_tests "/home/claude/cat-arena/native/../assets/n1" "/home/claude/cat-arena/native/tests/fixtures/n4/reactor-bastion_trajectories.bin" "reactor-bastion"
+40: Working Directory: /home/claude/n2/build-repo
+40: Test timeout computed to be: 1500
+41: PASS random_0_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 484/0/8/0/0
+41: PASS random_1_z4.5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 753/0/5/0/0
+41: PASS random_2_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 581/0/9/0/0
+41: PASS random_3_z4.5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 257/0/9/0/0
+41: PASS ramp_0_trench-stairs: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 134/0/1/207/0
+41: PASS ramp_1_pool-steps: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/1/47/0
+41: PASS ramp_2_mezz-stairs: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 27/0/1/568/0
+41: PASS pad_pad-court: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1/0/1/0/0
+41: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+41: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 107/1/2/0/0
+41: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 567/0/0/72/0
+41: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 584/2/9/0/0
+41: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 61/0/1/34/0
+41: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+41: PASS legacy trajectories q3-gallery: 14 scenarios, 12720 ticks (106 s), bit-exact ticks 12720, worst |error| 0, tolerance 1e-09; contacts horizontal 3556, ceiling 5, landings 49, steps 928, recoveries 0; native state hash 3c18e4de32268258
+53/73 Test #41: physics_legacy_trajectories_q3-gallery ........   Passed    0.27 sec
+test 39
+      Start 39: physics_legacy_trajectories_bastion-keep
+
+39: Test command: /home/claude/n2/build-repo/cat_arena_physics_tests "/home/claude/cat-arena/native/../assets/n1" "/home/claude/cat-arena/native/tests/fixtures/n4/bastion-keep_trajectories.bin" "bastion-keep"
+39: Working Directory: /home/claude/n2/build-repo
+39: Test timeout computed to be: 1500
+37: PASS random_0_z-4: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1643/0/12/0/0
+37: PASS random_1_z0: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 559/0/9/0/3
+37: PASS random_2_z7: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 680/0/12/33/1
+37: PASS random_3_z-4: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 716/0/13/182/3
+37: PASS random_4_z0: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1016/0/12/0/4
+37: PASS random_5_z7: 2400 ticks, bit-exact 2400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 1345/0/11/82/2
+37: PASS ramp_0_upper-stair-0: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 2/0/1/621/0
+37: PASS ramp_1_vault-ramp-0: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/1/429/0
+37: PASS ramp_2_upper-stair-2: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 2/0/1/621/0
+37: PASS pad_vault-launch-north: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 186/0/1/0/0
+37: PASS pad_vault-launch-south: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 275/0/1/0/0
+37: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/1/2/0/0
+37: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 3/0/2/0/2
+37: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 304/0/0/113/0
+37: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 317/0/7/0/0
+37: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 262/0/0/0/0
+37: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+37: PASS legacy trajectories helios-crucible: 17 scenarios, 21820 ticks (181.833 s), bit-exact ticks 21820, worst |error| 0, tolerance 1e-09; contacts horizontal 7310, ceiling 1, landings 85, steps 2081, recoveries 15; native state hash fefebf6f8d483889
+54/73 Test #37: physics_legacy_trajectories ...................   Passed    0.48 sec
+test 64
+      Start 64: combat_legacy_tapes
+
+64: Test command: /home/claude/n2/build-repo/cat_arena_combat_tests "/home/claude/cat-arena/native/../assets/n1" "/home/claude/cat-arena/native/tests/fixtures/n5/helios_combat.bin"
+64: Working Directory: /home/claude/n2/build-repo
+64: Test timeout computed to be: 1500
+53: original relay /home/claude/cat-arena/native/../reference/multiplayer/server.js (sha256 ca1343efc3bf442bce1d609cb004e4e29d521b912483f02b2d5cb4185c7dd836) on port 36109; ws 8.21.3
+40: PASS random_0_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 722/0/8/26/0
+40: PASS random_1_z5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 565/0/7/0/6
+40: PASS random_2_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 876/0/9/0/0
+40: PASS random_3_z5: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 518/0/7/0/0
+40: PASS ramp_0_tunnel-stairs-0: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 350/0/1/358/0
+40: PASS ramp_1_tunnel-stairs-2: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 350/0/1/358/0
+40: PASS ramp_2_tunnel-stairs-4: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 350/0/1/358/0
+40: PASS pad_pad-0: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 99/0/1/173/0
+40: PASS pad_pad-2: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 50/0/1/0/0
+40: PASS pad_pad-4: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 227/0/1/0/0
+40: PASS pad_pad-6: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 227/0/1/0/0
+40: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+40: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 113/1/2/0/0
+40: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 116/0/0/0/6
+40: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 441/0/7/0/0
+40: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 18/0/0/59/0
+40: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+40: PASS legacy trajectories reactor-bastion: 17 scenarios, 14820 ticks (123.5 s), bit-exact ticks 14820, worst |error| 0, tolerance 1e-09; contacts horizontal 5022, ceiling 3, landings 49, steps 1332, recoveries 12; native state hash 28b244020bb687a1
+55/73 Test #40: physics_legacy_trajectories_reactor-bastion ...   Passed    0.23 sec
+test 42
+      Start 42: js_math_browser
+
+42: Test command: /home/claude/n2/build-repo/cat_arena_js_math_tests "/home/claude/cat-arena/native/tests/fixtures/js_math/chromium_math.bin"
+42: Working Directory: /home/claude/n2/build-repo
+42: Test timeout computed to be: 1500
+39: PASS random_0_z-4: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 965/0/8/0/0
+39: PASS random_1_z0: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 317/0/6/0/0
+39: PASS random_2_z7: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 438/0/8/0/0
+39: PASS random_3_z-4: 1500 ticks, bit-exact 1500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 774/0/7/0/0
+39: PASS ramp_0_pit-ramp-sw: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 21/0/1/360/0
+39: PASS ramp_1_pit-ramp-se: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 46/0/1/358/0
+39: PASS ramp_2_stairs-185: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 2/0/1/621/0
+39: PASS pad_pad-east: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 77/0/1/7/3
+39: PASS pad_pad-south: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 281/0/1/0/0
+39: PASS ceiling_impulse_0: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/2/2/0/0
+39: PASS ceiling_impulse_1: 360 ticks, bit-exact 360, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 29/1/2/0/0
+39: PASS slide_crouch: 800 ticks, bit-exact 800, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 219/0/0/0/0
+39: PASS air_strafe_bunnyhop: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 356/0/7/0/1
+39: PASS crouch_walk: 500 ticks, bit-exact 500, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 75/0/0/0/0
+39: PASS idle: 400 ticks, bit-exact 400, max |error| 0 (x @ tick 0), contacts h/c/l/s/r 0/0/0/0/0
+39: PASS legacy trajectories bastion-keep: 15 scenarios, 13420 ticks (111.833 s), bit-exact ticks 13420, worst |error| 0, tolerance 1e-09; contacts horizontal 3600, ceiling 3, landings 45, steps 1346, recoveries 4; native state hash 6105b7124aca6fa6
+56/73 Test #39: physics_legacy_trajectories_bastion-keep ......   Passed    0.21 sec
+test 63
+      Start 63: combat_units
+
+63: Test command: /home/claude/n2/build-repo/cat_arena_combat_tests
+63: Working Directory: /home/claude/n2/build-repo
+63: Test timeout computed to be: 1500
+42:   differs: pow(0.14416961115784943, 4) browser 0.00043201110281820962 native 0.00043201110281820956
+42:   differs: pow(966.82145399972796, -4.6572351297363639) browser 1.2489367222928824e-14 native 1.2489367222928825e-14
+42:   differs: pow(-3.4470068279188126, 10) browser 236821.66857715877 native 236821.66857715874
+42: PASS sin: 6023 records, bit-exact 6023, worst 0 ulp; C runtime differs from the browser on 10
+42: PASS cos: 6023 records, bit-exact 6023, worst 0 ulp; C runtime differs from the browser on 1
+42: PASS tan: 6023 records, bit-exact 6023, worst 0 ulp; C runtime differs from the browser on 9
+42: PASS atan2: 6529 records, bit-exact 6529, worst 0 ulp; C runtime differs from the browser on 2
+42: PASS pow: 6529 records, bit-exact 6526, worst 1 ulp; C runtime differs from the browser on 5
+42: PASS js_math against the browser (31127 records)
+57/73 Test #42: js_math_browser ...............................   Passed    0.14 sec
+test 1
+      Start  1: core_foundation
+
+1: Test command: /home/claude/n2/build-repo/cat_arena_tests
+1: Working Directory: /home/claude/n2/build-repo
+1: Test timeout computed to be: 1500
+1: PASS clock: drift, interpolation, negative time, stall, partition invariance
+1: PASS settings: roundtrip and malformed/range/version rejection
+1: PASS math: Z-up right-handed basis and inverse
+1: PASS rng: golden vector, replay and bounded unit samples
+1: PASS input: mapping, repeat, tick edges, short tap and focus loss
+1: PASS ownership: single move cleanup, exception cleanup, release
+1: PASS paths: absolute assets and user directory creation
+1: PASS utf8 paths: non-ASCII folder and file names round trip, write, read and list
+58/73 Test  #1: core_foundation ...............................   Passed    0.01 sec
+test 32
+      Start 32: asset_format
+
+32: Test command: /home/claude/n2/build-repo/cat_arena_asset_tests
+32: Working Directory: /home/claude/n2/build-repo
+32: Test timeout computed to be: 1500
+63: PASS combat unit tests: 18372 checks
+59/73 Test #63: combat_units ..................................   Passed    0.08 sec
+test 36
+      Start 36: physics_units
+
+36: Test command: /home/claude/n2/build-repo/cat_arena_physics_tests
+36: Working Directory: /home/claude/n2/build-repo
+36: Test timeout computed to be: 1500
+32: PASS data: roundtrip, every truncation, checksum, version, trailing bytes, tag, allocation budget, finite values, depth
+32: PASS mesh: roundtrip, every truncation, count overflow, invalid index, nonfinite vertex
+32: PASS paths/schema: traversal, absolute paths, Windows paths, unsupported schema
+60/73 Test #32: asset_format ..................................   Passed    0.03 sec
+test 34
+      Start 34: scene_units
+
+34: Test command: /home/claude/n2/build-repo/cat_arena_scene_tests
+34: Working Directory: /home/claude/n2/build-repo
+34: Test timeout computed to be: 1500
+34: PASS waves: tables, period, noise golden values
+34: PASS tcMods: scroll fract, composition order, turb split, rotation centre
+34: PASS camera: legacy basis, Vulkan depth/clip mapping, FOV, inView
+34: PASS images: atlas layer extraction/flip, row flip, mips, decode rejection
+34: PASS materials: resolve, collapse, fog modes, sprites, validation
+34: PASS vertex light: walk grid, mapCell bounds, lightVertexColor golden values
+61/73 Test #34: scene_units ...................................   Passed    0.02 sec
+test 56
+      Start 56: hud_units
+
+56: Test command: /home/claude/n2/build-repo/cat_arena_hud_tests
+56: Working Directory: /home/claude/n2/build-repo
+56: Test timeout computed to be: 1500
+64: PASS weapon_00_nailgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 33, detonations 0, frags 0, random draws 86, hp 100
+64: PASS weapon_01_shotgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 40, detonations 0, frags 0, random draws 106, hp 100
+64: PASS weapon_02_grenade_launcher: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 14, detonations 4, frags 0, random draws 39, hp 100
+64: PASS weapon_03_railgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 7, detonations 0, frags 0, random draws 16, hp 100
+64: PASS weapon_04_rocket_launcher: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 6, detonations 3, frags 0, random draws 17, hp 100
+64: PASS weapon_05_super_nailgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 19, detonations 1, frags 0, random draws 55, hp 100
+64: PASS weapon_06_thunderbolt: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 43, detonations 0, frags 0, random draws 112, hp 100
+64: PASS weapon_07_super_shotgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 43, detonations 0, frags 0, random draws 113, hp 100
+64: PASS weapon_08_plasma_repeater: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 17, detonations 0, frags 0, random draws 44, hp 100
+64: PASS weapon_09_triple_spike: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 26, detonations 0, frags 0, random draws 71, hp 100
+64: PASS weapon_10_rift_cannon: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 20, detonations 3, frags 0, random draws 49, hp 89
+64: PASS weapon_11_iron_chaingun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 45, detonations 0, frags 0, random draws 116, hp 100
+64: PASS weapon_12_hand_cannon: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 12, detonations 0, frags 0, random draws 29, hp 100
+64: PASS weapon_13_hellfire_carbine: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 9, detonations 1, frags 0, random draws 27, hp 100
+64: PASS weapon_14_sawblade_driver: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 8, detonations 0, frags 0, random draws 21, hp 100
+64: PASS weapon_15_quad_shotgun: 560 ticks, bit-exact 560, max |error| 0 (x @ tick 0), pellets 60, detonations 1, frags 0, random draws 153, hp 100
+64: PASS kills_and_reroll: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), pellets 63, detonations 1, frags 4, random draws 132, hp 100
+64: PASS rocket_and_grenade_jump: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), pellets 0, detonations 2, frags 0, random draws 0, hp 29
+64: PASS rocket_at_feet_moving: 420 ticks, bit-exact 420, max |error| 0 (x @ tick 0), pellets 0, detonations 2, frags 0, random draws 0, hp 64
+64: PASS splash_falloff_rocket: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 0, detonations 3, frags 0, random draws 15, hp 100
+64: PASS splash_falloff_grenade: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 0, detonations 3, frags 0, random draws 15, hp 100
+64: PASS splash_falloff_rift: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 0, detonations 3, frags 0, random draws 21, hp 100
+64: PASS grenade_arcs: 900 ticks, bit-exact 900, max |error| 0 (x @ tick 0), pellets 0, detonations 5, frags 0, random draws 5, hp 100
+64: PASS recoil_shotgun: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 24, detonations 0, frags 0, random draws 55, hp 100
+64: PASS recoil_super_shotgun: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 42, detonations 0, frags 0, random draws 93, hp 100
+64: PASS recoil_quad_shotgun: 520 ticks, bit-exact 520, max |error| 0 (x @ tick 0), pellets 60, detonations 0, frags 0, random draws 133, hp 100
+64: PASS headshots_rail_handcannon: 420 ticks, bit-exact 420, max |error| 0 (x @ tick 0), pellets 3, detonations 0, frags 0, random draws 9, hp 100
+64: PASS health_pickup: 2100 ticks, bit-exact 2100, max |error| 0 (x @ tick 0), pellets 0, detonations 0, frags 0, random draws 0, hp 100
+64: PASS fire_while_moving: 700 ticks, bit-exact 700, max |error| 0 (x @ tick 0), pellets 36, detonations 0, frags 0, random draws 82, hp 100
+64: PASS legacy combat: 29 scenarios, 18220 ticks (151.833 s), bit-exact ticks 18220, worst |error| 0, tolerance 1e-09; weapons fired 16/16, pellets 630 (world or target hit 468, target 272), detonations 32, frags 4, random draws 1614; native state hash 36759acbc0ae3d1
+36: PASS physics units: 9157 checks
+53: PASS JSON, SHA-1, WebSocket frames, URLs
+53: PASS relay protocol against the external (original server.js) relay (ws://127.0.0.1:36109/ws)
+53: PASS net (78 checks)
+53: --- relay log ---
+53: CAT ARENA v0.17 co-op (up to 4 players) listening on 127.0.0.1:36109
+53: Health check: http://127.0.0.1:36109/health
+53: Open the public HTTPS game URL on every player device.
+50: PASS co-op rules (targeting, downed, revive, wipe, remote kills, medkits, guest puppets)
+50:   host sent 159 snapshot rounds, 80.4 KiB/s of snapshots to three guests over 14.5 s of play; 873 poses received
+50: PASS four players through the native relay (join, snapshots, poses, remote kill, damage, downed, revive, wipe, leave)
+50: PASS coop (52 checks)
+56: PASS hud tests: 29702 checks
+62/73 Test #50: coop_multiplayer ..............................   Passed    1.91 sec
+test 55
+      Start 55: weapon_fx_units
+
+55: Test command: /home/claude/n2/build-repo/cat_arena_fx_tests
+55: Working Directory: /home/claude/n2/build-repo
+55: Test timeout computed to be: 1500
+63/73 Test #64: combat_legacy_tapes ...........................   Passed    0.47 sec
+test 2
+      Start  2: headless_smoke
+
+2: Test command: /home/claude/n2/build-repo/cat_arena_headless
+2: Working Directory: /home/claude/n2/build-repo
+2: Test timeout computed to be: 1500
+64/73 Test #36: physics_units .................................   Passed    0.20 sec
+test 3
+      Start  3: vulkan_path_selection
+
+3: Test command: /home/claude/n2/build-repo/cat_arena_vkcaps_tests
+3: Working Directory: /home/claude/n2/build-repo
+3: Test timeout computed to be: 1500
+65/73 Test #56: hud_units .....................................   Passed    0.18 sec
+test 4
+      Start  4: desktop_headless_smoke
+
+4: Test command: /home/claude/n2/build-repo/cat_arena "--headless-test"
+4: Working Directory: /home/claude/n2/build-repo
+4: Test timeout computed to be: 1500
+66/73 Test #53: net_interop_legacy_relay ......................   Passed    0.75 sec
+2: level="info" subsystem="self-test" message="PASS"
+67/73 Test  #2: headless_smoke ................................   Passed    0.01 sec
+3: PASS vkcaps: 70 checks
+68/73 Test  #3: vulkan_path_selection .........................   Passed    0.01 sec
+4: level="info" subsystem="self-test" message="PASS"
+69/73 Test  #4: desktop_headless_smoke ........................   Passed    0.01 sec
+55: PASS weapon fx unit tests: 533 checks
+70/73 Test #55: weapon_fx_units ...............................   Passed    0.02 sec
+51:   soak: 900 s of game time in 54.5 s; highest wave 2, 20 squad wipes, 41 kills by guests; host sent 9823 snapshot rounds (110.0 KiB/s), received 54024 poses; relay relayed 111678 messages
+51:   soak: guest upload (poses, volleys, relay envelope) 4.1 / 3.8 / 4.0 KiB/s; host total upload 110.7 KiB/s
+51: PASS soak with four players (900 s of game time)
+51: PASS coop soak (9 checks)
+71/73 Test #51: coop_soak .....................................   Passed   54.68 sec
+test 73
+      Start 73: window_coop_selftest
+
+73: Test command: /home/claude/n2/build-repo/cat_arena "--coop-selftest"
+73: Working Directory: /home/claude/n2/build-repo
+73: Test timeout computed to be: 300
+73: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=window"
+73: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+73: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+73: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+73: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+73: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+73: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+73: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+73: level="info" subsystem="settings" message="No saved settings yet: legacy defaults (/tmp/cat_arena_menu_selftest_settings.txt)"
+73: level="info" subsystem="ui" message="UI atlas: 544 glyphs (Liberation Serif Regular / Bold, Sans Bold, Mono Bold + DejaVu Sans Bold symbols) and the menu backdrop in 287 ms"
+73: level="warning" subsystem="audio" message="Silent: no audio: No available audio device"
+73: level="info" subsystem="audio" message="Sound bank and soundtrack from /home/claude/cat-arena/native/../assets/n7/audio in 1062 ms"
+73: level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=FIFO"
+73: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+73: level="info" subsystem="scene" message="Map: helios-crucible (helios-crucible-v1) CAT ARENA: FERAL CLAW // HELIOS CRUCIBLE"
+73: level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/cat-arena/native/../assets/n1 in 593 ms (CPU preparation, not a GPU benchmark)"
+73: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, 4 material pipelines; textures: 0 bytes via staging, 35177776 bytes via host copy"
+73: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+73: level="info" subsystem="scene" message="Map: reactor-bastion (reactor-bastion-v1) CAT ARENA: FERAL CLAW // REACTOR BASTION"
+73: level="info" subsystem="scene" message="Loaded reactor-bastion from /home/claude/cat-arena/native/../assets/n1 in 119 ms (CPU preparation, not a GPU benchmark)"
+73: level="info" subsystem="renderer" message="Scene reactor-bastion uploaded: 24398 world, 0 material, 1142 sky triangles; 1 materials, 2 material passes, 1 material pipelines; textures: 0 bytes via staging, 6739288 bytes via host copy"
+73: level="info" subsystem="relay" message="CAT ARENA co-op relay (up to 4 players) listening on 0.0.0.0:8787"
+73: level="info" subsystem="net" message="Built-in relay listening on port 8787"
+73: level="info" subsystem="relay" message="Room created 7N5KZD 1/4"
+73: level="info" subsystem="net" message="Hosting server 7N5KZD on reactor-bastion as 'Selftest Host'"
+73: level="info" subsystem="physics" message="Collision world: 343 slabs, 3789 wall segments, 4 jump pads, 12 spawns"
+73: level="info" subsystem="navigation" message="Route graph: 6182 nodes (920 / 3245 / 2017 per layer) in 5 ms"
+73: level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/cat-arena/native/../assets/n6 in 113 ms"
+73: level="info" subsystem="overlay" message="Weapon models and effect atlas from /home/claude/cat-arena/native/../assets/n5 in 111 ms"
+73: level="info" subsystem="enemies" message="Wave 1: 10 enemies, health / speed / damage x 1.000000, 10 spawned at once"
+73: level="info" subsystem="physics" message="Player at spawn 0 'hall-6' (52.300000, 26.900000, 0.000000)"
+73: level="info" subsystem="combat" message="Loadout: HELLFIRE CARBINE + SUPER NAILGUN; enemies 10; medkits 38; seed 1336976441"
+73: level="info" subsystem="app" message="Loaded reactor-bastion in 253 ms: waiting for ENTER THE ARENA"
+73: level="info" subsystem="relay" message="Guest joined 7N5KZD 2/4"
+73: level="info" subsystem="relay" message="Guest joined 7N5KZD 3/4"
+73: level="info" subsystem="relay" message="Guest joined 7N5KZD 4/4"
+73: level="info" subsystem="relay" message="Host closed room 7N5KZD"
+73: level="info" subsystem="app" message="Self-test guest Ash: Host disconnected. This server is closed. Select another from the server browser."
+73: level="info" subsystem="app" message="Self-test guest Brick: Host disconnected. This server is closed. Select another from the server browser."
+73: level="info" subsystem="app" message="Self-test guest Cinder: Host disconnected. This server is closed. Select another from the server browser."
+73: level="info" subsystem="net" message="Built-in relay stopped"
+73: level="info" subsystem="audio" message="Sounds: 0 gun, 0 explosion, 0 body, 0 voices (0 suppressed by the legacy limits), 0 beeps; 0 frames mixed"
+73: level="info" subsystem="app" message="Co-op self-test PASS: hostMenus=yes typedName=yes hostOnThisPc=yes serverList=yes threeGuests=yes snapshots=yes marineCats=3 nameTags=3 downed=yes revive=yes menuKeepsRunning=yes leave=yes exit=yes frames=242 ticks=1501"
+73: level="info" subsystem="memory" message="Co-op self-test end (host + 3 in-process guest simulations): working set 438.5 MiB, peak 438.5 MiB, private 248.7 MiB; GPU allocations by the renderer 104.0 MiB (a software Vulkan device keeps these in system memory)"
+73: level="info" subsystem="app" message="Clean shutdown; frames=242 validationWarnings=0 validationErrors=0"
+72/73 Test #73: window_coop_selftest ..........................   Passed   16.11 sec
+test 70
+      Start 70: window_input_selftest
+
+70: Test command: /home/claude/n2/build-repo/cat_arena "--frames" "100" "--input-selftest" "--weapons" "4,2"
+70: Working Directory: /home/claude/n2/build-repo
+70: Test timeout computed to be: 1500
+70: level="info" subsystem="scene" message="World atlas: runtime capture world-atlas-runtime.png"
+70: level="info" subsystem="scene" message="Map: helios-crucible (helios-crucible-v1) CAT ARENA: FERAL CLAW // HELIOS CRUCIBLE"
+70: level="info" subsystem="scene" message="Loaded helios-crucible from /home/claude/cat-arena/native/../assets/n1 in 609 ms (CPU preparation, not a GPU benchmark)"
+70: level="info" subsystem="physics" message="Collision world: 167 slabs, 2479 wall segments, 2 jump pads, 28 spawns"
+70: level="info" subsystem="vulkan" message="Device=llvmpipe (LLVM 20.1.2, 256 bits) API=1.4.318 driver=llvmpipe (Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)) loader=1.3.275 instanceApi=1.4 negotiated=1.4 anisotropy=4.000000 validation=on target=window"
+70: level="info" subsystem="vulkan" message="Render path: vulkan-1.4 [dynamic_rendering=core synchronization2=core extended_dynamic_state=core push_descriptor=core host_image_copy=core]"
+70: level="info" subsystem="vulkan" message="  dynamic_rendering: core 1.3 (feature bit reported)"
+70: level="info" subsystem="vulkan" message="  synchronization2: core 1.3 (feature bit reported)"
+70: level="info" subsystem="vulkan" message="  extended_dynamic_state: core 1.3 (mandatory, no feature bit)"
+70: level="info" subsystem="vulkan" message="  push_descriptor: core 1.4 (feature bit reported)"
+70: level="info" subsystem="vulkan" message="  host_image_copy: core 1.4 (feature bit reported)"
+70: level="info" subsystem="vulkan" message="GPU timestamps: available (period 1.000000 ns)"
+70: level="info" subsystem="renderer" message="Scene helios-crucible uploaded: 7308 world, 161014 material, 1142 sky triangles; 34 materials, 35 material passes, pipelines are created with the first render target; textures: 0 bytes via staging, 35177776 bytes via host copy"
+70: level="info" subsystem="enemies" message="20 creature meshes, Marine Cat and light volume from /home/claude/cat-arena/native/../assets/n6 in 63 ms"
+70: level="info" subsystem="overlay" message="Weapon models and effect atlas from /home/claude/cat-arena/native/../assets/n5 in 110 ms"
+70: level="info" subsystem="physics" message="Player at spawn 0 'bay-0' (81.500000, 61.500000, 0.000000)"
+70: level="info" subsystem="combat" message="Loadout: ROCKET LAUNCHER + GRENADE LAUNCHER; practice targets 0; medkits 26; seed 1"
+70: level="info" subsystem="app" message="N6: click to capture the mouse; WASD move, Shift sprint, Space jump, Ctrl crouch, C slide; left mouse fires, R reloads, Q/Tab swaps weapons; 1-4 change map, F5 restarts, F11 fullscreen; Esc releases the mouse (pauses a game started by hand), Esc again quits. Enemies come in waves (--enemies practice|none for the N5 targets or an empty map)."
+70: level="info" subsystem="vulkan" message="Swapchain 1280x720 color=B8G8R8A8_UNORM depth=D32_SFLOAT present=FIFO"
+70: level="info" subsystem="app" message="Input self-test PASS: relativeMouse=on mouseEvents=40 yawChange=0.600000 (expected 0.6) moved=36.528910m jumps=1 slid=yes crouched=yes volleys=1 reloads=1 swaps=1 ticks=800"
+70: level="info" subsystem="app" message="Clean shutdown; ticks=800 frames=126 validationWarnings=0 validationErrors=0"
+73/73 Test #70: window_input_selftest .........................   Passed   10.14 sec
+
+100% tests passed, 0 tests failed out of 73
+
+Label Time Summary:
+gpu    = 241.98 sec*proc (30 tests)
+
+Total Test time (real) = 109.05 sec
+exit 0

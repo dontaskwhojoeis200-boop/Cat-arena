@@ -1,3 +1,18 @@
+# N9 test matrix — 2026-11-18 (branch n9)
+
+| Check | Result | Evidence |
+|---|---|---|
+| Merge of final N8 into n9-windows, Linux desktop build + CTest | PASS 73/73 | n9-evidence/linux-ctest-merge-73.txt |
+| Linux desktop build + CTest with N9 additions (GCC Release, lavapipe) | PASS 75/75 | n9-evidence/linux-ctest-n9-75.txt |
+| Strict Vulkan 1.1 path (`--vk-baseline`), simulated bare Vulkan 1.1 device, path matrix | PASS | same log (render_weapons_overlay_baseline, render_path_simulated_devices, render_path_matrix) |
+| Crash reports, Linux (SIGSEGV, std::terminate → report with backtrace and log lines) | PASS | crash_report_access / _terminate |
+| Crash reports, Windows (access violation, std::terminate → report + minidump) | PASS (minidumps 242,434 / 237,139 bytes) | windows-ci/run-44469465569-job.log |
+| Package validation incl. version resource in CatArena.exe | PASS | same |
+| Windows GPU-free CTest (45) | PASS 45/45 (runs 44466414431, 44469465569); run 44467678007: 44/45, `coop_multiplayer_winhttp` timeout → fixed | windows-ci/ |
+| WinHTTP stress: both WinHTTP tests × 15, 90 s timeout | PASS 15/15 | run 44469465569 |
+| Solo replays (15 lines) Linux vs Windows vs N8 | identical | |
+| Physical Windows PC with a GPU: display modes, F11, focus, mouse, audio unplug, crash dialog, icon | NOT_RUN | README_N9.md checklist |
+
 # N8 test matrix — 2026-11-16
 
 Linux: Ubuntu 24.04 container, GCC 13.3 / clang 18.1, Mesa lavapipe (llvmpipe), Xvfb, Node 22.23

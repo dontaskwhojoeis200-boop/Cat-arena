@@ -15,6 +15,7 @@ milestone documents and `docs/PROGRESS.md`.
 | N6.5 | Windows build, package and GPU-free tests in GitHub Actions | CI runs | N6_5_BUILD_REPORT.md |
 | N7 | Menus, settings, HUD, audio | recorded legacy UI, Web Audio graphs, self-tests | docs/N7_UI_AUDIO.md |
 | N8 | Four-player co-op: relay (server.js), client, host-authoritative world, revive, server browser, name tags | 4-client tests, original server.js, original browser game (cross-play), soak, window self-test, Windows CI | docs/N8_MULTIPLAYER.md |
+| N9 | Windows platform: display modes, refresh, controls, focus, audio recovery, Vulkan 1.1 baseline, crash reports, EXE icon / version / manifest | Linux suites, simulated Vulkan 1.1 device, crash tests, Windows CI (no GPU) | README_N9.md, docs/DEVELOPMENT_LOG_N9.md |
 
 Direction changes
 - 2026-11-12: Windows-only from N8 (Android removed from the requirements, code kept).

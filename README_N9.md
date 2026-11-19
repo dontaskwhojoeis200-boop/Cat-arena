@@ -15,6 +15,24 @@ releases capture. In multiplayer, the match continues. SDL opens the default
 playback device and retries when the active device disappears or a playback
 device arrives while audio is unavailable.
 
+**Crash reports.** If the game crashes it shows where it saved
+`CatArena-crash-<date>-<time>.txt` (build, reason, faulting module and offset,
+Windows version, last 64 log lines) and a `.dmp` minidump of the same name,
+in `CrashReports` next to `CatArena.log`. The log and reports go next to
+`CatArena.exe` when that folder is writable, otherwise to
+`%APPDATA%\CatArena\FeralClaw`. `CatArena.exe --crash-test access` crashes
+on purpose to check this.
+
+**The executable** has an icon (original artwork, `tools/n9/make_icon.py`),
+version information (Explorer → Properties → Details) and an application
+manifest (Windows 10/11, long paths). The device baseline is Vulkan 1.1; newer
+features stay behind runtime capability checks.
+
+N9 was built in two parts: the display, input, focus, audio and Vulkan 1.1
+work on branch `n9-windows` (2026-11-13), then, on branch `n9`, the final N8
+merged in, crash reporting, the EXE resources and the log-folder fallback
+(2026-11-18). Details: [docs/DEVELOPMENT_LOG_N9.md](docs/DEVELOPMENT_LOG_N9.md).
+
 ## Build and package
 
 On Windows x64 with Visual Studio 2022 C++ Build Tools, the Windows SDK,
@@ -49,11 +67,29 @@ the value points to the directory containing the `ws` module. Run
 5. Run `CatArena.exe --vk-info` and keep its output on the GTX 660. The
    baseline is Vulkan 1.1. Use `--vk-baseline` to force that path.
 
+6. Run `CatArena.exe --crash-test access`: a message box names the crash
+   report; check that the `.txt` and `.dmp` files are there.
+
 Physical Windows display switching, mouse behavior, audio-device changes and
-legacy GPU performance need hardware testing. The Windows-only roadmap and
-480 MiB application-memory target are in [docs/WINDOWS_ROADMAP.md](docs/WINDOWS_ROADMAP.md).
+legacy GPU performance need hardware testing. The roadmap (Windows-only,
+192 MiB combined memory target, Quake III Arena-inspired art) is
+[docs/ROADMAP_N8_N20.md](docs/ROADMAP_N8_N20.md).
 
 ## Development evidence
+
+**Status of this package (branch `n9`):** Linux 75/75 tests; Windows GitHub Actions run
+https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44469465569 — build, package,
+45/45 GPU-free tests, crash reports with minidumps, 15 rounds of the WinHTTP (`wss://`) tests; game
+download: artifact `CAT_ARENA_FERAL_CLAW_N9_WINDOWS`
+(https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44469465569/artifacts/14504490142).
+Not yet run on a Windows PC with a GPU.
+
+This package also fixes an intermittent hang when leaving a server over `wss://` (WinHTTP), the
+connection the game uses with the Render relay.
+
+Results of the `n9` branch (this package) are in
+[docs/DEVELOPMENT_LOG_N9.md](docs/DEVELOPMENT_LOG_N9.md) and
+[docs/TEST_MATRIX.md](docs/TEST_MATRIX.md). Recorded on `n9-windows` before the merge:
 
 - **Implemented** — desktop display controls and fallback, focus-safe
   relative input, configurable movement and fire button, and audio recovery.

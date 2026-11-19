@@ -25,16 +25,12 @@ record of what is actually done. Nothing here is a result.
 - Separation kept: simulation (`cat_arena_physics`: physics, combat, enemies — no Vulkan),
   rendering (`cat_arena_render`, `cat_arena_fx`), networking (`cat_arena_net`, `cat_arena_coop`),
   audio (`cat_arena_audio`), assets, platform / shell (`main.cpp`, `platform_info`).
-- **Vulkan baseline.** The handoff asks for Vulkan 1.1 as the intended baseline with newer features
-  only behind runtime checks. Audit (N8): the renderer already detects every feature at runtime
-  (dynamic rendering, synchronization2 … with render-pass / classic-barrier fallbacks), but it
-  *rejects devices below API 1.2* (`kBaselineApi = 1.2`, `renderer.cpp` device selection) and
-  queries `VkPhysicalDeviceVulkan12Properties` unconditionally. No 1.2-only core feature is
-  required by the drawing code. The GTX 660 reports 1.2 on current drivers, so this does not break
-  the reference PC, but it is stricter than the handoff. **Planned for N9:** lower the device
-  baseline to 1.1 (guard the 1.2 property query, keep 1.2+ paths optional) and run the validation
-  layer with the API capped at 1.1 (`--vk-api 1.1`). Not done in N8 (renderer change outside
-  the multiplayer tier).
+- **Vulkan baseline.** Vulkan 1.1 is the device baseline since N9 (the N8 renderer still rejected
+  devices below 1.2). Newer features — dynamic rendering, synchronization2 and the others — stay
+  behind runtime capability checks with render-pass / classic-barrier fallbacks, and the Vulkan 1.2
+  driver properties are only queried on a negotiated 1.2+ path. Tested with the API capped at 1.1
+  and with simulated older devices on lavapipe; a physical Vulkan 1.1 driver and the GTX 660 are
+  unverified (N19).
 - **GLM / Vulkan Memory Allocator.** Named by the handoff as part of the stack, but *not used by the
   existing code*: the simulation uses double math that reproduces the legacy JavaScript bit for
   bit (solo replays), the renderer has its own small math and one `vkAllocateMemory` per resource
@@ -98,7 +94,7 @@ baked lighting, few dynamic lights, light fog. No asset replacement before N13.
 | Tier | Goal | Notes for this codebase |
 |---|---|---|
 | N8 | Multiplayer completion | Port of the legacy v3.24 co-op (relay protocol, host-authoritative world, 4 players, revive, server browser, name tags, disconnects); networking memory tracked from here |
-| N9 | Windows platform completion | EXE packaging, fullscreen / resolution / refresh rate, raw mouse, keyboard, audio devices, settings navigation, focus, asset loading, crash reports; Vulkan 1.1 device baseline |
+| N9 | Windows platform completion | EXE packaging (icon, version, manifest), fullscreen / resolution / refresh rate, raw mouse, keyboard layouts, audio device recovery, focus, writable log folder, crash reports; Vulkan 1.1 device baseline — implemented, Windows hardware checks open |
 | N10 | Gameplay feature parity | Verify movement, weapons, enemies, AI, physics, explosions, waves, health, animation, maps, UI, audio, multiplayer; fix before graphics work (the 25 stored settings, MD3 props, portals) |
 | N11 | Stable baseline | Preserved Windows build + report: average FPS, 1 % / 0.1 % lows, CPU / GPU frame time, RAM, VRAM, draws, triangles |
 | N12 | Instrumentation | CPU / Vulkan memory tracking by category, budgets, peaks, per-resource accounting, CPU subsystem and GPU timing; official 192 MiB methodology; baseline memory report |
