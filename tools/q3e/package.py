@@ -19,13 +19,14 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = os.path.join(ROOT, "game", "base", "catarena")
 SKIP_EXT = {".map", ".srf", ".prt", ".lin", ".bak"}
 
-README = """Cat Arena: Feral Claw — Quake3e foundation (N10-Q3E stage B prototype)
+README = """Cat Arena: Feral Claw — Quake3e foundation (N10-Q3E stage C prototype)
 
-Start CatArena.exe. The menu offers the stage-B test arena (generated test map, stock Quake III
-movement). This is an engine prototype, not the game: Cat Arena weapons, enemies and maps arrive in
-the following stages. The playable game remains the N10 build.
+Start CatArena.exe and choose PLAY. Stage C: the test arena with Cat Arena's NAILGUN, waves of
+fiends (N10 wave rules) and stock Quake III movement plus Cat Arena sprint and slide. This is an
+engine prototype, not the full game; the playable game remains the N10 build.
 
-Controls: WASD move, mouse look, SPACE jump, C / CTRL crouch, SHIFT walk, ESC menu, ` console.
+Controls: WASD move, mouse look, SPACE jump, SHIFT sprint, C / CTRL crouch (slide while sprinting),
+MOUSE1 fire, R reload, ESC menu, ` console.
 
 Engine: Quake3e (GPL v2), see COPYING.txt and SOURCE.txt. Game modules: Cat Arena + ioquake3 game
 code (GPL v2). Art, sound and maps: Cat Arena: Feral Claw.

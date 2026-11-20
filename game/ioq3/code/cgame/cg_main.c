@@ -963,6 +963,9 @@ static void CG_RegisterGraphics( void ) {
 	cgs.media.shotgunBrassModel = trap_R_RegisterModel( "models/weapons2/shells/s_shell.md3" );
 
 	cgs.media.gibAbdomen = trap_R_RegisterModel( "models/gibs/abdomen.md3" );
+#ifdef CAT_ARENA_STANDALONE
+	cgs.media.caFiendModel = trap_R_RegisterModel( "models/catarena/enemies/fiend.md3" );
+#endif
 	cgs.media.gibArm = trap_R_RegisterModel( "models/gibs/arm.md3" );
 	cgs.media.gibChest = trap_R_RegisterModel( "models/gibs/chest.md3" );
 	cgs.media.gibFist = trap_R_RegisterModel( "models/gibs/fist.md3" );

@@ -1,0 +1,198 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...found 1 cached paks
+...loaded in 0 milliseconds
+----------------------
+25 files in 1 pk3 files
+execing default.cfg
+logfile opened on Thu Nov 19 18:15:50 2026
+execing q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... FAILED (dsp: No such audio device)
+Sound initialization failed.
+--------------------------------
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7fe6f92860a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-C (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/CatArenaQ3E
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+25 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7fe6d7c09ab0
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-C (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 19 2026
+Cat Arena horde ready (fiend, N10 wave rules)
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7fe6f92860a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-C (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7fe6d5a464b0
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-C (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+stitched 0 LoD cracks
+...loaded 97 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 75 VBO surfaces (324 vertexes, 522 indexes)
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+CL_InitCGame:  0.07 seconds
+Com_TouchMemory: 0 msec
+Cat^7 entered the game
+execing catest.cfg
+CATEST movement
+CA_STATE t=2250 pos=-623,-300,26 hspeed=400 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=124 score=0 weapon=2 wstate=0 wtime=0 pmflags=0
+CATEST walking
+CA_STATE t=3100 pos=-347,-300,24 hspeed=320 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=123 score=0 weapon=2 wstate=0 wtime=0 pmflags=0
+CATEST sprinting
+CATEST slide started
+CA_STATE t=3850 pos=10,-300,24 hspeed=480 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=122 score=0 weapon=2 wstate=0 wtime=0 pmflags=0
+CA_STATE t=3900 pos=28,-300,24 hspeed=481 sliding=1 slide_ms=1093 cooldown_ms=0 ducked=1 clip=50 reloading=0 health=122 score=0 weapon=2 wstate=0 wtime=0 pmflags=133
+CATEST sliding
+CA_STATE t=4300 pos=197,-300,24 hspeed=378 sliding=1 slide_ms=696 cooldown_ms=0 ducked=1 clip=50 reloading=0 health=122 score=0 weapon=2 wstate=0 wtime=0 pmflags=133
+CATEST after slide
+CA_STATE t=5950 pos=496,-300,24 hspeed=80 sliding=0 slide_ms=0 cooldown_ms=0 ducked=1 clip=50 reloading=0 health=120 score=0 weapon=2 wstate=0 wtime=0 pmflags=129
+CATEST reload
+CA_STATE t=6950 pos=501,-300,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=43 reloading=0 health=119 score=0 weapon=2 wstate=3 wtime=29 pmflags=0
+CA_STATE t=7000 pos=501,-300,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=43 reloading=1 health=119 score=0 weapon=2 wstate=4 wtime=1306 pmflags=0
+Cat Arena: wave 1, 10 enemies
+CA_STATE t=9350 pos=501,-300,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=117 score=0 weapon=2 wstate=0 wtime=0 pmflags=0
+CATEST combat without god mode
+CA_STATE t=10450 pos=501,-300,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=40 reloading=0 health=116 score=1 weapon=2 wstate=3 wtime=4 pmflags=0
+CA_STATE t=11600 pos=501,-300,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=28 reloading=0 health=114 score=2 weapon=2 wstate=3 wtime=26 pmflags=0
+CA_STATE t=12600 pos=509,-301,24 hspeed=42 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=18 reloading=0 health=80 score=3 weapon=2 wstate=0 wtime=0 pmflags=0
+CA_STATE t=13800 pos=510,-301,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=80 score=5 weapon=2 wstate=3 wtime=61 pmflags=0
+CA_STATE t=14850 pos=525,-328,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=0 reloading=1 health=12 score=6 weapon=2 wstate=4 wtime=831 pmflags=0
+Cat Arena: squad wiped
+Cat^7 died.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+Wrote screenshots/combat.jpg
+You must be alive to use this command.
+Cat Arena: wave 1, 10 enemies
+Cat Arena: squad wiped
+Cat Arena: wave 1, 10 enemies
+CATEST god mode, clear the wave
+godmode ON
+CA_STATE t=27300 pos=-577,-1,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=19 reloading=0 health=101 score=8 weapon=2 wstate=0 wtime=0 pmflags=0
+Wrote screenshots/combat2.jpg
+CA_STATE t=30200 pos=-578,-1,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=0 reloading=1 health=100 score=10 weapon=2 wstate=4 wtime=260 pmflags=0
+CA_STATE t=32950 pos=-594,5,24 hspeed=53 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=25 reloading=0 health=100 score=13 weapon=2 wstate=3 wtime=6 pmflags=0
+Cat Arena: wave 1 cleared
+CA_STATE t=35350 pos=-595,6,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=0 reloading=1 health=100 score=15 weapon=2 wstate=4 wtime=1293 pmflags=0
+Cat Arena: wave 2, 13 enemies
+CA_STATE t=37250 pos=-595,6,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=43 reloading=0 health=100 score=15 weapon=2 wstate=3 wtime=50 pmflags=0
+CA_STATE t=40250 pos=-602,10,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=12 reloading=0 health=100 score=18 weapon=2 wstate=0 wtime=0 pmflags=0
+CA_STATE t=43400 pos=-621,58,24 hspeed=80 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=44 reloading=0 health=100 score=20 weapon=2 wstate=0 wtime=0 pmflags=0
+CA_STATE t=46600 pos=-621,42,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=100 score=23 weapon=2 wstate=3 wtime=40 pmflags=0
+CA_STATE t=49550 pos=-619,36,24 hspeed=14 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=44 reloading=0 health=100 score=25 weapon=2 wstate=3 wtime=39 pmflags=0
+Cat Arena: wave 2 cleared
+CA_STATE t=52300 pos=-619,36,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=15 reloading=0 health=100 score=28 weapon=2 wstate=3 wtime=25 pmflags=0
+CA_STATE t=54250 pos=-619,36,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=0 reloading=1 health=100 score=28 weapon=2 wstate=4 wtime=825 pmflags=0
+Cat Arena: wave 3, 17 enemies
+CA_STATE t=56400 pos=-619,36,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=100 score=29 weapon=2 wstate=3 wtime=7 pmflags=0
+CA_STATE t=59500 pos=-641,46,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=100 score=33 weapon=2 wstate=3 wtime=48 pmflags=0
+CA_STATE t=62550 pos=-649,44,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=100 score=34 weapon=2 wstate=3 wtime=27 pmflags=0
+CA_STATE t=65700 pos=-622,42,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=100 score=37 weapon=2 wstate=3 wtime=23 pmflags=0
+CA_STATE t=68650 pos=-621,41,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=37 reloading=0 health=100 score=40 weapon=2 wstate=0 wtime=0 pmflags=0
+CA_STATE t=71400 pos=-612,42,24 hspeed=97 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=9 reloading=0 health=100 score=43 weapon=2 wstate=0 wtime=0 pmflags=64
+Cat Arena: wave 3 cleared
+CA_STATE t=73900 pos=-617,31,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=100 score=45 weapon=2 wstate=3 wtime=67 pmflags=0
+CA_STATE t=76100 pos=-617,31,24 hspeed=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=22 reloading=0 health=100 score=45 weapon=2 wstate=3 wtime=63 pmflags=0
+Cat Arena: wave 4, 22 enemies
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+-----------------------

@@ -85,6 +85,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define CS_SHADERSTATE			24
 #define CS_BOTINFO				25
 
+#ifdef CAT_ARENA_STANDALONE
+#define	CS_CA_WAVE				26		// "wave total kills alive cooldownSeconds"
+#endif
 #define	CS_ITEMS				27		// string of 0's and 1's that tell which items are present
 
 #define	CS_MODELS				32
@@ -142,6 +145,9 @@ typedef enum {
 	WEAPON_RAISING,
 	WEAPON_DROPPING,
 	WEAPON_FIRING
+#ifdef CAT_ARENA_STANDALONE
+	,WEAPON_RELOADING			// Cat Arena magazines (stats[STAT_CA_CLIP])
+#endif
 } weaponstate_t;
 
 // pmove->pm_flags
@@ -160,6 +166,21 @@ typedef enum {
 #define PMF_INVULEXPAND		16384	// invulnerability sphere set to full size
 
 #define	PMF_ALL_TIMES	(PMF_TIME_WATERJUMP|PMF_TIME_LAND|PMF_TIME_KNOCKBACK)
+
+#ifdef CAT_ARENA_STANDALONE
+// Cat Arena movement (N10-Q3E stage C): sprint and slide on top of stock Quake III movement
+#define	PMF_CA_SLIDING		4		// stats[STAT_CA_SLIDE] ms of slide left
+#define	PMF_CA_CROUCH_HELD	128		// crouch was held last frame (a slide starts on the press)
+#define	BUTTON_CA_SPRINT	BUTTON_AFFIRMATIVE	// +button5
+#define	BUTTON_CA_RELOAD	BUTTON_NEGATIVE		// +button6
+#define	CA_SPRINT_SCALE		1.5f	// N10 kSprintMult
+#define	CA_SLIDE_MS			1120	// N10 kSlideDuration
+#define	CA_SLIDE_COOLDOWN_MS	720	// N10 kSlideCooldown
+#define	CA_SLIDE_BOOST		1.085f	// N10 kSlideBoost
+#define	CA_SLIDE_FRICTION	( 0.62f / 6.0f )	// N10 kSlideFriction / kGroundFriction
+#define	CA_SLIDE_MIN_SPEED	160.0f	// a slide ends below this horizontal speed (u/s)
+#define	CA_SLIDE_START_SPEED	200.0f
+#endif
 
 #define	MAXTOUCH	32
 typedef struct {
@@ -216,6 +237,11 @@ typedef enum {
 	STAT_DEAD_YAW,					// look this direction when dead (FIXME: get rid of?)
 	STAT_CLIENTS_READY,				// bit mask of clients wishing to exit the intermission (FIXME: configstring?)
 	STAT_MAX_HEALTH					// health / armor limit, changeable by handicap
+#ifdef CAT_ARENA_STANDALONE
+	,STAT_CA_SLIDE					// ms of slide left
+	,STAT_CA_SLIDE_COOLDOWN			// ms before the next slide
+	,STAT_CA_CLIP					// rounds in the magazine of the current weapon
+#endif
 } statIndex_t;
 
 
@@ -690,6 +716,9 @@ typedef enum {
 	ET_INVISIBLE,
 	ET_GRAPPLE,				// grapple hooked on wall
 	ET_TEAM,
+#ifdef CAT_ARENA_STANDALONE
+	ET_CA_ENEMY,			// Cat Arena enemy (modelindex = enemy type, generic1 = winding up, time2 = last hit)
+#endif
 
 	ET_EVENTS				// any of the EV_* events can be added freestanding
 							// by setting eType to ET_EVENTS + eventNum

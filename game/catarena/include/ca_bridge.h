@@ -35,6 +35,22 @@ float CA_UnitsToMetres( float units );
  * 0 otherwise. `report` receives a one-line description (may be NULL). */
 int CA_SelfTest( void (*report)( const char *line ) );
 
+/* ---- Cat Arena weapons (N10 table, legacy WEAPONS 5140-5156) -------------------------------- */
+typedef struct {
+	const char *name;
+	int   damage;       /* per pellet / hit */
+	int   delayMs;      /* time between shots */
+	int   clip;         /* magazine size */
+	int   reloadMs;
+	int   pellets;
+	float spread;       /* N10 spread (half-width factor, radians) */
+	float rangeUnits;   /* N10 range in metres, converted to Quake III units */
+} caWeapon_t;
+
+/* The Cat Arena weapon that occupies a Quake III weapon slot, or NULL. Stage C: the NAILGUN in
+ * WP_MACHINEGUN (2). Shared by qagame and cgame (bg_pmove uses it for rate, clip and reload). */
+const caWeapon_t *CA_WeaponForSlot( int q3weapon );
+
 #ifdef __cplusplus
 }
 #endif

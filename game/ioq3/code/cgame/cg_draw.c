@@ -516,6 +516,49 @@ CG_DrawStatusBar
 ================
 */
 #ifndef MISSIONPACK
+#ifdef CAT_ARENA_STANDALONE
+/*
+================
+CG_CA_DrawHud
+
+Cat Arena HUD for stage C: health, weapon / magazine, wave (CS_CA_WAVE). The N10 HUD layout
+replaces this in a later stage.
+================
+*/
+static void CG_CA_DrawHud( void ) {
+	static const vec4_t brass = { 0.84f, 0.69f, 0.44f, 1.0f };
+	static const vec4_t text = { 0.92f, 0.90f, 0.86f, 1.0f };
+	static const vec4_t danger = { 0.90f, 0.30f, 0.22f, 1.0f };
+	const playerState_t *ps = &cg.predictedPlayerState;
+	const caWeapon_t *w = CA_WeaponForSlot( ps->weapon );
+	const char *info = CG_ConfigString( CS_CA_WAVE );
+	char *p = (char *)info;
+	int wave = atoi( COM_Parse( &p ) ), total = atoi( COM_Parse( &p ) ), kills = atoi( COM_Parse( &p ) );
+	int alive = atoi( COM_Parse( &p ) ), next = atoi( COM_Parse( &p ) );
+	const char *s;
+
+	s = va( "HEALTH %i", ps->stats[STAT_HEALTH] );
+	CG_DrawStringExt( 16, 448, s, ps->stats[STAT_HEALTH] <= 25 ? danger : text, qtrue, qtrue, 14, 20, 0 );
+	if ( w ) {
+		if ( ps->weaponstate == WEAPON_RELOADING ) {
+			s = va( "%s  RELOADING", w->name );
+		} else {
+			s = va( "%s  %i / %i", w->name, ps->stats[STAT_CA_CLIP], w->clip );
+		}
+		CG_DrawStringExt( 624 - CG_DrawStrlen( s ) * 12, 452, s, brass, qtrue, qtrue, 12, 16, 0 );
+	}
+	if ( wave > 0 ) {
+		if ( next > 0 ) {
+			s = va( "WAVE %i CLEARED  -  NEXT IN %i", wave, next );
+		} else {
+			s = va( "WAVE %i   ENEMIES %i", wave, total - kills );
+		}
+		CG_DrawStringExt( 320 - CG_DrawStrlen( s ) * 6, 12, s, brass, qtrue, qtrue, 12, 16, 0 );
+	}
+	(void)alive;
+}
+#endif
+
 static void CG_DrawStatusBar( void ) {
 	int			color;
 	centity_t	*cent;
@@ -2561,11 +2604,15 @@ static void CG_Draw2D(stereoFrame_t stereoFrame)
 				Menu_PaintAll();
 				CG_DrawTimedMenus();
 			}
+#elif defined( CAT_ARENA_STANDALONE )
+			CG_CA_DrawHud();
 #else
 			CG_DrawStatusBar();
 #endif
       
-			CG_DrawAmmoWarning();
+#ifndef CAT_ARENA_STANDALONE
+			CG_DrawAmmoWarning();	// Cat Arena: unlimited reserve, magazines shown by the HUD
+#endif
 
 #ifdef MISSIONPACK
 			CG_DrawProxWarning();
@@ -2604,7 +2651,9 @@ static void CG_Draw2D(stereoFrame_t stereoFrame)
 #endif
 
 #ifndef MISSIONPACK
+#ifndef CAT_ARENA_STANDALONE
 	CG_DrawLowerRight();
+#endif
 	CG_DrawLowerLeft();
 #endif
 

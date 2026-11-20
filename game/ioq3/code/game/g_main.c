@@ -490,7 +490,13 @@ void G_InitGame( int levelTime, int randomSeed, int restart ) {
 	ClearRegisteredItems();
 
 	// parse the key/value pairs and spawn gentities
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_ResetSpawns();
+#endif
 	G_SpawnEntitiesFromString();
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_Init();
+#endif
 
 	// general initialization
 	G_FindTeams();
@@ -528,6 +534,9 @@ G_ShutdownGame
 */
 void G_ShutdownGame( int restart ) {
 	G_Printf ("==== ShutdownGame ====\n");
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_Shutdown();
+#endif
 
 	if ( level.logFile ) {
 		G_LogPrintf("ShutdownGame:\n" );
@@ -1802,6 +1811,9 @@ void G_RunFrame( int levelTime ) {
 	level.framenum++;
 	level.previousTime = level.time;
 	level.time = levelTime;
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_Frame( level.time - level.previousTime );
+#endif
 
 	// get any cvar changes
 	G_UpdateCvars();

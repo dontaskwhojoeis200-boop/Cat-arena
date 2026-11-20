@@ -224,10 +224,17 @@ gitem_t	bg_itemlist[] =
 	{
 		"weapon_machinegun", 
 		"sound/misc/w_pkup.wav",
+#ifdef CAT_ARENA_STANDALONE
+        { "models/catarena/weapons/nailgun.md3",	// Cat Arena NAILGUN (N10 weapon 0)
+		NULL, NULL, NULL},
+/* icon */		"icons/iconw_machinegun",
+/* pickup */	"Nailgun",
+#else
         { "models/weapons2/machinegun/machinegun.md3", 
 		NULL, NULL, NULL},
 /* icon */		"icons/iconw_machinegun",
 /* pickup */	"Machinegun",
+#endif
 		40,
 		IT_WEAPON,
 		WP_MACHINEGUN,

@@ -9,7 +9,7 @@
 
 namespace {
 
-constexpr std::string_view kProduct = "Cat Arena: Feral Claw N10-Q3E-B";
+constexpr std::string_view kProduct = "Cat Arena: Feral Claw N10-Q3E-C";
 
 // One static buffer per module name the engine can load; the strings live for the process.
 template <std::size_t N>

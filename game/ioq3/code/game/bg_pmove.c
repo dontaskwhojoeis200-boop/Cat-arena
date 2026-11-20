@@ -26,6 +26,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../qcommon/q_shared.h"
 #include "bg_public.h"
 #include "bg_local.h"
+#ifdef CAT_ARENA_STANDALONE
+#include "ca_bridge.h"
+
+// Cat Arena slide (N10-Q3E stage C): ends the slide and starts its cooldown.
+static void PM_CA_EndSlide( void ) {
+	if ( pm->ps->pm_flags & PMF_CA_SLIDING ) {
+		pm->ps->pm_flags &= ~PMF_CA_SLIDING;
+		pm->ps->stats[STAT_CA_SLIDE] = 0;
+		pm->ps->stats[STAT_CA_SLIDE_COOLDOWN] = CA_SLIDE_COOLDOWN_MS;
+	}
+}
+#endif
 
 pmove_t		*pm;
 pml_t		pml;
@@ -197,6 +209,11 @@ static void PM_Friction( void ) {
 			// if getting knocked back, no friction
 			if ( ! (pm->ps->pm_flags & PMF_TIME_KNOCKBACK) ) {
 				control = speed < pm_stopspeed ? pm_stopspeed : speed;
+#ifdef CAT_ARENA_STANDALONE
+				if ( pm->ps->pm_flags & PMF_CA_SLIDING ) {
+					drop += control*pm_friction*CA_SLIDE_FRICTION*pml.frametime;
+				} else
+#endif
 				drop += control*pm_friction*pml.frametime;
 			}
 		}
@@ -378,6 +395,9 @@ static qboolean PM_CheckJump( void ) {
 
 	pm->ps->groundEntityNum = ENTITYNUM_NONE;
 	pm->ps->velocity[2] = JUMP_VELOCITY;
+#ifdef CAT_ARENA_STANDALONE
+	PM_CA_EndSlide();	// jumping out of a slide keeps its speed
+#endif
 	PM_AddEvent( EV_JUMP );
 
 	if ( pm->cmd.forwardmove >= 0 ) {
@@ -718,6 +738,22 @@ static void PM_WalkMove( void ) {
 
 	PM_Friction ();
 
+#ifdef CAT_ARENA_STANDALONE
+	{	// Cat Arena slide: crouch pressed while sprinting (or moving fast) on the ground
+		float hspeed = sqrt( pm->ps->velocity[0] * pm->ps->velocity[0] + pm->ps->velocity[1] * pm->ps->velocity[1] );
+		if ( !( pm->ps->pm_flags & PMF_CA_SLIDING ) && pm->cmd.upmove < 0 && !( pm->ps->pm_flags & PMF_CA_CROUCH_HELD )
+			&& pm->ps->stats[STAT_CA_SLIDE_COOLDOWN] <= 0 && hspeed > CA_SLIDE_START_SPEED
+			&& ( ( pm->cmd.buttons & BUTTON_CA_SPRINT ) || hspeed > pm->ps->speed * 1.05f ) ) {
+			pm->ps->pm_flags |= PMF_CA_SLIDING | PMF_DUCKED;
+			pm->ps->stats[STAT_CA_SLIDE] = CA_SLIDE_MS;
+			pm->ps->velocity[0] *= CA_SLIDE_BOOST;
+			pm->ps->velocity[1] *= CA_SLIDE_BOOST;
+		} else if ( ( pm->ps->pm_flags & PMF_CA_SLIDING ) && hspeed < CA_SLIDE_MIN_SPEED ) {
+			PM_CA_EndSlide();
+		}
+	}
+#endif
+
 	fmove = pm->cmd.forwardmove;
 	smove = pm->cmd.rightmove;
 
@@ -748,8 +784,19 @@ static void PM_WalkMove( void ) {
 	wishspeed = VectorNormalize(wishdir);
 	wishspeed *= scale;
 
+#ifdef CAT_ARENA_STANDALONE
+	if ( pm->ps->pm_flags & PMF_CA_SLIDING ) {
+		wishspeed *= 0.15f;	// a slide keeps its momentum; little steering
+	} else if ( ( pm->cmd.buttons & BUTTON_CA_SPRINT ) && pm->cmd.forwardmove > 0 && !( pm->ps->pm_flags & PMF_DUCKED ) ) {
+		wishspeed *= CA_SPRINT_SCALE;	// N10 sprint x1.5
+	}
+#endif
 	// clamp the speed lower if ducking
-	if ( pm->ps->pm_flags & PMF_DUCKED ) {
+	if ( pm->ps->pm_flags & PMF_DUCKED
+#ifdef CAT_ARENA_STANDALONE
+		&& !( pm->ps->pm_flags & PMF_CA_SLIDING )
+#endif
+		) {
 		if ( wishspeed > pm->ps->speed * pm_duckScale ) {
 			wishspeed = pm->ps->speed * pm_duckScale;
 		}
@@ -1280,7 +1327,11 @@ static void PM_CheckDuck (void)
 		return;
 	}
 
-	if (pm->cmd.upmove < 0)
+	if (pm->cmd.upmove < 0
+#ifdef CAT_ARENA_STANDALONE
+		|| ( pm->ps->pm_flags & PMF_CA_SLIDING )
+#endif
+		)
 	{	// duck
 		pm->ps->pm_flags |= PMF_DUCKED;
 	}
@@ -1605,6 +1656,24 @@ static void PM_Weapon( void ) {
 		return;
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	{	// Cat Arena magazines: reload when empty or on the reload button (N10 clip / reload times)
+		const caWeapon_t *caw = CA_WeaponForSlot( pm->ps->weapon );
+		if ( pm->ps->weaponstate == WEAPON_RELOADING ) {
+			if ( caw ) {
+				pm->ps->stats[STAT_CA_CLIP] = caw->clip;
+			}
+			pm->ps->weaponstate = WEAPON_READY;
+			return;
+		}
+		if ( caw && ( pm->ps->stats[STAT_CA_CLIP] <= 0
+			|| ( ( pm->cmd.buttons & BUTTON_CA_RELOAD ) && pm->ps->stats[STAT_CA_CLIP] < caw->clip ) ) ) {
+			pm->ps->weaponstate = WEAPON_RELOADING;
+			pm->ps->weaponTime = caw->reloadMs;
+			return;
+		}
+	}
+#endif
 	// check for fire
 	if ( ! (pm->cmd.buttons & BUTTON_ATTACK) ) {
 		pm->ps->weaponTime = 0;
@@ -1639,6 +1708,11 @@ static void PM_Weapon( void ) {
 		pm->ps->ammo[ pm->ps->weapon ]--;
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	if ( CA_WeaponForSlot( pm->ps->weapon ) ) {
+		pm->ps->stats[STAT_CA_CLIP]--;
+	}
+#endif
 	// fire weapon
 	PM_AddEvent( EV_FIRE_WEAPON );
 
@@ -1654,7 +1728,11 @@ static void PM_Weapon( void ) {
 		addTime = 1000;
 		break;
 	case WP_MACHINEGUN:
+#ifdef CAT_ARENA_STANDALONE
+		addTime = CA_WeaponForSlot( WP_MACHINEGUN )->delayMs;	// NAILGUN: 90 ms
+#else
 		addTime = 100;
+#endif
 		break;
 	case WP_GRENADE_LAUNCHER:
 		addTime = 800;
@@ -1759,6 +1837,20 @@ PM_DropTimers
 ================
 */
 static void PM_DropTimers( void ) {
+#ifdef CAT_ARENA_STANDALONE
+	if ( pm->ps->stats[STAT_CA_SLIDE_COOLDOWN] > 0 ) {
+		pm->ps->stats[STAT_CA_SLIDE_COOLDOWN] -= pml.msec;
+		if ( pm->ps->stats[STAT_CA_SLIDE_COOLDOWN] < 0 ) {
+			pm->ps->stats[STAT_CA_SLIDE_COOLDOWN] = 0;
+		}
+	}
+	if ( pm->ps->pm_flags & PMF_CA_SLIDING ) {
+		pm->ps->stats[STAT_CA_SLIDE] -= pml.msec;
+		if ( pm->ps->stats[STAT_CA_SLIDE] <= 0 ) {
+			PM_CA_EndSlide();
+		}
+	}
+#endif
 	// drop misc timing counter
 	if ( pm->ps->pm_time ) {
 		if ( pml.msec >= pm->ps->pm_time ) {
@@ -2000,6 +2092,14 @@ void PmoveSingle (pmove_t *pmove) {
 
 	// weapons
 	PM_Weapon();
+
+#ifdef CAT_ARENA_STANDALONE
+	if ( pm->cmd.upmove < 0 ) {
+		pm->ps->pm_flags |= PMF_CA_CROUCH_HELD;
+	} else {
+		pm->ps->pm_flags &= ~PMF_CA_CROUCH_HELD;
+	}
+#endif
 
 	// torso animation
 	PM_TorsoAnimation();

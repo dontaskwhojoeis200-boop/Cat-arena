@@ -25,6 +25,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../qcommon/q_shared.h"
 #include "bg_public.h"
 #include "g_public.h"
+#ifdef CAT_ARENA_STANDALONE
+#include "ca_bridge.h"
+#endif
 
 //==================================================================
 
@@ -951,3 +954,14 @@ int		trap_GeneticParentsAndChildSelection(int numranks, float *ranks, int *paren
 
 void	trap_SnapVector( float *v );
 
+#ifdef CAT_ARENA_STANDALONE
+// g_ca.c — Cat Arena enemies and waves (C side of the C++20 horde)
+void G_CA_Init( void );
+void G_CA_ResetSpawns( void );
+void G_CA_Frame( int msec );
+void G_CA_Shutdown( void );
+void SP_info_ca_enemy_spawn( gentity_t *ent );
+void Svcmd_CA_SelfTest_f( void );
+void Cmd_CA_AimNearest_f( gentity_t *ent );
+void Cmd_CA_State_f( gentity_t *ent );
+#endif

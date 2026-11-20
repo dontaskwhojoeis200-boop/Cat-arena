@@ -281,6 +281,38 @@
 "angle" "270"
 }
 {
+"classname" "info_ca_enemy_spawn"
+"origin" "-640 -640 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "640 -640 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "-640 -200 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "640 -200 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "-640 300 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "640 300 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "-200 -640 32"
+}
+{
+"classname" "info_ca_enemy_spawn"
+"origin" "200 -640 32"
+}
+{
 "classname" "light"
 "origin" "-560 -560 256"
 "light" "450"

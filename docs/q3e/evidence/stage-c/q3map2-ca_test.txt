@@ -1,0 +1,11 @@
+        0 custom lightmaps floodlighted
+        0 solid surface lightmaps
+        1 solid surface lightmaps
+        6 BSP lightmaps
+        6 total lightmaps
+       20 identical surface lightmaps, using 8402 luxels
+       21 identical surface lightmaps, using 8987 luxels
+    75 portalclusters
+Average clusters visible: 74.40 (99.200%/total)
+Total clusters: 75
+Total visible clusters: 5580

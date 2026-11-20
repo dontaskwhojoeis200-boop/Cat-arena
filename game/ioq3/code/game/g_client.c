@@ -1171,8 +1171,14 @@ void ClientSpawn(gentity_t *ent) {
 		client->ps.ammo[WP_MACHINEGUN] = 100;
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	// Cat Arena loadout: the NAILGUN only, unlimited reserve, a full magazine
+	client->ps.ammo[WP_MACHINEGUN] = -1;
+	client->ps.stats[STAT_CA_CLIP] = CA_WeaponForSlot( WP_MACHINEGUN )->clip;
+#else
 	client->ps.stats[STAT_WEAPONS] |= ( 1 << WP_GAUNTLET );
 	client->ps.ammo[WP_GAUNTLET] = -1;
+#endif
 	client->ps.ammo[WP_GRAPPLING_HOOK] = -1;
 
 	// health will count down towards max_health

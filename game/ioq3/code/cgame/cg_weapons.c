@@ -1416,6 +1416,35 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 
 	AnglesToAxis( angles, hand.axis );
 
+#ifdef CAT_ARENA_STANDALONE
+	{	// Cat Arena viewmodel: the N10 weapon model is authored in view space, so it is drawn
+		// directly at the view (with Quake III's bob / sway above) instead of on a hand model.
+		refEntity_t gun;
+		vec3_t muzzle;
+		int sinceFire = cg.time - cg_entities[ ps->clientNum ].muzzleFlashTime;
+		memset( &gun, 0, sizeof( gun ) );
+		VectorCopy( hand.origin, gun.origin );
+		AxisCopy( hand.axis, gun.axis );
+		if ( sinceFire >= 0 && sinceFire < 45 ) {
+			VectorMA( gun.origin, -1.2f, gun.axis[0], gun.origin );	// recoil kick
+		}
+		if ( ps->weaponstate == WEAPON_RELOADING ) {
+			VectorMA( gun.origin, -6.0f, gun.axis[2], gun.origin );	// lowered while reloading
+		}
+		VectorCopy( gun.origin, gun.oldorigin );
+		gun.hModel = weapon->weaponModel;
+		gun.renderfx = RF_DEPTHHACK | RF_FIRST_PERSON | RF_MINLIGHT;
+		trap_R_AddRefEntityToScene( &gun );
+		if ( sinceFire >= 0 && sinceFire < 45 ) {
+			VectorMA( gun.origin, 28.5f, gun.axis[0], muzzle );
+			VectorMA( muzzle, -3.8f, gun.axis[1], muzzle );
+			VectorMA( muzzle, -4.4f, gun.axis[2], muzzle );
+			trap_R_AddLightToScene( muzzle, 160, 0.65f, 0.78f, 1.0f );	// N10 NAILGUN colour a6c6ff
+		}
+		return;
+	}
+#endif
+
 	// map torso animations to weapon animations
 	if ( cg_gun_frame.integer ) {
 		// development tool

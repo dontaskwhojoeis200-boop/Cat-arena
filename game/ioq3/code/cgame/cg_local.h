@@ -24,6 +24,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../renderercommon/tr_types.h"
 #include "../game/bg_public.h"
 #include "cg_public.h"
+#ifdef CAT_ARENA_STANDALONE
+#include "ca_bridge.h"
+#endif
 
 
 // The entire cgame module is unloaded and reloaded on each level change,
@@ -699,6 +702,9 @@ typedef struct {
 
 	// gib explosions
 	qhandle_t	gibAbdomen;
+#ifdef CAT_ARENA_STANDALONE
+	qhandle_t	caFiendModel;		// Cat Arena enemy (N10 fiend, converted to MD3)
+#endif
 	qhandle_t	gibArm;
 	qhandle_t	gibChest;
 	qhandle_t	gibFist;

@@ -49,24 +49,24 @@ jobs:
         run: |
           python tools/q3e/package.py --engine-dir engine/quake3e/bin --client quake3e-vulkan.x64.exe --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena --commit $env:GITHUB_SHA
 
-      - name: Smoke test (dedicated server loads the test arena with the Cat Arena game DLL)
+      - name: Smoke test (dedicated server loads the test arena, gameplay self-test)
         working-directory: dist/CatArena
         run: |
-          $p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_test +quit" -NoNewWindow -PassThru
+          $p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_test +ca_selftest +quit" -NoNewWindow -PassThru
           if (-not $p.WaitForExit(90000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 90 s"; exit 1 }
           $log = Get-Content home\catarena\qconsole.log -Raw
           Write-Host $log
-          $checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-B \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test')
+          $checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-C \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: ALL PASS')
           $fail = $false
           foreach ($c in $checks) { if ($log -match $c) { Write-Host "PASS $c" } else { Write-Host "FAIL $c"; $fail = $true } }
           Write-Host "server exit code $($p.ExitCode)"
           if ($fail -or $p.ExitCode -ne 0) { exit 1 }
           Remove-Item -Recurse -Force home
-          Write-Host "PASS q3e Windows smoke: engine + Cat Arena qagame.dll + ca_test.bsp"
+          Write-Host "PASS q3e Windows smoke: engine + Cat Arena qagame.dll + ca_test.bsp + gameplay self-test"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: CAT_ARENA_Q3E_B_WINDOWS_x64
+          name: CAT_ARENA_Q3E_C_WINDOWS_x64
           path: dist/CatArena
           if-no-files-found: error
           retention-days: 30

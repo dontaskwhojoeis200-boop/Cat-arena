@@ -453,6 +453,12 @@ qboolean	ConsoleCommand( void ) {
 
 	trap_Argv( 0, cmd, sizeof( cmd ) );
 
+#ifdef CAT_ARENA_STANDALONE
+	if ( Q_stricmp (cmd, "ca_selftest") == 0 ) {
+		Svcmd_CA_SelfTest_f();
+		return qtrue;
+	}
+#endif
 	if ( Q_stricmp (cmd, "entitylist") == 0 ) {
 		Svcmd_EntityList_f();
 		return qtrue;

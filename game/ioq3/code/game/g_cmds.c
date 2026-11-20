@@ -1779,6 +1779,20 @@ void ClientCommand( int clientNum ) {
 		return;
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	if (Q_stricmp (cmd, "ca_state") == 0) {
+		if ( CheatsOk( ent ) ) {
+			Cmd_CA_State_f( ent );
+		}
+		return;
+	}
+	if (Q_stricmp (cmd, "ca_aimnearest") == 0) {
+		if ( CheatsOk( ent ) ) {
+			Cmd_CA_AimNearest_f( ent );
+		}
+		return;
+	}
+#endif
 	if (Q_stricmp (cmd, "give") == 0)
 		Cmd_Give_f (ent);
 	else if (Q_stricmp (cmd, "god") == 0)

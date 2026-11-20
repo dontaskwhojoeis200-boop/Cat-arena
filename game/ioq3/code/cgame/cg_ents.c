@@ -988,6 +988,43 @@ CG_AddCEntity
 
 ===============
 */
+#ifdef CAT_ARENA_STANDALONE
+/*
+==================
+CG_CAEnemy
+
+Cat Arena enemy (stage C: the fiend as one static MD3; animation comes in stage D).
+Leans forward while winding up an attack, flashes when hit, topples when dead.
+==================
+*/
+static void CG_CAEnemy( centity_t *cent ) {
+	refEntity_t ent;
+	vec3_t angles;
+	const entityState_t *s = &cent->currentState;
+
+	memset( &ent, 0, sizeof( ent ) );
+	VectorCopy( cent->lerpOrigin, ent.origin );
+	VectorClear( angles );
+	angles[YAW] = cent->lerpAngles[YAW];
+	if ( s->generic1 ) {
+		angles[PITCH] = 14;
+	}
+	if ( s->eFlags & EF_DEAD ) {
+		angles[ROLL] = 80;
+		ent.origin[2] -= 14;
+	}
+	AnglesToAxis( angles, ent.axis );
+	VectorCopy( ent.origin, ent.oldorigin );
+	VectorCopy( cent->lerpOrigin, ent.lightingOrigin );
+	ent.renderfx = RF_LIGHTING_ORIGIN;
+	ent.hModel = cgs.media.caFiendModel;
+	trap_R_AddRefEntityToScene( &ent );
+	if ( s->time2 && cg.time - s->time2 >= 0 && cg.time - s->time2 < 90 && !( s->eFlags & EF_DEAD ) ) {
+		trap_R_AddLightToScene( cent->lerpOrigin, 90, 1.0f, 0.3f, 0.2f );	// hit flash
+	}
+}
+#endif
+
 static void CG_AddCEntity( centity_t *cent ) {
 	// event-only entities will have been dealt with already
 	if ( cent->currentState.eType >= ET_EVENTS ) {
@@ -1038,6 +1075,11 @@ static void CG_AddCEntity( centity_t *cent ) {
 	case ET_TEAM:
 		CG_TeamBase( cent );
 		break;
+#ifdef CAT_ARENA_STANDALONE
+	case ET_CA_ENEMY:
+		CG_CAEnemy( cent );
+		break;
+#endif
 	}
 }
 
