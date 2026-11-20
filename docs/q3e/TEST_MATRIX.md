@@ -57,3 +57,14 @@ Unverified / Blocked.
 | Pictures | bridge to the reactor tower under the N10 clouds, hall with stairs and mezzanine | Executed | linux-reactor-bridge-and-hall.jpg |
 | Windows CI run 44683859233: both maps load on the dedicated server, `ca_selftest` ALL PASS on each | success | Tested | windows-ci-44683859233.log; artifact `CAT_ARENA_Q3E_D1_WINDOWS_x64` (id 14605323896, 4,126,623 bytes) |
 | Jump heights between levels with stock Quake III physics (jump 1.42 m vs N10 1.63 m) | not measured; pads re-aimed by the engine | Unverified | — |
+
+## Q3E-D, part 2: N10 navigation for enemies — 2026-11-20
+
+| Check | Result | Status | Evidence (`docs/q3e/evidence/stage-d/`) |
+|---|---|---|---|
+| N10 navigation graph built in qagame from `maps/ca_reactor.cadata` | 6,182 nodes; dedicated map load + self-test 0.12 s | Executed | linux-reactor-dedicated-selftest.txt |
+| `ca_selftest` route check (N10 `NavGraph::route`, light profile) | from the lowest spawn spot: L1 7/7, L2 22/24, L3 18/18 spots reachable; 11/11 checks | Tested | same |
+| Fiend waves, player standing still on the low level (Linux client) | waves 1–3 cleared, 60 kills | Tested | linux-reactor-nav-wave-low-level.txt |
+| Fiend waves, player standing still on the high bridge | waves 1–5 cleared, 91 kills (before navigation: 8 of 10 fiends of wave 1 arrived) | Tested | linux-reactor-nav-wave-bridge.txt |
+| N10's sliced / shared route scheduler (110 expansions per tick, route sharing) | not ported: whole searches, at most 2 per server frame | — | — |
+| Windows CI run 44746882913: navigation graph built on Windows, route check passes, `ca_selftest` ALL PASS on both maps | success (the job prints the full console only for the first map, so the Windows route counts themselves are not in the log) | Tested | windows-ci-44746882913.log; artifact `CAT_ARENA_Q3E_D2_WINDOWS_x64` (id 14632884110, 4,295,518 bytes) |
