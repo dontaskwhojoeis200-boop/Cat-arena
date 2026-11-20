@@ -964,4 +964,5 @@ void SP_info_ca_enemy_spawn( gentity_t *ent );
 void Svcmd_CA_SelfTest_f( void );
 void Cmd_CA_AimNearest_f( gentity_t *ent );
 void Cmd_CA_State_f( gentity_t *ent );
+void Cmd_CA_Place_f( gentity_t *ent );
 #endif

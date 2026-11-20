@@ -272,6 +272,22 @@ int Horde::self_test() {
     const int ns = im_.spawnPoints(spots, 64);
     check(ns > 0, "enemy spawn points found in the map");
     if(ns > 0) {
+        // move 0.5 s in each of four directions from fresh spawns; the best direction counts
+        // (a spawn spot may face a wall: Reactor Bastion's first spawn does)
+        float moved = 0;
+        for(int dir = 0; dir < 4; ++dir) {
+            const int probe = im_.spawnEnemy(CA_ENEMY_FIEND, spots[0], 0, kFiend.health);
+            if(probe < 0) continue;
+            float before[3], after[3];
+            im_.enemyOrigin(probe, before);
+            im_.moveEnemy(probe, float(dir * 90), kFiend.speed, 1, 500);
+            im_.enemyOrigin(probe, after);
+            moved = std::max(moved, dist2d(before, after));
+            im_.removeEnemy(probe);
+        }
+        char what[96];
+        std::snprintf(what, sizeof what, "fiend moves with Pmove (best of 4 directions: %.0f units in 0.5 s)", moved);
+        check(moved > 50 && moved < kFiend.speed * 0.5f + 1, what);
         const int kills_before = waves_.kills;
         const int ent = im_.spawnEnemy(CA_ENEMY_FIEND, spots[0], 0, kFiend.health);
         check(ent >= 0, "fiend entity spawned");
@@ -279,14 +295,6 @@ int Horde::self_test() {
             enemies_[CA_MAX_ENEMIES - 1] = Enemy{};
             enemies_[CA_MAX_ENEMIES - 1].entity = ent;
             check(im_.enemyHealth(ent) == 100, "fiend health 100");
-            float before[3], after[3];
-            im_.enemyOrigin(ent, before);
-            im_.moveEnemy(ent, 0, kFiend.speed, 1, 500);
-            im_.enemyOrigin(ent, after);
-            const float moved = dist2d(before, after);
-            char what[96];
-            std::snprintf(what, sizeof what, "fiend moves with Pmove (%.0f units in 0.5 s)", moved);
-            check(moved > 50 && moved < kFiend.speed * 0.5f + 1, what);
             im_.damageEnemy(ent, 13 * 4);
             check(im_.enemyHealth(ent) == 48, "four nailgun hits (13) leave 48 health");
             im_.damageEnemy(ent, 13 * 4);

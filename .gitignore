@@ -7,3 +7,9 @@
 node_modules/
 __pycache__/
 !docs/**/*.log
+
+# N10-Q3E: generated map intermediates (tools/q3e/n10map2q3.py regenerates them)
+game/base/catarena/maps/*_world.obj
+game/base/catarena/maps/*_world.mtl
+game/base/catarena/maps/*.srf
+game/base/catarena/maps/*.prt

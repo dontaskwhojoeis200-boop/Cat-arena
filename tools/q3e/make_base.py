@@ -160,6 +160,14 @@ white
 	}
 }
 
+textures/common/trigger
+{
+	surfaceparm nodraw
+	surfaceparm nolightmap
+	surfaceparm nonsolid
+	surfaceparm trigger
+}
+
 textures/common/caulk
 {
 	surfaceparm nodraw

@@ -1780,6 +1780,12 @@ void ClientCommand( int clientNum ) {
 	}
 
 #ifdef CAT_ARENA_STANDALONE
+	if (Q_stricmp (cmd, "ca_place") == 0) {
+		if ( CheatsOk( ent ) ) {
+			Cmd_CA_Place_f( ent );
+		}
+		return;
+	}
 	if (Q_stricmp (cmd, "ca_state") == 0) {
 		if ( CheatsOk( ent ) ) {
 			Cmd_CA_State_f( ent );

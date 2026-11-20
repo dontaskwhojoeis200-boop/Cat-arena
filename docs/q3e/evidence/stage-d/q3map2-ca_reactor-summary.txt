@@ -1,0 +1,30 @@
+        0 custom lightmaps floodlighted
+        0 fanned surfaces
+        0 maxarea'd surfaces
+        0 patch meta surfaces
+        0 vertex approximated surfaces
+        0 vertex forced surfaces
+        5 stripped surfaces
+       23 BSP lightmaps
+       23 total lightmaps
+       26 BSP lightmaps
+       26 total lightmaps
+      109 total meta surfaces
+      447 solid surface lightmaps
+      464 solid surface lightmaps
+     1478 solid surface lightmaps
+     1834 identical surface lightmaps, using 52348 luxels
+     1858 identical surface lightmaps, using 52258 luxels
+     2684 identical surface lightmaps, using 86936 luxels
+   10551 diffuse surfaces
+   10554 diffuse surfaces
+   848 portalclusters
+--- StoreSurfaceLightmaps ---
+Average clusters visible: 366.90 (43.267%/total)
+Creating meta surfaces from brush faces
+Total clusters: 848
+Total visible clusters: 311134
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_reactor.bsp
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_reactor.srf
+real	0m43.280s
+writing /home/claude/cat-arena/game/base/catarena/maps/ca_reactor.prt

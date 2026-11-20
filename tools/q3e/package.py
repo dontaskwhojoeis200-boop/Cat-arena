@@ -17,7 +17,7 @@ import zipfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = os.path.join(ROOT, "game", "base", "catarena")
-SKIP_EXT = {".map", ".srf", ".prt", ".lin", ".bak"}
+SKIP_EXT = {".map", ".srf", ".prt", ".lin", ".bak", ".obj", ".mtl"}
 
 README = """Cat Arena: Feral Claw — Quake3e foundation (N10-Q3E stage C prototype)
 

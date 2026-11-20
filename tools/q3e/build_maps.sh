@@ -10,7 +10,8 @@ MAPS=${*:-ca_test}
 COMMON="-game quake3 -fs_basepath $BASE -fs_basegame catarena -fs_homebase .catarena-q3map2"
 for m in $MAPS; do
   MAP=$BASE/catarena/maps/$m.map
-  "$Q3MAP2" $COMMON -meta -samplesize 8 "$MAP"
+  case $m in ca_test) SS=8 ;; *) SS=${SAMPLESIZE:-16} ;; esac
+  "$Q3MAP2" $COMMON -meta -samplesize $SS "$MAP"
   "$Q3MAP2" $COMMON -vis -saveprt "$MAP"
   "$Q3MAP2" $COMMON -light -fast -patchshadows -samples 2 -bounce 2 "$MAP"
   rm -f "$BASE/catarena/maps/$m.srf" "$BASE/catarena/maps/$m.prt"

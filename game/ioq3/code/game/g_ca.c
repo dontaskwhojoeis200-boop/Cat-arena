@@ -291,6 +291,31 @@ void Cmd_CA_State_f( gentity_t *ent ) {
 		ps->stats[STAT_CA_CLIP], ps->weaponstate == WEAPON_RELOADING, ps->stats[STAT_HEALTH], ps->persistant[PERS_SCORE], ps->weapon, ps->weaponstate, ps->weaponTime, ps->pm_flags ) );
 }
 
+/* ca_place x y z yaw (cheat): put the player there at rest (setviewpos throws the player forward
+   at 400 u/s like a teleporter exit, which spoils position tests). */
+void Cmd_CA_Place_f( gentity_t *ent ) {
+	char buf[MAX_TOKEN_CHARS];
+	vec3_t origin, angles;
+	int i;
+	if ( !ent->client || trap_Argc() != 5 ) {
+		trap_SendServerCommand( ent - g_entities, "print \"usage: ca_place x y z yaw\n\"" );
+		return;
+	}
+	for ( i = 0 ; i < 3 ; i++ ) {
+		trap_Argv( i + 1, buf, sizeof( buf ) );
+		origin[i] = atof( buf );
+	}
+	trap_Argv( 4, buf, sizeof( buf ) );
+	VectorSet( angles, 0, atof( buf ), 0 );
+	VectorCopy( origin, ent->client->ps.origin );
+	VectorClear( ent->client->ps.velocity );
+	ent->client->ps.eFlags ^= EF_TELEPORT_BIT;
+	SetClientViewAngle( ent, angles );
+	BG_PlayerStateToEntityState( &ent->client->ps, &ent->s, qtrue );
+	VectorCopy( ent->client->ps.origin, ent->r.currentOrigin );
+	trap_LinkEntity( ent );
+}
+
 /* ca_aimnearest (cheat): turn the player toward the nearest living enemy (scripted tests). */
 void Cmd_CA_AimNearest_f( gentity_t *ent ) {
 	int i, best = -1;

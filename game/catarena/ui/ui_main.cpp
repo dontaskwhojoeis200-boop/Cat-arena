@@ -58,7 +58,8 @@ struct Item {
     const char* label;
     const char* command;   // console command; nullptr = close the menu
 };
-constexpr std::array kMainItems{Item{"PLAY  -  TEST ARENA", "map ca_test\n"}, Item{"QUIT", "quit\n"}};
+constexpr std::array kMainItems{Item{"PLAY  -  REACTOR BASTION", "map ca_reactor\n"}, Item{"PLAY  -  TEST ARENA", "map ca_test\n"},
+                                Item{"QUIT", "quit\n"}};
 constexpr std::array kIngameItems{Item{"RESUME", nullptr}, Item{"LEAVE ARENA", "disconnect\n"}, Item{"QUIT", "quit\n"}};
 
 struct State {

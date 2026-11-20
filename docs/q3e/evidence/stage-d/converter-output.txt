@@ -1,0 +1,1 @@
+ca_reactor: 343 slab, 207 solid, 3789 wall brushes (0 skipped), 24398 triangles in 77 material groups, 92 lights, 12 spawns, 4 pads
