@@ -105,3 +105,13 @@ python3 tools/q3e/gameplay_test.py write <homepath>/catarena/catest.cfg
 CatArena +set ca_waves 0 +devmap ca_test +wait 150 +exec catest.cfg       # scripted run, then:
 python3 tools/q3e/gameplay_test.py check <console log>
 ```
+
+## Converted maps (stage D)
+
+```
+python3 tools/q3e/n10map2q3.py . reactor-bastion ca_reactor     # .map + world OBJ + shaders + textures
+tools/q3e/build_maps.sh <q3map2> ca_reactor                      # BSP / VIS / LIGHT (about 45 s)
+python3 tools/q3e/map_test.py write . reactor-bastion ca_reactor <homepath>/catarena/maptest.cfg
+CatArena +set ca_waves 0 +devmap ca_reactor +wait 150 +exec maptest.cfg   # then:
+python3 tools/q3e/map_test.py check . reactor-bastion ca_reactor <console log>
+```

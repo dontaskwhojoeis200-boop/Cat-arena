@@ -22,6 +22,8 @@ Branch `n11-baseline` (another session, 2026-11-13) is not yet reviewed or merge
 Stage C: first playable loop in the test arena — stock Quake III movement with Cat Arena sprint and
 slide, the NAILGUN, waves of fiends (N10 rules); self-test 10/10 on Linux and Windows CI, scripted
 gameplay run 11/11 on Linux.
+Stage D, part 1: Reactor Bastion converted from N10 to a Quake III BSP and checked in game against
+the N10 data (50 floor spots, 20 ramps, 4 jump pads).
 Stage B: branded engine, Cat Arena game modules (ioquake3 GPL game code + C++20), generated test
 arena compiled with q3map2; Windows CI builds and packages it and a dedicated server loads the arena
 with the Cat Arena DLL; on Linux the menu, the arena and stock Quake III movement run. Stage A — Quake3e

@@ -44,3 +44,16 @@ Unverified / Blocked.
 | Linux client, scripted gameplay run (`tools/q3e/gameplay_test.py`, lavapipe) | 11/11 PASS: walk 320 u/s, sprint 480 u/s, slide 481 → 378 u/s then ends, reload 43 → reloading → 50, fiends hurt the player (health 116 → 12), 45 nailgun kills, waves 1–3 cleared and wave 4 (22) begun, squad wipe restarts at wave 1 | Tested | linux-gameplay-run.txt, linux-gameplay-checks.txt, linux-combat.jpg |
 | Played by a person on Windows with a GPU | not yet | Unverified | — |
 | Fiend navigation around the platform / stairs (N10 navigation graph) | not ported (straight chase with stuck detours) | — | stage D |
+
+## Q3E-D, part 1: Reactor Bastion — 2026-11-19
+
+| Check | Result | Status | Evidence (`docs/q3e/evidence/stage-d/`) |
+|---|---|---|---|
+| Conversion from N10 data (`tools/q3e/n10map2q3.py`) | 343 slab, 207 solid, 3,789 wall brushes, none skipped; 24,398 triangles in 77 material groups; 92 lights, 12 spawns, 4 pads | Executed | converter-output.txt |
+| q3map2 compile (BSP, VIS, LIGHT) | no leak, 848 clusters, 26 lightmaps, 43 s; `ca_reactor.bsp` 5.7 MB | Executed | q3map2-ca_reactor-summary.txt |
+| Map checked against N10 data in game (`tools/q3e/map_test.py`, Linux, lavapipe) | floors at all 50 N10 spawn and pickup spots; 20 / 20 ramps climbed from bottom to top; 4 / 4 jump pads launch the player | Tested | linux-reactor-map-test-run.txt, linux-reactor-map-test-checks.txt |
+| `ca_selftest` on Reactor Bastion (Linux dedicated server) | 10 / 10 | Tested | linux-reactor-dedicated-selftest.txt |
+| Fiend wave on Reactor Bastion (Linux client) | wave 1 spawns over the map; 8 of 10 fiends killed; the last 2 never reached the player across levels (no navigation yet) | Executed | linux-reactor-wave-run.txt, linux-reactor-fight.jpg |
+| Pictures | bridge to the reactor tower under the N10 clouds, hall with stairs and mezzanine | Executed | linux-reactor-bridge-and-hall.jpg |
+| Windows CI run 44683859233: both maps load on the dedicated server, `ca_selftest` ALL PASS on each | success | Tested | windows-ci-44683859233.log; artifact `CAT_ARENA_Q3E_D1_WINDOWS_x64` (id 14605323896, 4,126,623 bytes) |
+| Jump heights between levels with stock Quake III physics (jump 1.42 m vs N10 1.63 m) | not measured; pads re-aimed by the engine | Unverified | — |
