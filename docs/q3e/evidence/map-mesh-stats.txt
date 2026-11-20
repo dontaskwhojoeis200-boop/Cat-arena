@@ -1,0 +1,4 @@
+assets/n1/maps/bastion-keep/world.cmesh: 10498 vertices (stride 14 floats), 5462 triangles
+assets/n1/maps/helios-crucible/world.cmesh: 13788 vertices (stride 14 floats), 7308 triangles
+assets/n1/maps/q3-gallery/world.cmesh: 4535 vertices (stride 14 floats), 2398 triangles
+assets/n1/maps/reactor-bastion/world.cmesh: 46194 vertices (stride 14 floats), 24398 triangles

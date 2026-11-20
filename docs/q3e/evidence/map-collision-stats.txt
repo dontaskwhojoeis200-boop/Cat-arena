@@ -1,0 +1,4 @@
+helios-crucible: slabs 167 (convex 167, ramps 8, poly verts 692, max 12, z -4.00..16.40), walls 2479, pads 2, spawns 28, pickups 26
+bastion-keep: slabs 156 (convex 156, ramps 10, poly verts 636, max 8, z -4.00..15.00), walls 2652, pads 2, spawns 12, pickups 33
+reactor-bastion: slabs 343 (convex 343, ramps 20, poly verts 1440, max 8, z -4.00..19.00), walls 3789, pads 4, spawns 12, pickups 38
+q3-gallery: slabs 988 (convex 988, ramps 931, poly verts 3051, max 13, z -3.00..13.60), walls 3083, pads 1, spawns 7, pickups 5

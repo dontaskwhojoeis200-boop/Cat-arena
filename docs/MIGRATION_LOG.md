@@ -17,9 +17,12 @@ milestone documents and `docs/PROGRESS.md`.
 | N8 | Four-player co-op: relay (server.js), client, host-authoritative world, revive, server browser, name tags | 4-client tests, original server.js, original browser game (cross-play), soak, window self-test, Windows CI | docs/N8_MULTIPLAYER.md |
 | N9 | Windows platform: display modes, refresh, controls, focus, audio recovery, Vulkan 1.1 baseline, crash reports, EXE icon / version / manifest | Linux suites, simulated Vulkan 1.1 device, crash tests, Windows CI (no GPU) | README_N9.md, docs/DEVELOPMENT_LOG_N9.md |
 | N10 | Gameplay parity: co-op explosives and detonations on every machine, remote fire effects, HUD hit feedback, 8 more settings applied, Arsenal MD3 flag and turrets; legacy enemy-shot rules restored | weapon tapes on all four maps, 1 h soak, cross-play with the original browser game, Windows CI (no GPU) | README_N10.md, docs/DEVELOPMENT_LOG_N10.md |
+| N10-Q3E-A | (branch `migration/quake3e-n10`) Quake3e dec793de imported unmodified; audit, migration plan, Windows x64 + Linux engine builds | Windows CI run 44652125412, Linux runs on lavapipe | docs/q3e/ |
 
 Direction changes
 - 2026-11-12: Windows-only from N8 (Android removed from the requirements, code kept).
 - 2026-11-16: memory target 192 MiB combined (128 MiB CPU + 64 MiB GPU) replaces 480 MiB;
   Quake III Arena-inspired artistic direction; Vulkan 1.1 as the intended device baseline
   (docs/ROADMAP_N8_N20.md).
+- 2026-11-19: N10-Q3E handoff — migrate the game onto the Quake3e engine (id Tech 3) on branch
+  `migration/quake3e-n10`; branch `n10` stays the playable reference (docs/q3e/ENGINE_MIGRATION.md).

@@ -1,0 +1,5 @@
+LD build/release-linux-x86_64/quake3e.x64
+LD build/release-linux-x86_64/quake3e_opengl_x86_64.so
+LD build/release-linux-x86_64/quake3e_vulkan_x86_64.so
+make[2]: Leaving directory '/home/claude/upstream/q3e-build'
+make[1]: Leaving directory '/home/claude/upstream/q3e-build'
