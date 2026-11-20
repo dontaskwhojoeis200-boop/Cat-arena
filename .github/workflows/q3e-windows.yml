@@ -1,0 +1,55 @@
+# N10-Q3E: Windows x64 build of the Quake3e engine foundation (engine/quake3e).
+# Same MSVC projects and order as upstream's own CI (ec-/Quake3e .github/workflows/build.yml,
+# job windows-msvc), restricted to Release x64 and the Vulkan renderer. Manual start only.
+name: q3e-windows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  engine:
+    name: Quake3e Windows x64 (MSVC, Vulkan)
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: microsoft/setup-msbuild@v2
+
+      - name: Build engine (dedicated server, then client with the Vulkan renderer)
+        working-directory: engine/quake3e
+        run: |
+          New-Item -ItemType Directory -Force bin | Out-Null
+          msbuild code\win32\msvc2017\quake3e-ded.vcxproj -p:TargetName=quake3e.ded,Configuration=Release,Platform=x64 /p:PlatformToolset=v143 -v:minimal
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Copy-Item code\win32\msvc2017\output\quake3e.ded.exe bin\quake3e.ded.x64.exe
+          msbuild code\win32\msvc2017\quake3e-ded.vcxproj -p:TargetName=quake3e.ded,Configuration=Release,Platform=x64 -t:Clean -v:minimal
+          msbuild code\win32\msvc2017\renderervk.vcxproj -p:Configuration=Release,Platform=x64 /p:PlatformToolset=v143 -v:minimal
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          msbuild code\win32\msvc2017\quake3e.vcxproj -p:TargetName=quake3e,Configuration=Release,Platform=x64,UseWasapi=USE_WASAPI=0 /p:PlatformToolset=v143 -v:minimal
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Copy-Item code\win32\msvc2017\output\quake3e.exe bin\quake3e-vulkan.x64.exe
+          Get-ChildItem bin | Format-Table Name, Length
+
+      - name: Smoke test (dedicated server starts and quits with no Quake III data)
+        working-directory: engine/quake3e/bin
+        run: |
+          New-Item -ItemType Directory -Force catarena | Out-Null
+          Set-Content catarena\default.cfg "// Cat Arena base folder (no id Software data)"
+          $p = Start-Process -FilePath .\quake3e.ded.x64.exe -ArgumentList "+set fs_basepath `"$PWD`" +set fs_homepath `"$PWD\home`" +set fs_basegame catarena +set dedicated 1 +quit" -NoNewWindow -PassThru -RedirectStandardOutput ded-out.txt -RedirectStandardError ded-err.txt
+          if (-not $p.WaitForExit(60000)) { $p.Kill(); Write-Host "FAIL: dedicated server did not quit within 60 s"; exit 1 }
+          Get-Content ded-out.txt, ded-err.txt
+          Write-Host "dedicated server exit code $($p.ExitCode)"
+          if ($p.ExitCode -ne 0) { exit 1 }
+          Write-Host "PASS q3e dedicated server smoke"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CAT_ARENA_Q3E_ENGINE_WINDOWS_x64
+          path: |
+            engine/quake3e/bin/*.exe
+            engine/quake3e/COPYING.txt
+            engine/quake3e/UPSTREAM.txt
+          if-no-files-found: error
+          retention-days: 30
