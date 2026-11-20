@@ -27,7 +27,8 @@ in this private build pipeline.
   module interface; the Quake III community and id's own release treat game code as GPL, and any
   module built from GPL game code is GPL. Planned Cat Arena modules contain Cat Arena's gameplay
   code (ported from `native/`), so **distributing the game means publishing that code under GPL v2
-  as well**. This is decision D3 for the owner.
+  as well**. Decision D3 (2026-11-19): the owner accepts GPL v2 for the code; assets keep the
+  owner's terms.
 - Data files (textures, sounds, music, maps in `.pk3`) are not program code; they can stay under the
   owner's own terms, as id did with the Quake III data.
 - No id Software data (`baseq3/pak*.pk3`, Quake III art, sounds, maps) is used or shipped. The base

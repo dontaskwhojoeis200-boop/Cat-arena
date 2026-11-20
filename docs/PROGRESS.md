@@ -20,8 +20,8 @@ four maps bit-identical, cross-play and a one-hour soak pass. Not yet played on 
 Branch `n11-baseline` (another session, 2026-11-13) is not yet reviewed or merged.
 **N10-Q3E (engine migration onto Quake3e, branch `migration/quake3e-n10`): stage A done — Quake3e
 dec793de imported unmodified, audited, built for Windows x64 (CI) and Linux, started with the
-Vulkan renderer and no id data. No Cat Arena gameplay runs on it yet; three owner decisions open
-(movement baseline, online play, GPL licence). `n10` stays the playable game (docs/q3e/).**
+Vulkan renderer and no id data. No Cat Arena gameplay runs on it yet. Owner decisions: stock Quake III
+movement plus Cat Arena's sprint / crouch / slide; UDP now, WebSocket tunnel later; code under GPL v2. `n10` stays the playable game (docs/q3e/).**
 Direction since 2026-11-16: Windows-only, 192 MiB combined memory target, Quake III Arena-inspired
 art, Vulkan 1.1 intended baseline (docs/ROADMAP_N8_N20.md). Earlier trackers: docs/history/N0 … N6_5.
 

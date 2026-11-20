@@ -29,13 +29,34 @@ Changes by construction, because the handoff replaces the engine layer:
 3. **Multiplayer becomes Quake III client / server over UDP.** The JSON relay protocol, the
    Render WebSocket relay and cross-play with the browser game end on this branch (D2).
 
-## Decisions needed from the owner
+## Decisions put to the owner (answered below)
 
 | # | Question | Options | Recommendation |
 |---|---|---|---|
 | D1 | Movement baseline | (a) Cat Arena's movement (its constants, sprint, slide, coyote time, jump buffer, slope rules) ported into a shared C pmove on BSP traces; (b) stock Quake III `bg_pmove` constants and feel, with Cat Arena's sprint / crouch / slide added | (a): it is the movement players know, already Quake-style (same accelerate / friction / air-control model); Q3's step-up, slide-move and trace code is reused underneath |
 | D2 | Online play | (a) Quake III UDP only: LAN, port forwarding or a virtual LAN for internet play; Render relay retired; (b) also tunnel Quake III packets through a WebSocket relay so the Render service keeps working | (b) later in Q3E-E if internet play without port forwarding matters; (a) for the first playable builds |
 | D3 | Licence | Quake3e and the Quake III game code are GPL v2. Distributing the game requires offering the source of the engine **and** of the game modules (where Cat Arena's gameplay code will live) under GPL v2. Art, sound and maps can keep their own terms | Owner's decision; nothing is distributed until it is made (LICENSING.md) |
+
+## Owner decisions (2026-11-19)
+
+- **D1 → stock Quake III movement.** The baseline is Quake III's `bg_pmove` / `bg_slidemove`
+  (GPL game code) with its speeds, acceleration, friction, jump and gravity; Cat Arena's sprint,
+  crouch and slide are added on top as extra movement states, shared by server and predicting
+  client. Consequences:
+  - Units: Quake III works in its own units (player box 30 × 30 × 56 standing, view height 26,
+    speed 320 u/s, gravity 800 u/s², jump 270 u/s). Cat Arena maps are in metres with a 1.8 m
+    player. The converter scales maps by one fixed factor chosen in Q3E-B so the Quake III player
+    fits doors, stairs and jump gaps (about 32 units per metre makes 1.8 m ≈ 56 u, Quake III's own
+    proportion); jump pads are re-aimed for Quake III gravity.
+  - Weapon and enemy values given in m/s (projectile speeds, splash radii, knockback, enemy
+    speeds) are converted with the same factor; rocket / grenade jumps follow Quake III
+    knockback rules.
+  - Movement feel changes from N10 on purpose; N10's movement tapes no longer apply.
+- **D2 → UDP now, WebSocket tunnel later.** First builds use Quake III UDP networking (LAN, port
+  forwarding or a virtual LAN). In Q3E-E a WebSocket tunnel is added so the Render relay keeps
+  working for internet play without port forwarding.
+- **D3 → GPL v2 for the code.** Engine and game-module source under GPL v2; art, sounds, music and
+  maps keep the owner's terms. LICENSING.md has the release checklist.
 
 ## Integration architecture (summary; detail in Q3E_ARCHITECTURE.md)
 
