@@ -1,0 +1,12 @@
+ioquake3 game-module source, imported unmodified (subset).
+Repository: https://github.com/ioquake/ioq3
+Commit:     52088b9eae247d8e321c8dc1fb49a879652854f9 (2026-11-04)
+Imported:   2026-11-19 with `git archive`, as its own commit on branch migration/quake3e-n10.
+Files:      code/game, code/cgame (complete); code/botlib (headers only — the bot library itself
+            lives in the engine); code/qcommon/{q_shared.c,q_shared.h,q_math.c,q_platform.h,
+            surfaceflags.h}; code/renderercommon/tr_types.h; code/ui/ui_public.h; COPYING.txt.
+Licence:    GNU GPL v2 (COPYING.txt).
+Purpose:    Quake III server game (qagame) and client game (cgame) used as the base of the Cat Arena
+            modules: stock Quake III movement (bg_pmove.c / bg_slidemove.c, owner decision D1),
+            entities, client prediction and snapshots. Cat Arena changes are diffs against this
+            commit.
