@@ -1,0 +1,7 @@
+Quake3e engine, imported unmodified.
+Repository: https://github.com/ec-/Quake3e
+Commit:     dec793de9677bc9c16c7027e8905c2d4f4643a19 (2026-11-15, "OpenGL: fix incorrect VP binding for fog")
+Imported:   2026-11-19 with `git archive`, as its own commit on branch migration/quake3e-n10, so
+            that every later change is visible with `git diff <import commit> -- engine/quake3e`.
+License:    GNU GPL v2 (COPYING.txt); bundled third-party libraries keep their own licenses
+            (see docs/LICENSING.md).
