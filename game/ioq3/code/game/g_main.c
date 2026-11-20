@@ -22,6 +22,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
 #include "g_local.h"
+#ifdef CAT_ARENA_STANDALONE
+#include "ca_bridge.h"
+static void CA_ReportLine( const char *line ) { G_Printf( "%s", line ); }
+#endif
 
 level_locals_t	level;
 
@@ -410,6 +414,10 @@ void G_InitGame( int levelTime, int randomSeed, int restart ) {
 
 	G_Printf ("------- Game Initialization -------\n");
 	G_Printf ("gamename: %s\n", GAMEVERSION);
+#ifdef CAT_ARENA_STANDALONE
+	G_Printf( "%s\n", CA_BuildString( "qagame" ) );
+	CA_SelfTest( CA_ReportLine );
+#endif
 	G_Printf ("gamedate: %s\n", PRODUCT_DATE);
 
 	srand( randomSeed );

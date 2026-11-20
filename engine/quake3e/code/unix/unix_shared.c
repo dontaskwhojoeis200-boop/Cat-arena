@@ -400,7 +400,11 @@ const char *Sys_DefaultHomePath( void )
 #ifdef MACOS_X
 		Q_strcat( homePath, sizeof(homePath), "/Library/Application Support/Quake3" );
 #else
+#ifdef CAT_ARENA_STANDALONE
+		Q_strcat( homePath, sizeof( homePath ), "/.catarena" );
+#else
 		Q_strcat( homePath, sizeof( homePath ), "/.q3a" );
+#endif
 #endif
 		if ( mkdir( homePath, 0750 ) ) 
 		{

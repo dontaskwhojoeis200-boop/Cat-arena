@@ -687,7 +687,14 @@ static void CG_LoadClientInfo( int clientNum, clientInfo_t *ci ) {
 			}
 		} else {
 			if ( !CG_RegisterClientModelname( ci, DEFAULT_MODEL, "default", DEFAULT_MODEL, "default", teamname ) ) {
+#ifdef CAT_ARENA_STANDALONE
+				// Cat Arena ships no Quake III player models; until the Marine Cat model is
+				// converted (N10-Q3E stage D) players without a model are simply not drawn.
+				CG_Printf( S_COLOR_YELLOW "WARNING: no player model (%s); players are not drawn\n", ci->modelName );
+				ci->legsModel = ci->torsoModel = ci->headModel = 0;
+#else
 				CG_Error( "DEFAULT_MODEL (%s) failed to register", DEFAULT_MODEL );
+#endif
 			}
 		}
 		modelloaded = qfalse;
@@ -2270,6 +2277,11 @@ void CG_Player( centity_t *cent ) {
 	if ( !ci->infoValid ) {
 		return;
 	}
+#ifdef CAT_ARENA_STANDALONE
+	if ( !ci->legsModel ) {
+		return;   // no player model yet (see CG_LoadClientInfo)
+	}
+#endif
 
 	// get the player model information
 	renderfx = 0;

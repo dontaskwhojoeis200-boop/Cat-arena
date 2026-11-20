@@ -22,6 +22,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 // cg_main.c -- initialization and primary entry point for cgame
 #include "cg_local.h"
+#ifdef CAT_ARENA_STANDALONE
+#include "ca_bridge.h"
+static void CA_ReportLine( const char *line ) { CG_Printf( "%s", line ); }
+#endif
 
 #ifdef MISSIONPACK
 #include "../ui/ui_shared.h"
@@ -1868,6 +1872,10 @@ void CG_Init( int serverMessageNum, int serverCommandSequence, int clientNum ) {
 	CG_RegisterCvars();
 
 	CG_InitConsoleCommands();
+#ifdef CAT_ARENA_STANDALONE
+	CG_Printf( "%s\n", CA_BuildString( "cgame" ) );
+	CA_SelfTest( CA_ReportLine );
+#endif
 
 	cg.weaponSelect = WP_MACHINEGUN;
 
