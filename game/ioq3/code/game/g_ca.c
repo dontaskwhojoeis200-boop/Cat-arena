@@ -242,10 +242,31 @@ static void CA_SetWaveInfo( const char *configString ) {
 	trap_SetConfigstring( CS_CA_WAVE, configString );
 }
 
+static const char *CA_MapName( void ) {
+	static char name[MAX_QPATH];
+	trap_Cvar_VariableStringBuffer( "mapname", name, sizeof( name ) );
+	return name;
+}
+
+static int CA_ReadFile( const char *path, unsigned char *buffer, int maxBytes ) {
+	fileHandle_t f;
+	int len = trap_FS_FOpenFile( path, &f, FS_READ );
+	if ( len < 0 || !f ) {
+		return -1;
+	}
+	if ( len > maxBytes ) {
+		trap_FS_FCloseFile( f );
+		return -1;
+	}
+	trap_FS_Read( buffer, len, f );
+	trap_FS_FCloseFile( f );
+	return len;
+}
+
 static const caGameImport_t caImports = {
 	CA_Print, CA_LevelTime, CA_Players, CA_SpawnPoints, CA_SpawnEnemy, CA_RemoveEnemy,
 	CA_EnemyHealth, CA_EnemyOrigin, CA_MoveEnemy, CA_SetEnemyState, CA_Visible,
-	CA_DamagePlayer, CA_DamageEnemy, CA_SetWaveInfo
+	CA_DamagePlayer, CA_DamageEnemy, CA_SetWaveInfo, CA_MapName, CA_ReadFile
 };
 
 void G_CA_Init( void ) {

@@ -37,6 +37,9 @@ typedef struct {
 	void  (*damagePlayer)( int clientNum, int damage, int attackerEntityNum );
 	void  (*damageEnemy)( int entityNum, int damage );           /* self-test only (world attacker) */
 	void  (*setWaveInfo)( const char *configString );
+	/* stage D: N10 navigation data (maps/<mapname>.cadata in the pk3) */
+	const char *(*mapName)( void );
+	int   (*readFile)( const char *path, unsigned char *buffer, int maxBytes );   /* bytes read, -1 if missing */
 } caGameImport_t;
 
 void CA_HordeInit( const caGameImport_t *imports );

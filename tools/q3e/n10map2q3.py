@@ -261,6 +261,10 @@ def main():
         raw = open(os.path.join(root, "assets", "n1", "textures", "sky", cloud + ".rgba"), "rb").read()
         Image.frombytes("RGBA", (256, 256), raw).save(os.path.join(out, "textures", "catarena", "sky", cloud + ".png"))
 
+    # N10 compiled map data for the server's navigation graph (N10 NavGraph, reused in qagame)
+    import shutil
+    shutil.copyfile(os.path.join(src, "map.cadata"), os.path.join(out, "maps", name + ".cadata"))
+
     # ---- entities -------------------------------------------------------------------------------
     ents = []
     world = ('{\n"classname" "worldspawn"\n"message" "%s (Cat Arena, converted from N10 %s)"\n"_ambient" "6"\n"_color" "1 0.96 0.9"\n'

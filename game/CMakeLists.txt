@@ -74,7 +74,20 @@ function(ca_module target defs)
   endif()
 endfunction()
 
+# N10 navigation reused unchanged (C++20): the navigation graph, the collision world it is built
+# from, and N10's data reader for the compiled map data shipped in the pk3 (maps/<name>.cadata).
+set(N10 ${CMAKE_CURRENT_SOURCE_DIR}/../native)
+add_library(ca_n10nav STATIC ${N10}/src/navigation.cpp ${N10}/src/physics_world.cpp ${N10}/src/assets.cpp)
+target_include_directories(ca_n10nav PUBLIC ${N10}/include)
+# as in native/CMakeLists.txt: no floating-point contraction, so results match N10 on every platform
+if(MSVC)
+  target_compile_options(ca_n10nav PRIVATE /fp:precise)
+else()
+  target_compile_options(ca_n10nav PRIVATE -ffp-contract=off)
+endif()
+
 add_library(qagame SHARED ${CA_GAME_C} ${IOQ3}/game/g_ca.c ${CA}/src/ca_horde.cpp ${CA_BG_C} ${CA_SHARED_C})
+target_link_libraries(qagame PRIVATE ca_n10nav)
 ca_module(qagame QAGAME)
 
 add_library(cgame SHARED ${CA_CGAME_C} ${CA_BG_C} ${CA_SHARED_C})
