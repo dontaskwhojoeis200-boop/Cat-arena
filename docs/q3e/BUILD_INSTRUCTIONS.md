@@ -94,3 +94,14 @@ python3 tools/q3e/package.py --engine-dir <engine output> --client quake3e-vulka
 Layout: `CatArena.exe`, `CatArena-server.exe`, `catarena/pak0.pk3` (built reproducibly from
 `game/base/catarena` without map sources), `catarena/*x86_64.dll`, `COPYING.txt`, `README.txt`,
 `SOURCE.txt` (commit of the build). On Linux add `--renderer quake3e_vulkan_x86_64.so`.
+
+## Models and gameplay tests (stage C)
+
+```
+python3 tools/q3e/mesh2md3.py assets/n5/weapons/00_nailgun.gun game/base/catarena/models/catarena/weapons/nailgun.md3 models/catarena/weapons/nailgun 10
+python3 tools/q3e/mesh2md3.py assets/n6/enemies/02_fiend.emesh game/base/catarena/models/catarena/enemies/fiend.md3 models/catarena/enemies/fiend 32 -24
+CatArena-server +set dedicated 1 +map ca_test +ca_selftest +quit          # server self-test
+python3 tools/q3e/gameplay_test.py write <homepath>/catarena/catest.cfg
+CatArena +set ca_waves 0 +devmap ca_test +wait 150 +exec catest.cfg       # scripted run, then:
+python3 tools/q3e/gameplay_test.py check <console log>
+```

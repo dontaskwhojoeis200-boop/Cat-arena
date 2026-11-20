@@ -1,0 +1,715 @@
+﻿2026-11-20T02:17:56.6835470Z Current runner version: '2.338.2'
+2026-11-20T02:17:56.6857412Z ##[group]Runner Image Provisioner
+2026-11-20T02:17:56.6858041Z Hosted Compute Agent
+2026-11-20T02:17:56.6858457Z Version: 20261103.629
+2026-11-20T02:17:56.6858910Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-20T02:17:56.6859467Z Build Date: 2026-11-03T17:26:59Z
+2026-11-20T02:17:56.6859947Z Worker ID: {41bb42bd-be0e-47f2-916c-984d7a068054}
+2026-11-20T02:17:56.6860438Z Region: westus2
+2026-11-20T02:17:56.6860853Z Cloud: Azure
+2026-11-20T02:17:56.6861223Z ##[endgroup]
+2026-11-20T02:17:56.6862196Z ##[group]Operating System
+2026-11-20T02:17:56.6862638Z Microsoft Windows Server 2022
+2026-11-20T02:17:56.6863049Z 10.0.20348
+2026-11-20T02:17:56.6863426Z Datacenter
+2026-11-20T02:17:56.6863782Z ##[endgroup]
+2026-11-20T02:17:56.6864189Z ##[group]Runner Image
+2026-11-20T02:17:56.6864598Z Image: windows-2022
+2026-11-20T02:17:56.6864975Z Version: 20261112.366.7
+2026-11-20T02:17:56.6866055Z Included Software: https://github.com/actions/runner-images/blob/win22/20261112.366/images/windows/Windows2022-Readme.md
+2026-11-20T02:17:56.6867156Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20261112.366
+2026-11-20T02:17:56.6867832Z ##[endgroup]
+2026-11-20T02:17:56.6868672Z ##[group]GITHUB_TOKEN Permissions
+2026-11-20T02:17:56.6870119Z Contents: read
+2026-11-20T02:17:56.6870513Z Metadata: read
+2026-11-20T02:17:56.6870912Z Packages: read
+2026-11-20T02:17:56.6871277Z ##[endgroup]
+2026-11-20T02:17:56.6872977Z Secret source: Actions
+2026-11-20T02:17:56.6873744Z Cache mode: write
+2026-11-20T02:17:56.6874259Z Prepare workflow directory
+2026-11-20T02:17:56.7202818Z Prepare all required actions
+2026-11-20T02:17:56.7242300Z Getting action download info
+2026-11-20T02:17:57.1205791Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-20T02:17:57.2090205Z Download action repository 'microsoft/setup-msbuild@v2' (SHA:6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce)
+2026-11-20T02:17:57.4041398Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-20T02:17:57.6629890Z Complete job name: Cat Arena Q3E Windows x64 (MSVC, Vulkan)
+2026-11-20T02:17:57.7987715Z ##[group]Run actions/checkout@v4
+2026-11-20T02:17:57.7988527Z with:
+2026-11-20T02:17:57.7988877Z   repository: dontaskwhojoeis200-boop/Cat-arena
+2026-11-20T02:17:57.7991890Z   token: ***
+2026-11-20T02:17:57.7992192Z   ssh-strict: true
+2026-11-20T02:17:57.7992495Z   ssh-user: git
+2026-11-20T02:17:57.7992804Z   persist-credentials: true
+2026-11-20T02:17:57.7993138Z   clean: true
+2026-11-20T02:17:57.7993447Z   sparse-checkout-cone-mode: true
+2026-11-20T02:17:57.7993812Z   fetch-depth: 1
+2026-11-20T02:17:57.7994104Z   fetch-tags: false
+2026-11-20T02:17:57.7994403Z   show-progress: true
+2026-11-20T02:17:57.7994705Z   lfs: false
+2026-11-20T02:17:57.7994979Z   submodules: false
+2026-11-20T02:17:57.7995292Z   set-safe-directory: true
+2026-11-20T02:17:57.7995687Z   allow-unsafe-pr-checkout: false
+2026-11-20T02:17:57.7996210Z ##[endgroup]
+2026-11-20T02:17:57.9160303Z Syncing repository: dontaskwhojoeis200-boop/Cat-arena
+2026-11-20T02:17:57.9161769Z ##[group]Getting Git version info
+2026-11-20T02:17:57.9162237Z Working directory is 'D:\a\Cat-arena\Cat-arena'
+2026-11-20T02:17:57.9787902Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-20T02:17:58.2842823Z git version 2.56.1.windows.1
+2026-11-20T02:17:58.2877059Z ##[endgroup]
+2026-11-20T02:17:58.2893482Z Temporarily overriding HOME='D:\a\_temp\5c982c44-1202-4a2a-8561-28096427d973' before making global git config changes
+2026-11-20T02:17:58.2895262Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T02:17:58.2903740Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cat-arena\Cat-arena
+2026-11-20T02:17:58.3482110Z Deleting the contents of 'D:\a\Cat-arena\Cat-arena'
+2026-11-20T02:17:58.3486205Z ##[group]Initializing the repository
+2026-11-20T02:17:58.3494047Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Cat-arena\Cat-arena
+2026-11-20T02:17:58.4747156Z Initialized empty Git repository in D:/a/Cat-arena/Cat-arena/.git/
+2026-11-20T02:17:58.4777948Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/dontaskwhojoeis200-boop/Cat-arena
+2026-11-20T02:17:58.5302659Z ##[endgroup]
+2026-11-20T02:17:58.5303388Z ##[group]Disabling automatic garbage collection
+2026-11-20T02:17:58.5310213Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-20T02:17:58.5556792Z ##[endgroup]
+2026-11-20T02:17:58.5557480Z ##[group]Setting up auth
+2026-11-20T02:17:58.5566517Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T02:17:58.5807168Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-20T02:17:59.8900582Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T02:17:59.9144880Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-20T02:18:00.3381215Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T02:18:00.3624070Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-20T02:18:00.7901723Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-20T02:18:00.8161091Z ##[endgroup]
+2026-11-20T02:18:00.8161713Z ##[group]Fetching the repository
+2026-11-20T02:18:00.8173667Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +75e22917e124d3fdc915d4ef3a14a08f6af7dc67:refs/remotes/origin/migration/quake3e-n10
+2026-11-20T02:18:10.0614110Z From https://github.com/dontaskwhojoeis200-boop/Cat-arena
+2026-11-20T02:18:10.0614950Z  * [new ref]         75e22917e124d3fdc915d4ef3a14a08f6af7dc67 -> origin/migration/quake3e-n10
+2026-11-20T02:18:10.0641451Z ##[endgroup]
+2026-11-20T02:18:10.0641990Z ##[group]Determining the checkout info
+2026-11-20T02:18:10.0644873Z ##[endgroup]
+2026-11-20T02:18:10.0656304Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-20T02:18:10.1029110Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-20T02:18:10.1286670Z ##[group]Checking out the ref
+2026-11-20T02:18:10.1295771Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B migration/quake3e-n10 refs/remotes/origin/migration/quake3e-n10
+2026-11-20T02:18:11.2806894Z Updating files:  64% (1806/2787)
+2026-11-20T02:18:11.2862618Z Updating files:  65% (1812/2787)
+2026-11-20T02:18:11.2933585Z Updating files:  66% (1840/2787)
+2026-11-20T02:18:11.2995632Z Updating files:  67% (1868/2787)
+2026-11-20T02:18:11.3076613Z Updating files:  68% (1896/2787)
+2026-11-20T02:18:11.3290729Z Updating files:  69% (1924/2787)
+2026-11-20T02:18:11.3579540Z Updating files:  70% (1951/2787)
+2026-11-20T02:18:11.3621589Z Updating files:  71% (1979/2787)
+2026-11-20T02:18:11.3688270Z Updating files:  72% (2007/2787)
+2026-11-20T02:18:11.3771211Z Updating files:  73% (2035/2787)
+2026-11-20T02:18:11.3856465Z Updating files:  74% (2063/2787)
+2026-11-20T02:18:11.3930106Z Updating files:  75% (2091/2787)
+2026-11-20T02:18:11.3996214Z Updating files:  76% (2119/2787)
+2026-11-20T02:18:11.4105620Z Updating files:  77% (2146/2787)
+2026-11-20T02:18:11.4191744Z Updating files:  78% (2174/2787)
+2026-11-20T02:18:11.4266419Z Updating files:  79% (2202/2787)
+2026-11-20T02:18:11.4426691Z Updating files:  80% (2230/2787)
+2026-11-20T02:18:11.4477747Z Updating files:  81% (2258/2787)
+2026-11-20T02:18:11.4523251Z Updating files:  82% (2286/2787)
+2026-11-20T02:18:11.4569786Z Updating files:  83% (2314/2787)
+2026-11-20T02:18:11.4637209Z Updating files:  84% (2342/2787)
+2026-11-20T02:18:11.4675691Z Updating files:  85% (2369/2787)
+2026-11-20T02:18:11.4735498Z Updating files:  86% (2397/2787)
+2026-11-20T02:18:11.4808389Z Updating files:  87% (2425/2787)
+2026-11-20T02:18:11.4871189Z Updating files:  88% (2453/2787)
+2026-11-20T02:18:11.5800867Z Updating files:  89% (2481/2787)
+2026-11-20T02:18:11.5845005Z Updating files:  90% (2509/2787)
+2026-11-20T02:18:11.5879162Z Updating files:  91% (2537/2787)
+2026-11-20T02:18:11.5950995Z Updating files:  92% (2565/2787)
+2026-11-20T02:18:11.7915324Z Updating files:  93% (2592/2787)
+2026-11-20T02:18:12.0650441Z Updating files:  94% (2620/2787)
+2026-11-20T02:18:12.1473679Z Updating files:  95% (2648/2787)
+2026-11-20T02:18:12.1567435Z Updating files:  96% (2676/2787)
+2026-11-20T02:18:12.1637705Z Updating files:  97% (2704/2787)
+2026-11-20T02:18:12.1646092Z Updating files:  98% (2732/2787)
+2026-11-20T02:18:12.6205050Z Updating files:  98% (2737/2787)
+2026-11-20T02:18:12.6253024Z Updating files:  99% (2760/2787)
+2026-11-20T02:18:12.6253416Z Updating files: 100% (2787/2787)
+2026-11-20T02:18:12.6253724Z Updating files: 100% (2787/2787), done.
+2026-11-20T02:18:12.6371937Z Switched to a new branch 'migration/quake3e-n10'
+2026-11-20T02:18:12.6388631Z branch 'migration/quake3e-n10' set up to track 'origin/migration/quake3e-n10'.
+2026-11-20T02:18:12.6603170Z ##[endgroup]
+2026-11-20T02:18:12.6965475Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-20T02:18:12.7191294Z 75e22917e124d3fdc915d4ef3a14a08f6af7dc67
+2026-11-20T02:18:12.7554567Z ##[group]Run microsoft/setup-msbuild@v2
+2026-11-20T02:18:12.7554854Z with:
+2026-11-20T02:18:12.7555043Z   msbuild-architecture: x86
+2026-11-20T02:18:12.7555247Z ##[endgroup]
+2026-11-20T02:18:12.8540107Z [command]C:\ProgramData\Chocolatey\bin\vswhere.exe -products * -requires Microsoft.Component.MSBuild -property installationPath -latest
+2026-11-20T02:18:13.3630854Z C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2026-11-20T02:18:13.3891206Z ##[group]Run New-Item -ItemType Directory -Force bin | Out-Null
+2026-11-20T02:18:13.3891696Z [36;1mNew-Item -ItemType Directory -Force bin | Out-Null[0m
+2026-11-20T02:18:13.3892499Z [36;1mmsbuild code\win32\msvc2017\quake3e-ded.vcxproj -p:TargetName=quake3e.ded,Configuration=Release,Platform=x64 /p:PlatformToolset=v143 -v:minimal[0m
+2026-11-20T02:18:13.3893128Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+2026-11-20T02:18:13.3893455Z [36;1mCopy-Item code\win32\msvc2017\output\quake3e.ded.exe bin\quake3e.ded.x64.exe[0m
+2026-11-20T02:18:13.3894017Z [36;1mmsbuild code\win32\msvc2017\quake3e-ded.vcxproj -p:TargetName=quake3e.ded,Configuration=Release,Platform=x64 -t:Clean -v:minimal[0m
+2026-11-20T02:18:13.3894705Z [36;1mmsbuild code\win32\msvc2017\renderervk.vcxproj -p:Configuration=Release,Platform=x64 /p:PlatformToolset=v143 -v:minimal[0m
+2026-11-20T02:18:13.3895137Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+2026-11-20T02:18:13.3895719Z [36;1mmsbuild code\win32\msvc2017\quake3e.vcxproj -p:TargetName=quake3e,Configuration=Release,Platform=x64,UseWasapi=USE_WASAPI=0 /p:PlatformToolset=v143 -v:minimal[0m
+2026-11-20T02:18:13.3896244Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+2026-11-20T02:18:13.3896544Z [36;1mCopy-Item code\win32\msvc2017\output\quake3e.exe bin\quake3e-vulkan.x64.exe[0m
+2026-11-20T02:18:13.3896887Z [36;1mGet-ChildItem bin | Format-Table Name, Length[0m
+2026-11-20T02:18:13.4293546Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-20T02:18:13.4293852Z ##[endgroup]
+2026-11-20T02:18:17.3971302Z MSBuild version 17.14.60+43b635718 for .NET Framework
+2026-11-20T02:18:18.6143241Z 
+2026-11-20T02:18:22.9328153Z   be_aas_bspq3.c
+2026-11-20T02:18:22.9328653Z   be_aas_cluster.c
+2026-11-20T02:18:22.9328816Z   be_aas_debug.c
+2026-11-20T02:18:22.9328963Z   be_aas_entity.c
+2026-11-20T02:18:26.6602059Z   be_aas_file.c
+2026-11-20T02:18:26.6602607Z   be_aas_main.c
+2026-11-20T02:18:26.6603772Z   be_aas_move.c
+2026-11-20T02:18:26.7001593Z   be_aas_optimize.c
+2026-11-20T02:18:26.7649451Z   be_aas_reach.c
+2026-11-20T02:18:26.8058345Z   be_aas_route.c
+2026-11-20T02:18:27.0828392Z   be_aas_routealt.c
+2026-11-20T02:18:27.2666989Z   be_aas_sample.c
+2026-11-20T02:18:27.2955223Z   be_ai_char.c
+2026-11-20T02:18:27.2996349Z   be_ai_chat.c
+2026-11-20T02:18:27.3323885Z   be_ai_gen.c
+2026-11-20T02:18:27.5246919Z   be_ai_goal.c
+2026-11-20T02:18:27.5312319Z   be_ai_move.c
+2026-11-20T02:18:27.5612333Z   be_ai_weap.c
+2026-11-20T02:18:27.5637878Z   be_ai_weight.c
+2026-11-20T02:18:27.7814180Z   be_ea.c
+2026-11-20T02:18:27.7879605Z   be_interface.c
+2026-11-20T02:18:27.8542195Z   l_crc.c
+2026-11-20T02:18:27.8583882Z   l_libvar.c
+2026-11-20T02:18:27.8603259Z   l_log.c
+2026-11-20T02:18:27.8988446Z   l_memory.c
+2026-11-20T02:18:27.9121335Z   l_precomp.c
+2026-11-20T02:18:27.9126626Z   l_script.c
+2026-11-20T02:18:28.0492014Z   l_struct.c
+2026-11-20T02:18:28.9284128Z   botlib.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\botlib_Release_x64\quake3e.ded.lib
+2026-11-20T02:18:29.3660344Z   Assembling...
+2026-11-20T02:18:29.4143655Z   Microsoft (R) Macro Assembler (x64) Version 14.44.35230.0
+2026-11-20T02:18:29.4144036Z   Copyright (C) Microsoft Corporation.  All rights reserved.
+2026-11-20T02:18:29.4144295Z   
+2026-11-20T02:18:29.4252447Z    Assembling: D:\a\Cat-arena\Cat-arena\engine\quake3e\code\asm\common_x64.asm
+2026-11-20T02:18:29.5027014Z   cmd.c
+2026-11-20T02:18:29.5027294Z   cm_load.c
+2026-11-20T02:18:29.5027516Z   cm_patch.c
+2026-11-20T02:18:29.5027730Z   cm_polylib.c
+2026-11-20T02:18:29.6842083Z   cm_test.c
+2026-11-20T02:18:29.7830058Z   cm_trace.c
+2026-11-20T02:18:29.8585873Z   common.c
+2026-11-20T02:18:29.8743933Z   cvar.c
+2026-11-20T02:18:30.0305977Z   files.c
+2026-11-20T02:18:30.0400683Z   history.c
+2026-11-20T02:18:30.2214380Z   huffman.c
+2026-11-20T02:18:30.2945530Z   huffman_static.c
+2026-11-20T02:18:30.3042193Z   keys.c
+2026-11-20T02:18:30.3093818Z   md4.c
+2026-11-20T02:18:30.3374895Z   md5.c
+2026-11-20T02:18:30.3736209Z   msg.c
+2026-11-20T02:18:30.4897550Z   net_chan.c
+2026-11-20T02:18:30.5016756Z   net_ip.c
+2026-11-20T02:18:30.5065970Z   q_math.c
+2026-11-20T02:18:30.5593788Z   q_shared.c
+2026-11-20T02:18:30.6687927Z   unzip.c
+2026-11-20T02:18:30.9105730Z   vm.c
+2026-11-20T02:18:31.0047157Z   vm_interpreted.c
+2026-11-20T02:18:31.0858880Z   vm_x86.c
+2026-11-20T02:18:31.0903834Z   sv_bot.c
+2026-11-20T02:18:31.1570764Z   sv_ccmds.c
+2026-11-20T02:18:31.2350863Z   sv_client.c
+2026-11-20T02:18:31.3781037Z   sv_filter.c
+2026-11-20T02:18:31.4846643Z   sv_game.c
+2026-11-20T02:18:31.6814271Z   sv_init.c
+2026-11-20T02:18:31.7646811Z   sv_main.c
+2026-11-20T02:18:31.8577341Z   sv_net_chan.c
+2026-11-20T02:18:31.9068769Z   sv_snapshot.c
+2026-11-20T02:18:31.9868444Z   sv_world.c
+2026-11-20T02:18:32.0541445Z   win_main.c
+2026-11-20T02:18:32.6148290Z   win_shared.c
+2026-11-20T02:18:32.8498344Z   win_syscon.c
+2026-11-20T02:18:36.1769994Z   quake3e-ded.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\quake3e.ded.exe
+2026-11-20T02:18:36.5171582Z MSBuild version 17.14.60+43b635718 for .NET Framework
+2026-11-20T02:18:36.5418015Z 
+2026-11-20T02:18:36.7831679Z MSBuild version 17.14.60+43b635718 for .NET Framework
+2026-11-20T02:18:36.8077965Z 
+2026-11-20T02:18:37.0575225Z   tr_noise.c
+2026-11-20T02:18:37.0577564Z   tr_animation.c
+2026-11-20T02:18:37.0578324Z   tr_backend.c
+2026-11-20T02:18:37.0581429Z   tr_bsp.c
+2026-11-20T02:18:37.3578911Z   tr_cmds.c
+2026-11-20T02:18:37.3631378Z   tr_curve.c
+2026-11-20T02:18:37.3862421Z   tr_image.c
+2026-11-20T02:18:37.5583123Z   tr_font.c
+2026-11-20T02:18:37.5588837Z   tr_image_bmp.c
+2026-11-20T02:18:37.6326960Z   tr_image_jpg.c
+2026-11-20T02:18:37.6583945Z   tr_image_pcx.c
+2026-11-20T02:18:37.6887028Z   tr_image_png.c
+2026-11-20T02:18:37.6973772Z   tr_image_tga.c
+2026-11-20T02:18:37.7308680Z   tr_init.c
+2026-11-20T02:18:37.7403461Z   tr_light.c
+2026-11-20T02:18:37.8920855Z   tr_main.c
+2026-11-20T02:18:37.9041262Z   tr_marks.c
+2026-11-20T02:18:37.9503116Z   tr_mesh.c
+2026-11-20T02:18:37.9503578Z   tr_model.c
+2026-11-20T02:18:38.1475874Z   tr_model_iqm.c
+2026-11-20T02:18:38.1540960Z   tr_scene.c
+2026-11-20T02:18:38.1555448Z   tr_shade.c
+2026-11-20T02:18:38.3256663Z   tr_shader.c
+2026-11-20T02:18:38.3610199Z   tr_shade_calc.c
+2026-11-20T02:18:38.4806893Z   tr_shadows.c
+2026-11-20T02:18:38.6357209Z   tr_sky.c
+2026-11-20T02:18:38.6718263Z   tr_surface.c
+2026-11-20T02:18:38.6936575Z   tr_world.c
+2026-11-20T02:18:38.8536519Z   vk.c
+2026-11-20T02:18:38.8851605Z   vk_flares.c
+2026-11-20T02:18:38.9210625Z   vk_vbo.c
+2026-11-20T02:18:39.6308548Z C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1564,5): warning MSB8012: TargetPath(D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\renderer.lib) does not match the Library's OutputFile property value (D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\Release-x64-renderer.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile). [D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\renderervk.vcxproj]
+2026-11-20T02:18:39.6311868Z C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1566,5): warning MSB8012: TargetName(renderer) does not match the Library's OutputFile property value (Release-x64-renderer). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile). [D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\renderervk.vcxproj]
+2026-11-20T02:18:39.6962900Z   renderervk.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\renderer.lib
+2026-11-20T02:18:39.7855226Z MSBuild version 17.14.60+43b635718 for .NET Framework
+2026-11-20T02:18:39.8104613Z 
+2026-11-20T02:18:40.0873034Z   be_aas_bspq3.c
+2026-11-20T02:18:40.0874084Z   be_aas_cluster.c
+2026-11-20T02:18:40.0874808Z   be_aas_debug.c
+2026-11-20T02:18:40.0875980Z   be_aas_entity.c
+2026-11-20T02:18:40.1982036Z   be_aas_file.c
+2026-11-20T02:18:40.2284865Z   be_aas_main.c
+2026-11-20T02:18:40.2707668Z   be_aas_move.c
+2026-11-20T02:18:40.2728386Z   be_aas_optimize.c
+2026-11-20T02:18:40.3661344Z   be_aas_reach.c
+2026-11-20T02:18:40.3683211Z   be_aas_route.c
+2026-11-20T02:18:40.3885869Z   be_aas_routealt.c
+2026-11-20T02:18:40.7517724Z   be_aas_sample.c
+2026-11-20T02:18:40.7659136Z   be_ai_char.c
+2026-11-20T02:18:40.7772076Z   be_ai_chat.c
+2026-11-20T02:18:40.8765204Z   be_ai_gen.c
+2026-11-20T02:18:41.0525333Z   be_ai_goal.c
+2026-11-20T02:18:41.0635338Z   be_ai_move.c
+2026-11-20T02:18:41.0901142Z   be_ai_weap.c
+2026-11-20T02:18:41.0940559Z   be_ai_weight.c
+2026-11-20T02:18:41.3250889Z   be_ea.c
+2026-11-20T02:18:41.3255459Z   be_interface.c
+2026-11-20T02:18:41.3257121Z   l_crc.c
+2026-11-20T02:18:41.3784039Z   l_libvar.c
+2026-11-20T02:18:41.3786119Z   l_log.c
+2026-11-20T02:18:41.3956707Z   l_memory.c
+2026-11-20T02:18:41.4375691Z   l_precomp.c
+2026-11-20T02:18:41.4412394Z   l_script.c
+2026-11-20T02:18:41.4426931Z   l_struct.c
+2026-11-20T02:18:41.7383433Z   botlib.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\botlib_Release_x64\quake3e.lib
+2026-11-20T02:18:41.8566924Z   jaricom.c
+2026-11-20T02:18:41.8584766Z   jcapimin.c
+2026-11-20T02:18:41.8595657Z   jcapistd.c
+2026-11-20T02:18:41.8609917Z   jcarith.c
+2026-11-20T02:18:41.9028613Z   jccoefct.c
+2026-11-20T02:18:41.9232772Z   jccolor.c
+2026-11-20T02:18:41.9430191Z   jcdctmgr.c
+2026-11-20T02:18:42.0132178Z   jchuff.c
+2026-11-20T02:18:42.0178141Z   jcinit.c
+2026-11-20T02:18:42.0225168Z   jcmainct.c
+2026-11-20T02:18:42.1610534Z   jcmarker.c
+2026-11-20T02:18:42.1701622Z   jcmaster.c
+2026-11-20T02:18:42.1773838Z   jcomapi.c
+2026-11-20T02:18:42.2175802Z   jcprepct.c
+2026-11-20T02:18:42.2192650Z   jcparam.c
+2026-11-20T02:18:42.2806980Z   jcsample.c
+2026-11-20T02:18:42.3357372Z   jctrans.c
+2026-11-20T02:18:42.3362227Z   jdapimin.c
+2026-11-20T02:18:42.4136671Z   jdapistd.c
+2026-11-20T02:18:42.4183959Z   jdarith.c
+2026-11-20T02:18:42.4292314Z   jdatadst.c
+2026-11-20T02:18:42.4406355Z   jdatasrc.c
+2026-11-20T02:18:42.4833345Z   jdcoefct.c
+2026-11-20T02:18:42.4994907Z   jdcolor.c
+2026-11-20T02:18:42.5009493Z   jddctmgr.c
+2026-11-20T02:18:42.5575743Z   jdhuff.c
+2026-11-20T02:18:42.6005431Z   jdinput.c
+2026-11-20T02:18:42.6020076Z   jdmainct.c
+2026-11-20T02:18:42.6303482Z   jdmarker.c
+2026-11-20T02:18:42.7315031Z   jdmaster.c
+2026-11-20T02:18:42.7362627Z   jdmerge.c
+2026-11-20T02:18:42.8444943Z   jdpostct.c
+2026-11-20T02:18:42.8474408Z   jdsample.c
+2026-11-20T02:18:42.8633035Z   jdtrans.c
+2026-11-20T02:18:42.8665465Z   jerror.c
+2026-11-20T02:18:42.9010226Z   jfdctflt.c
+2026-11-20T02:18:42.9133381Z   jfdctfst.c
+2026-11-20T02:18:42.9171655Z   jfdctint.c
+2026-11-20T02:18:42.9261443Z   jidctflt.c
+2026-11-20T02:18:43.2040390Z   jidctfst.c
+2026-11-20T02:18:43.3036137Z   jidctint.c
+2026-11-20T02:18:43.3076811Z   jmemmgr.c
+2026-11-20T02:18:43.3089113Z   jmemnobs.c
+2026-11-20T02:18:43.3093910Z   jquant1.c
+2026-11-20T02:18:43.6912937Z   jquant2.c
+2026-11-20T02:18:43.7036201Z   jutils.c
+2026-11-20T02:18:43.8883617Z   libjpeg.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\libjpeg_Release_x64\quake3e.lib
+2026-11-20T02:18:43.9863832Z   bitwise.c
+2026-11-20T02:18:43.9864155Z   framing.c
+2026-11-20T02:18:44.1491713Z   libogg.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\libogg_Release_x64\quake3e.lib
+2026-11-20T02:18:44.2311023Z   analysis.c
+2026-11-20T02:18:44.2311432Z   bitrate.c
+2026-11-20T02:18:44.2311601Z   block.c
+2026-11-20T02:18:44.2311826Z   codebook.c
+2026-11-20T02:18:44.3286007Z   envelope.c
+2026-11-20T02:18:44.4249371Z   floor0.c
+2026-11-20T02:18:44.4291834Z   floor1.c
+2026-11-20T02:18:44.4344907Z   info.c
+2026-11-20T02:18:44.5410785Z   lookup.c
+2026-11-20T02:18:44.5513531Z   lpc.c
+2026-11-20T02:18:44.6029277Z   lsp.c
+2026-11-20T02:18:44.6095851Z   mapping0.c
+2026-11-20T02:18:44.6450694Z   mdct.c
+2026-11-20T02:18:44.6455258Z   psy.c
+2026-11-20T02:18:44.6456415Z   registry.c
+2026-11-20T02:18:44.7147921Z   res0.c
+2026-11-20T02:18:44.9565842Z   sharedbook.c
+2026-11-20T02:18:44.9813234Z   smallft.c
+2026-11-20T02:18:44.9827270Z   synthesis.c
+2026-11-20T02:18:45.1806680Z   vorbisfile.c
+2026-11-20T02:18:45.1833015Z   window.c
+2026-11-20T02:18:45.5394441Z   libvorbis.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\libvorbis_Release_x64\quake3e.lib
+2026-11-20T02:18:45.5916595Z   Assembling...
+2026-11-20T02:18:45.5971898Z   Microsoft (R) Macro Assembler (x64) Version 14.44.35230.0
+2026-11-20T02:18:45.5972260Z   Copyright (C) Microsoft Corporation.  All rights reserved.
+2026-11-20T02:18:45.5972518Z   
+2026-11-20T02:18:45.5990872Z    Assembling: D:\a\Cat-arena\Cat-arena\engine\quake3e\code\asm\snd_mix_x64.asm
+2026-11-20T02:18:45.6000622Z   Assembling...
+2026-11-20T02:18:45.6051138Z   Microsoft (R) Macro Assembler (x64) Version 14.44.35230.0
+2026-11-20T02:18:45.6051577Z   Copyright (C) Microsoft Corporation.  All rights reserved.
+2026-11-20T02:18:45.6051854Z   
+2026-11-20T02:18:45.6069262Z    Assembling: D:\a\Cat-arena\Cat-arena\engine\quake3e\code\asm\common_x64.asm
+2026-11-20T02:18:45.6910467Z   cl_avi.c
+2026-11-20T02:18:45.6911286Z   cl_cgame.c
+2026-11-20T02:18:45.6913252Z   cl_cin.c
+2026-11-20T02:18:45.6915481Z   cl_console.c
+2026-11-20T02:18:46.1764632Z   cl_curl.c
+2026-11-20T02:18:46.2877386Z   cl_input.c
+2026-11-20T02:18:46.3242892Z   cl_jpeg.c
+2026-11-20T02:18:46.5235805Z   cl_keys.c
+2026-11-20T02:18:46.6564961Z   cl_main.c
+2026-11-20T02:18:46.6650689Z   cl_net_chan.c
+2026-11-20T02:18:46.7022886Z   cl_parse.c
+2026-11-20T02:18:46.8972759Z   cl_scrn.c
+2026-11-20T02:18:47.0938590Z   cl_ui.c
+2026-11-20T02:18:47.1113675Z   snd_adpcm.c
+2026-11-20T02:18:47.2044880Z   snd_codec.c
+2026-11-20T02:18:47.2047833Z   snd_codec_ogg.c
+2026-11-20T02:18:47.3639375Z   snd_codec_wav.c
+2026-11-20T02:18:47.5654046Z   snd_dma.c
+2026-11-20T02:18:47.5720070Z   snd_main.c
+2026-11-20T02:18:47.6022352Z   snd_mem.c
+2026-11-20T02:18:47.6850252Z   snd_mix.c
+2026-11-20T02:18:47.7182820Z   snd_wavelet.c
+2026-11-20T02:18:47.8289275Z   cmd.c
+2026-11-20T02:18:47.9904452Z   cm_load.c
+2026-11-20T02:18:48.0370792Z   cm_patch.c
+2026-11-20T02:18:48.0378414Z   cm_polylib.c
+2026-11-20T02:18:48.3423230Z   cm_test.c
+2026-11-20T02:18:48.3493819Z   cm_trace.c
+2026-11-20T02:18:48.3563372Z   common.c
+2026-11-20T02:18:48.4775750Z   cvar.c
+2026-11-20T02:18:48.5846782Z   files.c
+2026-11-20T02:18:48.6185086Z   history.c
+2026-11-20T02:18:48.8463360Z   huffman.c
+2026-11-20T02:18:48.8812874Z   huffman_static.c
+2026-11-20T02:18:49.0276843Z   keys.c
+2026-11-20T02:18:49.0287943Z   md4.c
+2026-11-20T02:18:49.1075171Z   md5.c
+2026-11-20T02:18:49.1557510Z   msg.c
+2026-11-20T02:18:49.1621137Z   net_chan.c
+2026-11-20T02:18:49.1922041Z   net_ip.c
+2026-11-20T02:18:49.3185087Z   puff.c
+2026-11-20T02:18:49.3196046Z   q_math.c
+2026-11-20T02:18:49.3378826Z   q_shared.c
+2026-11-20T02:18:49.5389441Z   unzip.c
+2026-11-20T02:18:49.5405962Z   vm.c
+2026-11-20T02:18:49.5571379Z   vm_interpreted.c
+2026-11-20T02:18:49.8291643Z   vm_x86.c
+2026-11-20T02:18:49.8420424Z   sv_bot.c
+2026-11-20T02:18:49.9476352Z   sv_client.c
+2026-11-20T02:18:49.9488988Z   sv_ccmds.c
+2026-11-20T02:18:49.9525173Z   sv_filter.c
+2026-11-20T02:18:50.1301088Z   sv_game.c
+2026-11-20T02:18:50.1677403Z   sv_init.c
+2026-11-20T02:18:50.2289440Z   sv_main.c
+2026-11-20T02:18:50.5672587Z   sv_net_chan.c
+2026-11-20T02:18:50.5703888Z   sv_snapshot.c
+2026-11-20T02:18:50.6544435Z   sv_world.c
+2026-11-20T02:18:50.6925376Z   win_input.c
+2026-11-20T02:18:50.7657472Z   win_main.c
+2026-11-20T02:18:50.7702909Z   win_minimize.c
+2026-11-20T02:18:51.1905264Z   win_qvk.c
+2026-11-20T02:18:51.1964185Z   win_shared.c
+2026-11-20T02:18:51.1979178Z   win_snd.c
+2026-11-20T02:18:51.3972782Z   win_syscon.c
+2026-11-20T02:18:51.5749054Z   win_wndproc.c
+2026-11-20T02:18:51.5763526Z   win_gamma.c
+2026-11-20T02:18:51.5884487Z   win_glimp.c
+2026-11-20T02:18:51.8357736Z   win_qgl.c
+2026-11-20T02:18:52.7244742Z      Creating library .\output\quake3e.lib and object .\output\quake3e.exp
+2026-11-20T02:18:52.8378844Z   quake3e.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\quake3e.exe
+2026-11-20T02:18:52.9384347Z 
+2026-11-20T02:18:52.9399305Z [32;1mName                  [0m[32;1m  Length[0m
+2026-11-20T02:18:52.9399844Z [32;1m----                  [0m [32;1m ------[0m
+2026-11-20T02:18:52.9400149Z quake3e-vulkan.x64.exe 2736128
+2026-11-20T02:18:52.9400344Z quake3e.ded.x64.exe     963072
+2026-11-20T02:18:52.9402533Z 
+2026-11-20T02:18:52.9682378Z ##[group]Run cmake -S game -B build-game -G "Visual Studio 17 2022" -A x64
+2026-11-20T02:18:52.9682842Z [36;1mcmake -S game -B build-game -G "Visual Studio 17 2022" -A x64[0m
+2026-11-20T02:18:52.9683139Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+2026-11-20T02:18:52.9683426Z [36;1mcmake --build build-game --config Release -- /m /v:minimal[0m
+2026-11-20T02:18:52.9683702Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+2026-11-20T02:18:52.9683999Z [36;1mGet-ChildItem build-game\Release\*.dll | Format-Table Name, Length[0m
+2026-11-20T02:18:52.9713647Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-20T02:18:52.9713941Z ##[endgroup]
+2026-11-20T02:18:54.1555125Z -- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.20348.
+2026-11-20T02:19:03.3650823Z -- The C compiler identification is MSVC 19.44.35230.0
+2026-11-20T02:19:04.5503735Z -- The CXX compiler identification is MSVC 19.44.35230.0
+2026-11-20T02:19:04.6584274Z -- Detecting C compiler ABI info
+2026-11-20T02:19:05.6042737Z -- Detecting C compiler ABI info - done
+2026-11-20T02:19:05.6165684Z -- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+2026-11-20T02:19:05.6178585Z -- Detecting C compile features
+2026-11-20T02:19:05.6189412Z -- Detecting C compile features - done
+2026-11-20T02:19:05.6464792Z -- Detecting CXX compiler ABI info
+2026-11-20T02:19:06.2404058Z -- Detecting CXX compiler ABI info - done
+2026-11-20T02:19:06.2524316Z -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+2026-11-20T02:19:06.2527633Z -- Detecting CXX compile features
+2026-11-20T02:19:06.2543032Z -- Detecting CXX compile features - done
+2026-11-20T02:19:06.2562133Z -- Configuring done (12.4s)
+2026-11-20T02:19:06.2886999Z -- Generating done (0.0s)
+2026-11-20T02:19:06.2892681Z -- Build files have been written to: D:/a/Cat-arena/Cat-arena/build-game
+2026-11-20T02:19:06.3972931Z MSBuild version 17.14.60+43b635718 for .NET Framework
+2026-11-20T02:19:06.4237649Z 
+2026-11-20T02:19:06.8155967Z   1>Checking Build System
+2026-11-20T02:19:07.0376653Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+2026-11-20T02:19:07.1790716Z   ca_bridge.cpp
+2026-11-20T02:19:08.5815911Z   ca_weapons.cpp
+2026-11-20T02:19:08.8018499Z   Generating Code...
+2026-11-20T02:19:09.1012364Z   ca_bridge.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\ca_bridge.lib
+2026-11-20T02:19:09.2049640Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+2026-11-20T02:19:09.2108578Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+2026-11-20T02:19:09.2176649Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+2026-11-20T02:19:09.3514315Z   ui_main.cpp
+2026-11-20T02:19:09.3519448Z   cg_main.c
+2026-11-20T02:19:09.3877651Z   g_main.c
+2026-11-20T02:19:09.4059497Z   cg_consolecmds.c
+2026-11-20T02:19:09.4254795Z   ai_chat.c
+2026-11-20T02:19:09.4395424Z   cg_draw.c
+2026-11-20T02:19:09.4659456Z   ai_cmd.c
+2026-11-20T02:19:09.4761750Z   cg_drawtools.c
+2026-11-20T02:19:09.5029974Z   ai_dmnet.c
+2026-11-20T02:19:09.5122078Z   cg_effects.c
+2026-11-20T02:19:09.5412886Z   ai_dmq3.c
+2026-11-20T02:19:09.5441631Z   cg_ents.c
+2026-11-20T02:19:09.5778766Z   cg_event.c
+2026-11-20T02:19:09.5854574Z   ai_main.c
+2026-11-20T02:19:09.6148002Z   ai_team.c
+2026-11-20T02:19:09.6171862Z   cg_info.c
+2026-11-20T02:19:09.6458866Z   cg_localents.c
+2026-11-20T02:19:09.6543222Z   ai_vcmd.c
+2026-11-20T02:19:09.6860211Z   cg_marks.c
+2026-11-20T02:19:09.6886593Z   g_active.c
+2026-11-20T02:19:09.7208162Z   cg_particles.c
+2026-11-20T02:19:09.7261341Z   g_arenas.c
+2026-11-20T02:19:09.7570116Z   g_bot.c
+2026-11-20T02:19:09.7631884Z   cg_players.c
+2026-11-20T02:19:09.7931657Z   g_client.c
+2026-11-20T02:19:09.8026587Z   cg_playerstate.c
+2026-11-20T02:19:09.8027115Z   q_math.c
+2026-11-20T02:19:09.8312325Z   g_cmds.c
+2026-11-20T02:19:09.8312649Z   q_shared.c
+2026-11-20T02:19:09.8372206Z   cg_predict.c
+2026-11-20T02:19:09.8629095Z   g_combat.c
+2026-11-20T02:19:09.8667622Z   cg_scoreboard.c
+2026-11-20T02:19:09.8771446Z   Generating Code...
+2026-11-20T02:19:09.9004132Z   g_items.c
+2026-11-20T02:19:09.9005380Z   cg_servercmds.c
+2026-11-20T02:19:09.9377476Z   cg_snapshot.c
+2026-11-20T02:19:09.9378276Z   g_mem.c
+2026-11-20T02:19:09.9637530Z   g_misc.c
+2026-11-20T02:19:09.9642731Z   cg_view.c
+2026-11-20T02:19:09.9895439Z   g_missile.c
+2026-11-20T02:19:09.9906268Z   cg_weapons.c
+2026-11-20T02:19:10.0151741Z   g_mover.c
+2026-11-20T02:19:10.0197598Z   cg_syscalls.c
+2026-11-20T02:19:10.0433228Z   g_session.c
+2026-11-20T02:19:10.0448171Z   Generating Code...
+2026-11-20T02:19:10.0687682Z   Generating Code...
+2026-11-20T02:19:11.7360091Z   Compiling...
+2026-11-20T02:19:11.7360682Z   bg_misc.c
+2026-11-20T02:19:11.7894316Z   bg_pmove.c
+2026-11-20T02:19:11.8245328Z   bg_slidemove.c
+2026-11-20T02:19:11.8771572Z   bg_lib.c
+2026-11-20T02:19:11.8797459Z   q_math.c
+2026-11-20T02:19:11.9365459Z   q_shared.c
+2026-11-20T02:19:11.9368134Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(122,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:11.9369832Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(123,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:11.9371795Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(691,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:11.9374187Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(798,10): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:11.9375867Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(916,7): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:11.9378020Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(949,34): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:11.9380072Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(1061,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+2026-11-20T02:19:12.0144118Z   Generating Code...
+2026-11-20T02:19:12.0535159Z   Compiling...
+2026-11-20T02:19:12.0536216Z   g_spawn.c
+2026-11-20T02:19:12.0807138Z   g_svcmds.c
+2026-11-20T02:19:12.1127064Z   g_target.c
+2026-11-20T02:19:12.1738119Z   g_team.c
+2026-11-20T02:19:12.2033579Z   g_trigger.c
+2026-11-20T02:19:12.2362784Z   g_utils.c
+2026-11-20T02:19:12.2758618Z   g_weapon.c
+2026-11-20T02:19:12.3067744Z   g_syscalls.c
+2026-11-20T02:19:12.3324347Z   g_ca.c
+2026-11-20T02:19:12.3587662Z   bg_misc.c
+2026-11-20T02:19:12.3846771Z   bg_pmove.c
+2026-11-20T02:19:12.3957707Z      Creating library D:/a/Cat-arena/Cat-arena/build-game/Release/cgamex86_64.lib and object D:/a/Cat-arena/Cat-arena/build-game/Release/cgamex86_64.exp
+2026-11-20T02:19:12.3958942Z      Creating library D:/a/Cat-arena/Cat-arena/build-game/Release/uix86_64.lib and object D:/a/Cat-arena/Cat-arena/build-game/Release/uix86_64.exp
+2026-11-20T02:19:12.4134256Z   bg_slidemove.c
+2026-11-20T02:19:12.4436865Z   bg_lib.c
+2026-11-20T02:19:12.4498465Z   q_math.c
+2026-11-20T02:19:12.4675272Z   ui.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\uix86_64.dll
+2026-11-20T02:19:12.4709057Z   cgame.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\cgamex86_64.dll
+2026-11-20T02:19:12.4855236Z   q_shared.c
+2026-11-20T02:19:12.5218755Z   Generating Code...
+2026-11-20T02:19:13.1154547Z   ca_horde.cpp
+2026-11-20T02:19:14.7626976Z      Creating library D:/a/Cat-arena/Cat-arena/build-game/Release/qagamex86_64.lib and object D:/a/Cat-arena/Cat-arena/build-game/Release/qagamex86_64.exp
+2026-11-20T02:19:14.8222836Z   qagame.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\qagamex86_64.dll
+2026-11-20T02:19:14.8831500Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+2026-11-20T02:19:15.0324317Z 
+2026-11-20T02:19:15.0339347Z [32;1mName            [0m[32;1m Length[0m
+2026-11-20T02:19:15.0339753Z [32;1m----            [0m [32;1m------[0m
+2026-11-20T02:19:15.0340098Z cgamex86_64.dll  221696
+2026-11-20T02:19:15.0340331Z qagamex86_64.dll 357888
+2026-11-20T02:19:15.0340549Z uix86_64.dll      22016
+2026-11-20T02:19:15.0343249Z 
+2026-11-20T02:19:15.0627667Z ##[group]Run python tools/q3e/package.py --engine-dir engine/quake3e/bin --client quake3e-vulkan.x64.exe --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena --commit $env:GITHUB_SHA
+2026-11-20T02:19:15.0629424Z [36;1mpython tools/q3e/package.py --engine-dir engine/quake3e/bin --client quake3e-vulkan.x64.exe --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena --commit $env:GITHUB_SHA[0m
+2026-11-20T02:19:15.0659627Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-20T02:19:15.0659900Z ##[endgroup]
+2026-11-20T02:19:16.5468104Z      15429  COPYING.txt
+2026-11-20T02:19:16.5468392Z     963072  CatArena-server.exe
+2026-11-20T02:19:16.5468587Z    2736128  CatArena.exe
+2026-11-20T02:19:16.5468752Z        656  README.txt
+2026-11-20T02:19:16.5468907Z        357  SOURCE.txt
+2026-11-20T02:19:16.5469061Z     221696  catarena\cgamex86_64.dll
+2026-11-20T02:19:16.5469273Z     345842  catarena\pak0.pk3
+2026-11-20T02:19:16.5469715Z     357888  catarena\qagamex86_64.dll
+2026-11-20T02:19:16.5469993Z      22016  catarena\uix86_64.dll
+2026-11-20T02:19:16.6547668Z ##[group]Run $p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_test +ca_selftest +quit" -NoNewWindow -PassThru
+2026-11-20T02:19:16.6548740Z [36;1m$p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_test +ca_selftest +quit" -NoNewWindow -PassThru[0m
+2026-11-20T02:19:16.6549472Z [36;1mif (-not $p.WaitForExit(90000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 90 s"; exit 1 }[0m
+2026-11-20T02:19:16.6550145Z [36;1m$log = Get-Content home\catarena\qconsole.log -Raw[0m
+2026-11-20T02:19:16.6550440Z [36;1mWrite-Host $log[0m
+2026-11-20T02:19:16.6550996Z [36;1m$checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-C \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: ALL PASS')[0m
+2026-11-20T02:19:16.6551620Z [36;1m$fail = $false[0m
+2026-11-20T02:19:16.6551957Z [36;1mforeach ($c in $checks) { if ($log -match $c) { Write-Host "PASS $c" } else { Write-Host "FAIL $c"; $fail = $true } }[0m
+2026-11-20T02:19:16.6552342Z [36;1mWrite-Host "server exit code $($p.ExitCode)"[0m
+2026-11-20T02:19:16.6552592Z [36;1mif ($fail -or $p.ExitCode -ne 0) { exit 1 }[0m
+2026-11-20T02:19:16.6552821Z [36;1mRemove-Item -Recurse -Force home[0m
+2026-11-20T02:19:16.6553184Z [36;1mWrite-Host "PASS q3e Windows smoke: engine + Cat Arena qagame.dll + ca_test.bsp + gameplay self-test"[0m
+2026-11-20T02:19:16.6583129Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-20T02:19:16.6583389Z ##[endgroup]
+2026-11-20T02:19:17.0747444Z logfile opened on Fri Nov 20 02:19:16 2026
+2026-11-20T02:19:17.0747812Z execing default.cfg
+2026-11-20T02:19:17.0748133Z couldn't exec q3config_server.cfg
+2026-11-20T02:19:17.0748404Z couldn't exec autoexec.cfg
+2026-11-20T02:19:17.0748720Z fs_homepath is write protected.
+2026-11-20T02:19:17.0749087Z ...detecting CPU, found AMD EPYC 9V74 80-Core Processor                
+2026-11-20T02:19:17.0749527Z --- Common Initialization Complete ---
+2026-11-20T02:19:17.0749817Z Hostname: runnervm9zap3
+2026-11-20T02:19:17.0753837Z IP6: fe80::2e25:2bd4:f1d3:499a%14
+2026-11-20T02:19:17.0754075Z IP6: fe80::5ae6:9c12:c137:1430%11
+2026-11-20T02:19:17.0754252Z IP: 10.1.0.107
+2026-11-20T02:19:17.0754391Z IP: 172.27.16.1
+2026-11-20T02:19:17.0754547Z Opening IP socket: 0.0.0.0:27960
+2026-11-20T02:19:17.0754780Z Working directory: D:\a\Cat-arena\Cat-arena\dist\CatArena
+2026-11-20T02:19:17.0755039Z ------ Server Initialization ------
+2026-11-20T02:19:17.0755242Z Server: ca_test
+2026-11-20T02:19:17.0755393Z ...loaded in 0 milliseconds
+2026-11-20T02:19:17.0755561Z ----------------------
+2026-11-20T02:19:17.0755717Z 25 files in 1 pk3 files
+2026-11-20T02:19:17.0755930Z Loading dll file qagame.
+2026-11-20T02:19:17.0756408Z VM_LoadDLL 'qagamex86_64.dll' ok
+2026-11-20T02:19:17.0756634Z VM_LoadDll(qagame) found **vmMain** at 00007FFCFFC53900
+2026-11-20T02:19:17.0756872Z VM_LoadDll(qagame) succeeded!
+2026-11-20T02:19:17.0757058Z ------- Game Initialization -------
+2026-11-20T02:19:17.0757248Z gamename: baseq3
+2026-11-20T02:19:17.0757432Z Cat Arena: Feral Claw N10-Q3E-C (qagame, C++20 bridge)
+2026-11-20T02:19:17.0757714Z C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+2026-11-20T02:19:17.0757965Z gamedate: Nov 20 2026
+2026-11-20T02:19:17.0758151Z ------------------------------------------------------------
+2026-11-20T02:19:17.0759087Z InitGame: \dmflags\0\fraglimit\0\g_gametype\0\mapname\ca_test\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\8\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e win_msvc-x86_64 Nov 20 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+2026-11-20T02:19:17.0760013Z Cat Arena horde ready (fiend, N10 wave rules)
+2026-11-20T02:19:17.0762487Z 0 teams with 0 entities
+2026-11-20T02:19:17.0762720Z 2 items registered
+2026-11-20T02:19:17.0762881Z -----------------------------------
+2026-11-20T02:19:17.0763076Z -----------------------------------
+2026-11-20T02:19:17.0763301Z ca_selftest: PASS wave 1: 10 enemies, all spawned at once
+2026-11-20T02:19:17.0763881Z ca_selftest: PASS wave 2: ceil(10 * 1.25) = 13, first batch 11
+2026-11-20T02:19:17.0764562Z ca_selftest: PASS wave 3: 17 enemies, scale 1.05^2
+2026-11-20T02:19:17.0764949Z ca_selftest: PASS enemy spawn points found in the map
+2026-11-20T02:19:17.0765203Z ca_selftest: PASS fiend entity spawned
+2026-11-20T02:19:17.0765413Z ca_selftest: PASS fiend health 100
+2026-11-20T02:19:17.0765653Z ca_selftest: PASS fiend moves with Pmove (88 units in 0.5 s)
+2026-11-20T02:19:17.0765941Z ca_selftest: PASS four nailgun hits (13) leave 48 health
+2026-11-20T02:19:17.0766186Z ca_selftest: PASS fiend dies and counts as a kill
+2026-11-20T02:19:17.0766522Z ca_selftest: PASS NAILGUN in the machinegun slot: 13 dmg, 90 ms, 50 rounds, 1.35 s reload
+2026-11-20T02:19:17.0766822Z ca_selftest: ALL PASS
+2026-11-20T02:19:17.0766998Z ----- Server Shutdown (Server quit) -----
+2026-11-20T02:19:17.0767201Z ==== ShutdownGame ====
+2026-11-20T02:19:17.0767356Z ShutdownGame:
+2026-11-20T02:19:17.0767541Z ------------------------------------------------------------
+2026-11-20T02:19:17.0767762Z ---------------------------
+2026-11-20T02:19:17.0767879Z 
+2026-11-20T02:19:17.0798722Z PASS VM_LoadDll\(qagame\) succeeded
+2026-11-20T02:19:17.0808560Z PASS Cat Arena: Feral Claw N10-Q3E-C \(qagame, C\+\+20 bridge\)
+2026-11-20T02:19:17.0836847Z PASS C\+\+20 bridge self-test: PASS
+2026-11-20T02:19:17.0842088Z PASS mapname\\ca_test
+2026-11-20T02:19:17.0847150Z PASS Cat Arena horde ready
+2026-11-20T02:19:17.0852034Z PASS ca_selftest: ALL PASS
+2026-11-20T02:19:17.0871830Z server exit code 0
+2026-11-20T02:19:17.0923294Z PASS q3e Windows smoke: engine + Cat Arena qagame.dll + ca_test.bsp + gameplay self-test
+2026-11-20T02:19:17.1394689Z ##[group]Run actions/upload-artifact@v4
+2026-11-20T02:19:17.1394979Z with:
+2026-11-20T02:19:17.1395140Z   name: CAT_ARENA_Q3E_C_WINDOWS_x64
+2026-11-20T02:19:17.1395334Z   path: dist/CatArena
+2026-11-20T02:19:17.1395512Z   if-no-files-found: error
+2026-11-20T02:19:17.1395681Z   retention-days: 30
+2026-11-20T02:19:17.1395839Z   compression-level: 6
+2026-11-20T02:19:17.1395997Z   overwrite: false
+2026-11-20T02:19:17.1396150Z   include-hidden-files: false
+2026-11-20T02:19:17.1396325Z ##[endgroup]
+2026-11-20T02:19:17.2887849Z (node:1752) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T02:19:17.2888390Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T02:19:17.2960881Z With the provided path, there will be 9 files uploaded
+2026-11-20T02:19:17.2964973Z Artifact name is valid!
+2026-11-20T02:19:17.2966618Z Root directory input is valid!
+2026-11-20T02:19:17.7052607Z Beginning upload of artifact content to blob storage
+2026-11-20T02:19:17.8653663Z (node:1752) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T02:19:18.9330084Z Uploaded bytes 2570232
+2026-11-20T02:19:19.0122492Z Finished uploading artifact content to blob storage!
+2026-11-20T02:19:19.0123173Z SHA256 digest of uploaded artifact zip is 292750bf66fddd3bbc194e38c3b90a9c70871ccbd2d088fe9f91b01a7ed27f89
+2026-11-20T02:19:19.0125292Z Finalizing artifact upload
+2026-11-20T02:19:19.4048853Z Artifact CAT_ARENA_Q3E_C_WINDOWS_x64.zip successfully finalized. Artifact ID 14595620105
+2026-11-20T02:19:19.4049934Z Artifact CAT_ARENA_Q3E_C_WINDOWS_x64 has been successfully uploaded! Final size is 2570232 bytes. Artifact ID is 14595620105
+2026-11-20T02:19:19.4058252Z Artifact download URL: https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44659764665/artifacts/14595620105
+2026-11-20T02:19:19.4386290Z Post job cleanup.
+2026-11-20T02:19:19.5738399Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-20T02:19:19.5968982Z git version 2.56.1.windows.1
+2026-11-20T02:19:19.6019278Z Temporarily overriding HOME='D:\a\_temp\8fbd847f-f830-4a7e-a2a2-440e7f7a7070' before making global git config changes
+2026-11-20T02:19:19.6019921Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T02:19:19.6028342Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cat-arena\Cat-arena
+2026-11-20T02:19:19.6287816Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T02:19:19.6547784Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-20T02:19:20.1172889Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T02:19:20.1394474Z http.https://github.com/.extraheader
+2026-11-20T02:19:20.1427678Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-20T02:19:20.1682933Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-20T02:19:20.5898700Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T02:19:20.6150812Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-20T02:19:21.1523829Z Cleaning up orphan processes
+2026-11-20T02:19:21.1782270Z Terminate orphan process: pid (1260) (mspdbsrv)
+2026-11-20T02:19:21.1848149Z Terminate orphan process: pid (7268) (vctip)
+2026-11-20T02:19:21.1896365Z Terminate orphan process: pid (2592) (MSBuild)
+2026-11-20T02:19:21.1953100Z Terminate orphan process: pid (1144) (MSBuild)
+2026-11-20T02:19:21.2009987Z Terminate orphan process: pid (7136) (MSBuild)
+2026-11-20T02:19:21.2147448Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4, microsoft/setup-msbuild@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

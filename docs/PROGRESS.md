@@ -18,7 +18,10 @@ not yet run on a Windows PC.**
 against the original game (branch `n10`): two co-op enemy-shot rules restored, weapon tapes on all
 four maps bit-identical, cross-play and a one-hour soak pass. Not yet played on a Windows PC.**
 Branch `n11-baseline` (another session, 2026-11-13) is not yet reviewed or merged.
-**N10-Q3E (engine migration onto Quake3e, branch `migration/quake3e-n10`): stages A and B done.
+**N10-Q3E (engine migration onto Quake3e, branch `migration/quake3e-n10`): stages A, B and C done.
+Stage C: first playable loop in the test arena — stock Quake III movement with Cat Arena sprint and
+slide, the NAILGUN, waves of fiends (N10 rules); self-test 10/10 on Linux and Windows CI, scripted
+gameplay run 11/11 on Linux.
 Stage B: branded engine, Cat Arena game modules (ioquake3 GPL game code + C++20), generated test
 arena compiled with q3map2; Windows CI builds and packages it and a dedicated server loads the arena
 with the Cat Arena DLL; on Linux the menu, the arena and stock Quake III movement run. Stage A — Quake3e
