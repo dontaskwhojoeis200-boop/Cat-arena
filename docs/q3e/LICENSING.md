@@ -10,12 +10,14 @@ in this private build pipeline.
 | Component | Licence | Notes |
 |---|---|---|
 | Quake3e engine (`engine/quake3e`, dec793de) | GNU GPL v2 (`COPYING.txt`), id Software and contributors | Modified copies must carry prominent change notices and stay GPL v2 |
-| Quake III game code (id 2005 release / ioquake3) | GNU GPL v2 | Used only as reference and for the module interface unless code is copied into `game/`; any copied file keeps its header and licence |
+| Quake III game code (ioquake3 52088b9) | GNU GPL v2 | Imported into `game/ioq3` (stage B) as the base of `qagame` / `cgame`; files keep their headers; Cat Arena changes are marked `CAT_ARENA_STANDALONE` |
 | libjpeg (bundled) | IJG licence (permissive, with notice) | `engine/quake3e/code/libjpeg/README` |
 | libogg, libvorbis (bundled) | BSD-style (Xiph.org) | `COPYING` in each folder |
-| libcurl (bundled **prebuilt static libraries** for MSVC / MinGW) | curl licence (MIT-style) | Prebuilt binaries of unrecorded version. Cat Arena does not need in-game HTTP downloads: plan is to build with curl disabled (`USE_CURL=0` / no `USE_CURL` define) so no opaque binary is linked |
+| libcurl (bundled **prebuilt static libraries** for MSVC / MinGW) | curl licence (MIT-style) | Prebuilt binaries of unrecorded version, **still linked into the stage-B Windows build** (upstream project settings). Cat Arena does not need in-game HTTP downloads: remove `USE_CURL` from the MSVC projects before any release (Q3E-F) |
 | SDL2 (bundled MinGW libraries; not used by the MSVC build) | zlib licence | Linux builds here used SDL2 2.30 built from source |
-| q3map2 (planned map compiler, build tool only) | GPL v2 | Tool output (BSP data) is not covered by the tool's licence |
+| q3map2 (NetRadiant-custom 8216133, build tool only, not shipped) | GPL v2 | Built with a one-line GCC 13 fix (`tools/q3e/q3map2-gcc13.patch`). Tool output (BSP data) is not covered by the tool's licence |
+| Liberation Mono Bold (`assets/n7/fonts`) | SIL Open Font License 1.1 | Rendered into `gfx/2d/bigchars.png`; the OFL allows embedding rendered glyphs; licence text to ship with the release |
+| Cat Arena C++20 game code (`game/catarena`) | GPL v2 or later (decision D3) | Headers state it |
 | Cat Arena code (`native/`, tools) | **No licence file in the repository** | See below |
 | Cat Arena assets (textures, models, sounds, music, maps) | Owner's | Provenance per asset in `assets/*/PROVENANCE*`; the Arsenal MD3 props (`assets/n1/models/md3`, internal paths `models/gallery/*.md3`) have no recorded origin — confirm before packaging |
 

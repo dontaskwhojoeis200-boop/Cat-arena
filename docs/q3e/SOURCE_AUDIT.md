@@ -14,8 +14,12 @@ Status words: Implemented / Compiled / Executed / Tested / Unverified / Blocked.
 |---|---|---|---|
 | Cat Arena N10 (authoritative game reference) | `f406358` on branch `n10` (2026-11-19) | this repository | none stated (see LICENSING.md) |
 | Quake3e (engine foundation) | `dec793de9677bc9c16c7027e8905c2d4f4643a19` (2026-11-15) | `engine/quake3e`, imported unmodified in commit `53aca6b` | GPL v2 |
-| ioquake3 (GPL game / cgame / ui code, reference) | `52088b9eae247d8e321c8dc1fb49a879652854f9` (2026-11-04) | not imported; cloned for the audit | GPL v2 |
+| ioquake3 (GPL game / cgame / ui code) | `52088b9eae247d8e321c8dc1fb49a879652854f9` (2026-11-04) | `game/ioq3` since stage B (game, cgame, shared headers) | GPL v2 |
 | id Software Quake III Arena source release | `dbe4ddb10315479fc00086f08e25d968b4b43c49` (2012-01-31) | not imported; cloned for the audit | GPL v2 |
+| NetRadiant-custom (q3map2, build tool) | `8216133984031afaa9a857b56ea66dd9c3d54b26` (2026-09-01) | not imported; built (stage B) | GPL v2 |
+
+Stage B update: ioquake3's game code was imported unmodified into `game/ioq3` (commit 5c8fd42 and
+the `ui/menudef.h` follow-up).
 
 The migration branch `migration/quake3e-n10` starts from N10 `f406358`. Branch `n10` and the N10
 source zip stay the independently buildable reference (Linux 78/78, Windows CI run 44560790833).

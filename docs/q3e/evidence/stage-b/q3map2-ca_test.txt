@@ -1,0 +1,199 @@
+2.5.17n-git-8216133
+2 threads
+Q3Map         - v1.0r (c) 1999 Id Software Inc.
+Q3Map (ydnar) - v2.5.17n-git-8216133
+NetRadiant    - v1.6.0n-git-8216133 Nov 19 2026 17:30:13
+Your map saw the pretty lights from q3map2's BFG
+/home/claude/upstream/netradiant-custom/install/q3map2
+VFS Init: /root/.catarena-q3map2/catarena/
+VFS Init: /home/claude/cat-arena/game/base/catarena/
+--- BSP ---
+Lightmap sample size set to 8x8 units
+Creating meta surfaces from brush faces
+entering scripts/shaderlist.txt
+entering scripts/catarena.shader
+entering /home/claude/cat-arena/game/base/catarena/maps/ca_test.map
+Entity 0 (worldspawn) has ambient of 12.000000 11.400000 10.559999
+        0 areaportals
+Size:  -800,  -800,   -32 to   800,   800,   544
+block size = { 1024 1024 1024 }
+       38 leafs filled
+        0 leafs filled
+writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.prt
+--- EmitMetaStats ---
+       98 total meta surfaces
+       98 stripped surfaces
+        0 fanned surfaces
+        0 maxarea'd surfaces
+        0 patch meta surfaces
+        0 meta verts
+        0 meta triangles
+--- WriteSurfaceExtraFile ---
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.srf
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+Wrote 0.0 MB (48256 bytes)
+        0 seconds elapsed
+2.5.17n-git-8216133
+2 threads
+Q3Map         - v1.0r (c) 1999 Id Software Inc.
+Q3Map (ydnar) - v2.5.17n-git-8216133
+NetRadiant    - v1.6.0n-git-8216133 Nov 19 2026 17:30:13
+Your map saw the pretty lights from q3map2's BFG
+/home/claude/upstream/netradiant-custom/install/q3map2
+VFS Init: /root/.catarena-q3map2/catarena/
+VFS Init: /home/claude/cat-arena/game/base/catarena/
+--- Vis ---
+saveprt = true
+Loading /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+Loading /home/claude/cat-arena/game/base/catarena/maps/ca_test.prt
+    75 portalclusters
+   238 numportals
+   264 numfaces
+   476 active portals
+     0 hint portals
+visdatasize:1208
+--- BasePortalVis (476) ---
+0...1...2...3...4...5...6...7...8...9... (0)
+      6 average number of passages per leaf
+      0 MB required passage memory
+--- CreatePassages (476) ---
+0...1...2...3...4...5...6...7...8...9... (0)
+--- PassagePortalFlow (476) ---
+0...1...2...3...4...5...6...7...8...9... (0)
+creating leaf vis...
+Total clusters: 75
+Total visible clusters: 5580
+Average clusters visible: 74.40 (99.200%/total)
+  Standard deviation: 2.36 (3.140%/total, 3.166%/avg)
+  Minimum: 67 (89.333%/total, 90.054%/avg)
+  Maximum: 76 (101.333%/total, 102.151%/avg)
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+Wrote 0.0 MB (49480 bytes)
+        0 seconds elapsed
+2.5.17n-git-8216133
+2 threads
+Q3Map         - v1.0r (c) 1999 Id Software Inc.
+Q3Map (ydnar) - v2.5.17n-git-8216133
+NetRadiant    - v1.6.0n-git-8216133 Nov 19 2026 17:30:13
+Your map saw the pretty lights from q3map2's BFG
+/home/claude/upstream/netradiant-custom/install/q3map2
+VFS Init: /root/.catarena-q3map2/catarena/
+VFS Init: /home/claude/cat-arena/game/base/catarena/
+--- Light ---
+--- ProcessGameSpecific ---
+ lighting model: quake3
+ lightmap size: 128 x 128 pixels
+ lighting gamma: 1.000000
+ lightmap colorspace: linear
+ texture colorspace: linear
+ _color colorspace: linear
+ lighting compensation: 1.000000
+ lighting exposure: 0.000000
+ lightgrid scale: 1.000000
+ lightgrid ambient scale: 1.000000
+ shader lightstyles hack: enabled
+ patch shadows: disabled
+ deluxemapping: disabled
+--- ProcessCommandLine ---
+Radiosity enabled with 2 bounce(s)
+Adaptive supersampling enabled with 2 sample(s) per lightmap texel
+Fast mode enabled for all area lights
+Patch shadow casting enabled
+entering scripts/shaderlist.txt
+entering scripts/catarena.shader
+Loading /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+entering /home/claude/cat-arena/game/base/catarena/maps/ca_test.srf
+entering /home/claude/cat-arena/game/base/catarena/maps/ca_test.map
+--- SetupGrid ---
+Grid size = { 64, 64, 128 }
+     3125 grid points
+        5 point lights
+        0 spotlights
+       50 diffuse (area) lights
+        0 sun/sky lights
+      105 total lights
+        0 culled lights
+--- TraceGrid ---
+0...1...2...3...4...5...6...7...8...9... (0)
+25 x 25 x 5 = 3125 grid
+--- MapRawLightmap ---
+0...1...2...3...4...5...6...7...8...9... (0)
+    88047 luxels
+    67856 luxels mapped
+     5162 luxels occluded
+--- FloodlightRawLightmap ---
+0...1...2...3...4...5...6...7...8...9... (0)
+        0 custom lightmaps floodlighted
+      105 total lights
+        0 culled lights
+--- IlluminateRawLightmap ---
+0...1...2...3...4...5...6...7...8...9... (0)
+    88047 luxels illuminated
+--- IlluminateVertexes ---
+0...1...2...3...4...5...6...7...8...9... (0)
+      408 vertexes illuminated
+--- StoreSurfaceLightmaps ---
+Subsampling...0.collapsing...0.sorting...0.allocating...0.storing...0.projecting...0.done.
+    75449 luxels used
+    98304 luxels stored (76.75 percent efficiency)
+        1 solid surface lightmaps
+       21 identical surface lightmaps, using 8987 luxels
+        0 vertex forced surfaces
+        0 vertex approximated surfaces
+        6 BSP lightmaps
+        6 total lightmaps
+       13 unique lightmap/shader combinations
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+Wrote 0.4 MB (369440 bytes)
+--- Radiosity (bounce 1 of 2) ---
+0...1...2...3...4...5...6...7...8...9... (0)
+      97 diffuse surfaces
+      620 total lights
+       30 culled lights
+--- IlluminateRawLightmap ---
+0...1...2...3...4...5...6...7...8...9... (0)
+   176094 luxels illuminated
+      408 vertexes illuminated
+--- IlluminateVertexes ---
+0...1...2...3...4...5...6...7...8...9... (0)
+      809 vertexes illuminated
+--- StoreSurfaceLightmaps ---
+Subsampling...0.collapsing...0.sorting...0.allocating...0.storing...0.projecting...0.done.
+    75449 luxels used
+    98304 luxels stored (76.75 percent efficiency)
+        0 solid surface lightmaps
+       20 identical surface lightmaps, using 8402 luxels
+        0 vertex forced surfaces
+        0 vertex approximated surfaces
+        6 BSP lightmaps
+        6 total lightmaps
+       13 unique lightmap/shader combinations
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+Wrote 0.4 MB (369440 bytes)
+--- Radiosity (bounce 2 of 2) ---
+0...1...2...3...4...5...6...7...8...9... (0)
+      97 diffuse surfaces
+      616 total lights
+       14 culled lights
+--- IlluminateRawLightmap ---
+0...1...2...3...4...5...6...7...8...9... (0)
+   264141 luxels illuminated
+      809 vertexes illuminated
+--- IlluminateVertexes ---
+0...1...2...3...4...5...6...7...8...9... (0)
+     1207 vertexes illuminated
+--- StoreSurfaceLightmaps ---
+Subsampling...0.collapsing...0.sorting...0.allocating...0.storing...0.projecting...0.done.
+    75449 luxels used
+    98304 luxels stored (76.75 percent efficiency)
+        0 solid surface lightmaps
+       20 identical surface lightmaps, using 8402 luxels
+        0 vertex forced surfaces
+        0 vertex approximated surfaces
+        6 BSP lightmaps
+        6 total lightmaps
+       13 unique lightmap/shader combinations
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp
+Wrote 0.4 MB (369440 bytes)
+        2 seconds elapsed
+-rw-r--r-- 1 root root 369440 Nov 19 17:39 /home/claude/cat-arena/game/base/catarena/maps/ca_test.bsp

@@ -75,8 +75,8 @@ Changes by construction, because the handoff replaces the engine layer:
 
 | Stage | Goal | Done when |
 |---|---|---|
-| **A** Source audit and preservation | Audit, revisions, branch, import, build proof | **This stage**: done except the owner's decisions D1–D3 |
-| **B** Windows foundation | Cat Arena-branded engine build (name, icon, base folder `catarena`, no id data), `catarena` pk3 with a legally clean test map built by our own pipeline, C++20 game DLL skeleton loading on Windows and Linux, Vulkan device report, CI package | The branded EXE starts into a test map on Windows CI (no GPU: dedicated server + map load) and on Linux with lavapipe (screenshot) |
+| **A** Source audit and preservation | Audit, revisions, branch, import, build proof | **Done** (2026-11-19); decisions D1–D3 answered |
+| **B** Windows foundation | Cat Arena-branded engine build (name, icon, base folder `catarena`, no id data), `catarena` pk3 with a legally clean test map built by our own pipeline, C++20 game DLL skeleton loading on Windows and Linux, Vulkan device report, CI package | **Done** (2026-11-19): Windows CI run 44655962252 loads the test arena with the Cat Arena DLL; Linux client renders it and runs stock Quake III movement. The Windows client itself has not run on a GPU yet |
 | **C** First playable loop | One map room, movement (D1), one weapon, one enemy type, health / damage, one basic wave, collision | A recorded session (Linux, lavapipe) shows the loop; unit tests compare movement and the weapon with N10 within stated tolerances |
 | **D** Map and gameplay | Reactor Bastion converted (then the other three maps), 16 weapons, 20 enemy types, animation, wave progression, settings | Weapon / enemy / movement tolerance tests on all maps; Reactor Bastion walkthrough (all rooms, levels, bridges, ramps reachable; no invisible walls) |
 | **E** Multiplayer | 4-player co-op on Quake III networking: enemies, projectiles, damage, waves, downed / revive, disconnects, (D2) | 4 clients on one machine, packet loss / latency simulation, snapshot-size audit, soak |

@@ -1,7 +1,8 @@
 # Q3E architecture — Cat Arena on Quake3e (target design)
 
-Status: **design** (nothing below is implemented yet except the unmodified engine import). It
-follows Quake3e's own module architecture; Cat Arena code goes where Quake III game code goes.
+Status: the layout below exists since stage B (branded engine, the three modules, base folder,
+packaging); the Cat Arena systems in the table are still to be ported (stages C–E). It follows
+Quake3e's own module architecture; Cat Arena code goes where Quake III game code goes.
 
 ```
 CatArena.exe  (engine/quake3e, C, GPL v2)            catarena/  (base folder, fs_basegame)

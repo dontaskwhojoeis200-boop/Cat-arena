@@ -18,9 +18,8 @@ Output: `code\win32\msvc2017\output\quake3e.exe` (client, Vulkan renderer linked
 `quake3e.ded.exe`. The order matters: the client project links whichever renderer library was
 built last (upstream's CI does the same).
 
-Run without id data: put the executable next to a `catarena` folder containing `default.cfg`, then
-`quake3e.exe +set fs_basegame catarena`. Until the Cat Arena modules exist (Q3E-B) it stops at
-"VM_Create on UI failed".
+The engine is branded (`CAT_ARENA_STANDALONE`): base folder `catarena`, no id data. The game
+modules and the package are built as below; CI does all of it (`q3e-windows.yml`).
 
 ## Linux (development host, lavapipe)
 
@@ -52,3 +51,46 @@ maps (SOURCE_AUDIT §3). Build against an N10 build directory:
 g++ -std=c++20 -Inative/include docs/q3e/tools/mapstats.cpp <build>/libcat_arena_physics.a <build>/libcat_arena_assets.a <build>/libcat_arena_core.a -o mapstats
 ./mapstats assets/n1 helios-crucible bastion-keep reactor-bastion q3-gallery
 ```
+
+## Game modules (stage B)
+
+`game/` is a CMake project: `qagame` and `cgame` (ioquake3 GPL game code in C + Cat Arena C++20),
+`ui` (Cat Arena C++20). Output names follow Quake3e: `qagamex86_64.dll` / `.so` etc.
+
+```
+cmake -S game -B build-game -G "Visual Studio 17 2022" -A x64      # Windows
+cmake --build build-game --config Release
+cmake -S game -B build-game -DCMAKE_BUILD_TYPE=Release              # Linux
+cmake --build build-game -j8
+```
+
+## Base data and maps
+
+```
+python3 tools/q3e/make_base.py          # charset, textures, crosshairs, shaders, default.cfg, maps/*.map (needs Pillow)
+tools/q3e/build_maps.sh <q3map2>        # .map -> .bsp (BSP -meta, VIS, LIGHT); the .bsp is committed
+```
+
+q3map2 comes from NetRadiant-custom (GPL), commit `8216133984031afaa9a857b56ea66dd9c3d54b26`:
+
+```
+# deps here: libjpeg-turbo 3.0.4 (f29eda64) and libxml2 v2.13.5 (de918d45) built static into $P
+git apply tools/q3e/q3map2-gcc13.patch            # GCC 13 rejects one designated initializer
+make BUILD=release ASSIMP_INTERNAL=yes DEPENDENCIES_CHECK=off PKG_CONFIG_PATH=$P/lib/pkgconfig \
+     CPPFLAGS_JPEG=-I$P/include LIBS_JPEG=$P/lib/libjpeg.a binaries-q3map2
+# result: install/q3map2 (+ libassimp_.so next to it)
+```
+
+On Ubuntu with packages: `apt install libglib2.0-dev libxml2-dev libjpeg-dev libpng-dev` and the
+same `make` line without the dependency overrides.
+
+## Package
+
+```
+python3 tools/q3e/package.py --engine-dir <engine output> --client quake3e-vulkan.x64.exe \
+    --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena
+```
+
+Layout: `CatArena.exe`, `CatArena-server.exe`, `catarena/pak0.pk3` (built reproducibly from
+`game/base/catarena` without map sources), `catarena/*x86_64.dll`, `COPYING.txt`, `README.txt`,
+`SOURCE.txt` (commit of the build). On Linux add `--renderer quake3e_vulkan_x86_64.so`.

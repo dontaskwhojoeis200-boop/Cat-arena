@@ -1,0 +1,43 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+21 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config_server.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/CatArenaQ3E
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+21 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7fcf61027790
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-B (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 19 2026
+------------------------------------------------------------
+InitGame: \dmflags\0\fraglimit\20\g_gametype\0\mapname\ca_test\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\8\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e linux-x86_64 Nov 19 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+---------------------------
