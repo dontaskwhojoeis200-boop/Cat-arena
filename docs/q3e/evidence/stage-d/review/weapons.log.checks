@@ -1,0 +1,28 @@
+PASS loadout NAILGUN + SHOTGUN, magazines 50 / 8 (ca_loadout "0 1")
+PASS NAILGUN fired: magazine 46
+PASS switch (Q): SHOTGUN in hand with 8, NAILGUN magazine 46 kept
+PASS switch back: NAILGUN magazine 46
+PASS SHOTGUN recoil on the ground: pushed back at 129 u/s (N10 4.7 m/s = 150 u/s, then friction)
+PASS SHOTGUN in the air: lifted to vz 225 u/s (N10 at least 7.3 m/s = 234 u/s, minus gravity since)
+PASS NAILGUN          magazine 50, 35 shots in 3200 ms (N10 delay 90 ms -> 35.6)
+PASS SHOTGUN          magazine 8, 4 shots in 3050 ms (N10 delay 720 ms -> 4.2)
+PASS GRENADE LAUNCHER magazine 6, 4 shots in 3450 ms (N10 delay 780 ms -> 4.4)
+PASS RAILGUN          magazine 7, 3 shots in 3400 ms (N10 delay 980 ms -> 3.5)
+PASS ROCKET LAUNCHER  magazine 6, 5 shots in 4600 ms (N10 delay 860 ms -> 5.3)
+PASS SUPER NAILGUN    magazine 36, 25 shots in 3400 ms (N10 delay 130 ms -> 26.2)
+PASS THUNDERBOLT      magazine 75, 47 shots in 3550 ms (N10 delay 75 ms -> 47.3)
+PASS SUPER SHOTGUN    magazine 12, 4 shots in 3600 ms (N10 delay 880 ms -> 4.1)
+PASS PLASMA REPEATER  magazine 48, 20 shots in 3700 ms (N10 delay 190 ms -> 19.5)
+PASS TRIPLE SPIKE     magazine 36, 10 shots in 3500 ms (N10 delay 340 ms -> 10.3)
+PASS RIFT CANNON      magazine 5, 4 shots in 4650 ms (N10 delay 1150 ms -> 4.0)
+PASS IRON CHAINGUN    magazine 100, 62 shots in 4000 ms (N10 delay 65 ms -> 61.5)
+PASS HAND CANNON      magazine 7, 4 shots in 3350 ms (N10 delay 820 ms -> 4.1)
+PASS HELLFIRE CARBINE magazine 28, 12 shots in 3300 ms (N10 delay 280 ms -> 11.8)
+PASS SAWBLADE DRIVER  magazine 22, 9 shots in 3350 ms (N10 delay 380 ms -> 8.8)
+PASS QUAD SHOTGUN     magazine 8, 3 shots in 3750 ms (N10 delay 1150 ms -> 3.3)
+PASS rocket at the feet: 44 damage (N10 38 x 1.15 = 44 at the centre), launched at vz 379 u/s
+PASS 40 frags, each rerolled the weapon in hand into a different one
+PASS frags scored with 16 different weapons: GRENADE LAUNCHER, HAND CANNON, HELLFIRE CARBINE, IRON CHAINGUN, NAILGUN, PLASMA REPEATER, QUAD SHOTGUN, RAILGUN, RIFT CANNON, ROCKET LAUNCHER, SAWBLADE DRIVER, SHOTGUN, SUPER NAILGUN, SUPER SHOTGUN, THUNDERBOLT, TRIPLE SPIKE
+PASS score 40
+waves: wave 1, 10 enemies, wave 1 cleared, wave 2, 13 enemies, wave 2 cleared, wave 3, 17 enemies, wave 3 cleared, wave 4, 22 enemies
+ALL PASS

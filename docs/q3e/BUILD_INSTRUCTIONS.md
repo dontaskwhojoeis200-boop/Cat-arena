@@ -180,7 +180,18 @@ python3 tools/q3e/make_base.py            # also writes textures/catarena/medkit
 CatArena-server +set dedicated 1 +map ca_reactor +ca_selftest +quit      # includes N10's medkit rule (11 checks)
 python3 tools/q3e/medkit_test.py write . <homepath>/catarena/medkit.cfg
 SDL_AUDIODRIVER=dummy CatArena +set fs_homepath <homepath> +set ca_waves 0 +set ca_log 1 +devmap ca_reactor +wait 150 +exec medkit.cfg
-python3 tools/q3e/medkit_test.py check <console log>
+python3 tools/q3e/medkit_test.py check <console log> <homepath>/catarena/medkit.cfg
 ```
 
 `ca_health <1-100>` (cheat) sets the player's health; `ca_log 1` prints every medkit taken.
+
+## Stage D review: everything at once
+
+```
+python3 tools/q3e/run_stage_d.py . <package dir> <out dir> [selftest gameplay weapons lineup waves map sound medkit views]
+CatArena-server +set dedicated 1 +map ca_reactor +ca_fitsurvey 20 +quit     # Quake III player box vs N10's player
+```
+
+The runner writes every log, check and picture into `<out dir>` and a `summary.txt`; all tests take
+about 95 minutes on two cores (needs a display, a Vulkan driver and ffmpeg). Without arguments it
+runs everything.

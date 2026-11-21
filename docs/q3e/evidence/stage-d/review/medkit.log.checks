@@ -1,0 +1,10 @@
+PASS sounds registered (with the medkit beep)
+PASS 38 medkits on Reactor Bastion (N10's medkit spots)
+PASS spawn health 100 (N10 100)
+PASS standing on a medkit at full health: not taken (health 100)
+PASS walked over it at 40 health: (40, 40, 80), health then 80, medkit beep
+PASS back after 13000 ms (N10 13 s), healed again 80 -> 100
+PASS 2 heals in all
+PASS an 8 m fall: health 100 before, 100 after, standing at z 184 (N10: no fall damage)
+PASS no errors
+ALL PASS

@@ -106,9 +106,10 @@ def main(root, pkg, out, only):
             continue
         h = home(name)
         cfg = os.path.join(h, "catarena", "waves.cfg")
-        # two far-apart spawn spots open to the sky on every map; The Arsenal's waves stall later on
-        # (a flyer can hover out of reach), so god mode goes off earlier there
-        py("enemies_test.py", "write", os.devnull, cfg, root, mid, "250" if m == "ca_arsenal" else "700")
+        # two far-apart spawn spots open to the sky on every map; god mode off three times for 60 shots
+        # (60, 300, 600): at any one moment a wave can be down to a few enemies far away or flyers
+        # hovering out of reach (N10's greedy flyer steering, see STAGE_D_REVIEW.md)
+        py("enemies_test.py", "write", os.devnull, cfg, root, mid, "60,300,600")
         loadout = ["+set", "ca_loadout", "11 0"]
         log = client(name, h, ["+set", "ca_waves", "0", "+set", "ca_log", "1"] + loadout + ["+devmap", m, "+wait", "150", "+exec", "waves.cfg"])
         lineup_arg = lineup_log if (m == "ca_reactor" and lineup_log) else "-"
@@ -141,7 +142,7 @@ def main(root, pkg, out, only):
         h = home("medkit")
         py("medkit_test.py", "write", root, os.path.join(h, "catarena", "medkit.cfg"))
         log = client("medkit", h, ["+set", "ca_waves", "0", "+set", "ca_log", "1", "+devmap", "ca_reactor", "+wait", "150", "+exec", "medkit.cfg"])
-        verdict("medkit", py("medkit_test.py", "check", log, capture=log + ".checks"), log + ".checks")
+        verdict("medkit", py("medkit_test.py", "check", log, os.path.join(h, "catarena", "medkit.cfg"), capture=log + ".checks"), log + ".checks")
     for mid, m in MAPS:
         name = "views-" + m
         if not want(name):

@@ -1,0 +1,25 @@
+wrote /tmp/claude-0/review/src/game/base/catarena
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/nailgun.md3: 300 triangles, 617 vertices, 1 surfaces, bounds [8.3, -10.8, -9.4] .. [28.5, -3.2, -1.4]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/shotgun.md3: 292 triangles, 645 vertices, 1 surfaces, bounds [8.9, -10.3, -8.8] .. [28.6, -2.7, -2.0]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/grenade_launcher.md3: 299 triangles, 593 vertices, 1 surfaces, bounds [8.4, -10.6, -9.8] .. [28.9, -1.7, -1.0]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/railgun.md3: 292 triangles, 439 vertices, 1 surfaces, bounds [8.4, -10.1, -8.6] .. [28.7, -2.5, -2.2]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/rocket_launcher.md3: 300 triangles, 607 vertices, 1 surfaces, bounds [8.2, -11.0, -9.5] .. [29.0, -1.3, -1.3]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/super_nailgun.md3: 273 triangles, 593 vertices, 1 surfaces, bounds [8.4, -10.6, -9.2] .. [28.4, -3.3, -1.6]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/thunderbolt.md3: 288 triangles, 644 vertices, 1 surfaces, bounds [8.5, -10.2, -9.6] .. [28.5, -2.9, -1.2]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/super_shotgun.md3: 293 triangles, 639 vertices, 1 surfaces, bounds [8.5, -9.9, -8.3] .. [28.8, -1.9, -2.5]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/plasma_repeater.md3: 296 triangles, 639 vertices, 1 surfaces, bounds [8.5, -10.1, -9.1] .. [28.5, -2.4, -1.7]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/triple_spike.md3: 286 triangles, 661 vertices, 1 surfaces, bounds [8.4, -10.4, -9.0] .. [28.3, -3.6, -1.8]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/rift_cannon.md3: 300 triangles, 572 vertices, 1 surfaces, bounds [8.6, -10.4, -9.3] .. [28.3, -1.2, -1.5]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/iron_chaingun.md3: 299 triangles, 642 vertices, 1 surfaces, bounds [8.7, -12.9, -9.6] .. [29.3, -2.4, -1.2]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/hand_cannon.md3: 300 triangles, 413 vertices, 1 surfaces, bounds [8.3, -10.4, -9.9] .. [28.8, -2.2, -0.9]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/hellfire_carbine.md3: 286 triangles, 461 vertices, 1 surfaces, bounds [8.5, -10.2, -9.5] .. [28.5, -3.1, -1.3]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/sawblade_driver.md3: 299 triangles, 434 vertices, 1 surfaces, bounds [8.4, -10.2, -9.1] .. [28.4, -3.0, -1.7]
+/tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons/quad_shotgun.md3: 286 triangles, 636 vertices, 1 surfaces, bounds [8.5, -10.5, -9.8] .. [29.1, -1.2, -1.0]
+converted 16 weapons -> /tmp/claude-0/review/src/game/base/catarena/models/catarena/weapons
+20 creature meshes and textures -> /tmp/claude-0/review/src/game/base/catarena/models/catarena/enemies
+86 sounds written to ./game/base/catarena/sound/catarena, 0 clipped
+soundtrack: music/ashen_drive.ogg (1922852 bytes)
+ca_reactor: 343 slab, 207 solid, 3789 wall brushes (0 skipped), 12 footprint edge clips, 24398 triangles in 77 material groups, 0 material-mesh triangles in 0 materials, 0 portal surfaces, 92 lights, 12 spawns, 4 pads
+ca_helios: 167 slab, 120 solid, 2479 wall brushes (0 skipped), 8 footprint edge clips, 7308 triangles in 33 material groups, 161014 material-mesh triangles in 33 materials, 1 portal surfaces, 61 lights, 28 spawns, 2 pads
+ca_bastion: 156 slab, 96 solid, 2652 wall brushes (0 skipped), 8 footprint edge clips, 5462 triangles in 26 material groups, 126814 material-mesh triangles in 44 materials, 0 portal surfaces, 61 lights, 12 spawns, 2 pads
+ca_arsenal: 988 slab, 34 solid, 3083 wall brushes (0 skipped), 4 footprint edge clips, 2398 triangles in 37 material groups, 1000 material-mesh triangles in 31 materials, 3 portal surfaces, 31 lights, 7 spawns, 1 pads

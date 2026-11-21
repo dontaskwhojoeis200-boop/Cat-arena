@@ -80,7 +80,7 @@ def map_spots(root, map_id):
     return ["ca_place %.0f %.0f %.0f %.0f" % a, "ca_place %.0f %.0f %.0f %.0f" % b]
 
 
-def plan_waves(spots=None, god_off=700):
+def plan_waves(spots=None, god_off=(700,)):
     global START, SPOTS
     if spots:
         START, SPOTS = spots[0], spots
@@ -95,17 +95,17 @@ def plan_waves(spots=None, god_off=700):
             lines += ["ca_state", "ca_enemies"]
         if i in (60, 300, 600, 900):
             lines.append("screenshotJPEG enemies_fight_%d" % i)
-        if i == god_off:
+        if i in god_off:
             lines += ["god", "echo CATEST god off"]
-        if i == god_off + 60:
+        if i - 60 in god_off:
             lines += ["ca_state", "god", "echo CATEST god on"]
     lines += ["ca_state", "wait 30", "echo CATEST end", "quit"]
     return lines
 
 
-def write(lineup_path, waves_path, root=None, map_id=None, god_off=700):
+def write(lineup_path, waves_path, root=None, map_id=None, god_off="700"):
     spots = map_spots(root, map_id) if map_id else None
-    for path, lines in ((lineup_path, plan_lineup()), (waves_path, plan_waves(spots, int(god_off)))):
+    for path, lines in ((lineup_path, plan_lineup()), (waves_path, plan_waves(spots, tuple(int(g) for g in str(god_off).split(","))))):
         with open(path, "w", newline="\n") as f:
             f.write("\n".join(lines) + "\n")
 
@@ -140,10 +140,17 @@ def check(lineup_path, waves_path):
        "player hit by every attack kind: " + "; ".join("%s by %s" % (k, ", ".join(sorted(v))) for k, v in sorted(by_kind.items())))
     flyer_hits = [h for h in hits if h[0] in FLYERS]
     ok(len(flyer_hits) > 0, "flyers attacked the player %d times" % len(flyer_hits))
-    god_off = text.split("CATEST god off")[1].split("CATEST god on")[0] if "CATEST god off" in text else ""
+    god_off = ""
+    for rest in text.split("CATEST god off")[1:]:   # every window, up to the state asked for just before god mode went on
+        head, _, tail = rest.partition("CATEST god on")   # again (server prints arrive after the local echo lines)
+        m = re.search(r"CA_STATE .*", tail)
+        god_off += head + (m.group(0) if m else "") + "\n"
     off_states = [dict(kv.split("=", 1) for kv in m.group(1).split()) for m in re.finditer(r"CA_STATE (.*)", god_off)]
     took = len(re.findall(r"Cat Arena: hit by", god_off))
-    ok(took > 0 and (len(off_states) == 0 or int(off_states[-1]["health"]) < 100), "without god mode: %d hits, health then %s" % (took, off_states[-1]["health"] if off_states else "?"))
+    # damage shows as a health below 100 in the window, or a death (respawn at 100); a medkit can heal it back
+    lowest = min([int(st["health"]) for st in off_states] or [100])
+    died = "died" in god_off
+    ok(took > 0 and (lowest < 100 or died or len(off_states) == 0), "without god mode: %d hits, lowest health %d%s" % (took, lowest, ", died" if died else ""))
     reached = [int(w) for w in re.findall(r"Cat Arena: wave (\d+),", waves)]
     ok(max(reached or [0]) >= 3, "waves reached: %s" % (max(reached or [0])))
     ok(all("ERROR" not in t and "Signal caught" not in t for t in (lineup, text)), "no errors")

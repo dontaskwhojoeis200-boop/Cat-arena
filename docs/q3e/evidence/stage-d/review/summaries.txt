@@ -1,0 +1,34 @@
+selftest-ca_test       PASS  ALL PASS
+selftest-ca_reactor    PASS  ALL PASS
+selftest-ca_helios     PASS  ALL PASS
+selftest-ca_bastion    PASS  ALL PASS
+selftest-ca_arsenal    PASS  ALL PASS
+gameplay               PASS  ALL PASS
+weapons                PASS  ALL PASS
+waves-ca_reactor       FAIL  1 FAILED
+waves-ca_helios        PASS  ALL PASS
+waves-ca_bastion       FAIL  2 FAILED
+waves-ca_arsenal       FAIL  1 FAILED
+8 of 11 passed in 27 min
+waves-ca_reactor       FAIL  1 FAILED
+waves-ca_helios        PASS  ALL PASS
+waves-ca_bastion       PASS  ALL PASS
+waves-ca_arsenal       PASS  ALL PASS
+map-ca_reactor         PASS  ALL PASS
+map-ca_helios          PASS  ALL PASS
+map-ca_bastion         PASS  ALL PASS
+map-ca_arsenal         FAIL  FAILURES
+sound                  PASS  ALL PASS
+medkit                 PASS  ALL PASS
+views-ca_reactor       PASS  6 pictures
+views-ca_helios        PASS  6 pictures
+views-ca_bastion       PASS  6 pictures
+views-ca_arsenal       PASS  6 pictures
+12 of 14 passed in 45 min
+waves-ca_reactor       FAIL  1 FAILED
+waves-ca_helios        PASS  ALL PASS
+waves-ca_bastion       PASS  ALL PASS
+waves-ca_arsenal       PASS  ALL PASS
+medkit                 PASS  ALL PASS
+4 of 5 passed in 23 min
+map-ca_arsenal re-checked with the map_test.py of this commit (ramp pieces shorter than the player box): ALL PASS (map-ca_arsenal.log.checks)

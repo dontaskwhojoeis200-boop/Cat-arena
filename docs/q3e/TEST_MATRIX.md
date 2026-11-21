@@ -132,3 +132,18 @@ Unverified / Blocked.
 | Differences from N10 | no dynamic lights or fog on the medkit; the bob phase uses the Quake III x coordinate (N10's uses N10's x) | — | — |
 | Regression | `ca_selftest` ALL PASS on the five maps; sound run ALL PASS (85 sounds with the medkit beep); weapons run ALL PASS (27; 39 frags, all 16 weapons) and stage C gameplay run ALL PASS (11; waves 1-4 cleared) after two test-script changes the 100 health needed: the gameplay run holds the waves while it turns god mode on (with 100 health instead of 125 the fiends usually win the no-god part, and a dead player cannot turn it on) and runs with `ca_loadout "0 1"` (its reload check is the NAILGUN's, the loadout has been random since part 3); the weapons run moves the player between two spots every 100 shots (a skyprobe hovering behind a pillar held wave 1 at 9 frags) | Tested | linux-weapons-d7-*.txt, linux-gameplay-d7-*.txt, linux-sound-d7-*.txt |
 | Windows CI run 44910818901 | success: MSVC build; `ca_selftest` ALL PASS on the five maps (the verdict includes the medkit checks; the log keeps the full output of the test arena run only); `qagamex86_64.dll` 501,760, `cgamex86_64.dll` 275,456 bytes | Tested | windows-ci-44910818901.log; artifact `CAT_ARENA_Q3E_D7_WINDOWS_x64` (id 14709448187, 21,556,463 bytes) |
+
+## Q3E-D review — 2026-11-21
+
+Full account in `STAGE_D_REVIEW.md`; logs in `evidence/stage-d/review/`.
+
+| Check | Result | Status | Evidence (`docs/q3e/evidence/stage-d/review/`) |
+|---|---|---|---|
+| Clean clone: engine, game modules | build; 0 engine warnings, 2 in unmodified ioquake3 game code | Compiled | engine-build.log, game-build.log |
+| Converters re-run on the clean clone | every committed output reproduced byte for byte | Tested | convert.log |
+| q3map2 re-run (test arena, The Arsenal) | all lumps identical except the light grid (threaded grid pass); single-threaded light reproducible | Tested | — |
+| Every stage D test on one build (e6d303f), `run_stage_d.py` | self-tests 5/5, gameplay, weapons, lineup, map tests 4/4, sound, medkits ALL PASS; waves ALL PASS on Helios, Bastion, Arsenal and on Reactor in the run before the last (8/9 in the last: no melee hit) | Tested | summaries.txt and the logs / checks |
+| Player box survey (`ca_fitsurvey`) | the stock Quake III box reaches 91-98 % of the nodes N10's player reaches; the rest lie within 1 m of its reach (wall strips) except 6 nodes on Reactor Bastion (four corner pockets) and 6 within 2 m on The Arsenal | Tested | fitsurvey-*.txt |
+| Lightmap brightness spread | N10 percentiles 10-90 about 36-72, q3map2 5-146 (Reactor Bastion; same means): q3map2's shadows near black | Tested (measured) | STAGE_D_REVIEW.md section 5 |
+| Fall damage | removed (N10 has none); an 8 m fall costs no health | Tested | medkit.log.checks |
+| Windows CI | pending | — | — |

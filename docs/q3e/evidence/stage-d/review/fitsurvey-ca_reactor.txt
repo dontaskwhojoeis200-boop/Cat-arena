@@ -1,0 +1,259 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...found 1 cached paks
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+execing q3config_server.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP socket: 0.0.0.0:27960
+WARNING: NET_IPSocket: bind: Address already in use
+Opening IP socket: 0.0.0.0:27961
+WARNING: NET_IPSocket: bind: Address already in use
+Opening IP socket: 0.0.0.0:27962
+Working directory: /tmp/claude-0/Q3E-R
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_reactor
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7feb5880fb10
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D7 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+------------------------------------------------------------
+InitGame: \dmflags\0\fraglimit\0\g_gametype\0\mapname\ca_reactor\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\8\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e linux-x86_64 Nov 19 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+Cat Arena: N10 navigation graph for ca_reactor (6182 nodes)
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 38 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+ca_fitsurvey: only N10 fits at -480 -1184 186 (N10 43.5 21.5 5.0)
+ca_fitsurvey: only N10 fits at 128 -1184 26 (N10 62.5 21.5 0.0)
+ca_fitsurvey: only N10 fits at 160 -1184 -102 (N10 63.5 21.5 -4.0)
+ca_fitsurvey: only N10 fits at 480 -1184 186 (N10 73.5 21.5 5.0)
+ca_fitsurvey: only N10 fits at -544 -1152 26 (N10 41.5 22.5 0.0)
+ca_fitsurvey: only N10 fits at -544 -1152 186 (N10 41.5 22.5 5.0)
+ca_fitsurvey: only N10 fits at -512 -1152 26 (N10 42.5 22.5 0.0)
+ca_fitsurvey: only N10 fits at 128 -1152 26 (N10 62.5 22.5 0.0)
+ca_fitsurvey: only N10 fits at 192 -1152 -92 (N10 64.5 22.5 -3.7)
+ca_fitsurvey: only N10 fits at 224 -1152 -92 (N10 65.5 22.5 -3.7)
+ca_fitsurvey: only N10 fits at 512 -1152 26 (N10 74.5 22.5 0.0)
+ca_fitsurvey: only N10 fits at 544 -1152 26 (N10 75.5 22.5 0.0)
+ca_fitsurvey: only N10 fits at 544 -1152 186 (N10 75.5 22.5 5.0)
+ca_fitsurvey: only N10 fits at -576 -1120 26 (N10 40.5 23.5 0.0)
+ca_fitsurvey: only N10 fits at -576 -1120 186 (N10 40.5 23.5 5.0)
+ca_fitsurvey: only N10 fits at 128 -1120 26 (N10 62.5 23.5 0.0)
+ca_fitsurvey: only N10 fits at 192 -1120 -76 (N10 64.5 23.5 -3.2)
+ca_fitsurvey: only N10 fits at 224 -1120 -76 (N10 65.5 23.5 -3.2)
+ca_fitsurvey: only N10 fits at 576 -1120 26 (N10 76.5 23.5 0.0)
+ca_fitsurvey: only N10 fits at 576 -1120 186 (N10 76.5 23.5 5.0)
+ca_fitsurvey: only N10 fits at 864 -1120 26 (N10 85.5 23.5 0.0)
+ca_fitsurvey: only N10 fits at -608 -1088 26 (N10 39.5 24.5 0.0)
+ca_fitsurvey: only N10 fits at -608 -1088 186 (N10 39.5 24.5 5.0)
+ca_fitsurvey: only N10 fits at -416 -1088 26 (N10 45.5 24.5 0.0)
+ca_fitsurvey: only N10 fits at 128 -1088 26 (N10 62.5 24.5 0.0)
+ca_fitsurvey: only N10 fits at 192 -1088 -60 (N10 64.5 24.5 -2.7)
+ca_fitsurvey: only N10 fits at 224 -1088 -60 (N10 65.5 24.5 -2.7)
+ca_fitsurvey: only N10 fits at 416 -1088 26 (N10 71.5 24.5 0.0)
+ca_fitsurvey: only N10 fits at 608 -1088 26 (N10 77.5 24.5 0.0)
+ca_fitsurvey: only N10 fits at 608 -1088 186 (N10 77.5 24.5 5.0)
+ca_fitsurvey: only N10 fits at 896 -1088 26 (N10 86.5 24.5 0.0)
+ca_fitsurvey: only N10 fits at -640 -1056 26 (N10 38.5 25.5 0.0)
+ca_fitsurvey: only N10 fits at -640 -1056 186 (N10 38.5 25.5 5.0)
+ca_fitsurvey: only N10 fits at 128 -1056 26 (N10 62.5 25.5 0.0)
+ca_fitsurvey: only N10 fits at 192 -1056 -44 (N10 64.5 25.5 -2.2)
+ca_fitsurvey: only N10 fits at 224 -1056 -44 (N10 65.5 25.5 -2.2)
+ca_fitsurvey: only N10 fits at 480 -1056 186 (N10 73.5 25.5 5.0)
+ca_fitsurvey: only N10 fits at 640 -1056 26 (N10 78.5 25.5 0.0)
+ca_fitsurvey: only N10 fits at 640 -1056 186 (N10 78.5 25.5 5.0)
+ca_fitsurvey: only N10 fits at 864 -1056 26 (N10 85.5 25.5 0.0)
+ca_fitsurvey: only N10 fits at 928 -1056 26 (N10 87.5 25.5 0.0)
+ca_fitsurvey: only N10 fits at -672 -1024 26 (N10 37.5 26.5 0.0)
+ca_fitsurvey: only N10 fits at -672 -1024 186 (N10 37.5 26.5 5.0)
+ca_fitsurvey: only N10 fits at 128 -1024 26 (N10 62.5 26.5 0.0)
+ca_fitsurvey: only N10 fits at 192 -1024 -28 (N10 64.5 26.5 -1.7)
+ca_fitsurvey: only N10 fits at 224 -1024 -28 (N10 65.5 26.5 -1.7)
+ca_fitsurvey: only N10 fits at 480 -1024 186 (N10 73.5 26.5 5.0)
+ca_fitsurvey: only N10 fits at 608 -1024 186 (N10 77.5 26.5 5.0)
+ca_fitsurvey: only N10 fits at 640 -1024 26 (N10 78.5 26.5 0.0)
+ca_fitsurvey: only N10 fits at 672 -1024 36 (N10 79.5 26.5 0.3)
+ca_fitsurvey: only N10 fits at 800 -1024 26 (N10 83.5 26.5 0.0)
+ca_fitsurvey: only N10 fits at 896 -1024 26 (N10 86.5 26.5 0.0)
+ca_fitsurvey: only N10 fits at 960 -1024 26 (N10 88.5 26.5 0.0)
+ca_fitsurvey: only N10 fits at -704 -992 26 (N10 36.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at -704 -992 186 (N10 36.5 27.5 5.0)
+ca_fitsurvey: only N10 fits at -448 -992 186 (N10 44.5 27.5 5.0)
+ca_fitsurvey: only N10 fits at -416 -992 26 (N10 45.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at 128 -992 26 (N10 62.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at 192 -992 -12 (N10 64.5 27.5 -1.2)
+ca_fitsurvey: only N10 fits at 224 -992 -12 (N10 65.5 27.5 -1.2)
+ca_fitsurvey: only N10 fits at 416 -992 26 (N10 71.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at 448 -992 186 (N10 72.5 27.5 5.0)
+ca_fitsurvey: only N10 fits at 608 -992 26 (N10 77.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at 640 -992 36 (N10 78.5 27.5 0.3)
+ca_fitsurvey: only N10 fits at 672 -992 47 (N10 79.5 27.5 0.6)
+ca_fitsurvey: only N10 fits at 704 -992 57 (N10 80.5 27.5 1.0)
+ca_fitsurvey: only N10 fits at 768 -992 26 (N10 82.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at 896 -992 26 (N10 86.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at 992 -992 26 (N10 89.5 27.5 0.0)
+ca_fitsurvey: only N10 fits at -736 -960 26 (N10 35.5 28.5 0.0)
+ca_fitsurvey: only N10 fits at -736 -960 186 (N10 35.5 28.5 5.0)
+ca_fitsurvey: only N10 fits at 128 -960 26 (N10 62.5 28.5 0.0)
+ca_fitsurvey: only N10 fits at 160 -960 4 (N10 63.5 28.5 -0.7)
+ca_fitsurvey: only N10 fits at 192 -960 4 (N10 64.5 28.5 -0.7)
+ca_fitsurvey: only N10 fits at 224 -960 4 (N10 65.5 28.5 -0.7)
+ca_fitsurvey: only N10 fits at 608 -960 186 (N10 77.5 28.5 5.0)
+ca_fitsurvey: only N10 fits at 672 -960 57 (N10 79.5 28.5 1.0)
+ca_fitsurvey: only N10 fits at 704 -960 67 (N10 80.5 28.5 1.3)
+ca_fitsurvey: only N10 fits at 736 -960 78 (N10 81.5 28.5 1.6)
+ca_fitsurvey: only N10 fits at 864 -960 26 (N10 85.5 28.5 0.0)
+ca_fitsurvey: only N10 fits at 1024 -960 26 (N10 90.5 28.5 0.0)
+ca_fitsurvey: only N10 fits at -768 -928 26 (N10 34.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at -768 -928 186 (N10 34.5 29.5 5.0)
+ca_fitsurvey: only N10 fits at -608 -928 26 (N10 39.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at -544 -928 26 (N10 41.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at -416 -928 26 (N10 45.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at -416 -928 186 (N10 45.5 29.5 5.0)
+ca_fitsurvey: only N10 fits at -352 -928 26 (N10 47.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at 160 -928 20 (N10 63.5 29.5 -0.2)
+ca_fitsurvey: only N10 fits at 192 -928 20 (N10 64.5 29.5 -0.2)
+ca_fitsurvey: only N10 fits at 224 -928 20 (N10 65.5 29.5 -0.2)
+ca_fitsurvey: only N10 fits at 416 -928 26 (N10 71.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at 416 -928 186 (N10 71.5 29.5 5.0)
+ca_fitsurvey: only N10 fits at 640 -928 186 (N10 78.5 29.5 5.0)
+ca_fitsurvey: only N10 fits at 704 -928 78 (N10 80.5 29.5 1.6)
+ca_fitsurvey: only N10 fits at 736 -928 88 (N10 81.5 29.5 1.9)
+ca_fitsurvey: only N10 fits at 768 -928 98 (N10 82.5 29.5 2.3)
+ca_fitsurvey: only N10 fits at 1024 -928 26 (N10 90.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at 1056 -928 26 (N10 91.5 29.5 0.0)
+ca_fitsurvey: only N10 fits at -800 -896 180 (N10 33.5 30.5 4.8)
+ca_fitsurvey: only N10 fits at -640 -896 26 (N10 38.5 30.5 0.0)
+ca_fitsurvey: only N10 fits at 672 -896 186 (N10 79.5 30.5 5.0)
+ca_fitsurvey: only N10 fits at 736 -896 98 (N10 81.5 30.5 2.3)
+ca_fitsurvey: only N10 fits at 768 -896 108 (N10 82.5 30.5 2.6)
+ca_fitsurvey: only N10 fits at 800 -896 119 (N10 83.5 30.5 2.9)
+ca_fitsurvey: only N10 fits at 1056 -896 26 (N10 91.5 30.5 0.0)
+ca_fitsurvey: only N10 fits at 1088 -896 26 (N10 92.5 30.5 0.0)
+ca_fitsurvey: only N10 fits at -832 -864 160 (N10 32.5 31.5 4.2)
+ca_fitsurvey: only N10 fits at -800 -864 170 (N10 33.5 31.5 4.5)
+ca_fitsurvey: only N10 fits at -768 -864 180 (N10 34.5 31.5 4.8)
+ca_fitsurvey: only N10 fits at -544 -864 26 (N10 41.5 31.5 0.0)
+ca_fitsurvey: only N10 fits at 704 -864 186 (N10 80.5 31.5 5.0)
+ca_fitsurvey: only N10 fits at 768 -864 119 (N10 82.5 31.5 2.9)
+ca_fitsurvey: only N10 fits at 800 -864 129 (N10 83.5 31.5 3.2)
+ca_fitsurvey: only N10 fits at 832 -864 139 (N10 84.5 31.5 3.5)
+ca_fitsurvey: only N10 fits at 992 -864 26 (N10 89.5 31.5 0.0)
+ca_fitsurvey: only N10 fits at 1120 -864 26 (N10 93.5 31.5 0.0)
+ca_fitsurvey: only N10 fits at -864 -832 139 (N10 31.5 32.5 3.5)
+ca_fitsurvey: only N10 fits at -832 -832 150 (N10 32.5 32.5 3.9)
+ca_fitsurvey: only N10 fits at -800 -832 160 (N10 33.5 32.5 4.2)
+ca_fitsurvey: only N10 fits at -576 -832 26 (N10 40.5 32.5 0.0)
+ca_fitsurvey: only N10 fits at 736 -832 186 (N10 81.5 32.5 5.0)
+ca_fitsurvey: only N10 fits at 800 -832 139 (N10 83.5 32.5 3.5)
+ca_fitsurvey: only N10 fits at 832 -832 150 (N10 84.5 32.5 3.9)
+ca_fitsurvey: only N10 fits at 864 -832 160 (N10 85.5 32.5 4.2)
+ca_fitsurvey: only N10 fits at 1088 -832 26 (N10 92.5 32.5 0.0)
+ca_fitsurvey: only N10 fits at -896 -800 119 (N10 30.5 33.5 2.9)
+ca_fitsurvey: only N10 fits at -864 -800 129 (N10 31.5 33.5 3.2)
+ca_fitsurvey: only N10 fits at -832 -800 139 (N10 32.5 33.5 3.5)
+ca_fitsurvey: only N10 fits at -352 -800 26 (N10 47.5 33.5 0.0)
+ca_fitsurvey: only N10 fits at -352 -800 186 (N10 47.5 33.5 5.0)
+ca_fitsurvey: only N10 fits at 352 -800 26 (N10 69.5 33.5 0.0)
+ca_fitsurvey: only N10 fits at 352 -800 186 (N10 69.5 33.5 5.0)
+ca_fitsurvey: only N10 fits at 672 -800 26 (N10 79.5 33.5 0.0)
+ca_fitsurvey: only N10 fits at 736 -800 26 (N10 81.5 33.5 0.0)
+ca_fitsurvey: only N10 fits at 768 -800 186 (N10 82.5 33.5 5.0)
+ca_fitsurvey: only N10 fits at 832 -800 160 (N10 84.5 33.5 4.2)
+ca_fitsurvey: only N10 fits at 864 -800 170 (N10 85.5 33.5 4.5)
+ca_fitsurvey: only N10 fits at 896 -800 180 (N10 86.5 33.5 4.8)
+ca_fitsurvey: only N10 fits at 1024 -800 26 (N10 90.5 33.5 0.0)
+ca_fitsurvey: only N10 fits at 1056 -800 26 (N10 91.5 33.5 0.0)
+ca_fitsurvey: only N10 fits at -928 -768 98 (N10 29.5 34.5 2.3)
+ca_fitsurvey: only N10 fits at -896 -768 108 (N10 30.5 34.5 2.6)
+ca_fitsurvey: only N10 fits at -864 -768 119 (N10 31.5 34.5 2.9)
+ca_fitsurvey: only N10 fits at -800 -768 186 (N10 33.5 34.5 5.0)
+ca_fitsurvey: only N10 fits at -384 -768 26 (N10 46.5 34.5 0.0)
+ca_fitsurvey: only N10 fits at -384 -768 186 (N10 46.5 34.5 5.0)
+ca_fitsurvey: only N10 fits at 384 -768 26 (N10 70.5 34.5 0.0)
+ca_fitsurvey: only N10 fits at 384 -768 186 (N10 70.5 34.5 5.0)
+ca_fitsurvey: only N10 fits at 640 -768 26 (N10 78.5 34.5 0.0)
+ca_fitsurvey: only N10 fits at 768 -768 26 (N10 82.5 34.5 0.0)
+ca_fitsurvey: only N10 fits at 864 -768 180 (N10 85.5 34.5 4.8)
+ca_fitsurvey: only N10 fits at -960 -736 78 (N10 28.5 35.5 1.6)
+ca_fitsurvey: only N10 fits at -928 -736 88 (N10 29.5 35.5 1.9)
+ca_fitsurvey: only N10 fits at -896 -736 98 (N10 30.5 35.5 2.3)
+ca_fitsurvey: only N10 fits at -832 -736 186 (N10 32.5 35.5 5.0)
+ca_fitsurvey: only N10 fits at -416 -736 26 (N10 45.5 35.5 0.0)
+ca_fitsurvey: only N10 fits at -416 -736 186 (N10 45.5 35.5 5.0)
+ca_fitsurvey: only N10 fits at 416 -736 26 (N10 71.5 35.5 0.0)
+ca_fitsurvey: only N10 fits at 416 -736 186 (N10 71.5 35.5 5.0)
+ca_fitsurvey: only N10 fits at 640 -736 26 (N10 78.5 35.5 0.0)
+ca_fitsurvey: only N10 fits at 800 -736 26 (N10 83.5 35.5 0.0)
+ca_fitsurvey: only N10 fits at 960 -736 26 (N10 88.5 35.5 0.0)
+ca_fitsurvey: only N10 fits at 960 -736 186 (N10 88.5 35.5 5.0)
+ca_fitsurvey: only N10 fits at -992 -704 57 (N10 27.5 36.5 1.0)
+ca_fitsurvey: only N10 fits at -960 -704 67 (N10 28.5 36.5 1.3)
+ca_fitsurvey: only N10 fits at -928 -704 78 (N10 29.5 36.5 1.6)
+ca_fitsurvey: only N10 fits at -864 -704 186 (N10 31.5 36.5 5.0)
+ca_fitsurvey: only N10 fits at -448 -704 26 (N10 44.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at -320 -704 26 (N10 48.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at -256 -704 26 (N10 50.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 256 -704 26 (N10 66.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 320 -704 26 (N10 68.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 448 -704 26 (N10 72.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 672 -704 26 (N10 79.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 800 -704 26 (N10 83.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 992 -704 26 (N10 89.5 36.5 0.0)
+ca_fitsurvey: only N10 fits at 992 -704 186 (N10 89.5 36.5 5.0)
+ca_fitsurvey: only N10 fits at -1024 -672 36 (N10 26.5 37.5 0.3)
+ca_fitsurvey: only N10 fits at -992 -672 47 (N10 27.5 37.5 0.6)
+ca_fitsurvey: only N10 fits at -960 -672 57 (N10 28.5 37.5 1.0)
+ca_fitsurvey: only N10 fits at -896 -672 186 (N10 30.5 37.5 5.0)
+ca_fitsurvey: only N10 fits at -480 -672 26 (N10 43.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at -320 -672 26 (N10 48.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at -256 -672 26 (N10 50.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 256 -672 26 (N10 66.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 288 -672 186 (N10 67.5 37.5 5.0)
+ca_fitsurvey: only N10 fits at 320 -672 26 (N10 68.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 480 -672 26 (N10 73.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 704 -672 26 (N10 80.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 768 -672 26 (N10 82.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 1024 -672 26 (N10 90.5 37.5 0.0)
+ca_fitsurvey: only N10 fits at 1024 -672 186 (N10 90.5 37.5 5.0)
+ca_fitsurvey: only N10 fits at -1056 -640 26 (N10 25.5 38.5 0.0)
+ca_fitsurvey: only N10 fits at -1056 -640 186 (N10 25.5 38.5 5.0)
+ca_fitsurvey: only N10 fits at -1024 -640 26 (N10 26.5 38.5 0.0)
+ca_fitsurvey: only N10 fits at -992 -640 36 (N10 27.5 38.5 0.3)
+ca_fitsurvey: only N10 fits at -928 -640 186 (N10 29.5 38.5 5.0)
+ca_fitsurvey: only N10 fits at -512 -640 26 (N10 42.5 38.5 0.0)
+ca_fitsurvey: only N10 fits at -512 -640 186 (N10 42.5 38.5 5.0)
+ca_fitsurvey: 6182 nodes; N10 player fits at 6120, Quake III player at 5317; only N10 at 803, only Quake III at 0
+ca_fitsurvey: N10's player only, 2.2 m from the Quake III reach: -864 -832 137
+ca_fitsurvey: N10's player only, 2.2 m from the Quake III reach: -832 -800 137
+ca_fitsurvey: N10's player only, 2.2 m from the Quake III reach: 832 800 137
+ca_fitsurvey: N10's player only, 2.2 m from the Quake III reach: -800 832 137
+ca_fitsurvey: N10's player only, 2.2 m from the Quake III reach: 864 832 137
+ca_fitsurvey: N10's player only, 2.2 m from the Quake III reach: -832 864 137
+ca_fitsurvey: reach from 50 spawn spots over N10 links: N10 player 6074 nodes, Quake III box 5610; 464 only by N10's player: 450 within 1 m of the Quake III reach, 8 within 2 m, 6 further
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+---------------------------

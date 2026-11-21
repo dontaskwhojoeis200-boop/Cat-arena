@@ -87,7 +87,7 @@ def checks(c):
         bx, by = bx + px * mid, by + py * mid
         low, high = min(pl["z0"], pl["z1"]), max(pl["z0"], pl["z1"])
         yaw = math.degrees(math.atan2(dy, dx))
-        out.append(("ramp", s["id"], q(bx, by, low + (high - low) * 0.6 / pl["len"]), (low, high, yaw)))
+        out.append(("ramp", s["id"], q(bx, by, low + (high - low) * 0.6 / pl["len"]), (low, high, yaw, pl["len"])))
     for i, pd in enumerate(c["pads"]):
         out.append(("pad", pd["id"], q(pd["x"], pd["y"], pd["z"]), pd["z"]))
     return out
@@ -134,9 +134,12 @@ def check(root, map_id, name, log):
             if not ok:
                 fails.append("floor %s at (%.0f, %.0f): z %.0f, expected %.0f" % (label, x, y, pz, z + 24))
         elif kind == "ramp":
-            low, high, _ = extra
+            low, high, _, length = extra
             z0, z1 = pos(st[0])[2], max(pos(q)[2] for q in st[1:])
-            ok = abs(z0 - (z + 24)) <= 12 and z1 >= high * U + 24 - 8   # starts at the bottom, reaches the top
+            # starts at the bottom, reaches the top; a piece shorter than the player box (0.94 m, e.g.
+            # a step of a spiral) can hold the player on the next piece at the start, up to 0.6 m higher
+            start_ok = abs(z0 - (z + 24)) <= 12 or (length < 1.0 and z + 24 - 12 <= z0 <= z + 24 + 0.6 * U)
+            ok = start_ok and z1 >= high * U + 24 - 8
             if not ok:
                 fails.append("ramp %s: z %.0f -> %.0f (bottom %.0f, top %.0f)" % (label, z0, z1, z + 24, high * U + 24))
         else:

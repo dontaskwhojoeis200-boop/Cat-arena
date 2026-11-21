@@ -1,0 +1,4404 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 21 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... OK
+SDL audio driver is "dummy".
+SDL_AudioSpec:
+  Format:   AUDIO_S16LSB
+  Freq:     44100
+  Samples:  1024
+  Channels: 2
+Starting SDL audio callback...
+SDL audio initialized.
+----- Sound Info -----
+    2 channels
+32768 samples
+   16 samplebits (int)
+    1 submission_chunk
+44100 speed
+0x5599377b9cf0 dma buffer
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f3c88f920a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D7 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/review/pkg-final
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_reactor
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f3c5f00fb10
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D7 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+Cat Arena: N10 navigation graph for ca_reactor (6182 nodes)
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 38 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f3c88f920a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D7 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f3c5ea08620
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D7 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Cat Arena: 85 sounds registered
+stitched 0 LoD cracks
+...loaded 10571 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 10566 VBO surfaces (45649 vertexes, 72048 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+^3WARNING: music file music/ashen_drive.ogg is not 22k stereo
+Cat Arena: music music/ashen_drive.ogg
+CL_InitCGame:  0.27 seconds
+Com_TouchMemory: 1 msec
+Cat^7 entered the game
+Cat Arena: sound body_land_0 t=769 ms=312
+execing waves.cfg
+Cat Arena: sound body_land_0 t=6422 ms=312
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 64 -512 215
+Cat Arena: spawn warden at -672 -32 33
+Cat Arena: spawn warden at -1152 416 33
+Cat Arena: spawn pyromancer at -512 -1088 33
+Cat Arena: spawn marauder at 288 1152 33
+Cat Arena: spawn ogre at 96 672 33
+Cat Arena: spawn stalker at 192 -896 33
+Cat Arena: spawn skyjuggernaut at 128 -384 52
+Cat Arena: spawn sapper at 0 928 33
+Cat Arena: spawn sentinel at -1152 -384 193
+godmode ON
+Cat Arena: sound voice_light_attack_1 t=9422 ms=517 enemy=130 type=skyprobe d=22.4 playing=0
+Cat Arena: sound voice_bass_attack_1 t=9578 ms=578 enemy=137 type=skyjuggernaut d=20.2 playing=1
+Cat Arena: sound gun11_0 t=10109 ms=405
+CA_STATE t=10100 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+Cat Arena: sound gun11_1 t=10194 ms=405
+Cat Arena: sound voice_light_idle_1 t=10194 ms=649 enemy=136 type=stalker d=26.4 playing=0
+Cat Arena: sound gun11_1 t=10282 ms=405
+Cat Arena: sound gun11_0 t=10324 ms=405
+Cat Arena: sound gun11_1 t=10414 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=10414 ms=328 enemy=137 type=skyjuggernaut d=15.4 playing=1
+Cat Arena: sound gun11_0 t=10460 ms=405
+Cat Arena: sound gun11_0 t=10544 ms=405
+Cat Arena: sound gun11_1 t=10592 ms=405
+Cat Arena: sound gun11_0 t=10634 ms=405
+Cat Arena: sound gun11_0 t=10733 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=10733 ms=424 enemy=137 type=skyjuggernaut d=13.4 playing=2
+Cat Arena: sound gun11_1 t=10779 ms=405
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: sound gun11_1 t=10875 ms=405
+Cat Arena: sound gun11_1 t=10925 ms=405
+Cat Arena: sound gun11_1 t=10972 ms=405
+Cat Arena: sound gun11_1 t=11069 ms=405
+Cat Arena: sound gun11_0 t=11116 ms=405
+Cat Arena: sound voice_light_hurt_2 t=11116 ms=380 enemy=130 type=skyprobe d=10.3 playing=1
+Cat Arena: hit by skyjuggernaut voidorb 24
+Cat Arena: sound gun11_0 t=11170 ms=405
+Cat Arena: sound gun11_0 t=11271 ms=405
+Cat Arena: sound gun11_0 t=11320 ms=405
+Cat Arena: sound gun11_0 t=11412 ms=405
+Cat Arena: sound gun11_1 t=11499 ms=405
+Cat Arena: sound gun11_1 t=11542 ms=405
+Cat Arena: sound voice_bass_attack_2 t=11542 ms=658 enemy=137 type=skyjuggernaut d=8.7 playing=0
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed skyprobe
+Cat Arena: sound voice_light_eliminated_1 t=11634 ms=853 enemy=130 type=skyprobe d=7.0 playing=1
+Cat Arena: sound gun13_1 t=11721 ms=534
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=11888 ms=405
+Cat Arena: sound gun11_0 t=11931 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=11973 ms=424 enemy=137 type=skyjuggernaut d=6.2 playing=2
+Cat Arena: sound gun11_1 t=12015 ms=405
+Cat Arena: sound gun11_1 t=12055 ms=405
+Cat Arena: sound gun11_1 t=12142 ms=405
+Cat Arena: sound gun11_0 t=12235 ms=405
+Cat Arena: sound voice_normal_idle_2 t=12281 ms=747 enemy=133 type=pyromancer d=23.7 playing=2
+Cat Arena: sound gun11_1 t=12328 ms=405
+Cat Arena: hit by skyjuggernaut voidorb 24
+Cat Arena: sound gun11_1 t=12427 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=12427 ms=424 enemy=137 type=skyjuggernaut d=3.6 playing=2
+Cat Arena: sound gun11_0 t=12480 ms=405
+Cat Arena: sound gun11_1 t=12532 ms=405
+Cat Arena: sound voice_normal_attack_1 t=12532 ms=530 enemy=138 type=sapper d=8.5 playing=2
+Cat Arena: sound gun11_0 t=12687 ms=405
+Cat Arena: sound gun11_0 t=12792 ms=405
+Cat Arena: sound gun11_1 t=12841 ms=405
+Cat Arena: sound gun11_1 t=12889 ms=405
+Cat Arena: sound voice_light_hurt_0 t=12889 ms=294 enemy=136 type=stalker d=1.0 playing=2
+Cat Arena: sound gun11_1 t=13018 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed stalker
+Cat Arena: sound voice_light_eliminated_2 t=13061 ms=964 enemy=136 type=stalker d=1.0 playing=2
+Cat Arena: sound gun7_0 t=13163 ms=675
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=13361 ms=405
+Cat Arena: sound gun11_1 t=13418 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=13418 ms=424 enemy=137 type=skyjuggernaut d=0.5 playing=1
+Cat Arena: sound gun11_1 t=13479 ms=405
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun11_0 t=13542 ms=405
+Cat Arena: sound gun11_1 t=13637 ms=405
+Cat Arena: sound gun11_0 t=13695 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed skyjuggernaut
+Cat Arena: sound voice_bass_hurt_1 t=13723 ms=373 enemy=137 type=skyjuggernaut d=0.5 playing=2
+Cat Arena: sound voice_bass_eliminated_0 t=13755 ms=831 enemy=137 type=skyjuggernaut d=0.5 playing=3
+Cat Arena: sound gun9_1 t=13842 ms=405
+Cat Arena: sound gun9_1 t=14191 ms=405
+Cat Arena: sound voice_normal_attack_0 t=14287 ms=470 enemy=138 type=sapper d=7.6 playing=1
+Cat Arena: hit by pyromancer fireball 4
+Cat Arena: sound gun9_0 t=14524 ms=405
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=14654 ms=405
+Cat Arena: sound voice_normal_attack_2 t=14654 ms=607 enemy=133 type=pyromancer d=7.5 playing=1
+Cat Arena: sound gun11_0 t=14737 ms=405
+Cat Arena: sound gun11_1 t=14825 ms=405
+Cat Arena: sound gun11_1 t=14869 ms=405
+Cat Arena: sound gun11_0 t=14953 ms=405
+Cat Arena: sound gun11_1 t=14998 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=15040 ms=343 enemy=133 type=pyromancer d=7.5 playing=1
+Cat Arena: sound gun11_0 t=15127 ms=405
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun11_0 t=15214 ms=405
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun11_1 t=15298 ms=405
+Cat Arena: sound gun11_0 t=15341 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed pyromancer
+Cat Arena: sound voice_normal_hurt_2 t=15391 ms=389 enemy=133 type=pyromancer d=7.5 playing=0
+Cat Arena: sound voice_normal_eliminated_2 t=15447 ms=988 enemy=133 type=pyromancer d=7.5 playing=1
+Cat Arena: sound gun7_0 t=15495 ms=675
+Cat Arena: frag reroll SUPER SHOTGUN -> SAWBLADE DRIVER
+Cat Arena: killed sapper
+Cat Arena: sound voice_normal_eliminated_0 t=15579 ms=764 enemy=138 type=sapper d=7.8 playing=2
+Cat Arena: sound gun14_0 t=15621 ms=405
+Cat Arena: hit by pyromancer fireball 4
+Cat Arena: sound gun14_0 t=16048 ms=405
+Cat Arena: give SAWBLADE DRIVER -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=16132 ms=405
+Cat Arena: sound gun11_1 t=16219 ms=405
+Cat Arena: sound gun11_1 t=16263 ms=405
+Cat Arena: sound gun11_0 t=16338 ms=405
+Cat Arena: sound gun11_0 t=16416 ms=405
+Cat Arena: sound gun11_0 t=16454 ms=405
+Cat Arena: sound gun11_1 t=16530 ms=405
+Cat Arena: sound gun11_1 t=16615 ms=405
+Cat Arena: sound gun11_1 t=16654 ms=405
+Cat Arena: sound gun11_1 t=16735 ms=405
+Cat Arena: sound gun11_1 t=16775 ms=405
+Cat Arena: sound gun11_0 t=16891 ms=405
+Cat Arena: sound gun11_1 t=16970 ms=405
+Cat Arena: sound gun11_1 t=17049 ms=405
+Cat Arena: sound gun11_1 t=17085 ms=405
+Cat Arena: sound gun11_0 t=17164 ms=405
+Cat Arena: sound gun11_0 t=17240 ms=405
+Cat Arena: sound voice_bass_attack_0 t=17279 ms=509 enemy=131 type=warden d=13.4 playing=0
+Cat Arena: sound gun11_1 t=17319 ms=405
+Cat Arena: sound gun11_1 t=17361 ms=405
+Cat Arena: sound gun11_1 t=17442 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=17526 ms=405
+Cat Arena: sound gun11_0 t=17605 ms=405
+Cat Arena: sound gun11_1 t=17722 ms=405
+Cat Arena: sound gun11_1 t=17802 ms=405
+Cat Arena: sound voice_normal_idle_2 t=17840 ms=747 enemy=135 type=ogre d=7.6 playing=0
+Cat Arena: sound gun11_1 t=17886 ms=405
+Cat Arena: sound gun11_0 t=17927 ms=405
+Cat Arena: sound gun11_0 t=18011 ms=405
+Cat Arena: sound gun11_0 t=18054 ms=405
+Cat Arena: sound gun11_1 t=18135 ms=405
+Cat Arena: sound voice_normal_attack_1 t=18135 ms=530 enemy=139 type=sentinel d=16.0 playing=1
+Cat Arena: sound gun11_0 t=18223 ms=405
+Cat Arena: sound gun11_0 t=18311 ms=405
+Cat Arena: sound gun11_0 t=18396 ms=405
+Cat Arena: sound gun11_1 t=18482 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound gun11_1 t=18525 ms=405
+Cat Arena: sound gun11_1 t=18620 ms=405
+Cat Arena: sound gun11_0 t=18666 ms=405
+Cat Arena: sound gun11_0 t=18711 ms=405
+Cat Arena: sound gun11_1 t=18795 ms=405
+Cat Arena: sound gun11_1 t=18837 ms=405
+Cat Arena: sound gun11_0 t=18929 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=19020 ms=405
+Cat Arena: sound gun11_1 t=19108 ms=405
+Cat Arena: sound gun11_0 t=19156 ms=405
+Cat Arena: sound gun11_0 t=19239 ms=405
+Cat Arena: sound gun11_1 t=19332 ms=405
+Cat Arena: sound gun11_0 t=19376 ms=405
+Cat Arena: hit by sentinel voidorb 19
+Cat Arena: sound gun11_1 t=19464 ms=405
+Cat Arena: sound gun11_0 t=19561 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=19603 ms=328 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_1 t=19644 ms=405
+Cat Arena: sound gun11_1 t=19739 ms=405
+Cat Arena: sound gun11_1 t=19786 ms=405
+Cat Arena: sound gun11_0 t=19879 ms=405
+Cat Arena: sound gun11_1 t=19964 ms=405
+Cat Arena: sound gun11_1 t=20001 ms=405
+Cat Arena: sound gun11_1 t=20082 ms=405
+Cat Arena: sound gun11_0 t=20159 ms=405
+Cat Arena: sound gun11_1 t=20201 ms=405
+Cat Arena: sound gun11_0 t=20280 ms=405
+Cat Arena: sound gun11_0 t=20393 ms=405
+Cat Arena: sound gun11_1 t=20517 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=20639 ms=405
+Cat Arena: sound gun11_0 t=20727 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=20727 ms=424 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_1 t=20816 ms=405
+Cat Arena: sound voice_normal_idle_0 t=20860 ms=579 enemy=134 type=marauder d=7.9 playing=1
+Cat Arena: sound gun11_1 t=20898 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound gun11_1 t=20989 ms=405
+Cat Arena: sound gun11_1 t=21042 ms=405
+Cat Arena: sound gun11_0 t=21133 ms=405
+Cat Arena: sound gun11_0 t=21220 ms=405
+Cat Arena: sound gun11_0 t=21262 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=21262 ms=373 enemy=131 type=warden d=9.5 playing=1
+Cat Arena: sound gun11_0 t=21348 ms=405
+Cat Arena: sound gun11_0 t=21428 ms=405
+Cat Arena: sound gun11_0 t=21465 ms=405
+Cat Arena: sound gun11_1 t=21535 ms=405
+Cat Arena: sound gun11_0 t=21613 ms=405
+Cat Arena: sound gun11_0 t=21685 ms=405
+Cat Arena: sound gun11_0 t=21770 ms=405
+Cat Arena: sound gun11_1 t=21858 ms=405
+Cat Arena: sound gun11_0 t=21892 ms=405
+Cat Arena: sound voice_bass_attack_1 t=21929 ms=578 enemy=132 type=warden d=14.0 playing=0
+Cat Arena: sound gun11_1 t=21965 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=22070 ms=405
+Cat Arena: sound voice_bass_attack_1 t=22070 ms=578 enemy=131 type=warden d=9.5 playing=1
+Cat Arena: sound gun11_1 t=22140 ms=405
+Cat Arena: sound gun11_0 t=22215 ms=405
+Cat Arena: sound gun11_1 t=22249 ms=405
+Cat Arena: sound gun11_0 t=22319 ms=405
+Cat Arena: sound gun11_1 t=22392 ms=405
+Cat Arena: sound gun11_1 t=22466 ms=405
+Cat Arena: sound gun11_1 t=22539 ms=405
+Cat Arena: sound gun11_1 t=22575 ms=405
+Cat Arena: sound gun11_1 t=22654 ms=405
+Cat Arena: sound gun11_1 t=22732 ms=405
+Cat Arena: sound gun11_1 t=22773 ms=405
+Cat Arena: sound gun11_1 t=22860 ms=405
+Cat Arena: sound gun11_1 t=22898 ms=405
+Cat Arena: sound gun11_1 t=23036 ms=405
+Cat Arena: sound gun11_0 t=23124 ms=405
+Cat Arena: sound gun11_1 t=23170 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound gun11_1 t=23261 ms=405
+Cat Arena: sound gun11_1 t=23352 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=23439 ms=405
+Cat Arena: sound gun11_0 t=23526 ms=405
+Cat Arena: sound gun11_1 t=23570 ms=405
+Cat Arena: sound gun11_1 t=23654 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=23654 ms=424 enemy=132 type=warden d=11.0 playing=0
+Cat Arena: sound gun11_1 t=23691 ms=405
+Cat Arena: sound gun11_0 t=23766 ms=405
+Cat Arena: sound gun11_0 t=23842 ms=405
+Cat Arena: sound gun11_1 t=23910 ms=405
+Cat Arena: sound voice_normal_idle_0 t=23945 ms=579 enemy=135 type=ogre d=7.6 playing=1
+Cat Arena: sound gun11_0 t=23978 ms=405
+Cat Arena: sound gun11_1 t=24051 ms=405
+Cat Arena: sound gun11_0 t=24154 ms=405
+Cat Arena: sound gun11_1 t=24222 ms=405
+Cat Arena: sound gun11_0 t=24292 ms=405
+Cat Arena: sound voice_bass_attack_2 t=24324 ms=658 enemy=132 type=warden d=9.6 playing=1
+Cat Arena: sound gun11_1 t=24400 ms=405
+Cat Arena: sound gun11_1 t=24473 ms=405
+Cat Arena: sound voice_bass_attack_0 t=24473 ms=509 enemy=131 type=warden d=9.5 playing=2
+Cat Arena: sound gun11_1 t=24544 ms=405
+Cat Arena: sound gun11_1 t=24650 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=24650 pos=1030,91,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=5 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 131 warden pos=736,14,24 health=155
+CA_ENEMY 132 warden pos=772,-68,24 health=125
+CA_ENEMY 134 marauder pos=801,196,24 health=140
+CA_ENEMY 135 ogre pos=790,52,24 health=125
+CA_ENEMY 139 sentinel pos=813,-97,24 health=155
+Cat Arena: sound gun11_0 t=24753 ms=405
+Cat Arena: sound gun11_1 t=24825 ms=405
+Cat Arena: sound gun11_0 t=24897 ms=405
+Cat Arena: sound gun11_1 t=24933 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=24933 ms=328 enemy=132 type=warden d=9.5 playing=2
+Cat Arena: sound gun11_0 t=25009 ms=405
+Cat Arena: sound gun11_0 t=25078 ms=405
+Cat Arena: sound gun11_0 t=25163 ms=405
+Cat Arena: sound gun11_1 t=25203 ms=405
+Cat Arena: sound gun11_0 t=25282 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=25352 ms=424 enemy=132 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_0 t=25398 ms=405
+Cat Arena: sound gun11_0 t=25398 ms=405
+Cat Arena: sound gun11_0 t=25484 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound gun11_0 t=25529 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed warden
+Cat Arena: sound voice_bass_eliminated_0 t=25624 ms=831 enemy=132 type=warden d=9.5 playing=1
+Cat Arena: sound gun8_0 t=25680 ms=534
+Cat Arena: sound gun8_0 t=25869 ms=534
+Cat Arena: sound gun8_1 t=26036 ms=534
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=26212 ms=405
+Cat Arena: sound gun11_0 t=26280 ms=405
+Cat Arena: sound gun11_0 t=26354 ms=405
+Cat Arena: sound gun11_0 t=26393 ms=405
+Cat Arena: sound gun11_0 t=26467 ms=405
+Cat Arena: sound gun11_1 t=26542 ms=405
+Cat Arena: sound gun11_0 t=26615 ms=405
+Cat Arena: sound gun11_0 t=26651 ms=405
+Cat Arena: sound gun11_1 t=26724 ms=405
+Cat Arena: sound gun11_1 t=26816 ms=405
+Cat Arena: sound voice_bass_attack_1 t=26859 ms=578 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_0 t=26901 ms=405
+Cat Arena: sound gun11_1 t=26973 ms=405
+Cat Arena: sound gun11_0 t=27045 ms=405
+Cat Arena: sound gun11_1 t=27159 ms=405
+Cat Arena: sound gun11_0 t=27238 ms=405
+Cat Arena: sound gun11_0 t=27318 ms=405
+Cat Arena: sound gun11_1 t=27353 ms=405
+Cat Arena: sound gun11_0 t=27429 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=27538 ms=405
+Cat Arena: sound gun11_1 t=27575 ms=405
+CATEST god off
+Cat Arena: sound gun11_0 t=27690 ms=405
+Wrote screenshots/enemies_fight_60.jpg
+godmode OFF
+Cat Arena: sound gun11_1 t=27818 ms=405
+Cat Arena: sound gun11_1 t=27865 ms=405
+Cat Arena: sound gun11_1 t=27909 ms=405
+Cat Arena: sound gun11_1 t=28028 ms=405
+Cat Arena: sound gun11_0 t=28109 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound beep_hurt t=28156 ms=80
+Cat Arena: sound gun11_0 t=28199 ms=405
+Cat Arena: sound gun11_0 t=28244 ms=405
+Cat Arena: sound gun11_1 t=28333 ms=405
+Cat Arena: sound gun11_0 t=28383 ms=405
+Cat Arena: sound gun11_1 t=28425 ms=405
+Cat Arena: sound gun11_0 t=28511 ms=405
+Cat Arena: sound gun11_0 t=28553 ms=405
+Cat Arena: sound gun11_0 t=28633 ms=405
+Cat Arena: sound gun11_1 t=28709 ms=405
+Cat Arena: sound gun11_0 t=28748 ms=405
+Cat Arena: sound gun11_1 t=28821 ms=405
+Cat Arena: sound gun11_0 t=28900 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=29011 ms=405
+Cat Arena: sound gun11_0 t=29052 ms=405
+Cat Arena: sound gun11_1 t=29164 ms=405
+Cat Arena: sound gun11_0 t=29235 ms=405
+Cat Arena: sound voice_bass_attack_1 t=29277 ms=578 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_1 t=29319 ms=405
+Cat Arena: sound gun11_1 t=29431 ms=405
+Cat Arena: sound gun11_1 t=29503 ms=405
+Cat Arena: sound gun11_1 t=29578 ms=405
+Cat Arena: sound voice_normal_idle_1 t=29654 ms=665 enemy=135 type=ogre d=7.6 playing=1
+Cat Arena: sound gun11_1 t=29692 ms=405
+Cat Arena: sound gun11_0 t=29766 ms=405
+Cat Arena: sound gun11_1 t=29836 ms=405
+Cat Arena: sound gun11_1 t=29951 ms=405
+Cat Arena: sound gun11_1 t=30022 ms=405
+Cat Arena: sound gun11_1 t=30101 ms=405
+Cat Arena: sound gun11_0 t=30226 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=30388 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound beep_hurt t=30520 ms=80
+Cat Arena: sound gun11_1 t=30520 ms=405
+Cat Arena: sound gun11_0 t=30609 ms=405
+Cat Arena: sound gun11_1 t=30661 ms=405
+Cat Arena: sound gun11_0 t=30751 ms=405
+Cat Arena: sound gun11_1 t=30837 ms=405
+Cat Arena: sound gun11_0 t=30928 ms=405
+Cat Arena: sound gun11_0 t=30973 ms=405
+Cat Arena: sound gun11_1 t=31057 ms=405
+Cat Arena: sound gun11_1 t=31130 ms=405
+Cat Arena: sound gun11_0 t=31209 ms=405
+Cat Arena: sound gun11_1 t=31277 ms=405
+Cat Arena: sound gun11_1 t=31387 ms=405
+Cat Arena: sound gun11_0 t=31462 ms=405
+Cat Arena: sound gun11_1 t=31534 ms=405
+Cat Arena: sound gun11_1 t=31638 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound voice_bass_attack_1 t=31671 ms=578 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_1 t=31740 ms=405
+Cat Arena: sound gun11_0 t=31806 ms=405
+Cat Arena: sound voice_normal_idle_2 t=31841 ms=747 enemy=134 type=marauder d=7.9 playing=1
+Cat Arena: sound gun11_1 t=31873 ms=405
+Cat Arena: sound gun11_0 t=31940 ms=405
+Cat Arena: sound gun11_0 t=32007 ms=405
+Cat Arena: sound gun11_0 t=32114 ms=405
+Cat Arena: sound gun11_0 t=32183 ms=405
+Cat Arena: sound gun11_1 t=32248 ms=405
+Cat Arena: sound gun11_0 t=32352 ms=405
+Cat Arena: sound gun11_0 t=32420 ms=405
+Cat Arena: sound gun11_1 t=32492 ms=405
+Cat Arena: sound gun11_0 t=32611 ms=405
+Cat Arena: sound gun11_1 t=32692 ms=405
+Cat Arena: sound gun11_1 t=32773 ms=405
+Cat Arena: sound gun11_0 t=32815 ms=405
+Cat Arena: sound gun11_1 t=32898 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=32976 ms=405
+Cat Arena: sound gun11_1 t=33050 ms=405
+Cat Arena: sound gun11_1 t=33154 ms=405
+Cat Arena: sound gun11_0 t=33224 ms=405
+Cat Arena: sound gun11_1 t=33295 ms=405
+Cat Arena: sound gun11_1 t=33404 ms=405
+Cat Arena: sound gun11_0 t=33469 ms=405
+Cat Arena: sound gun11_0 t=33536 ms=405
+Cat Arena: sound gun11_1 t=33641 ms=405
+Cat Arena: sound gun11_1 t=33708 ms=405
+Cat Arena: sound gun11_0 t=33774 ms=405
+Cat Arena: sound gun11_1 t=33877 ms=405
+Cat Arena: sound gun11_1 t=33947 ms=405
+Cat Arena: sound gun11_0 t=34015 ms=405
+Cat Arena: sound voice_bass_attack_2 t=34050 ms=658 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_0 t=34123 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=34226 ms=405
+Cat Arena: sound gun11_1 t=34295 ms=405
+Cat Arena: sound gun11_0 t=34373 ms=405
+Cat Arena: sound gun11_1 t=34411 ms=405
+Cat Arena: sound gun11_1 t=34479 ms=405
+Cat Arena: sound gun11_1 t=34549 ms=405
+Cat Arena: sound gun11_0 t=34615 ms=405
+Cat Arena: sound gun11_0 t=34681 ms=405
+Cat Arena: sound gun11_0 t=34750 ms=405
+Cat Arena: sound gun11_0 t=34854 ms=405
+Cat Arena: sound gun11_1 t=34933 ms=405
+Cat Arena: sound gun11_1 t=35009 ms=405
+Cat Arena: sound gun11_0 t=35120 ms=405
+Cat Arena: sound gun11_0 t=35200 ms=405
+Cat Arena: sound gun11_0 t=35273 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound beep_hurt t=35312 ms=80
+Cat Arena: sound gun11_0 t=35394 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=35475 ms=405
+Cat Arena: sound gun11_0 t=35564 ms=405
+Cat Arena: sound gun11_0 t=35602 ms=405
+Cat Arena: sound gun11_0 t=35679 ms=405
+Cat Arena: sound gun11_1 t=35755 ms=405
+Cat Arena: sound gun11_1 t=35823 ms=405
+Cat Arena: sound gun11_1 t=35858 ms=405
+Cat Arena: sound gun11_0 t=35926 ms=405
+Cat Arena: sound gun11_1 t=35998 ms=405
+Cat Arena: sound gun11_1 t=36062 ms=405
+Cat Arena: sound gun11_1 t=36165 ms=405
+Cat Arena: sound gun11_1 t=36236 ms=405
+Cat Arena: sound gun11_1 t=36305 ms=405
+Cat Arena: sound gun11_0 t=36409 ms=405
+Cat Arena: sound gun11_1 t=36476 ms=405
+Cat Arena: sound voice_bass_attack_1 t=36476 ms=578 enemy=131 type=warden d=9.5 playing=0
+Cat Arena: sound gun11_0 t=36547 ms=405
+Cat Arena: sound gun11_0 t=36645 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=36744 ms=405
+Cat Arena: sound gun11_1 t=36816 ms=405
+Cat Arena: sound gun11_1 t=36883 ms=405
+Cat Arena: sound gun11_1 t=36949 ms=405
+Cat Arena: sound gun11_1 t=37013 ms=405
+Cat Arena: sound gun11_1 t=37117 ms=405
+Cat Arena: sound gun11_1 t=37183 ms=405
+Cat Arena: sound gun11_0 t=37254 ms=405
+Cat Arena: sound gun11_0 t=37362 ms=405
+Cat Arena: sound gun11_1 t=37437 ms=405
+Cat Arena: sound gun11_0 t=37512 ms=405
+Cat Arena: sound gun11_0 t=37630 ms=405
+Cat Arena: hit by warden voidorb 19
+Cat Arena: sound beep_hurt t=37713 ms=80
+Cat Arena: sound gun11_1 t=37713 ms=405
+Cat Arena: sound gun11_0 t=37795 ms=405
+Cat Arena: sound gun11_1 t=37835 ms=405
+Cat Arena: sound gun11_1 t=37917 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=37957 ms=405
+CA_STATE t=37950 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=24 score=6 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 131 warden pos=736,14,24 health=155
+CA_ENEMY 134 marauder pos=801,196,24 health=140
+CA_ENEMY 135 ogre pos=790,52,24 health=125
+CA_ENEMY 139 sentinel pos=813,-97,24 health=155
+Cat Arena: sound body_land_0 t=38037 ms=312
+Cat Arena: sound gun11_0 t=38070 ms=405
+Cat Arena: sound gun11_1 t=38165 ms=405
+Cat Arena: sound gun11_0 t=38261 ms=405
+Cat Arena: sound gun11_0 t=38329 ms=405
+Cat Arena: sound gun11_1 t=38392 ms=405
+Cat Arena: sound gun11_0 t=38457 ms=405
+Cat Arena: sound gun11_1 t=38522 ms=405
+Cat Arena: sound gun11_0 t=38618 ms=405
+Cat Arena: sound gun11_1 t=38719 ms=405
+Cat Arena: sound gun11_0 t=38755 ms=405
+Cat Arena: sound gun11_1 t=38864 ms=405
+Cat Arena: sound gun11_1 t=38929 ms=405
+Cat Arena: sound gun11_0 t=39021 ms=405
+Cat Arena: sound gun11_0 t=39090 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=39194 ms=405
+Cat Arena: sound gun11_0 t=39263 ms=405
+Cat Arena: sound gun11_1 t=39331 ms=405
+Cat Arena: sound gun11_0 t=39398 ms=405
+Cat Arena: sound gun11_1 t=39459 ms=405
+Cat Arena: sound gun11_0 t=39554 ms=405
+Cat Arena: sound gun11_1 t=39647 ms=405
+Cat Arena: sound gun11_0 t=39714 ms=405
+Cat Arena: sound gun11_0 t=39778 ms=405
+Cat Arena: sound gun11_0 t=39841 ms=405
+Cat Arena: sound gun11_1 t=39905 ms=405
+Cat Arena: sound gun11_0 t=40004 ms=405
+Cat Arena: sound gun11_0 t=40106 ms=405
+Cat Arena: sound gun11_0 t=40139 ms=405
+Cat Arena: sound gun11_0 t=40235 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=40330 ms=405
+Cat Arena: sound gun11_1 t=40394 ms=405
+Cat Arena: sound gun11_0 t=40458 ms=405
+Cat Arena: sound gun11_0 t=40522 ms=405
+Cat Arena: sound gun11_1 t=40587 ms=405
+Cat Arena: sound gun11_1 t=40682 ms=405
+Cat Arena: sound gun11_0 t=40778 ms=405
+Cat Arena: sound gun11_1 t=40841 ms=405
+Cat Arena: sound gun11_0 t=40905 ms=405
+Cat Arena: sound gun11_0 t=40975 ms=405
+Cat Arena: sound gun11_1 t=41045 ms=405
+Cat Arena: sound gun11_0 t=41077 ms=405
+Cat Arena: sound gun11_1 t=41140 ms=405
+Cat Arena: sound gun11_0 t=41204 ms=405
+Cat Arena: sound gun11_1 t=41301 ms=405
+Cat Arena: sound gun11_1 t=41363 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=41454 ms=405
+Cat Arena: sound gun11_0 t=41517 ms=405
+Cat Arena: sound gun11_0 t=41609 ms=405
+Cat Arena: sound gun11_1 t=41680 ms=405
+Cat Arena: sound gun11_0 t=41741 ms=405
+Cat Arena: sound gun11_1 t=41811 ms=405
+Cat Arena: sound gun11_1 t=41844 ms=405
+Cat Arena: sound gun11_1 t=41909 ms=405
+Cat Arena: sound gun11_0 t=41973 ms=405
+Cat Arena: sound gun11_1 t=42041 ms=405
+Cat Arena: sound gun11_1 t=42105 ms=405
+Cat Arena: sound gun11_1 t=42165 ms=405
+Cat Arena: sound gun11_0 t=42262 ms=405
+Cat Arena: sound gun11_0 t=42326 ms=405
+Cat Arena: sound gun11_1 t=42391 ms=405
+Cat Arena: sound gun11_0 t=42487 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=42580 ms=405
+Cat Arena: sound gun11_0 t=42642 ms=405
+CATEST god on
+Cat Arena: sound gun11_0 t=42705 ms=405
+CA_STATE t=42700 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=98 reloading=0 health=24 score=6 weapon=2 wstate=3 wtime=30 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+godmode ON
+Cat Arena: sound gun11_1 t=42767 ms=405
+Cat Arena: sound gun11_1 t=42861 ms=405
+Cat Arena: sound gun11_1 t=42925 ms=405
+Cat Arena: sound gun11_1 t=42994 ms=405
+Cat Arena: sound gun11_0 t=43059 ms=405
+Cat Arena: sound gun11_1 t=43153 ms=405
+Cat Arena: sound gun11_1 t=43215 ms=405
+Cat Arena: sound gun11_0 t=43310 ms=405
+Cat Arena: sound gun11_1 t=43378 ms=405
+Cat Arena: sound gun11_0 t=43442 ms=405
+Cat Arena: sound gun11_1 t=43508 ms=405
+Cat Arena: sound gun11_0 t=43613 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=43713 ms=405
+Cat Arena: sound gun11_1 t=43780 ms=405
+Cat Arena: sound gun11_1 t=43848 ms=405
+Cat Arena: sound gun11_0 t=43912 ms=405
+Cat Arena: sound gun11_0 t=43978 ms=405
+Cat Arena: sound gun11_0 t=44075 ms=405
+Cat Arena: sound voice_normal_attack_2 t=44075 ms=607 enemy=139 type=sentinel d=9.0 playing=0
+Cat Arena: sound gun11_0 t=44142 ms=405
+Cat Arena: sound gun11_0 t=44206 ms=405
+Cat Arena: sound gun11_1 t=44302 ms=405
+Cat Arena: sound gun11_0 t=44369 ms=405
+Cat Arena: sound gun11_0 t=44434 ms=405
+Cat Arena: sound gun11_1 t=44528 ms=405
+Cat Arena: sound gun11_0 t=44627 ms=405
+Cat Arena: sound gun11_0 t=44665 ms=405
+Cat Arena: sound gun11_0 t=44761 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=44858 ms=405
+Cat Arena: sound gun11_0 t=44925 ms=405
+Cat Arena: sound gun11_0 t=44997 ms=405
+Cat Arena: sound gun11_1 t=45066 ms=405
+Cat Arena: sound gun11_0 t=45140 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=45179 ms=389 enemy=139 type=sentinel d=9.0 playing=0
+Cat Arena: sound gun11_1 t=45255 ms=405
+Cat Arena: hit by sentinel voidorb 19
+Cat Arena: sound gun11_1 t=45329 ms=405
+Cat Arena: sound gun11_1 t=45414 ms=405
+Cat Arena: sound gun11_0 t=45454 ms=405
+Cat Arena: sound gun11_0 t=45527 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=45527 ms=389 enemy=139 type=sentinel d=9.0 playing=1
+Cat Arena: sound gun11_0 t=45608 ms=405
+Cat Arena: sound gun11_1 t=45643 ms=405
+Cat Arena: sound gun11_0 t=45722 ms=405
+Cat Arena: sound gun11_1 t=45789 ms=405
+Cat Arena: sound gun11_1 t=45855 ms=405
+Cat Arena: sound gun11_0 t=45918 ms=405
+Cat Arena: sound gun11_0 t=46018 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=46111 ms=405
+Cat Arena: sound gun11_1 t=46181 ms=405
+Cat Arena: sound gun11_1 t=46242 ms=405
+Cat Arena: sound voice_bass_idle_2 t=46242 ms=813 enemy=131 type=warden d=19.7 playing=0
+Cat Arena: sound gun11_0 t=46305 ms=405
+Cat Arena: sound gun11_0 t=46369 ms=405
+Cat Arena: sound gun11_0 t=46462 ms=405
+Cat Arena: sound voice_normal_attack_1 t=46462 ms=530 enemy=139 type=sentinel d=9.0 playing=1
+Cat Arena: sound gun11_1 t=46557 ms=405
+Cat Arena: sound gun11_0 t=46622 ms=405
+Cat Arena: sound gun11_1 t=46689 ms=405
+Cat Arena: sound gun11_1 t=46760 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=46760 ms=343 enemy=139 type=sentinel d=9.0 playing=2
+Cat Arena: sound gun11_1 t=46794 ms=405
+Cat Arena: sound gun11_1 t=46864 ms=405
+Cat Arena: sound gun11_0 t=46932 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed sentinel
+Cat Arena: sound voice_normal_eliminated_1 t=47005 ms=874 enemy=139 type=sentinel d=9.0 playing=2
+Cat Arena: sound gun13_1 t=47070 ms=534
+Cat Arena: sound voice_bass_hurt_0 t=47165 ms=328 enemy=131 type=warden d=15.5 playing=1
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=47263 ms=405
+Cat Arena: sound gun11_1 t=47330 ms=405
+Cat Arena: sound gun11_0 t=47401 ms=405
+Cat Arena: sound gun11_0 t=47470 ms=405
+Cat Arena: sound gun11_1 t=47540 ms=405
+Cat Arena: sound voice_bass_attack_1 t=47613 ms=578 enemy=131 type=warden d=13.5 playing=1
+Cat Arena: sound gun11_1 t=47648 ms=405
+Cat Arena: sound gun11_0 t=47717 ms=405
+Cat Arena: sound gun11_1 t=47790 ms=405
+Cat Arena: sound gun11_1 t=47893 ms=405
+Cat Arena: sound gun11_1 t=47961 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=47961 ms=373 enemy=131 type=warden d=11.9 playing=1
+Cat Arena: sound gun11_1 t=48034 ms=405
+Cat Arena: sound gun11_1 t=48143 ms=405
+Cat Arena: sound gun11_0 t=48217 ms=405
+Cat Arena: sound gun11_1 t=48300 ms=405
+Cat Arena: sound voice_normal_attack_1 t=48300 ms=530 enemy=134 type=marauder d=13.0 playing=1
+Cat Arena: sound gun11_1 t=48414 ms=405
+Cat Arena: sound voice_normal_attack_0 t=48414 ms=470 enemy=135 type=ogre d=11.0 playing=1
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=48525 ms=405
+Cat Arena: sound gun11_1 t=48604 ms=405
+Cat Arena: sound gun11_1 t=48691 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=48691 ms=373 enemy=131 type=warden d=9.5 playing=2
+Cat Arena: sound gun11_0 t=48777 ms=405
+Cat Arena: sound gun11_0 t=48823 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER NAILGUN
+Cat Arena: killed warden
+Cat Arena: sound voice_bass_eliminated_2 t=48907 ms=1075 enemy=131 type=warden d=9.5 playing=1
+Cat Arena: sound gun5_0 t=48987 ms=405
+Cat Arena: sound gun5_1 t=49156 ms=405
+Cat Arena: sound gun5_0 t=49282 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=49388 ms=343 enemy=135 type=ogre d=9.5 playing=1
+Cat Arena: hit by marauder spike 6
+Cat Arena: sound gun5_0 t=49439 ms=405
+Cat Arena: sound gun5_1 t=49534 ms=405
+Cat Arena: hit by ogre fireball 4
+Cat Arena: sound gun5_1 t=49672 ms=405
+Cat Arena: sound gun5_0 t=49800 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=49880 ms=301 enemy=135 type=ogre d=7.5 playing=1
+Cat Arena: sound gun5_0 t=49924 ms=405
+Cat Arena: give SUPER NAILGUN -> IRON CHAINGUN
+CA_STATE t=49950 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=24 score=8 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 134 marauder pos=-775,90,24 health=120
+CA_ENEMY 135 ogre pos=-812,61,24 health=65
+Cat Arena: sound gun11_1 t=50082 ms=405
+Cat Arena: sound voice_normal_attack_0 t=50082 ms=470 enemy=134 type=marauder d=8.7 playing=1
+Cat Arena: sound gun11_0 t=50200 ms=405
+Cat Arena: sound gun11_0 t=50271 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=50271 ms=343 enemy=135 type=ogre d=7.3 playing=1
+Cat Arena: sound gun11_1 t=50338 ms=405
+Cat Arena: sound gun11_0 t=50451 ms=405
+Cat Arena: sound gun11_1 t=50525 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER NAILGUN
+Cat Arena: killed ogre
+Cat Arena: sound voice_normal_eliminated_1 t=50626 ms=874 enemy=135 type=ogre d=7.3 playing=0
+Cat Arena: sound gun5_1 t=50700 ms=405
+Cat Arena: sound gun5_0 t=50846 ms=405
+Cat Arena: sound gun5_1 t=50981 ms=405
+Cat Arena: sound gun5_1 t=51128 ms=405
+Cat Arena: give SUPER NAILGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=51313 ms=405
+Cat Arena: sound gun11_0 t=51347 ms=405
+Cat Arena: sound gun11_1 t=51453 ms=405
+Cat Arena: sound gun11_0 t=51525 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=51525 ms=343 enemy=134 type=marauder d=7.9 playing=0
+Cat Arena: sound gun11_1 t=51595 ms=405
+Cat Arena: sound gun11_1 t=51706 ms=405
+Cat Arena: sound gun11_1 t=51777 ms=405
+Cat Arena: sound gun11_0 t=51849 ms=405
+Cat Arena: sound gun11_1 t=51957 ms=405
+Cat Arena: sound gun11_0 t=52025 ms=405
+Cat Arena: sound gun11_1 t=52095 ms=405
+Cat Arena: sound gun11_0 t=52197 ms=405
+Cat Arena: sound gun11_0 t=52267 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=52267 ms=301 enemy=134 type=marauder d=7.9 playing=0
+Cat Arena: sound gun11_0 t=52338 ms=405
+Cat Arena: sound gun11_1 t=52442 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=52544 ms=405
+Cat Arena: sound gun11_0 t=52612 ms=405
+Cat Arena: sound gun11_1 t=52682 ms=405
+Cat Arena: sound gun11_0 t=52751 ms=405
+Cat Arena: sound gun11_0 t=52789 ms=405
+Cat Arena: sound gun11_0 t=52861 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=52861 ms=343 enemy=134 type=marauder d=7.9 playing=0
+Cat Arena: sound gun11_0 t=52932 ms=405
+Cat Arena: sound gun11_0 t=52998 ms=405
+Cat Arena: sound gun11_0 t=53069 ms=405
+Cat Arena: sound gun11_0 t=53177 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed marauder
+Cat Arena: wave 1 cleared
+Cat Arena: sound voice_normal_eliminated_2 t=53281 ms=988 enemy=134 type=marauder d=7.9 playing=0
+Cat Arena: sound gun12_1 t=53317 ms=675
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=53777 ms=405
+Cat Arena: sound gun11_1 t=53847 ms=405
+Cat Arena: sound gun11_0 t=53918 ms=405
+Cat Arena: sound gun11_0 t=53987 ms=405
+Cat Arena: sound gun11_0 t=54057 ms=405
+Cat Arena: sound gun11_1 t=54155 ms=405
+Cat Arena: sound gun11_1 t=54223 ms=405
+Cat Arena: sound gun11_0 t=54293 ms=405
+Cat Arena: sound gun11_1 t=54402 ms=405
+Cat Arena: sound gun11_1 t=54472 ms=405
+Cat Arena: sound gun11_0 t=54540 ms=405
+Cat Arena: sound gun11_0 t=54638 ms=405
+Cat Arena: sound gun11_0 t=54706 ms=405
+Cat Arena: sound gun11_0 t=54774 ms=405
+Cat Arena: sound gun11_0 t=54879 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=54986 ms=405
+Cat Arena: sound gun11_1 t=55053 ms=405
+Cat Arena: sound gun11_1 t=55117 ms=405
+Cat Arena: sound gun11_0 t=55185 ms=405
+Cat Arena: sound gun11_0 t=55255 ms=405
+Cat Arena: sound gun11_0 t=55289 ms=405
+Cat Arena: sound gun11_0 t=55356 ms=405
+Cat Arena: sound gun11_0 t=55424 ms=405
+Cat Arena: sound gun11_0 t=55494 ms=405
+Cat Arena: sound gun11_0 t=55597 ms=405
+Cat Arena: sound gun11_1 t=55662 ms=405
+Cat Arena: sound gun11_1 t=55728 ms=405
+Cat Arena: sound gun11_1 t=55827 ms=405
+Cat Arena: sound gun11_0 t=55899 ms=405
+Cat Arena: sound gun11_1 t=55971 ms=405
+Cat Arena: sound gun11_1 t=56069 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=56173 ms=405
+Cat Arena: sound gun11_1 t=56241 ms=405
+Cat Arena: sound gun11_0 t=56312 ms=405
+Cat Arena: sound gun11_1 t=56380 ms=405
+Cat Arena: sound gun11_0 t=56449 ms=405
+Cat Arena: sound gun11_1 t=56482 ms=405
+Cat Arena: sound gun11_1 t=56580 ms=405
+Cat Arena: sound gun11_0 t=56611 ms=405
+Cat Arena: sound gun11_1 t=56683 ms=405
+Cat Arena: wave 2, 13 enemies
+Cat Arena: spawn skyprobe at 896 -800 349
+Cat Arena: spawn reaver at -96 -640 33
+Cat Arena: spawn banshee at 160 -800 193
+Cat Arena: spawn cultist at -192 544 33
+Cat Arena: spawn sapper at 320 672 193
+Cat Arena: spawn marauder at 160 -768 33
+Cat Arena: spawn shambler at -576 -1056 33
+Cat Arena: spawn sapper at -128 896 33
+Cat Arena: spawn skitter at 160 32 33
+Cat Arena: spawn grunt at 288 -1184 33
+Cat Arena: spawn reaver at 128 -160 -95
+Cat Arena: spawn shambler at -352 -992 33
+Cat Arena: sound gun11_1 t=56782 ms=405
+Cat Arena: sound gun11_1 t=56867 ms=405
+Cat Arena: spawn skyprobe at -128 448 94
+Cat Arena: sound gun11_0 t=56963 ms=405
+Cat Arena: sound gun11_0 t=57008 ms=405
+Cat Arena: sound gun11_0 t=57086 ms=405
+Cat Arena: sound gun11_0 t=57122 ms=405
+Cat Arena: sound gun11_1 t=57201 ms=405
+Cat Arena: sound gun11_0 t=57273 ms=405
+Cat Arena: sound gun11_1 t=57351 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=57468 ms=405
+Cat Arena: sound gun11_1 t=57510 ms=405
+Cat Arena: sound voice_light_hurt_2 t=57550 ms=380 enemy=132 type=skyprobe d=27.2 playing=0
+Cat Arena: sound gun11_0 t=57626 ms=405
+Cat Arena: sound gun11_1 t=57708 ms=405
+Cat Arena: sound gun11_0 t=57785 ms=405
+Cat Arena: sound gun11_0 t=57824 ms=405
+Cat Arena: sound gun11_1 t=57907 ms=405
+Cat Arena: sound gun11_1 t=57984 ms=405
+Cat Arena: sound gun11_1 t=58026 ms=405
+Cat Arena: sound gun11_0 t=58104 ms=405
+Cat Arena: sound gun11_0 t=58175 ms=405
+Cat Arena: sound gun11_0 t=58213 ms=405
+Cat Arena: sound gun11_0 t=58284 ms=405
+Cat Arena: sound gun11_0 t=58355 ms=405
+Cat Arena: sound gun11_0 t=58425 ms=405
+Cat Arena: sound voice_light_attack_1 t=58461 ms=517 enemy=132 type=skyprobe d=20.2 playing=0
+Cat Arena: sound gun11_0 t=58499 ms=405
+Cat Arena: sound gun11_0 t=58534 ms=405
+Cat Arena: sound gun11_0 t=58606 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=58606 ms=343 enemy=167 type=cultist d=16.6 playing=1
+Cat Arena: sound gun11_1 t=58676 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=58791 ms=405
+Cat Arena: sound gun11_1 t=58824 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=58905 ms=389 enemy=167 type=cultist d=13.8 playing=2
+Cat Arena: sound gun11_1 t=58941 ms=405
+Cat Arena: sound gun11_1 t=59013 ms=405
+Cat Arena: sound gun11_0 t=59088 ms=405
+Cat Arena: sound voice_normal_idle_0 t=59088 ms=579 enemy=174 type=reaver d=17.9 playing=1
+Cat Arena: sound gun11_0 t=59201 ms=405
+Cat Arena: sound gun11_0 t=59277 ms=405
+Cat Arena: sound gun11_1 t=59354 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed cultist
+Cat Arena: sound voice_normal_eliminated_1 t=59426 ms=874 enemy=167 type=cultist d=10.0 playing=1
+Cat Arena: sound gun13_0 t=59502 ms=534
+Cat Arena: frag reroll HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: killed skyprobe
+Cat Arena: sound voice_light_eliminated_1 t=59577 ms=853 enemy=132 type=skyprobe d=12.2 playing=2
+Cat Arena: sound gun11_1 t=59668 ms=405
+Cat Arena: sound gun11_0 t=59752 ms=405
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: sound gun11_0 t=59828 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=59828 ms=389 enemy=163 type=reaver d=4.6 playing=2
+Cat Arena: sound gun11_0 t=59910 ms=405
+Cat Arena: sound gun11_0 t=59952 ms=405
+Cat Arena: sound gun11_1 t=60041 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=60136 ms=405
+Cat Arena: sound gun11_0 t=60234 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=60234 ms=301 enemy=163 type=reaver d=1.1 playing=2
+Cat Arena: sound gun11_0 t=60283 ms=405
+Cat Arena: sound gun11_0 t=60382 ms=405
+Cat Arena: sound gun11_1 t=60474 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed reaver
+Cat Arena: sound gun11_0 t=60516 ms=405
+Cat Arena: sound voice_normal_eliminated_2 t=60559 ms=988 enemy=163 type=reaver d=1.0 playing=0
+Cat Arena: sound gun6_0 t=60596 ms=535
+Cat Arena: sound gun6_0 t=60676 ms=535
+Cat Arena: sound gun6_1 t=60759 ms=534
+Cat Arena: sound gun6_1 t=60835 ms=534
+Cat Arena: sound voice_light_hurt_2 t=60835 ms=380 enemy=172 type=skitter d=1.0 playing=1
+Cat Arena: frag reroll THUNDERBOLT -> RAILGUN
+Cat Arena: killed skitter
+Cat Arena: sound voice_light_eliminated_2 t=60929 ms=964 enemy=172 type=skitter d=1.0 playing=2
+Cat Arena: sound gun3_0 t=60979 ms=534
+Cat Arena: frag reroll RAILGUN -> SUPER SHOTGUN
+Cat Arena: killed reaver (gibbed)
+Cat Arena: sound voice_normal_eliminated_2 t=61074 ms=988 enemy=174 type=reaver d=1.1 playing=3
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun7_0 t=61120 ms=675
+Cat Arena: hit by sapper spike 6
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound voice_normal_attack_2 t=61628 ms=607 enemy=171 type=sapper d=6.9 playing=2
+Cat Arena: sound gun11_0 t=61705 ms=405
+Cat Arena: sound gun11_1 t=61740 ms=405
+Cat Arena: sound gun11_1 t=61860 ms=405
+Cat Arena: sound gun11_1 t=61935 ms=405
+Cat Arena: sound gun11_0 t=62017 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=62017 ms=343 enemy=171 type=sapper d=6.8 playing=2
+Cat Arena: sound gun11_1 t=62052 ms=405
+Cat Arena: sound gun11_1 t=62130 ms=405
+Cat Arena: sound gun11_0 t=62203 ms=405
+Cat Arena: sound gun11_0 t=62274 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=62356 ms=301 enemy=171 type=sapper d=6.8 playing=1
+Cat Arena: sound gun11_1 t=62392 ms=405
+Cat Arena: sound gun11_0 t=62471 ms=405
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun11_1 t=62540 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed sapper
+Cat Arena: sound voice_normal_eliminated_1 t=62614 ms=874 enemy=171 type=sapper d=6.8 playing=1
+Cat Arena: sound gun6_0 t=62685 ms=535
+Cat Arena: sound gun6_0 t=62769 ms=535
+Cat Arena: sound voice_normal_idle_0 t=62813 ms=579 enemy=168 type=sapper d=17.8 playing=1
+Cat Arena: sound gun6_0 t=62848 ms=535
+Cat Arena: sound gun6_0 t=62917 ms=535
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+CA_STATE t=62900 pos=998,83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=24 score=16 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 138 shambler pos=-752,-280,24 health=278
+CA_ENEMY 162 skyprobe pos=-159,-200,124 health=82
+CA_ENEMY 166 banshee pos=-720,-43,24 health=97
+CA_ENEMY 168 sapper pos=-477,-26,24 health=115
+CA_ENEMY 169 marauder pos=-784,-72,24 health=147
+CA_ENEMY 170 shambler pos=-765,-190,24 health=278
+CA_ENEMY 173 grunt pos=-300,-446,24 health=89
+Cat Arena: sound gun11_0 t=63019 ms=405
+Cat Arena: sound body_land_0 t=63059 ms=312
+Cat Arena: sound gun11_1 t=63093 ms=405
+Cat Arena: sound gun11_1 t=63166 ms=405
+Cat Arena: sound gun11_0 t=63200 ms=405
+Cat Arena: sound gun11_1 t=63267 ms=405
+Cat Arena: sound gun11_1 t=63337 ms=405
+Cat Arena: sound gun11_1 t=63414 ms=405
+Cat Arena: sound gun11_0 t=63481 ms=405
+Cat Arena: sound gun11_1 t=63561 ms=405
+Cat Arena: sound gun11_0 t=63594 ms=405
+Cat Arena: sound gun11_1 t=63662 ms=405
+Cat Arena: sound gun11_0 t=63729 ms=405
+Cat Arena: sound gun11_1 t=63798 ms=405
+Cat Arena: sound gun11_0 t=63902 ms=405
+Cat Arena: sound gun11_0 t=63971 ms=405
+Cat Arena: sound voice_light_hurt_1 t=63971 ms=335 enemy=162 type=skyprobe d=29.0 playing=0
+Cat Arena: sound gun11_1 t=64047 ms=405
+Cat Arena: sound gun11_0 t=64156 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=64264 ms=405
+Cat Arena: sound gun11_0 t=64335 ms=405
+Cat Arena: sound gun11_0 t=64412 ms=405
+Cat Arena: sound gun11_1 t=64483 ms=405
+Cat Arena: sound gun11_0 t=64556 ms=405
+Cat Arena: sound voice_light_hurt_0 t=64624 ms=294 enemy=162 type=skyprobe d=23.9 playing=0
+Cat Arena: sound gun11_0 t=64661 ms=405
+Cat Arena: sound gun11_0 t=64729 ms=405
+Cat Arena: sound gun11_1 t=64801 ms=405
+Cat Arena: sound gun11_1 t=64907 ms=405
+Cat Arena: sound gun11_1 t=64977 ms=405
+Cat Arena: sound gun11_1 t=65058 ms=405
+Cat Arena: sound voice_light_hurt_1 t=65058 ms=335 enemy=162 type=skyprobe d=20.6 playing=0
+Cat Arena: sound gun11_1 t=65164 ms=405
+Cat Arena: sound gun11_0 t=65242 ms=405
+Cat Arena: sound voice_normal_attack_2 t=65276 ms=607 enemy=168 type=sapper d=27.4 playing=1
+Cat Arena: sound gun11_0 t=65314 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed skyprobe
+Cat Arena: sound voice_light_eliminated_1 t=65423 ms=853 enemy=162 type=skyprobe d=18.3 playing=1
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+Cat Arena: sound gun4_1 t=65459 ms=677
+Cat Arena: sound gun11_0 t=65526 ms=405
+Cat Arena: sound gun11_0 t=65599 ms=405
+Cat Arena: sound gun11_1 t=65673 ms=405
+Cat Arena: sound gun11_0 t=65711 ms=405
+Cat Arena: sound gun11_0 t=65787 ms=405
+Cat Arena: sound gun11_1 t=65859 ms=405
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: sound gun11_1 t=65930 ms=405
+Cat Arena: sound gun11_1 t=65977 ms=405
+Cat Arena: sound gun11_0 t=66057 ms=405
+Cat Arena: sound gun11_1 t=66094 ms=405
+Cat Arena: sound gun11_0 t=66208 ms=405
+Cat Arena: sound gun11_0 t=66275 ms=405
+Cat Arena: sound gun11_1 t=66342 ms=405
+Cat Arena: sound voice_normal_attack_0 t=66408 ms=470 enemy=173 type=grunt d=17.8 playing=0
+Cat Arena: sound gun11_1 t=66440 ms=405
+Cat Arena: sound gun11_0 t=66511 ms=405
+Cat Arena: sound gun11_1 t=66580 ms=405
+Cat Arena: sound gun11_0 t=66680 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=66778 ms=405
+Cat Arena: sound gun11_1 t=66843 ms=405
+Cat Arena: sound gun11_1 t=66909 ms=405
+Cat Arena: sound gun11_0 t=66979 ms=405
+Cat Arena: sound voice_normal_attack_1 t=67014 ms=530 enemy=168 type=sapper d=12.7 playing=0
+Cat Arena: sound gun11_0 t=67053 ms=405
+Cat Arena: sound gun11_1 t=67154 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed grunt
+Cat Arena: sound voice_normal_eliminated_0 t=67225 ms=764 enemy=173 type=grunt d=11.3 playing=1
+Cat Arena: sound gun9_0 t=67296 ms=405
+Cat Arena: sound voice_normal_attack_2 t=67512 ms=607 enemy=169 type=marauder d=27.2 playing=2
+Cat Arena: hit by grunt shot 9
+Cat Arena: sound gun9_1 t=67647 ms=405
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=68049 ms=405
+Cat Arena: sound gun11_0 t=68090 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=68127 ms=301 enemy=168 type=sapper d=6.9 playing=0
+Cat Arena: sound gun11_0 t=68208 ms=405
+Cat Arena: sound gun11_0 t=68270 ms=405
+Cat Arena: sound gun11_0 t=68334 ms=405
+Cat Arena: sound gun11_0 t=68429 ms=405
+Cat Arena: sound gun11_0 t=68524 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=68524 ms=343 enemy=168 type=sapper d=6.9 playing=0
+Cat Arena: sound gun11_0 t=68592 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed sapper
+Cat Arena: sound voice_normal_eliminated_2 t=68657 ms=988 enemy=168 type=sapper d=6.9 playing=1
+Cat Arena: sound gun7_1 t=68719 ms=675
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound voice_light_idle_1 t=69161 ms=649 enemy=166 type=banshee d=9.8 playing=1
+Cat Arena: sound gun11_1 t=69195 ms=405
+Cat Arena: sound gun11_1 t=69257 ms=405
+Cat Arena: sound voice_normal_attack_1 t=69257 ms=530 enemy=169 type=marauder d=12.9 playing=2
+Cat Arena: sound gun11_1 t=69324 ms=405
+Cat Arena: sound gun11_0 t=69392 ms=405
+Cat Arena: sound gun11_0 t=69464 ms=405
+Cat Arena: sound gun11_1 t=69571 ms=405
+Cat Arena: sound gun11_1 t=69638 ms=405
+Cat Arena: sound gun11_0 t=69702 ms=405
+Cat Arena: sound gun11_1 t=69799 ms=405
+Cat Arena: sound gun11_0 t=69861 ms=405
+Cat Arena: sound gun11_1 t=69964 ms=405
+Cat Arena: sound voice_light_hurt_2 t=69964 ms=380 enemy=166 type=banshee d=8.9 playing=0
+Cat Arena: sound gun11_0 t=70044 ms=405
+Cat Arena: sound gun11_0 t=70130 ms=405
+Cat Arena: sound gun11_1 t=70220 ms=405
+Cat Arena: hit by marauder spike 6
+Cat Arena: sound gun11_1 t=70266 ms=405
+Cat Arena: sound gun11_0 t=70347 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=70428 ms=405
+Cat Arena: sound gun11_1 t=70517 ms=405
+Cat Arena: sound gun11_1 t=70559 ms=405
+Cat Arena: sound gun11_1 t=70631 ms=405
+Cat Arena: sound voice_light_hurt_1 t=70631 ms=335 enemy=166 type=banshee d=8.9 playing=0
+Cat Arena: sound gun11_0 t=70707 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed banshee
+Cat Arena: sound voice_light_eliminated_1 t=70774 ms=853 enemy=166 type=banshee d=8.9 playing=1
+Cat Arena: sound gun15_0 t=70872 ms=674
+Cat Arena: sound voice_bass_idle_1 t=71360 ms=724 enemy=170 type=shambler d=27.4 playing=1
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=71667 ms=405
+Cat Arena: sound gun11_0 t=71733 ms=405
+Cat Arena: sound gun11_0 t=71797 ms=405
+Cat Arena: sound gun11_1 t=71866 ms=405
+Cat Arena: sound gun11_0 t=71933 ms=405
+Cat Arena: sound gun11_1 t=72033 ms=405
+Cat Arena: sound gun11_0 t=72100 ms=405
+Cat Arena: sound gun11_1 t=72166 ms=405
+Cat Arena: sound gun11_0 t=72265 ms=405
+Cat Arena: sound gun11_0 t=72335 ms=405
+Cat Arena: sound gun11_0 t=72409 ms=405
+Cat Arena: sound gun11_0 t=72508 ms=405
+Cat Arena: sound gun11_0 t=72576 ms=405
+Cat Arena: sound gun11_0 t=72646 ms=405
+Cat Arena: sound gun11_1 t=72753 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=72857 ms=405
+Cat Arena: sound gun11_1 t=72926 ms=405
+Cat Arena: sound gun11_1 t=72995 ms=405
+Cat Arena: sound gun11_1 t=73065 ms=405
+Cat Arena: sound gun11_0 t=73136 ms=405
+Cat Arena: sound gun11_1 t=73168 ms=405
+Cat Arena: sound gun11_1 t=73235 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=73266 ms=424 enemy=138 type=shambler d=13.6 playing=0
+Cat Arena: sound gun11_1 t=73300 ms=405
+Cat Arena: sound gun11_0 t=73370 ms=405
+Cat Arena: sound gun11_1 t=73468 ms=405
+Cat Arena: sound gun11_0 t=73536 ms=405
+Cat Arena: sound gun11_0 t=73633 ms=405
+Cat Arena: sound gun11_1 t=73698 ms=405
+Cat Arena: sound gun11_0 t=73770 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=73770 ms=373 enemy=138 type=shambler d=11.1 playing=0
+Cat Arena: sound gun11_0 t=73838 ms=405
+Cat Arena: sound gun11_0 t=73938 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=74038 ms=405
+Cat Arena: sound gun11_1 t=74106 ms=405
+Cat Arena: sound gun11_0 t=74171 ms=405
+Cat Arena: sound gun11_0 t=74239 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=74270 ms=424 enemy=138 type=shambler d=8.7 playing=0
+Cat Arena: sound gun11_0 t=74309 ms=405
+Cat Arena: sound gun11_1 t=74409 ms=405
+Cat Arena: sound gun11_0 t=74476 ms=405
+Cat Arena: sound gun11_0 t=74543 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=74610 ms=328 enemy=138 type=shambler d=7.2 playing=1
+Cat Arena: sound gun11_1 t=74642 ms=405
+Cat Arena: sound gun11_1 t=74744 ms=405
+Cat Arena: sound gun11_0 t=74780 ms=405
+Cat Arena: sound gun11_0 t=74895 ms=405
+Cat Arena: sound gun11_1 t=74957 ms=405
+Cat Arena: sound gun11_1 t=75019 ms=405
+Cat Arena: sound gun11_1 t=75117 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound voice_normal_idle_1 t=75186 ms=665 enemy=169 type=marauder d=7.7 playing=0
+CA_STATE t=75150 pos=1037,92,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=24 score=20 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 138 shambler pos=900,48,24 health=38
+CA_ENEMY 169 marauder pos=797,142,24 health=137
+CA_ENEMY 170 shambler pos=727,13,24 health=278
+Cat Arena: sound gun11_1 t=75216 ms=405
+Cat Arena: sound gun11_0 t=75285 ms=405
+Cat Arena: sound gun11_1 t=75352 ms=405
+Cat Arena: sound gun11_1 t=75419 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=75419 ms=328 enemy=138 type=shambler d=3.2 playing=1
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed shambler
+Cat Arena: sound voice_bass_eliminated_0 t=75530 ms=831 enemy=138 type=shambler d=3.1 playing=2
+Cat Arena: sound gun15_0 t=75606 ms=674
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=76453 ms=405
+Cat Arena: sound gun11_1 t=76488 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=76528 ms=328 enemy=170 type=shambler d=4.0 playing=0
+Cat Arena: sound gun11_0 t=76602 ms=405
+Cat Arena: sound gun11_1 t=76669 ms=405
+Cat Arena: sound gun11_0 t=76741 ms=405
+Cat Arena: sound gun11_1 t=76855 ms=405
+Cat Arena: sound gun11_1 t=76925 ms=405
+Cat Arena: sound gun11_1 t=77000 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=77075 ms=424 enemy=170 type=shambler d=1.5 playing=0
+Cat Arena: sound gun11_1 t=77116 ms=405
+Cat Arena: sound gun11_1 t=77196 ms=405
+Cat Arena: sound gun11_1 t=77266 ms=405
+Cat Arena: sound gun11_0 t=77373 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=77373 ms=328 enemy=170 type=shambler d=1.4 playing=1
+Cat Arena: sound gun11_0 t=77448 ms=405
+Cat Arena: sound gun11_0 t=77516 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> RAILGUN
+Cat Arena: killed shambler
+Cat Arena: sound voice_bass_eliminated_0 t=77624 ms=831 enemy=170 type=shambler d=1.4 playing=1
+Cat Arena: give RAILGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=77743 ms=405
+Cat Arena: sound gun11_0 t=77778 ms=405
+Cat Arena: sound gun11_0 t=77895 ms=405
+Cat Arena: sound gun11_0 t=77966 ms=405
+Cat Arena: sound gun11_1 t=78048 ms=405
+Cat Arena: sound gun11_1 t=78173 ms=405
+Cat Arena: sound gun11_1 t=78246 ms=405
+Cat Arena: sound gun11_0 t=78311 ms=405
+Cat Arena: sound gun11_1 t=78413 ms=405
+Cat Arena: sound gun11_1 t=78484 ms=405
+Cat Arena: sound gun11_1 t=78546 ms=405
+Cat Arena: sound gun11_1 t=78640 ms=405
+Cat Arena: sound gun11_0 t=78705 ms=405
+Cat Arena: sound gun11_0 t=78771 ms=405
+Cat Arena: sound gun11_0 t=78869 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=78970 ms=405
+Cat Arena: sound gun11_0 t=79042 ms=405
+Cat Arena: sound gun11_1 t=79113 ms=405
+Cat Arena: sound gun11_0 t=79185 ms=405
+Cat Arena: sound gun11_0 t=79218 ms=405
+Cat Arena: sound gun11_0 t=79293 ms=405
+Cat Arena: sound gun11_0 t=79361 ms=405
+Cat Arena: sound gun11_1 t=79433 ms=405
+Cat Arena: sound gun11_1 t=79498 ms=405
+Cat Arena: sound gun11_1 t=79599 ms=405
+Cat Arena: sound gun11_1 t=79667 ms=405
+Cat Arena: sound gun11_1 t=79740 ms=405
+Cat Arena: sound gun11_1 t=79851 ms=405
+Cat Arena: sound gun11_0 t=79923 ms=405
+Cat Arena: sound gun11_0 t=79998 ms=405
+Cat Arena: sound gun11_1 t=80105 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=80218 ms=405
+Cat Arena: sound gun11_0 t=80254 ms=405
+Cat Arena: sound gun11_1 t=80361 ms=405
+Cat Arena: sound gun11_1 t=80436 ms=405
+Cat Arena: sound gun11_0 t=80506 ms=405
+Cat Arena: sound gun11_1 t=80627 ms=405
+Cat Arena: sound gun11_0 t=80707 ms=405
+Cat Arena: sound gun11_1 t=80784 ms=405
+Cat Arena: sound gun11_0 t=80820 ms=405
+Cat Arena: sound gun11_1 t=80896 ms=405
+Cat Arena: sound gun11_1 t=80963 ms=405
+Cat Arena: sound gun11_1 t=81036 ms=405
+Cat Arena: sound gun11_0 t=81139 ms=405
+Cat Arena: sound gun11_0 t=81205 ms=405
+Cat Arena: sound gun11_1 t=81277 ms=405
+Cat Arena: sound gun11_0 t=81385 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=81490 ms=405
+Cat Arena: sound gun11_1 t=81557 ms=405
+Cat Arena: sound gun11_1 t=81633 ms=405
+Cat Arena: sound gun11_0 t=81673 ms=405
+Cat Arena: sound gun11_0 t=81745 ms=405
+Cat Arena: sound gun11_0 t=81817 ms=405
+Cat Arena: sound gun11_1 t=81895 ms=405
+Cat Arena: sound gun11_1 t=81930 ms=405
+Cat Arena: sound gun11_1 t=82003 ms=405
+Cat Arena: sound gun11_0 t=82079 ms=405
+Cat Arena: sound gun11_0 t=82149 ms=405
+Cat Arena: sound gun11_0 t=82184 ms=405
+Cat Arena: sound gun11_1 t=82253 ms=405
+Cat Arena: sound gun11_1 t=82321 ms=405
+Cat Arena: sound gun11_1 t=82395 ms=405
+Cat Arena: sound gun11_1 t=82461 ms=405
+Cat Arena: sound gun11_1 t=82529 ms=405
+Cat Arena: sound gun11_0 t=82631 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=82741 ms=405
+Cat Arena: sound gun11_0 t=82818 ms=405
+Cat Arena: sound gun11_0 t=82893 ms=405
+Cat Arena: sound gun11_1 t=82963 ms=405
+Cat Arena: sound gun11_0 t=83032 ms=405
+Cat Arena: sound gun11_0 t=83133 ms=405
+Cat Arena: sound gun11_0 t=83204 ms=405
+Cat Arena: sound gun11_0 t=83274 ms=405
+Cat Arena: sound gun11_1 t=83390 ms=405
+Cat Arena: sound gun11_0 t=83459 ms=405
+Cat Arena: sound gun11_0 t=83527 ms=405
+Cat Arena: sound gun11_0 t=83633 ms=405
+Cat Arena: sound gun11_1 t=83734 ms=405
+Cat Arena: sound gun11_0 t=83766 ms=405
+Cat Arena: sound gun11_1 t=83867 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=83962 ms=405
+Cat Arena: sound gun11_1 t=84026 ms=405
+Cat Arena: sound gun11_0 t=84091 ms=405
+Cat Arena: sound gun11_0 t=84154 ms=405
+Cat Arena: sound gun11_1 t=84219 ms=405
+Cat Arena: sound voice_normal_idle_2 t=84291 ms=747 enemy=169 type=marauder d=7.7 playing=0
+Cat Arena: sound gun11_1 t=84322 ms=405
+Cat Arena: sound gun11_1 t=84388 ms=405
+Cat Arena: sound gun11_1 t=84481 ms=405
+Cat Arena: sound gun11_1 t=84541 ms=405
+Cat Arena: sound gun11_1 t=84603 ms=405
+Cat Arena: sound gun11_0 t=84664 ms=405
+Cat Arena: sound gun11_1 t=84756 ms=405
+Cat Arena: sound gun11_1 t=84851 ms=405
+Cat Arena: sound gun11_0 t=84911 ms=405
+Cat Arena: sound gun11_1 t=84974 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=85065 ms=405
+Cat Arena: sound gun11_0 t=85127 ms=405
+Cat Arena: sound gun11_1 t=85218 ms=405
+Cat Arena: sound gun11_0 t=85290 ms=405
+Cat Arena: sound gun11_0 t=85355 ms=405
+Cat Arena: sound gun11_0 t=85416 ms=405
+Cat Arena: sound gun11_1 t=85479 ms=405
+Cat Arena: sound gun11_1 t=85542 ms=405
+Cat Arena: sound gun11_0 t=85638 ms=405
+Cat Arena: sound gun11_0 t=85733 ms=405
+Cat Arena: sound gun11_1 t=85793 ms=405
+Cat Arena: sound gun11_1 t=85856 ms=405
+Cat Arena: sound gun11_0 t=85917 ms=405
+Cat Arena: sound gun11_1 t=85979 ms=405
+Cat Arena: sound gun11_0 t=86071 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=86165 ms=405
+Cat Arena: sound gun11_1 t=86230 ms=405
+Cat Arena: sound gun11_1 t=86292 ms=405
+Cat Arena: sound gun11_1 t=86387 ms=405
+Cat Arena: sound gun11_0 t=86447 ms=405
+Cat Arena: sound gun11_0 t=86507 ms=405
+Cat Arena: sound gun11_1 t=86570 ms=405
+Cat Arena: sound gun11_1 t=86640 ms=405
+Cat Arena: sound gun11_0 t=86732 ms=405
+Cat Arena: sound gun11_0 t=86829 ms=405
+Cat Arena: sound gun11_0 t=86894 ms=405
+Cat Arena: sound gun11_1 t=86955 ms=405
+Cat Arena: sound gun11_0 t=87025 ms=405
+Cat Arena: sound gun11_1 t=87087 ms=405
+Cat Arena: sound gun11_1 t=87187 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=87200 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=24 score=22 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 169 marauder pos=814,137,24 health=137
+Cat Arena: sound body_land_0 t=87295 ms=312
+Cat Arena: sound gun11_1 t=87295 ms=405
+Cat Arena: sound gun11_1 t=87366 ms=405
+CATEST god off
+Cat Arena: sound gun11_1 t=87436 ms=405
+Wrote screenshots/enemies_fight_300.jpg
+godmode OFF
+Cat Arena: sound gun11_0 t=87502 ms=405
+Cat Arena: sound gun11_1 t=87539 ms=405
+Cat Arena: sound body_land_0 t=87610 ms=312
+Cat Arena: sound gun11_0 t=87610 ms=405
+Cat Arena: sound gun11_1 t=87715 ms=405
+Cat Arena: sound gun11_0 t=87784 ms=405
+Cat Arena: sound gun11_1 t=87851 ms=405
+Cat Arena: sound gun11_0 t=87952 ms=405
+Cat Arena: sound gun11_0 t=88022 ms=405
+Cat Arena: sound gun11_0 t=88091 ms=405
+Cat Arena: sound gun11_0 t=88200 ms=405
+Cat Arena: sound gun11_0 t=88268 ms=405
+Cat Arena: sound gun11_1 t=88344 ms=405
+Cat Arena: sound gun11_0 t=88448 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=88547 ms=405
+Cat Arena: sound gun11_0 t=88614 ms=405
+Cat Arena: sound gun11_1 t=88681 ms=405
+Cat Arena: sound gun11_0 t=88747 ms=405
+Cat Arena: sound gun11_0 t=88811 ms=405
+Cat Arena: sound gun11_0 t=88923 ms=405
+Cat Arena: sound gun11_0 t=89005 ms=405
+Cat Arena: sound gun11_0 t=89080 ms=405
+Cat Arena: sound gun11_0 t=89113 ms=405
+Cat Arena: sound gun11_0 t=89181 ms=405
+Cat Arena: sound gun11_1 t=89245 ms=405
+Cat Arena: sound gun11_1 t=89306 ms=405
+Cat Arena: sound gun11_1 t=89413 ms=405
+Cat Arena: sound gun11_0 t=89476 ms=405
+Cat Arena: sound gun11_1 t=89571 ms=405
+Cat Arena: sound gun11_1 t=89637 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=89734 ms=405
+Cat Arena: sound gun11_0 t=89803 ms=405
+Cat Arena: sound gun11_1 t=89869 ms=405
+Cat Arena: sound gun11_0 t=89940 ms=405
+Cat Arena: sound gun11_0 t=90004 ms=405
+Cat Arena: sound gun11_0 t=90102 ms=405
+Cat Arena: sound gun11_0 t=90195 ms=405
+Cat Arena: sound gun11_0 t=90262 ms=405
+Cat Arena: sound gun11_1 t=90327 ms=405
+Cat Arena: sound gun11_1 t=90391 ms=405
+Cat Arena: sound gun11_0 t=90458 ms=405
+Cat Arena: sound gun11_0 t=90558 ms=405
+Cat Arena: sound gun11_1 t=90624 ms=405
+Cat Arena: sound gun11_0 t=90689 ms=405
+Cat Arena: sound gun11_0 t=90783 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=90877 ms=405
+Cat Arena: sound gun11_1 t=90941 ms=405
+Cat Arena: sound voice_normal_idle_1 t=90941 ms=665 enemy=169 type=marauder d=26.5 playing=0
+Cat Arena: sound gun11_1 t=91007 ms=405
+Cat Arena: sound gun11_1 t=91076 ms=405
+Cat Arena: sound gun11_1 t=91150 ms=405
+Cat Arena: sound gun11_1 t=91254 ms=405
+Cat Arena: sound gun11_1 t=91322 ms=405
+Cat Arena: sound gun11_0 t=91390 ms=405
+Cat Arena: sound gun11_1 t=91491 ms=405
+Cat Arena: sound gun11_0 t=91591 ms=405
+Cat Arena: sound gun11_1 t=91622 ms=405
+Cat Arena: sound gun11_1 t=91722 ms=405
+Cat Arena: sound gun11_1 t=91814 ms=405
+Cat Arena: sound gun11_0 t=91879 ms=405
+Cat Arena: sound gun11_0 t=91943 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=92043 ms=405
+Cat Arena: sound gun11_0 t=92108 ms=405
+Cat Arena: sound gun11_1 t=92179 ms=405
+Cat Arena: sound gun11_1 t=92250 ms=405
+Cat Arena: sound gun11_0 t=92318 ms=405
+Cat Arena: sound gun11_0 t=92426 ms=405
+Cat Arena: sound gun11_0 t=92491 ms=405
+Cat Arena: sound gun11_0 t=92558 ms=405
+Cat Arena: sound gun11_0 t=92653 ms=405
+Cat Arena: sound gun11_0 t=92716 ms=405
+Cat Arena: sound gun11_0 t=92808 ms=405
+Cat Arena: sound gun11_1 t=92871 ms=405
+Cat Arena: sound gun11_0 t=92936 ms=405
+Cat Arena: sound gun11_0 t=92999 ms=405
+Cat Arena: sound gun11_1 t=93097 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=93204 ms=405
+Cat Arena: sound gun11_0 t=93268 ms=405
+Cat Arena: sound voice_normal_attack_1 t=93268 ms=530 enemy=169 type=marauder d=7.1 playing=0
+Cat Arena: sound gun11_1 t=93339 ms=405
+Cat Arena: sound gun11_1 t=93412 ms=405
+Cat Arena: sound gun11_1 t=93483 ms=405
+Cat Arena: sound gun11_0 t=93512 ms=405
+Cat Arena: sound gun11_1 t=93581 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=93613 ms=389 enemy=169 type=marauder d=6.8 playing=1
+Cat Arena: sound gun11_0 t=93644 ms=405
+Cat Arena: sound gun11_1 t=93707 ms=405
+Cat Arena: sound gun11_0 t=93800 ms=405
+Cat Arena: sound gun11_0 t=93860 ms=405
+Cat Arena: sound gun11_1 t=93926 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=93958 ms=343 enemy=169 type=marauder d=6.8 playing=1
+Cat Arena: sound gun11_1 t=94039 ms=405
+Cat Arena: sound gun11_0 t=94116 ms=405
+Cat Arena: hit by marauder spike 6
+Cat Arena: hit by marauder spike 6
+Cat Arena: sound beep_hurt t=94188 ms=80
+Cat Arena: sound gun11_1 t=94188 ms=405
+Cat Arena: sound gun11_0 t=94297 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=94414 ms=405
+Cat Arena: sound gun11_0 t=94456 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=94525 ms=343 enemy=169 type=marauder d=6.8 playing=0
+Cat Arena: sound gun11_1 t=94559 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed marauder
+Cat Arena: wave 2 cleared
+Cat Arena: sound voice_normal_eliminated_0 t=94653 ms=764 enemy=169 type=marauder d=6.8 playing=1
+Cat Arena: sound gun6_0 t=94684 ms=535
+Cat Arena: sound gun6_0 t=94780 ms=535
+Cat Arena: sound gun6_0 t=94846 ms=535
+Cat Arena: sound gun6_1 t=94905 ms=534
+Cat Arena: sound gun6_0 t=94995 ms=535
+Cat Arena: sound gun6_1 t=95059 ms=534
+Cat Arena: sound gun6_0 t=95155 ms=535
+Cat Arena: sound gun6_1 t=95216 ms=534
+Cat Arena: sound gun6_0 t=95279 ms=535
+Cat Arena: sound gun6_1 t=95378 ms=534
+Cat Arena: sound gun6_1 t=95439 ms=534
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=95540 ms=405
+Cat Arena: sound gun11_0 t=95602 ms=405
+Cat Arena: sound gun11_1 t=95661 ms=405
+Cat Arena: sound gun11_1 t=95755 ms=405
+Cat Arena: sound gun11_0 t=95818 ms=405
+Cat Arena: sound gun11_1 t=95881 ms=405
+Cat Arena: sound gun11_0 t=95940 ms=405
+Cat Arena: sound gun11_0 t=96005 ms=405
+Cat Arena: sound gun11_0 t=96094 ms=405
+Cat Arena: sound gun11_1 t=96159 ms=405
+Cat Arena: sound gun11_0 t=96257 ms=405
+Cat Arena: sound gun11_0 t=96326 ms=405
+Cat Arena: sound gun11_1 t=96358 ms=405
+Cat Arena: sound gun11_0 t=96424 ms=405
+Cat Arena: sound gun11_1 t=96489 ms=405
+Cat Arena: sound gun11_0 t=96553 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=96647 ms=405
+Cat Arena: sound gun11_0 t=96703 ms=405
+Cat Arena: sound gun11_0 t=96799 ms=405
+Cat Arena: sound gun11_0 t=96863 ms=405
+Cat Arena: sound gun11_0 t=96924 ms=405
+Cat Arena: sound gun11_1 t=96987 ms=405
+Cat Arena: sound gun11_1 t=97048 ms=405
+Cat Arena: sound gun11_1 t=97107 ms=405
+Cat Arena: sound gun11_0 t=97200 ms=405
+Cat Arena: sound gun11_1 t=97296 ms=405
+Cat Arena: sound gun11_1 t=97362 ms=405
+Cat Arena: sound gun11_0 t=97425 ms=405
+Cat Arena: sound gun11_1 t=97490 ms=405
+Cat Arena: sound gun11_0 t=97562 ms=405
+Cat Arena: sound gun11_1 t=97593 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=97747 ms=405
+Cat Arena: sound gun11_1 t=97812 ms=405
+Cat Arena: sound gun11_1 t=97875 ms=405
+Cat Arena: sound gun11_0 t=97966 ms=405
+Cat Arena: sound gun11_0 t=98028 ms=405
+Cat Arena: sound gun11_0 t=98088 ms=405
+Cat Arena: wave 3, 17 enemies
+Cat Arena: spawn skyprobe at -64 768 335
+Cat Arena: spawn skyraider at 128 64 347
+Cat Arena: spawn skyprobe at -64 160 367
+Cat Arena: spawn pyromancer at 704 -64 33
+Cat Arena: spawn ogre at 288 96 -95
+Cat Arena: spawn banshee at 128 960 33
+Cat Arena: spawn sentinel at -224 768 193
+Cat Arena: spawn fiend at 224 896 33
+Cat Arena: spawn ogre at 352 736 33
+Cat Arena: spawn crusher at 1024 -480 193
+Cat Arena: spawn skyraider at 576 -128 176
+Cat Arena: sound gun11_0 t=98151 ms=405
+Cat Arena: spawn skyprobe at -96 -512 173
+Cat Arena: sound gun11_1 t=98222 ms=405
+Cat Arena: sound gun11_0 t=98332 ms=405
+Cat Arena: spawn skyraider at 608 -928 372
+Cat Arena: sound gun11_1 t=98415 ms=405
+Cat Arena: sound gun11_0 t=98487 ms=405
+Cat Arena: spawn marauder at 608 -768 193
+Cat Arena: sound gun11_0 t=98593 ms=405
+Cat Arena: sound gun11_1 t=98659 ms=405
+Cat Arena: sound gun11_0 t=98726 ms=405
+Cat Arena: spawn sapper at 480 288 33
+Cat Arena: sound gun11_0 t=98831 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=98850 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=23 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 130 marauder pos=566,-761,184 health=154
+CA_ENEMY 134 sapper pos=478,288,29 health=121
+CA_ENEMY 148 skyprobe pos=-196,648,303 health=86
+CA_ENEMY 149 skyraider pos=-113,115,287 health=149
+CA_ENEMY 158 skyraider pos=433,-836,346 health=149
+CA_ENEMY 168 skyprobe pos=-233,116,318 health=86
+CA_ENEMY 169 pyromancer pos=539,-42,24 health=116
+CA_ENEMY 170 ogre pos=121,98,-104 health=138
+CA_ENEMY 171 banshee pos=-10,838,24 health=101
+CA_ENEMY 172 sentinel pos=-347,656,184 health=171
+CA_ENEMY 173 fiend pos=30,888,24 health=110
+CA_ENEMY 174 ogre pos=187,734,24 health=138
+CA_ENEMY 175 crusher pos=939,-491,184 health=298
+CA_ENEMY 176 skyraider pos=296,-120,163 health=149
+CA_ENEMY 179 skyprobe pos=-260,-434,161 health=86
+Cat Arena: sound gun11_0 t=98930 ms=405
+Cat Arena: spawn sapper at 352 768 33
+Cat Arena: sound gun11_0 t=99000 ms=405
+Cat Arena: sound gun11_1 t=99066 ms=405
+Cat Arena: sound gun11_1 t=99140 ms=405
+Cat Arena: spawn skitter at 800 -320 33
+Cat Arena: sound gun11_1 t=99211 ms=405
+Cat Arena: sound gun11_0 t=99252 ms=405
+Cat Arena: sound gun11_0 t=99323 ms=405
+Cat Arena: sound gun11_1 t=99404 ms=405
+Cat Arena: sound gun11_1 t=99438 ms=405
+Cat Arena: sound gun11_1 t=99513 ms=405
+Cat Arena: sound gun11_1 t=99586 ms=405
+Cat Arena: sound gun11_1 t=99655 ms=405
+Cat Arena: sound gun11_1 t=99721 ms=405
+Cat Arena: sound gun11_1 t=99834 ms=405
+Cat Arena: sound gun11_1 t=99905 ms=405
+Cat Arena: sound gun11_0 t=99972 ms=405
+Cat Arena: sound gun11_0 t=100079 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=100182 ms=405
+Cat Arena: sound gun11_0 t=100251 ms=405
+Cat Arena: sound gun11_0 t=100319 ms=405
+Cat Arena: sound gun11_0 t=100391 ms=405
+Cat Arena: sound gun11_0 t=100425 ms=405
+Cat Arena: sound voice_light_idle_0 t=100462 ms=565 enemy=168 type=skyprobe d=12.0 playing=0
+Cat Arena: sound gun11_1 t=100503 ms=405
+Cat Arena: sound gun11_1 t=100574 ms=405
+Cat Arena: sound voice_normal_attack_2 t=100611 ms=607 enemy=170 type=ogre d=24.0 playing=1
+Cat Arena: sound gun11_0 t=100646 ms=405
+Cat Arena: sound gun11_1 t=100712 ms=405
+Cat Arena: sound gun11_0 t=100825 ms=405
+Cat Arena: sound gun11_1 t=100903 ms=405
+Cat Arena: sound gun11_1 t=100972 ms=405
+Cat Arena: sound voice_light_hurt_2 t=100972 ms=380 enemy=171 type=banshee d=18.9 playing=2
+Cat Arena: sound gun11_0 t=101076 ms=405
+Cat Arena: sound gun11_1 t=101146 ms=405
+Cat Arena: sound gun11_0 t=101211 ms=405
+Cat Arena: sound gun11_0 t=101313 ms=405
+Cat Arena: sound voice_light_hurt_2 t=101313 ms=380 enemy=171 type=banshee d=15.0 playing=1
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=101421 ms=405
+Cat Arena: sound voice_normal_attack_2 t=101458 ms=607 enemy=174 type=ogre d=21.5 playing=1
+Cat Arena: sound gun11_1 t=101493 ms=405
+CATEST god on
+Cat Arena: sound gun11_0 t=101565 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed banshee
+Cat Arena: sound gun11_0 t=101600 ms=405
+CA_STATE t=101600 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=98 reloading=0 health=12 score=23 weapon=2 wstate=3 wtime=3 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+godmode ON
+Cat Arena: sound voice_light_eliminated_0 t=101665 ms=745 enemy=171 type=banshee d=12.1 playing=2
+Cat Arena: sound gun8_1 t=101700 ms=534
+Cat Arena: sound gun8_1 t=101876 ms=534
+Cat Arena: sound voice_normal_idle_2 t=101876 ms=747 enemy=176 type=skyraider d=5.8 playing=2
+Cat Arena: sound gun8_1 t=102081 ms=534
+Cat Arena: sound gun8_1 t=102284 ms=534
+Cat Arena: sound voice_normal_attack_2 t=102358 ms=607 enemy=170 type=ogre d=12.3 playing=2
+Cat Arena: sound gun8_1 t=102463 ms=534
+Cat Arena: frag reroll PLASMA REPEATER -> SUPER NAILGUN
+Cat Arena: killed fiend
+Cat Arena: give SUPER NAILGUN -> IRON CHAINGUN
+Cat Arena: sound voice_light_eliminated_2 t=102566 ms=964 enemy=173 type=fiend d=7.6 playing=2
+Cat Arena: sound gun11_0 t=102643 ms=405
+Cat Arena: sound gun11_1 t=102730 ms=405
+Cat Arena: sound gun11_0 t=102811 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=102811 ms=301 enemy=170 type=ogre d=7.9 playing=2
+Cat Arena: sound gun11_0 t=102889 ms=405
+Cat Arena: sound gun11_1 t=102966 ms=405
+Cat Arena: sound gun11_0 t=103005 ms=405
+Cat Arena: hit by ogre fireball 4
+Cat Arena: sound gun11_1 t=103087 ms=405
+Cat Arena: sound gun11_1 t=103177 ms=405
+Cat Arena: sound gun11_0 t=103230 ms=405
+Cat Arena: sound voice_normal_attack_1 t=103230 ms=530 enemy=174 type=ogre d=7.7 playing=1
+Cat Arena: sound gun11_1 t=103280 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=103383 ms=343 enemy=170 type=ogre d=7.1 playing=2
+Cat Arena: hit by ogre fireball 4
+Cat Arena: sound gun11_0 t=103431 ms=405
+Cat Arena: sound gun11_1 t=103539 ms=405
+Cat Arena: sound voice_normal_attack_0 t=103539 ms=470 enemy=172 type=sentinel d=16.9 playing=2
+Cat Arena: sound gun11_1 t=103595 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed ogre
+Cat Arena: sound voice_normal_eliminated_2 t=103691 ms=988 enemy=170 type=ogre d=7.1 playing=3
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: sound gun7_0 t=103796 ms=675
+Cat Arena: sound voice_normal_attack_2 t=103796 ms=607 enemy=169 type=pyromancer d=11.4 playing=2
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=104241 ms=405
+Cat Arena: hit by ogre fireball 4
+Cat Arena: sound gun11_1 t=104342 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=104342 ms=389 enemy=137 type=sapper d=7.5 playing=2
+Cat Arena: sound gun11_0 t=104392 ms=405
+Cat Arena: sound gun11_1 t=104488 ms=405
+Cat Arena: sound gun11_1 t=104591 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: killed sapper
+Cat Arena: sound voice_normal_attack_2 t=104646 ms=607 enemy=134 type=sapper d=7.6 playing=2
+Cat Arena: sound voice_normal_eliminated_1 t=104695 ms=874 enemy=137 type=sapper d=7.5 playing=2
+Cat Arena: sound gun14_0 t=104744 ms=405
+Cat Arena: hit by sentinel voidorb 21
+Cat Arena: sound voice_light_idle_1 t=104846 ms=649 enemy=148 type=skyprobe d=17.5 playing=2
+Cat Arena: sound gun14_0 t=105090 ms=405
+Cat Arena: frag reroll SAWBLADE DRIVER -> ROCKET LAUNCHER
+Cat Arena: killed ogre
+Cat Arena: sound voice_normal_eliminated_0 t=105178 ms=764 enemy=174 type=ogre d=7.6 playing=3
+Cat Arena: sound gun4_0 t=105221 ms=675
+Cat Arena: frag reroll ROCKET LAUNCHER -> PLASMA REPEATER
+Cat Arena: killed sapper
+Cat Arena: sound voice_normal_eliminated_2 t=105507 ms=988 enemy=134 type=sapper d=7.6 playing=2
+Cat Arena: sound explosion_rocket t=105507 ms=1170
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: sound gun8_0 t=105604 ms=534
+Cat Arena: sound voice_normal_hurt_2 t=105650 ms=389 enemy=172 type=sentinel d=8.9 playing=2
+Cat Arena: sound gun8_0 t=105865 ms=534
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=105950 ms=405
+Cat Arena: sound gun11_1 t=105988 ms=405
+Cat Arena: sound voice_normal_idle_2 t=106025 ms=747 enemy=130 type=marauder d=6.9 playing=2
+Cat Arena: sound gun11_0 t=106064 ms=405
+Cat Arena: sound gun11_1 t=106142 ms=405
+Cat Arena: sound voice_light_hurt_2 t=106179 ms=380 enemy=142 type=skitter d=3.2 playing=2
+Cat Arena: sound gun11_0 t=106218 ms=405
+Cat Arena: sound gun11_0 t=106258 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed skitter
+Cat Arena: sound voice_light_eliminated_2 t=106375 ms=964 enemy=142 type=skitter d=1.8 playing=3
+Cat Arena: sound gun1_0 t=106422 ms=674
+Cat Arena: frag reroll SHOTGUN -> SUPER SHOTGUN
+Cat Arena: killed sentinel
+Cat Arena: sound voice_normal_eliminated_2 t=106505 ms=988 enemy=172 type=sentinel d=9.1 playing=3
+Cat Arena: sound gun7_0 t=106545 ms=675
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=107395 ms=405
+Cat Arena: sound gun11_1 t=107436 ms=405
+Cat Arena: sound gun11_1 t=107558 ms=405
+Cat Arena: sound gun11_0 t=107635 ms=405
+Cat Arena: sound gun11_0 t=107718 ms=405
+Cat Arena: sound gun11_0 t=107757 ms=405
+Cat Arena: sound gun11_0 t=107835 ms=405
+Cat Arena: sound gun11_1 t=107925 ms=405
+Cat Arena: sound gun11_1 t=107966 ms=405
+Cat Arena: sound gun11_1 t=108043 ms=405
+Cat Arena: sound gun11_0 t=108126 ms=405
+Cat Arena: sound gun11_0 t=108213 ms=405
+Cat Arena: sound gun11_0 t=108254 ms=405
+Cat Arena: sound gun11_0 t=108338 ms=405
+Cat Arena: sound gun11_0 t=108424 ms=405
+Cat Arena: sound gun11_1 t=108469 ms=405
+Cat Arena: sound gun11_1 t=108543 ms=405
+Cat Arena: sound gun11_0 t=108586 ms=405
+Cat Arena: sound gun11_1 t=108707 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound voice_normal_idle_1 t=108745 ms=665 enemy=176 type=skyraider d=7.1 playing=0
+Cat Arena: sound gun11_0 t=108826 ms=405
+Cat Arena: sound gun11_0 t=108865 ms=405
+Cat Arena: sound gun11_0 t=108983 ms=405
+Cat Arena: sound gun11_0 t=109062 ms=405
+Cat Arena: sound gun11_1 t=109136 ms=405
+Cat Arena: sound gun11_1 t=109254 ms=405
+Cat Arena: sound gun11_1 t=109332 ms=405
+Cat Arena: sound gun11_1 t=109414 ms=405
+Cat Arena: sound gun11_1 t=109453 ms=405
+Cat Arena: sound gun11_0 t=109532 ms=405
+Cat Arena: sound gun11_1 t=109610 ms=405
+Cat Arena: sound gun11_0 t=109647 ms=405
+Cat Arena: sound gun11_1 t=109724 ms=405
+Cat Arena: sound gun11_1 t=109802 ms=405
+Cat Arena: sound gun11_0 t=109839 ms=405
+Cat Arena: sound gun11_0 t=109918 ms=405
+Cat Arena: sound voice_normal_idle_2 t=109918 ms=747 enemy=169 type=pyromancer d=7.8 playing=0
+Cat Arena: sound gun11_1 t=109994 ms=405
+Cat Arena: sound gun11_0 t=110075 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=110114 ms=405
+Cat Arena: sound gun11_0 t=110228 ms=405
+Cat Arena: sound gun11_0 t=110342 ms=405
+Cat Arena: sound gun11_0 t=110425 ms=405
+Cat Arena: sound gun11_0 t=110506 ms=405
+Cat Arena: sound gun11_0 t=110542 ms=405
+Cat Arena: sound gun11_1 t=110627 ms=405
+Cat Arena: sound gun11_1 t=110704 ms=405
+Cat Arena: sound gun11_0 t=110744 ms=405
+Cat Arena: sound gun11_1 t=110822 ms=405
+Cat Arena: sound gun11_1 t=110897 ms=405
+Cat Arena: sound gun11_0 t=110933 ms=405
+Cat Arena: sound gun11_1 t=111011 ms=405
+Cat Arena: sound gun11_0 t=111084 ms=405
+Cat Arena: sound gun11_1 t=111167 ms=405
+Cat Arena: sound gun11_1 t=111206 ms=405
+Cat Arena: sound gun11_1 t=111281 ms=405
+Cat Arena: sound gun11_1 t=111320 ms=405
+Cat Arena: sound gun11_1 t=111433 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=111556 ms=405
+Cat Arena: sound gun11_0 t=111597 ms=405
+Cat Arena: sound gun11_0 t=111716 ms=405
+Cat Arena: sound gun11_1 t=111789 ms=405
+Cat Arena: sound gun11_0 t=111865 ms=405
+Cat Arena: sound voice_bass_idle_0 t=111937 ms=630 enemy=175 type=crusher d=9.3 playing=0
+Cat Arena: sound gun11_0 t=111976 ms=405
+Cat Arena: sound gun11_0 t=112051 ms=405
+Cat Arena: sound gun11_1 t=112124 ms=405
+Cat Arena: sound gun11_0 t=112234 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=112234 ms=424 enemy=175 type=crusher d=9.2 playing=1
+Cat Arena: sound gun11_0 t=112311 ms=405
+Cat Arena: sound gun11_1 t=112384 ms=405
+Cat Arena: sound gun11_1 t=112497 ms=405
+Cat Arena: sound gun11_1 t=112576 ms=405
+Cat Arena: sound gun11_1 t=112657 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=112657 ms=373 enemy=175 type=crusher d=8.0 playing=1
+Cat Arena: sound gun11_0 t=112694 ms=405
+Cat Arena: sound gun11_0 t=112777 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=112800 pos=998,83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=31 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 130 marauder pos=-790,-71,24 health=127
+CA_ENEMY 148 skyprobe pos=-601,293,197 health=86
+CA_ENEMY 149 skyraider pos=-812,-71,173 health=149
+CA_ENEMY 158 skyraider pos=388,-860,372 health=149
+CA_ENEMY 168 skyprobe pos=-817,-131,173 health=86
+CA_ENEMY 169 pyromancer pos=-795,-141,24 health=116
+CA_ENEMY 175 crusher pos=-853,27,24 health=208
+CA_ENEMY 176 skyraider pos=-815,-89,115 health=132
+CA_ENEMY 179 skyprobe pos=-818,-92,108 health=85
+Cat Arena: sound body_land_0 t=112903 ms=312
+Cat Arena: sound gun11_0 t=112938 ms=405
+Cat Arena: sound gun11_1 t=113056 ms=405
+Cat Arena: sound gun11_1 t=113127 ms=405
+Cat Arena: sound gun11_1 t=113203 ms=405
+Cat Arena: sound gun11_1 t=113318 ms=405
+Cat Arena: sound gun11_1 t=113387 ms=405
+Cat Arena: sound gun11_0 t=113463 ms=405
+Cat Arena: sound gun11_0 t=113580 ms=405
+Cat Arena: sound gun11_0 t=113661 ms=405
+Cat Arena: sound gun11_1 t=113730 ms=405
+Cat Arena: sound gun11_1 t=113838 ms=405
+Cat Arena: sound gun11_0 t=113916 ms=405
+Cat Arena: sound gun11_1 t=113987 ms=405
+Cat Arena: sound gun11_0 t=114096 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=114202 ms=405
+Cat Arena: sound gun11_0 t=114272 ms=405
+Cat Arena: sound gun11_0 t=114344 ms=405
+Cat Arena: sound gun11_1 t=114383 ms=405
+Cat Arena: sound gun11_1 t=114458 ms=405
+Cat Arena: sound gun11_0 t=114528 ms=405
+Cat Arena: sound gun11_0 t=114601 ms=405
+Cat Arena: sound gun11_1 t=114635 ms=405
+Cat Arena: sound gun11_1 t=114710 ms=405
+Cat Arena: sound gun11_0 t=114780 ms=405
+Cat Arena: sound gun11_1 t=114857 ms=405
+Cat Arena: sound gun11_1 t=114929 ms=405
+Cat Arena: sound gun11_0 t=114966 ms=405
+Cat Arena: sound gun11_0 t=115042 ms=405
+Cat Arena: sound gun11_0 t=115116 ms=405
+Cat Arena: sound gun11_1 t=115186 ms=405
+Cat Arena: sound gun11_0 t=115223 ms=405
+Cat Arena: sound gun11_1 t=115297 ms=405
+Cat Arena: sound gun11_0 t=115370 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=115479 ms=405
+Cat Arena: sound gun11_1 t=115557 ms=405
+Cat Arena: sound gun11_1 t=115626 ms=405
+Cat Arena: sound gun11_0 t=115701 ms=405
+Cat Arena: sound gun11_1 t=115778 ms=405
+Cat Arena: sound gun11_1 t=115886 ms=405
+Cat Arena: sound gun11_0 t=115961 ms=405
+Cat Arena: sound gun11_1 t=116036 ms=405
+Cat Arena: sound gun11_1 t=116145 ms=405
+Cat Arena: sound gun11_1 t=116217 ms=405
+Cat Arena: sound gun11_0 t=116291 ms=405
+Cat Arena: sound voice_normal_attack_1 t=116362 ms=530 enemy=130 type=marauder d=27.3 playing=0
+Cat Arena: sound gun11_1 t=116397 ms=405
+Cat Arena: sound gun11_0 t=116472 ms=405
+Cat Arena: sound gun11_1 t=116549 ms=405
+Cat Arena: sound gun11_1 t=116659 ms=405
+Cat Arena: sound voice_normal_idle_0 t=116659 ms=579 enemy=169 type=pyromancer d=26.0 playing=1
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=116766 ms=405
+Cat Arena: sound gun11_0 t=116842 ms=405
+Cat Arena: sound gun11_0 t=116913 ms=405
+Cat Arena: sound gun11_0 t=116984 ms=405
+Cat Arena: sound gun11_1 t=117057 ms=405
+Cat Arena: sound gun11_1 t=117171 ms=405
+Cat Arena: sound gun11_1 t=117248 ms=405
+Cat Arena: sound gun11_1 t=117319 ms=405
+Cat Arena: sound gun11_0 t=117431 ms=405
+Cat Arena: sound gun11_1 t=117509 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=117509 ms=389 enemy=130 type=marauder d=17.1 playing=0
+Cat Arena: sound gun11_0 t=117588 ms=405
+Cat Arena: sound gun11_1 t=117635 ms=405
+Cat Arena: sound gun11_0 t=117713 ms=405
+Cat Arena: sound gun11_0 t=117784 ms=405
+Cat Arena: sound gun11_0 t=117821 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=117856 ms=389 enemy=130 type=marauder d=13.8 playing=1
+Cat Arena: sound gun11_0 t=117896 ms=405
+Cat Arena: sound gun11_0 t=117966 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=118071 ms=405
+Cat Arena: sound gun11_0 t=118147 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=118180 ms=389 enemy=130 type=marauder d=10.6 playing=1
+Cat Arena: sound gun11_1 t=118216 ms=405
+Cat Arena: sound gun11_0 t=118287 ms=405
+Cat Arena: sound gun11_1 t=118361 ms=405
+Cat Arena: sound gun11_1 t=118471 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed marauder
+Cat Arena: sound voice_normal_eliminated_0 t=118580 ms=764 enemy=130 type=marauder d=7.5 playing=0
+Cat Arena: sound gun15_1 t=118621 ms=675
+Cat Arena: sound voice_normal_hurt_1 t=118728 ms=343 enemy=169 type=pyromancer d=8.0 playing=1
+Cat Arena: sound voice_bass_idle_2 t=119140 ms=813 enemy=175 type=crusher d=28.6 playing=1
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=119354 ms=405
+Cat Arena: sound gun11_1 t=119424 ms=405
+Cat Arena: sound gun11_1 t=119496 ms=405
+Cat Arena: sound gun11_0 t=119568 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed pyromancer
+Cat Arena: sound voice_normal_eliminated_1 t=119691 ms=874 enemy=169 type=pyromancer d=7.0 playing=1
+Cat Arena: sound gun15_0 t=119785 ms=674
+Cat Arena: hit by pyromancer fireball 4
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=120763 ms=405
+Cat Arena: sound gun11_0 t=120833 ms=405
+Cat Arena: sound gun11_1 t=120916 ms=405
+Cat Arena: sound gun11_0 t=120987 ms=405
+Cat Arena: sound gun11_1 t=121054 ms=405
+Cat Arena: sound gun11_0 t=121154 ms=405
+Cat Arena: sound gun11_1 t=121220 ms=405
+Cat Arena: sound gun11_0 t=121287 ms=405
+Cat Arena: sound gun11_1 t=121387 ms=405
+Cat Arena: sound gun11_0 t=121460 ms=405
+Cat Arena: sound gun11_0 t=121530 ms=405
+Cat Arena: sound gun11_1 t=121636 ms=405
+Cat Arena: sound gun11_1 t=121708 ms=405
+Cat Arena: sound gun11_0 t=121770 ms=405
+Cat Arena: sound gun11_0 t=121879 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=121983 ms=405
+Cat Arena: sound gun11_1 t=122049 ms=405
+Cat Arena: sound gun11_1 t=122112 ms=405
+Cat Arena: sound gun11_0 t=122181 ms=405
+Cat Arena: sound gun11_1 t=122247 ms=405
+Cat Arena: sound voice_light_idle_0 t=122310 ms=565 enemy=148 type=skyprobe d=6.9 playing=0
+Cat Arena: sound gun11_0 t=122344 ms=405
+Cat Arena: sound gun11_0 t=122414 ms=405
+Cat Arena: sound gun11_0 t=122481 ms=405
+Cat Arena: sound gun11_1 t=122580 ms=405
+Cat Arena: sound gun11_0 t=122686 ms=405
+Cat Arena: sound gun11_0 t=122717 ms=405
+Cat Arena: sound gun11_1 t=122835 ms=405
+Cat Arena: sound gun11_0 t=122906 ms=405
+Cat Arena: sound gun11_0 t=122974 ms=405
+Cat Arena: sound gun11_0 t=123076 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=123076 ms=373 enemy=175 type=crusher d=11.2 playing=0
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=123178 ms=405
+Cat Arena: sound gun11_0 t=123245 ms=405
+Cat Arena: sound gun11_1 t=123310 ms=405
+Cat Arena: sound gun11_0 t=123379 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=123411 ms=373 enemy=175 type=crusher d=9.6 playing=1
+Cat Arena: sound gun11_1 t=123451 ms=405
+Cat Arena: sound gun11_1 t=123552 ms=405
+Cat Arena: sound gun11_1 t=123623 ms=405
+Cat Arena: sound gun11_1 t=123698 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=123767 ms=328 enemy=175 type=crusher d=7.8 playing=1
+Cat Arena: sound gun11_1 t=123806 ms=405
+Cat Arena: sound gun11_0 t=123880 ms=405
+Cat Arena: sound gun11_1 t=123955 ms=405
+Cat Arena: sound gun11_0 t=124063 ms=405
+Cat Arena: sound gun11_0 t=124137 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=124174 ms=328 enemy=175 type=crusher d=5.7 playing=0
+Cat Arena: sound gun11_0 t=124209 ms=405
+Cat Arena: sound gun11_0 t=124316 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=124434 ms=405
+Cat Arena: sound gun11_0 t=124465 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=124501 ms=424 enemy=175 type=crusher d=4.1 playing=1
+Cat Arena: sound gun11_0 t=124567 ms=405
+Cat Arena: sound gun11_0 t=124638 ms=405
+Cat Arena: sound gun11_0 t=124709 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed crusher
+Cat Arena: sound voice_bass_eliminated_0 t=124828 ms=831 enemy=175 type=crusher d=2.8 playing=1
+Cat Arena: sound gun1_1 t=124866 ms=675
+Cat Arena: sound gun1_1 t=125582 ms=675
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+CA_STATE t=125600 pos=1050,99,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=34 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 148 skyprobe pos=816,103,116 health=86
+CA_ENEMY 149 skyraider pos=-693,-61,171 health=149
+CA_ENEMY 158 skyraider pos=814,109,173 health=149
+CA_ENEMY 168 skyprobe pos=-690,-110,170 health=86
+CA_ENEMY 176 skyraider pos=-127,-8,90 health=132
+CA_ENEMY 179 skyprobe pos=-124,-30,87 health=85
+Cat Arena: sound gun11_1 t=125686 ms=405
+Cat Arena: sound gun11_1 t=125758 ms=405
+Cat Arena: sound gun11_1 t=125825 ms=405
+Cat Arena: sound gun11_0 t=125892 ms=405
+Cat Arena: sound gun11_1 t=125966 ms=405
+Cat Arena: sound gun11_0 t=126001 ms=405
+Cat Arena: sound gun11_0 t=126071 ms=405
+Cat Arena: sound gun11_1 t=126148 ms=405
+Cat Arena: sound gun11_1 t=126221 ms=405
+Cat Arena: sound gun11_0 t=126261 ms=405
+Cat Arena: sound gun11_1 t=126331 ms=405
+Cat Arena: sound gun11_0 t=126395 ms=405
+Cat Arena: sound gun11_0 t=126465 ms=405
+Cat Arena: sound gun11_0 t=126565 ms=405
+Cat Arena: sound gun11_1 t=126633 ms=405
+Cat Arena: sound gun11_0 t=126700 ms=405
+Cat Arena: sound gun11_1 t=126804 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=126904 ms=405
+Cat Arena: sound gun11_0 t=126985 ms=405
+Cat Arena: sound gun11_1 t=127061 ms=405
+Cat Arena: sound gun11_0 t=127101 ms=405
+Cat Arena: sound gun11_0 t=127175 ms=405
+Cat Arena: sound gun11_1 t=127251 ms=405
+Cat Arena: sound gun11_1 t=127322 ms=405
+Cat Arena: sound gun11_1 t=127404 ms=405
+Cat Arena: sound gun11_0 t=127480 ms=405
+Cat Arena: sound gun11_1 t=127592 ms=405
+Cat Arena: sound gun11_1 t=127662 ms=405
+Cat Arena: sound gun11_0 t=127738 ms=405
+Cat Arena: sound gun11_0 t=127852 ms=405
+Cat Arena: sound gun11_1 t=127917 ms=405
+Cat Arena: sound gun11_1 t=127993 ms=405
+Cat Arena: sound gun11_0 t=128108 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=128214 ms=405
+Cat Arena: sound gun11_1 t=128284 ms=405
+Cat Arena: sound gun11_0 t=128352 ms=405
+Cat Arena: sound voice_normal_idle_2 t=128352 ms=747 enemy=158 type=skyraider d=7.3 playing=0
+Cat Arena: sound gun11_1 t=128418 ms=405
+Cat Arena: sound gun11_1 t=128490 ms=405
+Cat Arena: sound gun11_0 t=128599 ms=405
+Cat Arena: sound gun11_0 t=128669 ms=405
+Cat Arena: sound gun11_0 t=128746 ms=405
+Cat Arena: sound gun11_0 t=128857 ms=405
+Cat Arena: sound gun11_0 t=128930 ms=405
+Cat Arena: sound gun11_0 t=129001 ms=405
+Cat Arena: sound gun11_0 t=129101 ms=405
+Cat Arena: sound gun11_1 t=129166 ms=405
+Cat Arena: sound gun11_1 t=129233 ms=405
+Cat Arena: sound gun11_0 t=129335 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=129437 ms=405
+Cat Arena: sound gun11_0 t=129504 ms=405
+Cat Arena: sound gun11_1 t=129568 ms=405
+Cat Arena: sound gun11_0 t=129635 ms=405
+Cat Arena: sound gun11_1 t=129708 ms=405
+Cat Arena: sound gun11_0 t=129815 ms=405
+Cat Arena: sound gun11_0 t=129887 ms=405
+Cat Arena: sound gun11_1 t=129954 ms=405
+Cat Arena: sound gun11_1 t=130062 ms=405
+Cat Arena: sound gun11_1 t=130134 ms=405
+Cat Arena: sound voice_light_idle_1 t=130134 ms=649 enemy=148 type=skyprobe d=7.3 playing=0
+Cat Arena: sound gun11_0 t=130203 ms=405
+Cat Arena: sound gun11_0 t=130311 ms=405
+Cat Arena: sound gun11_0 t=130379 ms=405
+Cat Arena: sound gun11_0 t=130452 ms=405
+Cat Arena: sound gun11_0 t=130552 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=130655 ms=405
+Cat Arena: sound gun11_1 t=130724 ms=405
+Cat Arena: sound gun11_1 t=130793 ms=405
+Cat Arena: sound gun11_1 t=130865 ms=405
+Cat Arena: sound gun11_1 t=130900 ms=405
+Cat Arena: sound gun11_0 t=130965 ms=405
+Cat Arena: sound gun11_0 t=131039 ms=405
+Cat Arena: sound gun11_0 t=131108 ms=405
+Cat Arena: sound gun11_0 t=131182 ms=405
+Cat Arena: sound gun11_1 t=131285 ms=405
+Cat Arena: sound gun11_1 t=131350 ms=405
+Cat Arena: sound gun11_0 t=131419 ms=405
+Cat Arena: sound gun11_1 t=131522 ms=405
+Cat Arena: sound gun11_0 t=131591 ms=405
+Cat Arena: sound gun11_1 t=131656 ms=405
+Cat Arena: sound gun11_1 t=131755 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=131860 ms=405
+Cat Arena: sound gun11_1 t=131926 ms=405
+Cat Arena: sound gun11_0 t=131999 ms=405
+Cat Arena: sound gun11_1 t=132072 ms=405
+Cat Arena: sound gun11_1 t=132112 ms=405
+Cat Arena: sound gun11_0 t=132187 ms=405
+Cat Arena: sound gun11_0 t=132252 ms=405
+Cat Arena: sound gun11_1 t=132316 ms=405
+Cat Arena: sound gun11_0 t=132383 ms=405
+Cat Arena: sound gun11_0 t=132480 ms=405
+Cat Arena: sound gun11_0 t=132576 ms=405
+Cat Arena: sound gun11_0 t=132643 ms=405
+Cat Arena: sound gun11_0 t=132710 ms=405
+Cat Arena: sound gun11_0 t=132777 ms=405
+Cat Arena: sound gun11_1 t=132853 ms=405
+Cat Arena: sound gun11_1 t=132960 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=133059 ms=405
+Cat Arena: sound gun11_0 t=133123 ms=405
+Cat Arena: sound gun11_0 t=133190 ms=405
+Cat Arena: sound gun11_1 t=133254 ms=405
+Cat Arena: sound gun11_0 t=133317 ms=405
+Cat Arena: sound gun11_1 t=133417 ms=405
+Cat Arena: sound gun11_0 t=133484 ms=405
+Cat Arena: sound gun11_0 t=133555 ms=405
+Cat Arena: sound gun11_0 t=133656 ms=405
+Cat Arena: sound gun11_1 t=133725 ms=405
+Cat Arena: sound gun11_0 t=133793 ms=405
+Cat Arena: sound gun11_1 t=133903 ms=405
+Cat Arena: sound gun11_1 t=133966 ms=405
+Cat Arena: sound gun11_0 t=134031 ms=405
+Cat Arena: sound gun11_0 t=134133 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=134240 ms=405
+Cat Arena: sound gun11_1 t=134305 ms=405
+Cat Arena: sound gun11_1 t=134371 ms=405
+Cat Arena: sound gun11_1 t=134439 ms=405
+Cat Arena: sound gun11_0 t=134505 ms=405
+Cat Arena: sound gun11_0 t=134609 ms=405
+Cat Arena: sound gun11_0 t=134686 ms=405
+Cat Arena: sound gun11_0 t=134760 ms=405
+Cat Arena: sound gun11_0 t=134870 ms=405
+Cat Arena: sound gun11_1 t=134941 ms=405
+Cat Arena: sound gun11_1 t=135011 ms=405
+Cat Arena: sound gun11_0 t=135115 ms=405
+Cat Arena: sound gun11_1 t=135187 ms=405
+Cat Arena: sound gun11_0 t=135252 ms=405
+Cat Arena: sound gun11_0 t=135350 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=135451 ms=405
+Cat Arena: sound gun11_0 t=135516 ms=405
+Cat Arena: sound gun11_0 t=135595 ms=405
+Cat Arena: sound gun11_0 t=135666 ms=405
+Cat Arena: sound gun11_1 t=135700 ms=405
+Cat Arena: sound gun11_1 t=135764 ms=405
+Cat Arena: sound gun11_1 t=135831 ms=405
+Cat Arena: sound gun11_1 t=135899 ms=405
+Cat Arena: sound gun11_0 t=135969 ms=405
+Cat Arena: sound gun11_0 t=136076 ms=405
+Cat Arena: sound gun11_0 t=136153 ms=405
+Cat Arena: sound gun11_1 t=136226 ms=405
+Cat Arena: sound voice_normal_idle_0 t=136226 ms=579 enemy=158 type=skyraider d=7.5 playing=0
+Cat Arena: sound gun11_0 t=136336 ms=405
+Cat Arena: sound gun11_1 t=136404 ms=405
+Cat Arena: sound gun11_1 t=136470 ms=405
+^3WARNING: music file music/ashen_drive.ogg is not 22k stereo
+Cat Arena: sound gun11_1 t=136591 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=136660 ms=405
+Cat Arena: sound gun11_1 t=136729 ms=405
+Cat Arena: sound gun11_0 t=136829 ms=405
+Cat Arena: sound gun11_0 t=136896 ms=405
+Cat Arena: sound gun11_0 t=136961 ms=405
+Cat Arena: sound gun11_0 t=137061 ms=405
+Cat Arena: sound gun11_0 t=137137 ms=405
+Cat Arena: sound gun11_0 t=137208 ms=405
+Cat Arena: sound gun11_1 t=137316 ms=405
+Cat Arena: sound gun11_1 t=137385 ms=405
+Cat Arena: sound gun11_0 t=137456 ms=405
+Cat Arena: sound gun11_1 t=137561 ms=405
+Cat Arena: sound gun11_0 t=137629 ms=405
+Cat Arena: sound gun11_1 t=137696 ms=405
+Cat Arena: sound gun11_0 t=137802 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=137871 ms=405
+CA_STATE t=137850 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=34 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 148 skyprobe pos=816,103,103 health=86
+CA_ENEMY 149 skyraider pos=-693,-61,191 health=149
+CA_ENEMY 158 skyraider pos=814,145,172 health=149
+CA_ENEMY 168 skyprobe pos=-690,-110,183 health=86
+CA_ENEMY 176 skyraider pos=-127,-8,110 health=132
+CA_ENEMY 179 skyprobe pos=-124,-30,100 health=85
+Cat Arena: sound body_land_0 t=137941 ms=312
+Cat Arena: sound gun11_1 t=137974 ms=405
+Cat Arena: sound gun11_0 t=138046 ms=405
+Cat Arena: sound gun11_0 t=138114 ms=405
+Cat Arena: sound gun11_0 t=138149 ms=405
+Cat Arena: sound gun11_0 t=138216 ms=405
+Cat Arena: sound gun11_1 t=138291 ms=405
+Cat Arena: sound gun11_0 t=138358 ms=405
+Cat Arena: sound gun11_0 t=138426 ms=405
+Cat Arena: sound gun11_0 t=138528 ms=405
+Cat Arena: sound gun11_1 t=138629 ms=405
+Cat Arena: sound gun11_0 t=138673 ms=405
+Cat Arena: sound gun11_0 t=138787 ms=405
+Cat Arena: sound voice_normal_idle_1 t=138787 ms=665 enemy=176 type=skyraider d=15.6 playing=0
+Cat Arena: sound gun11_1 t=138856 ms=405
+Cat Arena: sound gun11_0 t=138925 ms=405
+Cat Arena: sound gun11_0 t=139036 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=139146 ms=405
+Cat Arena: sound gun11_0 t=139220 ms=405
+Cat Arena: sound gun11_1 t=139294 ms=405
+Cat Arena: sound gun11_0 t=139368 ms=405
+Cat Arena: sound gun11_0 t=139448 ms=405
+Cat Arena: sound gun11_1 t=139553 ms=405
+Cat Arena: sound gun11_0 t=139622 ms=405
+Cat Arena: sound voice_normal_attack_2 t=139668 ms=607 enemy=176 type=skyraider d=5.2 playing=0
+Cat Arena: sound gun11_1 t=139704 ms=405
+Cat Arena: sound gun11_1 t=139816 ms=405
+Cat Arena: sound gun11_0 t=139898 ms=405
+Cat Arena: sound gun11_0 t=139974 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=139974 ms=343 enemy=176 type=skyraider d=1.4 playing=1
+Cat Arena: sound gun11_0 t=140015 ms=405
+Cat Arena: sound gun11_1 t=140094 ms=405
+Cat Arena: sound gun11_1 t=140162 ms=405
+Cat Arena: sound gun11_0 t=140222 ms=405
+Cat Arena: sound gun11_0 t=140313 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=140313 ms=343 enemy=176 type=skyraider d=0.5 playing=1
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=140407 ms=405
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound gun11_1 t=140472 ms=405
+Cat Arena: sound gun11_1 t=140550 ms=405
+Cat Arena: sound gun11_0 t=140621 ms=405
+Cat Arena: sound gun11_1 t=140701 ms=405
+Cat Arena: sound gun11_0 t=140732 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=140761 ms=389 enemy=176 type=skyraider d=0.5 playing=0
+Cat Arena: sound gun11_1 t=140824 ms=405
+Cat Arena: sound gun11_0 t=140887 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> GRENADE LAUNCHER
+Cat Arena: killed skyraider
+Cat Arena: sound voice_normal_eliminated_0 t=140976 ms=764 enemy=176 type=skyraider d=0.5 playing=1
+Cat Arena: sound gun2_1 t=141005 ms=674
+Cat Arena: sound explosion_grenade t=141432 ms=1170
+Cat Arena: give GRENADE LAUNCHER -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=141557 ms=405
+Cat Arena: sound gun11_1 t=141629 ms=405
+Cat Arena: sound gun11_0 t=141691 ms=405
+Cat Arena: sound gun11_0 t=141755 ms=405
+Cat Arena: sound gun11_0 t=141816 ms=405
+Cat Arena: sound gun11_0 t=141912 ms=405
+Cat Arena: sound gun11_1 t=141994 ms=405
+Cat Arena: sound gun11_1 t=142050 ms=405
+Cat Arena: sound gun11_0 t=142101 ms=405
+Cat Arena: sound gun11_0 t=142177 ms=405
+Cat Arena: sound gun11_0 t=142283 ms=405
+Cat Arena: sound gun11_1 t=142366 ms=405
+Cat Arena: sound gun11_1 t=142422 ms=405
+Cat Arena: sound gun11_1 t=142476 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=142583 ms=405
+Cat Arena: sound gun11_0 t=142668 ms=405
+Cat Arena: sound gun11_1 t=142754 ms=405
+Cat Arena: sound voice_light_idle_2 t=142754 ms=729 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_0 t=142809 ms=405
+Cat Arena: sound gun11_0 t=142894 ms=405
+Cat Arena: sound gun11_1 t=142958 ms=405
+Cat Arena: sound gun11_0 t=143015 ms=405
+Cat Arena: sound gun11_0 t=143071 ms=405
+Cat Arena: sound gun11_0 t=143126 ms=405
+Cat Arena: sound gun11_0 t=143202 ms=405
+Cat Arena: sound gun11_1 t=143280 ms=405
+Cat Arena: sound gun11_1 t=143336 ms=405
+Cat Arena: sound gun11_1 t=143388 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=143552 ms=405
+Cat Arena: sound gun11_1 t=143630 ms=405
+Cat Arena: sound gun11_1 t=143709 ms=405
+Cat Arena: sound gun11_1 t=143764 ms=405
+Cat Arena: sound gun11_1 t=143843 ms=405
+Cat Arena: sound gun11_1 t=143896 ms=405
+Cat Arena: sound gun11_0 t=143999 ms=405
+Cat Arena: sound gun11_1 t=144079 ms=405
+Cat Arena: sound gun11_1 t=144136 ms=405
+Cat Arena: sound gun11_1 t=144226 ms=405
+Cat Arena: sound gun11_1 t=144276 ms=405
+Cat Arena: sound gun11_0 t=144329 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=144489 ms=405
+Cat Arena: sound gun11_1 t=144576 ms=405
+Cat Arena: sound gun11_0 t=144648 ms=405
+Cat Arena: sound voice_light_idle_0 t=144648 ms=565 enemy=168 type=skyprobe d=5.8 playing=0
+Cat Arena: sound gun11_1 t=144752 ms=405
+Cat Arena: sound gun11_0 t=144831 ms=405
+Cat Arena: sound gun11_0 t=144940 ms=405
+Cat Arena: sound gun11_0 t=145017 ms=405
+Cat Arena: sound gun11_1 t=145073 ms=405
+Cat Arena: sound gun11_1 t=145159 ms=405
+Cat Arena: sound gun11_0 t=145211 ms=405
+Cat Arena: sound gun11_1 t=145264 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=145349 ms=405
+Cat Arena: sound gun11_0 t=145432 ms=405
+Cat Arena: sound gun11_0 t=145514 ms=405
+Cat Arena: sound gun11_0 t=145598 ms=405
+Cat Arena: sound gun11_0 t=145654 ms=405
+Cat Arena: sound gun11_0 t=145734 ms=405
+Cat Arena: sound gun11_1 t=145787 ms=405
+Cat Arena: sound gun11_0 t=145910 ms=405
+Cat Arena: sound gun11_0 t=145989 ms=405
+Cat Arena: sound gun11_0 t=146046 ms=405
+Cat Arena: sound gun11_1 t=146095 ms=405
+Cat Arena: sound gun11_0 t=146170 ms=405
+Cat Arena: sound gun11_1 t=146277 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=146386 ms=405
+Cat Arena: sound voice_normal_idle_0 t=146413 ms=579 enemy=149 type=skyraider d=5.8 playing=0
+Cat Arena: sound gun11_1 t=146468 ms=405
+Cat Arena: sound gun11_1 t=146556 ms=405
+Cat Arena: sound gun11_0 t=146611 ms=405
+Cat Arena: sound gun11_0 t=146669 ms=405
+Cat Arena: sound gun11_0 t=146761 ms=405
+Cat Arena: sound gun11_0 t=146821 ms=405
+Cat Arena: sound gun11_1 t=146875 ms=405
+Cat Arena: sound gun11_0 t=146924 ms=405
+Cat Arena: sound gun11_1 t=146996 ms=405
+Cat Arena: sound gun11_0 t=147050 ms=405
+Cat Arena: sound gun11_1 t=147129 ms=405
+Cat Arena: sound gun11_0 t=147191 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=147349 ms=405
+Cat Arena: sound gun11_1 t=147429 ms=405
+Cat Arena: sound gun11_1 t=147481 ms=405
+Cat Arena: sound gun11_1 t=147542 ms=405
+Cat Arena: sound gun11_1 t=147622 ms=405
+Cat Arena: sound gun11_1 t=147680 ms=405
+Cat Arena: sound gun11_1 t=147735 ms=405
+Cat Arena: sound gun11_1 t=147819 ms=405
+Cat Arena: sound gun11_1 t=147904 ms=405
+Cat Arena: sound gun11_0 t=147963 ms=405
+Cat Arena: sound gun11_1 t=148017 ms=405
+Cat Arena: sound gun11_0 t=148097 ms=405
+Cat Arena: sound gun11_0 t=148151 ms=405
+Cat Arena: sound voice_light_idle_1 t=148181 ms=649 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=148235 ms=405
+CA_STATE t=148250 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=35 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 148 skyprobe pos=124,27,96 health=86
+CA_ENEMY 149 skyraider pos=-812,-103,174 health=149
+CA_ENEMY 158 skyraider pos=693,110,190 health=149
+CA_ENEMY 168 skyprobe pos=-813,-103,171 health=86
+CA_ENEMY 179 skyprobe pos=-817,-82,102 health=85
+Cat Arena: sound gun11_0 t=148314 ms=405
+Cat Arena: sound gun11_0 t=148394 ms=405
+Cat Arena: sound gun11_1 t=148473 ms=405
+Cat Arena: sound gun11_1 t=148523 ms=405
+Cat Arena: sound gun11_0 t=148598 ms=405
+Cat Arena: sound gun11_1 t=148654 ms=405
+Cat Arena: sound gun11_0 t=148772 ms=405
+Cat Arena: sound gun11_1 t=148845 ms=405
+Cat Arena: sound gun11_1 t=148957 ms=405
+Cat Arena: sound gun11_1 t=149044 ms=405
+Cat Arena: sound gun11_1 t=149104 ms=405
+Cat Arena: sound gun11_0 t=149166 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=149254 ms=405
+Cat Arena: sound gun11_1 t=149378 ms=405
+Cat Arena: sound gun11_1 t=149461 ms=405
+Cat Arena: sound gun11_0 t=149517 ms=405
+Cat Arena: sound gun11_0 t=149574 ms=405
+Cat Arena: sound gun11_1 t=149654 ms=405
+Cat Arena: sound gun11_0 t=149713 ms=405
+Cat Arena: sound gun11_1 t=149770 ms=405
+Cat Arena: sound gun11_0 t=149853 ms=405
+Cat Arena: sound gun11_1 t=149909 ms=405
+Cat Arena: sound gun11_1 t=149969 ms=405
+Cat Arena: sound gun11_0 t=150024 ms=405
+Cat Arena: sound gun11_0 t=150104 ms=405
+Cat Arena: sound gun11_1 t=150162 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=150283 ms=405
+Cat Arena: sound gun11_0 t=150379 ms=405
+Cat Arena: sound gun11_1 t=150468 ms=405
+Cat Arena: sound gun11_0 t=150525 ms=405
+Cat Arena: sound gun11_0 t=150581 ms=405
+Cat Arena: sound gun11_0 t=150641 ms=405
+Cat Arena: sound gun11_1 t=150726 ms=405
+Cat Arena: sound gun11_0 t=150782 ms=405
+Cat Arena: sound gun11_0 t=150840 ms=405
+Cat Arena: sound gun11_0 t=150898 ms=405
+Cat Arena: sound gun11_1 t=150986 ms=405
+Cat Arena: sound gun11_0 t=151043 ms=405
+Cat Arena: sound gun11_1 t=151110 ms=405
+Cat Arena: sound gun11_1 t=151196 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=151305 ms=405
+Cat Arena: sound gun11_1 t=151389 ms=405
+Cat Arena: sound gun11_1 t=151474 ms=405
+Cat Arena: sound gun11_0 t=151527 ms=405
+Cat Arena: sound gun11_0 t=151610 ms=405
+Cat Arena: sound gun11_0 t=151667 ms=405
+Cat Arena: sound gun11_0 t=151722 ms=405
+Cat Arena: sound gun11_1 t=151804 ms=405
+Cat Arena: sound gun11_1 t=151866 ms=405
+Cat Arena: sound gun11_0 t=151923 ms=405
+Cat Arena: sound gun11_1 t=151982 ms=405
+Cat Arena: sound gun11_1 t=152039 ms=405
+Cat Arena: sound gun11_0 t=152122 ms=405
+Cat Arena: sound gun11_0 t=152176 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=152289 ms=405
+Cat Arena: sound gun11_1 t=152371 ms=405
+Cat Arena: sound gun11_1 t=152455 ms=405
+Cat Arena: sound gun11_0 t=152518 ms=405
+Cat Arena: sound gun11_1 t=152579 ms=405
+Cat Arena: sound gun11_1 t=152637 ms=405
+Cat Arena: sound gun11_0 t=152723 ms=405
+Cat Arena: sound gun11_0 t=152777 ms=405
+Cat Arena: sound gun11_0 t=152833 ms=405
+Cat Arena: sound gun11_1 t=152920 ms=405
+Cat Arena: sound gun11_1 t=152976 ms=405
+Cat Arena: sound gun11_0 t=153029 ms=405
+Cat Arena: sound gun11_0 t=153113 ms=405
+Cat Arena: sound voice_light_idle_1 t=153142 ms=649 enemy=168 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_0 t=153169 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=153283 ms=405
+Cat Arena: sound gun11_1 t=153368 ms=405
+Cat Arena: sound gun11_1 t=153450 ms=405
+Cat Arena: sound gun11_0 t=153504 ms=405
+Cat Arena: sound gun11_1 t=153590 ms=405
+Cat Arena: sound gun11_0 t=153648 ms=405
+Cat Arena: sound gun11_0 t=153703 ms=405
+Cat Arena: sound gun11_1 t=153762 ms=405
+Cat Arena: sound gun11_0 t=153850 ms=405
+Cat Arena: sound gun11_0 t=153904 ms=405
+Cat Arena: sound gun11_1 t=153963 ms=405
+Cat Arena: sound gun11_1 t=154020 ms=405
+Cat Arena: sound gun11_0 t=154110 ms=405
+Cat Arena: sound gun11_0 t=154167 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=154279 ms=405
+Cat Arena: sound gun11_0 t=154363 ms=405
+Cat Arena: sound gun11_1 t=154458 ms=405
+Cat Arena: sound gun11_0 t=154513 ms=405
+Cat Arena: sound gun11_0 t=154572 ms=405
+Cat Arena: sound gun11_1 t=154631 ms=405
+Cat Arena: sound gun11_1 t=154691 ms=405
+Cat Arena: sound gun11_1 t=154781 ms=405
+Cat Arena: sound gun11_1 t=154837 ms=405
+Cat Arena: sound gun11_0 t=154896 ms=405
+Cat Arena: sound gun11_1 t=154978 ms=405
+Cat Arena: sound gun11_0 t=155063 ms=405
+Cat Arena: sound gun11_1 t=155124 ms=405
+Cat Arena: sound gun11_1 t=155181 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=155295 ms=405
+Cat Arena: sound gun11_0 t=155383 ms=405
+Cat Arena: sound gun11_1 t=155467 ms=405
+Cat Arena: sound gun11_0 t=155524 ms=405
+Cat Arena: sound gun11_1 t=155581 ms=405
+Cat Arena: sound gun11_0 t=155665 ms=405
+Cat Arena: sound gun11_0 t=155723 ms=405
+Cat Arena: sound gun11_0 t=155776 ms=405
+Cat Arena: sound gun11_1 t=155857 ms=405
+Cat Arena: sound gun11_1 t=155914 ms=405
+Cat Arena: sound voice_normal_idle_0 t=155914 ms=579 enemy=149 type=skyraider d=5.8 playing=0
+Cat Arena: sound gun11_0 t=155971 ms=405
+Cat Arena: sound gun11_0 t=156059 ms=405
+Cat Arena: sound gun11_1 t=156116 ms=405
+Cat Arena: sound gun11_1 t=156173 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=156282 ms=405
+Cat Arena: sound gun11_0 t=156368 ms=405
+Cat Arena: sound gun11_0 t=156451 ms=405
+Cat Arena: sound gun11_1 t=156507 ms=405
+Cat Arena: sound gun11_1 t=156563 ms=405
+Cat Arena: sound gun11_0 t=156650 ms=405
+Cat Arena: sound gun11_1 t=156704 ms=405
+Cat Arena: sound gun11_1 t=156761 ms=405
+Cat Arena: sound gun11_1 t=156847 ms=405
+Cat Arena: sound gun11_0 t=156902 ms=405
+Cat Arena: sound gun11_0 t=156956 ms=405
+Cat Arena: sound gun11_1 t=157040 ms=405
+Cat Arena: sound gun11_1 t=157101 ms=405
+Cat Arena: sound gun11_0 t=157154 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=157269 ms=405
+Cat Arena: sound gun11_1 t=157352 ms=405
+Cat Arena: sound gun11_0 t=157437 ms=405
+Cat Arena: sound gun11_0 t=157494 ms=405
+Cat Arena: sound gun11_0 t=157551 ms=405
+Cat Arena: sound gun11_1 t=157634 ms=405
+Cat Arena: sound gun11_0 t=157692 ms=405
+Cat Arena: sound gun11_1 t=157748 ms=405
+Cat Arena: sound gun11_1 t=157828 ms=405
+Cat Arena: sound gun11_0 t=157887 ms=405
+Cat Arena: sound gun11_0 t=157946 ms=405
+Cat Arena: sound gun11_0 t=158006 ms=405
+Cat Arena: sound gun11_0 t=158093 ms=405
+Cat Arena: sound gun11_1 t=158150 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=158150 pos=998,83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=35 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 148 skyprobe pos=124,27,96 health=86
+CA_ENEMY 149 skyraider pos=-808,-92,173 health=149
+CA_ENEMY 158 skyraider pos=693,110,190 health=149
+CA_ENEMY 168 skyprobe pos=-814,-96,171 health=86
+CA_ENEMY 179 skyprobe pos=-817,-82,102 health=85
+Cat Arena: sound body_land_0 t=158286 ms=312
+Cat Arena: sound gun11_1 t=158286 ms=405
+Cat Arena: sound gun11_0 t=158326 ms=405
+CATEST god off
+Cat Arena: sound gun11_0 t=158412 ms=405
+Wrote screenshots/enemies_fight_600.jpg
+Cat Arena: sound gun11_1 t=158488 ms=405
+godmode OFF
+Cat Arena: sound gun11_1 t=158528 ms=405
+Cat Arena: sound gun11_1 t=158610 ms=405
+Cat Arena: sound gun11_1 t=158648 ms=405
+Cat Arena: sound gun11_0 t=158735 ms=405
+Cat Arena: sound gun11_1 t=158776 ms=405
+Cat Arena: sound gun11_0 t=158860 ms=405
+Cat Arena: sound voice_normal_idle_1 t=158860 ms=665 enemy=158 type=skyraider d=6.0 playing=0
+Cat Arena: sound gun11_0 t=158942 ms=405
+Cat Arena: sound gun11_0 t=159031 ms=405
+Cat Arena: sound gun11_1 t=159110 ms=405
+Cat Arena: sound gun11_1 t=159185 ms=405
+Cat Arena: sound gun11_0 t=159231 ms=405
+Cat Arena: sound gun11_0 t=159317 ms=405
+Cat Arena: sound gun11_0 t=159362 ms=405
+Cat Arena: sound gun11_1 t=159443 ms=405
+Cat Arena: sound gun11_1 t=159482 ms=405
+Cat Arena: sound gun11_0 t=159608 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=159692 ms=405
+Cat Arena: sound gun11_0 t=159788 ms=405
+Cat Arena: sound gun11_0 t=159829 ms=405
+Cat Arena: sound gun11_1 t=159908 ms=405
+Cat Arena: sound gun11_0 t=159946 ms=405
+Cat Arena: sound gun11_0 t=160026 ms=405
+Cat Arena: sound gun11_1 t=160106 ms=405
+Cat Arena: sound gun11_0 t=160184 ms=405
+Cat Arena: sound gun11_0 t=160268 ms=405
+Cat Arena: sound gun11_0 t=160345 ms=405
+Cat Arena: sound gun11_0 t=160383 ms=405
+Cat Arena: sound gun11_0 t=160465 ms=405
+Cat Arena: sound gun11_1 t=160548 ms=405
+Cat Arena: sound gun11_0 t=160587 ms=405
+Cat Arena: sound gun11_0 t=160676 ms=405
+Cat Arena: sound gun11_0 t=160759 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=160759 ms=389 enemy=149 type=skyraider d=30.3 playing=0
+Cat Arena: sound gun11_1 t=160840 ms=405
+Cat Arena: sound gun11_0 t=160925 ms=405
+Cat Arena: sound gun11_1 t=160968 ms=405
+Cat Arena: sound gun11_0 t=161053 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=161141 ms=405
+Cat Arena: sound voice_light_idle_2 t=161141 ms=729 enemy=148 type=skyprobe d=5.7 playing=1
+Cat Arena: sound gun11_0 t=161239 ms=405
+Cat Arena: sound gun11_1 t=161282 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=161326 ms=301 enemy=149 type=skyraider d=23.1 playing=1
+Cat Arena: sound gun11_1 t=161374 ms=405
+Cat Arena: sound gun11_1 t=161417 ms=405
+Cat Arena: sound gun11_0 t=161460 ms=405
+Cat Arena: sound gun11_0 t=161541 ms=405
+Cat Arena: sound gun11_0 t=161676 ms=405
+Cat Arena: sound gun11_0 t=161760 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=161760 ms=389 enemy=149 type=skyraider d=17.8 playing=1
+Cat Arena: sound gun11_0 t=161804 ms=405
+Cat Arena: sound gun11_1 t=161889 ms=405
+Cat Arena: sound gun11_0 t=161978 ms=405
+Cat Arena: sound gun11_0 t=162069 ms=405
+Cat Arena: sound gun11_0 t=162113 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=162159 ms=343 enemy=149 type=skyraider d=12.8 playing=0
+Cat Arena: sound gun11_1 t=162203 ms=405
+Cat Arena: sound gun11_1 t=162286 ms=405
+Cat Arena: sound gun11_1 t=162390 ms=405
+Cat Arena: sound gun11_0 t=162446 ms=405
+Cat Arena: sound gun11_0 t=162496 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=162592 ms=343 enemy=149 type=skyraider d=7.3 playing=0
+Cat Arena: sound gun11_1 t=162637 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=162734 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> RIFT CANNON
+Cat Arena: killed skyraider
+Cat Arena: sound voice_normal_eliminated_1 t=162826 ms=874 enemy=149 type=skyraider d=5.3 playing=1
+Cat Arena: sound gun10_1 t=162869 ms=673
+Cat Arena: sound explosion_rift t=163439 ms=1170
+Cat Arena: sound voice_light_hurt_2 t=163439 ms=380 enemy=148 type=skyprobe d=5.7 playing=1
+Cat Arena: sound gun10_1 t=164003 ms=673
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=164447 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+Cat Arena: killed skyprobe
+Cat Arena: sound explosion_rift t=164538 ms=1170
+Cat Arena: sound voice_light_eliminated_0 t=164538 ms=745 enemy=148 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun0_0 t=164594 ms=404
+Cat Arena: sound gun0_0 t=164696 ms=404
+Cat Arena: sound gun0_0 t=164749 ms=404
+Cat Arena: sound gun0_1 t=164846 ms=405
+Cat Arena: sound gun0_1 t=164933 ms=405
+Cat Arena: sound gun0_1 t=165024 ms=405
+Cat Arena: sound gun0_1 t=165113 ms=405
+Cat Arena: sound gun0_1 t=165201 ms=405
+Cat Arena: sound gun0_1 t=165330 ms=405
+Cat Arena: sound gun0_1 t=165425 ms=405
+Cat Arena: sound gun0_0 t=165520 ms=404
+Cat Arena: sound gun0_0 t=165654 ms=404
+Cat Arena: sound gun0_1 t=165780 ms=405
+Cat Arena: sound gun0_1 t=165869 ms=405
+Cat Arena: sound gun0_0 t=165959 ms=404
+Cat Arena: give NAILGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=166042 ms=405
+Cat Arena: sound gun11_1 t=166130 ms=405
+Cat Arena: sound gun11_0 t=166177 ms=405
+Cat Arena: sound gun11_0 t=166271 ms=405
+Cat Arena: sound gun11_0 t=166314 ms=405
+Cat Arena: sound gun11_0 t=166359 ms=405
+Cat Arena: sound gun11_0 t=166448 ms=405
+Cat Arena: sound gun11_0 t=166498 ms=405
+Cat Arena: sound gun11_1 t=166580 ms=405
+Cat Arena: sound gun11_1 t=166623 ms=405
+Cat Arena: sound gun11_0 t=166732 ms=405
+Cat Arena: sound gun11_0 t=166785 ms=405
+Cat Arena: sound gun11_1 t=166830 ms=405
+Cat Arena: sound gun11_1 t=166922 ms=405
+Cat Arena: sound gun11_0 t=166972 ms=405
+Cat Arena: sound gun11_0 t=167016 ms=405
+Cat Arena: sound gun11_1 t=167109 ms=405
+Cat Arena: sound gun11_1 t=167155 ms=405
+Cat Arena: sound gun11_0 t=167238 ms=405
+Cat Arena: sound gun11_1 t=167283 ms=405
+Cat Arena: sound gun11_0 t=167372 ms=405
+Cat Arena: sound gun11_1 t=167426 ms=405
+Cat Arena: sound gun11_0 t=167479 ms=405
+Cat Arena: sound gun11_1 t=167577 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=167661 ms=405
+Cat Arena: sound gun11_0 t=167747 ms=405
+Cat Arena: sound gun11_1 t=167785 ms=405
+Cat Arena: sound gun11_1 t=167871 ms=405
+Cat Arena: sound gun11_0 t=167917 ms=405
+Cat Arena: sound gun11_1 t=168006 ms=405
+Cat Arena: sound gun11_0 t=168044 ms=405
+Cat Arena: sound gun11_0 t=168167 ms=405
+Cat Arena: sound voice_normal_idle_0 t=168208 ms=579 enemy=158 type=skyraider d=5.9 playing=0
+Cat Arena: sound gun11_1 t=168248 ms=405
+Cat Arena: sound gun11_1 t=168326 ms=405
+Cat Arena: sound gun11_1 t=168365 ms=405
+Cat Arena: sound gun11_1 t=168445 ms=405
+Cat Arena: sound gun11_0 t=168528 ms=405
+Cat Arena: sound gun11_0 t=168571 ms=405
+Cat Arena: sound gun11_1 t=168654 ms=405
+Cat Arena: sound gun11_1 t=168735 ms=405
+Cat Arena: sound gun11_1 t=168818 ms=405
+Cat Arena: sound gun11_1 t=168899 ms=405
+Cat Arena: sound gun11_1 t=168937 ms=405
+Cat Arena: sound gun11_1 t=169023 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=169064 ms=405
+Cat Arena: sound gun11_0 t=169178 ms=405
+Cat Arena: sound gun11_1 t=169293 ms=405
+Cat Arena: sound gun11_1 t=169381 ms=405
+Cat Arena: sound gun11_1 t=169461 ms=405
+Cat Arena: sound gun11_1 t=169498 ms=405
+Cat Arena: sound gun11_1 t=169579 ms=405
+Cat Arena: sound gun11_0 t=169661 ms=405
+Cat Arena: sound gun11_1 t=169698 ms=405
+Cat Arena: sound gun11_0 t=169775 ms=405
+Cat Arena: sound gun11_0 t=169853 ms=405
+Cat Arena: sound gun11_1 t=169890 ms=405
+Cat Arena: sound gun11_0 t=169970 ms=405
+Cat Arena: sound gun11_1 t=170049 ms=405
+Cat Arena: sound gun11_1 t=170126 ms=405
+Cat Arena: sound gun11_0 t=170210 ms=405
+Cat Arena: sound gun11_1 t=170286 ms=405
+Cat Arena: sound gun11_1 t=170328 ms=405
+Cat Arena: sound gun11_0 t=170406 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=170521 ms=405
+Cat Arena: sound gun11_1 t=170562 ms=405
+Cat Arena: sound gun11_1 t=170688 ms=405
+Cat Arena: sound gun11_0 t=170775 ms=405
+Cat Arena: sound gun11_1 t=170819 ms=405
+Cat Arena: sound gun11_0 t=170908 ms=405
+Cat Arena: sound gun11_1 t=170991 ms=405
+Cat Arena: sound gun11_1 t=171078 ms=405
+Cat Arena: sound gun11_0 t=171167 ms=405
+Cat Arena: sound gun11_0 t=171207 ms=405
+Cat Arena: sound gun11_0 t=171296 ms=405
+Cat Arena: sound gun11_1 t=171339 ms=405
+Cat Arena: sound gun11_0 t=171428 ms=405
+Cat Arena: sound gun11_1 t=171480 ms=405
+Cat Arena: sound gun11_0 t=171525 ms=405
+Cat Arena: sound gun11_1 t=171614 ms=405
+Cat Arena: sound gun11_0 t=171657 ms=405
+Cat Arena: sound gun11_1 t=171740 ms=405
+Cat Arena: sound gun11_1 t=171784 ms=405
+Cat Arena: sound gun11_1 t=171914 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=171994 ms=405
+Cat Arena: sound gun11_1 t=172081 ms=405
+Cat Arena: sound gun11_0 t=172126 ms=405
+Cat Arena: sound gun11_1 t=172218 ms=405
+Cat Arena: sound gun11_0 t=172263 ms=405
+Cat Arena: sound gun11_0 t=172344 ms=405
+Cat Arena: sound gun11_1 t=172387 ms=405
+Cat Arena: sound gun11_1 t=172518 ms=405
+Cat Arena: sound gun11_1 t=172606 ms=405
+Cat Arena: sound gun11_1 t=172650 ms=405
+Cat Arena: sound gun11_1 t=172737 ms=405
+Cat Arena: sound gun11_1 t=172828 ms=405
+Cat Arena: sound gun11_0 t=172917 ms=405
+Cat Arena: sound gun11_1 t=172957 ms=405
+Cat Arena: sound gun11_1 t=173037 ms=405
+Cat Arena: sound gun11_1 t=173128 ms=405
+Cat Arena: sound gun11_0 t=173174 ms=405
+Cat Arena: sound gun11_1 t=173221 ms=405
+Cat Arena: sound gun11_0 t=173312 ms=405
+Cat Arena: sound gun11_1 t=173353 ms=405
+Cat Arena: sound gun11_0 t=173436 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=173450 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=811,77,173 health=43
+CA_ENEMY 168 skyprobe pos=-691,-74,170 health=86
+CA_ENEMY 179 skyprobe pos=-123,-14,95 health=85
+Cat Arena: sound gun11_0 t=173529 ms=405
+Cat Arena: sound gun11_1 t=173627 ms=405
+Cat Arena: sound gun11_1 t=173672 ms=405
+Cat Arena: sound voice_normal_idle_2 t=173672 ms=747 enemy=158 type=skyraider d=5.8 playing=0
+Cat Arena: sound gun11_0 t=173757 ms=405
+Cat Arena: sound gun11_0 t=173838 ms=405
+Cat Arena: sound gun11_1 t=173929 ms=405
+Cat Arena: sound gun11_1 t=173972 ms=405
+Cat Arena: sound gun11_0 t=174057 ms=405
+Cat Arena: sound gun11_0 t=174097 ms=405
+Cat Arena: sound gun11_1 t=174184 ms=405
+Cat Arena: sound gun11_0 t=174227 ms=405
+Cat Arena: sound gun11_1 t=174352 ms=405
+Cat Arena: sound gun11_1 t=174440 ms=405
+Cat Arena: sound gun11_1 t=174529 ms=405
+Cat Arena: sound gun11_1 t=174572 ms=405
+Cat Arena: sound gun11_0 t=174658 ms=405
+Cat Arena: sound gun11_1 t=174745 ms=405
+Cat Arena: sound gun11_1 t=174788 ms=405
+Cat Arena: sound gun11_0 t=174878 ms=405
+Cat Arena: sound gun11_0 t=174967 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=175052 ms=405
+Cat Arena: sound gun11_0 t=175134 ms=405
+Cat Arena: sound gun11_0 t=175177 ms=405
+Cat Arena: sound gun11_0 t=175268 ms=405
+Cat Arena: sound gun11_1 t=175310 ms=405
+Cat Arena: sound gun11_0 t=175395 ms=405
+Cat Arena: sound gun11_0 t=175440 ms=405
+Cat Arena: sound gun11_1 t=175574 ms=405
+Cat Arena: sound gun11_1 t=175664 ms=405
+Cat Arena: sound gun11_0 t=175709 ms=405
+Cat Arena: sound gun11_1 t=175793 ms=405
+Cat Arena: sound gun11_0 t=175883 ms=405
+Cat Arena: sound gun11_1 t=175969 ms=405
+Cat Arena: sound gun11_1 t=176011 ms=405
+Cat Arena: sound gun11_0 t=176098 ms=405
+Cat Arena: sound gun11_0 t=176186 ms=405
+Cat Arena: sound gun11_1 t=176271 ms=405
+Cat Arena: sound gun11_1 t=176317 ms=405
+Cat Arena: sound gun11_0 t=176402 ms=405
+Cat Arena: sound gun11_0 t=176492 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=176582 ms=405
+Cat Arena: sound gun11_0 t=176672 ms=405
+Cat Arena: sound gun11_0 t=176720 ms=405
+CATEST god on
+Cat Arena: sound gun11_0 t=176809 ms=405
+CA_STATE t=176800 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=97 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+godmode ON
+Cat Arena: sound gun11_0 t=176892 ms=405
+Cat Arena: sound gun11_1 t=176977 ms=405
+Cat Arena: sound gun11_1 t=177023 ms=405
+Cat Arena: sound gun11_0 t=177112 ms=405
+Cat Arena: sound gun11_1 t=177155 ms=405
+Cat Arena: sound gun11_1 t=177195 ms=405
+Cat Arena: sound gun11_0 t=177279 ms=405
+Cat Arena: sound gun11_1 t=177407 ms=405
+Cat Arena: sound gun11_0 t=177498 ms=405
+Cat Arena: sound gun11_1 t=177538 ms=405
+Cat Arena: sound gun11_0 t=177642 ms=405
+Cat Arena: sound gun11_0 t=177742 ms=405
+Cat Arena: sound gun11_1 t=177828 ms=405
+Cat Arena: sound gun11_1 t=177871 ms=405
+Cat Arena: sound gun11_1 t=177964 ms=405
+Cat Arena: sound gun11_1 t=178043 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=178130 ms=405
+Cat Arena: sound gun11_0 t=178217 ms=405
+Cat Arena: sound gun11_1 t=178260 ms=405
+Cat Arena: sound gun11_1 t=178341 ms=405
+Cat Arena: sound gun11_0 t=178435 ms=405
+Cat Arena: sound gun11_0 t=178482 ms=405
+Cat Arena: sound gun11_0 t=178524 ms=405
+Cat Arena: sound gun11_1 t=178655 ms=405
+Cat Arena: sound gun11_1 t=178741 ms=405
+Cat Arena: sound gun11_1 t=178787 ms=405
+Cat Arena: sound gun11_1 t=178879 ms=405
+Cat Arena: sound gun11_0 t=178965 ms=405
+Cat Arena: sound gun11_0 t=179054 ms=405
+Cat Arena: sound gun11_0 t=179094 ms=405
+Cat Arena: sound gun11_1 t=179181 ms=405
+Cat Arena: sound gun11_1 t=179272 ms=405
+Cat Arena: sound gun11_1 t=179318 ms=405
+Cat Arena: sound gun11_0 t=179364 ms=405
+Cat Arena: sound gun11_0 t=179448 ms=405
+Cat Arena: sound gun11_1 t=179490 ms=405
+Cat Arena: sound gun11_0 t=179580 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=179672 ms=405
+Cat Arena: sound gun11_1 t=179758 ms=405
+Cat Arena: sound gun11_0 t=179798 ms=405
+Cat Arena: sound gun11_1 t=179883 ms=405
+Cat Arena: sound gun11_1 t=179933 ms=405
+Cat Arena: sound gun11_0 t=180028 ms=405
+Cat Arena: sound gun11_0 t=180074 ms=405
+Cat Arena: sound gun11_1 t=180116 ms=405
+Cat Arena: sound gun11_0 t=180202 ms=405
+Cat Arena: sound gun11_1 t=180245 ms=405
+Cat Arena: sound gun11_1 t=180333 ms=405
+Cat Arena: sound gun11_0 t=180376 ms=405
+Cat Arena: sound gun11_1 t=180508 ms=405
+Cat Arena: sound gun11_1 t=180587 ms=405
+Cat Arena: sound gun11_0 t=180674 ms=405
+Cat Arena: sound gun11_0 t=180723 ms=405
+Cat Arena: sound gun11_1 t=180808 ms=405
+Cat Arena: sound gun11_0 t=180849 ms=405
+Cat Arena: sound gun11_0 t=180932 ms=405
+Cat Arena: sound gun11_1 t=180978 ms=405
+Cat Arena: sound gun11_1 t=181112 ms=405
+Cat Arena: sound voice_normal_idle_1 t=181112 ms=665 enemy=158 type=skyraider d=6.0 playing=0
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=181195 ms=405
+Cat Arena: sound gun11_0 t=181281 ms=405
+Cat Arena: sound gun11_1 t=181324 ms=405
+Cat Arena: sound gun11_0 t=181410 ms=405
+Cat Arena: sound gun11_1 t=181455 ms=405
+Cat Arena: sound gun11_0 t=181539 ms=405
+Cat Arena: sound gun11_0 t=181586 ms=405
+Cat Arena: sound gun11_1 t=181721 ms=405
+Cat Arena: sound gun11_1 t=181810 ms=405
+Cat Arena: sound gun11_1 t=181853 ms=405
+Cat Arena: sound gun11_1 t=181936 ms=405
+Cat Arena: sound gun11_0 t=182024 ms=405
+Cat Arena: sound gun11_0 t=182113 ms=405
+Cat Arena: sound gun11_1 t=182156 ms=405
+Cat Arena: sound gun11_0 t=182236 ms=405
+Cat Arena: sound gun11_1 t=182324 ms=405
+Cat Arena: sound gun11_1 t=182371 ms=405
+Cat Arena: sound gun11_0 t=182417 ms=405
+Cat Arena: sound gun11_1 t=182500 ms=405
+Cat Arena: sound gun11_0 t=182541 ms=405
+Cat Arena: sound gun11_0 t=182628 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=182716 ms=405
+Cat Arena: sound gun11_0 t=182797 ms=405
+Cat Arena: sound gun11_1 t=182839 ms=405
+Cat Arena: sound gun11_1 t=182928 ms=405
+Cat Arena: sound gun11_0 t=182974 ms=405
+Cat Arena: sound gun11_1 t=183059 ms=405
+Cat Arena: sound gun11_0 t=183102 ms=405
+Cat Arena: sound gun11_1 t=183229 ms=405
+Cat Arena: sound gun11_1 t=183317 ms=405
+Cat Arena: sound gun11_1 t=183359 ms=405
+Cat Arena: sound gun11_0 t=183442 ms=405
+Cat Arena: sound gun11_0 t=183541 ms=405
+Cat Arena: sound gun11_1 t=183591 ms=405
+Cat Arena: sound gun11_0 t=183644 ms=405
+Cat Arena: sound gun11_1 t=183695 ms=405
+Cat Arena: sound gun11_1 t=183784 ms=405
+Cat Arena: sound gun11_1 t=183872 ms=405
+Cat Arena: sound gun11_1 t=183957 ms=405
+Cat Arena: sound gun11_0 t=183995 ms=405
+Cat Arena: sound gun11_1 t=184081 ms=405
+Cat Arena: sound gun11_0 t=184168 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=184249 ms=405
+Cat Arena: sound gun11_1 t=184336 ms=405
+Cat Arena: sound gun11_0 t=184383 ms=405
+Cat Arena: sound gun11_0 t=184477 ms=405
+Cat Arena: sound gun11_1 t=184524 ms=405
+Cat Arena: sound gun11_0 t=184614 ms=405
+Cat Arena: sound gun11_1 t=184658 ms=405
+Cat Arena: sound gun11_1 t=184698 ms=405
+Cat Arena: sound gun11_1 t=184782 ms=405
+Cat Arena: sound gun11_0 t=184869 ms=405
+Cat Arena: sound gun11_0 t=184911 ms=405
+Cat Arena: sound gun11_0 t=184994 ms=405
+Cat Arena: sound gun11_1 t=185078 ms=405
+Cat Arena: sound gun11_0 t=185166 ms=405
+Cat Arena: sound gun11_1 t=185250 ms=405
+Cat Arena: sound gun11_0 t=185291 ms=405
+Cat Arena: sound gun11_0 t=185379 ms=405
+Cat Arena: sound gun11_0 t=185423 ms=405
+Cat Arena: sound gun11_1 t=185512 ms=405
+Cat Arena: sound gun11_1 t=185552 ms=405
+Cat Arena: sound gun11_0 t=185680 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=185766 ms=405
+Cat Arena: sound gun11_1 t=185847 ms=405
+Cat Arena: sound gun11_1 t=185887 ms=405
+Cat Arena: sound gun11_0 t=185973 ms=405
+Cat Arena: sound gun11_0 t=186059 ms=405
+Cat Arena: sound gun11_0 t=186098 ms=405
+Cat Arena: sound gun11_0 t=186185 ms=405
+Cat Arena: sound gun11_0 t=186270 ms=405
+Cat Arena: sound gun11_0 t=186356 ms=405
+Cat Arena: sound gun11_1 t=186441 ms=405
+Cat Arena: sound gun11_0 t=186485 ms=405
+Cat Arena: sound gun11_1 t=186573 ms=405
+Cat Arena: sound gun11_0 t=186621 ms=405
+Cat Arena: sound gun11_1 t=186663 ms=405
+Cat Arena: sound gun11_0 t=186747 ms=405
+Cat Arena: sound gun11_1 t=186877 ms=405
+Cat Arena: sound gun11_0 t=186964 ms=405
+Cat Arena: sound gun11_1 t=187050 ms=405
+Cat Arena: sound gun11_0 t=187093 ms=405
+Cat Arena: sound gun11_1 t=187180 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=187268 ms=405
+Cat Arena: sound gun11_0 t=187358 ms=405
+Cat Arena: sound gun11_0 t=187398 ms=405
+Cat Arena: sound gun11_1 t=187486 ms=405
+Cat Arena: sound gun11_0 t=187528 ms=405
+Cat Arena: sound gun11_0 t=187617 ms=405
+Cat Arena: sound gun11_1 t=187661 ms=405
+Cat Arena: sound gun11_1 t=187786 ms=405
+Cat Arena: sound gun11_0 t=187873 ms=405
+Cat Arena: sound gun11_0 t=187917 ms=405
+Cat Arena: sound gun11_0 t=188005 ms=405
+Cat Arena: sound voice_normal_idle_1 t=188005 ms=665 enemy=158 type=skyraider d=5.9 playing=0
+Cat Arena: sound gun11_1 t=188095 ms=405
+Cat Arena: sound gun11_1 t=188188 ms=405
+Cat Arena: sound gun11_1 t=188229 ms=405
+Cat Arena: sound gun11_1 t=188316 ms=405
+Cat Arena: sound gun11_0 t=188408 ms=405
+Cat Arena: sound gun11_1 t=188497 ms=405
+Cat Arena: sound gun11_1 t=188538 ms=405
+Cat Arena: sound gun11_1 t=188629 ms=405
+Cat Arena: sound gun11_1 t=188724 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=188750 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=811,88,171 health=43
+CA_ENEMY 168 skyprobe pos=-691,-74,170 health=86
+CA_ENEMY 179 skyprobe pos=-123,-14,95 health=85
+Cat Arena: sound body_land_0 t=188817 ms=312
+Cat Arena: sound gun11_0 t=188817 ms=405
+Cat Arena: sound gun11_1 t=188860 ms=405
+Cat Arena: sound gun11_0 t=188939 ms=405
+Cat Arena: sound gun11_1 t=189016 ms=405
+Cat Arena: sound gun11_1 t=189058 ms=405
+Cat Arena: sound body_land_0 t=189135 ms=312
+Cat Arena: sound gun11_1 t=189135 ms=405
+Cat Arena: sound gun11_0 t=189218 ms=405
+Cat Arena: sound gun11_0 t=189302 ms=405
+Cat Arena: sound gun11_0 t=189375 ms=405
+Cat Arena: sound gun11_0 t=189457 ms=405
+Cat Arena: sound gun11_0 t=189492 ms=405
+Cat Arena: sound gun11_1 t=189573 ms=405
+Cat Arena: sound gun11_0 t=189650 ms=405
+Cat Arena: sound gun11_0 t=189725 ms=405
+Cat Arena: sound gun11_1 t=189765 ms=405
+Cat Arena: sound gun11_0 t=189844 ms=405
+Cat Arena: sound gun11_0 t=189927 ms=405
+Cat Arena: sound gun11_1 t=189967 ms=405
+Cat Arena: sound gun11_0 t=190041 ms=405
+Cat Arena: sound gun11_1 t=190122 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=190277 ms=405
+Cat Arena: sound gun11_0 t=190394 ms=405
+Cat Arena: sound gun11_0 t=190473 ms=405
+Cat Arena: sound gun11_1 t=190556 ms=405
+Cat Arena: sound gun11_1 t=190591 ms=405
+Cat Arena: sound gun11_0 t=190673 ms=405
+Cat Arena: sound gun11_0 t=190752 ms=405
+Cat Arena: sound gun11_0 t=190788 ms=405
+Cat Arena: sound gun11_0 t=190869 ms=405
+Cat Arena: sound gun11_1 t=190943 ms=405
+Cat Arena: sound gun11_0 t=191018 ms=405
+Cat Arena: sound gun11_0 t=191053 ms=405
+Cat Arena: sound gun11_0 t=191133 ms=405
+Cat Arena: sound gun11_1 t=191212 ms=405
+Cat Arena: sound gun11_1 t=191249 ms=405
+Cat Arena: sound gun11_1 t=191329 ms=405
+Cat Arena: sound gun11_1 t=191404 ms=405
+Cat Arena: sound gun11_0 t=191483 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound voice_light_idle_2 t=191521 ms=729 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_0 t=191598 ms=405
+Cat Arena: sound gun11_0 t=191638 ms=405
+Cat Arena: sound gun11_0 t=191765 ms=405
+Cat Arena: sound gun11_1 t=191848 ms=405
+Cat Arena: sound gun11_0 t=191939 ms=405
+Cat Arena: sound gun11_0 t=191977 ms=405
+Cat Arena: sound gun11_1 t=192055 ms=405
+Cat Arena: sound gun11_1 t=192090 ms=405
+Cat Arena: sound gun11_1 t=192166 ms=405
+Cat Arena: sound gun11_1 t=192241 ms=405
+Cat Arena: sound gun11_0 t=192313 ms=405
+Cat Arena: sound gun11_1 t=192352 ms=405
+Cat Arena: sound gun11_0 t=192427 ms=405
+Cat Arena: sound gun11_0 t=192500 ms=405
+Cat Arena: sound gun11_1 t=192575 ms=405
+Cat Arena: sound gun11_1 t=192613 ms=405
+Cat Arena: sound gun11_0 t=192680 ms=405
+Cat Arena: sound gun11_1 t=192755 ms=405
+Cat Arena: sound gun11_1 t=192824 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=192931 ms=405
+Cat Arena: sound gun11_0 t=193003 ms=405
+Cat Arena: sound gun11_1 t=193073 ms=405
+Cat Arena: sound gun11_0 t=193112 ms=405
+Cat Arena: sound gun11_0 t=193178 ms=405
+Cat Arena: sound gun11_1 t=193251 ms=405
+Cat Arena: sound gun11_0 t=193319 ms=405
+Cat Arena: sound gun11_1 t=193390 ms=405
+Cat Arena: sound gun11_0 t=193459 ms=405
+Cat Arena: sound gun11_1 t=193570 ms=405
+Cat Arena: sound gun11_0 t=193640 ms=405
+Cat Arena: sound gun11_1 t=193714 ms=405
+Cat Arena: sound gun11_0 t=193818 ms=405
+Cat Arena: sound gun11_1 t=193889 ms=405
+Cat Arena: sound gun11_1 t=193966 ms=405
+Cat Arena: sound gun11_0 t=194077 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=194187 ms=405
+Cat Arena: sound gun11_0 t=194259 ms=405
+Cat Arena: sound gun11_0 t=194326 ms=405
+Cat Arena: sound gun11_0 t=194415 ms=405
+Cat Arena: sound gun11_1 t=194505 ms=405
+Cat Arena: sound gun11_0 t=194544 ms=405
+Cat Arena: sound gun11_1 t=194621 ms=405
+Cat Arena: sound gun11_0 t=194657 ms=405
+Cat Arena: sound gun11_1 t=194725 ms=405
+Cat Arena: sound gun11_0 t=194803 ms=405
+Cat Arena: sound gun11_0 t=194878 ms=405
+Cat Arena: sound gun11_0 t=194962 ms=405
+Cat Arena: sound gun11_1 t=194998 ms=405
+Cat Arena: sound gun11_0 t=195072 ms=405
+Cat Arena: sound gun11_0 t=195158 ms=405
+Cat Arena: sound gun11_1 t=195193 ms=405
+Cat Arena: sound gun11_1 t=195265 ms=405
+Cat Arena: sound gun11_0 t=195335 ms=405
+Cat Arena: sound gun11_1 t=195410 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=195519 ms=405
+Cat Arena: sound gun11_0 t=195596 ms=405
+Cat Arena: sound gun11_0 t=195667 ms=405
+Cat Arena: sound gun11_1 t=195738 ms=405
+Cat Arena: sound gun11_0 t=195811 ms=405
+Cat Arena: sound gun11_1 t=195923 ms=405
+Cat Arena: sound gun11_0 t=195994 ms=405
+Cat Arena: sound gun11_1 t=196064 ms=405
+Cat Arena: sound gun11_0 t=196169 ms=405
+Cat Arena: sound gun11_0 t=196238 ms=405
+Cat Arena: sound gun11_0 t=196306 ms=405
+Cat Arena: sound gun11_0 t=196413 ms=405
+Cat Arena: sound gun11_0 t=196483 ms=405
+Cat Arena: sound gun11_0 t=196554 ms=405
+Cat Arena: sound gun11_0 t=196659 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=196763 ms=405
+Cat Arena: sound gun11_0 t=196832 ms=405
+Cat Arena: sound gun11_1 t=196900 ms=405
+Cat Arena: sound gun11_0 t=196965 ms=405
+Cat Arena: sound gun11_0 t=197036 ms=405
+Cat Arena: sound gun11_1 t=197069 ms=405
+Cat Arena: sound gun11_1 t=197139 ms=405
+Cat Arena: sound gun11_1 t=197212 ms=405
+Cat Arena: sound gun11_0 t=197281 ms=405
+Cat Arena: sound gun11_1 t=197387 ms=405
+Cat Arena: sound gun11_1 t=197455 ms=405
+Cat Arena: sound gun11_1 t=197522 ms=405
+Cat Arena: sound gun11_0 t=197634 ms=405
+Cat Arena: sound gun11_1 t=197704 ms=405
+Cat Arena: sound gun11_1 t=197773 ms=405
+Cat Arena: sound gun11_1 t=197884 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=198000 ms=405
+Cat Arena: sound voice_light_idle_2 t=198000 ms=729 enemy=168 type=skyprobe d=5.8 playing=0
+Cat Arena: sound gun11_0 t=198035 ms=405
+Cat Arena: sound gun11_1 t=198142 ms=405
+Cat Arena: sound gun11_0 t=198215 ms=405
+Cat Arena: sound gun11_1 t=198286 ms=405
+Cat Arena: sound gun11_0 t=198390 ms=405
+Cat Arena: sound gun11_1 t=198458 ms=405
+Cat Arena: sound gun11_0 t=198528 ms=405
+Cat Arena: sound gun11_1 t=198632 ms=405
+Cat Arena: sound gun11_1 t=198702 ms=405
+Cat Arena: sound gun11_1 t=198770 ms=405
+Cat Arena: sound gun11_1 t=198878 ms=405
+Cat Arena: sound gun11_1 t=198952 ms=405
+Cat Arena: sound gun11_0 t=199022 ms=405
+Cat Arena: sound gun11_1 t=199132 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=199241 ms=405
+Cat Arena: sound gun11_0 t=199311 ms=405
+Cat Arena: sound gun11_1 t=199381 ms=405
+Cat Arena: sound gun11_1 t=199451 ms=405
+Cat Arena: sound gun11_0 t=199517 ms=405
+Cat Arena: sound gun11_0 t=199623 ms=405
+Cat Arena: sound gun11_0 t=199696 ms=405
+Cat Arena: sound gun11_1 t=199766 ms=405
+Cat Arena: sound gun11_0 t=199875 ms=405
+Cat Arena: sound gun11_1 t=199947 ms=405
+Cat Arena: sound gun11_0 t=200014 ms=405
+Cat Arena: sound gun11_0 t=200117 ms=405
+Cat Arena: sound gun11_0 t=200189 ms=405
+Cat Arena: sound gun11_1 t=200260 ms=405
+Cat Arena: sound gun11_0 t=200366 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=200480 ms=405
+Cat Arena: sound gun11_0 t=200512 ms=405
+Cat Arena: sound gun11_1 t=200616 ms=405
+Cat Arena: sound gun11_0 t=200690 ms=405
+Cat Arena: sound gun11_1 t=200763 ms=405
+Cat Arena: sound gun11_0 t=200871 ms=405
+Cat Arena: sound gun11_0 t=200950 ms=405
+Cat Arena: sound gun11_1 t=201021 ms=405
+Cat Arena: sound gun11_1 t=201131 ms=405
+Cat Arena: sound gun11_0 t=201202 ms=405
+Cat Arena: sound gun11_0 t=201271 ms=405
+Cat Arena: sound gun11_1 t=201382 ms=405
+Cat Arena: sound gun11_1 t=201451 ms=405
+Cat Arena: sound gun11_0 t=201520 ms=405
+Cat Arena: sound gun11_0 t=201641 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=201650 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=693,85,170 health=43
+CA_ENEMY 168 skyprobe pos=-817,-72,170 health=86
+CA_ENEMY 179 skyprobe pos=-818,-74,94 health=85
+Cat Arena: sound gun11_1 t=201757 ms=405
+Cat Arena: sound gun11_0 t=201795 ms=405
+Cat Arena: sound gun11_1 t=201917 ms=405
+Cat Arena: sound gun11_1 t=201994 ms=405
+Cat Arena: sound gun11_0 t=202068 ms=405
+Cat Arena: sound gun11_0 t=202177 ms=405
+Cat Arena: sound gun11_0 t=202257 ms=405
+Cat Arena: sound gun11_1 t=202327 ms=405
+Cat Arena: sound gun11_0 t=202440 ms=405
+Cat Arena: sound gun11_1 t=202523 ms=405
+Cat Arena: sound gun11_0 t=202605 ms=405
+Cat Arena: sound gun11_1 t=202643 ms=405
+Cat Arena: sound gun11_1 t=202725 ms=405
+Cat Arena: sound gun11_0 t=202820 ms=405
+Cat Arena: sound gun11_0 t=202862 ms=405
+Cat Arena: sound gun11_1 t=202901 ms=405
+Cat Arena: sound gun11_1 t=203011 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=203121 ms=405
+Cat Arena: sound gun11_1 t=203197 ms=405
+Cat Arena: sound gun11_1 t=203272 ms=405
+Cat Arena: sound gun11_1 t=203350 ms=405
+Cat Arena: sound gun11_0 t=203424 ms=405
+Cat Arena: sound gun11_1 t=203540 ms=405
+Cat Arena: sound gun11_0 t=203613 ms=405
+Cat Arena: sound gun11_1 t=203688 ms=405
+Cat Arena: sound gun11_1 t=203796 ms=405
+Cat Arena: sound gun11_1 t=203869 ms=405
+Cat Arena: sound gun11_1 t=203944 ms=405
+Cat Arena: sound gun11_0 t=204056 ms=405
+Cat Arena: sound gun11_0 t=204128 ms=405
+Cat Arena: sound gun11_0 t=204204 ms=405
+Cat Arena: sound gun11_0 t=204314 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=204422 ms=405
+Cat Arena: sound gun11_1 t=204495 ms=405
+Cat Arena: sound gun11_0 t=204566 ms=405
+Cat Arena: sound gun11_1 t=204640 ms=405
+Cat Arena: sound gun11_0 t=204714 ms=405
+Cat Arena: sound gun11_0 t=204839 ms=405
+Cat Arena: sound gun11_0 t=204925 ms=405
+Cat Arena: sound gun11_0 t=205000 ms=405
+Cat Arena: sound gun11_1 t=205033 ms=405
+Cat Arena: sound gun11_0 t=205106 ms=405
+Cat Arena: sound gun11_1 t=205177 ms=405
+Cat Arena: sound gun11_0 t=205251 ms=405
+Cat Arena: sound voice_light_idle_0 t=205251 ms=565 enemy=168 type=skyprobe d=5.8 playing=0
+Cat Arena: sound gun11_0 t=205362 ms=405
+Cat Arena: sound gun11_0 t=205439 ms=405
+Cat Arena: sound gun11_1 t=205509 ms=405
+Cat Arena: sound gun11_0 t=205617 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=205726 ms=405
+Cat Arena: sound gun11_1 t=205802 ms=405
+Cat Arena: sound gun11_1 t=205873 ms=405
+Cat Arena: sound gun11_0 t=205949 ms=405
+Cat Arena: sound gun11_0 t=206020 ms=405
+Cat Arena: sound gun11_0 t=206139 ms=405
+Cat Arena: sound gun11_1 t=206220 ms=405
+Cat Arena: sound gun11_1 t=206295 ms=405
+Cat Arena: sound gun11_1 t=206331 ms=405
+Cat Arena: sound gun11_0 t=206408 ms=405
+Cat Arena: sound gun11_0 t=206478 ms=405
+Cat Arena: sound gun11_0 t=206553 ms=405
+Cat Arena: sound gun11_1 t=206662 ms=405
+Cat Arena: sound gun11_0 t=206740 ms=405
+Cat Arena: sound gun11_1 t=206817 ms=405
+Cat Arena: sound gun11_1 t=206930 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=207045 ms=405
+Cat Arena: sound gun11_0 t=207083 ms=405
+Cat Arena: sound gun11_1 t=207198 ms=405
+Cat Arena: sound gun11_0 t=207269 ms=405
+Cat Arena: sound gun11_1 t=207343 ms=405
+Cat Arena: sound gun11_1 t=207455 ms=405
+Cat Arena: sound gun11_1 t=207531 ms=405
+Cat Arena: sound gun11_0 t=207608 ms=405
+Cat Arena: sound gun11_0 t=207650 ms=405
+Cat Arena: sound gun11_1 t=207725 ms=405
+Cat Arena: sound gun11_0 t=207804 ms=405
+Cat Arena: sound gun11_0 t=207839 ms=405
+Cat Arena: sound gun11_0 t=207910 ms=405
+Cat Arena: sound voice_light_idle_0 t=207946 ms=565 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_1 t=207981 ms=405
+Cat Arena: sound gun11_0 t=208055 ms=405
+Cat Arena: sound gun11_0 t=208126 ms=405
+Cat Arena: sound gun11_0 t=208246 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=208355 ms=405
+Cat Arena: sound gun11_1 t=208400 ms=405
+Cat Arena: sound gun11_1 t=208536 ms=405
+Cat Arena: sound gun11_0 t=208620 ms=405
+Cat Arena: sound gun11_0 t=208658 ms=405
+Cat Arena: sound gun11_0 t=208730 ms=405
+Cat Arena: sound gun11_1 t=208807 ms=405
+Cat Arena: sound gun11_0 t=208879 ms=405
+Cat Arena: sound gun11_1 t=208922 ms=405
+Cat Arena: sound gun11_0 t=209001 ms=405
+Cat Arena: sound gun11_0 t=209073 ms=405
+Cat Arena: sound gun11_1 t=209111 ms=405
+Cat Arena: sound gun11_1 t=209187 ms=405
+Cat Arena: sound gun11_1 t=209264 ms=405
+Cat Arena: sound gun11_1 t=209338 ms=405
+Cat Arena: sound gun11_0 t=209373 ms=405
+Cat Arena: sound gun11_0 t=209450 ms=405
+Cat Arena: sound gun11_0 t=209524 ms=405
+Cat Arena: sound gun11_1 t=209601 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=209717 ms=405
+Cat Arena: sound gun11_1 t=209759 ms=405
+Cat Arena: sound gun11_0 t=209868 ms=405
+Cat Arena: sound gun11_0 t=209948 ms=405
+Cat Arena: sound gun11_0 t=210026 ms=405
+Cat Arena: sound gun11_1 t=210067 ms=405
+Cat Arena: sound gun11_1 t=210144 ms=405
+Cat Arena: sound gun11_1 t=210223 ms=405
+Cat Arena: sound gun11_1 t=210261 ms=405
+Cat Arena: sound gun11_1 t=210332 ms=405
+Cat Arena: sound gun11_0 t=210407 ms=405
+Cat Arena: sound gun11_1 t=210482 ms=405
+Cat Arena: sound gun11_1 t=210522 ms=405
+Cat Arena: sound gun11_1 t=210600 ms=405
+Cat Arena: sound gun11_0 t=210678 ms=405
+Cat Arena: sound gun11_1 t=210716 ms=405
+Cat Arena: sound gun11_1 t=210792 ms=405
+Cat Arena: sound gun11_1 t=210869 ms=405
+Cat Arena: sound gun11_1 t=210947 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=211053 ms=405
+Cat Arena: sound gun11_0 t=211119 ms=405
+Cat Arena: sound gun11_1 t=211186 ms=405
+Cat Arena: sound gun11_1 t=211288 ms=405
+Cat Arena: sound gun11_1 t=211320 ms=405
+Cat Arena: sound gun11_1 t=211419 ms=405
+Cat Arena: sound gun11_0 t=211491 ms=405
+Cat Arena: sound gun11_0 t=211562 ms=405
+Cat Arena: sound gun11_0 t=211666 ms=405
+Cat Arena: sound gun11_0 t=211746 ms=405
+Cat Arena: sound gun11_1 t=211813 ms=405
+Cat Arena: sound gun11_1 t=211916 ms=405
+Cat Arena: sound gun11_1 t=211986 ms=405
+Cat Arena: sound gun11_1 t=212052 ms=405
+Cat Arena: sound gun11_1 t=212154 ms=405
+Cat Arena: sound voice_light_idle_1 t=212154 ms=649 enemy=168 type=skyprobe d=5.8 playing=0
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=212254 ms=405
+Cat Arena: sound gun11_0 t=212320 ms=405
+Cat Arena: sound gun11_1 t=212390 ms=405
+Cat Arena: sound gun11_1 t=212459 ms=405
+Cat Arena: sound gun11_0 t=212528 ms=405
+Cat Arena: sound gun11_1 t=212630 ms=405
+Cat Arena: sound gun11_1 t=212697 ms=405
+Cat Arena: sound gun11_1 t=212762 ms=405
+Cat Arena: sound gun11_1 t=212866 ms=405
+Cat Arena: sound gun11_0 t=212937 ms=405
+Cat Arena: sound gun11_0 t=213007 ms=405
+Cat Arena: sound gun11_1 t=213115 ms=405
+Cat Arena: sound gun11_1 t=213191 ms=405
+Cat Arena: sound gun11_1 t=213259 ms=405
+Cat Arena: sound gun11_0 t=213362 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=213468 ms=405
+Cat Arena: sound gun11_0 t=213540 ms=405
+Cat Arena: sound gun11_1 t=213612 ms=405
+Cat Arena: sound gun11_1 t=213647 ms=405
+Cat Arena: sound gun11_1 t=213713 ms=405
+Cat Arena: sound gun11_0 t=213785 ms=405
+Cat Arena: sound gun11_1 t=213853 ms=405
+Cat Arena: sound gun11_0 t=213926 ms=405
+Cat Arena: sound gun11_1 t=213995 ms=405
+Cat Arena: sound gun11_0 t=214099 ms=405
+Cat Arena: sound gun11_0 t=214165 ms=405
+Cat Arena: sound gun11_1 t=214234 ms=405
+Cat Arena: sound gun11_0 t=214340 ms=405
+Cat Arena: sound gun11_0 t=214406 ms=405
+Cat Arena: sound gun11_1 t=214476 ms=405
+Cat Arena: sound voice_light_idle_1 t=214547 ms=649 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_0 t=214580 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=214647 ms=405
+CA_STATE t=214600 pos=998,83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=693,85,190 health=43
+CA_ENEMY 168 skyprobe pos=-816,-109,172 health=86
+CA_ENEMY 179 skyprobe pos=-818,-74,107 health=85
+Cat Arena: sound body_land_0 t=214717 ms=312
+Cat Arena: sound gun11_0 t=214757 ms=405
+Cat Arena: sound gun11_0 t=214828 ms=405
+Cat Arena: sound gun11_0 t=214864 ms=405
+Cat Arena: sound gun11_1 t=214942 ms=405
+Cat Arena: sound gun11_1 t=215015 ms=405
+Cat Arena: sound gun11_1 t=215088 ms=405
+Cat Arena: sound gun11_1 t=215124 ms=405
+Cat Arena: sound gun11_1 t=215198 ms=405
+Cat Arena: sound gun11_0 t=215271 ms=405
+Cat Arena: sound gun11_1 t=215350 ms=405
+Cat Arena: sound gun11_0 t=215391 ms=405
+Cat Arena: sound gun11_0 t=215466 ms=405
+Cat Arena: sound gun11_0 t=215536 ms=405
+Cat Arena: sound gun11_1 t=215615 ms=405
+Cat Arena: sound gun11_1 t=215651 ms=405
+Cat Arena: sound gun11_1 t=215718 ms=405
+Cat Arena: sound gun11_1 t=215788 ms=405
+Cat Arena: sound gun11_1 t=215856 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=215969 ms=405
+Cat Arena: sound gun11_1 t=216044 ms=405
+Cat Arena: sound gun11_0 t=216118 ms=405
+Cat Arena: sound gun11_0 t=216194 ms=405
+Cat Arena: sound gun11_0 t=216264 ms=405
+Cat Arena: sound gun11_0 t=216369 ms=405
+Cat Arena: sound gun11_0 t=216449 ms=405
+Cat Arena: sound gun11_1 t=216527 ms=405
+Cat Arena: sound gun11_0 t=216646 ms=405
+Cat Arena: sound gun11_0 t=216720 ms=405
+Cat Arena: sound gun11_0 t=216797 ms=405
+Cat Arena: sound gun11_0 t=216908 ms=405
+Cat Arena: sound gun11_0 t=216982 ms=405
+Cat Arena: sound gun11_1 t=217055 ms=405
+Cat Arena: sound gun11_1 t=217161 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=217273 ms=405
+Cat Arena: sound gun11_1 t=217348 ms=405
+Cat Arena: sound gun11_1 t=217423 ms=405
+Cat Arena: sound gun11_1 t=217498 ms=405
+Cat Arena: sound gun11_0 t=217568 ms=405
+Cat Arena: sound gun11_0 t=217674 ms=405
+Cat Arena: sound gun11_1 t=217751 ms=405
+Cat Arena: sound gun11_1 t=217822 ms=405
+Cat Arena: sound gun11_1 t=217934 ms=405
+Cat Arena: sound gun11_1 t=218017 ms=405
+Cat Arena: sound gun11_1 t=218088 ms=405
+Cat Arena: sound gun11_0 t=218201 ms=405
+Cat Arena: sound gun11_1 t=218282 ms=405
+Cat Arena: sound gun11_1 t=218365 ms=405
+Cat Arena: sound gun11_1 t=218406 ms=405
+Cat Arena: sound gun11_1 t=218475 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=218588 ms=405
+Cat Arena: sound gun11_0 t=218656 ms=405
+Cat Arena: sound gun11_1 t=218724 ms=405
+Cat Arena: sound gun11_1 t=218796 ms=405
+Cat Arena: sound gun11_1 t=218866 ms=405
+Cat Arena: sound gun11_1 t=218976 ms=405
+Cat Arena: sound gun11_1 t=219052 ms=405
+Cat Arena: sound gun11_0 t=219126 ms=405
+Cat Arena: sound gun11_0 t=219236 ms=405
+Cat Arena: sound gun11_0 t=219306 ms=405
+Cat Arena: sound gun11_0 t=219384 ms=405
+Cat Arena: sound gun11_1 t=219500 ms=405
+Cat Arena: sound gun11_0 t=219570 ms=405
+Cat Arena: sound gun11_0 t=219640 ms=405
+Cat Arena: sound gun11_1 t=219747 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=219871 ms=405
+Cat Arena: sound gun11_1 t=219917 ms=405
+Cat Arena: sound gun11_0 t=220049 ms=405
+Cat Arena: sound gun11_0 t=220127 ms=405
+Cat Arena: sound gun11_1 t=220212 ms=405
+Cat Arena: sound gun11_0 t=220252 ms=405
+Cat Arena: sound gun11_1 t=220329 ms=405
+Cat Arena: sound gun11_1 t=220370 ms=405
+Cat Arena: sound gun11_0 t=220451 ms=405
+Cat Arena: sound gun11_0 t=220534 ms=405
+Cat Arena: sound gun11_0 t=220614 ms=405
+Cat Arena: sound gun11_1 t=220693 ms=405
+Cat Arena: sound gun11_1 t=220770 ms=405
+Cat Arena: sound gun11_1 t=220810 ms=405
+Cat Arena: sound gun11_1 t=220885 ms=405
+Cat Arena: sound gun11_0 t=220965 ms=405
+Cat Arena: sound gun11_0 t=221006 ms=405
+Cat Arena: sound gun11_1 t=221083 ms=405
+Cat Arena: sound gun11_0 t=221168 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=221210 ms=405
+Cat Arena: sound gun11_0 t=221324 ms=405
+Cat Arena: sound gun11_0 t=221436 ms=405
+Cat Arena: sound gun11_0 t=221516 ms=405
+Cat Arena: sound gun11_0 t=221596 ms=405
+Cat Arena: sound gun11_1 t=221637 ms=405
+Cat Arena: sound gun11_0 t=221715 ms=405
+Cat Arena: sound gun11_0 t=221790 ms=405
+Cat Arena: sound gun11_1 t=221829 ms=405
+Cat Arena: sound gun11_0 t=221907 ms=405
+Cat Arena: sound gun11_1 t=221985 ms=405
+Cat Arena: sound gun11_0 t=222026 ms=405
+Cat Arena: sound gun11_1 t=222107 ms=405
+Cat Arena: sound gun11_0 t=222181 ms=405
+Cat Arena: sound gun11_0 t=222259 ms=405
+Cat Arena: sound gun11_1 t=222336 ms=405
+Cat Arena: sound gun11_1 t=222417 ms=405
+Cat Arena: sound gun11_1 t=222457 ms=405
+Cat Arena: sound gun11_1 t=222537 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=222654 ms=405
+Cat Arena: sound gun11_0 t=222691 ms=405
+Cat Arena: sound gun11_1 t=222806 ms=405
+Cat Arena: sound gun11_0 t=222879 ms=405
+Cat Arena: sound gun11_1 t=222954 ms=405
+Cat Arena: sound gun11_1 t=223064 ms=405
+Cat Arena: sound gun11_0 t=223139 ms=405
+Cat Arena: sound gun11_0 t=223213 ms=405
+Cat Arena: sound gun11_0 t=223323 ms=405
+Cat Arena: sound gun11_1 t=223396 ms=405
+Cat Arena: sound gun11_1 t=223468 ms=405
+Cat Arena: sound gun11_1 t=223582 ms=405
+Cat Arena: sound gun11_0 t=223656 ms=405
+Cat Arena: sound gun11_0 t=223730 ms=405
+Cat Arena: sound gun11_0 t=223844 ms=405
+Cat Arena: sound voice_normal_idle_2 t=223844 ms=747 enemy=158 type=skyraider d=6.0 playing=0
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=223973 ms=405
+Cat Arena: sound gun11_1 t=224018 ms=405
+Cat Arena: sound gun11_0 t=224136 ms=405
+Cat Arena: sound gun11_1 t=224213 ms=405
+Cat Arena: sound gun11_0 t=224289 ms=405
+Cat Arena: sound gun11_1 t=224400 ms=405
+Cat Arena: sound gun11_0 t=224473 ms=405
+Cat Arena: sound gun11_1 t=224554 ms=405
+Cat Arena: sound gun11_1 t=224664 ms=405
+Cat Arena: sound gun11_0 t=224740 ms=405
+Cat Arena: sound gun11_0 t=224815 ms=405
+Cat Arena: sound gun11_0 t=224929 ms=405
+Cat Arena: sound gun11_0 t=225002 ms=405
+Cat Arena: sound gun11_1 t=225077 ms=405
+Cat Arena: sound gun11_1 t=225195 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=225316 ms=405
+Cat Arena: sound gun11_1 t=225354 ms=405
+Cat Arena: sound gun11_0 t=225472 ms=405
+Cat Arena: sound gun11_0 t=225550 ms=405
+Cat Arena: sound gun11_0 t=225620 ms=405
+Cat Arena: sound gun11_1 t=225726 ms=405
+Cat Arena: sound gun11_0 t=225802 ms=405
+Cat Arena: sound gun11_1 t=225872 ms=405
+Cat Arena: sound gun11_0 t=225979 ms=405
+Cat Arena: sound gun11_1 t=226055 ms=405
+Cat Arena: sound gun11_0 t=226134 ms=405
+Cat Arena: sound gun11_0 t=226252 ms=405
+Cat Arena: sound gun11_0 t=226325 ms=405
+Cat Arena: sound gun11_0 t=226400 ms=405
+Cat Arena: sound gun11_0 t=226520 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=226685 ms=405
+Cat Arena: sound gun11_0 t=226826 ms=405
+Cat Arena: sound gun11_1 t=226902 ms=405
+Cat Arena: sound gun11_1 t=226981 ms=405
+Cat Arena: sound gun11_0 t=227021 ms=405
+Cat Arena: sound gun11_1 t=227096 ms=405
+Cat Arena: sound gun11_1 t=227172 ms=405
+Cat Arena: sound gun11_1 t=227250 ms=405
+Cat Arena: sound gun11_1 t=227285 ms=405
+Cat Arena: sound gun11_1 t=227360 ms=405
+Cat Arena: sound gun11_0 t=227440 ms=405
+Cat Arena: sound gun11_1 t=227479 ms=405
+Cat Arena: sound gun11_1 t=227555 ms=405
+Cat Arena: sound gun11_1 t=227632 ms=405
+Cat Arena: sound gun11_0 t=227671 ms=405
+Cat Arena: sound gun11_0 t=227744 ms=405
+Cat Arena: sound gun11_0 t=227823 ms=405
+Cat Arena: sound gun11_0 t=227901 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=227900 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=814,83,173 health=43
+CA_ENEMY 168 skyprobe pos=-690,-100,177 health=86
+CA_ENEMY 179 skyprobe pos=-123,-18,98 health=85
+Cat Arena: sound gun11_1 t=228015 ms=405
+Cat Arena: sound gun11_1 t=228054 ms=405
+Cat Arena: sound gun11_0 t=228177 ms=405
+Cat Arena: sound gun11_0 t=228267 ms=405
+Cat Arena: sound gun11_1 t=228305 ms=405
+Cat Arena: sound gun11_0 t=228383 ms=405
+Cat Arena: sound gun11_0 t=228469 ms=405
+Cat Arena: sound gun11_1 t=228506 ms=405
+Cat Arena: sound gun11_1 t=228585 ms=405
+Cat Arena: sound gun11_0 t=228666 ms=405
+Cat Arena: sound gun11_1 t=228737 ms=405
+Cat Arena: sound gun11_1 t=228820 ms=405
+Cat Arena: sound gun11_1 t=228899 ms=405
+Cat Arena: sound gun11_0 t=228935 ms=405
+Cat Arena: sound gun11_1 t=229013 ms=405
+Cat Arena: sound gun11_1 t=229090 ms=405
+Cat Arena: sound gun11_0 t=229167 ms=405
+Cat Arena: sound gun11_0 t=229205 ms=405
+Cat Arena: sound gun11_1 t=229281 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=229401 ms=405
+Cat Arena: sound gun11_1 t=229444 ms=405
+Cat Arena: sound gun11_0 t=229567 ms=405
+Cat Arena: sound gun11_0 t=229641 ms=405
+Cat Arena: sound gun11_1 t=229720 ms=405
+Cat Arena: sound gun11_1 t=229833 ms=405
+Cat Arena: sound gun11_0 t=229912 ms=405
+Cat Arena: sound gun11_0 t=229986 ms=405
+Cat Arena: sound gun11_0 t=230105 ms=405
+Cat Arena: sound gun11_0 t=230185 ms=405
+Cat Arena: sound gun11_0 t=230268 ms=405
+Cat Arena: sound gun11_0 t=230307 ms=405
+Cat Arena: sound gun11_0 t=230382 ms=405
+Cat Arena: sound gun11_1 t=230462 ms=405
+Cat Arena: sound gun11_1 t=230504 ms=405
+Cat Arena: sound gun11_0 t=230581 ms=405
+Cat Arena: sound gun11_0 t=230663 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=230745 ms=405
+Cat Arena: sound gun11_0 t=230820 ms=405
+Cat Arena: sound gun11_1 t=230932 ms=405
+Cat Arena: sound gun11_0 t=231006 ms=405
+Cat Arena: sound gun11_1 t=231076 ms=405
+Cat Arena: sound gun11_0 t=231190 ms=405
+Cat Arena: sound gun11_0 t=231266 ms=405
+Cat Arena: sound gun11_1 t=231345 ms=405
+Cat Arena: sound voice_normal_idle_0 t=231345 ms=579 enemy=158 type=skyraider d=5.8 playing=0
+Cat Arena: sound gun11_1 t=231471 ms=405
+Cat Arena: sound gun11_0 t=231553 ms=405
+Cat Arena: sound gun11_0 t=231630 ms=405
+Cat Arena: sound gun11_0 t=231675 ms=405
+Cat Arena: sound gun11_0 t=231761 ms=405
+Cat Arena: sound gun11_0 t=231798 ms=405
+Cat Arena: sound gun11_0 t=231878 ms=405
+Cat Arena: sound gun11_0 t=231959 ms=405
+Cat Arena: sound gun11_0 t=232038 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=232162 ms=405
+Cat Arena: sound gun11_1 t=232199 ms=405
+Cat Arena: sound gun11_0 t=232315 ms=405
+Cat Arena: sound gun11_0 t=232392 ms=405
+Cat Arena: sound gun11_0 t=232473 ms=405
+Cat Arena: sound gun11_0 t=232517 ms=405
+Cat Arena: sound gun11_0 t=232596 ms=405
+Cat Arena: sound gun11_1 t=232682 ms=405
+Cat Arena: sound gun11_0 t=232724 ms=405
+Cat Arena: sound gun11_1 t=232808 ms=405
+Cat Arena: sound gun11_1 t=232889 ms=405
+Cat Arena: sound gun11_1 t=232971 ms=405
+Cat Arena: sound gun11_1 t=233051 ms=405
+Cat Arena: sound gun11_1 t=233088 ms=405
+Cat Arena: sound gun11_1 t=233167 ms=405
+Cat Arena: sound gun11_1 t=233242 ms=405
+Cat Arena: sound gun11_0 t=233285 ms=405
+Cat Arena: sound gun11_0 t=233366 ms=405
+Cat Arena: sound gun11_0 t=233446 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=233574 ms=405
+Cat Arena: sound gun11_0 t=233617 ms=405
+Cat Arena: sound gun11_1 t=233659 ms=405
+Cat Arena: sound gun11_0 t=233737 ms=405
+Cat Arena: sound gun11_1 t=233820 ms=405
+Cat Arena: sound gun11_0 t=233861 ms=405
+Cat Arena: sound gun11_0 t=233938 ms=405
+Cat Arena: sound gun11_0 t=234021 ms=405
+Cat Arena: sound gun11_0 t=234065 ms=405
+Cat Arena: sound gun11_0 t=234146 ms=405
+Cat Arena: sound gun11_1 t=234187 ms=405
+Cat Arena: sound gun11_0 t=234317 ms=405
+Cat Arena: sound gun11_0 t=234397 ms=405
+Cat Arena: sound gun11_1 t=234477 ms=405
+Cat Arena: sound gun11_1 t=234516 ms=405
+Cat Arena: sound gun11_1 t=234594 ms=405
+Cat Arena: sound gun11_1 t=234675 ms=405
+Cat Arena: sound gun11_0 t=234713 ms=405
+Cat Arena: sound gun11_0 t=234796 ms=405
+Cat Arena: sound gun11_0 t=234878 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=234965 ms=405
+Cat Arena: sound gun11_1 t=235047 ms=405
+Cat Arena: sound gun11_0 t=235084 ms=405
+Cat Arena: sound gun11_1 t=235168 ms=405
+Cat Arena: sound gun11_1 t=235246 ms=405
+Cat Arena: sound gun11_1 t=235284 ms=405
+Cat Arena: sound gun11_1 t=235365 ms=405
+Cat Arena: sound gun11_1 t=235439 ms=405
+Cat Arena: sound gun11_1 t=235478 ms=405
+Cat Arena: sound gun11_0 t=235561 ms=405
+Cat Arena: sound gun11_1 t=235635 ms=405
+Cat Arena: sound gun11_0 t=235718 ms=405
+Cat Arena: sound gun11_0 t=235799 ms=405
+Cat Arena: sound gun11_1 t=235873 ms=405
+Cat Arena: sound gun11_1 t=235912 ms=405
+Cat Arena: sound gun11_0 t=235987 ms=405
+Cat Arena: sound gun11_0 t=236062 ms=405
+Cat Arena: sound gun11_0 t=236137 ms=405
+Cat Arena: sound gun11_1 t=236176 ms=405
+Cat Arena: sound gun11_0 t=236258 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=236332 ms=405
+Cat Arena: sound gun11_1 t=236414 ms=405
+Cat Arena: sound gun11_1 t=236530 ms=405
+Cat Arena: sound gun11_1 t=236610 ms=405
+Cat Arena: sound gun11_0 t=236682 ms=405
+Cat Arena: sound gun11_1 t=236819 ms=405
+Cat Arena: sound gun11_1 t=236905 ms=405
+Cat Arena: sound gun11_1 t=236947 ms=405
+Cat Arena: sound gun11_1 t=237026 ms=405
+Cat Arena: sound gun11_0 t=237108 ms=405
+Cat Arena: sound gun11_0 t=237151 ms=405
+Cat Arena: sound gun11_0 t=237226 ms=405
+Cat Arena: sound gun11_1 t=237266 ms=405
+Cat Arena: sound gun11_1 t=237382 ms=405
+Cat Arena: sound gun11_0 t=237460 ms=405
+Cat Arena: sound gun11_0 t=237547 ms=405
+Cat Arena: sound gun11_0 t=237580 ms=405
+Cat Arena: sound gun11_0 t=237663 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=237739 ms=405
+Cat Arena: sound gun11_0 t=237821 ms=405
+Cat Arena: sound gun11_0 t=237939 ms=405
+Cat Arena: sound gun11_0 t=238015 ms=405
+Cat Arena: sound gun11_0 t=238090 ms=405
+Cat Arena: sound gun11_0 t=238208 ms=405
+Cat Arena: sound gun11_0 t=238278 ms=405
+Cat Arena: sound gun11_1 t=238351 ms=405
+Cat Arena: sound gun11_0 t=238459 ms=405
+Cat Arena: sound gun11_1 t=238530 ms=405
+Cat Arena: sound gun11_1 t=238613 ms=405
+Cat Arena: sound gun11_0 t=238727 ms=405
+Cat Arena: sound gun11_1 t=238802 ms=405
+Cat Arena: sound gun11_0 t=238873 ms=405
+Cat Arena: sound gun11_1 t=238984 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=239108 ms=405
+Cat Arena: sound voice_normal_idle_2 t=239108 ms=747 enemy=158 type=skyraider d=5.8 playing=0
+Cat Arena: sound gun11_1 t=239143 ms=405
+Cat Arena: sound gun11_1 t=239258 ms=405
+Cat Arena: sound gun11_0 t=239328 ms=405
+Cat Arena: sound gun11_1 t=239408 ms=405
+Cat Arena: sound gun11_1 t=239524 ms=405
+Cat Arena: sound gun11_0 t=239600 ms=405
+Cat Arena: sound gun11_1 t=239680 ms=405
+Cat Arena: sound gun11_1 t=239718 ms=405
+Cat Arena: sound gun11_1 t=239801 ms=405
+Cat Arena: sound gun11_0 t=239879 ms=405
+Cat Arena: sound gun11_1 t=239919 ms=405
+Cat Arena: sound gun11_0 t=240003 ms=405
+Cat Arena: sound gun11_1 t=240079 ms=405
+Cat Arena: sound gun11_0 t=240123 ms=405
+Cat Arena: sound gun11_1 t=240202 ms=405
+Cat Arena: sound gun11_0 t=240239 ms=405
+Cat Arena: sound gun11_1 t=240357 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=240476 ms=405
+Cat Arena: sound gun11_0 t=240515 ms=405
+Cat Arena: sound gun11_1 t=240634 ms=405
+Cat Arena: sound gun11_1 t=240711 ms=405
+Cat Arena: sound gun11_0 t=240788 ms=405
+Cat Arena: sound gun11_1 t=240827 ms=405
+Cat Arena: sound gun11_0 t=240902 ms=405
+Cat Arena: sound gun11_1 t=240976 ms=405
+Cat Arena: sound gun11_0 t=241052 ms=405
+Cat Arena: sound gun11_0 t=241086 ms=405
+Cat Arena: sound gun11_0 t=241163 ms=405
+Cat Arena: sound gun11_1 t=241236 ms=405
+Cat Arena: sound gun11_0 t=241319 ms=405
+Cat Arena: sound gun11_1 t=241357 ms=405
+Cat Arena: sound gun11_0 t=241436 ms=405
+Cat Arena: sound gun11_1 t=241531 ms=405
+Cat Arena: sound gun11_1 t=241575 ms=405
+Cat Arena: sound gun11_0 t=241617 ms=405
+Cat Arena: sound gun11_1 t=241730 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=241750 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=809,113,171 health=43
+CA_ENEMY 168 skyprobe pos=-690,-100,190 health=86
+CA_ENEMY 179 skyprobe pos=-123,-18,85 health=85
+Cat Arena: sound body_land_0 t=241846 ms=312
+Cat Arena: sound gun11_1 t=241846 ms=405
+Cat Arena: sound gun11_0 t=241888 ms=405
+Cat Arena: sound gun11_1 t=241996 ms=405
+Wrote screenshots/enemies_fight_900.jpg
+Cat Arena: sound gun11_0 t=242097 ms=405
+Cat Arena: sound gun11_1 t=242135 ms=405
+Cat Arena: sound gun11_1 t=242210 ms=405
+Cat Arena: sound gun11_0 t=242283 ms=405
+Cat Arena: sound gun11_0 t=242355 ms=405
+Cat Arena: sound gun11_1 t=242391 ms=405
+Cat Arena: sound gun11_1 t=242464 ms=405
+Cat Arena: sound gun11_0 t=242532 ms=405
+Cat Arena: sound gun11_0 t=242610 ms=405
+Cat Arena: sound gun11_1 t=242682 ms=405
+Cat Arena: sound gun11_0 t=242720 ms=405
+Cat Arena: sound gun11_1 t=242799 ms=405
+Cat Arena: sound gun11_0 t=242870 ms=405
+Cat Arena: sound gun11_0 t=242942 ms=405
+Cat Arena: sound gun11_1 t=242976 ms=405
+Cat Arena: sound gun11_1 t=243051 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=243158 ms=405
+Cat Arena: sound gun11_1 t=243228 ms=405
+Cat Arena: sound gun11_1 t=243303 ms=405
+Cat Arena: sound gun11_1 t=243378 ms=405
+Cat Arena: sound gun11_0 t=243457 ms=405
+Cat Arena: sound gun11_0 t=243584 ms=405
+Cat Arena: sound gun11_1 t=243662 ms=405
+Cat Arena: sound gun11_1 t=243743 ms=405
+Cat Arena: sound gun11_1 t=243781 ms=405
+Cat Arena: sound gun11_1 t=243855 ms=405
+Cat Arena: sound gun11_1 t=243929 ms=405
+Cat Arena: sound gun11_0 t=244003 ms=405
+Cat Arena: sound gun11_1 t=244039 ms=405
+Cat Arena: sound gun11_0 t=244113 ms=405
+Cat Arena: sound gun11_1 t=244189 ms=405
+Cat Arena: sound gun11_0 t=244266 ms=405
+Cat Arena: sound gun11_0 t=244307 ms=405
+Cat Arena: sound gun11_1 t=244382 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=244497 ms=405
+Cat Arena: sound gun11_1 t=244533 ms=405
+Cat Arena: sound voice_light_idle_0 t=244570 ms=565 enemy=168 type=skyprobe d=5.8 playing=0
+Cat Arena: sound gun11_0 t=244644 ms=405
+Cat Arena: sound gun11_1 t=244715 ms=405
+Cat Arena: sound gun11_0 t=244787 ms=405
+Cat Arena: sound gun11_0 t=244899 ms=405
+Cat Arena: sound gun11_0 t=244982 ms=405
+Cat Arena: sound gun11_0 t=245064 ms=405
+Cat Arena: sound gun11_0 t=245100 ms=405
+Cat Arena: sound gun11_1 t=245173 ms=405
+Cat Arena: sound gun11_1 t=245254 ms=405
+Cat Arena: sound gun11_0 t=245289 ms=405
+Cat Arena: sound gun11_0 t=245371 ms=405
+Cat Arena: sound gun11_0 t=245445 ms=405
+Cat Arena: sound gun11_1 t=245485 ms=405
+Cat Arena: sound gun11_1 t=245564 ms=405
+Cat Arena: sound gun11_0 t=245635 ms=405
+Cat Arena: sound gun11_1 t=245710 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=245817 ms=405
+Cat Arena: sound gun11_0 t=245890 ms=405
+Cat Arena: sound gun11_0 t=245963 ms=405
+Cat Arena: sound gun11_1 t=246033 ms=405
+Cat Arena: sound gun11_0 t=246110 ms=405
+Cat Arena: sound gun11_1 t=246234 ms=405
+Cat Arena: sound gun11_1 t=246310 ms=405
+Cat Arena: sound gun11_0 t=246380 ms=405
+Cat Arena: sound gun11_0 t=246507 ms=405
+Cat Arena: sound gun11_1 t=246581 ms=405
+Cat Arena: sound gun11_0 t=246654 ms=405
+Cat Arena: sound gun11_0 t=246761 ms=405
+Cat Arena: sound gun11_0 t=246838 ms=405
+Cat Arena: sound gun11_0 t=246920 ms=405
+Cat Arena: sound gun11_1 t=246957 ms=405
+Cat Arena: sound gun11_1 t=247031 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=247141 ms=405
+Cat Arena: sound gun11_1 t=247214 ms=405
+Cat Arena: sound gun11_1 t=247285 ms=405
+Cat Arena: sound gun11_0 t=247358 ms=405
+Cat Arena: sound gun11_0 t=247426 ms=405
+Cat Arena: sound gun11_0 t=247541 ms=405
+Cat Arena: sound gun11_0 t=247613 ms=405
+Cat Arena: sound gun11_1 t=247685 ms=405
+Cat Arena: sound gun11_0 t=247793 ms=405
+Cat Arena: sound gun11_0 t=247863 ms=405
+Cat Arena: sound gun11_0 t=247939 ms=405
+Cat Arena: sound gun11_0 t=248043 ms=405
+Cat Arena: sound voice_light_idle_0 t=248076 ms=565 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_0 t=248113 ms=405
+Cat Arena: sound gun11_1 t=248183 ms=405
+Cat Arena: sound gun11_1 t=248287 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=248392 ms=405
+Cat Arena: sound gun11_0 t=248464 ms=405
+Cat Arena: sound gun11_0 t=248535 ms=405
+Cat Arena: sound gun11_0 t=248568 ms=405
+Cat Arena: sound gun11_1 t=248640 ms=405
+Cat Arena: sound gun11_0 t=248712 ms=405
+Cat Arena: sound gun11_1 t=248784 ms=405
+Cat Arena: sound gun11_1 t=248856 ms=405
+Cat Arena: sound gun11_0 t=248890 ms=405
+Cat Arena: sound gun11_0 t=248957 ms=405
+Cat Arena: sound gun11_0 t=249032 ms=405
+Cat Arena: sound gun11_0 t=249102 ms=405
+Cat Arena: sound gun11_1 t=249173 ms=405
+Cat Arena: sound gun11_0 t=249298 ms=405
+Cat Arena: sound gun11_1 t=249371 ms=405
+Cat Arena: sound gun11_1 t=249441 ms=405
+Cat Arena: sound gun11_1 t=249549 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=249654 ms=405
+Cat Arena: sound gun11_1 t=249721 ms=405
+Cat Arena: sound gun11_0 t=249798 ms=405
+Cat Arena: sound gun11_1 t=249833 ms=405
+Cat Arena: sound gun11_0 t=249905 ms=405
+Cat Arena: sound gun11_0 t=249976 ms=405
+Cat Arena: sound gun11_1 t=250053 ms=405
+Cat Arena: sound gun11_1 t=250087 ms=405
+Cat Arena: sound gun11_1 t=250158 ms=405
+Cat Arena: sound gun11_1 t=250230 ms=405
+Cat Arena: sound gun11_0 t=250298 ms=405
+Cat Arena: sound gun11_1 t=250365 ms=405
+Cat Arena: sound gun11_0 t=250438 ms=405
+Cat Arena: sound gun11_1 t=250543 ms=405
+Cat Arena: sound gun11_0 t=250613 ms=405
+Cat Arena: sound gun11_1 t=250683 ms=405
+Cat Arena: sound gun11_0 t=250785 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=250895 ms=405
+Cat Arena: sound gun11_0 t=250967 ms=405
+Cat Arena: sound gun11_1 t=251043 ms=405
+Cat Arena: sound gun11_0 t=251111 ms=405
+Cat Arena: sound gun11_0 t=251190 ms=405
+Cat Arena: sound gun11_0 t=251292 ms=405
+Cat Arena: sound gun11_0 t=251362 ms=405
+Cat Arena: sound gun11_1 t=251432 ms=405
+Cat Arena: sound gun11_1 t=251535 ms=405
+Cat Arena: sound gun11_0 t=251605 ms=405
+Cat Arena: sound gun11_1 t=251677 ms=405
+Cat Arena: sound gun11_0 t=251821 ms=405
+Cat Arena: sound gun11_1 t=251903 ms=405
+Cat Arena: sound gun11_0 t=251977 ms=405
+Cat Arena: sound gun11_1 t=252013 ms=405
+Cat Arena: sound gun11_0 t=252085 ms=405
+Cat Arena: sound voice_light_idle_2 t=252085 ms=729 enemy=168 type=skyprobe d=5.7 playing=0
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=252194 ms=405
+Cat Arena: sound gun11_1 t=252265 ms=405
+Cat Arena: sound gun11_0 t=252333 ms=405
+Cat Arena: sound gun11_1 t=252403 ms=405
+Cat Arena: sound gun11_1 t=252477 ms=405
+Cat Arena: sound gun11_0 t=252585 ms=405
+Cat Arena: sound gun11_0 t=252673 ms=405
+Cat Arena: sound gun11_0 t=252746 ms=405
+Cat Arena: sound gun11_0 t=252785 ms=405
+Cat Arena: sound gun11_1 t=252853 ms=405
+Cat Arena: sound gun11_0 t=252923 ms=405
+Cat Arena: sound gun11_0 t=252992 ms=405
+Cat Arena: sound gun11_1 t=253096 ms=405
+Cat Arena: sound gun11_0 t=253169 ms=405
+Cat Arena: sound gun11_1 t=253241 ms=405
+Cat Arena: sound gun11_0 t=253346 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=253457 ms=405
+Cat Arena: sound gun11_0 t=253547 ms=405
+Cat Arena: sound gun11_1 t=253638 ms=405
+Cat Arena: sound gun11_1 t=253725 ms=405
+Cat Arena: sound gun11_1 t=253764 ms=405
+Cat Arena: sound gun11_1 t=253846 ms=405
+Cat Arena: sound gun11_1 t=253918 ms=405
+Cat Arena: sound gun11_0 t=253956 ms=405
+Cat Arena: sound gun11_0 t=254026 ms=405
+Cat Arena: sound gun11_1 t=254102 ms=405
+Cat Arena: sound gun11_1 t=254179 ms=405
+Cat Arena: sound gun11_1 t=254220 ms=405
+Cat Arena: sound gun11_0 t=254297 ms=405
+Cat Arena: sound gun11_0 t=254366 ms=405
+Cat Arena: sound gun11_0 t=254447 ms=405
+Cat Arena: sound gun11_0 t=254481 ms=405
+Cat Arena: sound gun11_1 t=254559 ms=405
+Cat Arena: sound gun11_1 t=254629 ms=405
+Cat Arena: sound gun11_0 t=254706 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=254700 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=693,92,190 health=43
+CA_ENEMY 168 skyprobe pos=-817,-56,173 health=86
+CA_ENEMY 179 skyprobe pos=-817,-74,94 health=85
+Cat Arena: sound gun11_1 t=254813 ms=405
+Cat Arena: sound gun11_1 t=254886 ms=405
+Cat Arena: sound gun11_1 t=254957 ms=405
+Cat Arena: sound gun11_0 t=255028 ms=405
+Cat Arena: sound gun11_0 t=255101 ms=405
+Cat Arena: sound gun11_0 t=255219 ms=405
+Cat Arena: sound gun11_0 t=255291 ms=405
+Cat Arena: sound gun11_0 t=255371 ms=405
+Cat Arena: sound gun11_0 t=255490 ms=405
+Cat Arena: sound gun11_1 t=255562 ms=405
+Cat Arena: sound gun11_1 t=255636 ms=405
+Cat Arena: sound gun11_0 t=255749 ms=405
+Cat Arena: sound gun11_1 t=255827 ms=405
+Cat Arena: sound gun11_1 t=255905 ms=405
+Cat Arena: sound gun11_0 t=255941 ms=405
+Cat Arena: sound gun11_1 t=256011 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=256126 ms=405
+Cat Arena: sound gun11_0 t=256164 ms=405
+Cat Arena: sound gun11_1 t=256275 ms=405
+Cat Arena: sound gun11_0 t=256351 ms=405
+Cat Arena: sound gun11_0 t=256422 ms=405
+Cat Arena: sound gun11_0 t=256535 ms=405
+Cat Arena: sound gun11_1 t=256612 ms=405
+Cat Arena: sound gun11_0 t=256686 ms=405
+Cat Arena: sound gun11_1 t=256801 ms=405
+Cat Arena: sound gun11_1 t=256873 ms=405
+Cat Arena: sound gun11_0 t=256950 ms=405
+Cat Arena: sound gun11_1 t=257066 ms=405
+Cat Arena: sound gun11_0 t=257141 ms=405
+Cat Arena: sound gun11_1 t=257219 ms=405
+Cat Arena: sound gun11_0 t=257331 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=257446 ms=405
+Cat Arena: sound gun11_1 t=257485 ms=405
+Cat Arena: sound gun11_0 t=257598 ms=405
+Cat Arena: sound gun11_0 t=257670 ms=405
+Cat Arena: sound gun11_0 t=257745 ms=405
+Cat Arena: sound gun11_0 t=257866 ms=405
+Cat Arena: sound gun11_1 t=257946 ms=405
+Cat Arena: sound gun11_1 t=258021 ms=405
+Cat Arena: sound gun11_1 t=258059 ms=405
+Cat Arena: sound gun11_0 t=258128 ms=405
+Cat Arena: sound gun11_0 t=258203 ms=405
+Cat Arena: sound gun11_1 t=258280 ms=405
+Cat Arena: sound gun11_0 t=258316 ms=405
+Cat Arena: sound gun11_1 t=258398 ms=405
+Cat Arena: sound gun11_1 t=258475 ms=405
+Cat Arena: sound gun11_1 t=258516 ms=405
+Cat Arena: sound gun11_1 t=258595 ms=405
+Cat Arena: sound gun11_0 t=258681 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=258766 ms=405
+Cat Arena: sound gun11_1 t=258840 ms=405
+Cat Arena: sound gun11_1 t=258952 ms=405
+Cat Arena: sound gun11_1 t=259024 ms=405
+Cat Arena: sound gun11_1 t=259099 ms=405
+Cat Arena: sound gun11_0 t=259216 ms=405
+Cat Arena: sound gun11_0 t=259289 ms=405
+Cat Arena: sound gun11_0 t=259359 ms=405
+Cat Arena: sound gun11_0 t=259479 ms=405
+Cat Arena: sound gun11_1 t=259558 ms=405
+Cat Arena: sound gun11_0 t=259634 ms=405
+Cat Arena: sound gun11_1 t=259672 ms=405
+Cat Arena: sound gun11_0 t=259754 ms=405
+Cat Arena: sound voice_light_idle_1 t=259754 ms=649 enemy=168 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_0 t=259831 ms=405
+Cat Arena: sound gun11_0 t=259870 ms=405
+Cat Arena: sound gun11_1 t=259949 ms=405
+Cat Arena: sound gun11_0 t=260018 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=260123 ms=405
+Cat Arena: sound gun11_1 t=260196 ms=405
+Cat Arena: sound gun11_1 t=260263 ms=405
+Cat Arena: sound gun11_1 t=260331 ms=405
+Cat Arena: sound gun11_0 t=260370 ms=405
+Cat Arena: sound gun11_0 t=260439 ms=405
+Cat Arena: sound gun11_1 t=260505 ms=405
+Cat Arena: sound gun11_1 t=260570 ms=405
+Cat Arena: sound gun11_1 t=260639 ms=405
+Cat Arena: sound gun11_0 t=260745 ms=405
+Cat Arena: sound gun11_0 t=260818 ms=405
+Cat Arena: sound gun11_1 t=260886 ms=405
+Cat Arena: sound gun11_0 t=260986 ms=405
+Cat Arena: sound voice_light_idle_0 t=261018 ms=565 enemy=179 type=skyprobe d=5.7 playing=0
+Cat Arena: sound gun11_1 t=261058 ms=405
+Cat Arena: sound gun11_0 t=261123 ms=405
+Cat Arena: sound gun11_1 t=261222 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=261321 ms=405
+Cat Arena: sound gun11_1 t=261388 ms=405
+Cat Arena: sound gun11_1 t=261455 ms=405
+Cat Arena: sound gun11_1 t=261530 ms=405
+Cat Arena: sound gun11_0 t=261598 ms=405
+Cat Arena: sound gun11_0 t=261699 ms=405
+Cat Arena: sound gun11_0 t=261762 ms=405
+Cat Arena: sound gun11_0 t=261842 ms=405
+Cat Arena: sound gun11_0 t=261943 ms=405
+Cat Arena: sound gun11_0 t=262015 ms=405
+Cat Arena: sound gun11_1 t=262083 ms=405
+Cat Arena: sound gun11_1 t=262187 ms=405
+Cat Arena: sound gun11_1 t=262253 ms=405
+Cat Arena: sound gun11_1 t=262317 ms=405
+Cat Arena: sound gun11_0 t=262415 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=262514 ms=405
+Cat Arena: sound gun11_1 t=262583 ms=405
+Cat Arena: sound gun11_0 t=262649 ms=405
+Cat Arena: sound gun11_1 t=262721 ms=405
+Cat Arena: sound gun11_0 t=262796 ms=405
+Cat Arena: sound gun11_0 t=262829 ms=405
+Cat Arena: sound gun11_1 t=262901 ms=405
+Cat Arena: sound gun11_1 t=262972 ms=405
+Cat Arena: sound gun11_0 t=263048 ms=405
+Cat Arena: sound gun11_0 t=263151 ms=405
+Cat Arena: sound gun11_1 t=263219 ms=405
+Cat Arena: sound gun11_0 t=263291 ms=405
+Cat Arena: sound gun11_1 t=263396 ms=405
+Cat Arena: sound gun11_1 t=263464 ms=405
+Cat Arena: sound gun11_1 t=263548 ms=405
+Cat Arena: sound gun11_0 t=263667 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=263743 ms=405
+Cat Arena: sound gun11_0 t=263813 ms=405
+Cat Arena: sound gun11_1 t=263915 ms=405
+Cat Arena: sound gun11_1 t=263985 ms=405
+Cat Arena: sound gun11_1 t=264058 ms=405
+Cat Arena: sound gun11_0 t=264170 ms=405
+Cat Arena: sound gun11_0 t=264245 ms=405
+Cat Arena: sound gun11_0 t=264321 ms=405
+Cat Arena: sound gun11_0 t=264424 ms=405
+Cat Arena: sound gun11_0 t=264496 ms=405
+Cat Arena: sound gun11_1 t=264572 ms=405
+Cat Arena: sound gun11_0 t=264680 ms=405
+Cat Arena: sound gun11_0 t=264751 ms=405
+Cat Arena: sound gun11_0 t=264819 ms=405
+Cat Arena: sound gun11_1 t=264914 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=265014 ms=405
+Cat Arena: sound gun11_1 t=265085 ms=405
+Cat Arena: sound gun11_1 t=265154 ms=405
+Cat Arena: sound gun11_1 t=265223 ms=405
+Cat Arena: sound gun11_1 t=265291 ms=405
+Cat Arena: sound gun11_0 t=265402 ms=405
+Cat Arena: sound gun11_0 t=265466 ms=405
+Cat Arena: sound gun11_1 t=265538 ms=405
+Cat Arena: sound gun11_1 t=265634 ms=405
+Cat Arena: sound gun11_1 t=265714 ms=405
+Cat Arena: sound gun11_0 t=265798 ms=405
+Cat Arena: sound gun11_1 t=265835 ms=405
+Cat Arena: sound gun11_0 t=265912 ms=405
+Cat Arena: sound gun11_1 t=265990 ms=405
+Cat Arena: sound gun11_1 t=266061 ms=405
+Cat Arena: sound gun11_1 t=266097 ms=405
+Cat Arena: sound gun11_1 t=266164 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=266266 ms=405
+Cat Arena: sound gun11_0 t=266334 ms=405
+Cat Arena: sound gun11_1 t=266405 ms=405
+Cat Arena: sound gun11_0 t=266480 ms=405
+Cat Arena: sound gun11_1 t=266518 ms=405
+Cat Arena: sound gun11_1 t=266591 ms=405
+Cat Arena: sound gun11_0 t=266664 ms=405
+Cat Arena: sound gun11_0 t=266735 ms=405
+Cat Arena: sound gun11_1 t=266813 ms=405
+Cat Arena: sound gun11_1 t=266849 ms=405
+Cat Arena: sound gun11_1 t=266920 ms=405
+Cat Arena: sound gun11_0 t=267002 ms=405
+Cat Arena: sound gun11_1 t=267036 ms=405
+Cat Arena: sound gun11_0 t=267107 ms=405
+Cat Arena: sound gun11_0 t=267177 ms=405
+Cat Arena: sound gun11_1 t=267248 ms=405
+Cat Arena: sound gun11_1 t=267315 ms=405
+Cat Arena: sound gun11_1 t=267422 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=267499 ms=405
+CA_STATE t=267450 pos=998,83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=693,92,170 health=43
+CA_ENEMY 168 skyprobe pos=-816,-91,172 health=86
+CA_ENEMY 179 skyprobe pos=-817,-74,107 health=85
+Cat Arena: sound voice_normal_idle_2 t=267539 ms=747 enemy=158 type=skyraider d=8.5 playing=0
+Cat Arena: sound gun11_0 t=267580 ms=405
+Cat Arena: sound gun11_1 t=267706 ms=405
+Cat Arena: sound gun11_0 t=267776 ms=405
+Cat Arena: sound gun11_1 t=267852 ms=405
+Cat Arena: sound gun11_0 t=267966 ms=405
+Cat Arena: sound gun11_1 t=268040 ms=405
+Cat Arena: sound gun11_0 t=268112 ms=405
+Cat Arena: sound gun11_0 t=268223 ms=405
+Cat Arena: sound gun11_1 t=268304 ms=405
+Cat Arena: sound gun11_1 t=268376 ms=405
+Cat Arena: sound gun11_0 t=268490 ms=405
+Cat Arena: sound gun11_1 t=268561 ms=405
+Cat Arena: sound gun11_0 t=268635 ms=405
+Cat Arena: sound gun11_1 t=268746 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=268852 ms=405
+Cat Arena: sound gun11_1 t=268920 ms=405
+Cat Arena: sound gun11_1 t=268992 ms=405
+Cat Arena: sound gun11_1 t=269064 ms=405
+Cat Arena: sound gun11_1 t=269141 ms=405
+Cat Arena: sound gun11_0 t=269250 ms=405
+Cat Arena: sound gun11_0 t=269321 ms=405
+Cat Arena: sound gun11_0 t=269398 ms=405
+Cat Arena: sound gun11_0 t=269510 ms=405
+Cat Arena: sound gun11_0 t=269582 ms=405
+Cat Arena: sound gun11_0 t=269652 ms=405
+Cat Arena: sound gun11_0 t=269758 ms=405
+Cat Arena: sound gun11_0 t=269832 ms=405
+Cat Arena: sound gun11_1 t=269906 ms=405
+Cat Arena: sound gun11_1 t=270014 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=270121 ms=405
+Cat Arena: sound gun11_1 t=270192 ms=405
+Cat Arena: sound gun11_1 t=270270 ms=405
+Cat Arena: sound gun11_1 t=270345 ms=405
+Cat Arena: sound gun11_1 t=270422 ms=405
+Cat Arena: sound gun11_1 t=270540 ms=405
+Cat Arena: sound gun11_1 t=270611 ms=405
+Cat Arena: sound gun11_1 t=270688 ms=405
+Cat Arena: sound gun11_0 t=270804 ms=405
+Cat Arena: sound gun11_1 t=270881 ms=405
+Cat Arena: sound gun11_1 t=270959 ms=405
+Cat Arena: sound gun11_0 t=271071 ms=405
+Cat Arena: sound gun11_1 t=271147 ms=405
+Cat Arena: sound gun11_0 t=271219 ms=405
+Cat Arena: sound gun11_1 t=271336 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=271445 ms=405
+Cat Arena: sound gun11_0 t=271480 ms=405
+Cat Arena: sound gun11_1 t=271598 ms=405
+Cat Arena: sound gun11_0 t=271667 ms=405
+Cat Arena: sound gun11_0 t=271739 ms=405
+Cat Arena: sound gun11_1 t=271846 ms=405
+Cat Arena: sound gun11_1 t=271921 ms=405
+Cat Arena: sound gun11_0 t=271989 ms=405
+Cat Arena: sound gun11_0 t=272093 ms=405
+Cat Arena: sound gun11_1 t=272159 ms=405
+Cat Arena: sound gun11_0 t=272231 ms=405
+Cat Arena: sound gun11_0 t=272336 ms=405
+Cat Arena: sound gun11_0 t=272401 ms=405
+Cat Arena: sound gun11_0 t=272468 ms=405
+Cat Arena: sound gun11_0 t=272575 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=272681 ms=405
+Cat Arena: sound gun11_1 t=272747 ms=405
+^3WARNING: music file music/ashen_drive.ogg is not 22k stereo
+Cat Arena: sound gun11_1 t=272826 ms=405
+Cat Arena: sound gun11_0 t=272865 ms=405
+Cat Arena: sound gun11_0 t=272933 ms=405
+Cat Arena: sound gun11_0 t=273000 ms=405
+Cat Arena: sound gun11_1 t=273064 ms=405
+Cat Arena: sound gun11_1 t=273131 ms=405
+Cat Arena: sound gun11_1 t=273197 ms=405
+Cat Arena: sound gun11_1 t=273293 ms=405
+Cat Arena: sound gun11_0 t=273361 ms=405
+Cat Arena: sound gun11_0 t=273427 ms=405
+Cat Arena: sound gun11_0 t=273527 ms=405
+Cat Arena: sound gun11_1 t=273602 ms=405
+Cat Arena: sound gun11_1 t=273668 ms=405
+Cat Arena: sound gun11_0 t=273766 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=273864 ms=405
+Cat Arena: sound gun11_0 t=273932 ms=405
+Cat Arena: sound gun11_0 t=273999 ms=405
+Cat Arena: sound gun11_0 t=274069 ms=405
+Cat Arena: sound gun11_0 t=274148 ms=405
+Cat Arena: sound gun11_0 t=274181 ms=405
+Cat Arena: sound gun11_0 t=274253 ms=405
+Cat Arena: sound gun11_1 t=274320 ms=405
+Cat Arena: sound gun11_0 t=274387 ms=405
+Cat Arena: sound gun11_1 t=274492 ms=405
+Cat Arena: sound gun11_1 t=274560 ms=405
+Cat Arena: sound gun11_1 t=274629 ms=405
+Cat Arena: sound gun11_1 t=274742 ms=405
+Cat Arena: sound gun11_1 t=274819 ms=405
+Cat Arena: sound gun11_1 t=274893 ms=405
+Cat Arena: sound gun11_0 t=274998 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=275102 ms=405
+Cat Arena: sound gun11_0 t=275172 ms=405
+Cat Arena: sound gun11_0 t=275246 ms=405
+Cat Arena: sound gun11_1 t=275278 ms=405
+Cat Arena: sound gun11_0 t=275349 ms=405
+Cat Arena: sound gun11_1 t=275412 ms=405
+Cat Arena: sound gun11_0 t=275479 ms=405
+Cat Arena: sound gun11_1 t=275546 ms=405
+Cat Arena: sound voice_normal_idle_2 t=275546 ms=747 enemy=158 type=skyraider d=5.9 playing=0
+Cat Arena: sound gun11_0 t=275610 ms=405
+Cat Arena: sound gun11_0 t=275715 ms=405
+Cat Arena: sound gun11_1 t=275785 ms=405
+Cat Arena: sound gun11_0 t=275851 ms=405
+Cat Arena: sound gun11_1 t=275958 ms=405
+Cat Arena: sound gun11_1 t=276029 ms=405
+Cat Arena: sound gun11_0 t=276105 ms=405
+Cat Arena: sound gun11_0 t=276212 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=276317 ms=405
+Cat Arena: sound gun11_0 t=276384 ms=405
+Cat Arena: sound gun11_1 t=276454 ms=405
+Cat Arena: sound gun11_1 t=276488 ms=405
+Cat Arena: sound gun11_1 t=276565 ms=405
+Cat Arena: sound gun11_1 t=276639 ms=405
+Cat Arena: sound gun11_0 t=276708 ms=405
+Cat Arena: sound gun11_1 t=276783 ms=405
+Cat Arena: sound gun11_0 t=276817 ms=405
+Cat Arena: sound gun11_1 t=276883 ms=405
+Cat Arena: sound gun11_1 t=276949 ms=405
+Cat Arena: sound gun11_0 t=277013 ms=405
+Cat Arena: sound gun11_0 t=277080 ms=405
+Cat Arena: sound gun11_0 t=277179 ms=405
+Cat Arena: sound gun11_0 t=277249 ms=405
+Cat Arena: sound gun11_1 t=277321 ms=405
+Cat Arena: sound gun11_0 t=277425 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=277524 ms=405
+Cat Arena: sound gun11_1 t=277594 ms=405
+Cat Arena: sound gun11_0 t=277661 ms=405
+Cat Arena: sound gun11_0 t=277729 ms=405
+Cat Arena: sound gun11_1 t=277795 ms=405
+Cat Arena: sound gun11_1 t=277896 ms=405
+Cat Arena: sound gun11_1 t=277964 ms=405
+Cat Arena: sound gun11_1 t=278036 ms=405
+Cat Arena: sound gun11_1 t=278141 ms=405
+Cat Arena: sound gun11_1 t=278211 ms=405
+Cat Arena: sound gun11_0 t=278278 ms=405
+Cat Arena: sound gun11_1 t=278378 ms=405
+Cat Arena: sound gun11_0 t=278481 ms=405
+Cat Arena: sound gun11_1 t=278512 ms=405
+Cat Arena: sound gun11_1 t=278610 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=278709 ms=405
+Cat Arena: sound gun11_1 t=278776 ms=405
+Cat Arena: sound gun11_1 t=278841 ms=405
+Cat Arena: sound gun11_0 t=278908 ms=405
+Cat Arena: sound gun11_0 t=278983 ms=405
+Cat Arena: sound gun11_0 t=279088 ms=405
+Cat Arena: sound gun11_1 t=279157 ms=405
+Cat Arena: sound gun11_1 t=279224 ms=405
+Cat Arena: sound gun11_0 t=279333 ms=405
+Cat Arena: sound gun11_0 t=279401 ms=405
+Cat Arena: sound gun11_0 t=279467 ms=405
+Cat Arena: sound gun11_1 t=279579 ms=405
+Cat Arena: sound gun11_1 t=279677 ms=405
+Cat Arena: sound gun11_0 t=279711 ms=405
+Cat Arena: sound gun11_1 t=279813 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=279850 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=814,81,173 health=43
+CA_ENEMY 168 skyprobe pos=-690,-74,177 health=86
+CA_ENEMY 179 skyprobe pos=-124,-10,98 health=85
+Cat Arena: sound gun11_1 t=279910 ms=405
+Cat Arena: sound gun11_1 t=279979 ms=405
+Cat Arena: sound gun11_0 t=280046 ms=405
+Cat Arena: sound gun11_0 t=280111 ms=405
+Cat Arena: sound gun11_1 t=280186 ms=405
+Cat Arena: sound gun11_1 t=280290 ms=405
+Cat Arena: sound gun11_1 t=280356 ms=405
+Cat Arena: sound gun11_0 t=280424 ms=405
+Cat Arena: sound voice_normal_idle_1 t=280459 ms=665 enemy=158 type=skyraider d=5.8 playing=0
+Cat Arena: sound gun11_0 t=280528 ms=405
+Cat Arena: sound gun11_0 t=280603 ms=405
+Cat Arena: sound gun11_0 t=280667 ms=405
+Cat Arena: sound gun11_1 t=280766 ms=405
+Cat Arena: sound gun11_1 t=280838 ms=405
+Cat Arena: sound gun11_0 t=280909 ms=405
+Cat Arena: sound gun11_0 t=281011 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=281109 ms=405
+Cat Arena: sound gun11_0 t=281181 ms=405
+Cat Arena: sound gun11_0 t=281250 ms=405
+Cat Arena: sound gun11_1 t=281315 ms=405
+Cat Arena: sound gun11_0 t=281387 ms=405
+Cat Arena: sound gun11_1 t=281493 ms=405
+Cat Arena: sound gun11_0 t=281558 ms=405
+Cat Arena: sound gun11_0 t=281630 ms=405
+Cat Arena: sound gun11_0 t=281739 ms=405
+Cat Arena: sound gun11_0 t=281808 ms=405
+Cat Arena: sound gun11_0 t=281876 ms=405
+Cat Arena: sound gun11_1 t=281979 ms=405
+Cat Arena: sound gun11_1 t=282076 ms=405
+Cat Arena: sound gun11_0 t=282149 ms=405
+Cat Arena: sound gun11_0 t=282218 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=282318 ms=405
+Cat Arena: sound gun11_0 t=282386 ms=405
+Cat Arena: sound gun11_0 t=282457 ms=405
+Cat Arena: sound gun11_0 t=282526 ms=405
+Cat Arena: sound gun11_0 t=282594 ms=405
+Cat Arena: sound gun11_0 t=282626 ms=405
+Cat Arena: sound gun11_1 t=282695 ms=405
+Cat Arena: sound gun11_1 t=282758 ms=405
+Cat Arena: sound gun11_1 t=282826 ms=405
+Cat Arena: sound gun11_1 t=282929 ms=405
+Cat Arena: sound gun11_0 t=283001 ms=405
+Cat Arena: sound gun11_0 t=283065 ms=405
+Cat Arena: sound gun11_0 t=283164 ms=405
+Cat Arena: sound gun11_1 t=283237 ms=405
+Cat Arena: sound gun11_1 t=283303 ms=405
+Cat Arena: sound gun11_1 t=283402 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=283506 ms=405
+Cat Arena: sound gun11_1 t=283584 ms=405
+Cat Arena: sound gun11_1 t=283658 ms=405
+Cat Arena: sound gun11_0 t=283698 ms=405
+Cat Arena: sound gun11_0 t=283763 ms=405
+Cat Arena: sound gun11_1 t=283831 ms=405
+Cat Arena: sound gun11_0 t=283902 ms=405
+Cat Arena: sound gun11_1 t=283971 ms=405
+Cat Arena: sound gun11_0 t=284048 ms=405
+Cat Arena: sound gun11_0 t=284081 ms=405
+Cat Arena: sound gun11_0 t=284148 ms=405
+Cat Arena: sound gun11_0 t=284218 ms=405
+Cat Arena: sound gun11_1 t=284292 ms=405
+Cat Arena: sound gun11_0 t=284403 ms=405
+Cat Arena: sound gun11_1 t=284466 ms=405
+Cat Arena: sound gun11_0 t=284534 ms=405
+Cat Arena: sound gun11_0 t=284638 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=284741 ms=405
+Cat Arena: sound gun11_0 t=284806 ms=405
+Cat Arena: sound gun11_1 t=284876 ms=405
+Cat Arena: sound gun11_0 t=284949 ms=405
+Cat Arena: sound gun11_1 t=284983 ms=405
+Cat Arena: sound gun11_0 t=285050 ms=405
+Cat Arena: sound gun11_1 t=285121 ms=405
+Cat Arena: sound gun11_0 t=285190 ms=405
+Cat Arena: sound gun11_0 t=285258 ms=405
+Cat Arena: sound gun11_1 t=285366 ms=405
+Cat Arena: sound gun11_1 t=285437 ms=405
+Cat Arena: sound gun11_1 t=285509 ms=405
+Cat Arena: sound voice_normal_idle_0 t=285581 ms=579 enemy=158 type=skyraider d=5.9 playing=0
+Cat Arena: sound gun11_0 t=285619 ms=405
+Cat Arena: sound gun11_0 t=285686 ms=405
+Cat Arena: sound gun11_1 t=285763 ms=405
+Cat Arena: sound gun11_1 t=285865 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=285970 ms=405
+Cat Arena: sound gun11_0 t=286039 ms=405
+Cat Arena: sound gun11_1 t=286110 ms=405
+Cat Arena: sound gun11_0 t=286177 ms=405
+Cat Arena: sound gun11_0 t=286211 ms=405
+Cat Arena: sound gun11_0 t=286280 ms=405
+Cat Arena: sound gun11_1 t=286348 ms=405
+Cat Arena: sound gun11_0 t=286414 ms=405
+Cat Arena: sound gun11_0 t=286481 ms=405
+Cat Arena: sound gun11_0 t=286584 ms=405
+Cat Arena: sound gun11_1 t=286650 ms=405
+Cat Arena: sound gun11_0 t=286716 ms=405
+Cat Arena: sound gun11_1 t=286816 ms=405
+Cat Arena: sound gun11_1 t=286885 ms=405
+Cat Arena: sound gun11_0 t=286960 ms=405
+Cat Arena: sound gun11_0 t=287067 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=287175 ms=405
+Cat Arena: sound gun11_0 t=287244 ms=405
+Cat Arena: sound gun11_0 t=287315 ms=405
+Cat Arena: sound gun11_0 t=287355 ms=405
+Cat Arena: sound gun11_0 t=287421 ms=405
+Cat Arena: sound gun11_1 t=287488 ms=405
+Cat Arena: sound gun11_1 t=287560 ms=405
+Cat Arena: sound gun11_1 t=287628 ms=405
+Cat Arena: sound gun11_0 t=287698 ms=405
+Cat Arena: sound gun11_1 t=287807 ms=405
+Cat Arena: sound gun11_0 t=287875 ms=405
+Cat Arena: sound gun11_1 t=287946 ms=405
+Cat Arena: sound gun11_1 t=288053 ms=405
+Cat Arena: sound gun11_1 t=288117 ms=405
+Cat Arena: sound gun11_0 t=288192 ms=405
+Cat Arena: sound gun11_1 t=288292 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=288394 ms=405
+Cat Arena: sound gun11_0 t=288462 ms=405
+Cat Arena: sound gun11_1 t=288532 ms=405
+Cat Arena: sound gun11_0 t=288598 ms=405
+Cat Arena: sound gun11_0 t=288666 ms=405
+Cat Arena: sound gun11_1 t=288768 ms=405
+Cat Arena: sound gun11_1 t=288842 ms=405
+Cat Arena: sound gun11_1 t=288907 ms=405
+Cat Arena: sound gun11_0 t=289011 ms=405
+Cat Arena: sound gun11_1 t=289079 ms=405
+Cat Arena: sound gun11_1 t=289144 ms=405
+Cat Arena: sound gun11_1 t=289246 ms=405
+Cat Arena: sound gun11_1 t=289311 ms=405
+Cat Arena: sound gun11_1 t=289378 ms=405
+Cat Arena: sound gun11_0 t=289479 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_1 t=289588 ms=405
+Cat Arena: sound gun11_1 t=289655 ms=405
+Cat Arena: sound gun11_1 t=289720 ms=405
+Cat Arena: sound gun11_1 t=289788 ms=405
+Cat Arena: sound gun11_0 t=289854 ms=405
+Cat Arena: sound gun11_0 t=289951 ms=405
+Cat Arena: sound gun11_1 t=290021 ms=405
+Cat Arena: sound gun11_1 t=290097 ms=405
+Cat Arena: sound gun11_1 t=290205 ms=405
+Cat Arena: sound gun11_1 t=290274 ms=405
+Cat Arena: sound gun11_0 t=290345 ms=405
+Cat Arena: sound gun11_1 t=290444 ms=405
+Cat Arena: sound gun11_0 t=290522 ms=405
+Cat Arena: sound gun11_1 t=290595 ms=405
+Cat Arena: sound gun11_0 t=290702 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: sound gun11_0 t=290806 ms=405
+Cat Arena: sound gun11_1 t=290869 ms=405
+Cat Arena: sound gun11_1 t=290937 ms=405
+Cat Arena: sound gun11_1 t=291006 ms=405
+Cat Arena: sound gun11_1 t=291073 ms=405
+Cat Arena: sound gun11_1 t=291183 ms=405
+Cat Arena: sound gun11_1 t=291256 ms=405
+Cat Arena: sound gun11_0 t=291320 ms=405
+Cat Arena: sound gun11_0 t=291424 ms=405
+Cat Arena: sound gun11_0 t=291493 ms=405
+Cat Arena: sound gun11_1 t=291568 ms=405
+Cat Arena: sound gun11_1 t=291674 ms=405
+Cat Arena: sound gun11_1 t=291741 ms=405
+Cat Arena: sound gun11_1 t=291817 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=291950 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 158 skyraider pos=809,109,171 health=43
+CA_ENEMY 168 skyprobe pos=-690,-74,177 health=86
+CA_ENEMY 179 skyprobe pos=-124,-10,98 health=85
+CA_STATE t=291950 pos=-998,-83,32 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=12 score=37 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+Cat Arena: sound body_land_0 t=292021 ms=312
+Cat Arena: sound voice_light_idle_2 t=292021 ms=729 enemy=168 type=skyprobe d=9.1 playing=0
+Cat Arena: sound body_land_0 t=292352 ms=312
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+Closing SDL audio playback device...
+SDL audio playback device closed.
+SDL audio shut down.
+RE_Shutdown( 3 )
+-----------------------

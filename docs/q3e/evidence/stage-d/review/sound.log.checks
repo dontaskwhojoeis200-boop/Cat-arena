@@ -1,0 +1,15 @@
+PASS levels: output peak 0.1926, expected 0.1926 (loudest of body_land_1, gun12_1 at s_volume 0.7)
+PASS music: 5.1 s of output, RMS 0.0029, soundtrack x 0.322 0.0030
+PASS 85 sounds registered, none missing
+PASS the engine started 392 sounds: Cat Arena's and 3 of the silent placeholder
+PASS guns: 16 of 16 weapons (282 shots), 29 of 32 takes; both takes of every weapon fired 8 times or more
+PASS explosions: explosion_rocket x3, explosion_grenade x4, explosion_rift x3
+PASS body: body_jump x1, body_step_walk x2, body_step_sprint x2
+PASS beeps: beep_switch x1, beep_reload x1, beep_hurt x2
+PASS landing and slide: body_land_1, body_land_2, body_land_3, body_slide_2
+PASS voices: 75; kinds attack, eliminated, hurt, idle; families bass, light, normal
+PASS N10 voice limits (31 m, 3 at once / 5 with deaths, 95 ms apart, per-enemy cooldowns): kept
+PASS damage beep while god mode is off: 2
+PASS output: 70.9 s, peak 0.477, 0 clipped samples
+PASS no errors
+ALL PASS

@@ -1,0 +1,9 @@
+PASS 20 N10 creature meshes loaded by cgame
+PASS waves: 40 spawns of 18 types, the three flyers among them
+PASS kills: 37 of 18 types (banshee, crusher, cultist, fiend, grunt, marauder, ogre, pyromancer, reaver, sapper, sentinel, shambler, skitter, skyjuggernaut, skyprobe, skyraider, stalker, warden)
+PASS player hit by every attack kind: fireball by cultist, ogre, pyromancer; melee by shambler; shot by grunt, skyprobe; spike by marauder, sapper, skyraider; voidorb by banshee, sentinel, skyjuggernaut, warden
+PASS flyers attacked the player 7 times
+PASS without god mode: 3 hits, lowest health 43
+PASS waves reached: 3
+PASS no errors
+ALL PASS

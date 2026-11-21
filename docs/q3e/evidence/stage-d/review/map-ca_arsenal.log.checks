@@ -1,0 +1,4 @@
+PASS floor: 12 passed, 0 failed
+PASS ramp: 99 passed, 0 failed
+PASS pad: 1 passed, 0 failed
+ALL PASS

@@ -1,0 +1,101 @@
+[  2%] Building CXX object CMakeFiles/ca_bridge.dir/catarena/src/ca_bridge.cpp.o
+[  2%] Building CXX object CMakeFiles/ca_n10nav.dir/tmp/claude-0/review/src/native/src/navigation.cpp.o
+[  3%] Building CXX object CMakeFiles/ca_bridge.dir/catarena/src/ca_weapons.cpp.o
+[  4%] Building CXX object CMakeFiles/ca_bridge.dir/catarena/src/ca_enemies.cpp.o
+[  6%] Linking CXX static library libca_bridge.a
+[  6%] Built target ca_bridge
+[  7%] Building CXX object CMakeFiles/ca_n10nav.dir/tmp/claude-0/review/src/native/src/physics_world.cpp.o
+[  8%] Building CXX object CMakeFiles/ca_n10nav.dir/tmp/claude-0/review/src/native/src/assets.cpp.o
+[  9%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_main.c.o
+[ 11%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_consolecmds.c.o
+[ 12%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_draw.c.o
+[ 13%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_drawtools.c.o
+[ 14%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_effects.c.o
+[ 16%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_ents.c.o
+[ 17%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_event.c.o
+[ 18%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_info.c.o
+[ 19%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_localents.c.o
+[ 20%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_marks.c.o
+[ 22%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_particles.c.o
+[ 23%] Linking CXX static library libca_n10nav.a
+[ 23%] Built target ca_n10nav
+[ 24%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_players.c.o
+[ 25%] Building CXX object CMakeFiles/ui.dir/catarena/ui/ui_main.cpp.o
+[ 27%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_playerstate.c.o
+[ 28%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_predict.c.o
+[ 29%] Building C object CMakeFiles/ui.dir/ioq3/code/qcommon/q_math.c.o
+[ 30%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_scoreboard.c.o
+[ 32%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_servercmds.c.o
+[ 33%] Building C object CMakeFiles/ui.dir/ioq3/code/qcommon/q_shared.c.o
+[ 34%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_snapshot.c.o
+[ 35%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_view.c.o
+[ 37%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_weapons.c.o
+[ 38%] Linking CXX shared library uix86_64.so
+[ 38%] Built target ui
+[ 39%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_syscalls.c.o
+/tmp/claude-0/review/src/game/ioq3/code/cgame/cg_weapons.c: In function 'CG_AddPlayerWeapon':
+/tmp/claude-0/review/src/game/ioq3/code/cgame/cg_weapons.c:1265:9: warning: 'MatrixMultiply' accessing 36 bytes in a region of size 12 [-Wstringop-overflow=]
+ 1265 |         MatrixMultiply(lerped.axis, ((refEntity_t *)parent)->axis, gun.axis);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/claude-0/review/src/game/ioq3/code/cgame/cg_weapons.c:1265:9: note: referencing argument 2 of type 'float[3][3]'
+/tmp/claude-0/review/src/game/ioq3/code/cgame/cg_weapons.c:1265:9: note: referencing argument 3 of type 'float[3][3]'
+In file included from /tmp/claude-0/review/src/game/ioq3/code/cgame/cg_local.h:23,
+                 from /tmp/claude-0/review/src/game/ioq3/code/cgame/cg_weapons.c:24:
+/tmp/claude-0/review/src/game/ioq3/code/cgame/../qcommon/q_shared.h:714:6: note: in a call to function 'MatrixMultiply'
+  714 | void MatrixMultiply(float in1[3][3], float in2[3][3], float out[3][3]);
+      |      ^~~~~~~~~~~~~~
+[ 40%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_main.c.o
+[ 41%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_ca_effects.c.o
+[ 43%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_chat.c.o
+[ 44%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_ca_sound.c.o
+[ 45%] Building C object CMakeFiles/cgame.dir/ioq3/code/cgame/cg_ca_enemies.c.o
+[ 46%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_cmd.c.o
+[ 48%] Building CXX object CMakeFiles/cgame.dir/catarena/src/ca_enemy_anim.cpp.o
+[ 49%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_dmnet.c.o
+/tmp/claude-0/review/src/game/ioq3/code/game/ai_dmnet.c: In function 'BotDumpNodeSwitches':
+/tmp/claude-0/review/src/game/ioq3/code/game/ai_dmnet.c:90:32: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+   90 |         BotAI_Print(PRT_FATAL, "");
+      |                                ^~
+[ 50%] Building C object CMakeFiles/cgame.dir/ioq3/code/game/bg_misc.c.o
+[ 51%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_dmq3.c.o
+[ 53%] Building C object CMakeFiles/cgame.dir/ioq3/code/game/bg_pmove.c.o
+[ 54%] Building C object CMakeFiles/cgame.dir/ioq3/code/game/bg_slidemove.c.o
+[ 55%] Building C object CMakeFiles/cgame.dir/ioq3/code/game/bg_lib.c.o
+[ 56%] Building C object CMakeFiles/cgame.dir/ioq3/code/qcommon/q_math.c.o
+[ 58%] Building C object CMakeFiles/cgame.dir/ioq3/code/qcommon/q_shared.c.o
+[ 59%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_main.c.o
+[ 60%] Linking CXX shared library cgamex86_64.so
+[ 60%] Built target cgame
+[ 61%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_team.c.o
+[ 62%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/ai_vcmd.c.o
+[ 64%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_active.c.o
+[ 65%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_arenas.c.o
+[ 66%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_bot.c.o
+[ 67%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_client.c.o
+[ 69%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_cmds.c.o
+[ 70%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_combat.c.o
+[ 71%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_items.c.o
+[ 72%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_mem.c.o
+[ 74%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_misc.c.o
+[ 75%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_missile.c.o
+[ 76%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_mover.c.o
+[ 77%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_session.c.o
+[ 79%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_spawn.c.o
+[ 80%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_svcmds.c.o
+[ 81%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_target.c.o
+[ 82%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_team.c.o
+[ 83%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_trigger.c.o
+[ 85%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_utils.c.o
+[ 86%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_weapon.c.o
+[ 87%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_syscalls.c.o
+[ 88%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_ca.c.o
+[ 90%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/g_ca_weapons.c.o
+[ 91%] Building CXX object CMakeFiles/qagame.dir/catarena/src/ca_horde.cpp.o
+[ 92%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/bg_misc.c.o
+[ 93%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/bg_pmove.c.o
+[ 95%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/bg_slidemove.c.o
+[ 96%] Building C object CMakeFiles/qagame.dir/ioq3/code/game/bg_lib.c.o
+[ 97%] Building C object CMakeFiles/qagame.dir/ioq3/code/qcommon/q_math.c.o
+[ 98%] Building C object CMakeFiles/qagame.dir/ioq3/code/qcommon/q_shared.c.o
+[100%] Linking CXX shared library qagamex86_64.so
+[100%] Built target qagame

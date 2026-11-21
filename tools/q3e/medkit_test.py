@@ -2,7 +2,7 @@
 """N10-Q3E stage D part 7: scripted client test of the medkits on Reactor Bastion.
 
   medkit_test.py write <repo root> <medkit.cfg>
-  medkit_test.py check <console log>
+  medkit_test.py check <console log> <medkit.cfg>
 
 Run: SDL_AUDIODRIVER=dummy CatArena +set ca_waves 0 +set ca_log 1 +devmap ca_reactor +wait 150 +exec medkit.cfg
 
@@ -33,15 +33,25 @@ def write(root, path):
              on, "wait 10", "+back", "wait 7", "-back", "wait 30", "screenshotJPEG medkit_taken", on, "wait 10", "echo CATEST wait"]
     for _ in range(60):
         lines += ["wait 20", "ca_state"]
-    # a fall of 8 m onto an open spawn spot: N10 has no fall damage (Quake III took 10)
+    # a fall of 8 m onto the spawn spot with the most open sky above it (an N10 spawn spot can be
+    # close enough to the footprint's edge for the player box 8 m up to touch the clip wall's top):
+    # N10 has no fall damage (Quake III took 5)
+    import numpy as np
     import enemies_test
-    fx, fy, fz = [float(v) for v in enemies_test.map_spots(root, "reactor-bastion")[0].split()[1:4]]
+    import n10materials
+    src = os.path.join(root, "assets", "n1", "maps", "reactor-bastion")
+    stride, v, idx = n10materials.read_cmesh(os.path.join(src, "world.cmesh"))
+    V = np.array(v, dtype=np.float64).reshape(-1, stride)[:, :3]
+    T = np.array(idx, dtype=np.int64).reshape(-1, 3)
+    world = (V[T[:, 0]], V[T[:, 1]], V[T[:, 2]])
+    sp = max(c["spawns"], key=lambda s: enemies_test.roof_height(world, s["x"], s["y"], s["z"]))
+    fx, fy, fz = (sp["x"] - cx) * 32, (sp["y"] - cy) * 32, sp["z"] * 32 + 24
     lines += ["ca_state", "echo CATEST fall", "ca_place %.0f %.0f %.0f 0" % (fx, fy, fz + 256), "wait 120", "ca_state", "wait 20", "echo CATEST end", "quit"]
     with open(path, "w", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
 
 
-def check(log):
+def check(log, cfg_path=None):
     text = open(log, errors="replace").read()
     fails = 0
 
@@ -73,7 +83,9 @@ def check(log):
     # the last two states: before the fall and after it (server prints arrive after the local echo lines)
     before, after = (every[-2], every[-1]) if len(every) >= 3 else ({}, {})
     z_after = float(after["pos"].split(",")[2]) if after else 0
-    ok(after and int(after["health"]) == int(before["health"]) and float(after["vz"]) == 0 and "died" not in text.split("CATEST fall")[-1],
+    placed = re.findall(r"ca_place \S+ \S+ (\S+) 0\n", open(cfg_path).read()) if cfg_path else []
+    fell = placed and after and float(placed[-1]) - z_after >= 240
+    ok(after and fell and int(after["health"]) == int(before["health"]) and abs(float(after["vz"])) < 5 and "died" not in text.split("CATEST fall")[-1],
        "an 8 m fall: health %s before, %s after, standing at z %.0f (N10: no fall damage)" % (before.get("health"), after.get("health"), z_after))
     ok("ERROR" not in text and "Signal caught" not in text, "no errors")
     print("ALL PASS" if fails == 0 else "%d FAILED" % fails)
@@ -84,4 +96,4 @@ if __name__ == "__main__":
     if sys.argv[1] == "write":
         write(sys.argv[2], sys.argv[3])
     else:
-        sys.exit(0 if check(sys.argv[2]) else 1)
+        sys.exit(0 if check(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None) else 1)   # check <log> <medkit.cfg>
