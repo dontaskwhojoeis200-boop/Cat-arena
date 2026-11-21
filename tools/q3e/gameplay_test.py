@@ -35,6 +35,8 @@ def write(path):
             lines += ["ca_state"]
         if i == 30:
             lines += ["screenshotJPEG combat2"]
+        if i % 100 == 99:   # two spots: a flyer hovering behind a pillar can hold a wave from one (as weapons_test.py)
+            lines.append("ca_place -700 -300 40 0" if (i // 100) % 2 else "ca_place 560 0 40 180")
     lines += ["echo CATEST end", "quit"]
     with open(path, "w", newline="\n") as f:
         f.write("\n".join(lines) + "\n")

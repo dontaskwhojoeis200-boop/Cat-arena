@@ -173,6 +173,16 @@ ready, every player respawned) and each player's status line, packed into `stats
 respawn. cgame (`cg_ca_coop.c`) draws the name tags from the snapshot's player entities (health in
 `generic1`) and the status line from the player state.
 
+### Marine Cats (part 2)
+
+Quake III draws players with MD3 models; Cat Arena ships none, so `CG_Player` hands every player
+entity to `CG_CA_DrawMarine` (cg_ca_enemies.c): N10's Marine Cat mesh (`marine.emesh`) is the 21st
+mesh of the creature skinning code (`CA_MARINE_TYPE`), posed by `CA_MarinePose` (N10
+`EnemyFx::marine`: the soldier rig from the player's own movement, the shot layer from
+`EV_FIRE_WEAPON`, the hurt layer from `EV_PAIN`, the downed pose from `EF_CA_DOWNED`) and drawn as
+two polygon sets, armour and cat face, with N10's fixed Marine Cat light. The local player is drawn
+only in third person.
+
 Test players: `ca_addplayer` fills a bot slot with userinfo `ca_scripted 1`, which skips the bot AI
 (`G_BotConnect`); `G_RunClient` runs their `pers.cmd`, which `ca_input` sets.
 

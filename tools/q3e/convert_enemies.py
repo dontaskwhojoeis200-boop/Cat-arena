@@ -7,6 +7,12 @@ catarena base folder, with one shader per type.
   scripts/catarena_enemies.shader            shader models/catarena/enemies/<type>: the texture
                                                modulated by the vertex colour cgame computes
 
+Stage E adds the Marine Cat (N10 drawMarineCats, the other players):
+  assets/n6/marine.emesh                     -> models/catarena/marine/marine.emesh  (unchanged)
+  world atlas tile 0 (assets/n2)             -> models/catarena/marine/armour.png  (N10 cut-out 0.36 baked)
+  cat-face cell 4 (assets/n1 cat-faces.png)  -> models/catarena/marine/face.png    (cut-out 0.34 baked,
+                                               upside down: N10 samples it with v flipped)
+
 The meshes stay in N10's format because cgame poses them every frame with N10's animation
 (game/catarena/src/ca_enemy_anim.cpp); Quake III's MD3 cannot carry that skeleton.
 The metal / roughness and normal maps (texture-1, texture-2) are not used by Quake III's renderer.
@@ -32,6 +38,29 @@ for t in sorted(meta["types"], key=lambda t: t["index"]):
     shutil.copyfile(os.path.join(root, "assets", "n6", "enemies", stem + ".emesh"), os.path.join(out, name + ".emesh"))
     shutil.copyfile(os.path.join(root, t["textures"][0]["file"]), os.path.join(out, name + ".jpg"))
     shaders.append("models/catarena/enemies/%s\n{\n\tcull none\n\t{\n\t\tmap models/catarena/enemies/%s.jpg\n\t\trgbGen vertex\n\t}\n}\n" % (name, name))
+# the Marine Cat
+from PIL import Image  # noqa: E402
+mout = os.path.join(base, "models", "catarena", "marine")
+os.makedirs(mout, exist_ok=True)
+shutil.copyfile(os.path.join(root, "assets", "n6", "marine.emesh"), os.path.join(mout, "marine.emesh"))
+
+
+def cutout(img, limit):
+    px = img.load()
+    for y in range(img.size[1]):
+        for x in range(img.size[0]):
+            r, g, b, a = px[x, y]
+            px[x, y] = (r, g, b, 255 if a >= limit * 255 else 0)
+    return img
+
+
+atlas = Image.open(os.path.join(root, "assets", "n2", "world-atlas-runtime.png")).convert("RGBA")
+cutout(atlas.crop((0, 0, 128, 128)), .36).save(os.path.join(mout, "armour.png"))   # tile m at (m % 4, m // 4)
+faces = Image.open(os.path.join(root, "assets", "n1", "embedded", "assets", "textures", "cat-faces.png")).convert("RGBA")
+cw = faces.size[0] // 5
+cutout(faces.crop((4 * cw, 0, 5 * cw, faces.size[1])), .34).transpose(Image.FLIP_TOP_BOTTOM).save(os.path.join(mout, "face.png"))
+for part in ("armour", "face"):
+    shaders.append("models/catarena/marine/%s\n{\n\tcull none\n\t{\n\t\tmap models/catarena/marine/%s.png\n\t\talphaFunc GE128\n\t\trgbGen vertex\n\t}\n}\n" % (part, part))
 with open(os.path.join(base, "scripts", "catarena_enemies.shader"), "w", newline="\n") as f:
     f.write("\n".join(shaders))
 lst = os.path.join(base, "scripts", "shaderlist.txt")
@@ -40,4 +69,4 @@ if "catarena_enemies" not in names:
     names.append("catarena_enemies")
 with open(lst, "w", newline="\n") as f:
     f.write("".join(n + "\n" for n in names))
-print("20 creature meshes and textures -> %s" % out)
+print("20 creature meshes and textures -> %s; the Marine Cat -> %s" % (out, mout))

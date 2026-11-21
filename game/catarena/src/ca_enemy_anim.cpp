@@ -34,7 +34,8 @@ using gen::RigClass;
 
 double ss01(double a, double b, double t) { t = std::max(0.0, std::min(1.0, (t - a) / (b - a))); return t * t * (3 - 2 * t); }
 double facing_from(double vx, double vy) { return std::atan2(-vx, vy); }   // enemyFacingFromVec
-const gen::Rig& rig_of(int type) { return gen::kEnemyRig[static_cast<std::size_t>(std::clamp(type, 0, 19))]; }
+const gen::Rig& rig_of(int type) { return type == CA_MARINE_TYPE ? gen::kMarineRig : gen::kEnemyRig[static_cast<std::size_t>(std::clamp(type, 0, 19))]; }
+constexpr int kMeshes = CA_ENEMY_TYPES + 1;   // the 20 creatures and the Marine Cat
 
 double next(caAnimState_t& s) {   // the N10 Rng (mulberry32), one stream per creature
     s.rng += 0x6D2B79F5U;
@@ -57,13 +58,14 @@ AttackPhases attack_phases(double p) {   // attackPhases (10619)
 struct Mesh {
     std::array<float, 12> rig{};    // hip, knee, shoulder, elbow, neck, spine, wing root |x|, height, shoulder |x|, wing tip |x|, depth, width
     std::vector<float> v;           // 12 floats per vertex: position, normal, colour, uv, material
+    bool marine{};                  // enemy.vert MODE_MARINE: every material carries its bone tag
     int bone(std::size_t i) const {
         const float m = v[i * 12 + 11];
-        if(!(m >= 400.0F && m < 440.0F)) return 0;
+        if(!marine && !(m >= 400.0F && m < 440.0F)) return 0;
         return static_cast<int>(std::floor((m - std::floor(m)) * 25.0F + .48F));
     }
 };
-std::array<Mesh, CA_ENEMY_TYPES> g_mesh;
+std::array<Mesh, kMeshes> g_mesh;
 
 struct V3 { float x, y, z; };
 V3 rX(V3 p, float a) { const float c = std::cos(a), s = std::sin(a); return {p.x, c * p.y - s * p.z, s * p.y + c * p.z}; }
@@ -196,6 +198,18 @@ extern "C" void CA_AnimPose(caAnimState_t* st, int type, const caPoseInput_t* in
     for(std::size_t i = 0; i < 16; ++i) out[i] = static_cast<float>(v[i]);
 }
 
+extern "C" void CA_MarinePose(caAnimState_t* st, const caPoseInput_t* in, double time, double shoot_left, double melee_left, double hurt_left, int downed, float pose[16]) {   // EnemyFx::marine
+    caPoseInput_t p = *in;   // p._isMarine: no target, no attack
+    p.hasTarget = 0; p.attackProgress = -1; p.hitFlash = 0;
+    CA_AnimPose(st, CA_MARINE_TYPE, &p, time, pose);
+    const auto add = [&](int i, double v) { pose[i] = static_cast<float>(static_cast<double>(pose[i]) + v); };
+    const double shoot = std::clamp(shoot_left / .14, 0.0, 1.0), melee = std::clamp(melee_left / .42, 0.0, 1.0), hurt = std::clamp(hurt_left / .27, 0.0, 1.0);
+    if(shoot != 0) { add(5, .08 * shoot); add(7, .06 * shoot); add(10, -.055 * shoot); }
+    if(melee != 0) { add(5, .22 * melee); add(7, -.17 * melee); add(11, .07 * melee); }
+    if(hurt != 0) { add(10, -.12 * hurt); add(12, .08 * hurt); }
+    if(downed) { std::fill(pose, pose + 16, 0.0F); pose[15] = -.84F; pose[2] = -.25F; pose[3] = -.23F; pose[12] = -.12F; }
+}
+
 extern "C" void CA_AnimDeathStart(caAnimState_t* st, int type, int* variant, float* side) {   // enemyStartDeath (10725)
     *variant = static_cast<int>(next(*st) * 3);
     if(rig_of(type).cls == RigClass::flyer) *variant = 3;
@@ -223,23 +237,24 @@ extern "C" void CA_AnimDeath(int type, const float at[16], int variant, float si
 }
 
 extern "C" int CA_EnemyMeshLoad(int type, const unsigned char* data, int bytes) {
-    if(type < 0 || type >= CA_ENEMY_TYPES || !data || bytes < 80 || std::memcmp(data, "CATENM01", 8) != 0) return 0;
+    if(type < 0 || type >= kMeshes || !data || bytes < 80 || std::memcmp(data, "CATENM01", 8) != 0) return 0;
     std::uint32_t count = 0;
     std::memcpy(&count, data + 8, 4);
     if(count == 0 || count % 3 != 0 || 80 + std::size_t(count) * 48 > std::size_t(bytes)) return 0;
     auto& m = g_mesh[static_cast<std::size_t>(type)];
     std::memcpy(m.rig.data(), data + 16, 12 * 4);
+    m.marine = type == CA_MARINE_TYPE;
     m.v.resize(std::size_t(count) * 12);
     std::memcpy(m.v.data(), data + 80, std::size_t(count) * 48);
     return int(count);
 }
 extern "C" int CA_EnemyMeshVertexCount(int type) {
-    return type >= 0 && type < CA_ENEMY_TYPES ? int(g_mesh[static_cast<std::size_t>(type)].v.size() / 12) : 0;
+    return type >= 0 && type < kMeshes ? int(g_mesh[static_cast<std::size_t>(type)].v.size() / 12) : 0;
 }
 extern "C" float CA_EnemyHeight(int type) { return float(rig_of(type).height); }
 
 extern "C" void CA_EnemySkin(int type, const float P[16], const float st[4], const float feet[3], float facing, caSkinVert_t* out) {   // enemy.vert
-    if(type < 0 || type >= CA_ENEMY_TYPES) return;
+    if(type < 0 || type >= kMeshes) return;
     const auto& m = g_mesh[static_cast<std::size_t>(type)];
     const float hipZ = m.rig[0], kneeZ = m.rig[1], shZ = m.rig[2], elZ = m.rig[3];
     const float neckZ = m.rig[4], spineZ = m.rig[5], wingX = m.rig[6], H = std::max(.5F, m.rig[7]);
@@ -317,5 +332,6 @@ extern "C" void CA_EnemySkin(int type, const float P[16], const float st[4], con
         o.color[0] = mixf(q[6], 1.0F, hit);
         o.color[1] = mixf(q[7], .33F, hit);
         o.color[2] = mixf(q[8], .24F, hit);
+        o.material = static_cast<int>(q[11] + .5F);
     }
 }

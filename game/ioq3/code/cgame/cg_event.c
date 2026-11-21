@@ -890,6 +890,7 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		DEBUGNAME("EV_FIRE_WEAPON");
 		CG_FireWeapon( cent );
 #ifdef CAT_ARENA_STANDALONE
+		CG_CA_MarineEvent( es->number, 0 );
 		if ( es->weapon == WP_MACHINEGUN ) {
 			CG_CA_GunSound( es->number, es->eventParm );	// eventParm = the N10 weapon fired
 		}
@@ -1243,6 +1244,9 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		// local player sounds are triggered in CG_CheckLocalSounds,
 		// so ignore events on the player
 		DEBUGNAME("EV_PAIN");
+#ifdef CAT_ARENA_STANDALONE
+		CG_CA_MarineEvent( es->number, 1 );
+#endif
 		if ( cent->currentState.number != cg.snap->ps.clientNum ) {
 			CG_PainEvent( cent, es->eventParm );
 		}

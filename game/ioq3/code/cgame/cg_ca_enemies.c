@@ -40,6 +40,7 @@ static qhandle_t caEnemyShader[CA_ENEMY_TYPES];
 static caSkinVert_t caSkin[CA_MAX_MESH_VERTS];
 static polyVert_t caPolys[CA_MAX_MESH_VERTS];
 static int caEnemyMeshes;
+static void CA_RegisterMarine( void );
 
 void CG_CA_RegisterEnemies( void ) {
 	static unsigned char buffer[ 80 + CA_MAX_MESH_VERTS * 48 ];
@@ -68,6 +69,7 @@ void CG_CA_RegisterEnemies( void ) {
 	memset( caLive, 0, sizeof( caLive ) );
 	memset( caBodies, 0, sizeof( caBodies ) );
 	CG_Printf( "Cat Arena: %d enemy meshes loaded\n", caEnemyMeshes );
+	CA_RegisterMarine();
 }
 
 /* Light grid at the creature (Quake III entity lighting: ambient + directed by the normal),
@@ -252,6 +254,123 @@ void CG_CA_AddEnemyBodies( void ) {
 
 void CG_CA_ClearEnemyBodies( void ) {
 	memset( caBodies, 0, sizeof( caBodies ) );
+}
+
+/* ---- Marine Cats: the other players (N10 EnemyFx::marine / drawMarineCats, stage E) -------------
+   N10's Marine Cat mesh posed with N10's soldier rig and the shot / hurt layers, lying on its side
+   while down. Drawn as enemy.vert / enemy.frag draw it (MODE_MARINE): armour = world atlas tile 0 x
+   vertex colour x the player's tint (28 %) x a fixed light (.69 + .33 lambert, x .80 x 1.19), not lit
+   by the map; the cat face = cat-face cell 4 x (.84 + .16 lambert). */
+static struct {
+	caAnimState_t anim;
+	int shotTime, hurtTime, ready;
+} caMarine[MAX_CLIENTS];
+static qhandle_t caMarineArmour, caMarineFace;
+static polyVert_t caMarineFacePolys[CA_MAX_MESH_VERTS];
+
+static void CA_RegisterMarine( void ) {
+	static unsigned char buffer[ 80 + CA_MAX_MESH_VERTS * 48 ];
+	fileHandle_t f;
+	int len = trap_FS_FOpenFile( "models/catarena/marine/marine.emesh", &f, FS_READ );
+	caMarineArmour = trap_R_RegisterShader( "models/catarena/marine/armour" );
+	caMarineFace = trap_R_RegisterShader( "models/catarena/marine/face" );
+	memset( caMarine, 0, sizeof( caMarine ) );
+	if ( len <= 0 || !f || len > (int)sizeof( buffer ) ) {
+		if ( f ) {
+			trap_FS_FCloseFile( f );
+		}
+		CG_Printf( S_COLOR_YELLOW "WARNING: no Marine Cat mesh; other players are not drawn\n" );
+		return;
+	}
+	trap_FS_Read( buffer, len, f );
+	trap_FS_FCloseFile( f );
+	if ( CA_EnemyMeshLoad( CA_MARINE_TYPE, buffer, len ) > 0 && CA_EnemyMeshVertexCount( CA_MARINE_TYPE ) <= CA_MAX_MESH_VERTS ) {
+		CG_Printf( "Cat Arena: Marine Cat mesh loaded (%d vertices)\n", CA_EnemyMeshVertexCount( CA_MARINE_TYPE ) );
+	}
+}
+
+/* EV_FIRE_WEAPON / EV_PAIN of a player: N10's _marineShootUntil (.14 s) / _marineHurtUntil (.27 s) */
+void CG_CA_MarineEvent( int clientNum, int hurt ) {
+	if ( clientNum < 0 || clientNum >= MAX_CLIENTS ) {
+		return;
+	}
+	if ( hurt ) {
+		caMarine[clientNum].hurtTime = cg.time;
+	} else {
+		caMarine[clientNum].shotTime = cg.time;
+	}
+}
+
+void CG_CA_DrawMarine( centity_t *cent ) {
+	const entityState_t *s = &cent->currentState;
+	int client = s->clientNum, count, i, nArmour = 0, nFace = 0, downed = ( s->eFlags & EF_CA_DOWNED ) != 0;
+	caPoseInput_t in;
+	float pose[16], state4[4] = { 0, 0, 0, 0 }, facing, tint[3];
+	vec3_t feet;
+	if ( client < 0 || client >= MAX_CLIENTS || ( ( s->eFlags & EF_DEAD ) && !downed ) ) {
+		return;
+	}
+	count = CA_EnemyMeshVertexCount( CA_MARINE_TYPE );
+	if ( count <= 0 || count > CA_MAX_MESH_VERTS ) {
+		return;
+	}
+	VectorCopy( cent->lerpOrigin, feet );
+	feet[2] -= 24;
+	facing = DEG2RAD( cent->lerpAngles[YAW] );
+	memset( &in, 0, sizeof( in ) );
+	in.x = feet[0] / CA_UNITS_PER_METRE;
+	in.y = feet[1] / CA_UNITS_PER_METRE;
+	in.z = feet[2] / CA_UNITS_PER_METRE;
+	in.a = facing;
+	if ( !caMarine[client].ready ) {
+		memset( &caMarine[client].anim, 0, sizeof( caMarine[client].anim ) );
+		caMarine[client].anim.rng = (unsigned)( client * 2654435761u + 977u );
+		caMarine[client].ready = 1;
+	}
+	CA_MarinePose( &caMarine[client].anim, &in, cg.time / 1000.0,
+		caMarine[client].shotTime ? ( caMarine[client].shotTime + 140 - cg.time ) / 1000.0 : 0,
+		0, caMarine[client].hurtTime ? ( caMarine[client].hurtTime + 270 - cg.time ) / 1000.0 : 0, downed, pose );
+	if ( !CA_InView( feet, CA_EnemyHeight( CA_MARINE_TYPE ) * CA_UNITS_PER_METRE ) ) {
+		return;
+	}
+	CA_EnemySkin( CA_MARINE_TYPE, pose, state4, feet, facing, caSkin );
+	/* N10 Coop: the host's Marine Cat is tinted green, the guests' blue; a Quake III client does not
+	   know which player hosts, so every teammate gets the guests' tint */
+	tint[0] = 1 + ( .81f - 1 ) * .28f;
+	tint[1] = 1 + ( .89f - 1 ) * .28f;
+	tint[2] = 1;
+	for ( i = 0 ; i < count ; i++ ) {
+		const caSkinVert_t *v = &caSkin[i];
+		/* enemy.vert: lambert with the model normal after facing, (-.3, -.6, .625) */
+		float lambert = -.3f * v->normal[0] - .6f * v->normal[1] + .625f * v->normal[2], light;
+		int k;
+		polyVert_t *p;
+		lambert = lambert < 0 ? 0 : lambert;
+		light = .69f + .33f * lambert;
+		if ( v->material >= 16 && v->material <= 20 ) {
+			p = &caMarineFacePolys[nFace++];
+			for ( k = 0 ; k < 3 ; k++ ) {
+				p->modulate[k] = (byte)( 255 * ( .84f + .16f * light ) );
+			}
+		} else {
+			p = &caPolys[nArmour++];
+			for ( k = 0 ; k < 3 ; k++ ) {
+				float c = 255 * v->color[k] * tint[k] * light * .80f * 1.19f;
+				p->modulate[k] = c > 255 ? 255 : (byte)c;
+			}
+		}
+		VectorCopy( v->xyz, p->xyz );
+		p->st[0] = v->st[0];
+		p->st[1] = v->st[1];
+		p->modulate[3] = 255;
+	}
+	/* the mesh is a triangle soup with one material per triangle */
+	if ( nArmour >= 3 ) {
+		trap_R_AddPolysToScene( caMarineArmour, 3, caPolys, nArmour / 3 );
+	}
+	if ( nFace >= 3 ) {
+		trap_R_AddPolysToScene( caMarineFace, 3, caMarineFacePolys, nFace / 3 );
+	}
 }
 
 /* ---- MD3 props (N10 native/src/md3.cpp animate_props) -------------------------------------------

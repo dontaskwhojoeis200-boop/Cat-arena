@@ -179,3 +179,23 @@ models/catarena/enemies/skyjuggernaut
 		rgbGen vertex
 	}
 }
+
+models/catarena/marine/armour
+{
+	cull none
+	{
+		map models/catarena/marine/armour.png
+		alphaFunc GE128
+		rgbGen vertex
+	}
+}
+
+models/catarena/marine/face
+{
+	cull none
+	{
+		map models/catarena/marine/face.png
+		alphaFunc GE128
+		rgbGen vertex
+	}
+}

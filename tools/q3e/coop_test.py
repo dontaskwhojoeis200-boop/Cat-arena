@@ -4,6 +4,8 @@
   coop_test.py write <coop.cfg>
   coop_test.py check <server log>
   coop_test.py view <view.cfg>      pictures of the co-op HUD from the client (looked at, not checked)
+  coop_test.py marines <view.cfg>   pictures of the other players as Marine Cats (standing, walking,
+                                    firing, hurt, down; looked at, not checked)
 
 Run: CatArena-server +set dedicated 1 +set ca_waves 0 +set ca_log 1 +map ca_test +exec coop.cfg
 View: CatArena +set com_maxfps 60 +set ca_waves 0 +set ca_log 1 +devmap ca_test +wait 150 +exec view.cfg
@@ -111,9 +113,41 @@ quit
 """
 
 
-def view(path):
+MARINES = """wait 60
+ca_place -700 -300 40 0
+cg_drawGun 0
+ca_addplayer Bravo
+ca_addplayer Charlie
+wait 60
+ca_moveplayer 1 -590 -320 40 180
+ca_moveplayer 2 -500 -190 40 270
+wait 90
+screenshotJPEG marines_stand
+ca_input 2 127 0 0 0
+wait 25
+screenshotJPEG marines_walk
+ca_input 2 0 0 0 0
+ca_input 1 0 0 0 1
+wait 3
+screenshotJPEG marines_fire
+ca_input 1 0 0 0 0
+wait 60
+ca_moveplayer 2 -600 -250 40 200
+wait 30
+ca_hurt 2 200
+wait 60
+screenshotJPEG marines_down
+ca_place -470 -260 40 180
+wait 60
+screenshotJPEG marines_back
+wait 10
+quit
+"""
+
+
+def view(path, text=None):
     with open(path, "w", newline="\n") as f:
-        f.write(VIEW)
+        f.write(text or VIEW)
 
 
 def check(path):
@@ -187,5 +221,7 @@ if __name__ == "__main__":
         write(sys.argv[2])
     elif sys.argv[1] == "view":
         view(sys.argv[2])
+    elif sys.argv[1] == "marines":
+        view(sys.argv[2], MARINES)
     else:
         sys.exit(0 if check(sys.argv[2]) else 1)

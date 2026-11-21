@@ -32,7 +32,13 @@ typedef struct {
 	float normal[3];
 	float st[2];
 	float color[3];    /* N10 vertex colour with the hit flash (enemy.vert vColor) */
+	int material;      /* N10 material (integer part): creatures 400-419; Marine Cat 0 = armour (world
+	                      atlas tile 0), 16-20 = cat-face cell */
 } caSkinVert_t;
+
+/* The Marine Cat (N10 drawMarineCats, stage E) shares the creature calls below as type
+   CA_MARINE_TYPE: mesh, vertex count, height and skin. */
+#define CA_MARINE_TYPE 20
 
 /* attack progress from the time since the wind-up began (N10 enemyAttackProgress), -1 when idle */
 double CA_AttackProgress( int type, int msSinceAttack );
@@ -42,6 +48,11 @@ void CA_AnimPose( caAnimState_t *state, int type, const caPoseInput_t *in, doubl
 void CA_AnimDeathStart( caAnimState_t *state, int type, int *variant, float *side );
 /* enemyDeathState: the pose `t` seconds after death; state3 = fall, side roll, sink (metres) */
 void CA_AnimDeath( int type, const float atDeath[16], int variant, float side, double t, float pose[16], float state3[3] );
+
+/* N10 EnemyFx::marine: a Marine Cat's pose (soldier rig, no target, no attack) with the shot,
+   melee and hurt layers (seconds left of N10's .14 / .42 / .27 s) and the downed pose.
+   in->a is the player's facing (Quake III yaw in radians). */
+void CA_MarinePose( caAnimState_t *state, const caPoseInput_t *in, double time, double shootLeft, double meleeLeft, double hurtLeft, int downed, float pose[16] );
 
 /* N10 mesh (.emesh, CATENM01) of a type; returns the vertex count or 0 */
 int CA_EnemyMeshLoad( int type, const unsigned char *data, int bytes );

@@ -1728,4 +1728,6 @@ void CG_CA_EnemyVoices( centity_t *cent );
 void CG_CA_EnemyDeathVoice( centity_t *cent );
 void CG_CA_StartMusic( void );
 void CG_CA_DrawCoopHud( void );
+void CG_CA_DrawMarine( centity_t *cent );
+void CG_CA_MarineEvent( int clientNum, int hurt );
 #endif
