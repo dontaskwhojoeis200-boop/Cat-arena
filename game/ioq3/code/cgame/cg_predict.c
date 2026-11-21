@@ -548,6 +548,12 @@ void CG_PredictPlayerState( void ) {
 				VectorSubtract( oldPlayerState.origin, adjusted, delta );
 				len = VectorLength( delta );
 				if ( len > 0.1 ) {
+#ifdef CAT_ARENA_STANDALONE
+					cg.caPredMisses++;	// ca_netstat
+					if ( len > cg.caPredMaxMiss ) {
+						cg.caPredMaxMiss = len;
+					}
+#endif
 					if ( cg_showmiss.integer ) {
 						CG_Printf("Prediction miss: %f\n", len);
 					}

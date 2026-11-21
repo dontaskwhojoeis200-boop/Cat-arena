@@ -201,6 +201,26 @@ in a bot slot, no bot AI), `ca_removeplayer <client>`, `ca_input <client> <forwa
 <client> <damage>` (through `G_Damage`), `ca_coopstate` (one `CA_COOP` line per player). With
 `ca_log 1` the server prints downs, revives and wipes, the client each new status line.
 
+## Four clients and network conditions (stage E, part 3)
+
+```
+python3 tools/q3e/net_test.py run  <package dir> <out dir> [--delay MS] [--loss PCT]
+python3 tools/q3e/net_test.py soak <package dir> <out dir> --minutes 60 --map ca_reactor
+```
+
+Starts a dedicated server and four clients (320 x 240 windows at 30 fps; a display and a Vulkan
+driver are needed: lavapipe on Xvfb here) on 127.0.0.1:27960. `--delay` sets `cl_packetdelay` on
+every client and `sv_packetdelay` on the server, `--loss` sets `net_dropsim` on every process. The
+verdict is the last line of `<out dir>/checks.txt`; `data.json` / `soak.json` keep the figures.
+Client console commands for this: `ca_netstat` (one `CA_NET` line: ping, entities in the current
+and the largest snapshot, snapshots received and lost, prediction misses, the players seen);
+server: `ca_entcount` (`CA_ENTS`: the entities a snapshot could carry now and the peak, counted
+every server frame).
+
+The server defaults are now 4 players (`sv_maxclients 4`, N10's room size) and 4 connections per
+address (`sv_maxclientsPerIP 4`; Quake3e's default of 3 turned the fourth player of a household
+away).
+
 ## Stage D review: everything at once
 
 ```

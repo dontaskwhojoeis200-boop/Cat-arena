@@ -988,6 +988,8 @@ void Svcmd_CA_Input_f( void );
 void Svcmd_CA_MovePlayer_f( void );
 void Svcmd_CA_Hurt_f( void );
 void Svcmd_CA_CoopState_f( void );
+void Svcmd_CA_EntCount_f( void );
+void G_CA_NetAuditFrame( void );
 void G_CA_MedkitTouch( gentity_t *ent, const vec3_t from );
 int G_CA_MedkitCount( void );
 void Cmd_CA_Give_f( gentity_t *ent );

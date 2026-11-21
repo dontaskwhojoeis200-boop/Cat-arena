@@ -187,4 +187,52 @@ void CG_CA_DrawCoopHud( void ) {
 	cg.caLastCoopStat = st & ~127;
 }
 
+/* ---- network statistics (stage E part 3: four clients, loss / latency, snapshot audit) ----------- */
+
+void CG_CA_NetSnapshot( const snapshot_t *prev, const snapshot_t *snap ) {
+	int gap = prev ? snap->serverTime - prev->serverTime : 0;
+	cg.caSnaps++;
+	if ( snap->numEntities > cg.caSnapMaxEnts ) {
+		cg.caSnapMaxEnts = snap->numEntities;
+	}
+	if ( prev && gap > 75 ) {	/* sv_fps 20: one snapshot every 50 ms; a longer gap = snapshots lost */
+		cg.caSnapGaps++;
+	}
+	if ( gap > cg.caSnapMaxGap ) {
+		cg.caSnapMaxGap = gap;
+	}
+}
+
+/* CA_NET t= client= ping= ents= maxents= snaps= gaps= maxgap= misses= maxmiss= health= downed= coop=
+   enemies= missiles= pickups= players=<client>:<x>,<y>,<z>:<health>:<downed>;... */
+void CG_CA_NetStat_f( void ) {
+	char players[512];
+	int i, enemies = 0, missiles = 0, pickups = 0;
+	const playerState_t *ps;
+	if ( !cg.snap ) {
+		CG_Printf( "CA_NET nosnap\n" );
+		return;
+	}
+	ps = &cg.snap->ps;
+	players[0] = 0;
+	for ( i = 0 ; i < cg.snap->numEntities ; i++ ) {
+		const entityState_t *s = &cg.snap->entities[i];
+		if ( s->eType == ET_CA_ENEMY ) {
+			enemies++;
+		} else if ( s->eType == ET_MISSILE ) {
+			missiles++;
+		} else if ( s->eType == ET_CA_PICKUP ) {
+			pickups++;
+		} else if ( s->eType == ET_PLAYER && s->number < MAX_CLIENTS ) {
+			Q_strcat( players, sizeof( players ), va( "%s%d:%.0f,%.0f,%.0f:%d:%d", players[0] ? ";" : "", s->number,
+				s->pos.trBase[0], s->pos.trBase[1], s->pos.trBase[2], s->generic1, ( s->eFlags & EF_CA_DOWNED ) != 0 ) );
+		}
+	}
+	CG_Printf( "CA_NET t=%d client=%d ping=%d ents=%d maxents=%d snaps=%d gaps=%d maxgap=%d misses=%d maxmiss=%.1f "
+		"health=%d downed=%d coop=%d enemies=%d missiles=%d pickups=%d players=%s\n",
+		cg.snap->serverTime, ps->clientNum, cg.snap->ping, cg.snap->numEntities, cg.caSnapMaxEnts, cg.caSnaps,
+		cg.caSnapGaps, cg.caSnapMaxGap, cg.caPredMisses, cg.caPredMaxMiss, ps->stats[STAT_HEALTH],
+		( ps->eFlags & EF_CA_DOWNED ) != 0, ps->stats[STAT_CA_COOP], enemies, missiles, pickups, players[0] ? players : "-" );
+}
+
 #endif

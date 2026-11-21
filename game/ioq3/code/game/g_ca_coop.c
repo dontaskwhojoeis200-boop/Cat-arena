@@ -121,6 +121,14 @@ static void CA_SquadRestart( void ) {
 	CA_RemoveRoundEntities();
 	CA_HordeRestart();
 	G_CA_MedkitsReset();
+	/* the bodies leave first: otherwise a spawn spot under a body not yet respawned is taken anyway
+	   and the Quake III telefrag (G_KillBox) puts that player down again (four-client test, stage E
+	   part 3) */
+	for ( i = 0 ; i < level.maxclients ; i++ ) {
+		if ( level.clients[i].pers.connected == CON_CONNECTED && level.clients[i].sess.sessionTeam != TEAM_SPECTATOR ) {
+			trap_UnlinkEntity( &g_entities[i] );
+		}
+	}
 	for ( i = 0 ; i < level.maxclients ; i++ ) {
 		gentity_t *ent = &g_entities[i];
 		gclient_t *cl = &level.clients[i];
@@ -130,7 +138,9 @@ static void CA_SquadRestart( void ) {
 		cl->ps.eFlags &= ~EF_CA_DOWNED;
 		ent->s.eFlags &= ~EF_CA_DOWNED;
 		cl->ps.persistant[PERS_SCORE] = 0;
+		cl->caGraceUntil = level.time + 2500;	/* N10 finish_respawn after the restart: 2.5 s */
 		ClientSpawn( ent );
+		cl->caGraceUntil = level.time + 2500;
 	}
 	CalculateRanks();
 }
@@ -398,6 +408,68 @@ void Svcmd_CA_CoopState_f( void ) {
 			cl->ps.pm_type == PM_DEAD && !G_CA_IsDowned( &g_entities[i] ) ? 1 : 0, ( st >> 12 ) & 7, ( ( st >> 7 ) & 31 ) - 1, st & 127,
 			cl->ps.origin[0], cl->ps.origin[1], cl->ps.origin[2], cl->ps.persistant[PERS_SCORE], cl->caGraceUntil > level.time ? 1 : 0 );
 	}
+}
+
+/* The entities the server can put in a snapshot (in use, linked, not SVF_NOCLIENT), by type: the
+   upper bound of every client's snapshot before the PVS cut (MAX_SNAPSHOT_ENTITIES 256). Counted
+   every server frame; the highest total since the map started is kept (stage E part 3 audit). */
+typedef struct {
+	int sent, used, players, enemies, missiles, pickups, events, other;
+} caEntCount_t;
+static int caSendMax, caSendMaxTime;
+static caEntCount_t caSendPeak;
+
+static void CA_CountEntities( caEntCount_t *c ) {
+	int i;
+	memset( c, 0, sizeof( *c ) );
+	for ( i = 0 ; i < level.num_entities ; i++ ) {
+		const gentity_t *e = &g_entities[i];
+		if ( !e->inuse ) {
+			continue;
+		}
+		c->used++;
+		if ( !e->r.linked || ( e->r.svFlags & SVF_NOCLIENT ) ) {
+			continue;
+		}
+		c->sent++;
+		if ( e->s.eType >= ET_EVENTS ) {
+			c->events++;
+		} else if ( e->s.eType == ET_PLAYER ) {
+			c->players++;
+		} else if ( e->s.eType == ET_CA_ENEMY ) {
+			c->enemies++;
+		} else if ( e->s.eType == ET_MISSILE ) {
+			c->missiles++;
+		} else if ( e->s.eType == ET_CA_PICKUP ) {
+			c->pickups++;
+		} else {
+			c->other++;
+		}
+	}
+}
+
+void G_CA_NetAuditFrame( void ) {
+	caEntCount_t c;
+	if ( level.time < caSendMaxTime ) {	/* a new map */
+		caSendMax = caSendMaxTime = 0;
+	}
+	CA_CountEntities( &c );
+	if ( c.sent > caSendMax ) {
+		caSendMax = c.sent;
+		caSendMaxTime = level.time;
+		caSendPeak = c;
+	}
+}
+
+/* ca_entcount: now and the peak (CA_ENTS ... and CA_ENTS_PEAK ...) */
+void Svcmd_CA_EntCount_f( void ) {
+	caEntCount_t c;
+	const caEntCount_t *p = &caSendPeak;
+	CA_CountEntities( &c );
+	G_Printf( "CA_ENTS t=%d sent=%d max=%d maxt=%d inuse=%d num=%d players=%d enemies=%d missiles=%d pickups=%d events=%d other=%d "
+		"peak_players=%d peak_enemies=%d peak_missiles=%d peak_pickups=%d peak_events=%d peak_other=%d\n",
+		level.time, c.sent, caSendMax, caSendMaxTime, c.used, level.num_entities, c.players, c.enemies, c.missiles, c.pickups, c.events, c.other,
+		p->players, p->enemies, p->missiles, p->pickups, p->events, p->other );
 }
 
 #endif

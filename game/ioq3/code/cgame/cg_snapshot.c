@@ -150,6 +150,9 @@ static void CG_TransitionSnapshot( void ) {
 	// move nextSnap to snap and do the transitions
 	oldFrame = cg.snap;
 	cg.snap = cg.nextSnap;
+#ifdef CAT_ARENA_STANDALONE
+	CG_CA_NetSnapshot( oldFrame, cg.snap );
+#endif
 
 	BG_PlayerStateToEntityState( &cg.snap->ps, &cg_entities[ cg.snap->ps.clientNum ].currentState, qfalse );
 	cg_entities[ cg.snap->ps.clientNum ].interpolate = qfalse;

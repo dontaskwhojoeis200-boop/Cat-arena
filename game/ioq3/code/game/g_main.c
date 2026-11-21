@@ -1914,4 +1914,7 @@ void G_RunFrame( int levelTime ) {
 		}
 		trap_Cvar_Set("g_listEntity", "0");
 	}
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_NetAuditFrame();	// snapshot audit: the most entities a snapshot could carry (ca_entcount)
+#endif
 }

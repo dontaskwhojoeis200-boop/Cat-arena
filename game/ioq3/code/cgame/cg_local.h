@@ -645,6 +645,10 @@ typedef struct {
 
 #ifdef CAT_ARENA_STANDALONE
 	int			caLastCoopStat;		// the co-op status line last drawn, without its percentage (ca_log)
+	// network statistics for ca_netstat (N10-Q3E stage E part 3)
+	int			caSnaps, caSnapGaps, caSnapMaxGap, caSnapMaxEnts, caSnapLastTime;
+	int			caPredMisses;
+	float		caPredMaxMiss;
 #endif
 } cg_t;
 
@@ -1729,5 +1733,7 @@ void CG_CA_EnemyDeathVoice( centity_t *cent );
 void CG_CA_StartMusic( void );
 void CG_CA_DrawCoopHud( void );
 void CG_CA_DrawMarine( centity_t *cent );
+void CG_CA_NetSnapshot( const snapshot_t *prev, const snapshot_t *snap );
+void CG_CA_NetStat_f( void );
 void CG_CA_MarineEvent( int clientNum, int hurt );
 #endif

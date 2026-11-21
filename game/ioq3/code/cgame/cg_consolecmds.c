@@ -458,6 +458,9 @@ static consoleCommand_t	commands[] = {
 	{ "nextskin", CG_TestModelNextSkin_f },
 	{ "prevskin", CG_TestModelPrevSkin_f },
 	{ "viewpos", CG_Viewpos_f },
+#ifdef CAT_ARENA_STANDALONE
+	{ "ca_netstat", CG_CA_NetStat_f },
+#endif
 	{ "+scores", CG_ScoresDown_f },
 	{ "-scores", CG_ScoresUp_f },
 	{ "+zoom", CG_ZoomDown_f },
