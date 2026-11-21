@@ -966,6 +966,7 @@ void G_CA_ResetSpawns( void );
 void G_CA_Frame( int msec );
 void G_CA_Shutdown( void );
 void SP_info_ca_enemy_spawn( gentity_t *ent );
+void SP_misc_ca_prop( gentity_t *ent );
 void Svcmd_CA_SelfTest_f( void );
 void Cmd_CA_AimNearest_f( gentity_t *ent );
 void Cmd_CA_State_f( gentity_t *ent );

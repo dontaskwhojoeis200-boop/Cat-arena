@@ -1,0 +1,8 @@
+light pass 1 for ca_helios (N10 helios-crucible): brightness ratio 2.180, scale so far 1
+All light scaled by 2.977000
+light pass 2 for ca_helios (N10 helios-crucible): brightness ratio 1.036, scale so far 2.977
+light scale for ca_helios: 2.977
+Wrote 13.1 MB (13762452 bytes)
+       15 BSP lightmaps
+Wrote 13.1 MB (13762452 bytes)
+       75 seconds elapsed

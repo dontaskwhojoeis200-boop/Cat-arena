@@ -1,0 +1,409 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+219 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... FAILED (dsp: No such audio device)
+Sound initialization failed.
+--------------------------------
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f1c1a69f0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D5 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+WARNING: NET_IPSocket: bind: Address already in use
+Opening IP socket: 0.0.0.0:27961
+Working directory: /tmp/claude-0/Q3E-D5c
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_reactor
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+219 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f1c0dc0fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D5 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 20 2026
+Cat Arena: N10 navigation graph for ca_reactor (6182 nodes)
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f1c1a69f0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D5 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f1c0d8085f0
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D5 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+stitched 0 LoD cracks
+...loaded 10571 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 10566 VBO surfaces (45649 vertexes, 72048 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+CL_InitCGame:  0.18 seconds
+Com_TouchMemory: 0 msec
+Cat^7 entered the game
+execing maptest.cfg
+godmode ON
+MAPTEST floor spawn 0
+MAPTEST floor spawn 1
+CA_STATE t=9000 pos=-198,-1011,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=117 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 2
+CA_STATE t=11150 pos=1011,-198,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=115 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 3
+CA_STATE t=13550 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=113 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 4
+CA_STATE t=15000 pos=198,1011,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=111 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 5
+CA_STATE t=17700 pos=-83,998,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=108 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 6
+CA_STATE t=20150 pos=-1011,198,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=106 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 7
+CA_STATE t=23050 pos=-998,-83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=103 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 8
+CA_STATE t=25800 pos=83,-998,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 9
+CA_STATE t=27250 pos=914,462,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 10
+CA_STATE t=30000 pos=-462,914,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor spawn 11
+CA_STATE t=32950 pos=-914,-462,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 0
+CA_STATE t=35200 pos=462,-914,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 1
+CA_STATE t=36100 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 2
+CA_STATE t=36950 pos=1165,320,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 3
+CA_STATE t=39100 pos=720,0,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 4
+CA_STATE t=41950 pos=755,198,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 5
+CA_STATE t=43300 pos=256,1152,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 6
+CA_STATE t=45900 pos=-320,1165,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 7
+CA_STATE t=48050 pos=0,720,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 8
+CA_STATE t=50700 pos=198,755,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 9
+CA_STATE t=53600 pos=-1152,256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 10
+CA_STATE t=56500 pos=-1165,-320,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 11
+CA_STATE t=58800 pos=-720,0,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 12
+CA_STATE t=61800 pos=-755,-198,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 13
+CA_STATE t=64550 pos=-256,-1152,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 14
+CA_STATE t=67250 pos=320,-1165,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 15
+CA_STATE t=69500 pos=0,-720,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 16
+CA_STATE t=72350 pos=-198,-755,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 17
+CA_STATE t=74700 pos=692,647,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 18
+CA_STATE t=76050 pos=552,950,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 19
+CA_STATE t=78600 pos=602,466,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 20
+CA_STATE t=81400 pos=-647,692,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 21
+CA_STATE t=84500 pos=-950,552,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 22
+CA_STATE t=87450 pos=-466,602,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 23
+CA_STATE t=90200 pos=-692,-647,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 24
+CA_STATE t=93100 pos=-552,-950,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 25
+CA_STATE t=96100 pos=-602,-466,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 26
+CA_STATE t=98750 pos=647,-692,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 27
+CA_STATE t=101350 pos=950,-552,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 28
+CA_STATE t=104000 pos=466,-602,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 29
+CA_STATE t=106550 pos=125,302,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 30
+CA_STATE t=109250 pos=-302,125,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 31
+CA_STATE t=111850 pos=-125,-302,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 32
+CA_STATE t=114400 pos=302,-125,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 33
+CA_STATE t=117100 pos=111,111,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 34
+CA_STATE t=119700 pos=-111,-111,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 35
+CA_STATE t=122300 pos=-109,109,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 36
+CA_STATE t=125100 pos=109,-109,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST floor pickup 37
+CA_STATE t=127050 pos=955,-991,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp tunnel-stairs-0
+CA_STATE t=129150 pos=955,-882,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=129700 pos=1152,195,-87 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=129950 pos=1095,195,-58 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=130250 pos=1010,195,-16 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=130700 pos=894,195,38 hspeed=0 vz=18 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=131350 pos=894,195,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=132300 pos=894,195,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp tunnel-stairs-2
+CA_STATE t=133650 pos=894,195,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=134250 pos=-195,1152,-87 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=134500 pos=-195,1092,-57 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=134800 pos=-195,1002,-12 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=135300 pos=-195,894,40 hspeed=0 vz=-22 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=135900 pos=-195,894,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=136850 pos=-195,894,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp tunnel-stairs-4
+CA_STATE t=138200 pos=-195,894,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=138750 pos=-1152,-195,-87 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=139000 pos=-1101,-195,-61 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=139250 pos=-1019,-195,-20 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=139700 pos=-894,-195,36 hspeed=0 vz=37 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=140400 pos=-894,-195,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=141350 pos=-894,-195,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp tunnel-stairs-6
+CA_STATE t=142800 pos=-894,-195,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=143400 pos=195,-1152,-87 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=143650 pos=195,-1092,-57 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=143950 pos=195,-1006,-14 hspeed=286 vz=143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=144400 pos=195,-894,37 hspeed=0 vz=-26 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=145050 pos=195,-894,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=145950 pos=195,-894,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-1
+CA_STATE t=147300 pos=195,-894,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=147900 pos=161,161,-85 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=148150 pos=202,202,-57 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=148450 pos=266,266,-15 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=148900 pos=359,359,37 hspeed=320 vz=17 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=149500 pos=390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=150350 pos=390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-span-1
+CA_STATE t=151500 pos=390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=152100 pos=161,161,-85 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=152350 pos=199,199,-59 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=152650 pos=259,259,-19 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=153050 pos=347,347,35 hspeed=315 vz=69 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=153650 pos=390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=154450 pos=390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp court-ramp-1
+CA_STATE t=155650 pos=390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=156300 pos=595,287,43 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=156550 pos=554,328,69 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=156850 pos=490,392,110 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=157300 pos=392,491,173 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=157950 pos=293,589,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=158850 pos=293,589,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp comp-stairs-1
+CA_STATE t=160150 pos=293,589,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=160600 pos=1009,652,43 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=160800 pos=982,679,60 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=161100 pos=918,743,101 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=161600 pos=816,845,167 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=162150 pos=692,969,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=162950 pos=513,1148,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-3
+CA_STATE t=163950 pos=182,1198,184 hspeed=375 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=164500 pos=-161,161,-85 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=164700 pos=-197,197,-60 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=165000 pos=-256,256,-21 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=165450 pos=-346,346,34 hspeed=318 vz=66 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=166050 pos=-390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=167000 pos=-390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-span-3
+CA_STATE t=168350 pos=-390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=168900 pos=-161,161,-85 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=169150 pos=-198,198,-60 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=169450 pos=-258,258,-20 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=169850 pos=-350,350,35 hspeed=320 vz=44 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=170500 pos=-390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=171500 pos=-390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp court-ramp-3
+CA_STATE t=172850 pos=-390,390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=173500 pos=-287,595,43 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=173700 pos=-328,554,69 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=174050 pos=-392,490,110 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=174500 pos=-491,392,173 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=175100 pos=-589,293,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=176050 pos=-589,293,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp comp-stairs-3
+CA_STATE t=177350 pos=-589,293,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=177950 pos=-652,1009,43 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=178200 pos=-692,969,69 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=178500 pos=-756,905,109 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=178950 pos=-854,807,173 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=179500 pos=-978,683,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=180350 pos=-1158,503,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-5
+CA_STATE t=181400 pos=-1198,135,184 hspeed=375 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=181950 pos=-161,-161,-85 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=182200 pos=-201,-201,-58 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=182500 pos=-263,-263,-17 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=183000 pos=-367,-367,39 hspeed=320 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=183650 pos=-390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=184650 pos=-390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-span-5
+CA_STATE t=186050 pos=-390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=186650 pos=-161,-161,-85 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=186900 pos=-202,-202,-57 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=187200 pos=-265,-265,-16 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=187700 pos=-362,-362,37 hspeed=320 vz=11 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=188350 pos=-390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=189350 pos=-390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp court-ramp-5
+CA_STATE t=190700 pos=-390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=191350 pos=-595,-287,43 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=191600 pos=-553,-329,69 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=191900 pos=-490,-393,110 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=192400 pos=-390,-492,174 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=193050 pos=-293,-589,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=194050 pos=-293,-589,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp comp-stairs-5
+CA_STATE t=195300 pos=-293,-589,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=195900 pos=-1009,-652,43 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=196100 pos=-971,-690,67 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=196400 pos=-910,-751,107 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=196850 pos=-816,-845,167 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=197400 pos=-696,-964,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=198250 pos=-513,-1148,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-7
+CA_STATE t=199300 pos=-152,-1198,184 hspeed=375 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=199900 pos=161,-161,-85 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=200100 pos=199,-199,-59 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=200400 pos=258,-258,-20 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=200850 pos=347,-347,36 hspeed=315 vz=71 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=201400 pos=390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=202250 pos=390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp pit-ramp-span-7
+CA_STATE t=203450 pos=390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=204050 pos=161,-161,-85 hspeed=0 vz=-0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=204250 pos=200,-200,-59 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=204550 pos=259,-259,-19 hspeed=290 vz=136 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=205000 pos=350,-350,35 hspeed=320 vz=47 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=205550 pos=390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=206400 pos=390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp court-ramp-7
+CA_STATE t=207550 pos=390,-390,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=208150 pos=287,-595,43 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=208400 pos=327,-555,68 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=208700 pos=393,-490,110 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=209200 pos=491,-391,174 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=209850 pos=589,-293,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=210800 pos=589,-293,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST ramp comp-stairs-7
+CA_STATE t=212150 pos=589,-293,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=212750 pos=652,-1009,43 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=212950 pos=689,-971,67 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=213250 pos=751,-910,106 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=213700 pos=843,-818,165 hspeed=291 vz=132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=214250 pos=967,-694,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=215100 pos=1159,-502,184 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST pad pad-0
+CA_STATE t=216250 pos=1198,-118,184 hspeed=375 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=217100 pos=534,222,277 hspeed=321 vz=108 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=218250 pos=756,314,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=219450 pos=756,314,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST pad pad-2
+CA_STATE t=223000 pos=756,314,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=223950 pos=-231,556,282 hspeed=321 vz=48 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=225250 pos=-315,760,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=226550 pos=-315,760,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST pad pad-4
+CA_STATE t=230450 pos=-315,760,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=231400 pos=-561,-233,283 hspeed=321 vz=35 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=232700 pos=-763,-317,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=234050 pos=-763,-317,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST pad pad-6
+CA_STATE t=238050 pos=-763,-317,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=238900 pos=221,-533,275 hspeed=321 vz=108 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=240000 pos=315,-758,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+CA_STATE t=241150 pos=315,-758,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+MAPTEST end
+CA_STATE t=244750 pos=315,-758,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=1 w1=3 inhand=1 clip2=7
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+-----------------------

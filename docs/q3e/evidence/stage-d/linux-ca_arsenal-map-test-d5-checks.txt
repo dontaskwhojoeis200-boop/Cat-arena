@@ -1,0 +1,6 @@
+PASS floor: 12 passed, 0 failed
+FAIL ramp: 97 passed, 2 failed
+PASS pad: 1 passed, 0 failed
+  ramp ramp-951: z 168 -> 168 (bottom 152, top 156)
+  ramp ramp-974: z 168 -> 168 (bottom 152, top 156)
+FAILURES

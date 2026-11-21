@@ -1061,6 +1061,9 @@ static void CG_AddCEntity( centity_t *cent ) {
 	case ET_CA_ENEMY:
 		CG_CAEnemy( cent );
 		break;
+	case ET_CA_PROP:
+		CG_CA_Prop( cent );
+		break;
 #endif
 	}
 }

@@ -7,7 +7,8 @@
 Checks (Quake III units, 32 u = 1 m; player origin = floor + 24):
   floors  dropped 0.25 m above every N10 spawn and pickup spot, the player ends on N10's floor
           height there (+-8 u): no missing floors, no invisible obstacles at those spots
-  ramps   placed at the low end of each N10 ramp, walking uphill for 1 s ends on its top
+  ramps   placed at the low end of each N10 ramp, walking uphill reaches its top (the height is
+          sampled six times during about 2 s of walking)
   pads    standing on each N10 jump pad launches the player at least 2 m above the pad
 """
 import json
@@ -92,6 +93,9 @@ def checks(c):
     return out
 
 
+RAMP_WAITS = (8, 10, 15, 20, 30, 42)
+
+
 def write(root, map_id, name, path):
     lines = ["god", "wait 10"]
     for kind, label, (x, y, z), extra in checks(load(root, map_id)):
@@ -99,7 +103,12 @@ def write(root, map_id, name, path):
         if kind == "floor":
             lines += ["ca_place %.1f %.1f %.1f 0" % (x, y, z + 24 + 8), "wait 90", "ca_state"]   # drop 0.25 m, settle
         elif kind == "ramp":
-            lines += ["ca_place %.1f %.1f %.1f %.1f" % (x, y, z + 24 + 8, extra[2]), "wait 20", "ca_state", "+forward", "wait 125", "-forward", "ca_state"]
+            # walk uphill; the height is sampled six times (short ramps, e.g. the pieces of a spiral,
+            # end long before the walk does)
+            lines += ["ca_place %.1f %.1f %.1f %.1f" % (x, y, z + 24 + 8, extra[2]), "wait 20", "ca_state", "+forward"]
+            for wt in RAMP_WAITS:
+                lines += ["wait %d" % wt, "ca_state"]
+            lines += ["-forward"]
         else:
             lines += ["ca_place %.1f %.1f %.1f 0" % (x, y, z + 24 + 4), "wait 30", "ca_state", "wait 40", "ca_state", "wait 40", "ca_state", "wait 120", "ca_state"]
     lines += ["echo MAPTEST end", "wait 100", "quit"]
@@ -112,7 +121,7 @@ def check(root, map_id, name, log):
     pos = lambda st: tuple(float(v) for v in st["pos"].split(","))
     i, fails, total = 0, [], {"floor": [0, 0], "ramp": [0, 0], "pad": [0, 0]}
     for kind, label, (x, y, z), extra in checks(load(root, map_id)):
-        need = {"floor": 1, "ramp": 2, "pad": 4}[kind]
+        need = {"floor": 1, "ramp": 1 + len(RAMP_WAITS), "pad": 4}[kind]
         st = states[i:i + need]
         i += need
         if len(st) < need:
@@ -126,8 +135,8 @@ def check(root, map_id, name, log):
                 fails.append("floor %s at (%.0f, %.0f): z %.0f, expected %.0f" % (label, x, y, pz, z + 24))
         elif kind == "ramp":
             low, high, _ = extra
-            z0, z1 = pos(st[0])[2], pos(st[1])[2]
-            ok = abs(z0 - (z + 24)) <= 12 and z1 >= high * U + 24 - 8   # starts at the bottom, ends on the top
+            z0, z1 = pos(st[0])[2], max(pos(q)[2] for q in st[1:])
+            ok = abs(z0 - (z + 24)) <= 12 and z1 >= high * U + 24 - 8   # starts at the bottom, reaches the top
             if not ok:
                 fails.append("ramp %s: z %.0f -> %.0f (bottom %.0f, top %.0f)" % (label, z0, z1, z + 24, high * U + 24))
         else:

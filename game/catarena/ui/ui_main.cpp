@@ -58,8 +58,9 @@ struct Item {
     const char* label;
     const char* command;   // console command; nullptr = close the menu
 };
-constexpr std::array kMainItems{Item{"PLAY  -  REACTOR BASTION", "map ca_reactor\n"}, Item{"PLAY  -  TEST ARENA", "map ca_test\n"},
-                                Item{"QUIT", "quit\n"}};
+constexpr std::array kMainItems{Item{"PLAY  -  REACTOR BASTION", "map ca_reactor\n"}, Item{"PLAY  -  HELIOS CRUCIBLE", "map ca_helios\n"},
+                                Item{"PLAY  -  BASTION KEEP", "map ca_bastion\n"}, Item{"PLAY  -  THE ARSENAL", "map ca_arsenal\n"},
+                                Item{"PLAY  -  TEST ARENA", "map ca_test\n"}, Item{"QUIT", "quit\n"}};
 constexpr std::array kIngameItems{Item{"RESUME", nullptr}, Item{"LEAVE ARENA", "disconnect\n"}, Item{"QUIT", "quit\n"}};
 
 struct State {
@@ -113,7 +114,7 @@ void text_centered(float y, std::string_view s, float size, const float* color) 
     text(320 - text_width(s, size) / 2, y, s, size, color);
 }
 
-constexpr float kItemTop = 250, kItemStep = 36, kItemSize = 16;
+constexpr float kItemTop = 222, kItemStep = 31, kItemSize = 16;
 int item_at(float x, float y) {
     const auto list = items();
     for(int i = 0; i < int(list.size()); ++i) {

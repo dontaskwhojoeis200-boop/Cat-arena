@@ -1,0 +1,4 @@
+ca_reactor: 343 slab, 207 solid, 3789 wall brushes (0 skipped), 12 footprint edge clips, 24398 triangles in 77 material groups, 0 material-mesh triangles in 0 materials, 0 portal surfaces, 92 lights, 12 spawns, 4 pads
+ca_helios: 167 slab, 120 solid, 2479 wall brushes (0 skipped), 8 footprint edge clips, 7308 triangles in 33 material groups, 161014 material-mesh triangles in 33 materials, 1 portal surfaces, 61 lights, 28 spawns, 2 pads
+ca_bastion: 156 slab, 96 solid, 2652 wall brushes (0 skipped), 8 footprint edge clips, 5462 triangles in 26 material groups, 126814 material-mesh triangles in 44 materials, 0 portal surfaces, 61 lights, 12 spawns, 2 pads
+ca_arsenal: 988 slab, 34 solid, 3083 wall brushes (0 skipped), 4 footprint edge clips, 2398 triangles in 37 material groups, 1000 material-mesh triangles in 31 materials, 3 portal surfaces, 31 lights, 7 spawns, 1 pads

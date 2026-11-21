@@ -256,7 +256,12 @@ bool Horde::spawn(const caPlayer_t* players, int np, int forced) {
         float o[3];
         const float* s = spots[order[size_t((start + k) % ns)].second];
         o[0] = s[0]; o[1] = s[1]; o[2] = s[2];
-        if(def.flying) o[2] += u(4.3 + rnd() * 2.1);
+        if(def.flying && nav_world_) {   // N10 spawnEnemy: fly_alt below any roof over the spot (2.8 m under it), at least 3.6 m up
+            const auto g = to_n10(o);
+            const auto roof = nav_world_->overhead(g[0], g[1]);
+            const double fly_alt = std::min(g[2] + 4.3 + rnd() * 2.1, (roof ? *roof : 26.0) - 2.8);
+            o[2] = float(std::max(g[2] + 3.6, fly_alt) * CA_UNITS_PER_METRE + 24);
+        } else if(def.flying) o[2] += u(4.3 + rnd() * 2.1);
         const int ent = im_.spawnEnemy(type, o, yaw, health);
         if(ent < 0) continue;
         if(adopt(ent, type, yaw, scale)) return true;
@@ -700,6 +705,8 @@ int Horde::self_test() {
             for(int i = 0; i < ns && progress < 0; ++i) {
                 if(i == best_i) continue;
                 float o[3]{spots[i][0], spots[i][1], spots[i][2] + u(4.5)};
+                const auto at = to_n10(o);
+                if(!flyer_free(at[0], at[1], at[2], .29)) continue;   // under a roof: no room to fly (N10 spawns flyers in the open)
                 const int ent = im_.spawnEnemy(17, o, 0, 78);
                 if(ent < 0) continue;
                 Enemy* e = adopt(ent, 17, 0, 1);

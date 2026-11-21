@@ -11,10 +11,13 @@ Collision (worldspawn brushes, nodraw, from map.json "compiled" = what N10's phy
           or an enemy stand outside the footprint (levelWalkable), so its open edges (bridge sides,
           drops to the void) get invisible walls that stop players and enemies but not shots
   hull    a box around the footprint: sky on top and sides, caulk below (seals the map)
-Sky: a base colour with the two N10 cloud layers alpha-blended (N10 draws them over a baked
-  gradient farbox).
 Visuals (misc_model, lightmapped by q3map2): world.cmesh as OBJ, one material per (atlas tile,
-  quantized vertex tint) -> generated shader: lightmap x tile x constant tint.
+  quantized vertex tint) -> generated shader: lightmap x tile x constant tint. The material mesh
+  (materials.cmesh: kit pieces, curved patches, decals, emissives) as a second OBJ with the N10
+  material definitions written back as Quake III shaders (tools/q3e/n10materials.py).
+Sky: the map's N10 sky material (far box, cloud stages): the "$baked" far box of
+  sky/reactor_bastion is baked from N10's sky geometry from the map centre (as the legacy game
+  does), the sun direction taken from its glow; The Arsenal's nebula box is copied.
 Entities: N10 lights -> light, spawns -> info_player_deathmatch (+ info_ca_enemy_spawn together
   with the pickup spots), jump pads -> trigger_push + target_position at the N10 apex (Quake III
   re-aims the launch for its own gravity).
@@ -29,6 +32,9 @@ import struct
 import sys
 
 from PIL import Image
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import n10materials  # noqa: E402
 
 U = 32.0
 CAULK = "common/caulk"
@@ -260,36 +266,76 @@ def main():
 	}
 }
 """ % (shader, layer, layer, r * 1.6 if r * 1.6 < 1 else 1.0, g * 1.6 if g * 1.6 < 1 else 1.0, bl * 1.6 if bl * 1.6 < 1 else 1.0))
+    # sky: the map's N10 sky material; a "$baked" far box is baked from the N10 sky geometry as the
+    # legacy game does (bakeSkyBox), a named one copied from the N10 catalog
+    meta_sky = doc["authored"]["meta"].get("sky") or {}
+    sky_name = meta_sky.get("shader", "sky/reactor_bastion")
+    sd = {d["name"]: d for d in doc["materialDefinitions"]}[sky_name]
+    sky_textures = set()
+    stages = ""
+    for st in sd["stages"]:
+        st = dict(st)
+        if (st.get("rgbGen") or {}).get("type") == "vertex":
+            # N10 tints the cloud dome by the sun (legacy sky_dome vertex colours); Quake III's cloud
+            # layers have no such colours: the mean of N10's tint
+            st["rgbGen"] = {"type": "const", "color": [0.83, 0.51, 0.36]}
+            st["alphaGen"] = {"type": "identity"}
+        text, tex = n10materials.stage_text(st, set())
+        stages += text or ""
+        sky_textures.update(tex)
+    far = sd["sky"].get("farbox") or "-"
+    az, el = meta_sky.get("sunAzimuth", -0.62), meta_sky.get("sunElevation", 0.1)
+    if far == "$baked":
+        far = "textures/catarena/sky/%s_box" % name
+        sun = n10materials.bake_sky_box(os.path.join(src, "sky.cmesh"), (cx, cy), os.path.join(out, "textures", "catarena", "sky"), "%s_box" % name)
+        az, el = math.atan2(sun[1], sun[0]), math.asin(max(-1.0, min(1.0, sun[2])))
+        sun_color = [1.0, 0.66, 0.45]
+    else:
+        if far != "-":
+            sky_textures.update(far + "_" + side for side in ("rt", "lf", "bk", "ft", "up", "dn"))
+        sun_color = meta_sky.get("sunColor", [1, 0.94, 0.82])
+    amb = meta_sky.get("openAmbient", [0.5, 0.45, 0.42])
     shader_lines.append("""textures/%s
 {
-	qer_editorimage textures/catarena/sky/rb_clouds_a.png
 	surfaceparm sky
 	surfaceparm noimpact
 	surfaceparm nolightmap
 	surfaceparm nomarks
-	q3map_sunExt 1 0.94 0.82 140 35 50 2 16
-	q3map_skylight 70 3
-	skyparms - 384 -
-	{
-		map $whiteimage
-		rgbGen const ( 0.33 0.42 0.56 )
-	}
-	{
-		map textures/catarena/sky/rb_clouds_a.png
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		tcMod scale 2 2
-		tcMod scroll 0.006 0.003
-		rgbGen const ( 0.86 0.86 0.9 )
-	}
-	{
-		map textures/catarena/sky/rb_clouds_b.png
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		tcMod scale 3 3
-		tcMod scroll -0.004 0.002
-		rgbGen const ( 0.7 0.72 0.8 )
-	}
-}
-""" % sky)
+	q3map_sunExt %.3f %.3f %.3f 140 %.1f %.1f 2 16
+	q3map_skylight %d 3
+	skyparms %s %d -
+%s}
+""" % (sky, sun_color[0], sun_color[1], sun_color[2], math.degrees(az), max(10.0, math.degrees(el)),
+       int(60 + 40 * sum(amb) / 3), far, int(sd["sky"].get("cloudHeight") or 128), stages))
+
+    # ---- material mesh (kit pieces, patches, emissives) -> second OBJ + shaders ---------------------
+    mat_shaders, mat_textures, mat_layers, portals, mat_tris = n10materials.write_materials(root, src, out, name, doc, w)
+    shader_lines += mat_shaders
+    # MD3 props (The Arsenal: the waving flag, turrets): the N10 models and their shaders; cgame
+    # animates them (misc_ca_prop entities)
+    props = doc["authored"].get("models") or []
+    if props:
+        defs = {d["name"]: d for d in doc["materialDefinitions"]}
+        rigs = {"flag": ["flag"], "turret": ["turret_base", "turret_head", "turret_barrel"]}
+        files = sorted({f for pr in props for f in rigs[pr["model"]]})
+        md3_shaders = set()
+        os.makedirs(os.path.join(out, "models", "gallery"), exist_ok=True)
+        for f in files:
+            data = open(os.path.join(root, "assets", "n1", "models", "md3", f + ".md3"), "rb").read()
+            with open(os.path.join(out, "models", "gallery", f + ".md3"), "wb") as o:
+                o.write(data)
+            nsurf, osurf = struct.unpack_from("<i", data, 84)[0], struct.unpack_from("<i", data, 100)[0]
+            for _ in range(nsurf):
+                sh_ofs = struct.unpack_from("<i", data, osurf + 92)[0]
+                md3_shaders.add(data[osurf + sh_ofs:osurf + sh_ofs + 64].split(b"\0")[0].decode())
+                osurf += struct.unpack_from("<i", data, osurf + 104)[0]
+        for sh in sorted(md3_shaders):
+            text, tex, _ = n10materials.shader_text(defs[sh], mat_layers)
+            shader_lines.append(text)
+            mat_textures |= set(tex)
+    missing = n10materials.copy_textures(root, out, mat_textures | sky_textures)
+    if missing:
+        print("WARNING: textures not in the N10 catalog: %s" % ", ".join(missing))
     os.makedirs(os.path.join(out, "scripts"), exist_ok=True)
     with open(os.path.join(out, "scripts", name + ".shader"), "w", newline="\n") as f:
         f.write("\n".join(shader_lines))
@@ -302,13 +348,10 @@ def main():
     # textures: atlas tiles (N10 world_atlas_layers: 128 px tiles, tile m at (m % 4, m // 4), rows flipped)
     atlas = Image.open(os.path.join(root, "assets", "n2", "world-atlas-runtime.png")).convert("RGBA")
     os.makedirs(os.path.join(out, "textures", "catarena", "world"), exist_ok=True)
-    for layer in sorted({k[0] for k in groups}):
+    for layer in sorted({k[0] for k in groups} | mat_layers):
         ox, oy = (layer % 4) * 128, (layer // 4) * 128
         atlas.crop((ox, oy, ox + 128, oy + 128)).convert("RGB").save(os.path.join(out, "textures", "catarena", "world", "layer%02d.png" % layer))
     os.makedirs(os.path.join(out, "textures", "catarena", "sky"), exist_ok=True)
-    for cloud in ("rb_clouds_a", "rb_clouds_b"):
-        raw = open(os.path.join(root, "assets", "n1", "textures", "sky", cloud + ".rgba"), "rb").read()
-        Image.frombytes("RGBA", (256, 256), raw).save(os.path.join(out, "textures", "catarena", "sky", cloud + ".png"))
 
     # N10 compiled map data for the server's navigation graph (N10 NavGraph, reused in qagame)
     import shutil
@@ -319,9 +362,35 @@ def main():
     world = ('{\n"classname" "worldspawn"\n"message" "%s (Cat Arena, converted from N10 %s)"\n"_ambient" "6"\n"_color" "1 0.96 0.9"\n'
              % (doc.get("level", {}).get("name", map_id) if isinstance(doc.get("level"), dict) else map_id, map_id)) + "".join(w.brushes) + "}\n"
     ents.append('{\n"classname" "misc_model"\n"model" "%s"\n"spawnflags" "4"\n"origin" "0 0 0"\n}\n' % obj_rel)
+    if mat_tris:
+        ents.append('{\n"classname" "misc_model"\n"model" "maps/%s_materials.obj"\n"spawnflags" "4"\n"origin" "0 0 0"\n}\n' % name)
+    for pr in doc["authored"].get("models") or []:
+        x, y, z = w.p(pr["x"], pr["y"], pr["z"])
+        ents.append('{\n"classname" "misc_ca_prop"\n"model" "%s"\n"origin" "%.1f %.1f %.1f"\n"angle" "%.2f"\n"modelscale" "%g"\n}\n'
+                    % (pr["model"], x, y, z, math.degrees(pr["yaw"]), pr.get("scale", 1)))
+    # portal surfaces (N10 draws them as stand-ins; Quake III renders them): a misc_portal_surface at
+    # the centre of each surface, with a misc_portal_camera at the N10 camera for windows / feeds
+    for k, pt in enumerate(portals):
+        o = pt["origin"]
+        poly = o.get("poly3") or []
+        if not poly:
+            continue
+        mx = sum(q[0] for q in poly) / len(poly)
+        my = sum(q[1] for q in poly) / len(poly)
+        mz = sum(q[2] for q in poly) / len(poly)
+        x, y, z = w.p(mx, my, mz)
+        cam = (o.get("portal") or {}).get("camera")
+        if cam:
+            cname = "%s_portalcam%d" % (name, k)
+            ents.append('{\n"classname" "misc_portal_surface"\n"origin" "%.1f %.1f %.1f"\n"target" "%s"\n}\n' % (x, y, z, cname))
+            cxq, cyq, czq = w.p(cam["x"], cam["y"], cam["z"])
+            ents.append('{\n"classname" "misc_portal_camera"\n"spawnflags" "4"\n"targetname" "%s"\n"origin" "%.1f %.1f %.1f"\n"angles" "%.1f %.1f 0"\n}\n'
+                        % (cname, cxq, cyq, czq, math.degrees(cam.get("pitch", 0)), math.degrees(cam.get("yaw", 0))))
+        else:   # mirror
+            ents.append('{\n"classname" "misc_portal_surface"\n"origin" "%.1f %.1f %.1f"\n}\n' % (x, y, z))
     for s in c["spawns"]:
         x, y, z = w.p(s["x"], s["y"], s["z"])
-        yaw = math.degrees(s["a"]) + 90
+        yaw = math.degrees(s["a"])   # N10 player facing: forward = (cos a, sin a)
         ents.append('{\n"classname" "info_player_deathmatch"\n"origin" "%.1f %.1f %.1f"\n"angle" "%.1f"\n}\n' % (x, y, z + 26, yaw))
         ents.append('{\n"classname" "info_ca_enemy_spawn"\n"origin" "%.1f %.1f %.1f"\n}\n' % (x, y, z + 26))
     for pk in c["pickups"]:
@@ -351,8 +420,8 @@ def main():
     with open(os.path.join(out, "maps", name + ".map"), "w", newline="\n") as f:
         f.write("// %s: Cat Arena map converted from N10 %s by tools/q3e/n10map2q3.py (Quake III units, 32 u = 1 m)\n" % (name, map_id))
         f.write(world + "".join(ents))
-    print("%s: %d slab, %d solid, %d wall brushes (%d skipped), %d footprint edge clips, %d triangles in %d material groups, %d lights, %d spawns, %d pads"
-          % (name, stats["slabs"], stats["solids"], stats["walls"], stats["skipped"], stats["edge clips"], len(idx) // 3, len(groups), len(c["lights"]), len(c["spawns"]), len(c["pads"])))
+    print("%s: %d slab, %d solid, %d wall brushes (%d skipped), %d footprint edge clips, %d triangles in %d material groups, %d material-mesh triangles in %d materials, %d portal surfaces, %d lights, %d spawns, %d pads"
+          % (name, stats["slabs"], stats["solids"], stats["walls"], stats["skipped"], stats["edge clips"], len(idx) // 3, len(groups), mat_tris, len(mat_shaders), len(portals), len(c["lights"]), len(c["spawns"]), len(c["pads"])))
 
 
 if __name__ == "__main__":

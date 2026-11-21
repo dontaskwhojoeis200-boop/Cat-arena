@@ -743,7 +743,8 @@ typedef enum {
 	ET_GRAPPLE,				// grapple hooked on wall
 	ET_TEAM,
 #ifdef CAT_ARENA_STANDALONE
-	ET_CA_ENEMY,			// Cat Arena enemy (modelindex = enemy type, generic1 = winding up, time2 = last hit)
+	ET_CA_ENEMY,			// Cat Arena enemy (modelindex = enemy type, powerups = spawn id, time = attack start, time2 = last hit)
+	ET_CA_PROP,				// Cat Arena animated MD3 prop (modelindex 0 flag / 1 turret, origin2[0] = scale)
 #endif
 
 	ET_EVENTS				// any of the EV_* events can be added freestanding

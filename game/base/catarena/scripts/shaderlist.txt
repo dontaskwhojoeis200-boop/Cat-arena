@@ -1,3 +1,6 @@
 catarena
 ca_reactor
 catarena_enemies
+ca_bastion
+ca_helios
+ca_arsenal

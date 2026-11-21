@@ -1,0 +1,75 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+219 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config_server.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D5c
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_bastion
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+219 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7ff2d1c0fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D5 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 20 2026
+------------------------------------------------------------
+InitGame: \dmflags\0\fraglimit\0\g_gametype\0\mapname\ca_bastion\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\8\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e linux-x86_64 Nov 19 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+Cat Arena: N10 navigation graph for ca_bastion (6359 nodes)
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+ca_selftest: PASS wave 1: 10 enemies, all spawned at once
+ca_selftest: PASS wave 2: ceil(10 * 1.25) = 13, first batch 11
+ca_selftest: PASS wave 3: 17 enemies, scale 1.05^2
+ca_selftest: PASS wave 3: first two of the batch are a skyprobe and a skyraider
+ca_selftest: PASS N10 enemy table: 10/10 sampled types match (health, speed, flying, ranged, slam, melee, wind-up, cooldown); hit boxes by class
+ca_selftest: PASS enemy projectiles: fireball 14.5 m/s, 4 damage; void orb 19 damage
+ca_selftest: PASS enemy spawn points found in the map
+ca_selftest: PASS all 20 enemy types spawn with their N10 health (20/20)
+ca_selftest: PASS fiend moves with Pmove (best of 4 directions: 103 units in 0.5 s)
+ca_selftest: PASS skyprobe flies toward its target: 235 of 1834 units closer in 1 s (speed 235 u/s)
+ca_selftest: PASS fiend entity spawned
+ca_selftest: PASS fiend health 100
+ca_selftest: PASS four nailgun hits (13) leave 48 health
+ca_selftest: PASS fiend dies and counts as a kill
+ca_selftest: PASS N10 routes from the lowest spot: L1 8/8, L2 17/17, L3 19/19 spots reachable
+ca_selftest: PASS N10 weapon table: 16/16 weapons match (damage, rate, magazine, reload, pellets, range)
+ca_selftest: horde PASS
+ca_selftest: PASS weapons: projectile constants (rocket 832 u/s, grenade gravity 480 u/s^2, rift life 2.6 s)
+ca_selftest: PASS weapons: 16 weapons, 13 hitscan + rocket + grenade + rift
+ca_selftest: PASS weapons: NAILGUN body hit 13 (dealt 13)
+ca_selftest: PASS weapons: HAND CANNON head hit x2 = 156 (dealt 156)
+ca_selftest: PASS weapons: QUAD SHOTGUN 20 pellets at point blank (dealt 280)
+ca_selftest: (no clear 25 m line to the fiend on this map; range check skipped)
+ca_selftest: PASS weapons: rocket blast 1 m away deals 81 (expected 81)
+ca_selftest: PASS weapons: no blast damage beyond 3.35 m x power (4 m)
+ca_selftest: PASS weapons: rift blast reaches 4 m (radius 4.76 m), dealt 21
+ca_selftest: PASS weapons: grenade after 1 s at (704.0, -192.0), life 2.3 s
+ca_selftest: PASS weapons: RAILGUN kills a 100 hp fiend in one body hit
+ca_selftest: weapons PASS (0 failed)
+ca_selftest: ALL PASS
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+---------------------------

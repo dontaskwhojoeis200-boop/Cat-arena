@@ -1,0 +1,8 @@
+light pass 1 for ca_reactor (N10 reactor-bastion): brightness ratio 2.592, scale so far 1
+All light scaled by 3.794000
+light pass 2 for ca_reactor (N10 reactor-bastion): brightness ratio 1.019, scale so far 3.794
+light scale for ca_reactor: 3.794
+Wrote 5.4 MB (5713076 bytes)
+       26 BSP lightmaps
+Wrote 5.4 MB (5713076 bytes)
+       41 seconds elapsed

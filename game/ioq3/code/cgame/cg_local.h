@@ -1714,4 +1714,5 @@ void CG_CA_DrawEnemy( centity_t *cent );
 void CG_CA_EnemyDeath( centity_t *cent, int gibbed );
 void CG_CA_AddEnemyBodies( void );
 void CG_CA_ClearEnemyBodies( void );
+void CG_CA_Prop( centity_t *cent );
 #endif

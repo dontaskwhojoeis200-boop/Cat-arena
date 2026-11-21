@@ -252,4 +252,100 @@ void CG_CA_ClearEnemyBodies( void ) {
 	memset( caBodies, 0, sizeof( caBodies ) );
 }
 
+/* ---- MD3 props (N10 native/src/md3.cpp animate_props) -------------------------------------------
+   flag: 16 frames at 12 fps. turret: base (2 frames, 0.6 fps), head on tag_head turning toward the
+   player within 22 m (else a slow sweep) at 2.5 rad/s, barrel on tag_barrel spinning at 12 fps while
+   the player is within 16 m; the warning light (rgbGen entity) pulses faster then. */
+static qhandle_t caPropModel[4];
+static struct { int init; float yaw; int last; } caTurret[MAX_GENTITIES];
+
+static void CA_PropFrame( refEntity_t *re, int frames, float fps, float time ) {
+	float f = time * fps;
+	int i = (int)floor( f );
+	re->frame = ( ( i + 1 ) % frames + frames ) % frames;
+	re->oldframe = ( i % frames + frames ) % frames;
+	re->backlerp = 1.0f - ( f - i );
+}
+
+void CG_CA_Prop( centity_t *cent ) {
+	const entityState_t *s = &cent->currentState;
+	refEntity_t base, head, barrel;
+	vec3_t angles;
+	float scale = s->origin2[0] > 0 ? s->origin2[0] : 1, time = cg.time * 0.001f;
+	float phase = fmod( cent->lerpOrigin[0] / CA_UNITS_PER_METRE * .37f + cent->lerpOrigin[1] / CA_UNITS_PER_METRE * .29f, 10.0f );
+	int i;
+	if ( !caPropModel[0] ) {
+		caPropModel[0] = trap_R_RegisterModel( "models/gallery/flag.md3" );
+		caPropModel[1] = trap_R_RegisterModel( "models/gallery/turret_base.md3" );
+		caPropModel[2] = trap_R_RegisterModel( "models/gallery/turret_head.md3" );
+		caPropModel[3] = trap_R_RegisterModel( "models/gallery/turret_barrel.md3" );
+	}
+	memset( &base, 0, sizeof( base ) );
+	VectorCopy( cent->lerpOrigin, base.origin );
+	VectorCopy( base.origin, base.oldorigin );
+	VectorClear( angles );
+	angles[YAW] = s->apos.trBase[YAW];
+	AnglesToAxis( angles, base.axis );
+	if ( scale != 1 ) {
+		for ( i = 0 ; i < 3 ; i++ ) {
+			VectorScale( base.axis[i], scale, base.axis[i] );
+		}
+		base.nonNormalizedAxes = qtrue;
+	}
+	if ( s->modelindex == 0 ) {
+		base.hModel = caPropModel[0];
+		CA_PropFrame( &base, 16, 12, time );
+		trap_R_AddRefEntityToScene( &base );
+		return;
+	}
+	{
+		vec3_t d;
+		float aim = sin( time * .4f + phase ) * 1.1f, dist, step, glow;
+		int firing = 0, n = s->number;
+		VectorSubtract( cg.predictedPlayerState.origin, cent->lerpOrigin, d );
+		dist = sqrt( d[0] * d[0] + d[1] * d[1] ) / CA_UNITS_PER_METRE;
+		if ( dist < 22 ) {
+			aim = atan2( d[1], d[0] ) - DEG2RAD( s->apos.trBase[YAW] );
+		}
+		firing = dist < 16;
+		if ( !caTurret[n].init || cg.time < caTurret[n].last ) {
+			caTurret[n].init = 1;
+			caTurret[n].yaw = 0;
+			caTurret[n].last = cg.time;
+		}
+		step = 2.5f * Com_Clamp( 0, 0.1f, ( cg.time - caTurret[n].last ) * 0.001f );
+		caTurret[n].yaw += Com_Clamp( -step, step, atan2( sin( aim - caTurret[n].yaw ), cos( aim - caTurret[n].yaw ) ) );
+		caTurret[n].last = cg.time;
+		glow = firing ? .55f + .45f * MAX( 0, sin( time * 9 ) ) : .25f + .1f * sin( time * 2 );
+		base.hModel = caPropModel[1];
+		CA_PropFrame( &base, 2, .6f, time );
+		base.shaderRGBA[0] = (byte)Com_Clamp( 0, 255, glow * 1.1f * 255 );
+		base.shaderRGBA[1] = (byte)Com_Clamp( 0, 255, glow * .35f * 255 );
+		base.shaderRGBA[2] = (byte)Com_Clamp( 0, 255, glow * .2f * 255 );
+		base.shaderRGBA[3] = 255;
+		trap_R_AddRefEntityToScene( &base );
+
+		memset( &head, 0, sizeof( head ) );
+		head.hModel = caPropModel[2];
+		VectorClear( angles );
+		angles[YAW] = RAD2DEG( caTurret[n].yaw );
+		AnglesToAxis( angles, head.axis );
+		CG_PositionRotatedEntityOnTag( &head, &base, base.hModel, "tag_head" );
+		Byte4Copy( base.shaderRGBA, head.shaderRGBA );
+		head.nonNormalizedAxes = base.nonNormalizedAxes;
+		trap_R_AddRefEntityToScene( &head );
+
+		memset( &barrel, 0, sizeof( barrel ) );
+		barrel.hModel = caPropModel[3];
+		AxisClear( barrel.axis );
+		CG_PositionRotatedEntityOnTag( &barrel, &head, head.hModel, "tag_barrel" );
+		if ( firing ) {
+			CA_PropFrame( &barrel, 8, 12, time );
+		}
+		Byte4Copy( base.shaderRGBA, barrel.shaderRGBA );
+		barrel.nonNormalizedAxes = base.nonNormalizedAxes;
+		trap_R_AddRefEntityToScene( &barrel );
+	}
+}
+
 #endif

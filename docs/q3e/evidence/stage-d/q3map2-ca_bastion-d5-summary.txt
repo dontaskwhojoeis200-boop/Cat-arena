@@ -1,0 +1,8 @@
+light pass 1 for ca_bastion (N10 bastion-keep): brightness ratio 2.165, scale so far 1
+All light scaled by 2.949000
+light pass 2 for ca_bastion (N10 bastion-keep): brightness ratio 1.052, scale so far 2.949
+light scale for ca_bastion: 2.949
+Wrote 11.1 MB (11640492 bytes)
+       14 BSP lightmaps
+Wrote 11.1 MB (11640492 bytes)
+       93 seconds elapsed

@@ -1080,30 +1080,25 @@ textures/catarena/ca_reactor/l15_888
 
 textures/catarena/sky_ca_reactor
 {
-	qer_editorimage textures/catarena/sky/rb_clouds_a.png
 	surfaceparm sky
 	surfaceparm noimpact
 	surfaceparm nolightmap
 	surfaceparm nomarks
-	q3map_sunExt 1 0.94 0.82 140 35 50 2 16
-	q3map_skylight 70 3
-	skyparms - 384 -
+	q3map_sunExt 1.000 0.660 0.450 140 -35.5 10.0 2 16
+	q3map_skylight 78 3
+	skyparms textures/catarena/sky/ca_reactor_box 160 -
 	{
-		map $whiteimage
-		rgbGen const ( 0.33 0.42 0.56 )
+		map sky/rb_clouds_a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.83 0.51 0.36 )
+		tcMod scale 0.55 0.55
+		tcMod scroll 0.0045 0.0018
 	}
 	{
-		map textures/catarena/sky/rb_clouds_a.png
+		map sky/rb_clouds_b
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		tcMod scale 2 2
-		tcMod scroll 0.006 0.003
-		rgbGen const ( 0.86 0.86 0.9 )
-	}
-	{
-		map textures/catarena/sky/rb_clouds_b.png
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		tcMod scale 3 3
-		tcMod scroll -0.004 0.002
-		rgbGen const ( 0.7 0.72 0.8 )
+		rgbGen const ( 0.83 0.51 0.36 )
+		tcMod scale 0.9 0.9
+		tcMod scroll 0.009 -0.003
 	}
 }

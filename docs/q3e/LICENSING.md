@@ -47,3 +47,12 @@ in this private build pipeline.
   LAUNCHER and HAND CANNON textures carry an emblem that resembles the Quake logo (seen in the
   stage D part 4 pictures). The owner should confirm these textures may be shipped, or repaint
   the emblem.
+- Map textures and models added in stage D part 5 (Helios Crucible, Bastion Keep, The Arsenal),
+  all taken unchanged from N10's asset catalog (`assets/n1/catalog.json`, extracted in N1 from the
+  legacy game archive): the Bastion kit (`models/bastion/BA_*.jpg`, `BA_08_glow.png`), the Arsenal
+  textures (`textures/gallery/*`), the nebula sky box (`env/gallery_nebula_*`), the sky layers
+  (`sky/*`) and the Arsenal MD3 props (`models/gallery/*.md3`, see the table above). The repository
+  records no origin for them before the legacy game; the names (a numbered texture kit, "gallery")
+  suggest a third-party kit or material modelled on Quake III maps. The owner should confirm the
+  rights to each before a release. The baked sky boxes (`textures/catarena/sky/*_box_*.jpg`) are
+  rendered by `tools/q3e/n10materials.py` from N10's sky mesh and its textures.

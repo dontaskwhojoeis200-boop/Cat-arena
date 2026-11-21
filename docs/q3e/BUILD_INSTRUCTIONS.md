@@ -110,7 +110,13 @@ python3 tools/q3e/gameplay_test.py check <console log>
 
 ```
 python3 tools/q3e/n10map2q3.py . reactor-bastion ca_reactor     # .map + world OBJ + shaders + textures
-tools/q3e/build_maps.sh <q3map2> ca_reactor                      # BSP / VIS / LIGHT (about 45 s)
+python3 tools/q3e/n10map2q3.py . helios-crucible ca_helios      # (stage D part 5) + material mesh OBJ
+python3 tools/q3e/n10map2q3.py . bastion-keep ca_bastion
+python3 tools/q3e/n10map2q3.py . q3-gallery ca_arsenal
+tools/q3e/build_maps.sh <q3map2> ca_reactor ca_helios ca_bastion ca_arsenal
+# BSP / VIS / LIGHT, then LIGHT again scaled to N10's lightmap brightness: about 1 min for
+# Reactor Bastion and The Arsenal, 4-5 min each for Helios Crucible and Bastion Keep (130-160k
+# material triangles). Needs numpy and Pillow. The .bsp files are committed.
 python3 tools/q3e/map_test.py write . reactor-bastion ca_reactor <homepath>/catarena/maptest.cfg
 CatArena +set ca_waves 0 +devmap ca_reactor +wait 150 +exec maptest.cfg   # then:
 python3 tools/q3e/map_test.py check . reactor-bastion ca_reactor <console log>

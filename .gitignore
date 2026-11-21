@@ -13,3 +13,5 @@ game/base/catarena/maps/*_world.obj
 game/base/catarena/maps/*_world.mtl
 game/base/catarena/maps/*.srf
 game/base/catarena/maps/*.prt
+game/base/catarena/maps/*_materials.obj
+game/base/catarena/maps/*_materials.mtl

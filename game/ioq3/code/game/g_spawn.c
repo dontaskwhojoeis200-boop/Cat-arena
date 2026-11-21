@@ -189,6 +189,7 @@ spawn_t	spawns[] = {
 	{"info_player_intermission", SP_info_player_intermission},
 #ifdef CAT_ARENA_STANDALONE
 	{"info_ca_enemy_spawn", SP_info_ca_enemy_spawn},
+	{"misc_ca_prop", SP_misc_ca_prop},
 #endif
 	{"info_null", SP_info_null},
 	{"info_notnull", SP_info_notnull},		// use target_position instead

@@ -102,8 +102,23 @@ CatArena.exe  (engine/quake3e, C, GPL v2)            catarena/  (base folder, fs
   pickups, jump pads) + visual mesh as `misc_model` → q3map2 (`-bsp -meta`, `-vis`, `-light`) →
   `maps/<id>.bsp`. Collision comes from the brushes (not from the triangle mesh) so it matches
   the N10 slab world.
-- **Textures / materials** → TGA / JPG in the pk3 + Quake III `.shader` scripts.
-- **Sounds** → WAV / OGG. **Models** → MD3 (props), IQM or MD3 (enemies).
+- **Material mesh** (stage D part 5; Helios Crucible, Bastion Keep and The Arsenal draw most of
+  their detail with it): N10's `materials.cmesh` as a second `misc_model`; N10's material
+  definitions (Quake III-style multi-stage shaders from the legacy game) written back as Quake III
+  shaders by `tools/q3e/n10materials.py`; their textures copied under the same names. The kit
+  pieces' "vertex light" (N10: its baked lightmap sampled per vertex) is sampled the same way into
+  the OBJ vertex colours and kept with `q3map_noVertexLight`.
+- **Sky**: the map's N10 sky material; the `$baked` far box is baked offline from N10's sky
+  geometry seen from the map centre, as the legacy game bakes it; the sun for q3map2 comes from its
+  glow. The Arsenal keeps its nebula box.
+- **Lighting**: q3map2 lights from the N10 light entities, then lights again with `-scale` until
+  the mean lightmap brightness matches N10's baked lightmap (`tools/q3e/light_scale.py`).
+- **Portals / mirrors** (The Arsenal, Helios Crucible's monitor): Quake III portal surfaces with
+  `misc_portal_surface` / `misc_portal_camera` at N10's cameras. N10 only drew stand-ins for them.
+- **Props** (The Arsenal): the flag and turret MD3s as `misc_ca_prop` entities, animated in cgame as
+  N10 does (flag frames, the turret's head tracking the player, its barrel spinning).
+- **Textures / materials** → JPG / PNG in the pk3 + Quake III `.shader` scripts.
+- **Sounds** → WAV / OGG. **Models** → MD3 (weapons, props); enemies: N10 meshes posed in cgame.
 
 ## Networking (Q3E-E)
 

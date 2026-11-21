@@ -36,6 +36,26 @@ void SP_info_ca_enemy_spawn( gentity_t *ent ) {
 	G_FreeEntity( ent );
 }
 
+/* ---- map entity: misc_ca_prop ------------------------------------------------------------ */
+/* N10's animated MD3 props (The Arsenal): "model" flag or turret, "angle", "modelscale". The client
+   draws and animates them (cg_ca_enemies.c CG_CA_Prop); the server only sends their placement. */
+void SP_misc_ca_prop( gentity_t *ent ) {
+	char *model;
+	float scale;
+	G_SpawnString( "model", "flag", &model );
+	G_SpawnFloat( "modelscale", "1", &scale );
+	ent->s.eType = ET_CA_PROP;
+	ent->s.modelindex = !Q_stricmp( model, "turret" ) ? 1 : 0;
+	ent->s.origin2[0] = scale;
+	ent->s.number = ent - g_entities;
+	G_SetOrigin( ent, ent->s.origin );
+	VectorCopy( ent->s.angles, ent->s.apos.trBase );
+	VectorSet( ent->r.mins, -80 * scale, -80 * scale, -40 * scale );
+	VectorSet( ent->r.maxs, 80 * scale, 80 * scale, 80 * scale );
+	ent->r.contents = 0;
+	trap_LinkEntity( ent );
+}
+
 /* ---- imports ---------------------------------------------------------------------------- */
 static void CA_Print( const char *text ) { G_Printf( "%s", text ); }
 static int CA_LevelTime( void ) { return level.time; }

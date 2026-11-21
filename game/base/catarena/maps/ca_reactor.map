@@ -35006,7 +35006,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "-198.4 -1011.2 26.0"
-"angle" "132.1"
+"angle" "42.1"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35015,7 +35015,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "1011.2 -198.4 26.0"
-"angle" "222.1"
+"angle" "132.1"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35024,7 +35024,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "998.4 83.2 26.0"
-"angle" "-63.4"
+"angle" "-153.4"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35033,7 +35033,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "198.4 1011.2 26.0"
-"angle" "-47.9"
+"angle" "-137.9"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35042,7 +35042,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "-83.2 998.4 26.0"
-"angle" "26.6"
+"angle" "-63.4"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35051,7 +35051,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "-1011.2 198.4 26.0"
-"angle" "42.1"
+"angle" "-47.9"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35060,7 +35060,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "-998.4 -83.2 26.0"
-"angle" "116.6"
+"angle" "26.6"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35069,7 +35069,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "83.2 -998.4 26.0"
-"angle" "206.6"
+"angle" "116.6"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35078,7 +35078,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "914.1 461.6 186.0"
-"angle" "260.3"
+"angle" "170.3"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35087,7 +35087,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "-461.6 914.1 186.0"
-"angle" "-9.7"
+"angle" "-99.7"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35096,7 +35096,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "-914.1 -461.6 186.0"
-"angle" "80.3"
+"angle" "-9.7"
 }
 {
 "classname" "info_ca_enemy_spawn"
@@ -35105,7 +35105,7 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "461.6 -914.1 186.0"
-"angle" "170.3"
+"angle" "80.3"
 }
 {
 "classname" "info_ca_enemy_spawn"
