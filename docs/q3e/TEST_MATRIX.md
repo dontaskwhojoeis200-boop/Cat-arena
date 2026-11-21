@@ -146,4 +146,4 @@ Full account in `STAGE_D_REVIEW.md`; logs in `evidence/stage-d/review/`.
 | Player box survey (`ca_fitsurvey`) | the stock Quake III box reaches 91-98 % of the nodes N10's player reaches; the rest lie within 1 m of its reach (wall strips) except 6 nodes on Reactor Bastion (four corner pockets) and 6 within 2 m on The Arsenal | Tested | fitsurvey-*.txt |
 | Lightmap brightness spread | N10 percentiles 10-90 about 36-72, q3map2 5-146 (Reactor Bastion; same means): q3map2's shadows near black | Tested (measured) | STAGE_D_REVIEW.md section 5 |
 | Fall damage | removed (N10 has none); an 8 m fall costs no health | Tested | medkit.log.checks |
-| Windows CI | pending | — | — |
+| Windows CI run 44938184467 (commit 7ec5023) | success: MSVC build, `ca_selftest` ALL PASS on the test arena and the four maps | Tested | windows-ci-44938184467.log; artifact `CAT_ARENA_Q3E_D7_WINDOWS_x64` (id 14720367748, 21,558,675 bytes; the review's build, the name was not changed) |

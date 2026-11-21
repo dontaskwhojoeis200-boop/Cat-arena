@@ -40,7 +40,7 @@ build was not changed). Logs and checks: `evidence/stage-d/review/`.
 | Sound (disk audio driver) | ALL PASS: output peak 0.1926 for 0.1926 expected, soundtrack at 0.322, 282 shots of the 16 guns, 75 voices of all kinds and families within N10's limits, nothing clipped | Tested |
 | Medkits on Reactor Bastion | ALL PASS (9): spawn at 100, +40, back after 13,000 ms, an 8 m fall costs nothing | Tested |
 | Pictures from six spawn spots of each map | 24 pictures (`review-views.jpg`) | Executed |
-| Windows CI (MSVC build, the five maps on the dedicated server) | see `TEST_MATRIX.md`, stage D review | — |
+| Windows CI run 44938184467 (MSVC build of 7ec5023, the five maps on the dedicated server) | `ca_selftest` ALL PASS on each | Tested |
 
 The scripted waves runs depend on where the enemies go, so a check can miss in one run and pass in
 the next. Across the review's runs on this build every check passed at least once on every map; the
