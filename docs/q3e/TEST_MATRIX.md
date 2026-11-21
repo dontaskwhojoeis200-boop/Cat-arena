@@ -105,4 +105,4 @@ Unverified / Blocked.
 | Test-script findings, not map defects | a player standing under a roof stalls a wave: N10's flyers steer greedily toward a point 2.45 m above the player and stay above the roof (same code in N10); the waves test therefore uses spawn spots open to the sky. Map tests must run with `ca_waves 0` (enemies block the walks) | — | — |
 | Pictures (Linux, lavapipe) | each map from a spawn spot and in a fight; The Arsenal's portal / camera-feed surfaces, banner and turret | Executed | linux-d5-four-maps.jpg |
 | Compared with N10 pictures | by eye only (sky, light level, kit pieces); no metric comparison | Unverified | — |
-| Windows CI: the four maps on the dedicated server, `ca_selftest` ALL PASS on each | pending | — | — |
+| Windows CI run 44868659259: MSVC build, the test arena and the four maps on the dedicated server, `ca_selftest` ALL PASS on each with the same route and flyer results as Linux | success; `qagamex86_64.dll` 495,104, `cgamex86_64.dll` 267,264 bytes | Tested | windows-ci-44868659259.log; artifact `CAT_ARENA_Q3E_D5_WINDOWS_x64` (id 14692044570, 16,219,846 bytes) |
