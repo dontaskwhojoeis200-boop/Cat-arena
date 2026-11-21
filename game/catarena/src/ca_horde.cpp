@@ -118,6 +118,7 @@ public:
     }
     void shutdown() { for(auto& e : enemies_) if(e.alive()) im_.removeEnemy(e.entity), e.entity = -1; }
     int self_test();
+    void fit_survey(int list);
     // ca_lineup (cheat): every type in rows in front of a point, held still
     void lineup(const float origin[3], float yaw_deg);
     bool lineup_active() const { return frozen_; }
@@ -631,6 +632,98 @@ void Horde::killed(int entity) {
     for(auto& e : enemies_) if(e.entity == entity) { e.entity = -1; ++waves_.kills; return; }
 }
 
+// Stage D review: on every N10 navigation node (1 m grid over N10's floors), does N10's player
+// (radius 0.30 m, height 1.80 m) fit, and does the stock Quake III player box (30 x 30 x 56 units =
+// 0.94 x 0.94 x 1.75 m) fit? Lists the nodes where only N10's player fits.
+void Horde::fit_survey(int list) {
+    if(!nav_world_ || !nav_) { print("ca_fitsurvey: no N10 map data\n"); return; }
+    const auto& w = *nav_world_;
+    int n10 = 0, q3 = 0, only_n10 = 0, only_q3 = 0, shown = 0;
+    char line[256];
+    for(const auto& n : nav_->nodes()) {
+        const double r = .30, h = 1.80, z = n.z + .05;
+        const bool a = w.walkable(n.x, n.y) && !w.wall_hit(n.x, n.y, z, h, r) && !w.feature_solid_at(n.x, n.y, z, z + h, r)
+                       && !w.hits_slab(n.x, n.y, r, z + .02, z + h - .02);
+        const float p[3]{float((n.x - cx_) * CA_UNITS_PER_METRE), float((n.y - cy_) * CA_UNITS_PER_METRE), float(n.z * CA_UNITS_PER_METRE + 24 + 2)};
+        const float mins[3]{-15, -15, -24}, maxs[3]{15, 15, 32};
+        const bool b = im_.boxFree(p, p, mins, maxs) != 0;
+        n10 += a; q3 += b;
+        if(a && !b) {
+            ++only_n10;
+            if(shown < list) {
+                std::snprintf(line, sizeof line, "ca_fitsurvey: only N10 fits at %.0f %.0f %.0f (N10 %.1f %.1f %.1f)\n", p[0], p[1], p[2], n.x, n.y, n.z);
+                print(line);
+                ++shown;
+            }
+        }
+        if(b && !a) ++only_q3;
+    }
+    std::snprintf(line, sizeof line, "ca_fitsurvey: %zu nodes; N10 player fits at %d, Quake III player at %d; only N10 at %d, only Quake III at %d\n",
+                  nav_->nodes().size(), n10, q3, only_n10, only_q3);
+    print(line);
+    // Reach: flood N10's standard-profile links (radius 0.32 m, the N10 player's size) from the map's
+    // spawn spots, once as N10 (all links) and once keeping only links the Quake III box can sweep
+    // (box from 20 units above the higher node, so steps up to 18 units pass, to 56 units above it).
+    const auto& nodes = nav_->nodes();
+    float spots[64][3];
+    const int ns = im_.spawnPoints(spots, 64);
+    std::vector<char> reach_n10(nodes.size(), 0), reach_q3(nodes.size(), 0);
+    auto to_q3 = [&](const cat::nav::Node& n, double zoff) {
+        return std::array<float, 3>{float((n.x - cx_) * CA_UNITS_PER_METRE), float((n.y - cy_) * CA_UNITS_PER_METRE), float(n.z * CA_UNITS_PER_METRE + zoff)};
+    };
+    for(int pass = 0; pass < 2; ++pass) {
+        auto& reach = pass == 0 ? reach_n10 : reach_q3;
+        std::vector<std::uint32_t> queue;
+        for(int i = 0; i < ns; ++i) {
+            const auto p = to_n10(spots[i]);
+            if(const auto* n = nav_->nearest(p[0], p[1], p[2], cat::nav::kStandard)) {
+                if(!reach[n->id]) { reach[n->id] = 1; queue.push_back(n->id); }
+            }
+        }
+        for(std::size_t qi = 0; qi < queue.size(); ++qi) {
+            const auto& a = nodes[queue[qi]];
+            for(const auto& e : nav_->neighbors(a.id, cat::nav::kStandard)) {
+                if(reach[e.to]) continue;
+                const auto& b = nodes[e.to];
+                if(pass == 1) {
+                    const double top = std::max(a.z, b.z);
+                    auto pa = to_q3(a, 0), pb = to_q3(b, 0);
+                    pa[2] = pb[2] = float(top * CA_UNITS_PER_METRE);
+                    const float mins[3]{-15, -15, 20}, maxs[3]{15, 15, 56};
+                    if(!im_.boxFree(pa.data(), pb.data(), mins, maxs)) continue;
+                }
+                reach[e.to] = 1;
+                queue.push_back(e.to);
+            }
+        }
+    }
+    // how far is each node only N10's player reaches from the nearest node the Quake III box reaches
+    // (same level, within 1 m height): next to it = the 0.17 m the box is wider, by walls and edges;
+    // further = an area the Quake III player cannot get to
+    int rn = 0, rq = 0, lost = 0, near1 = 0, near2 = 0, far = 0;
+    shown = 0;
+    for(std::size_t i = 0; i < nodes.size(); ++i) {
+        rn += reach_n10[i]; rq += reach_q3[i];
+        if(!reach_n10[i] || reach_q3[i]) continue;
+        ++lost;
+        double best = 1e9;
+        for(std::size_t j = 0; j < nodes.size(); ++j) {
+            if(!reach_q3[j] || std::fabs(nodes[j].z - nodes[i].z) > 1.0) continue;
+            best = std::min(best, std::hypot(nodes[j].x - nodes[i].x, nodes[j].y - nodes[i].y));
+        }
+        if(best <= 1.01) ++near1; else if(best <= 2.01) ++near2; else ++far;
+        if(best > 2.01 && shown < list) {
+            const auto q = to_q3(nodes[i], 24);
+            std::snprintf(line, sizeof line, "ca_fitsurvey: N10's player only, %.1f m from the Quake III reach: %.0f %.0f %.0f\n", best > 1e8 ? -1.0 : best, q[0], q[1], q[2]);
+            print(line);
+            ++shown;
+        }
+    }
+    std::snprintf(line, sizeof line, "ca_fitsurvey: reach from %d spawn spots over N10 links: N10 player %d nodes, Quake III box %d; %d only by N10's player: %d within 1 m of the Quake III reach, %d within 2 m, %d further\n",
+                  ns, rn, rq, lost, near1, near2, far);
+    print(line);
+}
+
 int Horde::self_test() {
     int fails = 0;
     auto check = [&](bool ok, const char* what) {
@@ -813,6 +906,9 @@ extern "C" void CA_HordeLineup(const float origin[3], float yawDeg) {
     try { if(origin) g_horde.lineup(origin, yawDeg); else g_horde.end_lineup(); } catch(...) {}
 }
 extern "C" int CA_HordeLineupActive(void) { return g_horde.lineup_active() ? 1 : 0; }
+extern "C" void CA_HordeFitSurvey(int list) {
+    try { g_horde.fit_survey(list); } catch(...) {}
+}
 extern "C" int CA_HordePickups(float* xyz, int max) {
     try { return g_horde.pickups(xyz, max); } catch(...) { return 0; }
 }

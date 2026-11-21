@@ -454,6 +454,12 @@ qboolean	ConsoleCommand( void ) {
 	trap_Argv( 0, cmd, sizeof( cmd ) );
 
 #ifdef CAT_ARENA_STANDALONE
+	if ( Q_stricmp (cmd, "ca_fitsurvey") == 0 ) {	/* stage D review: where the Quake III player box fits vs N10's player */
+		char arg[16];
+		trap_Argv( 1, arg, sizeof( arg ) );
+		CA_HordeFitSurvey( arg[0] ? atoi( arg ) : 20 );
+		return qtrue;
+	}
 	if ( Q_stricmp (cmd, "ca_selftest") == 0 ) {
 		Svcmd_CA_SelfTest_f();
 		return qtrue;

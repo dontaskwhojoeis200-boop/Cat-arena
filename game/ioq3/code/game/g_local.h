@@ -968,6 +968,7 @@ void G_CA_Shutdown( void );
 void SP_info_ca_enemy_spawn( gentity_t *ent );
 void SP_misc_ca_prop( gentity_t *ent );
 void Svcmd_CA_SelfTest_f( void );
+void CA_HordeFitSurvey( int list );	/* ca_game.h */
 void Cmd_CA_AimNearest_f( gentity_t *ent );
 void Cmd_CA_State_f( gentity_t *ent );
 void Cmd_CA_Place_f( gentity_t *ent );

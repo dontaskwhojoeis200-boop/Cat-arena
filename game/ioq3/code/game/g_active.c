@@ -561,6 +561,9 @@ void ClientEvents( gentity_t *ent, int oldEventSequence ) {
 			if ( g_dmflags.integer & DF_NO_FALLING ) {
 				break;
 			}
+#ifdef CAT_ARENA_STANDALONE
+			break;		// N10 (player.cpp, q3CrashLand): no fall damage in the legacy game
+#endif
 			if ( event == EV_FALL_FAR ) {
 				damage = 10;
 			} else {

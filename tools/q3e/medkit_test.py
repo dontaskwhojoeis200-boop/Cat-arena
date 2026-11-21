@@ -9,13 +9,16 @@ Run: SDL_AUDIODRIVER=dummy CatArena +set ca_waves 0 +set ca_log 1 +devmap ca_rea
 The player spawns (health must be N10's 100), stands on the first N10 medkit at full health (not
 taken), backs off and looks at it (picture), drops to 40 health and walks over it (taken: 80, the
 medkit beep, picture without it), then waits on it at 80 health: it must come back and heal again
-13 s after it was taken (80 -> 100).
+13 s after it was taken (80 -> 100). Last, an 8 m fall onto an open spawn spot must cost no health
+(N10 has no fall damage).
 """
 import json
 import math
 import os
 import re
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 
 def write(root, path):
@@ -30,7 +33,10 @@ def write(root, path):
              on, "wait 10", "+back", "wait 7", "-back", "wait 30", "screenshotJPEG medkit_taken", on, "wait 10", "echo CATEST wait"]
     for _ in range(60):
         lines += ["wait 20", "ca_state"]
-    lines += ["echo CATEST end", "quit"]
+    # a fall of 8 m onto an open spawn spot: N10 has no fall damage (Quake III took 10)
+    import enemies_test
+    fx, fy, fz = [float(v) for v in enemies_test.map_spots(root, "reactor-bastion")[0].split()[1:4]]
+    lines += ["ca_state", "echo CATEST fall", "ca_place %.0f %.0f %.0f 0" % (fx, fy, fz + 256), "wait 120", "ca_state", "wait 20", "echo CATEST end", "quit"]
     with open(path, "w", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
 
@@ -64,6 +70,11 @@ def check(log):
     ok(again and again[0][1:4] == (20, 80, 100) and 13000 <= again[0][4] - heals[0][4] <= 13100,
        "back after %s ms (N10 13 s), healed again 80 -> 100" % (again[0][4] - heals[0][4] if again else "-"))
     ok(len(heals) == 2, "%d heals in all" % len(heals))
+    # the last two states: before the fall and after it (server prints arrive after the local echo lines)
+    before, after = (every[-2], every[-1]) if len(every) >= 3 else ({}, {})
+    z_after = float(after["pos"].split(",")[2]) if after else 0
+    ok(after and int(after["health"]) == int(before["health"]) and float(after["vz"]) == 0 and "died" not in text.split("CATEST fall")[-1],
+       "an 8 m fall: health %s before, %s after, standing at z %.0f (N10: no fall damage)" % (before.get("health"), after.get("health"), z_after))
     ok("ERROR" not in text and "Signal caught" not in text, "no errors")
     print("ALL PASS" if fails == 0 else "%d FAILED" % fails)
     return fails == 0
