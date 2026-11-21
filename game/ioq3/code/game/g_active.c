@@ -571,6 +571,12 @@ void ClientEvents( gentity_t *ent, int oldEventSequence ) {
 			break;
 
 		case EV_FIRE_WEAPON:
+#ifdef CAT_ARENA_STANDALONE
+			if ( client->ps.weapon == WP_MACHINEGUN ) {	// Cat Arena: the parameter is the weapon fired
+				G_CA_FireWeapon( ent, client->ps.eventParms[ i & ( MAX_PS_EVENTS - 1 ) ] );
+				break;
+			}
+#endif
 			FireWeapon( ent );
 			break;
 

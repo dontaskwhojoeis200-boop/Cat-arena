@@ -68,6 +68,7 @@ static int CA_SpawnPoints( float (*out)[3], int max ) {
 static void CA_EnemyDie( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int damage, int mod ) {
 	if ( attacker && attacker->client ) {
 		AddScore( attacker, self->r.currentOrigin, 1 );
+		G_CA_Reroll( attacker, -1 );   /* N10 rerollOne: a frag replaces the weapon in hand */
 	}
 	CA_HordeEnemyKilled( self->s.number );
 	self->takedamage = qfalse;
@@ -271,6 +272,7 @@ static const caGameImport_t caImports = {
 
 void G_CA_Init( void ) {
 	trap_Cvar_Register( &ca_waves, "ca_waves", "1", 0 );
+	trap_Cvar_Register( NULL, "ca_loadout", "", 0 );   /* "a b": fixed spawn weapons (tests); empty = random */
 	CA_HordeInit( &caImports );
 }
 
@@ -296,7 +298,20 @@ void G_CA_Shutdown( void ) {
 
 /* ---- test commands ------------------------------------------------------------------------ */
 void Svcmd_CA_SelfTest_f( void ) {
-	CA_HordeSelfTest();
+	int hordeOk = CA_HordeSelfTest();
+	int i, fiend = -1, ok;
+	float spots[64][3];
+	int n = CA_SpawnPoints( spots, 64 );
+	/* weapons: the real server firing code against a fiend on this map */
+	for ( i = 0 ; i < n && fiend < 0 ; i++ ) {
+		fiend = CA_SpawnEnemy( CA_ENEMY_FIEND, spots[i], 0, 100 );
+	}
+	G_CA_WeaponSelfTest( fiend );
+	ok = hordeOk && caWeaponFailsTotal() == 0;
+	if ( fiend >= 0 && g_entities[ fiend ].inuse && g_entities[ fiend ].takedamage ) {
+		CA_RemoveEnemy( fiend );
+	}
+	G_Printf( ok ? "ca_selftest: ALL PASS\n" : "ca_selftest: FAILURES\n" );
 }
 
 /* ca_state (cheat): one line with the player's movement and weapon state (scripted tests). */
@@ -306,20 +321,22 @@ void Cmd_CA_State_f( gentity_t *ent ) {
 		return;
 	}
 	ps = &ent->client->ps;
-	trap_SendServerCommand( ent - g_entities, va( "print \"CA_STATE t=%d pos=%.0f,%.0f,%.0f hspeed=%.0f sliding=%d slide_ms=%d cooldown_ms=%d ducked=%d clip=%d reloading=%d health=%d score=%d weapon=%d wstate=%d wtime=%d pmflags=%d\n\"",
-		level.time, ps->origin[0], ps->origin[1], ps->origin[2], sqrt( ps->velocity[0] * ps->velocity[0] + ps->velocity[1] * ps->velocity[1] ),
+	trap_SendServerCommand( ent - g_entities, va( "print \"CA_STATE t=%d pos=%.0f,%.0f,%.0f hspeed=%.0f vz=%.0f sliding=%d slide_ms=%d cooldown_ms=%d ducked=%d clip=%d reloading=%d health=%d score=%d weapon=%d wstate=%d wtime=%d pmflags=%d slot=%d w0=%d w1=%d inhand=%d clip2=%d\n\"",
+		level.time, ps->origin[0], ps->origin[1], ps->origin[2], sqrt( ps->velocity[0] * ps->velocity[0] + ps->velocity[1] * ps->velocity[1] ), ps->velocity[2],
 		( ps->pm_flags & PMF_CA_SLIDING ) ? 1 : 0, ps->stats[STAT_CA_SLIDE], ps->stats[STAT_CA_SLIDE_COOLDOWN], ( ps->pm_flags & PMF_DUCKED ) ? 1 : 0,
-		ps->stats[STAT_CA_CLIP], ps->weaponstate == WEAPON_RELOADING, ps->stats[STAT_HEALTH], ps->persistant[PERS_SCORE], ps->weapon, ps->weaponstate, ps->weaponTime, ps->pm_flags ) );
+		ps->stats[STAT_CA_CLIP], ps->weaponstate == WEAPON_RELOADING, ps->stats[STAT_HEALTH], ps->persistant[PERS_SCORE], ps->weapon, ps->weaponstate, ps->weaponTime, ps->pm_flags,
+		CA_LO_ACTIVE_SLOT( ps->stats[STAT_CA_LOADOUT] ), CA_LO_WEAPON( ps->stats[STAT_CA_LOADOUT], 0 ), CA_LO_WEAPON( ps->stats[STAT_CA_LOADOUT], 1 ),
+		CA_LO_IN_HAND( ps->stats[STAT_CA_LOADOUT] ), ps->stats[STAT_CA_CLIP2] ) );
 }
 
-/* ca_place x y z yaw (cheat): put the player there at rest (setviewpos throws the player forward
+/* ca_place x y z yaw [pitch] (cheat): put the player there at rest (setviewpos throws the player forward
    at 400 u/s like a teleporter exit, which spoils position tests). */
 void Cmd_CA_Place_f( gentity_t *ent ) {
 	char buf[MAX_TOKEN_CHARS];
 	vec3_t origin, angles;
 	int i;
-	if ( !ent->client || trap_Argc() != 5 ) {
-		trap_SendServerCommand( ent - g_entities, "print \"usage: ca_place x y z yaw\n\"" );
+	if ( !ent->client || ( trap_Argc() != 5 && trap_Argc() != 6 ) ) {
+		trap_SendServerCommand( ent - g_entities, "print \"usage: ca_place x y z yaw [pitch]\n\"" );
 		return;
 	}
 	for ( i = 0 ; i < 3 ; i++ ) {
@@ -328,6 +345,10 @@ void Cmd_CA_Place_f( gentity_t *ent ) {
 	}
 	trap_Argv( 4, buf, sizeof( buf ) );
 	VectorSet( angles, 0, atof( buf ), 0 );
+	if ( trap_Argc() == 6 ) {
+		trap_Argv( 5, buf, sizeof( buf ) );
+		angles[PITCH] = atof( buf );
+	}
 	VectorCopy( origin, ent->client->ps.origin );
 	VectorClear( ent->client->ps.velocity );
 	ent->client->ps.eFlags ^= EF_TELEPORT_BIT;

@@ -1604,6 +1604,27 @@ static void PM_Weapon( void ) {
 		return;
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	{	// Cat Arena weapon switch (N10 switchWeapon): the other slot with its own magazine; cancels
+		// a reload; 150 ms before the next shot. Acts on the press of the switch button.
+		int lo = pm->ps->stats[STAT_CA_LOADOUT];
+		if ( pm->cmd.buttons & BUTTON_CA_SWITCH ) {
+			if ( !( lo & CA_LO_SWITCH_HELD ) && pm->ps->weapon == WP_MACHINEGUN ) {
+				int clip = pm->ps->stats[STAT_CA_CLIP];
+				lo ^= CA_LO_ACTIVE;
+				pm->ps->stats[STAT_CA_CLIP] = pm->ps->stats[STAT_CA_CLIP2];
+				pm->ps->stats[STAT_CA_CLIP2] = clip;
+				pm->ps->weaponstate = WEAPON_READY;
+				pm->ps->weaponTime = CA_SWITCH_MS;
+			}
+			lo |= CA_LO_SWITCH_HELD;
+		} else {
+			lo &= ~CA_LO_SWITCH_HELD;
+		}
+		pm->ps->stats[STAT_CA_LOADOUT] = lo;
+	}
+#endif
+
 	// check for item using
 	if ( pm->cmd.buttons & BUTTON_USE_HOLDABLE ) {
 		if ( ! ( pm->ps->pm_flags & PMF_USE_ITEM_HELD ) ) {
@@ -1658,7 +1679,7 @@ static void PM_Weapon( void ) {
 
 #ifdef CAT_ARENA_STANDALONE
 	{	// Cat Arena magazines: reload when empty or on the reload button (N10 clip / reload times)
-		const caWeapon_t *caw = CA_WeaponForSlot( pm->ps->weapon );
+		const caWeapon_t *caw = pm->ps->weapon == WP_MACHINEGUN ? CA_Weapon( CA_LO_IN_HAND( pm->ps->stats[STAT_CA_LOADOUT] ) ) : NULL;
 		if ( pm->ps->weaponstate == WEAPON_RELOADING ) {
 			if ( caw ) {
 				pm->ps->stats[STAT_CA_CLIP] = caw->clip;
@@ -1709,9 +1730,27 @@ static void PM_Weapon( void ) {
 	}
 
 #ifdef CAT_ARENA_STANDALONE
-	if ( CA_WeaponForSlot( pm->ps->weapon ) ) {
+	if ( pm->ps->weapon == WP_MACHINEGUN ) {	// Cat Arena: the event carries the weapon fired
+		int caIndex = CA_LO_IN_HAND( pm->ps->stats[STAT_CA_LOADOUT] );
+		const caWeapon_t *caw = CA_Weapon( caIndex );
 		pm->ps->stats[STAT_CA_CLIP]--;
-	}
+		BG_AddPredictableEventToPlayerstate( EV_FIRE_WEAPON, caIndex, pm->ps );
+		if ( caw->shotgun ) {	// N10 applyShotgunRecoil: pushed backwards; in the air also lifted
+			float yaw = DEG2RAD( pm->ps->viewangles[YAW] );
+			float force = CA_ShotgunRecoil( caIndex );
+			float bx = -cos( yaw ), by = -sin( yaw );
+			if ( pm->ps->groundEntityNum != ENTITYNUM_NONE ) {
+				pm->ps->velocity[0] += bx * force;
+				pm->ps->velocity[1] += by * force;
+			} else {
+				pm->ps->velocity[0] += bx * force * 0.55f;
+				pm->ps->velocity[1] += by * force * 0.55f;
+				if ( pm->ps->velocity[2] < CA_ShotgunAirLift( caIndex ) ) {
+					pm->ps->velocity[2] = CA_ShotgunAirLift( caIndex );
+				}
+			}
+		}
+	} else
 #endif
 	// fire weapon
 	PM_AddEvent( EV_FIRE_WEAPON );
@@ -1729,7 +1768,7 @@ static void PM_Weapon( void ) {
 		break;
 	case WP_MACHINEGUN:
 #ifdef CAT_ARENA_STANDALONE
-		addTime = CA_WeaponForSlot( WP_MACHINEGUN )->delayMs;	// NAILGUN: 90 ms
+		addTime = CA_Weapon( CA_LO_IN_HAND( pm->ps->stats[STAT_CA_LOADOUT] ) )->delayMs;	// N10 delay of the weapon in hand
 #else
 		addTime = 100;
 #endif

@@ -530,7 +530,9 @@ static void CG_CA_DrawHud( void ) {
 	static const vec4_t text = { 0.92f, 0.90f, 0.86f, 1.0f };
 	static const vec4_t danger = { 0.90f, 0.30f, 0.22f, 1.0f };
 	const playerState_t *ps = &cg.predictedPlayerState;
-	const caWeapon_t *w = CA_WeaponForSlot( ps->weapon );
+	int lo = ps->stats[STAT_CA_LOADOUT];
+	const caWeapon_t *w = ps->weapon == WP_MACHINEGUN ? CA_Weapon( CA_LO_IN_HAND( lo ) ) : NULL;
+	const caWeapon_t *other = ps->weapon == WP_MACHINEGUN ? CA_Weapon( CA_LO_WEAPON( lo, !CA_LO_ACTIVE_SLOT( lo ) ) ) : NULL;
 	const char *info = CG_ConfigString( CS_CA_WAVE );
 	char *p = (char *)info;
 	int wave = atoi( COM_Parse( &p ) ), total = atoi( COM_Parse( &p ) ), kills = atoi( COM_Parse( &p ) );
@@ -546,6 +548,10 @@ static void CG_CA_DrawHud( void ) {
 			s = va( "%s  %i / %i", w->name, ps->stats[STAT_CA_CLIP], w->clip );
 		}
 		CG_DrawStringExt( 624 - CG_DrawStrlen( s ) * 12, 452, s, brass, qtrue, qtrue, 12, 16, 0 );
+	}
+	if ( other ) {	// the other slot (switch: Q)
+		s = va( "Q  %s  %i", other->name, ps->stats[STAT_CA_CLIP2] );
+		CG_DrawStringExt( 624 - CG_DrawStrlen( s ) * 8, 434, s, text, qtrue, qtrue, 8, 12, 0 );
 	}
 	if ( wave > 0 ) {
 		if ( next > 0 ) {

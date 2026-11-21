@@ -9,6 +9,32 @@ white
 	}
 }
 
+catarena/fx/glow
+{
+	nopicmip
+	cull none
+	sort additive
+	{
+		map gfx/catarena/glow.png
+		blendFunc GL_SRC_ALPHA GL_ONE
+		rgbGen vertex
+		alphaGen vertex
+	}
+}
+
+catarena/fx/beam
+{
+	nopicmip
+	cull none
+	sort additive
+	{
+		clampmap gfx/catarena/beam.png
+		blendFunc GL_SRC_ALPHA GL_ONE
+		rgbGen vertex
+		alphaGen vertex
+	}
+}
+
 textures/common/trigger
 {
 	surfaceparm nodraw

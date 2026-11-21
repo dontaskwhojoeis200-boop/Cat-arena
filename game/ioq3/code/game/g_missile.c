@@ -450,6 +450,12 @@ void G_RunMissile( gentity_t *ent ) {
 	trace_t		tr;
 	int			passent;
 
+#ifdef CAT_ARENA_STANDALONE
+	if ( ent->classname && !strcmp( ent->classname, "ca_projectile" ) ) {
+		G_CA_RunProjectile( ent );	// N10 rocket / grenade / rift bolt
+		return;
+	}
+#endif
 	// get current position
 	BG_EvaluateTrajectory( &ent->s.pos, level.time, origin );
 

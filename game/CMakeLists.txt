@@ -61,7 +61,7 @@ set(CA_CGAME_C
   ${IOQ3}/cgame/cg_marks.c ${IOQ3}/cgame/cg_particles.c ${IOQ3}/cgame/cg_players.c
   ${IOQ3}/cgame/cg_playerstate.c ${IOQ3}/cgame/cg_predict.c ${IOQ3}/cgame/cg_scoreboard.c
   ${IOQ3}/cgame/cg_servercmds.c ${IOQ3}/cgame/cg_snapshot.c ${IOQ3}/cgame/cg_view.c
-  ${IOQ3}/cgame/cg_weapons.c ${IOQ3}/cgame/cg_syscalls.c)
+  ${IOQ3}/cgame/cg_weapons.c ${IOQ3}/cgame/cg_syscalls.c ${IOQ3}/cgame/cg_ca_effects.c)
 
 function(ca_module target defs)
   set_target_properties(${target} PROPERTIES PREFIX "" OUTPUT_NAME ${target}${CA_ARCH})
@@ -86,7 +86,7 @@ else()
   target_compile_options(ca_n10nav PRIVATE -ffp-contract=off)
 endif()
 
-add_library(qagame SHARED ${CA_GAME_C} ${IOQ3}/game/g_ca.c ${CA}/src/ca_horde.cpp ${CA_BG_C} ${CA_SHARED_C})
+add_library(qagame SHARED ${CA_GAME_C} ${IOQ3}/game/g_ca.c ${IOQ3}/game/g_ca_weapons.c ${CA}/src/ca_horde.cpp ${CA_BG_C} ${CA_SHARED_C})
 target_link_libraries(qagame PRIVATE ca_n10nav)
 ca_module(qagame QAGAME)
 

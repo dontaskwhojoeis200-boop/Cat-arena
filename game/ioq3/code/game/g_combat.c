@@ -58,7 +58,9 @@ void AddScore( gentity_t *ent, vec3_t origin, int score ) {
 		return;
 	}
 	// show score plum
+#ifndef CAT_ARENA_STANDALONE	// Cat Arena: no Quake III score plums (no number art; N10 has none)
 	ScorePlum(ent, origin, score);
+#endif
 	//
 	ent->client->ps.persistant[PERS_SCORE] += score;
 	if ( g_gametype.integer == GT_TEAM )
@@ -968,7 +970,11 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 
 	// always give half damage if hurting self
 	// calculated after knockback, so rocket jumping works
+#ifdef CAT_ARENA_STANDALONE
+	if ( 0 ) {	// Cat Arena (N10 explode): a player's own blast hurts in full
+#else
 	if ( targ == attacker) {
+#endif
 		damage *= 0.5;
 	}
 

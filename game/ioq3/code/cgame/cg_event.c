@@ -807,6 +807,20 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		DEBUGNAME("EV_CHANGE_WEAPON");
 		trap_S_StartSound (NULL, es->number, CHAN_AUTO, cgs.media.selectSound );
 		break;
+#ifdef CAT_ARENA_STANDALONE
+	case EV_CA_SHOT:
+		DEBUGNAME("EV_CA_SHOT");
+		CG_CA_Shot( es );
+		break;
+	case EV_CA_BLAST:
+		DEBUGNAME("EV_CA_BLAST");
+		CG_CA_Blast( es );
+		break;
+	case EV_CA_REROLL:
+		DEBUGNAME("EV_CA_REROLL");
+		CG_CA_Reroll( es );
+		break;
+#endif
 	case EV_FIRE_WEAPON:
 		DEBUGNAME("EV_FIRE_WEAPON");
 		CG_FireWeapon( cent );

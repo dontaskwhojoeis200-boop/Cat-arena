@@ -238,7 +238,7 @@ void Horde::load_navigation() {
     std::vector<unsigned char> bytes(8u << 20);
     const int n = im_.readFile ? im_.readFile(path, bytes.data(), int(bytes.size())) : -1;
     if(n <= 0) {
-        char line[160];
+        char line[256];
         std::snprintf(line, sizeof line, "Cat Arena: no N10 navigation data (%s); enemies chase directly\n", path);
         print(line);
         return;
@@ -251,7 +251,7 @@ void Horde::load_navigation() {
         cy_ = center.at(1).number();
         nav_world_ = std::make_unique<cat::physics::CollisionWorld>(compiled);
         nav_ = std::make_unique<cat::nav::NavGraph>(*nav_world_);
-        char line[160];
+        char line[256];
         std::snprintf(line, sizeof line, "Cat Arena: N10 navigation graph for %s (%d nodes)\n", map, int(nav_->nodes().size()));
         print(line);
     } catch(const std::exception& ex) {
@@ -346,7 +346,7 @@ void Horde::killed(int entity) {
 int Horde::self_test() {
     int fails = 0;
     auto check = [&](bool ok, const char* what) {
-        char line[160];
+        char line[256];
         std::snprintf(line, sizeof line, "ca_selftest: %s %s\n", ok ? "PASS" : "FAIL", what);
         print(line);
         if(!ok) ++fails;
@@ -410,9 +410,27 @@ int Horde::self_test() {
                       reach[0], total[0], reach[1], total[1], reach[2], total[2]);
         check(reach[1] > 0 && reach[2] > 0, what);
     }
-    const caWeapon_t* nail = CA_WeaponForSlot(2);
-    check(nail && nail->damage == 13 && nail->delayMs == 90 && nail->clip == 50 && nail->reloadMs == 1350, "NAILGUN in the machinegun slot: 13 dmg, 90 ms, 50 rounds, 1.35 s reload");
-    print(fails == 0 ? "ca_selftest: ALL PASS\n" : "ca_selftest: FAILURES\n");
+    {   // the 16 N10 weapons (native/src/combat.cpp kWeapons): name, damage, delay ms, clip, reload ms, pellets, range m
+        struct Row { const char* name; int damage, delay, clip, reload, pellets, range; };
+        static constexpr Row kExpect[CA_WEAPON_COUNT] = {
+            {"NAILGUN", 13, 90, 50, 1350, 1, 27}, {"SHOTGUN", 18, 720, 8, 1800, 8, 13}, {"GRENADE LAUNCHER", 108, 780, 6, 2000, 1, 24},
+            {"RAILGUN", 132, 980, 7, 2100, 1, 100}, {"ROCKET LAUNCHER", 95, 860, 6, 2100, 1, 33}, {"SUPER NAILGUN", 20, 130, 36, 1650, 1, 31},
+            {"THUNDERBOLT", 15, 75, 75, 1700, 1, 20}, {"SUPER SHOTGUN", 16, 880, 12, 2000, 14, 14}, {"PLASMA REPEATER", 34, 190, 48, 1700, 1, 50},
+            {"TRIPLE SPIKE", 13, 340, 36, 1550, 3, 36}, {"RIFT CANNON", 125, 1150, 5, 2400, 1, 36}, {"IRON CHAINGUN", 10, 65, 100, 2100, 1, 70},
+            {"HAND CANNON", 78, 820, 7, 2000, 1, 95}, {"HELLFIRE CARBINE", 37, 280, 28, 1700, 1, 42}, {"SAWBLADE DRIVER", 39, 380, 22, 1900, 1, 54},
+            {"QUAD SHOTGUN", 14, 1150, 8, 2500, 20, 17}};
+        int same = 0;
+        for(int i = 0; i < CA_WEAPON_COUNT; ++i) {
+            const caWeapon_t* w = CA_Weapon(i);
+            const Row& r = kExpect[i];
+            if(w && std::strcmp(w->name, r.name) == 0 && w->damage == r.damage && w->delayMs == r.delay && w->clip == r.clip && w->reloadMs == r.reload
+               && w->pellets == r.pellets && std::fabs(w->rangeUnits - r.range * CA_UNITS_PER_METRE) < .01F) ++same;
+        }
+        char what[96];
+        std::snprintf(what, sizeof what, "N10 weapon table: %d/16 weapons match (damage, rate, magazine, reload, pellets, range)", same);
+        check(same == CA_WEAPON_COUNT, what);
+    }
+    print(fails == 0 ? "ca_selftest: horde PASS\n" : "ca_selftest: horde FAILURES\n");
     return fails == 0;
 }
 

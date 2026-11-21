@@ -1420,8 +1420,9 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 	{	// Cat Arena viewmodel: the N10 weapon model is authored in view space, so it is drawn
 		// directly at the view (with Quake III's bob / sway above) instead of on a hand model.
 		refEntity_t gun;
-		vec3_t muzzle;
+		vec3_t muzzle, m;
 		int sinceFire = cg.time - cg_entities[ ps->clientNum ].muzzleFlashTime;
+		int caWeapon = CA_LO_IN_HAND( ps->stats[STAT_CA_LOADOUT] );
 		memset( &gun, 0, sizeof( gun ) );
 		VectorCopy( hand.origin, gun.origin );
 		AxisCopy( hand.axis, gun.axis );
@@ -1432,14 +1433,15 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 			VectorMA( gun.origin, -6.0f, gun.axis[2], gun.origin );	// lowered while reloading
 		}
 		VectorCopy( gun.origin, gun.oldorigin );
-		gun.hModel = weapon->weaponModel;
+		gun.hModel = CG_CA_WeaponModel( caWeapon );
 		gun.renderfx = RF_DEPTHHACK | RF_FIRST_PERSON | RF_MINLIGHT;
 		trap_R_AddRefEntityToScene( &gun );
-		if ( sinceFire >= 0 && sinceFire < 45 ) {
-			VectorMA( gun.origin, 28.5f, gun.axis[0], muzzle );
-			VectorMA( muzzle, -3.8f, gun.axis[1], muzzle );
-			VectorMA( muzzle, -4.4f, gun.axis[2], muzzle );
-			trap_R_AddLightToScene( muzzle, 160, 0.65f, 0.78f, 1.0f );	// N10 NAILGUN colour a6c6ff
+		if ( sinceFire >= 0 && sinceFire < 45 ) {	// N10 muzzle point of this weapon, its colour
+			CG_CA_WeaponMuzzle( caWeapon, m );
+			VectorMA( gun.origin, m[0], gun.axis[0], muzzle );
+			VectorMA( muzzle, m[1], gun.axis[1], muzzle );
+			VectorMA( muzzle, m[2], gun.axis[2], muzzle );
+			CG_CA_MuzzleFlash( caWeapon, muzzle );
 		}
 		return;
 	}
@@ -1754,7 +1756,11 @@ void CG_FireWeapon( centity_t *cent ) {
 	}
 
 	// do brass ejection
-	if ( weap->ejectBrassFunc && cg_brassTime.integer > 0 ) {
+	if ( weap->ejectBrassFunc && cg_brassTime.integer > 0
+#ifdef CAT_ARENA_STANDALONE
+		&& ent->weapon != WP_MACHINEGUN	// Cat Arena: no Quake III shell models (they drew as axis lines)
+#endif
+		) {
 		weap->ejectBrassFunc( cent );
 	}
 }

@@ -27,6 +27,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define	GAME_VERSION		BASEGAME "-1"
 
+#ifdef CAT_ARENA_STANDALONE
+#include "ca_bridge.h"	// Cat Arena weapon table (shared by qagame and cgame)
+#endif
+
 #define	DEFAULT_GRAVITY		800
 #define	GIB_HEALTH			-40
 #define	ARMOR_PROTECTION	0.66
@@ -180,6 +184,19 @@ typedef enum {
 #define	CA_SLIDE_FRICTION	( 0.62f / 6.0f )	// N10 kSlideFriction / kGroundFriction
 #define	CA_SLIDE_MIN_SPEED	160.0f	// a slide ends below this horizontal speed (u/s)
 #define	CA_SLIDE_START_SPEED	200.0f
+
+// Cat Arena weapons (N10-Q3E stage D part 3): two slots of N10 weapons carried in WP_MACHINEGUN.
+// stats[STAT_CA_LOADOUT] = slot 0 weapon (bits 0-3) | slot 1 weapon (bits 4-7) | slot in hand
+// (bit 8) | switch button held (bit 9). Weapon numbers are N10 indices (ca_bridge.h CA_Weapon).
+#define	BUTTON_CA_SWITCH	BUTTON_GETFLAG		// +button7 (N10: Q / Tab)
+#define	CA_LO_ACTIVE		0x100
+#define	CA_LO_SWITCH_HELD	0x200
+#define	CA_LO_WEAPON(lo, slot)	( ( (lo) >> ( (slot) ? 4 : 0 ) ) & 15 )
+#define	CA_LO_ACTIVE_SLOT(lo)	( ( (lo) & CA_LO_ACTIVE ) ? 1 : 0 )
+#define	CA_LO_IN_HAND(lo)		CA_LO_WEAPON( (lo), CA_LO_ACTIVE_SLOT( lo ) )
+#define	CA_LO_MAKE(w0, w1)		( ( (w0) & 15 ) | ( ( (w1) & 15 ) << 4 ) )
+#define	CA_SWITCH_MS		150		// N10 switchWeapon cooldown
+#define	CA_REROLL_MS		120		// N10 rerollOne cooldown
 #endif
 
 #define	MAXTOUCH	32
@@ -240,7 +257,9 @@ typedef enum {
 #ifdef CAT_ARENA_STANDALONE
 	,STAT_CA_SLIDE					// ms of slide left
 	,STAT_CA_SLIDE_COOLDOWN			// ms before the next slide
-	,STAT_CA_CLIP					// rounds in the magazine of the current weapon
+	,STAT_CA_CLIP					// rounds in the magazine of the weapon in hand
+	,STAT_CA_CLIP2					// rounds in the magazine of the other slot
+	,STAT_CA_LOADOUT				// CA_LO_*: the two weapon slots, the slot in hand, switch held
 #endif
 } statIndex_t;
 
@@ -479,6 +498,11 @@ typedef enum {
 	EV_TAUNT_GETFLAG,
 	EV_TAUNT_GUARDBASE,
 	EV_TAUNT_PATROL
+#ifdef CAT_ARENA_STANDALONE
+	,EV_CA_SHOT				// Cat Arena hitscan pellet: pos = end, origin2 = start, eventParm = weapon, generic1 = 0 miss / 1 wall / 2 enemy / 3 head, otherEntityNum = shooter
+	,EV_CA_BLAST			// Cat Arena detonation: pos = point, eventParm = CA_FIRE_* kind, generic1 = power x 100
+	,EV_CA_REROLL			// Cat Arena frag reroll: eventParm = new weapon
+#endif
 
 } entity_event_t;
 

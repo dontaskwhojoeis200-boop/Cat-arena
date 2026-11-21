@@ -1234,6 +1234,13 @@ void BG_EvaluateTrajectory( const trajectory_t *tr, int atTime, vec3_t result ) 
 		VectorMA( tr->trBase, deltaTime, tr->trDelta, result );
 		result[2] -= 0.5 * DEFAULT_GRAVITY * deltaTime * deltaTime;		// FIXME: local gravity...
 		break;
+#ifdef CAT_ARENA_STANDALONE
+	case TR_CA_GRAVITY:
+		deltaTime = ( atTime - tr->trTime ) * 0.001;
+		VectorMA( tr->trBase, deltaTime, tr->trDelta, result );
+		result[2] -= 0.5 * CA_Projectile( CA_FIRE_GRENADE )->gravity * deltaTime * deltaTime;
+		break;
+#endif
 	default:
 		Com_Error( ERR_DROP, "BG_EvaluateTrajectory: unknown trType: %i", tr->trType );
 		break;
@@ -1277,6 +1284,13 @@ void BG_EvaluateTrajectoryDelta( const trajectory_t *tr, int atTime, vec3_t resu
 		VectorCopy( tr->trDelta, result );
 		result[2] -= DEFAULT_GRAVITY * deltaTime;		// FIXME: local gravity...
 		break;
+#ifdef CAT_ARENA_STANDALONE
+	case TR_CA_GRAVITY:
+		deltaTime = ( atTime - tr->trTime ) * 0.001;
+		VectorCopy( tr->trDelta, result );
+		result[2] -= CA_Projectile( CA_FIRE_GRENADE )->gravity * deltaTime;
+		break;
+#endif
 	default:
 		Com_Error( ERR_DROP, "BG_EvaluateTrajectoryDelta: unknown trType: %i", tr->trType );
 		break;
@@ -1387,6 +1401,11 @@ char *eventnames[] = {
 	"EV_TAUNT_GETFLAG",
 	"EV_TAUNT_GUARDBASE",
 	"EV_TAUNT_PATROL"
+#ifdef CAT_ARENA_STANDALONE
+	,"EV_CA_SHOT"
+	,"EV_CA_BLAST"
+	,"EV_CA_REROLL"
+#endif
 
 };
 

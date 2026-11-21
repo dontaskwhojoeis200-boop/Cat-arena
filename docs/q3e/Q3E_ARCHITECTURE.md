@@ -42,6 +42,33 @@ CatArena.exe  (engine/quake3e, C, GPL v2)            catarena/  (base folder, fs
 | Sound rules (which sample, when, how loud) | cgame | C++20 | N10 `audio_game.cpp`; mixing by the engine |
 | Collision, traces, PVS, rendering, mixing, networking, input, files | engine | C | Quake3e as is |
 
+## Weapons (stage D, part 3)
+
+- **State.** Each player carries two N10 weapons in Quake III's `WP_MACHINEGUN` slot:
+  `stats[STAT_CA_LOADOUT]` holds both weapon numbers (N10 indices 0-15), the slot in hand and
+  the switch-button latch; `STAT_CA_CLIP` / `STAT_CA_CLIP2` the two magazines. The table is the
+  C++20 `CA_Weapon()` (`game/catarena/src/ca_weapons.cpp`, the N10 `kWeapons` rows), linked into
+  both qagame and cgame.
+- **Predicted (bg_pmove.c, server and client).** Fire rate (N10 delay), magazine, reload (R,
+  or an empty magazine), switch (Q = `+button7`, 150 ms), shotgun recoil (back 4.7 / 5.7 /
+  6.7 m/s; in the air 55 % and lifted to 7.3 / 7.8 / 8.2 m/s). `EV_FIRE_WEAPON` carries the
+  weapon fired as its parameter, so the server fires the weapon the client predicted.
+- **Server (g_ca_weapons.c).** Hitscan pellets with the N10 spread (yaw +-spread, pitch
+  +-0.7 x spread), range and sweep radius; players do not block shots or projectiles; head hits
+  (top third of the enemy box) count double. Rockets, grenades (own trajectory `TR_CA_GRAVITY`,
+  15 m/s^2) and rift bolts are `ET_MISSILE` entities that explode on first contact or at the end
+  of their life; a projectile that reaches the sky is removed without a blast. Blasts: N10 enemy
+  and player splash by distance to the box, no line-of-sight test (as N10), full self damage
+  (Quake III halves it), N10 launch. A frag rerolls the weapon in hand (`EV_CA_REROLL`); every
+  spawn rolls a new pair. Test hooks: `ca_loadout`, `ca_give`, `ca_selftest` fires the real
+  weapon code at a fiend.
+- **Client (cg_ca_effects.c).** `EV_CA_SHOT` (one per pellet: tracer, rail trail, thunderbolt
+  beam, impact spark), `EV_CA_BLAST` (flash, light, smoke), projectile glows and trails, muzzle
+  flash and light at the N10 muzzle point of each of the 16 viewmodels. Quake III's shell brass,
+  blood blob and score plums are off (no art for them).
+- **Network cost.** One temporary entity per pellet (a QUAD SHOTGUN shot is 20), broadcast;
+  counted in the stage E snapshot audit.
+
 ## Data pipeline
 
 - **Maps**: N10 compiled map data → `tools/q3e` converter → `.map` (one brush per convex slab,

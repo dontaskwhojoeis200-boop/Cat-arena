@@ -1172,9 +1172,10 @@ void ClientSpawn(gentity_t *ent) {
 	}
 
 #ifdef CAT_ARENA_STANDALONE
-	// Cat Arena loadout: the NAILGUN only, unlimited reserve, a full magazine
+	// Cat Arena loadout: two different random N10 weapons (rollLoadout) carried in the machinegun
+	// slot, unlimited reserve, full magazines
 	client->ps.ammo[WP_MACHINEGUN] = -1;
-	client->ps.stats[STAT_CA_CLIP] = CA_WeaponForSlot( WP_MACHINEGUN )->clip;
+	G_CA_GiveLoadout( client );
 #else
 	client->ps.stats[STAT_WEAPONS] |= ( 1 << WP_GAUNTLET );
 	client->ps.ammo[WP_GAUNTLET] = -1;

@@ -36,20 +36,56 @@ float CA_UnitsToMetres( float units );
 int CA_SelfTest( void (*report)( const char *line ) );
 
 /* ---- Cat Arena weapons (N10 table, legacy WEAPONS 5140-5156) -------------------------------- */
+#define CA_WEAPON_COUNT 16
+
+/* How a weapon fires (N10 FireKind). */
+#define CA_FIRE_HITSCAN 0
+#define CA_FIRE_ROCKET  1
+#define CA_FIRE_GRENADE 2
+#define CA_FIRE_RIFT    3
+
 typedef struct {
 	const char *name;
-	int   damage;       /* per pellet / hit */
+	int   damage;       /* per pellet / hit (explosives use the blast formula instead) */
 	int   delayMs;      /* time between shots */
 	int   clip;         /* magazine size */
 	int   reloadMs;
 	int   pellets;
 	float spread;       /* N10 spread (half-width factor, radians) */
 	float rangeUnits;   /* N10 range in metres, converted to Quake III units */
+	int   kind;         /* CA_FIRE_* */
+	int   shotgun;      /* N10 SHOTGUN_IDS {1, 7, 15}: recoil on firing, mid-air double jump */
+	int   rail;         /* rail trail */
+	int   lightning;    /* beam */
+	float color[3];     /* N10 weapon colour (muzzle light, tracers, projectiles) */
 } caWeapon_t;
 
-/* The Cat Arena weapon that occupies a Quake III weapon slot, or NULL. Stage C: the NAILGUN in
- * WP_MACHINEGUN (2). Shared by qagame and cgame (bg_pmove uses it for rate, clip and reload). */
-const caWeapon_t *CA_WeaponForSlot( int q3weapon );
+/* Cat Arena weapon by N10 index (0..CA_WEAPON_COUNT-1), or NULL. Shared by qagame and cgame
+ * (bg_pmove uses it for rate, clip, reload and shotgun recoil). */
+const caWeapon_t *CA_Weapon( int index );
+
+/* Projectile and blast constants (N10 cat/combat.hpp), converted to Quake III units. */
+typedef struct {
+	float speed;        /* u/s */
+	float lift;         /* u/s added upwards at launch */
+	float gravity;      /* u/s^2 (0 = straight line) */
+	int   lifeMs;       /* explodes at the end of its life */
+	float power;        /* blast power */
+	float radius;       /* sweep radius (u) */
+} caProjectile_t;
+const caProjectile_t *CA_Projectile( int kind );   /* CA_FIRE_ROCKET / GRENADE / RIFT, else NULL */
+
+#define CA_ENEMY_SPLASH_RADIUS   ( 3.35f * CA_UNITS_PER_METRE )   /* x power */
+#define CA_ENEMY_SPLASH_DAMAGE   95.0f                            /* x power */
+#define CA_PLAYER_SPLASH_RADIUS  ( 3.25f * CA_UNITS_PER_METRE )   /* x power */
+#define CA_PLAYER_SPLASH_DAMAGE  38.0f                            /* x power, rounded, at least 1 */
+#define CA_BLAST_HORIZONTAL      ( 8.0f * CA_UNITS_PER_METRE )    /* u/s at full blast */
+#define CA_BLAST_HEIGHTS         2.25f                            /* launch height in player heights */
+
+/* Shotgun recoil (N10 applyShotgunRecoil) for weapon `index`: horizontal push (u/s) and the
+ * minimum upward speed in the air (u/s). */
+float CA_ShotgunRecoil( int index );
+float CA_ShotgunAirLift( int index );
 
 #ifdef __cplusplus
 }

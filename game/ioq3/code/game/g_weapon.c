@@ -161,10 +161,6 @@ void SnapVectorTowards( vec3_t v, vec3_t to ) {
 #define	MACHINEGUN_DAMAGE	7
 #define	MACHINEGUN_TEAM_DAMAGE	5		// wimpier MG in teamplay
 
-#ifdef CAT_ARENA_STANDALONE
-static float caBulletRange;
-#endif
-
 void Bullet_Fire (gentity_t *ent, float spread, int damage, int mod ) {
 	trace_t		tr;
 	vec3_t		end;
@@ -182,19 +178,9 @@ void Bullet_Fire (gentity_t *ent, float spread, int damage, int mod ) {
 	r = random() * M_PI * 2.0f;
 	u = sin(r) * crandom() * spread * 16;
 	r = cos(r) * crandom() * spread * 16;
-#ifdef CAT_ARENA_STANDALONE
-	if ( caBulletRange > 0 ) {	// Cat Arena weapons have a range (N10 metres * 32)
-		float k = caBulletRange / ( 8192.0f * 16 );
-		VectorMA (muzzle, caBulletRange, forward, end);
-		VectorMA (end, r * k, right, end);
-		VectorMA (end, u * k, up, end);
-	} else
-#endif
-	{
 	VectorMA (muzzle, 8192*16, forward, end);
 	VectorMA (end, r, right, end);
 	VectorMA (end, u, up, end);
-	}
 
 	passent = ent->s.number;
 	for (i = 0; i < 10; i++) {
@@ -855,15 +841,6 @@ void FireWeapon( gentity_t *ent ) {
 		weapon_supershotgun_fire( ent );
 		break;
 	case WP_MACHINEGUN:
-#ifdef CAT_ARENA_STANDALONE
-		{	// NAILGUN: N10 damage and range; spread .022 rad -> Quake III spread units (angle = spread / 8192)
-			const caWeapon_t *w = CA_WeaponForSlot( WP_MACHINEGUN );
-			caBulletRange = w->rangeUnits;
-			Bullet_Fire( ent, w->spread * 8192.0f, w->damage, MOD_MACHINEGUN );
-			caBulletRange = 0;
-		}
-		break;
-#endif
 		if ( g_gametype.integer != GT_TEAM ) {
 			Bullet_Fire( ent, MACHINEGUN_SPREAD, MACHINEGUN_DAMAGE, MOD_MACHINEGUN );
 		} else {

@@ -704,6 +704,9 @@ typedef struct {
 	qhandle_t	gibAbdomen;
 #ifdef CAT_ARENA_STANDALONE
 	qhandle_t	caFiendModel;		// Cat Arena enemy (N10 fiend, converted to MD3)
+	qhandle_t	caWeaponModels[CA_WEAPON_COUNT];	// N10 viewmodels (tools/q3e/convert_weapons.py)
+	qhandle_t	caGlowShader;		// additive sprite (projectiles, flashes, sparks, blasts)
+	qhandle_t	caBeamShader;		// additive beam (tracers, rail, thunderbolt)
 #endif
 	qhandle_t	gibArm;
 	qhandle_t	gibChest;
@@ -1693,4 +1696,15 @@ void	CG_ParticleExplosion (char *animStr, vec3_t origin, vec3_t vel, int duratio
 extern qboolean		initparticles;
 int CG_NewParticleArea ( int num );
 
-
+#ifdef CAT_ARENA_STANDALONE
+// cg_ca_effects.c
+void CG_CA_RegisterEffects( void );
+void CG_CA_AddEffects( void );
+qhandle_t CG_CA_WeaponModel( int index );
+void CG_CA_WeaponMuzzle( int index, vec3_t out );
+void CG_CA_Shot( const entityState_t *es );
+void CG_CA_Blast( const entityState_t *es );
+void CG_CA_Projectile( centity_t *cent );
+void CG_CA_MuzzleFlash( int weapon, const vec3_t muzzle );
+void CG_CA_Reroll( const entityState_t *es );
+#endif

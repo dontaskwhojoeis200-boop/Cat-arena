@@ -1255,6 +1255,9 @@ typedef enum {
 	TR_LINEAR_STOP,
 	TR_SINE,					// value = base + sin( time / duration ) * delta
 	TR_GRAVITY
+#ifdef CAT_ARENA_STANDALONE
+	,TR_CA_GRAVITY				// Cat Arena grenade: gravity CA_GRENADE_GRAVITY (N10 15 m/s^2), not DEFAULT_GRAVITY
+#endif
 } trType_t;
 
 typedef struct {

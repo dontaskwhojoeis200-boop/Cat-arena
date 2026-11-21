@@ -564,6 +564,9 @@ static void CG_DamageBlendBlob( void ) {
 	if (!cg_blood.integer) {
 		return;
 	}
+#ifdef CAT_ARENA_STANDALONE
+	return;	// Quake III's blood blob has no Cat Arena art (drew as a blank sprite); the HUD shows damage
+#endif
 
 	if ( !cg.damageValue ) {
 		return;
@@ -818,6 +821,9 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
 		CG_AddMarks();
 		CG_AddParticles ();
 		CG_AddLocalEntities();
+#ifdef CAT_ARENA_STANDALONE
+		CG_CA_AddEffects();
+#endif
 	}
 	CG_AddViewWeapon( &cg.predictedPlayerState );
 

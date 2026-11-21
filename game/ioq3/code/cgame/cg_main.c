@@ -965,6 +965,7 @@ static void CG_RegisterGraphics( void ) {
 	cgs.media.gibAbdomen = trap_R_RegisterModel( "models/gibs/abdomen.md3" );
 #ifdef CAT_ARENA_STANDALONE
 	cgs.media.caFiendModel = trap_R_RegisterModel( "models/catarena/enemies/fiend.md3" );
+	CG_CA_RegisterEffects();
 #endif
 	cgs.media.gibArm = trap_R_RegisterModel( "models/gibs/arm.md3" );
 	cgs.media.gibChest = trap_R_RegisterModel( "models/gibs/chest.md3" );

@@ -49,8 +49,10 @@ Changes by construction, because the handoff replaces the engine layer:
     fits doors, stairs and jump gaps (about 32 units per metre makes 1.8 m ≈ 56 u, Quake III's own
     proportion); jump pads are re-aimed for Quake III gravity.
   - Weapon and enemy values given in m/s (projectile speeds, splash radii, knockback, enemy
-    speeds) are converted with the same factor; rocket / grenade jumps follow Quake III
-    knockback rules.
+    speeds) are converted with the same factor. Blast launches keep N10's rule (up to 2.25
+    player heights, 8 m/s outwards), computed with Quake III gravity and player height, instead of
+    Quake III's damage-based knockback (stage D part 3; the plan said Quake III knockback, changed
+    because the N10 rule is what makes rocket and grenade jumps work as players know them).
   - Movement feel changes from N10 on purpose; N10's movement tapes no longer apply.
 - **D2 → UDP now, WebSocket tunnel later.** First builds use Quake III UDP networking (LAN, port
   forwarding or a virtual LAN). In Q3E-E a WebSocket tunnel is added so the Render relay keeps
@@ -78,7 +80,7 @@ Changes by construction, because the handoff replaces the engine layer:
 | **A** Source audit and preservation | Audit, revisions, branch, import, build proof | **Done** (2026-11-19); decisions D1–D3 answered |
 | **B** Windows foundation | Cat Arena-branded engine build (name, icon, base folder `catarena`, no id data), `catarena` pk3 with a legally clean test map built by our own pipeline, C++20 game DLL skeleton loading on Windows and Linux, Vulkan device report, CI package | **Done** (2026-11-19): Windows CI run 44655962252 loads the test arena with the Cat Arena DLL; Linux client renders it and runs stock Quake III movement. The Windows client itself has not run on a GPU yet |
 | **C** First playable loop | One map room, movement (D1), one weapon, one enemy type, health / damage, one basic wave, collision | **Done** (2026-11-19): scripted gameplay run 11/11 (Linux), `ca_selftest` 10/10 (Linux and Windows CI). Movement is stock Quake III by decision D1, so it is checked against Quake III values (320 / 480 u/s), not N10 tapes |
-| **D** Map and gameplay | Reactor Bastion converted (then the other three maps), 16 weapons, 20 enemy types, animation, wave progression, settings | Weapon / enemy / movement tolerance tests on all maps; Reactor Bastion walkthrough (all rooms, levels, bridges, ramps reachable; no invisible walls). **Part 1 done** (2026-11-19): Reactor Bastion converted and checked against N10 (50 floors, 20 ramps, 4 pads). **Part 2 done** (2026-11-20): N10 navigation reused in qagame; fiends reach every level. Next parts: the other 15 weapons, the other 19 enemy types, animation, the other three maps |
+| **D** Map and gameplay | Reactor Bastion converted (then the other three maps), 16 weapons, 20 enemy types, animation, wave progression, settings | Weapon / enemy / movement tolerance tests on all maps; Reactor Bastion walkthrough (all rooms, levels, bridges, ramps reachable; no invisible walls). **Part 1 done** (2026-11-19): Reactor Bastion converted and checked against N10 (50 floors, 20 ramps, 4 pads). **Part 2 done** (2026-11-20): N10 navigation reused in qagame; fiends reach every level. **Part 3 done** (2026-11-20): all 16 N10 weapons (two slots, switch, frag reroll, projectiles, blasts, recoil, viewmodels, effects). Next parts: the other 19 enemy types, animation, the other three maps, sounds, pickups |
 | **E** Multiplayer | 4-player co-op on Quake III networking: enemies, projectiles, damage, waves, downed / revive, disconnects, (D2) | 4 clients on one machine, packet loss / latency simulation, snapshot-size audit, soak |
 | **F** Optimisation and stabilisation | Memory and frame-time measurement, loading, frame pacing, settings / UI, packaging, comparison with N10 | Measured report on the owner's G2020 + GTX 660 (only the owner can run it) |
 

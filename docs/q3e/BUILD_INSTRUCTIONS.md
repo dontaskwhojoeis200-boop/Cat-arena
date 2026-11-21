@@ -115,3 +115,18 @@ python3 tools/q3e/map_test.py write . reactor-bastion ca_reactor <homepath>/cata
 CatArena +set ca_waves 0 +devmap ca_reactor +wait 150 +exec maptest.cfg   # then:
 python3 tools/q3e/map_test.py check . reactor-bastion ca_reactor <console log>
 ```
+
+## Weapons (stage D, part 3)
+
+```
+python3 tools/q3e/convert_weapons.py      # 16 N10 viewmodels -> MD3 + textures, cgame model / muzzle table
+python3 tools/q3e/make_base.py            # also writes the effect textures and shaders (glow, beam)
+CatArena-server +set dedicated 1 +map ca_reactor +ca_selftest +quit       # horde + weapon self-test
+python3 tools/q3e/weapons_test.py write <homepath>/catarena/weapons.cfg
+CatArena +set ca_waves 0 +set ca_loadout "0 1" +devmap ca_test +wait 150 +exec weapons.cfg   # then:
+python3 tools/q3e/weapons_test.py check <console log>
+```
+
+Test cvars and commands (cheats, `devmap`): `ca_loadout "a b"` fixes the two spawn weapons (N10
+indices 0-15; empty = random, as N10); `ca_give n` puts weapon n in hand; `ca_place x y z yaw
+[pitch]`; `ca_state` prints the loadout (`slot w0 w1 inhand clip clip2`) and `vz`.

@@ -1786,6 +1786,12 @@ void ClientCommand( int clientNum ) {
 		}
 		return;
 	}
+	if (Q_stricmp (cmd, "ca_give") == 0) {
+		if ( CheatsOk( ent ) ) {
+			Cmd_CA_Give_f( ent );
+		}
+		return;
+	}
 	if (Q_stricmp (cmd, "ca_state") == 0) {
 		if ( CheatsOk( ent ) ) {
 			Cmd_CA_State_f( ent );

@@ -418,6 +418,12 @@ static void CG_Missile( centity_t *cent ) {
 //	int	col;
 
 	s1 = &cent->currentState;
+#ifdef CAT_ARENA_STANDALONE
+	if ( s1->weapon == WP_MACHINEGUN ) {	// Cat Arena rocket / grenade / rift bolt
+		CG_CA_Projectile( cent );
+		return;
+	}
+#endif
 	if ( s1->weapon >= WP_NUM_WEAPONS ) {
 		s1->weapon = 0;
 	}
