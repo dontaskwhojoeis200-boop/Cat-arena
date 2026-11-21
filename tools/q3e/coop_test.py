@@ -62,7 +62,8 @@ def write(path):
     L.append("wait 30"); mark("wiping")
     L.append("wait 40"); mark("after the wipe")
     # left alone while down: gets up
-    L.extend(["ca_hurt %d 200" % A, "wait 4", "ca_removeplayer %d" % B, "ca_removeplayer %d" % C, "wait 10"]); mark("alone after leaving")
+    # (after the 2.5 s grace the restart gives, N10 finish_respawn)
+    L.extend(["wait 40", "ca_hurt %d 200" % A, "wait 4", "ca_removeplayer %d" % B, "ca_removeplayer %d" % C, "wait 10"]); mark("alone after leaving")
     # solo: dies, no downed state
     L.extend(["wait 60", "ca_hurt %d 200" % A, "wait 4"]); mark("solo death")
     L.extend(["echo CASTEP end", "quit"])
@@ -203,9 +204,10 @@ def check(path):
     wiped = times("Cat Arena: squad wiped, round restarts")
     t_all = max(t for t in downs if not wiped or t <= wiped[0]) if downs else 0
     after = steps.get("after the wipe", {})
-    ok(wiped and 2700 <= wiped[0] - t_all <= 2800 and all(after.get(w, {}).get("health") == 100 and after.get(w, {}).get("downed") == 0 for w in (A, B, C))
+    ok(wiped and 2700 <= wiped[0] - t_all <= 2800 and all(after.get(w, {}).get("health") == 100 and after.get(w, {}).get("downed") == 0
+                                                          and after.get(w, {}).get("grace") == 1 for w in (A, B, C))
        and "round restarts at wave 1" in text,
-       "squad wiped %s ms after the last went down (N10 2.7 s): everybody back at 100, wave 1" % (wiped[0] - t_all if wiped else "-"))
+       "squad wiped %s ms after the last went down (N10 2.7 s): everybody back at 100 with 2.5 s grace, wave 1" % (wiped[0] - t_all if wiped else "-"))
     al = st("alone after leaving", A)
     ok("Alpha alone and down: gets up" in text and al.get("health") == 100 and al.get("downed") == 0 and len(steps.get("alone after leaving", {})) == 1,
        "Alpha left alone while down gets up with 100 health")
