@@ -1,0 +1,11 @@
+selftest-ca_test       PASS  ALL PASS
+selftest-ca_reactor    PASS  ALL PASS
+selftest-ca_helios     PASS  ALL PASS
+selftest-ca_bastion    PASS  ALL PASS
+selftest-ca_arsenal    PASS  ALL PASS
+coop                   PASS  ALL PASS
+gameplay               FAIL  2 FAILED
+weapons                PASS  ALL PASS
+sound                  PASS  ALL PASS
+medkit                 PASS  ALL PASS
+9 of 10 passed in 6 min

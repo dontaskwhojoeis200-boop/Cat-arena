@@ -12,7 +12,7 @@ PASS 3.5 m away: out of reach (N10 3.2 m)
 PASS 3.0 m away: reviving
 PASS 2.5 m away behind a cover block: no line of sight, no revive
 PASS all three down
-PASS SQUAD ELIMINATED · RESTARTING ROUND for everybody
+PASS SQUAD ELIMINATED - RESTARTING ROUND for everybody
 PASS squad wiped 2750 ms after the last went down (N10 2.7 s): everybody back at 100, wave 1
 PASS Alpha left alone while down gets up with 100 health
 PASS alone, a player dies (no downed state)

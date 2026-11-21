@@ -198,7 +198,7 @@ def check(path):
     ok(st("holding 3.0 m away", A).get("status") == 2 and st("holding 3.0 m away", A).get("pct", 0) > 0, "3.0 m away: reviving")
     ok(st("holding behind cover", A).get("status") == 0 and st("holding behind cover", B).get("downed") == 1, "2.5 m away behind a cover block: no line of sight, no revive")
     ok(all(st("all down", w).get("downed") == 1 for w in (A, B, C)) and st("all down", A).get("status") in (4, 5), "all three down")
-    ok(all(st("wiping", w).get("status") == 5 for w in (A, B, C)), "SQUAD ELIMINATED · RESTARTING ROUND for everybody")
+    ok(all(st("wiping", w).get("status") == 5 for w in (A, B, C)), "SQUAD ELIMINATED - RESTARTING ROUND for everybody")
     downs = [int(t) for t in re.findall(r"Cat Arena: \w+ down t=(\d+)", text)]
     wiped = times("Cat Arena: squad wiped, round restarts")
     t_all = max(t for t in downs if not wiped or t <= wiped[0]) if downs else 0

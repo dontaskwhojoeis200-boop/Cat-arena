@@ -1,0 +1,7 @@
+Cat Arena: Marine Cat mesh loaded (822 vertices)
+Wrote screenshots/marines_stand.jpg
+Wrote screenshots/marines_walk.jpg
+Wrote screenshots/marines_fire.jpg
+Cat Arena: Charlie down t=8300
+Wrote screenshots/marines_down.jpg
+Wrote screenshots/marines_back.jpg
