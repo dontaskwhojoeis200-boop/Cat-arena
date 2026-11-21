@@ -191,6 +191,8 @@ typedef enum {
 #define	BUTTON_CA_SWITCH	BUTTON_GETFLAG		// +button7 (N10: Q / Tab)
 #define	CA_LO_ACTIVE		0x100
 #define	CA_LO_SWITCH_HELD	0x200
+#define	CA_LO_RELOAD_HELD	0x400
+#define	CA_LO_RELOAD_WANTED	0x800	// R was pressed: reload as soon as the weapon is ready (N10 reloadWeapon acts on the press)
 #define	CA_LO_WEAPON(lo, slot)	( ( (lo) >> ( (slot) ? 4 : 0 ) ) & 15 )
 #define	CA_LO_ACTIVE_SLOT(lo)	( ( (lo) & CA_LO_ACTIVE ) ? 1 : 0 )
 #define	CA_LO_IN_HAND(lo)		CA_LO_WEAPON( (lo), CA_LO_ACTIVE_SLOT( lo ) )
@@ -504,6 +506,10 @@ typedef enum {
 	,EV_CA_REROLL			// Cat Arena frag reroll: eventParm = new weapon
 	,EV_CA_ENEMY_DEATH		// on a Cat Arena enemy: it died; eventParm 1 = gibbed (N10: below -40 health)
 	,EV_CA_ENEMY_IMPACT		// enemy projectile impact: pos, eventParm = CA_SHOT_* kind, generic1 = enemy type, otherEntityNum2 = 1 when it hit a player
+	,EV_CA_LAND				// Cat Arena landing faster than 1.9 m/s (N10 body sound): eventParm = landing speed in m/s x 10 (at most 130)
+	,EV_CA_SLIDE			// Cat Arena slide start: eventParm = horizontal speed before the boost in m/s x 10
+	,EV_CA_SWITCH			// Cat Arena weapon slot switch (N10 switchWeapon beep)
+	,EV_CA_RELOAD			// Cat Arena reload start (N10 reloadWeapon beep)
 #endif
 
 } entity_event_t;

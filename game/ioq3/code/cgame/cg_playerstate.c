@@ -308,6 +308,9 @@ void CG_CheckLocalSounds( playerState_t *ps, playerState_t *ops ) {
 	if ( ps->persistant[PERS_TEAM] != ops->persistant[PERS_TEAM] ) {
 		return;
 	}
+#ifdef CAT_ARENA_STANDALONE
+	return;	// Cat Arena: no Quake III hit, reward, lead or warning sounds (N10 has none; its own sounds are in cg_ca_sound.c)
+#endif
 
 	// hit changes
 	if ( ps->persistant[PERS_HITS] > ops->persistant[PERS_HITS] ) {
@@ -504,6 +507,9 @@ void CG_TransitionPlayerState( playerState_t *ps, playerState_t *ops ) {
 
 	// damage events (player is getting wounded)
 	if ( ps->damageEvent != ops->damageEvent && ps->damageCount ) {
+#ifdef CAT_ARENA_STANDALONE
+		CG_CA_Beep( 2 );	// N10 takeDamage beep
+#endif
 		CG_DamageFeedback( ps->damageYaw, ps->damagePitch, ps->damageCount );
 	}
 

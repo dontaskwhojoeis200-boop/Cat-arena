@@ -63,7 +63,7 @@ set(CA_CGAME_C
   ${IOQ3}/cgame/cg_marks.c ${IOQ3}/cgame/cg_particles.c ${IOQ3}/cgame/cg_players.c
   ${IOQ3}/cgame/cg_playerstate.c ${IOQ3}/cgame/cg_predict.c ${IOQ3}/cgame/cg_scoreboard.c
   ${IOQ3}/cgame/cg_servercmds.c ${IOQ3}/cgame/cg_snapshot.c ${IOQ3}/cgame/cg_view.c
-  ${IOQ3}/cgame/cg_weapons.c ${IOQ3}/cgame/cg_syscalls.c ${IOQ3}/cgame/cg_ca_effects.c)
+  ${IOQ3}/cgame/cg_weapons.c ${IOQ3}/cgame/cg_syscalls.c ${IOQ3}/cgame/cg_ca_effects.c ${IOQ3}/cgame/cg_ca_sound.c)
 
 function(ca_module target defs)
   set_target_properties(${target} PROPERTIES PREFIX "" OUTPUT_NAME ${target}${CA_ARCH})

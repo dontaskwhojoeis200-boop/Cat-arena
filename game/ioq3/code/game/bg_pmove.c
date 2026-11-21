@@ -746,6 +746,7 @@ static void PM_WalkMove( void ) {
 			&& ( ( pm->cmd.buttons & BUTTON_CA_SPRINT ) || hspeed > pm->ps->speed * 1.05f ) ) {
 			pm->ps->pm_flags |= PMF_CA_SLIDING | PMF_DUCKED;
 			pm->ps->stats[STAT_CA_SLIDE] = CA_SLIDE_MS;
+			BG_AddPredictableEventToPlayerstate( EV_CA_SLIDE, (int)( hspeed / CA_UNITS_PER_METRE * 10.0f ), pm->ps );	// N10 playBodySound('slide')
 			pm->ps->velocity[0] *= CA_SLIDE_BOOST;
 			pm->ps->velocity[1] *= CA_SLIDE_BOOST;
 		} else if ( ( pm->ps->pm_flags & PMF_CA_SLIDING ) && hspeed < CA_SLIDE_MIN_SPEED ) {
@@ -999,6 +1000,14 @@ static void PM_CrashLand( void ) {
 	t = (-b - sqrt( den ) ) / ( 2 * a );
 
 	delta = vel + t * acc;
+#ifdef CAT_ARENA_STANDALONE
+	{	// N10 playBodySound('land', min(1.3, speed / 10)) when landing faster than 1.9 m/s
+		float speed = fabs( delta ) / CA_UNITS_PER_METRE;
+		if ( speed > 1.9f && pm->waterlevel < 3 ) {
+			BG_AddPredictableEventToPlayerstate( EV_CA_LAND, (int)( ( speed > 13.0f ? 13.0f : speed ) * 10.0f ), pm->ps );
+		}
+	}
+#endif
 	delta = delta*delta * 0.0001;
 
 	// ducking while falling doubles damage
@@ -1038,7 +1047,9 @@ static void PM_CrashLand( void ) {
 		} else if ( delta > 7 ) {
 			PM_AddEvent( EV_FALL_SHORT );
 		} else {
+#ifndef CAT_ARENA_STANDALONE	// Cat Arena: the landing sound is EV_CA_LAND
 			PM_AddEvent( PM_FootstepForSurface() );
+#endif
 		}
 	}
 
@@ -1458,7 +1469,11 @@ static void PM_Footsteps( void ) {
 		if ( pm->waterlevel == 0 ) {
 			// on ground will only play sounds if running
 			if ( footstep && !pm->noFootsteps ) {
+#ifdef CAT_ARENA_STANDALONE	// N10 playBodySound('step', sprinting ? .6 : .48): eventParm 1 = sprinting
+				BG_AddPredictableEventToPlayerstate( EV_FOOTSTEP, ( pm->cmd.buttons & BUTTON_CA_SPRINT ) ? 1 : 0, pm->ps );
+#else
 				PM_AddEvent( PM_FootstepForSurface() );
+#endif
 			}
 		} else if ( pm->waterlevel == 1 ) {
 			// splashing
@@ -1616,10 +1631,20 @@ static void PM_Weapon( void ) {
 				pm->ps->stats[STAT_CA_CLIP2] = clip;
 				pm->ps->weaponstate = WEAPON_READY;
 				pm->ps->weaponTime = CA_SWITCH_MS;
+				lo &= ~CA_LO_RELOAD_WANTED;	// a switch cancels a reload
+				BG_AddPredictableEventToPlayerstate( EV_CA_SWITCH, 0, pm->ps );
 			}
 			lo |= CA_LO_SWITCH_HELD;
 		} else {
 			lo &= ~CA_LO_SWITCH_HELD;
+		}
+		if ( pm->cmd.buttons & BUTTON_CA_RELOAD ) {	// the press is kept until the shot cooldown is over
+			if ( !( lo & CA_LO_RELOAD_HELD ) ) {
+				lo |= CA_LO_RELOAD_WANTED;
+			}
+			lo |= CA_LO_RELOAD_HELD;
+		} else {
+			lo &= ~CA_LO_RELOAD_HELD;
 		}
 		pm->ps->stats[STAT_CA_LOADOUT] = lo;
 	}
@@ -1687,10 +1712,13 @@ static void PM_Weapon( void ) {
 			pm->ps->weaponstate = WEAPON_READY;
 			return;
 		}
+		const int wanted = pm->ps->stats[STAT_CA_LOADOUT] & CA_LO_RELOAD_WANTED;
+		pm->ps->stats[STAT_CA_LOADOUT] &= ~CA_LO_RELOAD_WANTED;
 		if ( caw && ( pm->ps->stats[STAT_CA_CLIP] <= 0
-			|| ( ( pm->cmd.buttons & BUTTON_CA_RELOAD ) && pm->ps->stats[STAT_CA_CLIP] < caw->clip ) ) ) {
+			|| ( ( wanted || ( pm->cmd.buttons & BUTTON_CA_RELOAD ) ) && pm->ps->stats[STAT_CA_CLIP] < caw->clip ) ) ) {
 			pm->ps->weaponstate = WEAPON_RELOADING;
 			pm->ps->weaponTime = caw->reloadMs;
+			BG_AddPredictableEventToPlayerstate( EV_CA_RELOAD, 0, pm->ps );
 			return;
 		}
 	}

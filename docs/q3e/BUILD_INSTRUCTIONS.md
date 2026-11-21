@@ -151,3 +151,24 @@ their attack wind-up every 2.5 s; `ca_log 1` prints enemy spawns, hits on the pl
 Test cvars and commands (cheats, `devmap`): `ca_loadout "a b"` fixes the two spawn weapons (N10
 indices 0-15; empty = random, as N10); `ca_give n` puts weapon n in hand; `ca_place x y z yaw
 [pitch]`; `ca_state` prints the loadout (`slot w0 w1 inhand clip clip2`) and `vz`.
+
+Waves on the other maps (stage D part 5): `enemies_test.py write <lineup.cfg> <waves.cfg> . <N10 map id> [<god off at shot>]`
+picks two far-apart N10 spawn spots open to the sky.
+
+## Sounds (stage D, part 6)
+
+```
+python3 tools/q3e/convert_sounds.py .     # needs a C++20 compiler ($CXX, default g++) and ffmpeg with libvorbis
+# builds tools/q3e/sound_bake.cpp against N10's audio code and renders the 48 N10 samples into
+# 86 WAV files (sound/catarena, N10 levels / bus levels / voice tones and filters baked in),
+# a silent sound/feedback/hit.wav, and the soundtrack as music/ashen_drive.ogg. All committed.
+python3 tools/q3e/sound_test.py write <dir>          # levels.cfg, music.cfg, sounds.cfg
+SDL_AUDIODRIVER=disk SDL_DISKAUDIOFILE=levels.raw CatArena +set fs_homepath <homeL> +set ca_music 0 +set ca_waves 0 +set ca_log 1 +set s_show 1 +devmap ca_test +wait 150 +exec levels.cfg
+SDL_AUDIODRIVER=disk SDL_DISKAUDIOFILE=music.raw  CatArena +set fs_homepath <homeM> +set ca_music 1 +set ca_waves 0 +devmap ca_test +wait 150 +exec music.cfg
+SDL_AUDIODRIVER=disk SDL_DISKAUDIOFILE=sounds.raw CatArena +set fs_homepath <homeS> +set ca_music 0 +set ca_waves 0 +set ca_log 1 +set s_show 1 +devmap ca_test +wait 150 +exec sounds.cfg
+python3 tools/q3e/sound_test.py check . levels.log levels.raw music.log music.raw sounds.log sounds.raw
+```
+
+SDL's `disk` audio driver writes the mixed output to the file (16-bit stereo, 44.1 kHz), so the
+check measures what Quake III plays. Audio cvars: `s_volume` (N10 master, default 0.7),
+`s_musicvolume` (N10 music x master, default 0.322), `ca_music 0` (no soundtrack), `s_khz 44`.

@@ -56,3 +56,7 @@ in this private build pipeline.
   suggest a third-party kit or material modelled on Quake III maps. The owner should confirm the
   rights to each before a release. The baked sky boxes (`textures/catarena/sky/*_box_*.jpg`) are
   rendered by `tools/q3e/n10materials.py` from N10's sky mesh and its textures.
+- Sounds and soundtrack (stage D part 6): rendered from N10's sample bank and the ASHEN DRIVE
+  soundtrack (`assets/n7`, extracted in N7 from the legacy game, which states them as original;
+  not independently verified, see `assets/n7/N7_ASSET_MANIFEST.json`). The owner confirms the rights
+  before a release, as for the other assets.

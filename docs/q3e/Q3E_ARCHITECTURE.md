@@ -120,6 +120,36 @@ CatArena.exe  (engine/quake3e, C, GPL v2)            catarena/  (base folder, fs
 - **Textures / materials** → JPG / PNG in the pk3 + Quake III `.shader` scripts.
 - **Sounds** → WAV / OGG. **Models** → MD3 (weapons, props); enemies: N10 meshes posed in cgame.
 
+## Sound (stage D, part 6)
+
+Quake III plays a sample at one volume (`s_volume`), placed in the world or at the listener; it
+has no per-call gain, playback rate, filters or buses. N10's sound rules (`native/src/audio_game.cpp`,
+the legacy playGunSound / playExplosionSound / playBodySound / playEnemyVoice / beep) give each
+sound a gain, a bus level and sometimes a rate and filters. So:
+
+- **Offline** (`tools/q3e/sound_bake.cpp`, built against N10's `audio_mixer.cpp`): each sound is
+  rendered through N10's own mixer with its gain, the default bus level (weapons 85 %, enemies
+  80 %), the voice family's tone (bass .92, light 1.025) and filters, and scaled so that Quake III's
+  mixer (127 x 255 s_volume / 65536 for a sound at the listener, 63.5 per side for a sound straight
+  ahead) gives N10's output level with `s_volume` = N10's master. Gains that depend on the moment
+  are baked at a few levels: landing force .3 / .6 / .95 / 1.3, slide .6 / .9 / 1.2, the blast
+  power of rocket / grenade / rift.
+- **In cgame** (`cg_ca_sound.c`): the rules. Gun takes alternate with N10's random skip; the
+  player's own guns, blasts, body sounds and beeps play at the listener (N10 has no panner for
+  them); enemy voices are placed on the enemy and keep N10's limits (31 m, 3 at once, 5 with
+  deaths, 95 ms apart, per-enemy 0.42 / 0.28 / 1.8 s, idle 1.15 s, hurt 0.1 s), with idle voices every
+  4.4-9.7 s per enemy and the hurt voice on 52 % of hits; attack voices start with the wind-up
+  (entity `time`), hurt with `time2`, death with `EV_CA_ENEMY_DEATH`.
+- **Events from the shared pmove** (predicted): `EV_FOOTSTEP` (Quake III's bob-cycle rule is N10's;
+  eventParm 1 = sprinting), `EV_CA_LAND` (faster than 1.9 m/s, speed x 10), `EV_CA_SLIDE`,
+  `EV_CA_SWITCH`, `EV_CA_RELOAD`; the damage beep follows `ps.damageEvent`.
+- **Soundtrack**: N10's ASHEN DRIVE as Quake III's background track (`music/ashen_drive.ogg`) when
+  the map sets no music; `s_musicvolume` = N10 music x master.
+- Not reproduced: the per-play random pitch (+-1.4 %), N10's compressor on the weapon and enemy
+  buses, N10's distance curve and pan law for voices (Quake III attenuates linearly from 2.5 m to
+  41.6 m and pans fully), separate weapon / enemy volume settings (baked at the defaults).
+  Every Quake III sound that is not shipped gets the silent `sound/feedback/hit.wav`.
+
 ## Networking (Q3E-E)
 
 - Server-authoritative game on the engine's client / server model; up to 4 players; a "host"

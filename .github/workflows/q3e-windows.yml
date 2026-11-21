@@ -48,6 +48,8 @@ jobs:
       - name: Package
         run: |
           python tools/q3e/package.py --engine-dir engine/quake3e/bin --client quake3e-vulkan.x64.exe --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena --commit $env:GITHUB_SHA
+          python -c "import zipfile, sys; n = set(zipfile.ZipFile('dist/CatArena/catarena/pak0.pk3').namelist()); s = [x for x in n if x.startswith('sound/catarena/') and x.endswith('.wav')]; ok = len(s) == 86 and {'music/ashen_drive.ogg', 'sound/catarena/sounds.txt', 'sound/feedback/hit.wav'} <= n; print('PASS' if ok else 'FAIL', 'pak0.pk3:', len(s), 'Cat Arena sounds, soundtrack', 'music/ashen_drive.ogg' in n); sys.exit(0 if ok else 1)"
+          if ($LASTEXITCODE -ne 0) { exit 1 }
 
       - name: Smoke test (dedicated server loads the test arena, gameplay self-test)
         working-directory: dist/CatArena
@@ -56,7 +58,7 @@ jobs:
           if (-not $p.WaitForExit(90000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 90 s"; exit 1 }
           $log = Get-Content home\catarena\qconsole.log -Raw
           Write-Host $log
-          $checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-D5 \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: horde PASS', 'ca_selftest: PASS N10 weapon table: 16/16', 'ca_selftest: PASS N10 enemy table: 10/10', 'ca_selftest: PASS all 20 enemy types spawn', 'ca_selftest: PASS skyprobe flies', 'ca_selftest: weapons PASS', 'ca_selftest: ALL PASS')
+          $checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-D6 \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: horde PASS', 'ca_selftest: PASS N10 weapon table: 16/16', 'ca_selftest: PASS N10 enemy table: 10/10', 'ca_selftest: PASS all 20 enemy types spawn', 'ca_selftest: PASS skyprobe flies', 'ca_selftest: weapons PASS', 'ca_selftest: ALL PASS')
           $fail = $false
           foreach ($c in $checks) { if ($log -match $c) { Write-Host "PASS $c" } else { Write-Host "FAIL $c"; $fail = $true } }
           Write-Host "server exit code $($p.ExitCode)"
@@ -76,7 +78,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: CAT_ARENA_Q3E_D5_WINDOWS_x64
+          name: CAT_ARENA_Q3E_D6_WINDOWS_x64
           path: dist/CatArena
           if-no-files-found: error
           retention-days: 30

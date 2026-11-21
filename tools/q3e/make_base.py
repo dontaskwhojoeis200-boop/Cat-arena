@@ -400,6 +400,12 @@ bind q "+button7"
 // creatures are drawn as polygons (posed every frame): room for 20 live ones and 24 bodies
 seta r_maxpolys "16384"
 seta r_maxpolyverts "65536"
+// N10 audio defaults (MixSettings): master 70 % = s_volume; music 46 % x master = s_musicvolume;
+// the weapon (85 %) and enemy (80 %) bus levels are baked into the sounds (tools/q3e/sound_bake.cpp)
+seta s_volume "0.7"
+seta s_musicvolume "0.322"
+seta s_khz "44"
+seta ca_music "1"
 bind MOUSE1 "+attack"
 bind r "+button6"
 bind TAB "+scores"

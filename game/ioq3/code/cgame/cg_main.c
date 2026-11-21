@@ -1188,6 +1188,12 @@ void CG_StartMusic( void ) {
 	Q_strncpyz( parm1, COM_Parse( &s ), sizeof( parm1 ) );
 	Q_strncpyz( parm2, COM_Parse( &s ), sizeof( parm2 ) );
 
+#ifdef CAT_ARENA_STANDALONE
+	if ( !parm1[0] ) {	// no map music: N10's soundtrack
+		CG_CA_StartMusic();
+		return;
+	}
+#endif
 	trap_S_StartBackgroundTrack( parm1, parm2 );
 }
 #ifdef MISSIONPACK
@@ -1920,6 +1926,9 @@ void CG_Init( int serverMessageNum, int serverCommandSequence, int clientNum ) {
 	CG_LoadingString( "sounds" );
 
 	CG_RegisterSounds();
+#ifdef CAT_ARENA_STANDALONE
+	CG_CA_RegisterSounds();
+#endif
 
 	CG_LoadingString( "graphics" );
 

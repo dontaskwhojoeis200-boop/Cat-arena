@@ -135,6 +135,7 @@ void CG_CA_DrawEnemy( centity_t *cent ) {
 	if ( type < 0 || type >= CA_ENEMY_TYPES || ( s->eFlags & EF_DEAD ) ) {
 		return;
 	}
+	CG_CA_EnemyVoices( cent );
 	n = s->number;
 	live = &caLive[n];
 	if ( live->uid != s->powerups ) {
@@ -183,6 +184,7 @@ void CG_CA_EnemyDeath( centity_t *cent, int gibbed ) {
 	if ( type < 0 || type >= CA_ENEMY_TYPES ) {
 		return;
 	}
+	CG_CA_EnemyDeathVoice( cent );
 	if ( gibbed ) {
 		CG_CA_Gibs( cent->lerpOrigin, CA_EnemyType( type )->hitClass == 1 ? 1.25f : 1.0f );
 		return;

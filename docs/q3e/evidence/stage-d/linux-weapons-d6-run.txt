@@ -1,0 +1,438 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+308 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... FAILED (dsp: No such audio device)
+Sound initialization failed.
+--------------------------------
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f4d5f9e00a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D6b
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 1 milliseconds
+----------------------
+308 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f4d4bc0fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D6 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 20 2026
+Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f4d5f9e00a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f4d49c08620
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+^3Cat Arena: sound gun0_0 missing
+^3Cat Arena: sound gun0_1 missing
+^3Cat Arena: sound gun1_0 missing
+^3Cat Arena: sound gun1_1 missing
+^3Cat Arena: sound gun2_0 missing
+^3Cat Arena: sound gun2_1 missing
+^3Cat Arena: sound gun3_0 missing
+^3Cat Arena: sound gun3_1 missing
+^3Cat Arena: sound gun4_0 missing
+^3Cat Arena: sound gun4_1 missing
+^3Cat Arena: sound gun5_0 missing
+^3Cat Arena: sound gun5_1 missing
+^3Cat Arena: sound gun6_0 missing
+^3Cat Arena: sound gun6_1 missing
+^3Cat Arena: sound gun7_0 missing
+^3Cat Arena: sound gun7_1 missing
+^3Cat Arena: sound gun8_0 missing
+^3Cat Arena: sound gun8_1 missing
+^3Cat Arena: sound gun9_0 missing
+^3Cat Arena: sound gun9_1 missing
+^3Cat Arena: sound gun10_0 missing
+^3Cat Arena: sound gun10_1 missing
+^3Cat Arena: sound gun11_0 missing
+^3Cat Arena: sound gun11_1 missing
+^3Cat Arena: sound gun12_0 missing
+^3Cat Arena: sound gun12_1 missing
+^3Cat Arena: sound gun13_0 missing
+^3Cat Arena: sound gun13_1 missing
+^3Cat Arena: sound gun14_0 missing
+^3Cat Arena: sound gun14_1 missing
+^3Cat Arena: sound gun15_0 missing
+^3Cat Arena: sound gun15_1 missing
+^3Cat Arena: sound explosion_rocket missing
+^3Cat Arena: sound explosion_grenade missing
+^3Cat Arena: sound explosion_rift missing
+^3Cat Arena: sound body_jump missing
+^3Cat Arena: sound body_slide_0 missing
+^3Cat Arena: sound body_slide_1 missing
+^3Cat Arena: sound body_slide_2 missing
+^3Cat Arena: sound body_land_0 missing
+^3Cat Arena: sound body_land_1 missing
+^3Cat Arena: sound body_land_2 missing
+^3Cat Arena: sound body_land_3 missing
+^3Cat Arena: sound body_step_walk missing
+^3Cat Arena: sound body_step_sprint missing
+^3Cat Arena: sound voice_normal_idle_0 missing
+^3Cat Arena: sound voice_normal_idle_1 missing
+^3Cat Arena: sound voice_normal_idle_2 missing
+^3Cat Arena: sound voice_normal_attack_0 missing
+^3Cat Arena: sound voice_normal_attack_1 missing
+^3Cat Arena: sound voice_normal_attack_2 missing
+^3Cat Arena: sound voice_normal_hurt_0 missing
+^3Cat Arena: sound voice_normal_hurt_1 missing
+^3Cat Arena: sound voice_normal_hurt_2 missing
+^3Cat Arena: sound voice_normal_eliminated_0 missing
+^3Cat Arena: sound voice_normal_eliminated_1 missing
+^3Cat Arena: sound voice_normal_eliminated_2 missing
+^3Cat Arena: sound voice_bass_idle_0 missing
+^3Cat Arena: sound voice_bass_idle_1 missing
+^3Cat Arena: sound voice_bass_idle_2 missing
+^3Cat Arena: sound voice_bass_attack_0 missing
+^3Cat Arena: sound voice_bass_attack_1 missing
+^3Cat Arena: sound voice_bass_attack_2 missing
+^3Cat Arena: sound voice_bass_hurt_0 missing
+^3Cat Arena: sound voice_bass_hurt_1 missing
+^3Cat Arena: sound voice_bass_hurt_2 missing
+^3Cat Arena: sound voice_bass_eliminated_0 missing
+^3Cat Arena: sound voice_bass_eliminated_1 missing
+^3Cat Arena: sound voice_bass_eliminated_2 missing
+^3Cat Arena: sound voice_light_idle_0 missing
+^3Cat Arena: sound voice_light_idle_1 missing
+^3Cat Arena: sound voice_light_idle_2 missing
+^3Cat Arena: sound voice_light_attack_0 missing
+^3Cat Arena: sound voice_light_attack_1 missing
+^3Cat Arena: sound voice_light_attack_2 missing
+^3Cat Arena: sound voice_light_hurt_0 missing
+^3Cat Arena: sound voice_light_hurt_1 missing
+^3Cat Arena: sound voice_light_hurt_2 missing
+^3Cat Arena: sound voice_light_eliminated_0 missing
+^3Cat Arena: sound voice_light_eliminated_1 missing
+^3Cat Arena: sound voice_light_eliminated_2 missing
+^3Cat Arena: sound beep_switch missing
+^3Cat Arena: sound beep_reload missing
+^3Cat Arena: sound beep_hurt missing
+Cat Arena: 0 sounds registered
+stitched 0 LoD cracks
+...loaded 97 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 75 VBO surfaces (324 vertexes, 522 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+CL_InitCGame:  0.15 seconds
+Com_TouchMemory: 0 msec
+Cat^7 entered the game
+execing weapons.cfg
+CA_STATE t=2200 pos=-700,-300,27 hspeed=0 vz=-140 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=124 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CA_STATE t=2550 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=124 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CA_STATE t=2750 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=123 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=2950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=123 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CA_STATE t=4000 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=122 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=4050 pos=-703,-300,24 hspeed=133 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=122 score=0 weapon=2 wstate=3 wtime=701 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=5800 pos=-701,-300,69 hspeed=83 vz=228 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=120 score=0 weapon=2 wstate=3 wtime=712 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+Cat Arena: give SHOTGUN -> NAILGUN
+godmode ON
+CA_STATE t=7000 pos=-700,-300,34 hspeed=0 vz=-96 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=119 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=7100 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=48 reloading=0 health=119 score=0 weapon=2 wstate=3 wtime=84 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+Wrote screenshots/weapon00.jpg
+CA_STATE t=10000 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=16 reloading=0 health=116 score=0 weapon=2 wstate=3 wtime=47 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+Cat Arena: give NAILGUN -> SHOTGUN
+CA_STATE t=10550 pos=-700,-300,33 hspeed=0 vz=-106 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=116 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=10700 pos=-709,-300,53 hspeed=83 vz=146 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=115 score=0 weapon=2 wstate=3 wtime=609 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+Wrote screenshots/weapon01.jpg
+CA_STATE t=13450 pos=-753,-300,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=113 score=0 weapon=2 wstate=3 wtime=16 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+Cat Arena: give SHOTGUN -> GRENADE LAUNCHER
+CA_STATE t=13950 pos=-700,-300,34 hspeed=0 vz=-99 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=112 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=47
+CA_STATE t=14100 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=112 score=0 weapon=2 wstate=3 wtime=678 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=47
+Wrote screenshots/weapon02.jpg
+CA_STATE t=17650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=108 score=0 weapon=2 wstate=3 wtime=234 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=47
+Cat Arena: give GRENADE LAUNCHER -> RAILGUN
+CA_STATE t=18300 pos=-700,-300,30 hspeed=0 vz=-127 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=108 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+CA_STATE t=18450 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=108 score=0 weapon=2 wstate=3 wtime=863 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+Wrote screenshots/weapon03.jpg
+CA_STATE t=21150 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=105 score=0 weapon=2 wstate=3 wtime=94 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+Cat Arena: give RAILGUN -> ROCKET LAUNCHER
+CA_STATE t=21700 pos=-700,-300,33 hspeed=0 vz=-102 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=104 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+CA_STATE t=21800 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=104 score=0 weapon=2 wstate=3 wtime=758 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Wrote screenshots/weapon04.jpg
+CA_STATE t=25350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=101 score=0 weapon=2 wstate=3 wtime=625 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Cat Arena: give ROCKET LAUNCHER -> SUPER NAILGUN
+CA_STATE t=26100 pos=-700,-300,27 hspeed=0 vz=-146 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+CA_STATE t=26250 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=128 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+Wrote screenshots/weapon05.jpg
+CA_STATE t=29200 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=12 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=55 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+Cat Arena: give SUPER NAILGUN -> THUNDERBOLT
+CA_STATE t=29700 pos=-700,-300,33 hspeed=0 vz=-102 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=75 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=47
+CA_STATE t=29850 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=73 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=55 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=47
+Wrote screenshots/weapon06.jpg
+CA_STATE t=32500 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=37 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=64 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=47
+Cat Arena: give THUNDERBOLT -> SUPER SHOTGUN
+CA_STATE t=33050 pos=-700,-300,34 hspeed=0 vz=-99 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=12 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=47
+CA_STATE t=33150 pos=-709,-300,53 hspeed=100 vz=176 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=787 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=47
+Wrote screenshots/weapon07.jpg
+CA_STATE t=35900 pos=-753,-300,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=641 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=47
+Cat Arena: give SUPER SHOTGUN -> PLASMA REPEATER
+CA_STATE t=36500 pos=-700,-300,32 hspeed=0 vz=-109 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=48 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=36600 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=90 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Wrote screenshots/weapon08.jpg
+CA_STATE t=39350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=33 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=7 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Cat Arena: give PLASMA REPEATER -> TRIPLE SPIKE
+CA_STATE t=39850 pos=-700,-300,34 hspeed=0 vz=-100 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=47
+CA_STATE t=39950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=250 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=47
+Wrote screenshots/weapon09.jpg
+CA_STATE t=42850 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=64 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=47
+Cat Arena: give TRIPLE SPIKE -> RIFT CANNON
+CA_STATE t=43450 pos=-700,-300,32 hspeed=0 vz=-110 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=47
+CA_STATE t=43550 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=1047 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=47
+Wrote screenshots/weapon10.jpg
+CA_STATE t=47150 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=908 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=47
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+CA_STATE t=48000 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+CA_STATE t=48150 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=97 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=22 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+Wrote screenshots/weapon11.jpg
+CA_STATE t=51350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=61 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+Cat Arena: give IRON CHAINGUN -> HAND CANNON
+CA_STATE t=51900 pos=-700,-300,33 hspeed=0 vz=-106 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=47
+CA_STATE t=52000 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=724 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=47
+Wrote screenshots/weapon12.jpg
+CA_STATE t=54800 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=392 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=47
+Cat Arena: give HAND CANNON -> HELLFIRE CARBINE
+CA_STATE t=55300 pos=-700,-300,34 hspeed=0 vz=-93 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=28 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=47
+CA_STATE t=55400 pos=-700,-300,27 hspeed=0 vz=144 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=185 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=47
+Wrote screenshots/weapon13.jpg
+CA_STATE t=58200 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=17 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=230 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=47
+Cat Arena: give HELLFIRE CARBINE -> SAWBLADE DRIVER
+CA_STATE t=58700 pos=-700,-300,34 hspeed=0 vz=-97 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=22 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=58800 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=21 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=285 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+Wrote screenshots/weapon14.jpg
+CA_STATE t=61450 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=14 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=291 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+Cat Arena: give SAWBLADE DRIVER -> QUAD SHOTGUN
+CA_STATE t=61950 pos=-700,-300,34 hspeed=0 vz=-97 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=62050 pos=-711,-300,54 hspeed=118 vz=189 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=1057 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+Wrote screenshots/weapon15.jpg
+CA_STATE t=64850 pos=-753,-300,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=584 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+Cat Arena: give QUAD SHOTGUN -> ROCKET LAUNCHER
+godmode OFF
+CA_STATE t=66650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+CA_STATE t=66800 pos=-730,-300,72 hspeed=256 vz=355 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=0 weapon=2 wstate=3 wtime=741 pmflags=64 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Cat Arena: give ROCKET LAUNCHER -> RAILGUN
+Cat Arena: wave 1, 10 enemies
+godmode ON
+Cat Arena: frag reroll RAILGUN -> QUAD SHOTGUN
+CA_STATE t=68800 pos=-700,-300,40 hspeed=0 vz=11 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+CA_STATE t=69150 pos=-720,-286,70 hspeed=117 vz=94 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=1 weapon=2 wstate=3 wtime=941 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=69500 pos=-753,-263,53 hspeed=66 vz=-188 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=1 weapon=2 wstate=3 wtime=589 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=69900 pos=-753,-258,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=1 weapon=2 wstate=3 wtime=241 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+Cat Arena: frag reroll QUAD SHOTGUN -> IRON CHAINGUN
+CA_STATE t=70250 pos=-753,-248,48 hspeed=54 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=56 score=2 weapon=2 wstate=0 wtime=9 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+CA_STATE t=70600 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=95 reloading=0 health=56 score=2 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+CA_STATE t=70950 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=90 reloading=0 health=56 score=2 weapon=2 wstate=3 wtime=7 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+CA_STATE t=71300 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=85 reloading=0 health=56 score=2 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+CA_STATE t=71700 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=80 reloading=0 health=56 score=2 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=47
+Wrote screenshots/combat_40.jpg
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+CA_STATE t=72300 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=49 reloading=0 health=56 score=3 weapon=2 wstate=3 wtime=5 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=72750 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=44 reloading=0 health=56 score=3 weapon=2 wstate=3 wtime=30 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+Cat Arena: frag reroll NAILGUN -> SUPER NAILGUN
+CA_STATE t=73350 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=56 score=4 weapon=2 wstate=3 wtime=54 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+Cat Arena: frag reroll SUPER NAILGUN -> QUAD SHOTGUN
+CA_STATE t=73950 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=56 score=5 weapon=2 wstate=0 wtime=96 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=74500 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=5 weapon=2 wstate=3 wtime=715 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=75050 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=5 weapon=2 wstate=3 wtime=135 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=75550 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=5 weapon=2 wstate=3 wtime=780 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+CA_STATE t=76100 pos=-753,-246,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=5 weapon=2 wstate=3 wtime=279 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=47
+Cat Arena: frag reroll QUAD SHOTGUN -> SHOTGUN
+CA_STATE t=76600 pos=-753,-243,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=6 weapon=2 wstate=3 wtime=573 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=77300 pos=-753,-240,48 hspeed=18 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=6 weapon=2 wstate=3 wtime=628 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=77800 pos=-753,-240,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=6 weapon=2 wstate=3 wtime=112 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=47
+Cat Arena: frag reroll SHOTGUN -> GRENADE LAUNCHER
+CA_STATE t=78500 pos=-753,-261,152 hspeed=76 vz=191 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=7 weapon=2 wstate=3 wtime=357 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=47
+Cat Arena: frag reroll GRENADE LAUNCHER -> THUNDERBOLT
+CA_STATE t=79100 pos=-753,-321,170 hspeed=328 vz=396 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=75 reloading=0 health=56 score=8 weapon=2 wstate=0 wtime=55 pmflags=64 slot=1 w0=0 w1=6 inhand=6 clip2=47
+Cat Arena: frag reroll THUNDERBOLT -> RAILGUN
+CA_STATE t=79600 pos=-753,-475,268 hspeed=313 vz=-1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=9 weapon=2 wstate=3 wtime=822 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+CA_STATE t=79950 pos=-753,-596,206 hspeed=313 vz=-314 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=9 weapon=2 wstate=3 wtime=435 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+Cat Arena: frag reroll RAILGUN -> NAILGUN
+Wrote screenshots/combat_120.jpg
+Cat Arena: wave 1 cleared
+CA_STATE t=80350 pos=-753,-713,48 hspeed=273 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=9 weapon=2 wstate=3 wtime=61 pmflags=32 slot=1 w0=0 w1=3 inhand=3 clip2=47
+CA_STATE t=80750 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=50 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=81150 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=43 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=44 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=81500 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=39 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=35 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=81900 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=28 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=82300 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=30 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=65 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=82700 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=26 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=24 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=83100 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=22 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=5 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=83450 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=17 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=55 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+Cat Arena: wave 2, 13 enemies
+CA_STATE t=83900 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=13 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=15 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=84400 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=56 score=10 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=84950 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=2 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=47 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=85450 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=0 reloading=1 health=56 score=10 weapon=2 wstate=4 wtime=1054 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=85950 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=0 reloading=1 health=56 score=10 weapon=2 wstate=4 wtime=567 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+CA_STATE t=86900 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=2 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+Cat Arena: frag reroll NAILGUN -> ROCKET LAUNCHER
+CA_STATE t=87500 pos=-753,-746,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=11 weapon=2 wstate=3 wtime=623 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Cat Arena: frag reroll ROCKET LAUNCHER -> SUPER NAILGUN
+CA_STATE t=88400 pos=-753,-753,140 hspeed=0 vz=236 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=56 score=12 weapon=2 wstate=3 wtime=111 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+CA_STATE t=88850 pos=-753,-753,117 hspeed=0 vz=-238 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=31 reloading=0 health=56 score=12 weapon=2 wstate=3 wtime=66 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+CA_STATE t=89750 pos=-753,-753,87 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=25 reloading=0 health=56 score=12 weapon=2 wstate=3 wtime=46 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+Cat Arena: frag reroll SUPER NAILGUN -> NAILGUN
+CA_STATE t=90400 pos=-753,-753,87 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=48 reloading=0 health=56 score=13 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=47
+Cat Arena: frag reroll NAILGUN -> HAND CANNON
+Cat Arena: frag reroll HAND CANNON -> RAILGUN
+CA_STATE t=91000 pos=-753,-753,87 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=15 weapon=2 wstate=0 wtime=99 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=47
+Cat Arena: frag reroll RAILGUN -> ROCKET LAUNCHER
+Cat Arena: frag reroll ROCKET LAUNCHER -> HAND CANNON
+Cat Arena: frag reroll HAND CANNON -> RAILGUN
+Cat Arena: frag reroll RAILGUN -> SAWBLADE DRIVER
+Cat Arena: frag reroll SAWBLADE DRIVER -> ROCKET LAUNCHER
+CA_STATE t=91950 pos=-753,-753,194 hspeed=0 vz=-69 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=20 weapon=2 wstate=0 wtime=105 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+CA_STATE t=92550 pos=-753,-753,243 hspeed=0 vz=195 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=20 weapon=2 wstate=3 wtime=384 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Cat Arena: frag reroll ROCKET LAUNCHER -> HELLFIRE CARBINE
+CA_STATE t=93100 pos=-753,-753,232 hspeed=0 vz=-235 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=20 weapon=2 wstate=3 wtime=707 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Cat Arena: frag reroll HELLFIRE CARBINE -> HAND CANNON
+Cat Arena: frag reroll HAND CANNON -> PLASMA REPEATER
+Cat Arena: wave 2 cleared
+CA_STATE t=94050 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=56 score=23 weapon=2 wstate=0 wtime=0 pmflags=32 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=94600 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=44 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=46 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=95100 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=41 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=111 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=95650 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=39 reloading=0 health=56 score=23 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=96150 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=95 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=96650 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=8 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+CA_STATE t=97100 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=31 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=110 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Cat Arena: wave 3, 17 enemies
+CA_STATE t=97600 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=29 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=8 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Cat Arena: frag reroll PLASMA REPEATER -> SHOTGUN
+CA_STATE t=98150 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=26 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=79 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Cat Arena: frag reroll SHOTGUN -> ROCKET LAUNCHER
+CA_STATE t=98650 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=25 weapon=2 wstate=3 wtime=690 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+CA_STATE t=99250 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=25 weapon=2 wstate=3 wtime=118 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+CA_STATE t=99850 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=25 weapon=2 wstate=3 wtime=370 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=47
+Cat Arena: frag reroll ROCKET LAUNCHER -> GRENADE LAUNCHER
+Cat Arena: frag reroll GRENADE LAUNCHER -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+CA_STATE t=100650 pos=-753,-753,170 hspeed=217 vz=333 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=56 score=27 weapon=2 wstate=0 wtime=60 pmflags=64 slot=1 w0=0 w1=1 inhand=1 clip2=47
+CA_STATE t=101300 pos=-753,-753,230 hspeed=0 vz=-120 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=45 reloading=0 health=56 score=29 weapon=2 wstate=3 wtime=130 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Cat Arena: frag reroll PLASMA REPEATER -> THUNDERBOLT
+CA_STATE t=101850 pos=-753,-753,87 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=43 reloading=0 health=56 score=29 weapon=2 wstate=0 wtime=0 pmflags=32 slot=1 w0=0 w1=8 inhand=8 clip2=47
+Cat Arena: frag reroll THUNDERBOLT -> SUPER SHOTGUN
+CA_STATE t=102800 pos=-753,-753,87 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=56 score=31 weapon=2 wstate=3 wtime=508 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=47
+Cat Arena: frag reroll SUPER SHOTGUN -> HAND CANNON
+CA_STATE t=103750 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=32 weapon=2 wstate=3 wtime=591 pmflags=32 slot=1 w0=0 w1=12 inhand=12 clip2=47
+CA_STATE t=104550 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=32 weapon=2 wstate=3 wtime=577 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=47
+CA_STATE t=105000 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=32 weapon=2 wstate=3 wtime=89 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=47
+Cat Arena: frag reroll HAND CANNON -> GRENADE LAUNCHER
+Cat Arena: frag reroll GRENADE LAUNCHER -> SAWBLADE DRIVER
+Cat Arena: frag reroll SAWBLADE DRIVER -> GRENADE LAUNCHER
+Cat Arena: frag reroll GRENADE LAUNCHER -> TRIPLE SPIKE
+Cat Arena: frag reroll TRIPLE SPIKE -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> SUPER NAILGUN
+CA_STATE t=105800 pos=-753,-753,174 hspeed=48 vz=29 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=56 score=37 weapon=2 wstate=0 wtime=32 pmflags=64 slot=1 w0=0 w1=1 inhand=1 clip2=47
+Cat Arena: frag reroll SUPER NAILGUN -> THUNDERBOLT
+Cat Arena: frag reroll THUNDERBOLT -> SAWBLADE DRIVER
+Cat Arena: wave 3 cleared
+CA_STATE t=106650 pos=-753,-753,114 hspeed=0 vz=-386 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=21 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=147 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=107350 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=19 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=204 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=108000 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=17 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=312 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=108600 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=16 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=59 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=109250 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=14 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=207 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+Cat Arena: wave 4, 22 enemies
+CA_STATE t=109850 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=12 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=352 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=110350 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=194 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=110950 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=10 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=17 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=111350 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=341 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=111950 pos=-753,-753,48 hspeed=0 vz=1 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=146 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+CA_STATE t=112800 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=40 weapon=2 wstate=3 wtime=81 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=47
+Cat Arena: frag reroll SAWBLADE DRIVER -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> SUPER NAILGUN
+CA_STATE t=113550 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=56 score=42 weapon=2 wstate=3 wtime=85 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=47
+Cat Arena: frag reroll SUPER NAILGUN -> HAND CANNON
+CA_STATE t=114400 pos=-753,-753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=43 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=47
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+-----------------------

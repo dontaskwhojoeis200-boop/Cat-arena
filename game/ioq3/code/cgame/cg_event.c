@@ -549,6 +549,37 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 	//
 	// movement generated events
 	//
+#ifdef CAT_ARENA_STANDALONE	// N10 body sounds: the local player's steps, jumps, landings and slides
+	case EV_FOOTSTEP:
+	case EV_FOOTSTEP_METAL:
+		DEBUGNAME("EV_FOOTSTEP");
+		CG_CA_BodySound( es->number, event, es->eventParm );
+		break;
+	case EV_FOOTSPLASH:
+	case EV_FOOTWADE:
+	case EV_SWIM:
+		break;
+	case EV_CA_LAND:
+		DEBUGNAME("EV_CA_LAND");
+		CG_CA_BodySound( es->number, event, es->eventParm );
+		break;
+	case EV_CA_SLIDE:
+		DEBUGNAME("EV_CA_SLIDE");
+		CG_CA_BodySound( es->number, event, es->eventParm );
+		break;
+	case EV_CA_SWITCH:
+		DEBUGNAME("EV_CA_SWITCH");
+		if ( es->number == cg.snap->ps.clientNum ) {
+			CG_CA_Beep( 0 );
+		}
+		break;
+	case EV_CA_RELOAD:
+		DEBUGNAME("EV_CA_RELOAD");
+		if ( es->number == cg.snap->ps.clientNum ) {
+			CG_CA_Beep( 1 );
+		}
+		break;
+#else
 	case EV_FOOTSTEP:
 		DEBUGNAME("EV_FOOTSTEP");
 		if (cg_footsteps.integer) {
@@ -584,11 +615,14 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 				cgs.media.footsteps[ FOOTSTEP_SPLASH ][rand()&3] );
 		}
 		break;
+#endif
 
 
 	case EV_FALL_SHORT:
 		DEBUGNAME("EV_FALL_SHORT");
+#ifndef CAT_ARENA_STANDALONE	// Cat Arena: the landing sound is EV_CA_LAND
 		trap_S_StartSound (NULL, es->number, CHAN_AUTO, cgs.media.landSound );
+#endif
 		if ( clientNum == cg.predictedPlayerState.clientNum ) {
 			// smooth landing z changes
 			cg.landChange = -8;
@@ -598,7 +632,9 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 	case EV_FALL_MEDIUM:
 		DEBUGNAME("EV_FALL_MEDIUM");
 		// use normal pain sound
+#ifndef CAT_ARENA_STANDALONE
 		trap_S_StartSound( NULL, es->number, CHAN_VOICE, CG_CustomSound( es->number, "*pain100_1.wav" ) );
+#endif
 		if ( clientNum == cg.predictedPlayerState.clientNum ) {
 			// smooth landing z changes
 			cg.landChange = -16;
@@ -607,7 +643,9 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		break;
 	case EV_FALL_FAR:
 		DEBUGNAME("EV_FALL_FAR");
+#ifndef CAT_ARENA_STANDALONE
 		trap_S_StartSound (NULL, es->number, CHAN_AUTO, CG_CustomSound( es->number, "*fall1.wav" ) );
+#endif
 		cent->pe.painTime = cg.time;	// don't play a pain sound right after this
 		if ( clientNum == cg.predictedPlayerState.clientNum ) {
 			// smooth landing z changes
@@ -669,13 +707,21 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		}
 
 		// boing sound at origin, jump sound on player
+#ifdef CAT_ARENA_STANDALONE	// N10 worldTriggerUpdate: playBodySound('jump')
+		CG_CA_BodySound( es->number, event, 0 );
+#else
 		trap_S_StartSound ( cent->lerpOrigin, -1, CHAN_VOICE, cgs.media.jumpPadSound );
 		trap_S_StartSound (NULL, es->number, CHAN_VOICE, CG_CustomSound( es->number, "*jump1.wav" ) );
+#endif
 		break;
 
 	case EV_JUMP:
 		DEBUGNAME("EV_JUMP");
+#ifdef CAT_ARENA_STANDALONE
+		CG_CA_BodySound( es->number, event, 0 );
+#else
 		trap_S_StartSound (NULL, es->number, CHAN_VOICE, CG_CustomSound( es->number, "*jump1.wav" ) );
+#endif
 		break;
 	case EV_TAUNT:
 		DEBUGNAME("EV_TAUNT");
@@ -805,7 +851,9 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		break;
 	case EV_CHANGE_WEAPON:
 		DEBUGNAME("EV_CHANGE_WEAPON");
+#ifndef CAT_ARENA_STANDALONE	// Cat Arena: the slot switch beep is EV_CA_SWITCH
 		trap_S_StartSound (NULL, es->number, CHAN_AUTO, cgs.media.selectSound );
+#endif
 		break;
 #ifdef CAT_ARENA_STANDALONE
 	case EV_CA_SHOT:
@@ -815,6 +863,7 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 	case EV_CA_BLAST:
 		DEBUGNAME("EV_CA_BLAST");
 		CG_CA_Blast( es );
+		CG_CA_ExplosionSound( es->eventParm );
 		break;
 	case EV_CA_REROLL:
 		DEBUGNAME("EV_CA_REROLL");
@@ -832,6 +881,11 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 	case EV_FIRE_WEAPON:
 		DEBUGNAME("EV_FIRE_WEAPON");
 		CG_FireWeapon( cent );
+#ifdef CAT_ARENA_STANDALONE
+		if ( es->weapon == WP_MACHINEGUN ) {
+			CG_CA_GunSound( es->number, es->eventParm );	// eventParm = the N10 weapon fired
+		}
+#endif
 		break;
 
 	case EV_USE_ITEM0:
