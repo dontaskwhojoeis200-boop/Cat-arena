@@ -1,0 +1,8 @@
+        0 vertex approximated surfaces
+       26 BSP lightmaps
+       26 total lightmaps
+      142 unique lightmap/shader combinations
+Writing /home/claude/cat-arena/game/base/catarena/maps/ca_reactor.bsp
+Wrote 5.4 MB (5713012 bytes)
+       34 seconds elapsed
+-rw-r--r-- 1 root root 5713012 Nov 20 18:14 /home/claude/cat-arena/game/base/catarena/maps/ca_reactor.bsp

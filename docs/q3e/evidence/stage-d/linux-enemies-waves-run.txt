@@ -1,0 +1,1050 @@
+logfile opened on Fri Nov 20 18:23:17 2026
+execing default.cfg
+couldn't exec q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... FAILED (dsp: No such audio device)
+Sound initialization failed.
+--------------------------------
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f8ed08c00a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D4 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D4
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_reactor
+RE_Shutdown( 0 )
+...loaded in 1 milliseconds
+----------------------
+111 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f8ea780fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D4 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 20 2026
+Cat Arena: N10 navigation graph for ca_reactor (6182 nodes)
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f8ed08c00a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D4 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f8ea54085d0
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D4 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+stitched 0 LoD cracks
+...loaded 10571 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 10566 VBO surfaces (45649 vertexes, 72048 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+CL_InitCGame:  0.17 seconds
+Com_TouchMemory: 0 msec
+Cat^7 entered the game
+execing waves.cfg
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 384 480 363
+Cat Arena: spawn stalker at 928 576 193
+Cat Arena: spawn skitter at 192 1056 33
+Cat Arena: spawn crusher at 32 640 33
+Cat Arena: spawn cultist at 602 466 35
+Cat Arena: spawn skitter at 224 736 193
+Cat Arena: spawn reaver at 914 462 195
+Cat Arena: spawn skyraider at 864 -800 360
+Cat Arena: spawn marauder at 692 647 35
+Cat Arena: spawn skyraider at 198 1011 202
+godmode ON
+CA_STATE t=8150 pos=-150,-400,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=118 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed cultist
+Cat Arena: hit by cultist fireball 4
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by marauder spike 6
+Cat Arena: hit by marauder spike 6
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER NAILGUN
+Cat Arena: killed stalker
+Cat Arena: frag reroll SUPER NAILGUN -> QUAD SHOTGUN
+Cat Arena: killed marauder
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: killed skitter
+Cat Arena: hit by skitter melee 11
+Cat Arena: give SAWBLADE DRIVER -> IRON CHAINGUN
+Cat Arena: hit by reaver melee 17
+Cat Arena: frag reroll IRON CHAINGUN -> RAILGUN
+Cat Arena: killed skitter
+Cat Arena: frag reroll RAILGUN -> HELLFIRE CARBINE
+Cat Arena: killed reaver (gibbed)
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by crusher melee 27
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed crusher
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed skyprobe
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+CA_STATE t=19500 pos=-178,-435,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=107 score=8 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 99 skyraider pos=-33,-420,10 health=135
+CA_ENEMY 101 skyraider pos=-65,-175,12 health=135
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Wrote screenshots/enemies_fight_60.jpg
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=30400 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=8 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 99 skyraider pos=-32,-429,10 health=135
+CA_ENEMY 101 skyraider pos=-65,-175,12 health=135
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed skyraider
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed skyraider
+Cat Arena: wave 1 cleared
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 2, 13 enemies
+Cat Arena: spawn skyprobe at 768 224 351
+Cat Arena: spawn sentinel at 0 544 -95
+Cat Arena: spawn skyraider at 736 -32 370
+Cat Arena: spawn cultist at -800 32 193
+Cat Arena: spawn skyjuggernaut at -224 320 58
+Cat Arena: spawn reaver at -128 448 -95
+Cat Arena: spawn reaver at 896 448 193
+Cat Arena: spawn fiend at -544 832 193
+Cat Arena: spawn fiend at -576 768 33
+Cat Arena: spawn sentinel at -96 768 193
+Cat Arena: spawn crusher at -512 736 193
+Cat Arena: spawn pyromancer at -462 914 195
+Cat Arena: spawn skyprobe at -224 768 346
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=37400 pos=37,-797,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=10 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 93 skyprobe pos=617,14,333 health=82
+CA_ENEMY 97 sentinel pos=-39,286,-104 health=163
+CA_ENEMY 98 skyraider pos=467,-326,329 health=22
+CA_ENEMY 102 skyprobe pos=-190,561,335 health=82
+CA_ENEMY 110 cultist pos=-725,-218,184 health=131
+CA_ENEMY 111 skyjuggernaut pos=-178,122,95 health=273
+CA_ENEMY 112 reaver pos=-76,156,-104 health=121
+CA_ENEMY 130 reaver pos=696,391,184 health=121
+CA_ENEMY 131 fiend pos=-702,571,184 health=105
+CA_ENEMY 132 fiend pos=-613,478,24 health=105
+CA_ENEMY 133 sentinel pos=15,558,184 health=163
+CA_ENEMY 134 crusher pos=-478,608,184 health=284
+CA_ENEMY 135 pyromancer pos=-476,681,184 health=110
+Cat Arena: frag reroll IRON CHAINGUN -> RAILGUN
+Cat Arena: killed skyraider
+Cat Arena: frag reroll RAILGUN -> QUAD SHOTGUN
+Cat Arena: killed skyprobe (gibbed)
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed cultist
+Cat Arena: hit by cultist fireball 4
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: hit by skyjuggernaut voidorb 25
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed reaver
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: hit by fiend melee 18
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed fiend
+Cat Arena: hit by skyjuggernaut voidorb 25
+Cat Arena: hit by pyromancer fireball 4
+Cat Arena: frag reroll QUAD SHOTGUN -> SAWBLADE DRIVER
+Cat Arena: killed fiend
+Cat Arena: frag reroll SAWBLADE DRIVER -> QUAD SHOTGUN
+Cat Arena: killed reaver
+Cat Arena: frag reroll QUAD SHOTGUN -> THUNDERBOLT
+Cat Arena: killed skyjuggernaut
+Cat Arena: frag reroll THUNDERBOLT -> HAND CANNON
+Cat Arena: killed skyprobe
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: hit by pyromancer fireball 4
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed pyromancer
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed sentinel
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed sentinel
+Cat Arena: frag reroll SUPER SHOTGUN -> SHOTGUN
+Cat Arena: killed crusher
+Cat Arena: wave 2 cleared
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=50500 pos=-150,-400,-80 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=23 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 3, 17 enemies
+Cat Arena: spawn skyprobe at 160 608 181
+Cat Arena: spawn skyraider at 160 768 340
+Cat Arena: spawn crusher at 608 896 33
+Cat Arena: spawn ogre at -672 448 33
+Cat Arena: spawn shambler at -544 1120 193
+Cat Arena: spawn crusher at 352 768 33
+Cat Arena: spawn skitter at -800 704 33
+Cat Arena: spawn skyprobe at 832 -672 388
+Cat Arena: spawn skitter at 64 1120 33
+Cat Arena: spawn marauder at 602 466 35
+Cat Arena: spawn brute at -83 998 35
+Cat Arena: spawn grunt at -928 672 193
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: spawn sentinel at 320 1184 33
+Cat Arena: spawn crusher at -544 1088 33
+Cat Arena: spawn harrier at -32 1088 33
+Cat Arena: spawn ogre at -1152 -320 193
+Cat Arena: spawn banshee at -736 704 193
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed marauder
+Cat Arena: frag reroll QUAD SHOTGUN -> SUPER SHOTGUN
+Cat Arena: killed ogre
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed skitter
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by harrier spike 7
+Cat Arena: hit by harrier spike 7
+Cat Arena: frag reroll HELLFIRE CARBINE -> GRENADE LAUNCHER
+Cat Arena: killed skitter (gibbed)
+Cat Arena: give GRENADE LAUNCHER -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> RIFT CANNON
+Cat Arena: killed harrier
+Cat Arena: frag reroll RIFT CANNON -> RAILGUN
+Cat Arena: killed grunt
+Cat Arena: hit by grunt shot 10
+Cat Arena: give RAILGUN -> IRON CHAINGUN
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed crusher
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+CA_STATE t=62800 pos=-161,-451,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=30 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 98 ogre pos=-189,-210,-59 health=138
+CA_ENEMY 105 banshee pos=-139,-135,-101 health=71
+CA_ENEMY 112 skyprobe pos=-76,-178,24 health=71
+CA_ENEMY 113 skyraider pos=-75,-175,32 health=140
+CA_ENEMY 114 crusher pos=114,-90,-104 health=264
+CA_ENEMY 118 sentinel pos=-330,-231,-104 health=137
+CA_ENEMY 123 crusher pos=-171,128,-92 health=298
+CA_ENEMY 130 shambler pos=-279,305,2 health=292
+CA_ENEMY 133 skyprobe pos=-34,-447,12 health=86
+CA_ENEMY 136 brute pos=-115,-167,-98 health=221
+Cat Arena: hit by sentinel voidorb 21
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed brute
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by crusher melee 30
+Cat Arena: hit by sentinel voidorb 21
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed crusher
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed sentinel
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: killed shambler
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: give SAWBLADE DRIVER -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=74350 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=34 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 98 ogre pos=-189,-210,-59 health=138
+CA_ENEMY 105 banshee pos=-111,-167,-99 health=51
+CA_ENEMY 112 skyprobe pos=-76,-178,11 health=71
+CA_ENEMY 113 skyraider pos=-75,-175,12 health=140
+CA_ENEMY 123 crusher pos=-88,-239,-104 health=228
+CA_ENEMY 133 skyprobe pos=-176,-502,12 health=86
+Wrote screenshots/enemies_fight_300.jpg
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed skyprobe
+Cat Arena: hit by skyprobe shot 8
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed skyprobe
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> GRENADE LAUNCHER
+Cat Arena: killed skyraider
+Cat Arena: give GRENADE LAUNCHER -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed crusher
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+Cat Arena: hit by ogre fireball 4
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: killed ogre
+Cat Arena: give SAWBLADE DRIVER -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=84050 pos=-39,-403,218 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=39 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 105 banshee pos=-120,-712,184 health=1
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=95450 pos=-150,-400,-80 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=39 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 105 banshee pos=-120,-712,184 health=1
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed banshee
+Cat Arena: wave 3 cleared
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 4, 22 enemies
+Cat Arena: spawn skyprobe at -416 704 375
+Cat Arena: spawn skyraider at 96 736 360
+Cat Arena: spawn sapper at -928 704 193
+Cat Arena: spawn brute at -32 992 33
+Cat Arena: spawn warden at -466 602 35
+Cat Arena: spawn fiend at -992 672 33
+Cat Arena: spawn skyprobe at -96 704 370
+Cat Arena: spawn shambler at -192 1056 -37
+Cat Arena: spawn grunt at -1056 544 193
+Cat Arena: spawn sapper at -1011 198 35
+Cat Arena: spawn banshee at 914 462 195
+Cat Arena: spawn cultist at 832 -576 193
+Cat Arena: spawn reaver at 0 1184 -95
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: spawn marauder at -462 914 195
+Cat Arena: spawn banshee at 1184 -448 193
+Cat Arena: spawn skyraider at -416 576 364
+Cat Arena: spawn cultist at -1152 256 35
+Cat Arena: spawn reaver at 1024 -32 -95
+Cat Arena: spawn pyromancer at 0 720 -93
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: spawn marauder at -32 608 33
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed skyprobe
+Cat Arena: spawn skyjuggernaut at 755 198 330
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+CA_STATE t=106050 pos=-150,-400,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=41 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 92 banshee pos=517,-347,184 health=107
+CA_ENEMY 95 skyraider pos=-27,-183,175 health=156
+CA_ENEMY 98 marauder pos=-477,377,183 health=162
+CA_ENEMY 101 sapper pos=-317,508,128 health=127
+CA_ENEMY 102 brute pos=-136,619,24 health=232
+CA_ENEMY 103 skyjuggernaut pos=592,91,266 health=301
+CA_ENEMY 105 skyraider pos=-204,-143,66 health=58
+CA_ENEMY 116 cultist pos=-794,-47,24 health=145
+CA_ENEMY 119 reaver pos=494,-32,-104 health=133
+CA_ENEMY 124 pyromancer pos=-2,344,-104 health=122
+CA_ENEMY 128 warden pos=-231,602,24 health=272
+CA_ENEMY 129 fiend pos=-695,-113,24 health=116
+CA_ENEMY 130 skyprobe pos=-164,75,123 health=90
+CA_ENEMY 131 shambler pos=-50,739,24 health=307
+CA_ENEMY 132 grunt pos=-406,480,118 health=98
+CA_ENEMY 133 sapper pos=-449,-270,24 health=127
+CA_ENEMY 134 banshee pos=507,318,141 health=107
+CA_ENEMY 135 cultist pos=277,-567,48 health=145
+CA_ENEMY 136 marauder pos=-303,438,24 health=162
+CA_ENEMY 138 reaver pos=0,392,-104 health=133
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+Cat Arena: killed skyraider
+Cat Arena: spawn sapper at -384 672 33
+Cat Arena: give NAILGUN -> IRON CHAINGUN
+Cat Arena: hit by skyprobe shot 8
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by reaver melee 20
+Cat Arena: hit by cultist fireball 5
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+Cat Arena: killed reaver
+Cat Arena: hit by skyprobe shot 8
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: frag reroll NAILGUN -> HELLFIRE CARBINE
+Cat Arena: killed skyprobe
+Cat Arena: hit by cultist fireball 5
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by cultist fireball 5
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed cultist
+Cat Arena: give PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by cultist fireball 5
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed cultist
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by sapper spike 7
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed pyromancer
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> GRENADE LAUNCHER
+Cat Arena: killed reaver
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: frag reroll GRENADE LAUNCHER -> RIFT CANNON
+Cat Arena: killed sapper (gibbed)
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed sapper
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by grunt shot 10
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed brute
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+CA_STATE t=119550 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=51 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 92 banshee pos=19,-178,-104 health=23
+CA_ENEMY 95 skyraider pos=-25,-411,175 health=156
+CA_ENEMY 98 marauder pos=-316,-225,-104 health=122
+CA_ENEMY 101 sapper pos=-164,-189,-74 health=82
+CA_ENEMY 103 skyjuggernaut pos=-22,-421,172 health=301
+CA_ENEMY 128 warden pos=-130,-116,-104 health=252
+CA_ENEMY 129 fiend pos=-177,-219,-60 health=98
+CA_ENEMY 131 shambler pos=-161,-386,-104 health=233
+CA_ENEMY 132 grunt pos=-337,-278,-104 health=98
+CA_ENEMY 134 banshee pos=23,-207,-104 health=11
+CA_ENEMY 136 marauder pos=-228,-186,-54 health=162
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by skyraider spike 14
+Cat Arena: hit by skyraider spike 14
+Cat Arena: hit by skyjuggernaut voidorb 28
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed skyraider
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+Cat Arena: killed skyjuggernaut
+Cat Arena: give NAILGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed marauder
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed fiend
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by warden voidorb 22
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=129000 pos=2,-724,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=55 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 92 banshee pos=-302,-586,184 health=23
+CA_ENEMY 98 marauder pos=238,-590,28 health=72
+CA_ENEMY 101 sapper pos=-326,-654,184 health=82
+CA_ENEMY 128 warden pos=-300,-688,184 health=142
+CA_ENEMY 131 shambler pos=-288,-246,-14 health=233
+CA_ENEMY 132 grunt pos=-377,-404,32 health=98
+CA_ENEMY 134 banshee pos=-282,-313,6 health=11
+Cat Arena: hit by sapper spike 7
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed warden
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by warden voidorb 22
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed sapper
+Cat Arena: hit by marauder spike 7
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed marauder
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by grunt shot 10
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: killed grunt
+Cat Arena: give HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed banshee
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed shambler
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 22
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=142450 pos=-150,-400,-80 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=61 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 92 banshee pos=-279,-575,184 health=23
+Wrote screenshots/enemies_fight_600.jpg
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed banshee
+Cat Arena: wave 4 cleared
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 5, 28 enemies
+Cat Arena: spawn skyprobe at -672 480 353
+Cat Arena: spawn skyraider at 704 224 336
+Cat Arena: spawn skyjuggernaut at -512 544 333
+Cat Arena: spawn warden at -192 640 33
+Cat Arena: spawn sapper at -544 800 193
+Cat Arena: spawn shambler at 0 608 -95
+Cat Arena: spawn cultist at -1056 96 33
+Cat Arena: spawn skitter at 914 462 195
+Cat Arena: spawn cultist at -416 704 193
+Cat Arena: spawn cultist at -1088 0 -95
+Cat Arena: spawn sentinel at 755 198 195
+Cat Arena: spawn reaver at 800 -576 193
+Cat Arena: spawn shambler at -928 672 193
+Cat Arena: spawn pyromancer at -192 1088 -53
+Cat Arena: spawn warden at 602 466 35
+Cat Arena: spawn sentinel at -800 736 193
+Cat Arena: spawn marauder at -647 692 35
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: spawn sentinel at -416 896 33
+Cat Arena: spawn shambler at 1152 -256 35
+Cat Arena: spawn cultist at 955 -991 35
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by skyprobe shot 9
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed skyprobe
+Cat Arena: spawn shambler at 896 576 33
+Cat Arena: frag reroll ROCKET LAUNCHER -> GRENADE LAUNCHER
+Cat Arena: killed cultist
+Cat Arena: spawn marauder at -1120 -64 33
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: give GRENADE LAUNCHER -> IRON CHAINGUN
+Cat Arena: hit by reaver melee 21
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=152550 pos=-141,-425,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=64 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 102 pyromancer pos=-203,-91,-104 health=128
+CA_ENEMY 106 sentinel pos=-70,291,-65 health=188
+CA_ENEMY 109 skyraider pos=-18,-425,171 health=164
+CA_ENEMY 111 marauder pos=-113,-77,-104 health=170
+CA_ENEMY 112 marauder pos=-635,-130,24 health=170
+CA_ENEMY 114 sentinel pos=-127,184,-54 health=188
+CA_ENEMY 117 skyjuggernaut pos=-147,-410,-25 health=106
+CA_ENEMY 118 warden pos=-119,-111,-104 health=286
+CA_ENEMY 119 sapper pos=-169,-42,-104 health=134
+CA_ENEMY 120 shambler pos=-103,-318,-104 health=322
+CA_ENEMY 122 shambler pos=-227,546,34 health=322
+CA_ENEMY 123 cultist pos=415,-569,24 health=152
+CA_ENEMY 126 cultist pos=-7,-210,-104 health=142
+CA_ENEMY 127 skitter pos=205,317,36 health=89
+CA_ENEMY 128 cultist pos=-152,89,-104 health=152
+CA_ENEMY 130 sentinel pos=122,-175,-93 health=188
+CA_ENEMY 131 reaver pos=-150,-390,-104 health=40
+CA_ENEMY 138 shambler pos=599,536,24 health=322
+CA_ENEMY 140 warden pos=550,113,24 health=286
+CA_ENEMY 144 shambler pos=548,-187,24 health=322
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by sentinel voidorb 23
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+Cat Arena: killed reaver
+Cat Arena: spawn skitter at 96 1056 33
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: hit by shambler melee 33
+Cat Arena: give NAILGUN -> IRON CHAINGUN
+Cat Arena: hit by cultist fireball 5
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 23
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed skitter
+Cat Arena: spawn fiend at -704 832 33
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by shambler melee 33
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+Cat Arena: hit by cultist fireball 5
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed skyjuggernaut
+Cat Arena: spawn reaver at -832 672 33
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: frag reroll SUPER SHOTGUN -> QUAD SHOTGUN
+Cat Arena: killed shambler
+Cat Arena: spawn skyjuggernaut at 64 800 385
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by warden voidorb 23
+Cat Arena: hit by warden voidorb 23
+Cat Arena: hit by cultist fireball 5
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 23
+Cat Arena: hit by cultist fireball 5
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed shambler
+Cat Arena: spawn skyjuggernaut at 608 192 196
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by cultist fireball 5
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: hit by warden voidorb 23
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by sentinel voidorb 23
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by skitter melee 13
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed skitter
+Cat Arena: spawn fiend at -480 800 33
+Cat Arena: hit by pyromancer fireball 5
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed pyromancer
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by warden voidorb 23
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by sentinel voidorb 23
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by shambler melee 33
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by cultist fireball 5
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed shambler
+Cat Arena: hit by sapper spike 7
+Cat Arena: hit by sapper spike 7
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+Cat Arena: hit by warden voidorb 23
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by sentinel voidorb 23
+Cat Arena: hit by cultist fireball 5
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: hit by cultist fireball 5
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=165350 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=72 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 95 fiend pos=-110,-120,-104 health=122
+CA_ENEMY 106 sentinel pos=-177,-120,-89 health=188
+CA_ENEMY 109 skyraider pos=-26,-457,171 health=164
+CA_ENEMY 111 marauder pos=-166,-209,-67 health=170
+CA_ENEMY 112 marauder pos=-230,-247,-33 health=170
+CA_ENEMY 113 skyjuggernaut pos=-162,-458,-28 health=126
+CA_ENEMY 114 sentinel pos=-161,-150,-88 health=188
+CA_ENEMY 118 warden pos=-107,-154,-104 health=286
+CA_ENEMY 119 sapper pos=-310,-265,-104 health=134
+CA_ENEMY 123 cultist pos=-5,-351,-104 health=44
+CA_ENEMY 126 cultist pos=-48,-271,-104 health=142
+CA_ENEMY 127 reaver pos=-142,-117,-104 health=140
+CA_ENEMY 128 cultist pos=-78,-120,-104 health=152
+CA_ENEMY 130 sentinel pos=23,-219,-104 health=174
+CA_ENEMY 138 shambler pos=-154,-428,-104 health=292
+CA_ENEMY 140 warden pos=-36,-198,-104 health=286
+CA_ENEMY 144 fiend pos=-103,-91,-104 health=122
+CA_ENEMY 159 skyjuggernaut pos=-76,-159,172 health=316
+CATEST god off
+godmode OFF
+Cat Arena: hit by skyraider spike 15
+Cat Arena: hit by skyraider spike 15
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed skyraider
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: hit by skyjuggernaut voidorb 29
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: squad wiped
+Cat^7 died.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+You must be alive to use this command.
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 544 -896 375
+Cat Arena: spawn marauder at -320 1184 33
+Cat Arena: spawn skyjuggernaut at 128 -512 224
+Cat Arena: spawn sapper at -950 552 195
+Cat Arena: spawn skyraider at -704 192 339
+Cat Arena: spawn cultist at 544 -800 33
+Cat Arena: spawn shambler at 480 992 33
+Cat Arena: spawn sentinel at -928 736 193
+Cat Arena: spawn skitter at -647 692 35
+Cat Arena: spawn skitter at -768 -160 193
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by cultist fireball 4
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER NAILGUN
+Cat Arena: killed cultist
+Cat Arena: give SUPER NAILGUN -> IRON CHAINGUN
+CA_STATE t=175600 pos=998,83,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=116 score=73 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 125 skyprobe pos=887,-399,170 health=78
+CA_ENEMY 129 marauder pos=-94,734,24 health=140
+CA_ENEMY 131 skyjuggernaut pos=775,-35,123 health=260
+CA_ENEMY 132 sapper pos=-165,410,15 health=110
+CA_ENEMY 133 skyraider pos=813,85,100 health=135
+CA_ENEMY 135 shambler pos=652,397,24 health=265
+CA_ENEMY 136 sentinel pos=202,704,184 health=155
+CA_ENEMY 137 skitter pos=480,253,24 health=73
+CA_ENEMY 139 skitter pos=-347,528,175 health=73
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> RIFT CANNON
+Cat Arena: killed skitter
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed skyjuggernaut
+CATEST god on
+CA_STATE t=178000 pos=1040,85,86 hspeed=256 vz=319 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=70 score=75 weapon=2 wstate=3 wtime=778 pmflags=64 slot=0 w0=12 w1=0 inhand=12 clip2=50
+godmode ON
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by shambler melee 27
+Cat Arena: hit by marauder spike 6
+Cat Arena: hit by marauder spike 6
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed shambler
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed skitter
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by marauder spike 6
+Cat Arena: hit by marauder spike 6
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed sapper
+Cat Arena: frag reroll QUAD SHOTGUN -> IRON CHAINGUN
+Cat Arena: killed marauder
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: killed sentinel
+Cat Arena: hit by sentinel voidorb 19
+Cat Arena: give SAWBLADE DRIVER -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=187850 pos=-150,-400,-80 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=80 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 125 skyprobe pos=887,-399,182 health=78
+CA_ENEMY 133 skyraider pos=815,94,95 health=104
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed skyraider
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=198350 pos=-150,-400,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=81 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 125 skyprobe pos=887,-399,182 health=78
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=208900 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=81 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 125 skyprobe pos=887,-399,170 health=78
+Wrote screenshots/enemies_fight_900.jpg
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed skyprobe
+Cat Arena: wave 1 cleared
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 2, 13 enemies
+Cat Arena: spawn skyprobe at -96 320 79
+Cat Arena: spawn ogre at -998 -83 35
+Cat Arena: spawn ogre at 288 736 33
+Cat Arena: spawn skyjuggernaut at 64 736 382
+Cat Arena: spawn skyjuggernaut at -608 224 222
+Cat Arena: spawn skyprobe at 544 320 248
+Cat Arena: spawn grunt at -950 552 195
+Cat Arena: spawn grunt at -1120 224 193
+Cat Arena: spawn marauder at 955 -882 35
+Cat Arena: spawn fiend at 960 512 33
+Cat Arena: spawn skyraider at -160 448 87
+Cat Arena: spawn banshee at 96 448 -95
+Cat Arena: spawn cultist at -640 608 33
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: hit by skyjuggernaut voidorb 25
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed skyraider
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: frag reroll IRON CHAINGUN -> RIFT CANNON
+Cat Arena: killed skyprobe
+Cat Arena: frag reroll RIFT CANNON -> SUPER SHOTGUN
+Cat Arena: killed skyprobe (gibbed)
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: give SUPER SHOTGUN -> IRON CHAINGUN
+CA_STATE t=219550 pos=-14,-727,232 hspeed=256 vz=356 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=85 weapon=2 wstate=0 wtime=120 pmflags=64 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 94 banshee pos=-510,-386,102 health=97
+CA_ENEMY 100 ogre pos=-219,-718,184 health=131
+CA_ENEMY 128 ogre pos=-541,-101,24 health=131
+CA_ENEMY 129 skyjuggernaut pos=37,130,288 health=273
+CA_ENEMY 130 skyjuggernaut pos=-113,-531,258 health=163
+CA_ENEMY 132 grunt pos=-601,-415,184 health=79
+CA_ENEMY 133 grunt pos=-613,-684,184 health=89
+CA_ENEMY 134 marauder pos=803,-957,24 health=147
+CA_ENEMY 135 fiend pos=702,159,184 health=105
+CA_ENEMY 138 cultist pos=-433,-479,156 health=131
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed ogre
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+Cat Arena: hit by skyjuggernaut voidorb 25
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: hit by grunt shot 9
+Cat Arena: hit by grunt shot 9
+Cat Arena: hit by banshee voidorb 20
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed skyjuggernaut
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+Cat Arena: hit by cultist fireball 4
+Cat Arena: hit by ogre fireball 4
+Cat Arena: frag reroll IRON CHAINGUN -> RAILGUN
+Cat Arena: killed cultist
+Cat Arena: frag reroll RAILGUN -> SUPER NAILGUN
+Cat Arena: killed grunt (gibbed)
+Cat Arena: hit by grunt shot 9
+Cat Arena: hit by grunt shot 9
+Cat Arena: hit by banshee voidorb 20
+Cat Arena: give SUPER NAILGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed fiend
+Cat Arena: frag reroll QUAD SHOTGUN -> TRIPLE SPIKE
+Cat Arena: killed grunt
+Cat Arena: hit by ogre fireball 4
+Cat Arena: frag reroll TRIPLE SPIKE -> RIFT CANNON
+Cat Arena: killed banshee
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+Cat Arena: hit by banshee voidorb 20
+Cat Arena: hit by ogre fireball 4
+Cat Arena: frag reroll IRON CHAINGUN -> NAILGUN
+Cat Arena: killed ogre
+Cat Arena: give NAILGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=231050 pos=-150,-400,-80 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=93 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 129 skyjuggernaut pos=37,130,269 health=273
+CA_ENEMY 134 marauder pos=774,-993,24 health=147
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=240800 pos=-150,-400,-104 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=93 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 129 skyjuggernaut pos=-70,-163,172 health=273
+CA_ENEMY 134 marauder pos=829,-925,24 health=147
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+CA_STATE t=250750 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=93 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CA_ENEMY 129 skyjuggernaut pos=-76,-158,172 health=273
+CA_ENEMY 134 marauder pos=904,-849,24 health=147
+CA_STATE t=250750 pos=0,-700,208 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=70 score=93 weapon=2 wstate=0 wtime=120 pmflags=0 slot=0 w0=11 w1=0 inhand=11 clip2=50
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+-----------------------

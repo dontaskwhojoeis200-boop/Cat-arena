@@ -69,6 +69,32 @@ CatArena.exe  (engine/quake3e, C, GPL v2)            catarena/  (base folder, fs
 - **Network cost.** One temporary entity per pellet (a QUAD SHOTGUN shot is 20), broadcast;
   counted in the stage E snapshot audit.
 
+## Enemies (stage D, part 4)
+
+- **Types.** The 20 N10 types are one C++20 table (`game/catarena/src/ca_enemies.cpp`, from N10's
+  `kTypes`, attack timings and the generated legacy tables), shared by qagame and cgame through
+  `CA_EnemyType()` / `CA_EnemyShot()`. Hit boxes: the union of N10's two boxes per hit class.
+- **Server (ca_horde.cpp, g_ca.c).** N10 spawn rules (random type; ground enemies on a random graph
+  node of a random level where their capsule fits; flyers over open-sky nodes; the first three of
+  a wave's batch are flyers); ground enemies walk with Pmove along N10 routes with their own
+  navigation profile and stop at N10's distances; flyers run N10's `updateFlyer` steering on
+  N10's collision world and are placed directly; the attack state machine with N10 wind-up,
+  cooldown and reach; enemy projectiles are `ET_MISSILE` entities that only players and the world
+  stop, with the fireball burn. The entity carries the type (`modelindex`), a spawn id
+  (`powerups`), the start of the current attack (`time`) and the last hit (`time2`).
+- **Client (cg_ca_enemies.c, ca_enemy_anim.cpp).** cgame loads N10's creature meshes (`.emesh`,
+  unchanged) and poses each creature every frame with the C++20 port of N10's `enemyEvalPose`
+  (gait from its own movement, look at the player, attack phases from the attack start, pain from
+  the last hit); the skeleton deformation N10 does in its vertex shader runs on the CPU and the
+  posed triangles go to the renderer as polygons (`trap_R_AddPolysToScene`), lit from the light
+  grid at the creature. A death event leaves a client-side body with N10's death animation (or
+  gibs below -40 health). Quake III's renderer has no API for bone poses, so this replaces N10's
+  GPU skinning; the cost (about 260 triangles per creature) is to be measured in Q3E-F.
+  `default.cfg` raises `r_maxpolys` / `r_maxpolyverts` to 16384 / 65536 for 20 creatures and 24
+  bodies.
+- **Maps.** The converter adds player clip along the open edges of N10's footprint, so players
+  and enemies stay where N10 lets them be (blasts could throw a player off the map before).
+
 ## Data pipeline
 
 - **Maps**: N10 compiled map data → `tools/q3e` converter → `.map` (one brush per convex slab,

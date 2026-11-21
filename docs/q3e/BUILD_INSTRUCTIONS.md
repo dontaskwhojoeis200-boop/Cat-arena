@@ -127,6 +127,21 @@ CatArena +set ca_waves 0 +set ca_loadout "0 1" +devmap ca_test +wait 150 +exec w
 python3 tools/q3e/weapons_test.py check <console log>
 ```
 
+Enemies (stage D, part 4):
+
+```
+python3 tools/q3e/convert_enemies.py      # 20 N10 creature meshes (.emesh) + base textures + shaders
+python3 tools/q3e/n10map2q3.py . reactor-bastion ca_reactor && tools/q3e/build_maps.sh <q3map2> ca_reactor
+python3 tools/q3e/enemies_test.py write <homeA>/catarena/lineup.cfg <homeB>/catarena/waves.cfg
+CatArena +set fs_homepath <homeA> +set ca_waves 0 +set ca_log 1 +devmap ca_test +wait 150 +exec lineup.cfg
+CatArena +set fs_homepath <homeB> +set ca_waves 0 +set ca_log 1 +set ca_loadout "11 0" +devmap ca_reactor +wait 150 +exec waves.cfg
+python3 tools/q3e/enemies_test.py check <homeA log> <homeB log>
+```
+
+`ca_lineup [off]` (cheat) puts all 20 types in rows in front of the player, held still, playing
+their attack wind-up every 2.5 s; `ca_log 1` prints enemy spawns, hits on the player and kills;
+`ca_enemies` lists the living enemies.
+
 Test cvars and commands (cheats, `devmap`): `ca_loadout "a b"` fixes the two spawn weapons (N10
 indices 0-15; empty = random, as N10); `ca_give n` puts weapon n in hand; `ca_place x y z yaw
 [pitch]`; `ca_state` prints the loadout (`slot w0 w1 inhand clip clip2`) and `vz`.

@@ -43,3 +43,7 @@ in this private build pipeline.
 - Source offer or source archive for the exact engine + module commit of the build.
 - Change notices: `engine/quake3e/UPSTREAM.txt` + `git log <import>..HEAD -- engine/quake3e`.
 - Asset provenance confirmed for every shipped file.
+- Weapon textures taken unchanged from N10 / the legacy game (`assets/n5/weapons`): the ROCKET
+  LAUNCHER and HAND CANNON textures carry an emblem that resembles the Quake logo (seen in the
+  stage D part 4 pictures). The owner should confirm these textures may be shipped, or repaint
+  the emblem.

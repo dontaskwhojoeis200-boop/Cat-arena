@@ -80,7 +80,7 @@ Changes by construction, because the handoff replaces the engine layer:
 | **A** Source audit and preservation | Audit, revisions, branch, import, build proof | **Done** (2026-11-19); decisions D1–D3 answered |
 | **B** Windows foundation | Cat Arena-branded engine build (name, icon, base folder `catarena`, no id data), `catarena` pk3 with a legally clean test map built by our own pipeline, C++20 game DLL skeleton loading on Windows and Linux, Vulkan device report, CI package | **Done** (2026-11-19): Windows CI run 44655962252 loads the test arena with the Cat Arena DLL; Linux client renders it and runs stock Quake III movement. The Windows client itself has not run on a GPU yet |
 | **C** First playable loop | One map room, movement (D1), one weapon, one enemy type, health / damage, one basic wave, collision | **Done** (2026-11-19): scripted gameplay run 11/11 (Linux), `ca_selftest` 10/10 (Linux and Windows CI). Movement is stock Quake III by decision D1, so it is checked against Quake III values (320 / 480 u/s), not N10 tapes |
-| **D** Map and gameplay | Reactor Bastion converted (then the other three maps), 16 weapons, 20 enemy types, animation, wave progression, settings | Weapon / enemy / movement tolerance tests on all maps; Reactor Bastion walkthrough (all rooms, levels, bridges, ramps reachable; no invisible walls). **Part 1 done** (2026-11-19): Reactor Bastion converted and checked against N10 (50 floors, 20 ramps, 4 pads). **Part 2 done** (2026-11-20): N10 navigation reused in qagame; fiends reach every level. **Part 3 done** (2026-11-20): all 16 N10 weapons (two slots, switch, frag reroll, projectiles, blasts, recoil, viewmodels, effects). Next parts: the other 19 enemy types, animation, the other three maps, sounds, pickups |
+| **D** Map and gameplay | Reactor Bastion converted (then the other three maps), 16 weapons, 20 enemy types, animation, wave progression, settings | Weapon / enemy / movement tolerance tests on all maps; Reactor Bastion walkthrough (all rooms, levels, bridges, ramps reachable; no invisible walls). **Part 1 done** (2026-11-19): Reactor Bastion converted and checked against N10 (50 floors, 20 ramps, 4 pads). **Part 2 done** (2026-11-20): N10 navigation reused in qagame; fiends reach every level. **Part 3 done** (2026-11-20): all 16 N10 weapons (two slots, switch, frag reroll, projectiles, blasts, recoil, viewmodels, effects). **Part 4 done** (2026-11-20): all 20 enemy types with N10's animation. Next parts: the other three maps, sounds, pickups |
 | **E** Multiplayer | 4-player co-op on Quake III networking: enemies, projectiles, damage, waves, downed / revive, disconnects, (D2) | 4 clients on one machine, packet loss / latency simulation, snapshot-size audit, soak |
 | **F** Optimisation and stabilisation | Memory and frame-time measurement, loading, frame pacing, settings / UI, packaging, comparison with N10 | Measured report on the owner's G2020 + GTX 660 (only the owner can run it) |
 
@@ -96,8 +96,9 @@ Changes by construction, because the handoff replaces the engine layer:
   brushes need a closed, sealed world for PVS; Cat Arena maps are open-sky arenas. A sky shell
   brush box per map is needed; leaks must be checked by q3map2.
 - **Animation.** Cat Arena poses enemies procedurally at runtime (legacy rules). Quake3e draws
-  MD3 / IQM; either the poses are baked into vertex or skeletal animations, or `cgame` builds
-  refEntity poses each frame (IQM skeletal). Decide in Q3E-D with a cost measurement.
+  MD3 / IQM and takes no bone poses from cgame. Decided in Q3E-D part 4: N10's posing and skeleton
+  run in cgame on the CPU and the posed meshes are drawn as polygons. Cost (CPU skinning of about
+  260 triangles per creature, up to 44 creatures and bodies as polygons) to be measured in Q3E-F.
 - **Determinism.** The N10 simulation uses `double` and correctly rounded math for bit-exact
   replays; Quake III's pmove uses `float` and snaps velocities. Replay parity with N10 is not a goal
   of this branch; tolerance tests replace it.
