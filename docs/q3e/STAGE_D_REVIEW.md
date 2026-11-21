@@ -158,3 +158,13 @@ Observed, the same as N10's own code:
   the Arsenal and Bastion kit textures and models — N10's data names the Bastion Keep kit as "the
   40-piece Meshy kit", generated with that commercial service, whose terms apply — the sounds and
   the soundtrack), and the prebuilt libcurl still linked in the Windows build (stage F).
+
+### Answered by the owner (2026-11-21)
+
+| Decision | Answer |
+|---|---|
+| D-R5 Light on the maps | **Keep q3map2's contrast** (Quake III Arena's look). The maps stay as they are |
+| D-R2 Player box | **Keep the stock Quake III box** |
+| D-R3 Flyers stuck out of reach | **Keep N10's steering**; revisit if it shows in real play |
+| D-R4 HUD, menus, settings | **Later, in stage F**; stage E (multiplayer) is next |
+| D-R1 Reproducible lighting | not asked; with the maps kept as they are, it is done when they are next rebuilt (stage F at the latest) |
