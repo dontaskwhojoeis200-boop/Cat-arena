@@ -208,6 +208,17 @@ catarena/fx/beam
 	}
 }
 
+textures/common/playerclip
+{
+	surfaceparm nodraw
+	surfaceparm nolightmap
+	surfaceparm nonsolid
+	surfaceparm trans
+	surfaceparm nomarks
+	surfaceparm noimpact
+	surfaceparm playerclip
+}
+
 textures/common/trigger
 {
 	surfaceparm nodraw
@@ -386,6 +397,9 @@ bind c "+movedown"
 bind CTRL "+movedown"
 bind SHIFT "+button5"
 bind q "+button7"
+// creatures are drawn as polygons (posed every frame): room for 20 live ones and 24 bodies
+seta r_maxpolys "16384"
+seta r_maxpolyverts "65536"
 bind MOUSE1 "+attack"
 bind r "+button6"
 bind TAB "+scores"

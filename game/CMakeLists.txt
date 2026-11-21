@@ -37,8 +37,10 @@ else()
 endif()
 
 # Cat Arena C++20 code shared by every module (C bridge; gameplay code is added here in later stages).
-add_library(ca_bridge STATIC ${CA}/src/ca_bridge.cpp ${CA}/src/ca_weapons.cpp)
+add_library(ca_bridge STATIC ${CA}/src/ca_bridge.cpp ${CA}/src/ca_weapons.cpp ${CA}/src/ca_enemies.cpp)
 target_include_directories(ca_bridge PUBLIC ${CA}/include)
+# the legacy enemy tables generated for N10 (native/include/cat/generated/enemy_tables.inc)
+target_include_directories(ca_bridge PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../native/include)
 target_compile_options(ca_bridge PRIVATE ${CA_CXX_WARNINGS})
 
 set(CA_SHARED_C ${IOQ3}/qcommon/q_math.c ${IOQ3}/qcommon/q_shared.c)
@@ -90,8 +92,10 @@ add_library(qagame SHARED ${CA_GAME_C} ${IOQ3}/game/g_ca.c ${IOQ3}/game/g_ca_wea
 target_link_libraries(qagame PRIVATE ca_n10nav)
 ca_module(qagame QAGAME)
 
-add_library(cgame SHARED ${CA_CGAME_C} ${CA_BG_C} ${CA_SHARED_C})
+add_library(cgame SHARED ${CA_CGAME_C} ${IOQ3}/cgame/cg_ca_enemies.c ${CA}/src/ca_enemy_anim.cpp ${CA_BG_C} ${CA_SHARED_C})
 ca_module(cgame CGAME)
+target_include_directories(cgame PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../native/include)
+set_source_files_properties(${CA}/src/ca_enemy_anim.cpp PROPERTIES COMPILE_OPTIONS "${CA_CXX_WARNINGS}")
 
 add_library(ui SHARED ${CA}/ui/ui_main.cpp ${CA_SHARED_C})
 ca_module(ui UI)

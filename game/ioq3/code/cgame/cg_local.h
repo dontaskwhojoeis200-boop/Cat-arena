@@ -703,7 +703,6 @@ typedef struct {
 	// gib explosions
 	qhandle_t	gibAbdomen;
 #ifdef CAT_ARENA_STANDALONE
-	qhandle_t	caFiendModel;		// Cat Arena enemy (N10 fiend, converted to MD3)
 	qhandle_t	caWeaponModels[CA_WEAPON_COUNT];	// N10 viewmodels (tools/q3e/convert_weapons.py)
 	qhandle_t	caGlowShader;		// additive sprite (projectiles, flashes, sparks, blasts)
 	qhandle_t	caBeamShader;		// additive beam (tracers, rail, thunderbolt)
@@ -1707,4 +1706,12 @@ void CG_CA_Blast( const entityState_t *es );
 void CG_CA_Projectile( centity_t *cent );
 void CG_CA_MuzzleFlash( int weapon, const vec3_t muzzle );
 void CG_CA_Reroll( const entityState_t *es );
+void CG_CA_EnemyImpact( const entityState_t *es );
+void CG_CA_Gibs( const vec3_t origin, float scale );
+// cg_ca_enemies.c
+void CG_CA_RegisterEnemies( void );
+void CG_CA_DrawEnemy( centity_t *cent );
+void CG_CA_EnemyDeath( centity_t *cent, int gibbed );
+void CG_CA_AddEnemyBodies( void );
+void CG_CA_ClearEnemyBodies( void );
 #endif

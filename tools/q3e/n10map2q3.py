@@ -7,6 +7,9 @@ Collision (worldspawn brushes, nodraw, from map.json "compiled" = what N10's phy
           at the slab's base
   solids  convex prisms z0..z1 (columns, blocks, equipment)
   walls   segments -> thin brushes (0.16 m) z0..z1; detail brushes (no vis portals)
+  edges   player clip along the edges of N10's footprint (stage D part 4): N10 never lets a player
+          or an enemy stand outside the footprint (levelWalkable), so its open edges (bridge sides,
+          drops to the void) get invisible walls that stop players and enemies but not shots
   hull    a box around the footprint: sky on top and sides, caulk below (seals the map)
 Sky: a base colour with the two N10 cloud layers alpha-blended (N10 draws them over a baked
   gradient farbox).
@@ -30,6 +33,7 @@ from PIL import Image
 U = 32.0
 CAULK = "common/caulk"
 CLIP = "common/caulk"          # collision brushes are invisible; the visual mesh draws the world
+PLAYERCLIP = "common/playerclip"
 DETAIL = 134217728             # CONTENTS_DETAIL
 
 
@@ -147,6 +151,51 @@ def main():
         poly = [(ax + nx, ay + ny), (bx + nx, by + ny), (bx - nx, by - ny), (ax - nx, ay - ny)]
         ok = w.prism(poly, lambda x, y, z=wl["z1"]: z, lambda x, y, z=wl["z0"]: z, contents=DETAIL)
         stats["walls" if ok else "skipped"] += 1
+
+    # footprint edges: where the outside of a footprint polygon's edge is in no other polygon, a
+    # player clip wall 0.12 m thick from the lowest to the highest point of the map
+    def in_poly(x, y, poly):
+        inside = False
+        n = len(poly)
+        for i in range(n):
+            (x0, y0), (x1, y1) = poly[i], poly[(i + 1) % n]
+            if (y0 > y) != (y1 > y) and x < x0 + (y - y0) * (x1 - x0) / (y1 - y0):
+                inside = not inside
+        return inside
+    foot = c["footprint"]
+    def walkable(x, y):
+        return any(in_poly(x, y, q) for q in foot)
+    zlow_e = min(s["z"] - s["thickness"] if s.get("base") is None else s["base"] for s in c["slabs"]) - 2
+    zhigh_e = max([wl["z1"] for wl in c["walls"]] + [so["z1"] for so in c["solids"]]) + 12
+    stats["edge clips"] = 0
+    for poly in foot:
+        n = len(poly)
+        area = sum(poly[i][0] * poly[(i + 1) % n][1] - poly[(i + 1) % n][0] * poly[i][1] for i in range(n))
+        sign = 1 if area > 0 else -1          # counter-clockwise: outward normal (dy, -dx)
+        for i in range(n):
+            (ax, ay), (bx, by) = poly[i], poly[(i + 1) % n]
+            L = math.hypot(bx - ax, by - ay)
+            if L < 0.05:
+                continue
+            ox, oy = sign * (by - ay) / L, -sign * (bx - ax) / L
+            steps = max(1, int(math.ceil(L / 0.25)))
+            run = None
+            for k in range(steps + 1):
+                t = (k + 0.5) / steps if k < steps else None
+                open_edge = False
+                if t is not None:
+                    mx, my = ax + (bx - ax) * t, ay + (by - ay) * t
+                    open_edge = not walkable(mx + ox * 0.06, my + oy * 0.06)
+                if open_edge and run is None:
+                    run = k / steps
+                if (not open_edge or t is None) and run is not None:
+                    t0, t1 = run, k / steps
+                    run = None
+                    p0 = (ax + (bx - ax) * t0, ay + (by - ay) * t0)
+                    p1 = (ax + (bx - ax) * t1, ay + (by - ay) * t1)
+                    quad = [p0, p1, (p1[0] + ox * 0.12, p1[1] + oy * 0.12), (p0[0] + ox * 0.12, p0[1] + oy * 0.12)]
+                    if w.prism(quad, lambda x, y: zhigh_e, lambda x, y: zlow_e, tex=PLAYERCLIP, contents=DETAIL):
+                        stats["edge clips"] += 1
 
     # hull: sky on top and around, caulk underneath
     xs = [p[0] for poly in c["footprint"] for p in poly]
@@ -302,8 +351,8 @@ def main():
     with open(os.path.join(out, "maps", name + ".map"), "w", newline="\n") as f:
         f.write("// %s: Cat Arena map converted from N10 %s by tools/q3e/n10map2q3.py (Quake III units, 32 u = 1 m)\n" % (name, map_id))
         f.write(world + "".join(ents))
-    print("%s: %d slab, %d solid, %d wall brushes (%d skipped), %d triangles in %d material groups, %d lights, %d spawns, %d pads"
-          % (name, stats["slabs"], stats["solids"], stats["walls"], stats["skipped"], len(idx) // 3, len(groups), len(c["lights"]), len(c["spawns"]), len(c["pads"])))
+    print("%s: %d slab, %d solid, %d wall brushes (%d skipped), %d footprint edge clips, %d triangles in %d material groups, %d lights, %d spawns, %d pads"
+          % (name, stats["slabs"], stats["solids"], stats["walls"], stats["skipped"], stats["edge clips"], len(idx) // 3, len(groups), len(c["lights"]), len(c["spawns"]), len(c["pads"])))
 
 
 if __name__ == "__main__":

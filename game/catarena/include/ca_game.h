@@ -12,11 +12,12 @@ extern "C" {
 #endif
 
 #define CA_MAX_ENEMIES      20     /* N10 kMaxEnemies */
-#define CA_ENEMY_FIEND       0     /* stage C: the only enemy type */
+#define CA_ENEMY_FIEND       2     /* N10 type index of the fiend */
 
 typedef struct {
 	int   clientNum;
 	float origin[3];               /* Quake III units */
+	float velocity[3];             /* u/s (enemy aim lead) */
 	int   alive;
 } caPlayer_t;
 
@@ -30,8 +31,9 @@ typedef struct {
 	void  (*removeEnemy)( int entityNum );
 	int   (*enemyHealth)( int entityNum );
 	void  (*enemyOrigin)( int entityNum, float out[3] );
-	/* runs the shared Quake III movement (Pmove) for msec with the given facing and speed */
-	void  (*moveEnemy)( int entityNum, float yawDeg, float speedUnits, int moving, int msec );
+	/* runs the shared Quake III movement (Pmove) for msec along moveYawDeg; the body faces faceYawDeg */
+	void  (*moveEnemy)( int entityNum, float moveYawDeg, float speedUnits, int moving, int msec, float faceYawDeg );
+	/* an attack wind-up starts now (the client animates it from the type's timings) */
 	void  (*setEnemyState)( int entityNum, int windingUp );
 	int   (*visible)( int entityNum, int clientNum );
 	void  (*damagePlayer)( int clientNum, int damage, int attackerEntityNum );
@@ -40,13 +42,19 @@ typedef struct {
 	/* stage D: N10 navigation data (maps/<mapname>.cadata in the pk3) */
 	const char *(*mapName)( void );
 	int   (*readFile)( const char *path, unsigned char *buffer, int maxBytes );   /* bytes read, -1 if missing */
+	/* stage D part 4: flyers, ranged attacks */
+	void  (*setEnemyOrigin)( int entityNum, const float origin[3], float faceYawDeg );   /* flyers: no Pmove */
+	int   (*boxFree)( const float from[3], const float to[3], const float mins[3], const float maxs[3] );   /* 1 = no world in the way */
+	void  (*fireEnemyShot)( int ownerEntityNum, int type, int kind, const float origin[3], const float velocity[3], int damage, int lifeMs, int targetClient );
 } caGameImport_t;
 
 void CA_HordeInit( const caGameImport_t *imports );
 void CA_HordeFrame( int msec );                 /* every server frame */
 void CA_HordeEnemyKilled( int entityNum );      /* from the enemy's die callback */
 void CA_HordeShutdown( void );
-int  CA_HordeSelfTest( void );                  /* server command ca_selftest: 1 = all checks passed */
+int  CA_HordeSelfTest( void );
+void CA_HordeLineup( const float origin[3], float yawDeg );   /* cheat ca_lineup: all 20 types, held still */
+int  CA_HordeLineupActive( void );                  /* server command ca_selftest: 1 = all checks passed */
 
 #ifdef __cplusplus
 }

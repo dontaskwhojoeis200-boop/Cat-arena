@@ -823,6 +823,7 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
 		CG_AddLocalEntities();
 #ifdef CAT_ARENA_STANDALONE
 		CG_CA_AddEffects();
+		CG_CA_AddEnemyBodies();
 #endif
 	}
 	CG_AddViewWeapon( &cg.predictedPlayerState );

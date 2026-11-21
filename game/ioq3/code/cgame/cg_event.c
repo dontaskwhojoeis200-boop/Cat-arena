@@ -820,6 +820,14 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 		DEBUGNAME("EV_CA_REROLL");
 		CG_CA_Reroll( es );
 		break;
+	case EV_CA_ENEMY_DEATH:
+		DEBUGNAME("EV_CA_ENEMY_DEATH");
+		CG_CA_EnemyDeath( cent, es->eventParm );
+		break;
+	case EV_CA_ENEMY_IMPACT:
+		DEBUGNAME("EV_CA_ENEMY_IMPACT");
+		CG_CA_EnemyImpact( es );
+		break;
 #endif
 	case EV_FIRE_WEAPON:
 		DEBUGNAME("EV_FIRE_WEAPON");

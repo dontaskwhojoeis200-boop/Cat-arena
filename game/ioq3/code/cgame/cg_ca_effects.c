@@ -251,10 +251,63 @@ void CG_CA_Blast( const entityState_t *es ) {
 	}
 }
 
+/* An enemy projectile (N10 EFX enemy shots): a glow in the type's colour, sized by the kind's sweep
+   radius, with a trail. */
+static void CA_EnemyProjectile( centity_t *cent ) {
+	const entityState_t *s = &cent->currentState;
+	const caEnemyType_t *def = CA_EnemyType( s->generic1 );
+	const caEnemyShot_t *k = CA_EnemyShot( s->otherEntityNum2 - 10 );
+	float rgba[4], core[4] = { 1, 1, 1, 0.9f }, radius;
+	if ( !def || !k ) {
+		return;
+	}
+	rgba[0] = def->lookColor[0]; rgba[1] = def->lookColor[1]; rgba[2] = def->lookColor[2]; rgba[3] = 1;
+	radius = k->radius * 2.6f + 3;
+	CA_DrawSprite( cent->lerpOrigin, radius, rgba, 1.0f, 0 );
+	CA_DrawSprite( cent->lerpOrigin, radius * 0.4f, core, 1.0f, 0 );
+	trap_R_AddLightToScene( cent->lerpOrigin, 60 + k->radius * 18, rgba[0], rgba[1], rgba[2] );
+	if ( cg.time - cent->trailTime >= 30 || cg.time < cent->trailTime ) {
+		float trail[4];
+		Vector4Copy( rgba, trail );
+		trail[3] = 0.55f;
+		CA_AddSprite( cent->lerpOrigin, NULL, radius * 0.7f, radius * 0.2f, trail, 260, 0 );
+		cent->trailTime = cg.time;
+	}
+}
+
+/* EV_CA_ENEMY_IMPACT: an enemy projectile hit a player or the world, or burst. */
+void CG_CA_EnemyImpact( const entityState_t *es ) {
+	const caEnemyType_t *def = CA_EnemyType( es->generic1 );
+	const caEnemyShot_t *k = CA_EnemyShot( es->eventParm );
+	float rgba[4];
+	if ( !def || !k ) {
+		return;
+	}
+	rgba[0] = def->lookColor[0]; rgba[1] = def->lookColor[1]; rgba[2] = def->lookColor[2]; rgba[3] = 1;
+	CA_AddSprite( es->pos.trBase, NULL, k->radius * 3, k->radius * 9 + 10, rgba, es->eventParm >= CA_SHOT_FIREBALL ? 420 : 220, 160 + k->radius * 20 );
+}
+
+/* WFX.gibs (approximation): a burst of dark red pieces. */
+void CG_CA_Gibs( const vec3_t origin, float scale ) {
+	int i;
+	for ( i = 0 ; i < 12 ; i++ ) {
+		vec3_t at, v;
+		float blood[4] = { 0.45f, 0.04f, 0.03f, 0.95f };
+		VectorCopy( origin, at );
+		at[2] += crandom() * 16;
+		VectorSet( v, crandom() * 160, crandom() * 160, 60 + random() * 180 );
+		CA_AddSprite( at, v, ( 5 + random() * 5 ) * scale, ( 9 + random() * 6 ) * scale, blood, 600 + (int)( random() * 500 ), 0 );
+	}
+}
+
 /* ET_MISSILE of a Cat Arena projectile: glow, light and a trail. */
 void CG_CA_Projectile( centity_t *cent ) {
 	const entityState_t *s = &cent->currentState;
 	int weapon = s->generic1, kind = s->otherEntityNum2;
+	if ( kind >= 10 ) {
+		CA_EnemyProjectile( cent );
+		return;
+	}
 	float rgba[4], radius = kind == CA_FIRE_RIFT ? 14 : kind == CA_FIRE_GRENADE ? 7 : 9;
 	CA_Color( weapon, 1.0f, 1.0f, rgba );
 	CA_DrawSprite( cent->lerpOrigin, radius, rgba, 1.0f, 0 );

@@ -455,6 +455,10 @@ void G_RunMissile( gentity_t *ent ) {
 		G_CA_RunProjectile( ent );	// N10 rocket / grenade / rift bolt
 		return;
 	}
+	if ( ent->classname && !strcmp( ent->classname, "ca_enemy_shot" ) ) {
+		G_CA_RunEnemyShot( ent );	// N10 enemy projectile
+		return;
+	}
 #endif
 	// get current position
 	BG_EvaluateTrajectory( &ent->s.pos, level.time, origin );

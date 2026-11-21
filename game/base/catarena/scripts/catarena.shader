@@ -35,6 +35,17 @@ catarena/fx/beam
 	}
 }
 
+textures/common/playerclip
+{
+	surfaceparm nodraw
+	surfaceparm nolightmap
+	surfaceparm nonsolid
+	surfaceparm trans
+	surfaceparm nomarks
+	surfaceparm noimpact
+	surfaceparm playerclip
+}
+
 textures/common/trigger
 {
 	surfaceparm nodraw

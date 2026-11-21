@@ -1405,6 +1405,8 @@ char *eventnames[] = {
 	,"EV_CA_SHOT"
 	,"EV_CA_BLAST"
 	,"EV_CA_REROLL"
+	,"EV_CA_ENEMY_DEATH"
+	,"EV_CA_ENEMY_IMPACT"
 #endif
 
 };

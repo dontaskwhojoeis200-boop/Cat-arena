@@ -999,35 +999,11 @@ CG_AddCEntity
 ==================
 CG_CAEnemy
 
-Cat Arena enemy (stage C: the fiend as one static MD3; animation comes in stage D).
-Leans forward while winding up an attack, flashes when hit, topples when dead.
+Cat Arena enemy: one of the 20 N10 creature types, posed by N10's animation.
 ==================
 */
 static void CG_CAEnemy( centity_t *cent ) {
-	refEntity_t ent;
-	vec3_t angles;
-	const entityState_t *s = &cent->currentState;
-
-	memset( &ent, 0, sizeof( ent ) );
-	VectorCopy( cent->lerpOrigin, ent.origin );
-	VectorClear( angles );
-	angles[YAW] = cent->lerpAngles[YAW];
-	if ( s->generic1 ) {
-		angles[PITCH] = 14;
-	}
-	if ( s->eFlags & EF_DEAD ) {
-		angles[ROLL] = 80;
-		ent.origin[2] -= 14;
-	}
-	AnglesToAxis( angles, ent.axis );
-	VectorCopy( ent.origin, ent.oldorigin );
-	VectorCopy( cent->lerpOrigin, ent.lightingOrigin );
-	ent.renderfx = RF_LIGHTING_ORIGIN;
-	ent.hModel = cgs.media.caFiendModel;
-	trap_R_AddRefEntityToScene( &ent );
-	if ( s->time2 && cg.time - s->time2 >= 0 && cg.time - s->time2 < 90 && !( s->eFlags & EF_DEAD ) ) {
-		trap_R_AddLightToScene( cent->lerpOrigin, 90, 1.0f, 0.3f, 0.2f );	// hit flash
-	}
+	CG_CA_DrawEnemy( cent );	// N10 mesh and animation (cg_ca_enemies.c)
 }
 #endif
 

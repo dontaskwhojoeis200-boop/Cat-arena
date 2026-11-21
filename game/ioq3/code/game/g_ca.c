@@ -13,12 +13,19 @@
 #include "ca_game.h"
 
 static playerState_t caEnemyPS[MAX_GENTITIES];   /* movement state per enemy entity */
+static struct {
+	int type;          /* N10 enemy type */
+	int uid;           /* changes with every spawn: the client's animation state follows it */
+	int attackTime;    /* level time when the current attack wind-up began (0 = none yet) */
+	float face;        /* facing, degrees */
+} caEnemyInfo[MAX_GENTITIES];
+static int caEnemyUid;
 static vec3_t caSpawnSpots[64];
 static int caSpawnCount;
 static vmCvar_t ca_waves;   /* 0 holds the waves (movement tests); default 1 */
+static vmCvar_t ca_log;     /* 1 prints enemy spawns, hits on players and kills (tests) */
 
-static const vec3_t caEnemyMins = { -15, -15, -24 };
-static const vec3_t caEnemyMaxs = { 15, 15, 32 };
+int G_CA_Log( void ) { return ca_log.integer; }
 
 /* ---- map entity: info_ca_enemy_spawn ---------------------------------------------------- */
 void SP_info_ca_enemy_spawn( gentity_t *ent ) {
@@ -42,6 +49,7 @@ static int CA_Players( caPlayer_t *out, int max ) {
 		}
 		out[ n ].clientNum = i;
 		VectorCopy( cl->ps.origin, out[ n ].origin );
+		VectorCopy( cl->ps.velocity, out[ n ].velocity );
 		out[ n ].alive = cl->ps.stats[ STAT_HEALTH ] > 0 && cl->ps.pm_type != PM_DEAD;
 		n++;
 	}
@@ -70,13 +78,17 @@ static void CA_EnemyDie( gentity_t *self, gentity_t *inflictor, gentity_t *attac
 		AddScore( attacker, self->r.currentOrigin, 1 );
 		G_CA_Reroll( attacker, -1 );   /* N10 rerollOne: a frag replaces the weapon in hand */
 	}
+	if ( ca_log.integer ) {
+		G_Printf( "Cat Arena: killed %s%s\n", CA_EnemyType( caEnemyInfo[ self->s.number ].type )->name, self->health <= CA_GIB_HEALTH ? " (gibbed)" : "" );
+	}
 	CA_HordeEnemyKilled( self->s.number );
 	self->takedamage = qfalse;
 	self->r.contents = 0;
 	self->s.eFlags |= EF_DEAD;
-	self->s.generic1 = 0;
+	/* the client keeps the body (N10 death animation, or gibs below -40 health) */
+	G_AddEvent( self, EV_CA_ENEMY_DEATH, self->health <= CA_GIB_HEALTH ? 1 : 0 );
 	self->think = G_FreeEntity;
-	self->nextthink = level.time + 1500;   /* corpse visible briefly (topples in cgame) */
+	self->nextthink = level.time + 400;
 	trap_LinkEntity( self );
 }
 
@@ -86,13 +98,17 @@ static void CA_EnemyPain( gentity_t *self, gentity_t *attacker, int damage ) {
 
 static void CA_SyncEnemy( gentity_t *ent ) {
 	playerState_t *ps = &caEnemyPS[ ent->s.number ];
-	int eFlags = ent->s.eFlags, generic1 = ent->s.generic1, time2 = ent->s.time2;
+	int eFlags = ent->s.eFlags, time2 = ent->s.time2;
+	int n = ent->s.number;
 	BG_PlayerStateToEntityState( ps, &ent->s, qtrue );
 	ent->s.eType = ET_CA_ENEMY;
-	ent->s.modelindex = CA_ENEMY_FIEND;
+	ent->s.modelindex = caEnemyInfo[ n ].type;
+	ent->s.powerups = caEnemyInfo[ n ].uid;
+	ent->s.time = caEnemyInfo[ n ].attackTime;
 	ent->s.eFlags = eFlags;
-	ent->s.generic1 = generic1;
 	ent->s.time2 = time2;
+	ent->s.apos.trBase[ YAW ] = caEnemyInfo[ n ].face;
+	ent->s.apos.trBase[ PITCH ] = 0;
 	VectorCopy( ps->origin, ent->r.currentOrigin );
 	trap_LinkEntity( ent );
 }
@@ -100,28 +116,44 @@ static void CA_SyncEnemy( gentity_t *ent ) {
 static int CA_SpawnEnemy( int type, const float origin[3], float yaw, int health ) {
 	gentity_t *ent;
 	trace_t tr;
-	vec3_t start;
+	vec3_t start, mins, maxs;
 	playerState_t *ps;
+	const caEnemyType_t *def = CA_EnemyType( type );
 
+	if ( !def ) {
+		return -1;
+	}
+	VectorCopy( def->hitMins, mins );
+	VectorCopy( def->hitMaxs, maxs );
 	VectorCopy( origin, start );
-	start[2] += 9;   /* as SelectSpawnPoint does for players */
-	trap_Trace( &tr, start, caEnemyMins, caEnemyMaxs, start, ENTITYNUM_NONE, MASK_PLAYERSOLID );
+	if ( !def->flying ) {
+		start[2] += 9;   /* as SelectSpawnPoint does for players */
+	}
+	trap_Trace( &tr, start, mins, maxs, start, ENTITYNUM_NONE, MASK_PLAYERSOLID );
 	if ( tr.startsolid || tr.allsolid ) {
 		return -1;
 	}
 	ent = G_Spawn();
 	ent->classname = "ca_enemy";
 	ent->s.eType = ET_CA_ENEMY;
-	ent->s.modelindex = type;
 	ent->r.contents = CONTENTS_BODY;
 	ent->clipmask = MASK_PLAYERSOLID;
-	VectorCopy( caEnemyMins, ent->r.mins );
-	VectorCopy( caEnemyMaxs, ent->r.maxs );
+	VectorCopy( mins, ent->r.mins );
+	VectorCopy( maxs, ent->r.maxs );
 	ent->takedamage = qtrue;
 	ent->health = health;
 	ent->die = CA_EnemyDie;
 	ent->pain = CA_EnemyPain;
 	ent->s.eFlags = 0;
+	ent->s.time2 = 0;
+
+	caEnemyInfo[ ent->s.number ].type = type;
+	caEnemyInfo[ ent->s.number ].uid = ( ++caEnemyUid ) & 0xffff;
+	caEnemyInfo[ ent->s.number ].attackTime = 0;
+	caEnemyInfo[ ent->s.number ].face = yaw;
+	if ( ca_log.integer ) {
+		G_Printf( "Cat Arena: spawn %s at %.0f %.0f %.0f\n", def->name, start[0], start[1], start[2] );
+	}
 
 	ps = &caEnemyPS[ ent->s.number ];
 	memset( ps, 0, sizeof( *ps ) );
@@ -167,7 +199,7 @@ static void CA_EnemyOrigin( int entityNum, float out[3] ) {
 	}
 }
 
-static void CA_MoveEnemy( int entityNum, float yawDeg, float speedUnits, int moving, int msec ) {
+static void CA_MoveEnemy( int entityNum, float yawDeg, float speedUnits, int moving, int msec, float faceYawDeg ) {
 	gentity_t *ent = CA_Enemy( entityNum );
 	playerState_t *ps;
 	pmove_t pm;
@@ -195,14 +227,42 @@ static void CA_MoveEnemy( int entityNum, float yawDeg, float speedUnits, int mov
 	pm.pmove_msec = 8;
 	Pmove( &pm );
 	ps->eventSequence = 0;   /* enemy movement events (footsteps, landings) are not sent */
+	caEnemyInfo[ entityNum ].face = faceYawDeg;
+	CA_SyncEnemy( ent );
+}
+
+/* Flyers (N10 updateFlyer) are placed directly: their steering already tested the way. */
+static void CA_SetEnemyOrigin( int entityNum, const float origin[3], float faceYawDeg ) {
+	gentity_t *ent = CA_Enemy( entityNum );
+	playerState_t *ps;
+	if ( !ent || ent->health <= 0 ) {
+		return;
+	}
+	ps = &caEnemyPS[ entityNum ];
+	VectorCopy( origin, ps->origin );
+	VectorClear( ps->velocity );
+	ps->groundEntityNum = ENTITYNUM_NONE;
+	ps->commandTime = level.time;
+	caEnemyInfo[ entityNum ].face = faceYawDeg;
 	CA_SyncEnemy( ent );
 }
 
 static void CA_SetEnemyState( int entityNum, int windingUp ) {
 	gentity_t *ent = CA_Enemy( entityNum );
-	if ( ent ) {
-		ent->s.generic1 = windingUp ? 1 : 0;
+	if ( ent && windingUp ) {
+		caEnemyInfo[ entityNum ].attackTime = level.time;
+		ent->s.time = level.time;
 	}
+}
+
+static int CA_BoxFree( const float from[3], const float to[3], const float mins[3], const float maxs[3] ) {
+	trace_t tr;
+	trap_Trace( &tr, from, mins, maxs, to, ENTITYNUM_NONE, MASK_SOLID );
+	return !tr.startsolid && !tr.allsolid && tr.fraction >= 1.0f;
+}
+
+static void CA_FireEnemyShot( int owner, int type, int kind, const float origin[3], const float velocity[3], int damage, int lifeMs, int targetClient ) {
+	G_CA_EnemyShot( owner, type, kind, origin, velocity, damage, lifeMs );
 }
 
 static int CA_Visible( int entityNum, int clientNum ) {
@@ -212,7 +272,8 @@ static int CA_Visible( int entityNum, int clientNum ) {
 		return 0;
 	}
 	VectorCopy( caEnemyPS[ entityNum ].origin, from );
-	from[2] += 20;
+	/* N10 enemy3DHasLineOfSight: from 1.18 m (flyers) / 1.30 m above the feet */
+	from[2] += ( CA_EnemyType( caEnemyInfo[ entityNum ].type ) && CA_EnemyType( caEnemyInfo[ entityNum ].type )->flying ? 1.18f : 1.30f ) * CA_UNITS_PER_METRE - 24;
 	VectorCopy( level.clients[ clientNum ].ps.origin, to );
 	to[2] += level.clients[ clientNum ].ps.viewheight;
 	trap_Trace( &tr, from, NULL, NULL, to, entityNum, MASK_SOLID );
@@ -229,6 +290,9 @@ static void CA_DamagePlayer( int clientNum, int damage, int attackerEntityNum ) 
 	attacker = ( attackerEntityNum >= 0 && attackerEntityNum < MAX_GENTITIES ) ? &g_entities[ attackerEntityNum ] : &g_entities[ ENTITYNUM_WORLD ];
 	VectorSubtract( target->r.currentOrigin, attacker->r.currentOrigin, dir );
 	VectorNormalize( dir );
+	if ( ca_log.integer && attackerEntityNum >= 0 && attackerEntityNum < MAX_GENTITIES && CA_EnemyType( caEnemyInfo[ attackerEntityNum ].type ) ) {
+		G_Printf( "Cat Arena: hit by %s melee %d\n", CA_EnemyType( caEnemyInfo[ attackerEntityNum ].type )->name, damage );
+	}
 	G_Damage( target, attacker, attacker, dir, target->r.currentOrigin, damage, 0, MOD_UNKNOWN );
 }
 
@@ -267,11 +331,13 @@ static int CA_ReadFile( const char *path, unsigned char *buffer, int maxBytes ) 
 static const caGameImport_t caImports = {
 	CA_Print, CA_LevelTime, CA_Players, CA_SpawnPoints, CA_SpawnEnemy, CA_RemoveEnemy,
 	CA_EnemyHealth, CA_EnemyOrigin, CA_MoveEnemy, CA_SetEnemyState, CA_Visible,
-	CA_DamagePlayer, CA_DamageEnemy, CA_SetWaveInfo, CA_MapName, CA_ReadFile
+	CA_DamagePlayer, CA_DamageEnemy, CA_SetWaveInfo, CA_MapName, CA_ReadFile,
+	CA_SetEnemyOrigin, CA_BoxFree, CA_FireEnemyShot
 };
 
 void G_CA_Init( void ) {
 	trap_Cvar_Register( &ca_waves, "ca_waves", "1", 0 );
+	trap_Cvar_Register( &ca_log, "ca_log", "0", 0 );
 	trap_Cvar_Register( NULL, "ca_loadout", "", 0 );   /* "a b": fixed spawn weapons (tests); empty = random */
 	CA_HordeInit( &caImports );
 }
@@ -285,8 +351,10 @@ void G_CA_Frame( int msec ) {
 	if ( level.intermissiontime ) {
 		return;
 	}
+	G_CA_Burn( msec );
 	trap_Cvar_Update( &ca_waves );
-	if ( !ca_waves.integer ) {
+	trap_Cvar_Update( &ca_log );
+	if ( !ca_waves.integer && !CA_HordeLineupActive() ) {
 		return;
 	}
 	CA_HordeFrame( msec );
@@ -358,6 +426,19 @@ void Cmd_CA_Place_f( gentity_t *ent ) {
 	trap_LinkEntity( ent );
 }
 
+/* ca_enemies: every living enemy with its type, position and health (tests). */
+void Cmd_CA_Enemies_f( gentity_t *ent ) {
+	int i;
+	for ( i = MAX_CLIENTS ; i < level.num_entities ; i++ ) {
+		gentity_t *e = &g_entities[ i ];
+		if ( !e->inuse || e->s.eType != ET_CA_ENEMY || e->health <= 0 ) {
+			continue;
+		}
+		trap_SendServerCommand( ent - g_entities, va( "print \"CA_ENEMY %d %s pos=%.0f,%.0f,%.0f health=%d\n\"", i,
+			CA_EnemyType( caEnemyInfo[ i ].type )->name, e->r.currentOrigin[0], e->r.currentOrigin[1], e->r.currentOrigin[2], e->health ) );
+	}
+}
+
 /* ca_aimnearest (cheat): turn the player toward the nearest living enemy (scripted tests). */
 void Cmd_CA_AimNearest_f( gentity_t *ent ) {
 	int i, best = -1;
@@ -392,5 +473,26 @@ void Cmd_CA_AimNearest_f( gentity_t *ent ) {
 	dir[2] += 8;
 	vectoangles( dir, angles );
 	SetClientViewAngle( ent, angles );
+}
+#endif
+
+#ifdef CAT_ARENA_STANDALONE
+/* ca_lineup [off] (cheat): all 20 enemy types in four rows in front of the player, held still;
+   every 2.5 s they play their attack wind-up (pictures of the models and their animation). */
+void Cmd_CA_Lineup_f( gentity_t *ent ) {
+	char buf[16];
+	vec3_t feet;
+	if ( !ent->client ) {
+		return;
+	}
+	if ( trap_Argc() > 1 ) {
+		trap_Argv( 1, buf, sizeof( buf ) );
+		if ( !Q_stricmp( buf, "off" ) ) {
+			CA_HordeLineup( NULL, 0 );
+			return;
+		}
+	}
+	VectorCopy( ent->client->ps.origin, feet );
+	CA_HordeLineup( feet, ent->client->ps.viewangles[YAW] );
 }
 #endif

@@ -4,7 +4,8 @@
 
 N10 model space: Z up, facing +Y. Quake III model space: Z up, facing +X. So (x, y, z) ->
 (y, -x, z) * scale. Vertices are de-duplicated; surfaces are split at 1000 vertices (the engine's
-per-surface limit). One frame, no tags: animation is a later stage.
+per-surface limit). One frame, no tags. Texture coordinates are kept as they are (N10 and Quake III
+both sample textures top row first; stage D part 3 flipped them by mistake, fixed in part 4).
 
 Usage: mesh2md3.py <input .gun|.emesh> <output .md3> <shader name> <scale> [z offset]
 """
@@ -82,7 +83,7 @@ def write_md3(path, model_name, shader, surfaces):
         hdr_size = 4 + 64 + 4 * 10
         tri_blob = b"".join(struct.pack("<3i", *t) for t in tris)
         shader_blob = name64(shader) + struct.pack("<i", 0)
-        st_blob = b"".join(struct.pack("<2f", u, 1.0 - v) for _, _, (u, v) in verts)
+        st_blob = b"".join(struct.pack("<2f", u, v) for _, _, (u, v) in verts)   # N10 samples top row first, as Quake III
         xyz_blob = b""
         for (x, y, z), n, _ in verts:
             q = [max(-32768, min(32767, int(round(c * 64)))) for c in (x, y, z)]

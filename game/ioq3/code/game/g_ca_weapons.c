@@ -491,3 +491,133 @@ void G_CA_WeaponSelfTest( int fiendNum ) {
 int caWeaponFailsTotal( void ) { return caWeaponFails; }
 
 #endif
+
+#ifdef CAT_ARENA_STANDALONE
+/* ---- enemy projectiles (N10 Horde::update, the enemy-shot loop, legacy 12270-12305) ----------- */
+/* A shot is a missile that only players and the world stop (it passes through other enemies, as in
+   N10): the player test uses the full sweep radius, the world test 70 % of it. A fireball that hits
+   a player who survives sets the N10 burn (2 damage every 0.5 s for 3 s). Fireballs and void orbs
+   also burst when their life ends; every hit or burst sends EV_CA_ENEMY_IMPACT. */
+static void CA_EnemyImpact( const vec3_t at, int kind, int type, int player ) {
+	gentity_t *te = G_TempEntity( (float *)at, EV_CA_ENEMY_IMPACT );
+	te->s.eventParm = kind;
+	te->s.generic1 = type;
+	te->s.otherEntityNum2 = player;
+}
+
+static void CA_EnemyShotExpire( gentity_t *ent ) {
+	int kind = ent->s.otherEntityNum2 - 10;
+	if ( kind == CA_SHOT_FIREBALL || kind == CA_SHOT_VOIDORB ) {
+		CA_EnemyImpact( ent->r.currentOrigin, kind, ent->s.generic1, 0 );
+	}
+	G_FreeEntity( ent );
+}
+
+void G_CA_EnemyShot( int owner, int type, int kind, const float origin[3], const float velocity[3], int damage, int lifeMs ) {
+	const caEnemyShot_t *k = CA_EnemyShot( kind );
+	gentity_t *m;
+	if ( !k ) {
+		return;
+	}
+	m = G_Spawn();
+	m->classname = "ca_enemy_shot";
+	m->nextthink = level.time + lifeMs;
+	m->think = CA_EnemyShotExpire;
+	m->s.eType = ET_MISSILE;
+	m->r.svFlags = SVF_USE_CURRENT_ORIGIN;
+	m->s.weapon = WP_MACHINEGUN;
+	m->s.generic1 = type;                /* enemy type (colour) */
+	m->s.otherEntityNum2 = 10 + kind;    /* 10 + CA_SHOT_*: an enemy shot */
+	m->r.ownerNum = owner;
+	m->damage = damage;
+	m->clipmask = MASK_SOLID;
+	m->s.pos.trType = TR_LINEAR;
+	m->s.pos.trTime = level.time;
+	VectorCopy( origin, m->s.pos.trBase );
+	VectorCopy( velocity, m->s.pos.trDelta );
+	VectorCopy( origin, m->r.currentOrigin );
+	trap_LinkEntity( m );
+}
+
+void G_CA_RunEnemyShot( gentity_t *ent ) {
+	int kind = ent->s.otherEntityNum2 - 10, i, hitClient = -1, pass;
+	const caEnemyShot_t *k = CA_EnemyShot( kind );
+	vec3_t origin, from, mins, maxs, wmins, wmaxs;
+	trace_t tr, world;
+	float r = k ? k->radius : 2.56f, playerFrac = 2;
+
+	BG_EvaluateTrajectory( &ent->s.pos, level.time, origin );
+	VectorSet( mins, -r, -r, -r );
+	VectorSet( maxs, r, r, r );
+	VectorScale( mins, 0.7f, wmins );
+	VectorScale( maxs, 0.7f, wmaxs );
+	/* players (bodies that are clients; enemies do not stop enemy shots) */
+	VectorCopy( ent->r.currentOrigin, from );
+	pass = ent->r.ownerNum;
+	for ( i = 0 ; i < 8 ; i++ ) {
+		trap_Trace( &tr, from, mins, maxs, origin, pass, CONTENTS_BODY );
+		if ( tr.fraction >= 1.0f || tr.entityNum >= ENTITYNUM_MAX_NORMAL ) {
+			break;
+		}
+		if ( tr.entityNum < MAX_CLIENTS && g_entities[ tr.entityNum ].client && g_entities[ tr.entityNum ].health > 0 ) {
+			hitClient = tr.entityNum;
+			playerFrac = Distance( ent->r.currentOrigin, tr.endpos ) / ( Distance( ent->r.currentOrigin, origin ) + 0.001f );
+			break;
+		}
+		pass = tr.entityNum;
+		VectorCopy( tr.endpos, from );
+	}
+	trap_Trace( &world, ent->r.currentOrigin, wmins, wmaxs, origin, ENTITYNUM_NONE, MASK_SOLID );
+	if ( hitClient >= 0 && playerFrac <= world.fraction ) {
+		gentity_t *player = &g_entities[ hitClient ];
+		gentity_t *attacker = ( ent->r.ownerNum >= 0 && ent->r.ownerNum < ENTITYNUM_MAX_NORMAL && g_entities[ ent->r.ownerNum ].inuse ) ? &g_entities[ ent->r.ownerNum ] : &g_entities[ ENTITYNUM_WORLD ];
+		vec3_t at, dir;
+		VectorCopy( tr.endpos, at );
+		VectorNormalize2( ent->s.pos.trDelta, dir );
+		CA_EnemyImpact( at, kind, ent->s.generic1, 1 );
+		if ( G_CA_Log() ) {
+			static const char *kinds[4] = { "shot", "spike", "fireball", "voidorb" };
+			G_Printf( "Cat Arena: hit by %s %s %d\n", CA_EnemyType( ent->s.generic1 )->name, kinds[ kind & 3 ], ent->damage );
+		}
+		G_Damage( player, ent, attacker, dir, at, ent->damage, DAMAGE_NO_KNOCKBACK, MOD_UNKNOWN );
+		if ( kind == CA_SHOT_FIREBALL && player->client && player->health > 0 ) {
+			player->client->caBurnMs = CA_BURN_MS;          /* igniteBurn */
+			player->client->caBurnTickMs = CA_BURN_TICK_MS;
+		}
+		G_FreeEntity( ent );
+		return;
+	}
+	if ( world.startsolid || world.fraction < 1.0f ) {
+		if ( !( world.surfaceFlags & SURF_NOIMPACT ) ) {
+			CA_EnemyImpact( world.endpos, kind, ent->s.generic1, 0 );
+		}
+		G_FreeEntity( ent );
+		return;
+	}
+	VectorCopy( origin, ent->r.currentOrigin );
+	trap_LinkEntity( ent );
+	G_RunThink( ent );   /* end of life */
+}
+
+/* N10 Arena::step: 2 damage every 0.5 s while the burn lasts. */
+void G_CA_Burn( int msec ) {
+	int i;
+	for ( i = 0 ; i < level.maxclients ; i++ ) {
+		gentity_t *e = &g_entities[ i ];
+		gclient_t *cl = e->client;
+		if ( !e->inuse || !cl || cl->caBurnMs <= 0 ) {
+			continue;
+		}
+		if ( e->health <= 0 ) {
+			cl->caBurnMs = 0;
+			continue;
+		}
+		cl->caBurnMs -= msec;
+		cl->caBurnTickMs -= msec;
+		if ( cl->caBurnTickMs <= 0 ) {
+			cl->caBurnTickMs += CA_BURN_TICK_MS;
+			G_Damage( e, NULL, &g_entities[ ENTITYNUM_WORLD ], NULL, NULL, CA_BURN_DAMAGE, DAMAGE_NO_KNOCKBACK, MOD_UNKNOWN );
+		}
+	}
+}
+#endif

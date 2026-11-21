@@ -502,6 +502,8 @@ typedef enum {
 	,EV_CA_SHOT				// Cat Arena hitscan pellet: pos = end, origin2 = start, eventParm = weapon, generic1 = 0 miss / 1 wall / 2 enemy / 3 head, otherEntityNum = shooter
 	,EV_CA_BLAST			// Cat Arena detonation: pos = point, eventParm = CA_FIRE_* kind, generic1 = power x 100
 	,EV_CA_REROLL			// Cat Arena frag reroll: eventParm = new weapon
+	,EV_CA_ENEMY_DEATH		// on a Cat Arena enemy: it died; eventParm 1 = gibbed (N10: below -40 health)
+	,EV_CA_ENEMY_IMPACT		// enemy projectile impact: pos, eventParm = CA_SHOT_* kind, generic1 = enemy type, otherEntityNum2 = 1 when it hit a player
 #endif
 
 } entity_event_t;

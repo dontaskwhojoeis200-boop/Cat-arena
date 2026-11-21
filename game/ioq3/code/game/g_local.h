@@ -312,6 +312,11 @@ struct gclient_s {
 	// like health / armor countdowns and regeneration
 	int			timeResidual;
 
+#ifdef CAT_ARENA_STANDALONE
+	int			caBurnMs;			// N10 igniteBurn: fireball burn left
+	int			caBurnTickMs;		// time to the next burn damage
+#endif
+
 #ifdef MISSIONPACK
 	gentity_t	*persistantPowerup;
 	int			portalID;
@@ -966,12 +971,18 @@ void Cmd_CA_AimNearest_f( gentity_t *ent );
 void Cmd_CA_State_f( gentity_t *ent );
 void Cmd_CA_Place_f( gentity_t *ent );
 void Cmd_CA_Give_f( gentity_t *ent );
+void Cmd_CA_Lineup_f( gentity_t *ent );
+void Cmd_CA_Enemies_f( gentity_t *ent );
 void G_CA_GiveLoadout( gclient_t *client );
 void G_CA_Reroll( gentity_t *player, int forced );
 void G_CA_FireWeapon( gentity_t *ent, int index );
 int G_CA_FireFrom( int shooterNum, const vec3_t eye, const vec3_t viewangles, int index );
 int G_CA_Blast( const vec3_t point, int kind, float power, gentity_t *attacker, gentity_t *inflictor );
 void G_CA_RunProjectile( gentity_t *ent );
+void G_CA_EnemyShot( int owner, int type, int kind, const float origin[3], const float velocity[3], int damage, int lifeMs );
+void G_CA_RunEnemyShot( gentity_t *ent );
+void G_CA_Burn( int msec );
+int G_CA_Log( void );
 void G_CA_WeaponSelfTest( int fiendNum );
 int caWeaponFailsTotal( void );
 #endif
