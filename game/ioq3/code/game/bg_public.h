@@ -510,6 +510,7 @@ typedef enum {
 	,EV_CA_SLIDE			// Cat Arena slide start: eventParm = horizontal speed before the boost in m/s x 10
 	,EV_CA_SWITCH			// Cat Arena weapon slot switch (N10 switchWeapon beep)
 	,EV_CA_RELOAD			// Cat Arena reload start (N10 reloadWeapon beep)
+	,EV_CA_MEDKIT			// Cat Arena medkit picked up: eventParm = health gained (N10 medkit beep)
 #endif
 
 } entity_event_t;
@@ -751,6 +752,7 @@ typedef enum {
 #ifdef CAT_ARENA_STANDALONE
 	ET_CA_ENEMY,			// Cat Arena enemy (modelindex = enemy type, powerups = spawn id, time = attack start, time2 = last hit)
 	ET_CA_PROP,				// Cat Arena animated MD3 prop (modelindex 0 flag / 1 turret, origin2[0] = scale)
+	ET_CA_PICKUP,			// Cat Arena medkit (modelindex 0); not sent while it recharges
 #endif
 
 	ET_EVENTS				// any of the EV_* events can be added freestanding

@@ -269,6 +269,47 @@ static void CA_PropFrame( refEntity_t *re, int frames, float fps, float time ) {
 	re->backlerp = 1.0f - ( f - i );
 }
 
+/* Medkit (N10 weapon_fx.cpp: render() 13588 glow and renderGeometry() 12353 billboard): a soft green
+   additive glow 0.5 m above the floor, 1.3 m wide, pulsing; the medkit tile of the world atlas on a
+   0.65 m quad that bobs 0.20 +- 0.06 m above the floor and turns with the player's yaw. The server
+   stops sending it while it recharges. */
+void CG_CA_Pickup( centity_t *cent ) {
+	static qhandle_t medkit;
+	const float U = CA_UNITS_PER_METRE, t = cg.time * 0.001f, x = cent->lerpOrigin[0] / CA_UNITS_PER_METRE;
+	const float yaw = DEG2RAD( cg.refdefViewAngles[YAW] ), half = 0.65f * U * 0.5f, h = 0.65f * U;
+	const float rx = -sin( yaw ) * half, ry = cos( yaw ) * half;
+	const float z = cent->lerpOrigin[2] + ( 0.20f + 0.06f * sin( t * 2 + x ) ) * U;
+	const float corner[4][2] = { { -1, 0 }, { 1, 0 }, { 1, 1 }, { -1, 1 } };
+	polyVert_t v[4];
+	refEntity_t re;
+	float a = 0.22f + 0.08f * sin( t * 3 + x );
+	int i;
+	if ( !medkit ) {
+		medkit = trap_R_RegisterShader( "catarena/medkit" );
+	}
+	memset( &re, 0, sizeof( re ) );
+	re.reType = RT_SPRITE;
+	VectorCopy( cent->lerpOrigin, re.origin );
+	re.origin[2] += 0.5f * U;
+	VectorCopy( re.origin, re.oldorigin );
+	re.radius = 0.65f * U;
+	re.customShader = cgs.media.caGlowShader;
+	re.shaderRGBA[0] = (byte)( 0.45f * 255 );
+	re.shaderRGBA[1] = 255;
+	re.shaderRGBA[2] = (byte)( 0.55f * 255 );
+	re.shaderRGBA[3] = (byte)( a * 255 );
+	trap_R_AddRefEntityToScene( &re );
+	for ( i = 0 ; i < 4 ; i++ ) {
+		v[i].xyz[0] = cent->lerpOrigin[0] + corner[i][0] * rx;
+		v[i].xyz[1] = cent->lerpOrigin[1] + corner[i][0] * ry;
+		v[i].xyz[2] = z + corner[i][1] * h;
+		v[i].st[0] = corner[i][0] < 0 ? 0 : 1;
+		v[i].st[1] = corner[i][1] > 0 ? 0 : 1;
+		v[i].modulate[0] = v[i].modulate[1] = v[i].modulate[2] = v[i].modulate[3] = 255;
+	}
+	trap_R_AddPolyToScene( medkit, 4, v );
+}
+
 void CG_CA_Prop( centity_t *cent ) {
 	const entityState_t *s = &cent->currentState;
 	refEntity_t base, head, barrel;

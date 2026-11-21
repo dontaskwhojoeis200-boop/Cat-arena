@@ -1182,8 +1182,13 @@ void ClientSpawn(gentity_t *ent) {
 #endif
 	client->ps.ammo[WP_GRAPPLING_HOOK] = -1;
 
+#ifdef CAT_ARENA_STANDALONE
+	// N10: a player starts with 100 health (Arena::spawn) and never has more
+	ent->health = client->ps.stats[STAT_HEALTH] = client->ps.stats[STAT_MAX_HEALTH];
+#else
 	// health will count down towards max_health
 	ent->health = client->ps.stats[STAT_HEALTH] = client->ps.stats[STAT_MAX_HEALTH] + 25;
+#endif
 
 	G_SetOrigin( ent, spawn_origin );
 	VectorCopy( spawn_origin, client->ps.origin );

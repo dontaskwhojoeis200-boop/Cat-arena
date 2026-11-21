@@ -103,6 +103,19 @@ public:
     }
     void frame(int msec);
     void killed(int entity);
+    // N10 world.pickups(): the medkit spots N10 keeps (on a navigation floor), in Quake III units at floor level
+    int pickups(float* xyz, int max) const {
+        if(!nav_world_) return 0;
+        int n = 0;
+        for(const auto& p : nav_world_->pickups()) {
+            if(n >= max) break;
+            xyz[3 * n] = float((p.x - cx_) * CA_UNITS_PER_METRE);
+            xyz[3 * n + 1] = float((p.y - cy_) * CA_UNITS_PER_METRE);
+            xyz[3 * n + 2] = float(p.z * CA_UNITS_PER_METRE);
+            ++n;
+        }
+        return n;
+    }
     void shutdown() { for(auto& e : enemies_) if(e.alive()) im_.removeEnemy(e.entity), e.entity = -1; }
     int self_test();
     // ca_lineup (cheat): every type in rows in front of a point, held still
@@ -800,6 +813,9 @@ extern "C" void CA_HordeLineup(const float origin[3], float yawDeg) {
     try { if(origin) g_horde.lineup(origin, yawDeg); else g_horde.end_lineup(); } catch(...) {}
 }
 extern "C" int CA_HordeLineupActive(void) { return g_horde.lineup_active() ? 1 : 0; }
+extern "C" int CA_HordePickups(float* xyz, int max) {
+    try { return g_horde.pickups(xyz, max); } catch(...) { return 0; }
+}
 extern "C" int CA_HordeSelfTest(void) {
     try { return g_horde.self_test(); } catch(...) { return 0; }
 }

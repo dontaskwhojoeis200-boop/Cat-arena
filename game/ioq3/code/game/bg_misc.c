@@ -1411,6 +1411,7 @@ char *eventnames[] = {
 	,"EV_CA_SLIDE"
 	,"EV_CA_SWITCH"
 	,"EV_CA_RELOAD"
+	,"EV_CA_MEDKIT"
 #endif
 
 };

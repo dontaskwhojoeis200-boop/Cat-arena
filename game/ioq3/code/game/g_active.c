@@ -963,6 +963,9 @@ void ClientThink_real( gentity_t *ent ) {
 		client->fireHeld = qfalse;		// for grapple
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_MedkitTouch( ent, client->oldOrigin );
+#endif
 	// use the snapped origin for linking so it matches client predicted versions
 	VectorCopy( ent->s.pos.trBase, ent->r.currentOrigin );
 

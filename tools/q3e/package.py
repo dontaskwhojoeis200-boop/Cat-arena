@@ -19,13 +19,13 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = os.path.join(ROOT, "game", "base", "catarena")
 SKIP_EXT = {".map", ".srf", ".prt", ".lin", ".bak", ".obj", ".mtl"}
 
-README = """Cat Arena: Feral Claw — Quake3e migration prototype (N10-Q3E stage D, part 6)
+README = """Cat Arena: Feral Claw — Quake3e migration prototype (N10-Q3E stage D, part 7)
 
 Start CatArena.exe and choose PLAY. The four Cat Arena maps converted from N10 (Reactor Bastion,
 Helios Crucible, Bastion Keep, The Arsenal) and the test arena. Waves of the 20 Cat Arena enemy
 types (N10 rules, navigation and animation), all 16 Cat Arena weapons (two at a time, a frag
 replaces the weapon in hand), stock Quake III movement plus Cat Arena sprint and slide, N10's sounds
-and soundtrack (s_volume = master volume, s_musicvolume = music, ca_music 0 = no soundtrack).
+and soundtrack, N10's medkits on the four maps (+40 health, back after 13 s) (s_volume = master volume, s_musicvolume = music, ca_music 0 = no soundtrack).
 This is an engine prototype, not the full game; the playable game remains the N10 build.
 
 Controls: WASD move, mouse look, SPACE jump, SHIFT sprint, C / CTRL crouch (slide while sprinting),

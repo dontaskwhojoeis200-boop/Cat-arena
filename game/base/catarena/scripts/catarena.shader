@@ -35,6 +35,18 @@ catarena/fx/beam
 	}
 }
 
+catarena/medkit
+{
+	nopicmip
+	cull none
+	{
+		map textures/catarena/medkit.png
+		alphaFunc GT0
+		rgbGen identity
+		depthWrite
+	}
+}
+
 textures/common/playerclip
 {
 	surfaceparm nodraw

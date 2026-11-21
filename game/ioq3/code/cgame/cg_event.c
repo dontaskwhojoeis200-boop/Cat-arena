@@ -579,6 +579,12 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 			CG_CA_Beep( 1 );
 		}
 		break;
+	case EV_CA_MEDKIT:
+		DEBUGNAME("EV_CA_MEDKIT");
+		if ( es->number == cg.snap->ps.clientNum ) {
+			CG_CA_Beep( 3 );
+		}
+		break;
 #else
 	case EV_FOOTSTEP:
 		DEBUGNAME("EV_FOOTSTEP");

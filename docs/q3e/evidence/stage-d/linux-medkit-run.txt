@@ -1,0 +1,231 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...found 1 cached paks
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+execing q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... OK
+SDL audio driver is "dummy".
+SDL_AudioSpec:
+  Format:   AUDIO_S16LSB
+  Freq:     44100
+  Samples:  1024
+  Channels: 2
+Starting SDL audio callback...
+SDL audio initialized.
+----- Sound Info -----
+    2 channels
+32768 samples
+   16 samplebits (int)
+    1 submission_chunk
+44100 speed
+0x55ce9b42f770 dma buffer
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f467caf40a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D7
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_reactor
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f466bc0fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D6 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+Cat Arena: N10 navigation graph for ca_reactor (6182 nodes)
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 38 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f467caf40a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f4669808620
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Cat Arena: 85 sounds registered
+stitched 0 LoD cracks
+...loaded 10571 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 10566 VBO surfaces (45649 vertexes, 72048 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+^3WARNING: music file music/ashen_drive.ogg is not 22k stereo
+Cat Arena: music music/ashen_drive.ogg
+CL_InitCGame:  0.28 seconds
+Com_TouchMemory: 1 msec
+Cat^7 entered the game
+Cat Arena: sound body_land_0 t=776 ms=312
+execing medkit.cfg
+CA_STATE t=7200 pos=-914,-462,184 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=4 w1=3 inhand=4 clip2=7
+Cat Arena: sound body_land_0 t=7251 ms=312
+CATEST backoff
+CA_STATE t=7900 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CATEST walk
+Wrote screenshots/medkit_available.jpg
+CA_STATE t=8850 pos=1077,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=40 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+Cat Arena: sound body_step_walk t=8954 ms=168
+Cat Arena: medkit 0 healed 40 (40 -> 80) t=9000
+Cat Arena: sound beep_medkit t=9006 ms=140
+Cat Arena: sound body_step_walk t=9267 ms=168
+CA_STATE t=9650 pos=1198,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=4 w1=3 inhand=4 clip2=7
+Cat Arena: sound body_land_0 t=9760 ms=312
+Cat Arena: sound body_step_walk t=9988 ms=168
+Wrote screenshots/medkit_taken.jpg
+Cat Arena: sound body_land_0 t=10874 ms=312
+CATEST wait
+CA_STATE t=11600 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=12100 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=12650 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=13150 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=13650 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=14100 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=14600 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=15050 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=15450 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=15900 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=16350 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=16800 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=17250 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=17700 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=18150 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=18600 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=19150 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=19650 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=20200 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=20750 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=21250 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=21800 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=80 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+Cat Arena: medkit 0 healed 20 (80 -> 100) t=22000
+Cat Arena: sound beep_medkit t=22015 ms=140
+CA_STATE t=22300 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=22850 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=23350 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=23900 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=24400 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=24950 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=25500 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=26050 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=26650 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=27200 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=27750 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=28300 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=28800 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=29350 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=29850 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=30350 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=30850 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=31400 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=31850 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=32350 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=32850 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=33300 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=33850 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=34300 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=34800 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=35250 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=35700 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=36150 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=36600 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=37050 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=37550 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=38050 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=38550 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=39050 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=39650 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=40200 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CA_STATE t=40700 pos=1152,-256,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=16 slot=0 w0=4 w1=3 inhand=4 clip2=7
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+Closing SDL audio playback device...
+SDL audio playback device closed.
+SDL audio shut down.
+RE_Shutdown( 3 )
+-----------------------

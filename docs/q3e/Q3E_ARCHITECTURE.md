@@ -150,6 +150,14 @@ sound a gain, a bus level and sometimes a rate and filters. So:
   41.6 m and pans fully), separate weapon / enemy volume settings (baked at the defaults).
   Every Quake III sound that is not shipped gets the silent `sound/feedback/hit.wav`.
 
+## Medkits (stage D, part 7)
+
+qagame asks the C++ side for N10's medkit spots (`CA_HordePickups`: N10's `CollisionWorld::pickups()`
+on the map's N10 data) and spawns one `ET_CA_PICKUP` entity per spot. After every Pmove of a player,
+`G_CA_MedkitTouch` applies N10's rule along the move (sampled every 4 units): +40 health up to 100,
+the medkit away for 13 s (`SVF_NOCLIENT`, so clients stop drawing it), `EV_CA_MEDKIT` for the beep.
+cgame draws the glow sprite and the billboard (`CG_CA_Pickup`).
+
 ## Networking (Q3E-E)
 
 - Server-authoritative game on the engine's client / server model; up to 4 players; a "host"

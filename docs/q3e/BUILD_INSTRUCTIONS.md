@@ -102,7 +102,7 @@ python3 tools/q3e/mesh2md3.py assets/n5/weapons/00_nailgun.gun game/base/cataren
 python3 tools/q3e/mesh2md3.py assets/n6/enemies/02_fiend.emesh game/base/catarena/models/catarena/enemies/fiend.md3 models/catarena/enemies/fiend 32 -24
 CatArena-server +set dedicated 1 +map ca_test +ca_selftest +quit          # server self-test
 python3 tools/q3e/gameplay_test.py write <homepath>/catarena/catest.cfg
-CatArena +set ca_waves 0 +devmap ca_test +wait 150 +exec catest.cfg       # scripted run, then:
+CatArena +set ca_waves 0 +set ca_loadout "0 1" +devmap ca_test +wait 150 +exec catest.cfg   # scripted run, then:
 python3 tools/q3e/gameplay_test.py check <console log>
 ```
 
@@ -172,3 +172,15 @@ python3 tools/q3e/sound_test.py check . levels.log levels.raw music.log music.ra
 SDL's `disk` audio driver writes the mixed output to the file (16-bit stereo, 44.1 kHz), so the
 check measures what Quake III plays. Audio cvars: `s_volume` (N10 master, default 0.7),
 `s_musicvolume` (N10 music x master, default 0.322), `ca_music 0` (no soundtrack), `s_khz 44`.
+
+## Medkits (stage D, part 7)
+
+```
+python3 tools/q3e/make_base.py            # also writes textures/catarena/medkit.png (N10 atlas tile 11) and its shader
+CatArena-server +set dedicated 1 +map ca_reactor +ca_selftest +quit      # includes N10's medkit rule (11 checks)
+python3 tools/q3e/medkit_test.py write . <homepath>/catarena/medkit.cfg
+SDL_AUDIODRIVER=dummy CatArena +set fs_homepath <homepath> +set ca_waves 0 +set ca_log 1 +devmap ca_reactor +wait 150 +exec medkit.cfg
+python3 tools/q3e/medkit_test.py check <console log>
+```
+
+`ca_health <1-100>` (cheat) sets the player's health; `ca_log 1` prints every medkit taken.

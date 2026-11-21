@@ -54,6 +54,7 @@ void CA_HordeEnemyKilled( int entityNum );      /* from the enemy's die callback
 void CA_HordeShutdown( void );
 int  CA_HordeSelfTest( void );
 void CA_HordeLineup( const float origin[3], float yawDeg );   /* cheat ca_lineup: all 20 types, held still */
+int  CA_HordePickups( float *xyz, int max );   /* N10 medkit spots (x y z floor, Quake III units); after CA_HordeInit */
 int  CA_HordeLineupActive( void );                  /* server command ca_selftest: 1 = all checks passed */
 
 #ifdef __cplusplus

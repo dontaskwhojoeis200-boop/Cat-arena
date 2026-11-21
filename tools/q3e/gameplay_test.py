@@ -25,8 +25,10 @@ def write(path):
         lines += ["ca_aimnearest", "+attack", "wait 6", "-attack", "wait 1"]
         if i % 10 == 9:
             lines += ["ca_state"]
-    # respawn if the fiends won (click), let a squad-wipe reset finish, then god mode
-    lines += ["screenshotJPEG combat", "wait 250", "+attack", "wait 3", "-attack", "wait 400", "echo CATEST god mode, clear the wave", "god"]
+    # hold the waves (with N10's 100 health the fiends usually win), respawn if they did (click),
+    # god mode, then the waves again
+    lines += ["screenshotJPEG combat", "set ca_waves 0", "wait 250", "+attack", "wait 3", "-attack", "wait 250", "+attack", "wait 3", "-attack",
+              "wait 100", "echo CATEST god mode, clear the wave", "god", "set ca_waves 1"]
     for i in range(500):
         lines += ["ca_aimnearest", "+attack", "wait 6", "-attack", "wait 1"]
         if i % 25 == 24:

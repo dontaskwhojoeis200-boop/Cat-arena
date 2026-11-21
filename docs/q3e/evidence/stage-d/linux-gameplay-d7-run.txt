@@ -1,0 +1,269 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...found 1 cached paks
+...loaded in 1 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+execing q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... OK
+SDL audio driver is "dummy".
+SDL_AudioSpec:
+  Format:   AUDIO_S16LSB
+  Freq:     44100
+  Samples:  1024
+  Channels: 2
+Starting SDL audio callback...
+SDL audio initialized.
+----- Sound Info -----
+    2 channels
+32768 samples
+   16 samplebits (int)
+    1 submission_chunk
+44100 speed
+0x556df112c3b0 dma buffer
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7fa8a219a0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D7
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7fa87860fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D6 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 0 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7fa8a219a0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7fa871c08620
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Cat Arena: 85 sounds registered
+stitched 0 LoD cracks
+...loaded 97 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 75 VBO surfaces (324 vertexes, 522 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+^3WARNING: music file music/ashen_drive.ogg is not 22k stereo
+CL_InitCGame:  0.24 seconds
+Com_TouchMemory: 0 msec
+Cat^7 entered the game
+execing catest.cfg
+CATEST movement
+CA_STATE t=2350 pos=-619,-300,25 hspeed=400 vz=-160 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CATEST walking
+CA_STATE t=3250 pos=-333,-300,24 hspeed=320 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CATEST sprinting
+CATEST slide started
+CA_STATE t=4100 pos=89,-300,24 hspeed=480 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CA_STATE t=4150 pos=108,-300,24 hspeed=484 vz=0 sliding=1 slide_ms=1090 cooldown_ms=0 ducked=1 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=133 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CATEST sliding
+CA_STATE t=4600 pos=297,-300,24 hspeed=365 vz=0 sliding=1 slide_ms=642 cooldown_ms=0 ducked=1 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=133 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CATEST after slide
+CA_STATE t=6300 pos=584,-300,24 hspeed=80 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=1 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=129 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CATEST reload
+CA_STATE t=7450 pos=589,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=42 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=31 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CA_STATE t=7550 pos=589,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=42 reloading=1 health=100 score=0 weapon=2 wstate=4 wtime=1312 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: wave 1, 10 enemies
+CA_STATE t=9900 pos=589,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+CATEST combat without god mode
+Cat Arena: frag reroll NAILGUN -> RAILGUN
+CA_STATE t=10750 pos=589,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=42 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=52 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: frag reroll RAILGUN -> SHOTGUN
+CA_STATE t=11600 pos=601,-290,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=2 weapon=2 wstate=3 wtime=227 pmflags=0 slot=0 w0=1 w1=1 inhand=1 clip2=8
+Cat Arena: frag reroll SHOTGUN -> RIFT CANNON
+CA_STATE t=12500 pos=612,-280,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=2 weapon=2 wstate=3 wtime=14 pmflags=0 slot=0 w0=1 w1=1 inhand=1 clip2=8
+Cat Arena: frag reroll RIFT CANNON -> SUPER NAILGUN
+Cat Arena: frag reroll SUPER NAILGUN -> NAILGUN
+CA_STATE t=13950 pos=632,-270,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=48 reloading=0 health=73 score=5 weapon=2 wstate=3 wtime=67 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: frag reroll NAILGUN -> RIFT CANNON
+CA_STATE t=15050 pos=632,-270,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=73 score=6 weapon=2 wstate=3 wtime=517 pmflags=0 slot=0 w0=10 w1=1 inhand=10 clip2=8
+CA_STATE t=16200 pos=632,-270,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=73 score=6 weapon=2 wstate=3 wtime=526 pmflags=0 slot=0 w0=10 w1=1 inhand=10 clip2=8
+Cat Arena: frag reroll RIFT CANNON -> RAILGUN
+Cat Arena: frag reroll RAILGUN -> TRIPLE SPIKE
+Wrote screenshots/combat.jpg
+CA_STATE t=17450 pos=753,-232,143 hspeed=55 vz=-106 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=3 score=8 weapon=2 wstate=3 wtime=253 pmflags=0 slot=0 w0=9 w1=1 inhand=9 clip2=8
+CATEST god mode, clear the wave
+godmode ON
+Cat Arena: frag reroll TRIPLE SPIKE -> PLASMA REPEATER
+CA_STATE t=26950 pos=753,-208,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=39 reloading=0 health=3 score=9 weapon=2 wstate=3 wtime=92 pmflags=0 slot=0 w0=8 w1=1 inhand=8 clip2=8
+Cat Arena: frag reroll PLASMA REPEATER -> SHOTGUN
+Cat Arena: wave 1 cleared
+Wrote screenshots/combat2.jpg
+CA_STATE t=29100 pos=753,-190,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=3 score=10 weapon=2 wstate=3 wtime=428 pmflags=0 slot=0 w0=1 w1=1 inhand=1 clip2=8
+Cat Arena: wave 2, 13 enemies
+Cat Arena: frag reroll SHOTGUN -> THUNDERBOLT
+CA_STATE t=31400 pos=753,-177,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=71 reloading=0 health=3 score=11 weapon=2 wstate=3 wtime=26 pmflags=0 slot=0 w0=6 w1=1 inhand=6 clip2=8
+Cat Arena: frag reroll THUNDERBOLT -> NAILGUN
+Cat Arena: frag reroll NAILGUN -> TRIPLE SPIKE
+CA_STATE t=34250 pos=753,-177,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=3 score=13 weapon=2 wstate=3 wtime=142 pmflags=0 slot=0 w0=9 w1=1 inhand=9 clip2=8
+Cat Arena: frag reroll TRIPLE SPIKE -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> GRENADE LAUNCHER
+Cat Arena: frag reroll GRENADE LAUNCHER -> QUAD SHOTGUN
+Cat Arena: frag reroll QUAD SHOTGUN -> HAND CANNON
+CA_STATE t=37400 pos=753,-178,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=3 score=17 weapon=2 wstate=3 wtime=121 pmflags=0 slot=0 w0=12 w1=1 inhand=12 clip2=8
+Cat Arena: frag reroll HAND CANNON -> THUNDERBOLT
+Cat Arena: frag reroll THUNDERBOLT -> PLASMA REPEATER
+Cat Arena: frag reroll PLASMA REPEATER -> RAILGUN
+Cat Arena: frag reroll RAILGUN -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+CA_STATE t=40150 pos=753,-192,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=3 score=22 weapon=2 wstate=3 wtime=321 pmflags=0 slot=0 w0=1 w1=1 inhand=1 clip2=8
+Cat Arena: frag reroll SHOTGUN -> SAWBLADE DRIVER
+Cat Arena: wave 2 cleared
+CA_STATE t=42400 pos=753,-207,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=17 reloading=0 health=3 score=23 weapon=2 wstate=3 wtime=98 pmflags=0 slot=0 w0=14 w1=1 inhand=14 clip2=8
+Cat Arena: wave 3, 17 enemies
+CA_STATE t=44800 pos=753,-207,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=3 score=23 weapon=2 wstate=3 wtime=49 pmflags=0 slot=0 w0=14 w1=1 inhand=14 clip2=8
+Cat Arena: frag reroll SAWBLADE DRIVER -> SUPER NAILGUN
+Cat Arena: frag reroll SUPER NAILGUN -> HELLFIRE CARBINE
+Cat Arena: frag reroll HELLFIRE CARBINE -> NAILGUN
+CA_STATE t=47450 pos=753,-207,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=3 score=26 weapon=2 wstate=0 wtime=93 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: frag reroll NAILGUN -> PLASMA REPEATER
+Cat Arena: frag reroll PLASMA REPEATER -> NAILGUN
+Cat Arena: frag reroll NAILGUN -> GRENADE LAUNCHER
+Cat Arena: frag reroll GRENADE LAUNCHER -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: frag reroll SAWBLADE DRIVER -> HELLFIRE CARBINE
+Cat Arena: frag reroll HELLFIRE CARBINE -> PLASMA REPEATER
+CA_STATE t=51000 pos=753,-202,102 hspeed=5 vz=-340 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=3 score=32 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=13 w1=1 inhand=13 clip2=8
+Cat Arena: frag reroll PLASMA REPEATER -> QUAD SHOTGUN
+Cat Arena: frag reroll QUAD SHOTGUN -> GRENADE LAUNCHER
+Cat Arena: frag reroll GRENADE LAUNCHER -> RIFT CANNON
+Cat Arena: frag reroll RIFT CANNON -> NAILGUN
+CA_STATE t=54550 pos=753,170,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=3 score=37 weapon=2 wstate=3 wtime=21 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: frag reroll NAILGUN -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> PLASMA REPEATER
+Cat Arena: frag reroll PLASMA REPEATER -> ROCKET LAUNCHER
+Cat Arena: wave 3 cleared
+CA_STATE t=57700 pos=753,183,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=3 score=40 weapon=2 wstate=3 wtime=455 pmflags=0 slot=0 w0=4 w1=1 inhand=4 clip2=8
+CA_STATE t=60100 pos=753,183,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=2 reloading=0 health=3 score=40 weapon=2 wstate=3 wtime=643 pmflags=0 slot=0 w0=4 w1=1 inhand=4 clip2=8
+Cat Arena: wave 4, 22 enemies
+Cat Arena: frag reroll ROCKET LAUNCHER -> SUPER SHOTGUN
+Cat Arena: frag reroll SUPER SHOTGUN -> PLASMA REPEATER
+Cat Arena: frag reroll PLASMA REPEATER -> SUPER SHOTGUN
+CA_STATE t=62550 pos=753,299,82 hspeed=135 vz=-295 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=45 reloading=0 health=3 score=42 weapon=2 wstate=3 wtime=6 pmflags=0 slot=0 w0=8 w1=1 inhand=8 clip2=8
+Cat Arena: frag reroll SUPER SHOTGUN -> THUNDERBOLT
+Cat Arena: frag reroll THUNDERBOLT -> SUPER NAILGUN
+Cat Arena: frag reroll SUPER NAILGUN -> ROCKET LAUNCHER
+CA_STATE t=66500 pos=753,391,48 hspeed=43 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=3 score=46 weapon=2 wstate=3 wtime=180 pmflags=0 slot=0 w0=4 w1=1 inhand=4 clip2=8
+Cat Arena: frag reroll ROCKET LAUNCHER -> RIFT CANNON
+Cat Arena: frag reroll RIFT CANNON -> IRON CHAINGUN
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: frag reroll SAWBLADE DRIVER -> HAND CANNON
+Cat Arena: frag reroll HAND CANNON -> TRIPLE SPIKE
+Cat Arena: frag reroll TRIPLE SPIKE -> SUPER NAILGUN
+Cat Arena: frag reroll SUPER NAILGUN -> HELLFIRE CARBINE
+CA_STATE t=70950 pos=753,753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=28 reloading=0 health=3 score=53 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=13 w1=1 inhand=13 clip2=8
+Cat Arena: frag reroll HELLFIRE CARBINE -> TRIPLE SPIKE
+Cat Arena: frag reroll TRIPLE SPIKE -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> PLASMA REPEATER
+Cat Arena: frag reroll PLASMA REPEATER -> IRON CHAINGUN
+CA_STATE t=76700 pos=753,753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=82 reloading=0 health=3 score=57 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=11 w1=1 inhand=11 clip2=8
+Cat Arena: frag reroll IRON CHAINGUN -> HELLFIRE CARBINE
+Cat Arena: frag reroll HELLFIRE CARBINE -> PLASMA REPEATER
+Cat Arena: frag reroll PLASMA REPEATER -> TRIPLE SPIKE
+Cat Arena: frag reroll TRIPLE SPIKE -> SHOTGUN
+Cat Arena: frag reroll SHOTGUN -> PLASMA REPEATER
+Cat Arena: wave 4 cleared
+CA_STATE t=80300 pos=753,753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=3 score=61 weapon=2 wstate=3 wtime=18 pmflags=0 slot=0 w0=1 w1=1 inhand=1 clip2=8
+CA_STATE t=82950 pos=753,753,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=3 score=62 weapon=2 wstate=3 wtime=125 pmflags=0 slot=0 w0=8 w1=1 inhand=8 clip2=8
+Cat Arena: wave 5, 28 enemies
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+Closing SDL audio playback device...
+SDL audio playback device closed.
+SDL audio shut down.
+RE_Shutdown( 3 )
+-----------------------

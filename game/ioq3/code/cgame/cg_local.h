@@ -1719,7 +1719,8 @@ void CG_CA_RegisterSounds( void );
 void CG_CA_GunSound( int entityNum, int weapon );
 void CG_CA_ExplosionSound( int kind );
 void CG_CA_BodySound( int entityNum, int event, int parm );
-void CG_CA_Beep( int which );	/* 0 switch, 1 reload, 2 hurt */
+void CG_CA_Beep( int which );	/* 0 switch, 1 reload, 2 hurt, 3 medkit */
+void CG_CA_Pickup( centity_t *cent );
 void CG_CA_EnemyVoices( centity_t *cent );
 void CG_CA_EnemyDeathVoice( centity_t *cent );
 void CG_CA_StartMusic( void );

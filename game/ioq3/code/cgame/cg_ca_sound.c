@@ -27,7 +27,7 @@ typedef struct {
 
 static caSfx_t caGun[16][2], caExplosion[3], caJump, caSlide[3], caLand[4], caStep[2];
 static caSfx_t caVoice[3][4][3];   /* family (normal, bass, light), kind (idle, attack, hurt, eliminated), take */
-static caSfx_t caBeepSwitch, caBeepReload, caBeepHurt;
+static caSfx_t caBeepSwitch, caBeepReload, caBeepHurt, caBeepMedkit;
 static int caGunTake[16];
 
 static struct { char name[40]; int frames; } caLengths[CA_SND_MAX];
@@ -140,6 +140,7 @@ void CG_CA_RegisterSounds( void ) {
 	CA_Load( &caBeepSwitch, "beep_switch" );
 	CA_Load( &caBeepReload, "beep_reload" );
 	CA_Load( &caBeepHurt, "beep_hurt" );
+	CA_Load( &caBeepMedkit, "beep_medkit" );
 	for ( i = 0 ; i < 16 ; i++ ) {
 		loaded += ( caGun[i][0].h != 0 ) + ( caGun[i][1].h != 0 );
 	}
@@ -152,7 +153,7 @@ void CG_CA_RegisterSounds( void ) {
 	}
 	loaded += ( caExplosion[0].h != 0 ) + ( caExplosion[1].h != 0 ) + ( caExplosion[2].h != 0 ) + ( caJump.h != 0 ) + ( caStep[0].h != 0 ) + ( caStep[1].h != 0 )
 		+ ( caSlide[0].h != 0 ) + ( caSlide[1].h != 0 ) + ( caSlide[2].h != 0 ) + ( caLand[0].h != 0 ) + ( caLand[1].h != 0 ) + ( caLand[2].h != 0 ) + ( caLand[3].h != 0 )
-		+ ( caBeepSwitch.h != 0 ) + ( caBeepReload.h != 0 ) + ( caBeepHurt.h != 0 );
+		+ ( caBeepSwitch.h != 0 ) + ( caBeepReload.h != 0 ) + ( caBeepHurt.h != 0 ) + ( caBeepMedkit.h != 0 );
 	CG_Printf( "Cat Arena: %i sounds registered\n", loaded );
 	memset( caVoices, 0, sizeof( caVoices ) );
 	memset( caVoiceEnd, 0, sizeof( caVoiceEnd ) );
@@ -228,9 +229,9 @@ void CG_CA_BodySound( int entityNum, int event, int parm ) {
 	}
 }
 
-/* switchWeapon, reloadWeapon and takeDamage beeps */
+/* switchWeapon, reloadWeapon, takeDamage and medkit beeps */
 void CG_CA_Beep( int which ) {
-	CA_Local( which == 0 ? &caBeepSwitch : which == 1 ? &caBeepReload : &caBeepHurt, CHAN_AUTO );
+	CA_Local( which == 0 ? &caBeepSwitch : which == 1 ? &caBeepReload : which == 3 ? &caBeepMedkit : &caBeepHurt, CHAN_AUTO );
 }
 
 static int CA_VoiceFamily( int type ) {

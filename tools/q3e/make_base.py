@@ -151,6 +151,22 @@ def fx_textures():
     b.save(out("gfx", "catarena", "beam.png"))
 
 
+def medkit_texture():
+    """textures/catarena/medkit.png: N10's medkit (world atlas tile 11, MATERIAL.MEDKIT) as the
+    legacy draws it (dynamic.frag: alpha cut-out at 0.36, flat light 0.896 x 0.80 x 1.19 = 0.853, no
+    other term without dynamic lights): the cut-out and the light are baked in, so the shader can be
+    rgbGen identity and alphaFunc GT0."""
+    atlas = Image.open(os.path.join(ROOT, "assets", "n2", "world-atlas-runtime.png")).convert("RGBA")
+    tile = atlas.crop((3 * 128, 2 * 128, 4 * 128, 3 * 128))   # tile m at (m % 4, m // 4)
+    px = tile.load()
+    for y in range(128):
+        for x in range(128):
+            r, g, b, a = px[x, y]
+            k = (.69 + .33 * .625) * .80 * 1.19
+            px[x, y] = (int(round(r * k)), int(round(g * k)), int(round(b * k)), 255 if a >= .36 * 255 else 0)
+    tile.save(out("textures", "catarena", "medkit.png"))
+
+
 def crosshairs():
     """gfx/2d/crosshaira..j: ten simple original crosshairs (cg_drawCrosshair 1-10)."""
     for i, ch in enumerate("abcdefghij"):
@@ -205,6 +221,18 @@ catarena/fx/beam
 		blendFunc GL_SRC_ALPHA GL_ONE
 		rgbGen vertex
 		alphaGen vertex
+	}
+}
+
+catarena/medkit
+{
+	nopicmip
+	cull none
+	{
+		map textures/catarena/medkit.png
+		alphaFunc GT0
+		rgbGen identity
+		depthWrite
 	}
 }
 
@@ -425,6 +453,7 @@ def main():
     ceiling_grate()
     light_panel()
     fx_textures()
+    medkit_texture()
     with open(out("scripts", "catarena.shader"), "w", newline="\n") as f:
         f.write(SHADERS)
     listed = []   # keep the entries other tools added (the map converters add their shader files)

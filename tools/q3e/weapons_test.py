@@ -77,6 +77,8 @@ def plan():
             state("combat %d" % i)
         if i in (40, 120):
             lines += ["screenshotJPEG combat_%d" % i]
+        if i % 100 == 99:   # another spot now and then, so a flyer hovering behind a pillar cannot hold the wave (stage D part 7)
+            lines.append(START if (i // 100) % 2 else "ca_place 560 0 40 180")
     lines += ["wait 30", "echo CATEST end", "quit"]
     return lines, labels
 

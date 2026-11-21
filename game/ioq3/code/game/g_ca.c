@@ -355,11 +355,180 @@ static const caGameImport_t caImports = {
 	CA_SetEnemyOrigin, CA_BoxFree, CA_FireEnemyShot
 };
 
+/* ---- medkits (N10 Arena::update_pickups and the teammates' loop: 40 health, 13 s cooldown,
+   within 0.85 m horizontally and 1.2 m vertically of the medkit, only below 100 health) ---- */
+#define CA_MAX_MEDKITS		64
+#define CA_MEDKIT_HEAL		40
+#define CA_MEDKIT_COOLDOWN	13000
+#define CA_MAX_HEALTH		100
+static gentity_t *caMedkits[ CA_MAX_MEDKITS ];
+static int caMedkitReadyAt[ CA_MAX_MEDKITS ];
+static int caMedkitCount;
+
+static void CA_SpawnMedkits( void ) {
+	float spots[ CA_MAX_MEDKITS ][3];
+	int i, n = CA_HordePickups( &spots[0][0], CA_MAX_MEDKITS );
+	caMedkitCount = 0;
+	for ( i = 0 ; i < n ; i++ ) {
+		gentity_t *e = G_Spawn();
+		e->classname = "ca_medkit";
+		e->s.eType = ET_CA_PICKUP;
+		e->s.modelindex = 0;			/* medkit */
+		G_SetOrigin( e, spots[i] );
+		VectorSet( e->r.mins, -16, -16, 0 );
+		VectorSet( e->r.maxs, 16, 16, 32 );
+		e->r.contents = 0;
+		trap_LinkEntity( e );
+		caMedkits[ caMedkitCount ] = e;
+		caMedkitReadyAt[ caMedkitCount++ ] = 0;
+	}
+	G_Printf( "Cat Arena: %d medkits\n", caMedkitCount );
+}
+
+int G_CA_MedkitCount( void ) {
+	return caMedkitCount;
+}
+
+/* Called after every Pmove of a player: N10 checks each 1/120 s tick, so the move is sampled
+   every 4 units (0.125 m) between the old and the new origin. */
+void G_CA_MedkitTouch( gentity_t *ent, const vec3_t from ) {
+	gclient_t *client = ent->client;
+	vec3_t d;
+	float len;
+	int i, k, steps;
+	if ( !client || ent->health <= 0 || ent->health >= CA_MAX_HEALTH || client->ps.pm_type != PM_NORMAL || !caMedkitCount ) {
+		return;
+	}
+	VectorSubtract( client->ps.origin, from, d );
+	len = VectorLength( d );
+	steps = len > 96 ? 1 : (int)ceil( len / 4.0f );	/* a teleport (ca_place, respawn): the end point only */
+	if ( steps < 1 ) {
+		steps = 1;
+	}
+	for ( i = 1 ; i <= steps ; i++ ) {
+		float f = (float)i / steps;
+		float px = from[0] + d[0] * f, py = from[1] + d[1] * f, pz = from[2] + d[2] * f - 24;	/* feet */
+		for ( k = 0 ; k < caMedkitCount ; k++ ) {
+			const float *m = caMedkits[k]->s.pos.trBase;
+			int before;
+			if ( level.time < caMedkitReadyAt[k] ) {
+				continue;
+			}
+			if ( sqrt( ( px - m[0] ) * ( px - m[0] ) + ( py - m[1] ) * ( py - m[1] ) ) >= 0.85f * CA_UNITS_PER_METRE
+				|| fabs( pz - m[2] ) >= 1.2f * CA_UNITS_PER_METRE ) {
+				continue;
+			}
+			before = ent->health;
+			ent->health += CA_MEDKIT_HEAL;
+			if ( ent->health > CA_MAX_HEALTH ) {
+				ent->health = CA_MAX_HEALTH;
+			}
+			client->ps.stats[ STAT_HEALTH ] = ent->health;
+			caMedkitReadyAt[k] = level.time + CA_MEDKIT_COOLDOWN;
+			caMedkits[k]->r.svFlags |= SVF_NOCLIENT;	/* not drawn while it recharges */
+			G_AddEvent( ent, EV_CA_MEDKIT, ent->health - before );
+			if ( ca_log.integer ) {
+				G_Printf( "Cat Arena: medkit %d healed %d (%d -> %d) t=%d\n", k, ent->health - before, before, ent->health, level.time );
+			}
+			return;		/* one medkit per player per check, as N10's teammates' loop */
+		}
+	}
+}
+
+static void CA_MedkitFrame( void ) {
+	int k;
+	for ( k = 0 ; k < caMedkitCount ; k++ ) {
+		if ( ( caMedkits[k]->r.svFlags & SVF_NOCLIENT ) && level.time >= caMedkitReadyAt[k] ) {
+			caMedkits[k]->r.svFlags &= ~SVF_NOCLIENT;
+		}
+	}
+}
+
+/* ca_selftest: N10's medkit rule on this map's medkits with a stand-in player (no client needed). */
+static int caMedkitFails;
+static void CA_MedkitCheck( qboolean ok, const char *what ) {
+	G_Printf( "%s %s\n", ok ? "PASS" : "FAIL", what );
+	caMedkitFails += ok ? 0 : 1;
+}
+static int CA_MedkitTry( gentity_t *p, int kit, int health, float dxM, float dzM, const float *fromOffsetM ) {
+	const float *m = caMedkits[kit]->s.pos.trBase;
+	vec3_t from;
+	int k;
+	for ( k = 0 ; k < caMedkitCount ; k++ ) {	/* only this medkit is ready */
+		caMedkitReadyAt[k] = k == kit ? 0 : level.time + 1000000;
+	}
+	p->health = p->client->ps.stats[STAT_HEALTH] = health;
+	VectorSet( p->client->ps.origin, m[0] + dxM * CA_UNITS_PER_METRE, m[1], m[2] + 24 + dzM * CA_UNITS_PER_METRE );
+	if ( fromOffsetM ) {
+		VectorSet( from, p->client->ps.origin[0] + fromOffsetM[0] * CA_UNITS_PER_METRE, p->client->ps.origin[1] + fromOffsetM[1] * CA_UNITS_PER_METRE, p->client->ps.origin[2] );
+	} else {
+		VectorCopy( p->client->ps.origin, from );
+	}
+	G_CA_MedkitTouch( p, from );
+	return p->health;
+}
+static int G_CA_MedkitSelfTest( void ) {
+	static gentity_t p;
+	static gclient_t c;
+	int k, h, h2, savedTime = level.time;
+	const float through[2] = { -2.4f, 0 };   /* came from 2.4 m away in one frame, passing over the medkit */
+	const float past[2] = { 2.4f, 0 };
+	caMedkitFails = 0;
+	if ( !caMedkitCount ) {
+		CA_MedkitCheck( qtrue, "medkits: none on this map (no N10 map data)" );
+		return 0;
+	}
+	CA_MedkitCheck( qtrue, va( "medkits: %d (N10 world.pickups())", caMedkitCount ) );
+	memset( &p, 0, sizeof( p ) );
+	memset( &c, 0, sizeof( c ) );
+	p.client = &c;
+	p.inuse = qtrue;
+	c.ps.pm_type = PM_NORMAL;
+	k = caMedkitCount - 1;
+	h = CA_MedkitTry( &p, k, 50, 0, 0, NULL );
+	CA_MedkitCheck( h == 90 && ( caMedkits[k]->r.svFlags & SVF_NOCLIENT ) && caMedkitReadyAt[k] == level.time + CA_MEDKIT_COOLDOWN && c.ps.externalEvent && ( c.ps.externalEvent & ~EV_EVENT_BITS ) == EV_CA_MEDKIT && c.ps.externalEventParm == 40,
+		va( "medkits: standing on one at 50 health -> %d (N10 +40), hidden for 13 s, EV_CA_MEDKIT 40", h ) );
+	p.health = c.ps.stats[STAT_HEALTH] = 50;
+	G_CA_MedkitTouch( &p, c.ps.origin );
+	CA_MedkitCheck( p.health == 50, va( "medkits: the same one again during its 13 s: %d (no heal)", p.health ) );
+	level.time = caMedkitReadyAt[k];
+	G_CA_MedkitTouch( &p, c.ps.origin );
+	CA_MedkitCheck( p.health == 90, va( "medkits: ready again after 13 s: %d", p.health ) );
+	level.time = savedTime;
+	h = CA_MedkitTry( &p, k, 100, 0, 0, NULL );
+	CA_MedkitCheck( h == 100 && caMedkitReadyAt[k] == 0, "medkits: not taken at full health" );
+	h = CA_MedkitTry( &p, k, 75, 0, 0, NULL );
+	CA_MedkitCheck( h == 100, va( "medkits: 75 -> %d (capped at 100)", h ) );
+	h = CA_MedkitTry( &p, k, 30, 0.80f, 0, NULL );
+	h2 = CA_MedkitTry( &p, k, 30, 0.90f, 0, NULL );
+	CA_MedkitCheck( h == 70 && h2 == 30, va( "medkits: 0.80 m away taken (%d), 0.90 m not (%d) (N10 radius 0.85 m)", h, h2 ) );
+	h = CA_MedkitTry( &p, k, 30, 0, 1.1f, NULL );
+	h2 = CA_MedkitTry( &p, k, 30, 0, 1.3f, NULL );
+	CA_MedkitCheck( h == 70 && h2 == 30, va( "medkits: 1.1 m above taken (%d), 1.3 m not (%d) (N10 1.2 m)", h, h2 ) );
+	h = CA_MedkitTry( &p, k, 30, 1.2f, 0, through );
+	CA_MedkitCheck( h == 70, va( "medkits: passed over in one 2.4 m move (sliding) and taken: %d", h ) );
+	h = CA_MedkitTry( &p, k, 30, 1.2f, 0, past );
+	CA_MedkitCheck( h == 30, va( "medkits: a move that stays 1.2 m away is not: %d", h ) );
+	c.ps.pm_type = PM_DEAD;
+	p.health = c.ps.stats[STAT_HEALTH] = 30;
+	for ( h2 = 0 ; h2 < caMedkitCount ; h2++ ) {
+		caMedkitReadyAt[h2] = 0;
+	}
+	G_CA_MedkitTouch( &p, c.ps.origin );
+	CA_MedkitCheck( p.health == 30, "medkits: a dead player takes none" );
+	for ( k = 0 ; k < caMedkitCount ; k++ ) {	/* back to the map start */
+		caMedkitReadyAt[k] = 0;
+		caMedkits[k]->r.svFlags &= ~SVF_NOCLIENT;
+	}
+	return caMedkitFails;
+}
+
 void G_CA_Init( void ) {
 	trap_Cvar_Register( &ca_waves, "ca_waves", "1", 0 );
 	trap_Cvar_Register( &ca_log, "ca_log", "0", 0 );
 	trap_Cvar_Register( NULL, "ca_loadout", "", 0 );   /* "a b": fixed spawn weapons (tests); empty = random */
 	CA_HordeInit( &caImports );
+	CA_SpawnMedkits();
 }
 
 /* Called before G_SpawnEntitiesFromString so spawn points of the previous map are dropped. */
@@ -372,6 +541,7 @@ void G_CA_Frame( int msec ) {
 		return;
 	}
 	G_CA_Burn( msec );
+	CA_MedkitFrame();
 	trap_Cvar_Update( &ca_waves );
 	trap_Cvar_Update( &ca_log );
 	if ( !ca_waves.integer && !CA_HordeLineupActive() ) {
@@ -396,6 +566,7 @@ void Svcmd_CA_SelfTest_f( void ) {
 	}
 	G_CA_WeaponSelfTest( fiend );
 	ok = hordeOk && caWeaponFailsTotal() == 0;
+	ok = G_CA_MedkitSelfTest() == 0 && ok;
 	if ( fiend >= 0 && g_entities[ fiend ].inuse && g_entities[ fiend ].takedamage ) {
 		CA_RemoveEnemy( fiend );
 	}
@@ -415,6 +586,19 @@ void Cmd_CA_State_f( gentity_t *ent ) {
 		ps->stats[STAT_CA_CLIP], ps->weaponstate == WEAPON_RELOADING, ps->stats[STAT_HEALTH], ps->persistant[PERS_SCORE], ps->weapon, ps->weaponstate, ps->weaponTime, ps->pm_flags,
 		CA_LO_ACTIVE_SLOT( ps->stats[STAT_CA_LOADOUT] ), CA_LO_WEAPON( ps->stats[STAT_CA_LOADOUT], 0 ), CA_LO_WEAPON( ps->stats[STAT_CA_LOADOUT], 1 ),
 		CA_LO_IN_HAND( ps->stats[STAT_CA_LOADOUT] ), ps->stats[STAT_CA_CLIP2] ) );
+}
+
+/* ca_health <n> (cheat, tests): set the player's health (1-100) */
+void Cmd_CA_Health_f( gentity_t *ent ) {
+	char arg[16];
+	int h;
+	trap_Argv( 1, arg, sizeof( arg ) );
+	h = atoi( arg );
+	if ( h < 1 || h > CA_MAX_HEALTH || ent->health <= 0 ) {
+		trap_SendServerCommand( ent - g_entities, "print \"usage: ca_health <1-100>\n\"" );
+		return;
+	}
+	ent->health = ent->client->ps.stats[ STAT_HEALTH ] = h;
 }
 
 /* ca_place x y z yaw [pitch] (cheat): put the player there at rest (setviewpos throws the player forward

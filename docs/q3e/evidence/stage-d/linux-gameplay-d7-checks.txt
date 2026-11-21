@@ -1,0 +1,12 @@
+PASS walk speed 320 u/s (stock Quake III 320)
+PASS sprint speed 480 u/s (320 x 1.5 = 480)
+PASS slide started: 484 u/s, crouched, 1090 ms left (boost x1.085 then slide friction)
+PASS still sliding later: 365 u/s, 642 ms left
+PASS slide over: 80 u/s while crouched, cooldown 0 ms
+PASS reload: clip 42, R -> reloading (1312 ms), then clip 50
+PASS fiends hurt the player (no god mode): health [100, 100, 100, 73, 73, 73, 3]
+PASS nailgun kills counted: score 62
+PASS god mode on for the wave-clearing part
+PASS wave 1 cleared, wave 2 (13 enemies) began
+waves: wave 1, 10 enemies, wave 1 cleared, wave 2, 13 enemies, wave 2 cleared, wave 3, 17 enemies, wave 3 cleared, wave 4, 22 enemies, wave 4 cleared, wave 5, 28 enemies
+ALL PASS

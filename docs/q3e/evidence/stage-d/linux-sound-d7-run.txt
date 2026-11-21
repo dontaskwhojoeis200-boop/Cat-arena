@@ -1,0 +1,1068 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 1 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... OK
+SDL audio driver is "disk".
+CRITICAL: You are using the SDL disk i/o audio driver!
+CRITICAL:  Writing to file [/tmp/claude-0/Q3E-D7/sounds.raw].
+SDL_AudioSpec:
+  Format:   AUDIO_S16LSB
+  Freq:     44100
+  Samples:  1024
+  Channels: 2
+Starting SDL audio callback...
+SDL audio initialized.
+----- Sound Info -----
+    2 channels
+32768 samples
+   16 samplebits (int)
+    1 submission_chunk
+44100 speed
+0x55ca3d704940 dma buffer
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f0188dae0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D7
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f015f40fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D6 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 0 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f0188dae0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f015f008620
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Cat Arena: 85 sounds registered
+stitched 0 LoD cracks
+...loaded 97 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 75 VBO surfaces (324 vertexes, 522 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+CL_InitCGame:  0.19 seconds
+Com_TouchMemory: 0 msec
+Cat^7 entered the game
+28672 : sound/feedback/hit.wav
+22132 : sound/feedback/hit.wav
+15360 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=719 ms=317
+execing sounds.cfg
+godmode ON
+114292 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=2706 ms=317
+126976 : sound/catarena/body_jump.wav
+Cat Arena: sound body_jump t=3200 ms=317
+155648 : sound/catarena/body_land_2.wav
+Cat Arena: sound body_land_2 t=3859 ms=320
+175104 : sound/catarena/body_step_walk.wav
+Cat Arena: sound body_step_walk t=4303 ms=168
+199284 : sound/catarena/body_step_walk.wav
+Cat Arena: sound body_step_walk t=4645 ms=168
+225908 : sound/catarena/body_step_sprint.wav
+Cat Arena: sound body_step_sprint t=5244 ms=168
+232448 : sound/catarena/body_step_sprint.wav
+Cat Arena: sound body_step_sprint t=5600 ms=168
+235520 : sound/catarena/body_slide_2.wav
+Cat Arena: sound body_slide_2 t=5672 ms=431
+280576 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=6706 ms=317
+290420 : sound/catarena/beep_switch.wav
+Cat Arena: sound beep_switch t=6713 ms=70
+Cat Arena: give SUPER SHOTGUN -> NAILGUN
+301056 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=7159 ms=405
+313972 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=7244 ms=405
+318068 : sound/catarena/beep_reload.wav
+Cat Arena: sound beep_reload t=7340 ms=80
+Cat Arena: give NAILGUN -> NAILGUN
+382580 : sound/catarena/gun0_0.wav
+Cat Arena: sound gun0_0 t=8797 ms=404
+386676 : sound/catarena/gun0_0.wav
+Cat Arena: sound gun0_0 t=8895 ms=404
+390772 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=8987 ms=405
+385024 : sound/catarena/gun0_0.wav
+Cat Arena: sound gun0_0 t=9070 ms=404
+389120 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=9161 ms=405
+402036 : sound/catarena/gun0_0.wav
+Cat Arena: sound gun0_0 t=9247 ms=404
+397312 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=9347 ms=405
+410228 : sound/catarena/gun0_0.wav
+Cat Arena: sound gun0_0 t=9434 ms=404
+414324 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=9523 ms=405
+418420 : sound/catarena/gun0_1.wav
+Cat Arena: sound gun0_1 t=9609 ms=405
+Cat Arena: give NAILGUN -> SHOTGUN
+420864 : sound/catarena/gun1_0.wav
+Cat Arena: sound gun1_0 t=9879 ms=674
+452608 : sound/catarena/gun1_1.wav
+Cat Arena: sound gun1_1 t=10607 ms=675
+Cat Arena: give SHOTGUN -> GRENADE LAUNCHER
+468992 : sound/catarena/gun2_0.wav
+Cat Arena: sound gun2_0 t=10972 ms=674
+494592 : sound/catarena/explosion_grenade.wav
+Cat Arena: sound explosion_grenade t=11562 ms=1170
+502784 : sound/catarena/gun2_0.wav
+Cat Arena: sound gun2_0 t=11757 ms=674
+Cat Arena: give GRENADE LAUNCHER -> RAILGUN
+529408 : sound/catarena/explosion_grenade.wav
+Cat Arena: sound explosion_grenade t=12356 ms=1170
+530432 : sound/catarena/gun3_1.wav
+Cat Arena: sound gun3_1 t=12385 ms=534
+573440 : sound/catarena/gun3_1.wav
+Cat Arena: sound gun3_1 t=13363 ms=534
+Cat Arena: give RAILGUN -> ROCKET LAUNCHER
+597620 : sound/catarena/gun4_0.wav
+Cat Arena: sound gun4_0 t=13698 ms=675
+635508 : sound/catarena/gun4_0.wav
+Cat Arena: sound gun4_0 t=14558 ms=675
+Cat Arena: give ROCKET LAUNCHER -> SUPER NAILGUN
+654964 : sound/catarena/gun5_1.wav
+Cat Arena: sound gun5_1 t=15001 ms=405
+661108 : sound/catarena/gun5_0.wav
+Cat Arena: sound gun5_0 t=15135 ms=405
+657408 : sound/catarena/gun5_1.wav
+Cat Arena: sound gun5_1 t=15270 ms=405
+672372 : sound/catarena/gun5_0.wav
+Cat Arena: sound gun5_0 t=15399 ms=405
+667648 : sound/catarena/explosion_rocket.wav
+Cat Arena: sound explosion_rocket t=15505 ms=1170
+677492 : sound/catarena/gun5_0.wav
+Cat Arena: sound gun5_0 t=15522 ms=405
+683636 : sound/catarena/gun5_0.wav
+Cat Arena: sound gun5_0 t=15657 ms=405
+689780 : sound/catarena/gun5_0.wav
+Cat Arena: sound gun5_0 t=15789 ms=405
+694900 : sound/catarena/gun5_0.wav
+Cat Arena: sound gun5_0 t=15913 ms=405
+701044 : sound/catarena/gun5_1.wav
+Cat Arena: sound gun5_1 t=16046 ms=405
+Cat Arena: give SUPER NAILGUN -> THUNDERBOLT
+707584 : sound/catarena/explosion_rocket.wav
+Cat Arena: sound explosion_rocket t=16409 ms=1170
+720500 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=16492 ms=535
+714752 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=16570 ms=534
+727668 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=16654 ms=535
+730740 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=16721 ms=534
+724992 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=16795 ms=534
+737908 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=16874 ms=535
+731136 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=16940 ms=535
+744052 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=17027 ms=535
+747124 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=17090 ms=534
+741376 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=17171 ms=534
+744448 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=17239 ms=535
+747520 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=17313 ms=535
+760436 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=17394 ms=535
+Cat Arena: give THUNDERBOLT -> SUPER SHOTGUN
+763904 : sound/catarena/gun7_0.wav
+Cat Arena: sound gun7_0 t=17684 ms=675
+Cat Arena: give SUPER SHOTGUN -> PLASMA REPEATER
+809984 : sound/catarena/gun8_0.wav
+Cat Arena: sound gun8_0 t=18729 ms=534
+828020 : sound/catarena/gun8_1.wav
+Cat Arena: sound gun8_1 t=18930 ms=534
+836212 : sound/catarena/gun8_0.wav
+Cat Arena: sound gun8_0 t=19115 ms=534
+844404 : sound/catarena/gun8_1.wav
+Cat Arena: sound gun8_1 t=19310 ms=534
+843776 : sound/catarena/gun8_0.wav
+Cat Arena: sound gun8_0 t=19505 ms=534
+Cat Arena: give PLASMA REPEATER -> TRIPLE SPIKE
+861184 : sound/catarena/gun9_1.wav
+Cat Arena: sound gun9_1 t=19899 ms=405
+876544 : sound/catarena/gun9_0.wav
+Cat Arena: sound gun9_0 t=20247 ms=405
+900724 : sound/catarena/gun9_0.wav
+Cat Arena: sound gun9_0 t=20587 ms=405
+Cat Arena: give TRIPLE SPIKE -> RIFT CANNON
+920180 : sound/catarena/gun10_1.wav
+Cat Arena: sound gun10_1 t=21026 ms=673
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+979572 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22373 ms=405
+982644 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22442 ms=405
+975872 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22507 ms=405
+978944 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22575 ms=405
+982016 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22644 ms=405
+993908 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22698 ms=405
+996980 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=22766 ms=405
+1000052 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22834 ms=405
+1003124 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=22901 ms=405
+996352 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=22966 ms=405
+999424 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=23036 ms=405
+1011316 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=23099 ms=405
+1014388 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=23164 ms=405
+1017460 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=23230 ms=405
+1019508 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=23285 ms=405
+1022580 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=23360 ms=405
+1025652 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=23418 ms=405
+1031796 : sound/catarena/explosion_rift.wav
+Cat Arena: sound explosion_rift t=23561 ms=1170
+Cat Arena: give IRON CHAINGUN -> HAND CANNON
+1033216 : sound/catarena/gun12_0.wav
+Cat Arena: sound gun12_0 t=23802 ms=675
+1078900 : sound/catarena/gun12_1.wav
+Cat Arena: sound gun12_1 t=24622 ms=675
+Cat Arena: give HAND CANNON -> HELLFIRE CARBINE
+1093236 : sound/catarena/gun13_0.wav
+Cat Arena: sound gun13_0 t=24956 ms=534
+1096704 : sound/catarena/gun13_0.wav
+Cat Arena: sound gun13_0 t=25237 ms=534
+1108992 : sound/catarena/gun13_0.wav
+Cat Arena: sound gun13_0 t=25523 ms=534
+Cat Arena: give HELLFIRE CARBINE -> SAWBLADE DRIVER
+1130496 : sound/catarena/gun14_0.wav
+Cat Arena: sound gun14_0 t=26012 ms=405
+1147904 : sound/catarena/gun14_1.wav
+Cat Arena: sound gun14_1 t=26397 ms=405
+1164288 : sound/catarena/gun14_1.wav
+Cat Arena: sound gun14_1 t=26772 ms=405
+Cat Arena: give SAWBLADE DRIVER -> QUAD SHOTGUN
+1184372 : sound/catarena/gun15_0.wav
+Cat Arena: sound gun15_0 t=27019 ms=674
+Cat Arena: give QUAD SHOTGUN -> ROCKET LAUNCHER
+1223680 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=28122 ms=317
+1228800 : sound/catarena/gun4_0.wav
+Cat Arena: sound gun4_0 t=28237 ms=675
+1240692 : sound/catarena/explosion_rocket.wav
+Cat Arena: sound explosion_rocket t=28300 ms=1170
+1275904 : sound/catarena/body_land_3.wav
+Cat Arena: sound body_land_3 t=29323 ms=325
+Cat Arena: give ROCKET LAUNCHER -> GRENADE LAUNCHER
+1284096 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=29508 ms=317
+1285120 : sound/catarena/gun2_1.wav
+Cat Arena: sound gun2_1 t=29532 ms=674
+1290240 : sound/catarena/explosion_grenade.wav
+Cat Arena: sound explosion_grenade t=29652 ms=1170
+Cat Arena: give GRENADE LAUNCHER -> RIFT CANNON
+1339392 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=30758 ms=317
+1343488 : sound/catarena/gun10_1.wav
+Cat Arena: sound gun10_1 t=30853 ms=673
+1359476 : sound/catarena/explosion_rift.wav
+Cat Arena: sound explosion_rift t=31003 ms=1170
+1403508 : sound/catarena/body_land_3.wav
+Cat Arena: sound body_land_3 t=32013 ms=325
+1404928 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=32257 ms=317
+1419892 : sound/catarena/body_land_1.wav
+Cat Arena: sound body_land_1 t=32394 ms=317
+Cat Arena: spawn grunt at -444 -44 33
+Cat Arena: spawn ogre at -444 -172 33
+Cat Arena: spawn fiend at -444 -300 33
+Cat Arena: spawn shambler at -444 -428 33
+Cat Arena: spawn marauder at -444 -556 33
+Cat Arena: spawn warden at -300 -44 33
+Cat Arena: spawn skitter at -300 -172 33
+Cat Arena: spawn stalker at -300 -300 33
+Cat Arena: spawn brute at -300 -428 33
+Cat Arena: spawn pyromancer at -300 -556 33
+Cat Arena: spawn sentinel at -156 -44 33
+Cat Arena: spawn reaver at -156 -172 33
+Cat Arena: spawn banshee at -156 -300 33
+Cat Arena: spawn crusher at -156 -428 33
+Cat Arena: spawn sapper at -156 -556 33
+Cat Arena: spawn harrier at -12 -44 33
+Cat Arena: spawn cultist at -50 -210 33
+Cat Arena: spawn skyprobe at -12 -300 104
+Cat Arena: spawn skyraider at -12 -428 104
+Cat Arena: spawn skyjuggernaut at -12 -556 104
+1505280 : sound/catarena/voice_normal_idle_0.wav
+Cat Arena: sound voice_normal_idle_0 t=34537 ms=579 enemy=87 type=sentinel d=18.8 playing=0
+1532532 : sound/catarena/voice_normal_attack_0.wav
+Cat Arena: sound voice_normal_attack_0 t=34953 ms=470 enemy=76 type=grunt d=11.3 playing=1
+1579636 : sound/catarena/voice_bass_idle_0.wav
+Cat Arena: sound voice_bass_idle_0 t=36022 ms=630 enemy=80 type=shambler d=8.9 playing=0
+1629184 : sound/catarena/voice_light_idle_1.wav
+Cat Arena: sound voice_light_idle_1 t=37356 ms=649 enemy=94 type=skyprobe d=21.5 playing=0
+1643124 : sound/catarena/voice_normal_attack_0.wav
+Cat Arena: sound voice_normal_attack_0 t=37470 ms=470 enemy=76 type=grunt d=11.3 playing=1
+1687552 : sound/catarena/gun10_0.wav
+Cat Arena: sound gun10_0 t=38684 ms=674
+Cat Arena: frag reroll RIFT CANNON -> THUNDERBOLT
+Cat Arena: killed fiend
+1714804 : sound/catarena/voice_light_idle_0.wav
+Cat Arena: sound voice_light_idle_0 t=39080 ms=565 enemy=83 type=skitter d=13.1 playing=0
+1715828 : sound/catarena/voice_light_eliminated_0.wav
+Cat Arena: sound voice_light_eliminated_0 t=39116 ms=745 enemy=79 type=fiend d=8.0 playing=1
+1715828 : sound/catarena/explosion_rift.wav
+Cat Arena: sound explosion_rift t=39116 ms=1170
+1718900 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=39171 ms=534
+1721972 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=39250 ms=535
+1721972 : sound/catarena/voice_normal_hurt_2.wav
+Cat Arena: sound voice_normal_hurt_2 t=39250 ms=389 enemy=78 type=ogre d=8.9 playing=2
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+1725044 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=39332 ms=534
+1729140 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=39420 ms=405
+1732212 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=39483 ms=405
+1725440 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=39545 ms=405
+1738356 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=39620 ms=405
+1740404 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=39670 ms=405
+1743476 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=39747 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> RAILGUN
+Cat Arena: killed ogre
+1744500 : sound/catarena/voice_normal_hurt_2.wav
+Cat Arena: sound voice_normal_hurt_2 t=39765 ms=389 enemy=78 type=ogre d=8.9 playing=1
+1746548 : sound/catarena/voice_normal_eliminated_0.wav
+Cat Arena: sound voice_normal_eliminated_0 t=39804 ms=764 enemy=78 type=ogre d=8.9 playing=2
+1749620 : sound/catarena/gun3_0.wav
+Cat Arena: sound gun3_0 t=39877 ms=534
+1743872 : sound/catarena/voice_normal_attack_1.wav
+Cat Arena: sound voice_normal_attack_1 t=39958 ms=530 enemy=76 type=grunt d=11.3 playing=2
+Cat Arena: give RAILGUN -> IRON CHAINGUN
+1750016 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=40103 ms=405
+1753088 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=40170 ms=405
+1763956 : sound/catarena/voice_bass_hurt_0.wav
+Cat Arena: sound voice_bass_hurt_0 t=40202 ms=328 enemy=80 type=shambler d=8.9 playing=2
+1764980 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=40231 ms=405
+1769076 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=40322 ms=405
+1763328 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=40396 ms=405
+1775220 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=40452 ms=405
+1778292 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=40524 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+1783412 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=40637 ms=405
+1776640 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=40702 ms=405
+1776640 : sound/catarena/voice_bass_hurt_1.wav
+Cat Arena: sound voice_bass_hurt_1 t=40702 ms=373 enemy=80 type=shambler d=8.9 playing=0
+1788532 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=40761 ms=405
+1792628 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=40858 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> TRIPLE SPIKE
+Cat Arena: killed shambler
+1784832 : sound/catarena/voice_bass_idle_1.wav
+Cat Arena: sound voice_bass_idle_1 t=40888 ms=724 enemy=90 type=crusher d=17.5 playing=1
+1797748 : sound/catarena/voice_bass_eliminated_1.wav
+Cat Arena: sound voice_bass_eliminated_1 t=40962 ms=951 enemy=80 type=shambler d=8.9 playing=2
+1788928 : sound/catarena/gun9_1.wav
+Cat Arena: sound gun9_1 t=40975 ms=405
+Cat Arena: give TRIPLE SPIKE -> IRON CHAINGUN
+1806964 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=41173 ms=405
+1800192 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=41234 ms=405
+1811060 : sound/catarena/voice_normal_hurt_2.wav
+Cat Arena: sound voice_normal_hurt_2 t=41263 ms=389 enemy=76 type=grunt d=11.3 playing=2
+1813108 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=41308 ms=405
+1816180 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=41378 ms=405
+1818228 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=41433 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> RIFT CANNON
+Cat Arena: killed grunt
+1821300 : sound/catarena/voice_normal_eliminated_1.wav
+Cat Arena: sound voice_normal_eliminated_1 t=41500 ms=874 enemy=76 type=grunt d=11.3 playing=3
+1814528 : sound/catarena/gun10_1.wav
+Cat Arena: sound gun10_1 t=41555 ms=673
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+1829492 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=41680 ms=405
+1822720 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=41738 ms=405
+1834612 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=41799 ms=405
+1838708 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=41887 ms=405
+1831936 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=41949 ms=405
+1841780 : sound/catarena/voice_normal_hurt_0.wav
+Cat Arena: sound voice_normal_hurt_0 t=41966 ms=301 enemy=81 type=marauder d=11.3 playing=1
+1844852 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=42031 ms=405
+1847924 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=42107 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+1848948 : sound/catarena/voice_normal_idle_1.wav
+Cat Arena: sound voice_normal_idle_1 t=42140 ms=665 enemy=91 type=sapper d=18.8 playing=2
+1843200 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=42214 ms=405
+1856116 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=42290 ms=405
+1858164 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=42349 ms=405
+1851392 : sound/catarena/voice_normal_hurt_2.wav
+Cat Arena: sound voice_normal_hurt_2 t=42402 ms=389 enemy=81 type=marauder d=11.3 playing=1
+1862260 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=42434 ms=405
+1865332 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=42502 ms=405
+1868404 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=42574 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SAWBLADE DRIVER
+Cat Arena: killed marauder
+Cat Arena: give SAWBLADE DRIVER -> IRON CHAINGUN
+1862656 : sound/catarena/voice_normal_eliminated_0.wav
+Cat Arena: sound voice_normal_eliminated_0 t=42661 ms=764 enemy=81 type=marauder d=11.3 playing=2
+1876596 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=42759 ms=405
+1879668 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=42828 ms=405
+1880692 : sound/catarena/voice_light_hurt_1.wav
+Cat Arena: sound voice_light_hurt_1 t=42862 ms=335 enemy=84 type=stalker d=12.5 playing=1
+1872896 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=42892 ms=405
+1875968 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=42961 ms=405
+1879040 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43029 ms=405
+1890932 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43079 ms=405
+1894004 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43158 ms=405
+1898100 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43243 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+1902196 : sound/catarena/voice_normal_idle_0.wav
+Cat Arena: sound voice_normal_idle_0 t=43346 ms=579 enemy=88 type=reaver d=17.5 playing=1
+1903220 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=43364 ms=405
+1906292 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43428 ms=405
+1909364 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43495 ms=405
+1902592 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=43560 ms=405
+1905664 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43629 ms=405
+1909760 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=43718 ms=405
+1921652 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=43785 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+1920000 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=43957 ms=405
+1931892 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=44019 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed stalker
+1933940 : sound/catarena/voice_light_hurt_2.wav
+Cat Arena: sound voice_light_hurt_2 t=44060 ms=380 enemy=84 type=stalker d=12.5 playing=0
+1935988 : sound/catarena/voice_light_eliminated_1.wav
+Cat Arena: sound voice_light_eliminated_1 t=44108 ms=853 enemy=84 type=stalker d=12.5 playing=1
+1928192 : sound/catarena/gun4_0.wav
+Cat Arena: sound gun4_0 t=44144 ms=675
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+1956468 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=44583 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed skitter
+1958516 : sound/catarena/voice_bass_idle_2.wav
+Cat Arena: sound voice_bass_idle_2 t=44619 ms=813 enemy=96 type=skyjuggernaut d=22.9 playing=1
+1950720 : sound/catarena/explosion_rocket.wav
+Cat Arena: sound explosion_rocket t=44653 ms=1170
+1950720 : sound/catarena/voice_light_eliminated_0.wav
+Cat Arena: sound voice_light_eliminated_0 t=44653 ms=745 enemy=83 type=skitter d=13.1 playing=2
+1962612 : sound/catarena/gun4_1.wav
+Cat Arena: sound gun4_1 t=44708 ms=677
+1973876 : sound/catarena/voice_bass_attack_2.wav
+Cat Arena: sound voice_bass_attack_2 t=44971 ms=658 enemy=82 type=warden d=14.8 playing=2
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+1986164 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=45261 ms=405
+1988212 : sound/catarena/explosion_rocket.wav
+Cat Arena: sound explosion_rocket t=45303 ms=1170
+1990260 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=45340 ms=405
+1992308 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=45396 ms=405
+1993332 : sound/catarena/voice_bass_hurt_1.wav
+Cat Arena: sound voice_bass_hurt_1 t=45415 ms=373 enemy=82 type=warden d=14.8 playing=2
+1995380 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=45470 ms=405
+1998452 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=45526 ms=405
+2001524 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=45600 ms=405
+2003572 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=45658 ms=405
+2006644 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=45717 ms=405
+2006644 : sound/catarena/voice_bass_hurt_1.wav
+Cat Arena: sound voice_bass_hurt_1 t=45717 ms=373 enemy=82 type=warden d=14.8 playing=1
+2009716 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=45785 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2014836 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=45896 ms=405
+2017908 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=45969 ms=405
+2019956 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=46019 ms=405
+2012160 : sound/catarena/voice_bass_hurt_1.wav
+Cat Arena: sound voice_bass_hurt_1 t=46051 ms=373 enemy=82 type=warden d=14.8 playing=1
+2023028 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=46087 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> THUNDERBOLT
+Cat Arena: killed warden
+2016256 : sound/catarena/voice_bass_eliminated_1.wav
+Cat Arena: sound voice_bass_eliminated_1 t=46152 ms=951 enemy=82 type=warden d=14.8 playing=1
+2019328 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=46215 ms=534
+2032244 : sound/catarena/gun6_0.wav
+Cat Arena: sound gun6_0 t=46289 ms=535
+2034292 : sound/catarena/voice_normal_hurt_2.wav
+Cat Arena: sound voice_normal_hurt_2 t=46352 ms=389 enemy=86 type=pyromancer d=14.8 playing=2
+2036340 : sound/catarena/gun6_1.wav
+Cat Arena: sound gun6_1 t=46383 ms=534
+Cat Arena: give THUNDERBOLT -> IRON CHAINGUN
+2040436 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=46489 ms=405
+2044532 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=46571 ms=405
+2037760 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=46635 ms=405
+2039808 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=46682 ms=405
+2050676 : sound/catarena/voice_normal_hurt_0.wav
+Cat Arena: sound voice_normal_hurt_0 t=46715 ms=301 enemy=86 type=pyromancer d=14.8 playing=2
+2052724 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=46754 ms=405
+2055796 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=46836 ms=405
+2058868 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=46901 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> QUAD SHOTGUN
+Cat Arena: killed pyromancer
+Cat Arena: give QUAD SHOTGUN -> IRON CHAINGUN
+2052096 : sound/catarena/voice_normal_eliminated_2.wav
+Cat Arena: sound voice_normal_eliminated_2 t=46960 ms=988 enemy=86 type=pyromancer d=14.8 playing=2
+2066036 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=47066 ms=405
+2069108 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=47134 ms=405
+2072180 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47202 ms=405
+2065408 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47258 ms=405
+2077300 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47323 ms=405
+2069504 : sound/catarena/voice_light_hurt_2.wav
+Cat Arena: sound voice_light_hurt_2 t=47356 ms=380 enemy=89 type=banshee d=17.0 playing=1
+2080372 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47392 ms=405
+2083444 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47460 ms=405
+2083444 : sound/catarena/voice_bass_attack_1.wav
+Cat Arena: sound voice_bass_attack_1 t=47460 ms=578 enemy=85 type=brute d=13.1 playing=2
+2085492 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=47512 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2082816 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=47662 ms=405
+2085888 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47729 ms=405
+2097780 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=47778 ms=405
+2091008 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=47842 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed banshee
+2102900 : sound/catarena/voice_light_eliminated_1.wav
+Cat Arena: sound voice_light_eliminated_1 t=47906 ms=853 enemy=89 type=banshee d=17.0 playing=2
+2105972 : sound/catarena/gun12_0.wav
+Cat Arena: sound gun12_0 t=47974 ms=675
+2099200 : sound/catarena/voice_normal_idle_0.wav
+Cat Arena: sound voice_normal_idle_0 t=48038 ms=579 enemy=95 type=skyraider d=21.9 playing=1
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+2107392 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=48218 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> RIFT CANNON
+Cat Arena: killed reaver
+2111488 : sound/catarena/voice_normal_eliminated_0.wav
+Cat Arena: sound voice_normal_eliminated_0 t=48310 ms=764 enemy=88 type=reaver d=17.5 playing=2
+2122356 : sound/catarena/gun10_0.wav
+Cat Arena: sound gun10_0 t=48341 ms=674
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+2143860 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=48834 ms=405
+2146932 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=48909 ms=405
+2148980 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=48963 ms=405
+2143232 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49030 ms=405
+2153076 : sound/catarena/voice_normal_hurt_0.wav
+Cat Arena: sound voice_normal_hurt_0 t=49050 ms=301 enemy=87 type=sentinel d=18.8 playing=1
+2156148 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=49105 ms=405
+2158196 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49156 ms=405
+2151424 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=49220 ms=405
+2151424 : sound/catarena/voice_normal_idle_1.wav
+Cat Arena: sound voice_normal_idle_1 t=49220 ms=665 enemy=91 type=sapper d=18.8 playing=1
+Cat Arena: frag reroll IRON CHAINGUN -> ROCKET LAUNCHER
+Cat Arena: killed sentinel
+2164340 : sound/catarena/voice_normal_eliminated_2.wav
+Cat Arena: sound voice_normal_eliminated_2 t=49301 ms=988 enemy=87 type=sentinel d=18.8 playing=2
+2164340 : sound/catarena/explosion_rift.wav
+Cat Arena: sound explosion_rift t=49301 ms=1170
+Cat Arena: give ROCKET LAUNCHER -> IRON CHAINGUN
+2170484 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49425 ms=405
+2163712 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49487 ms=405
+2173556 : sound/catarena/voice_normal_hurt_1.wav
+Cat Arena: sound voice_normal_hurt_1 t=49504 ms=343 enemy=91 type=sapper d=18.8 playing=2
+2175604 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49553 ms=405
+2178676 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49618 ms=405
+2181748 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49693 ms=405
+2174976 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=49751 ms=405
+2187892 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=49828 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2189940 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=49884 ms=405
+2184192 : sound/catarena/voice_bass_attack_1.wav
+Cat Arena: sound voice_bass_attack_1 t=49953 ms=578 enemy=85 type=brute d=13.1 playing=1
+2194036 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=49968 ms=405
+2187264 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=50030 ms=405
+2200180 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=50104 ms=405
+2193408 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=50172 ms=405
+2205300 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=50235 ms=405
+2208372 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=50290 ms=405
+2199552 : sound/catarena/voice_normal_hurt_0.wav
+Cat Arena: sound voice_normal_hurt_0 t=50303 ms=301 enemy=91 type=sapper d=18.8 playing=1
+2202624 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=50374 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2216564 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=50493 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed sapper
+2219636 : sound/catarena/voice_normal_eliminated_1.wav
+Cat Arena: sound voice_normal_eliminated_1 t=50558 ms=874 enemy=91 type=sapper d=18.8 playing=1
+2212864 : sound/catarena/gun12_1.wav
+Cat Arena: sound gun12_1 t=50617 ms=675
+Cat Arena: give HAND CANNON -> IRON CHAINGUN
+2240116 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=51018 ms=405
+2243188 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=51086 ms=405
+2246260 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=51146 ms=405
+2239488 : sound/catarena/voice_normal_hurt_1.wav
+Cat Arena: sound voice_normal_hurt_1 t=51207 ms=343 enemy=93 type=cultist d=20.5 playing=1
+2249332 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=51223 ms=405
+2242560 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=51283 ms=405
+2254452 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=51338 ms=405
+2248704 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=51423 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2253824 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=51538 ms=405
+2265716 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=51594 ms=405
+2268788 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=51663 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> HAND CANNON
+Cat Arena: killed cultist
+2272884 : sound/catarena/voice_normal_eliminated_2.wav
+Cat Arena: sound voice_normal_eliminated_2 t=51753 ms=988 enemy=93 type=cultist d=20.5 playing=0
+2274932 : sound/catarena/gun12_0.wav
+Cat Arena: sound gun12_0 t=51808 ms=675
+Cat Arena: frag reroll HAND CANNON -> SHOTGUN
+Cat Arena: killed skyprobe
+Cat Arena: give SHOTGUN -> IRON CHAINGUN
+2270208 : sound/catarena/voice_light_eliminated_1.wav
+Cat Arena: sound voice_light_eliminated_1 t=51907 ms=853 enemy=94 type=skyprobe d=21.5 playing=1
+2275328 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52019 ms=405
+2278400 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=52087 ms=405
+2281472 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52163 ms=405
+2293364 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52224 ms=405
+2296436 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52288 ms=405
+2299508 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52355 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2294784 : sound/catarena/voice_bass_attack_0.wav
+Cat Arena: sound voice_bass_attack_0 t=52460 ms=509 enemy=85 type=brute d=13.1 playing=2
+2305652 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52502 ms=405
+2308724 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52572 ms=405
+2311796 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52642 ms=405
+2314868 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52712 ms=405
+2308096 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=52768 ms=405
+2311168 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52833 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2314240 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52897 ms=405
+2317312 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=52968 ms=405
+2330228 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=53048 ms=405
+2333300 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=53121 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> RAILGUN
+Cat Arena: killed harrier
+2325504 : sound/catarena/voice_light_hurt_2.wav
+Cat Arena: sound voice_light_hurt_2 t=53159 ms=380 enemy=92 type=harrier d=22.9 playing=0
+2337396 : sound/catarena/voice_light_eliminated_0.wav
+Cat Arena: sound voice_light_eliminated_0 t=53210 ms=745 enemy=92 type=harrier d=22.9 playing=1
+2329600 : sound/catarena/gun3_0.wav
+Cat Arena: sound gun3_0 t=53248 ms=534
+Cat Arena: give RAILGUN -> IRON CHAINGUN
+2347636 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=53448 ms=405
+2350708 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=53513 ms=405
+2343936 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=53573 ms=405
+2355828 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=53629 ms=405
+2358900 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=53697 ms=405
+2361972 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=53766 ms=405
+2364020 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=53825 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2358272 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=53898 ms=405
+2370164 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=53969 ms=405
+2373236 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54022 ms=405
+2376308 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54098 ms=405
+2379380 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54168 ms=405
+2372608 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=54220 ms=405
+2384500 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=54284 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2381824 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54443 ms=405
+2394740 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=54528 ms=405
+2388992 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54598 ms=405
+2400884 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54665 ms=405
+2394112 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=54718 ms=405
+2406004 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=54783 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2399232 : sound/catarena/voice_bass_idle_2.wav
+Cat Arena: sound voice_bass_idle_2 t=54838 ms=813 enemy=90 type=crusher d=17.5 playing=0
+2412148 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=54921 ms=405
+2404352 : sound/catarena/voice_bass_attack_1.wav
+Cat Arena: sound voice_bass_attack_1 t=54954 ms=578 enemy=85 type=brute d=13.1 playing=1
+2415220 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=54988 ms=405
+2408448 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55054 ms=405
+2421364 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=55134 ms=405
+2424436 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55201 ms=405
+2427508 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=55270 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2420736 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55333 ms=405
+2434676 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=55442 ms=405
+2437748 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55511 ms=405
+2440820 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=55578 ms=405
+2443892 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55652 ms=405
+2437120 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55706 ms=405
+2440192 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=55775 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+2453108 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55847 ms=405
+2446336 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=55920 ms=405
+2458228 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=55981 ms=405
+2461300 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=56040 ms=405
+2464372 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=56109 ms=405
+2467444 : sound/catarena/gun11_0.wav
+Cat Arena: sound gun11_0 t=56180 ms=405
+2469492 : sound/catarena/gun11_1.wav
+Cat Arena: sound gun11_1 t=56235 ms=405
+Cat Arena: give IRON CHAINGUN -> IRON CHAINGUN
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 640 -640 220
+Cat Arena: spawn pyromancer at 200 -640 41
+Cat Arena: spawn ogre at -200 -640 41
+Cat Arena: spawn skyprobe at 640 -200 182
+Cat Arena: spawn sapper at -640 300 41
+Cat Arena: spawn skyraider at 200 -640 205
+Cat Arena: spawn banshee at 640 -640 41
+Cat Arena: spawn skitter at 640 300 41
+Cat Arena: spawn pyromancer at 640 -200 41
+Cat Arena: spawn fiend at -640 -640 41
+2547712 : sound/catarena/voice_normal_attack_1.wav
+Cat Arena: sound voice_normal_attack_1 t=58213 ms=530 enemy=116 type=sapper d=6.9 playing=0
+2563700 : sound/catarena/voice_light_attack_2.wav
+Cat Arena: sound voice_light_attack_2 t=58362 ms=592 enemy=106 type=skyprobe d=27.2 playing=1
+2560000 : sound/catarena/voice_light_idle_0.wav
+Cat Arena: sound voice_light_idle_0 t=58494 ms=565 enemy=119 type=skitter d=26.1 playing=2
+Cat Arena: hit by fiend melee 17
+2585204 : sound/catarena/voice_normal_attack_0.wav
+Cat Arena: sound voice_normal_attack_0 t=58857 ms=470 enemy=120 type=pyromancer d=22.0 playing=2
+Cat Arena: hit by skyraider spike 12
+Cat Arena: hit by skyraider spike 12
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+2584576 : sound/catarena/voice_normal_attack_1.wav
+Cat Arena: sound voice_normal_attack_1 t=59052 ms=530 enemy=97 type=pyromancer d=8.7 playing=2
+2607732 : sound/catarena/voice_light_attack_1.wav
+Cat Arena: sound voice_light_attack_1 t=59357 ms=517 enemy=121 type=fiend d=1.0 playing=1
+CATEST god off
+Cat Arena: hit by ogre fireball 4
+2607104 : sound/catarena/beep_hurt.wav
+Cat Arena: sound beep_hurt t=59564 ms=80
+godmode OFF
+Cat Arena: hit by fiend melee 17
+2625140 : sound/catarena/voice_normal_idle_2.wav
+Cat Arena: sound voice_normal_idle_2 t=59759 ms=747 enemy=105 type=ogre d=7.2 playing=1
+2633332 : sound/catarena/voice_normal_attack_1.wav
+Cat Arena: sound voice_normal_attack_1 t=59961 ms=530 enemy=116 type=sapper d=6.3 playing=1
+Cat Arena: hit by pyromancer fireball 4
+2644596 : sound/catarena/voice_normal_attack_1.wav
+Cat Arena: sound voice_normal_attack_1 t=60213 ms=530 enemy=117 type=skyraider d=0.4 playing=2
+2657908 : sound/catarena/voice_light_attack_2.wav
+Cat Arena: sound voice_light_attack_2 t=60508 ms=592 enemy=121 type=fiend d=0.9 playing=1
+Cat Arena: hit by pyromancer fireball 4
+2659956 : sound/catarena/beep_hurt.wav
+Cat Arena: sound beep_hurt t=60560 ms=80
+2662004 : sound/catarena/voice_normal_attack_0.wav
+Cat Arena: sound voice_normal_attack_0 t=60612 ms=470 enemy=120 type=pyromancer d=7.1 playing=2
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+2671220 : sound/catarena/voice_normal_attack_0.wav
+Cat Arena: sound voice_normal_attack_0 t=60821 ms=470 enemy=97 type=pyromancer d=8.0 playing=2
+Cat Arena: hit by fiend melee 17
+Cat Arena: hit by skyraider spike 12
+Cat Arena: hit by skyraider spike 12
+Cat Arena: hit by skitter melee 11
+Cat Arena: hit by skyprobe shot 7
+2693748 : sound/feedback/hit.wav
+2694772 : sound/catarena/voice_light_idle_1.wav
+Cat Arena: sound voice_light_idle_1 t=61336 ms=649 enemy=106 type=skyprobe d=5.5 playing=0
+Cat Arena: squad wiped
+Cat^7 died.
+2768500 : sound/catarena/voice_normal_idle_0.wav
+Cat Arena: sound voice_normal_idle_0 t=63017 ms=579 enemy=117 type=skyraider d=1.7 playing=0
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 640 -640 235
+Cat Arena: spawn sentinel at 640 -640 41
+Cat Arena: spawn brute at 640 -200 41
+Cat Arena: spawn brute at 200 -640 41
+Cat Arena: spawn skyraider at 640 300 204
+Cat Arena: spawn fiend at -200 -640 41
+Cat Arena: spawn crusher at 640 300 41
+Cat Arena: spawn sapper at -640 300 41
+Cat Arena: spawn pyromancer at -640 -640 41
+Cat Arena: spawn harrier at -640 -200 41
+Cat Arena: squad wiped
+2921472 : sound/catarena/voice_light_idle_1.wav
+Cat Arena: sound voice_light_idle_1 t=66705 ms=649 enemy=85 type=harrier d=4.1 playing=0
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 640 -640 175
+Cat Arena: spawn skyjuggernaut at 200 -640 184
+Cat Arena: spawn sapper at 640 -200 41
+Cat Arena: spawn skyraider at 640 -200 191
+Cat Arena: spawn grunt at 200 -640 41
+Cat Arena: spawn grunt at 640 300 41
+Cat Arena: spawn harrier at 640 -640 41
+Cat Arena: spawn stalker at -200 -640 41
+Cat Arena: spawn ogre at -640 300 41
+Cat Arena: spawn reaver at -640 -640 41
+Cat Arena: squad wiped
+CATEST god on
+You must be alive to use this command.
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+Closing SDL audio playback device...
+SDL audio playback device closed.
+SDL audio shut down.
+RE_Shutdown( 3 )
+-----------------------

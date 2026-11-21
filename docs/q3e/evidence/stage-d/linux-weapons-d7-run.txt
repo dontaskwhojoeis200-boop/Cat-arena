@@ -1,0 +1,1190 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...found 1 cached paks
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+execing q3config.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+SDL using driver "x11"
+Initializing Vulkan display
+...setting mode -1: 1280 720
+Using 24 color bits, 24 depth, 8 stencil display.
+.......................
+Available physical devices:
+ 0: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+.......................
+...selected physical device: 0
+...device memory size: 8025MB
+...presentation modes: IMMEDIATE MAILBOX FIFO FIFO_RELAXED
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: MESA
+VK_RENDERER: CPU llvmpipe (LLVM 20.1.2, 256 bits), 0x0000
+VK_VERSION: API: 1.4.318, Driver: 25.2.8
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(24-bits) Z(24-bit) stencil(8-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_D24_UNORM_S8_UINT
+MODE: -1, 1280 x 720 windowed hz:N/A
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+SDL_Init( SDL_INIT_AUDIO )... OK
+SDL audio driver is "dummy".
+SDL_AudioSpec:
+  Format:   AUDIO_S16LSB
+  Freq:     44100
+  Samples:  1024
+  Channels: 2
+Starting SDL audio callback...
+SDL audio initialized.
+----- Sound Info -----
+    2 channels
+32768 samples
+   16 samplebits (int)
+    1 submission_chunk
+44100 speed
+0x55b950144940 dma buffer
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f5f4d7ae0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP6 socket: [::]:27960
+WARNING: NET_IP6Socket: socket: Address family not supported by protocol
+WARNING: Couldn't bind to a v6 ip address.
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-D7
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+RE_Shutdown( 0 )
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f5f2740fa90
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D6 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 0 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 0
+Initializing Shaders
+----- finished R_Init -----
+Loading dll file ui.
+VM_LoadDLL 'uix86_64.so' ok
+VM_LoadDll(ui) found **vmMain** at 0x7f5f4d7ae0a0
+VM_LoadDll(ui) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (ui, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Loading dll file cgame.
+VM_LoadDLL 'cgamex86_64.so' ok
+VM_LoadDll(cgame) found **vmMain** at 0x7f5f27008620
+VM_LoadDll(cgame) succeeded!
+Cat Arena: Feral Claw N10-Q3E-D6 (cgame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Cat Arena: 85 sounds registered
+stitched 0 LoD cracks
+...loaded 97 faces, 0 meshes, 0 trisurfs, 0 flares
+...found 75 VBO surfaces (324 vertexes, 522 indexes)
+Cat Arena: 20 enemy meshes loaded
+Failed to load model file models/players/characters/sarge/lower.md3
+Failed to load model file models/players/characters/sarge/lower.md3
+^3WARNING: no player model (sarge); players are not drawn
+^3WARNING: music file music/ashen_drive.ogg is not 22k stereo
+Cat Arena: music music/ashen_drive.ogg
+CL_InitCGame:  0.22 seconds
+Com_TouchMemory: 1 msec
+Cat^7 entered the game
+Cat Arena: sound body_land_1 t=716 ms=317
+execing weapons.cfg
+Cat Arena: sound body_land_1 t=2439 ms=317
+Cat Arena: sound gun0_0 t=2474 ms=404
+CA_STATE t=2500 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: sound gun0_1 t=2566 ms=405
+Cat Arena: sound gun0_1 t=2658 ms=405
+Cat Arena: sound gun0_0 t=2750 ms=404
+Cat Arena: sound beep_switch t=2936 ms=70
+CA_STATE t=2950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: sound beep_switch t=3177 ms=70
+CA_STATE t=3200 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+Cat Arena: sound beep_switch t=3445 ms=70
+CA_STATE t=3450 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=0 w0=0 w1=1 inhand=0 clip2=8
+Cat Arena: sound body_land_1 t=3982 ms=317
+Cat Arena: sound gun1_0 t=4631 ms=674
+CA_STATE t=4650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+CA_STATE t=4700 pos=-703,-300,24 hspeed=128 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=695 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+Cat Arena: sound body_land_1 t=5710 ms=317
+Cat Arena: sound body_jump t=6593 ms=317
+Cat Arena: sound gun1_0 t=6869 ms=674
+CA_STATE t=6900 pos=-701,-300,72 hspeed=83 vz=224 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=707 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+Cat Arena: sound body_land_2 t=7527 ms=320
+Cat Arena: give SHOTGUN -> NAILGUN
+godmode ON
+Cat Arena: sound gun0_1 t=8404 ms=405
+Cat Arena: sound body_land_1 t=8432 ms=317
+CA_STATE t=8450 pos=-700,-300,29 hspeed=0 vz=-132 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=50 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=46
+Cat Arena: sound gun0_0 t=8501 ms=404
+Cat Arena: sound gun0_0 t=8589 ms=404
+CA_STATE t=8550 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=48 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=48 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=46
+Cat Arena: sound gun0_1 t=8677 ms=405
+Cat Arena: sound gun0_0 t=8767 ms=404
+Cat Arena: sound gun0_1 t=8856 ms=405
+Cat Arena: sound gun0_1 t=8954 ms=405
+Cat Arena: sound gun0_1 t=9034 ms=405
+Cat Arena: sound gun0_0 t=9124 ms=404
+Cat Arena: sound gun0_0 t=9222 ms=404
+Cat Arena: sound gun0_1 t=9314 ms=405
+Cat Arena: sound gun0_0 t=9397 ms=404
+Cat Arena: sound gun0_0 t=9484 ms=404
+Cat Arena: sound gun0_1 t=9575 ms=405
+Cat Arena: sound gun0_1 t=9671 ms=405
+Cat Arena: sound gun0_1 t=9757 ms=405
+Cat Arena: sound gun0_1 t=9854 ms=405
+Cat Arena: sound gun0_1 t=9946 ms=405
+Cat Arena: sound gun0_1 t=10029 ms=405
+Cat Arena: sound gun0_0 t=10126 ms=404
+Cat Arena: sound gun0_1 t=10209 ms=405
+Cat Arena: sound gun0_1 t=10306 ms=405
+Cat Arena: sound gun0_1 t=10386 ms=405
+Cat Arena: sound gun0_1 t=10478 ms=405
+Cat Arena: sound gun0_1 t=10570 ms=405
+Cat Arena: sound gun0_0 t=10662 ms=404
+Cat Arena: sound gun0_0 t=10750 ms=404
+Cat Arena: sound gun0_1 t=10838 ms=405
+Cat Arena: sound gun0_1 t=10928 ms=405
+Cat Arena: sound gun0_0 t=11015 ms=404
+Cat Arena: sound gun0_0 t=11102 ms=404
+Cat Arena: sound gun0_1 t=11197 ms=405
+Cat Arena: sound gun0_1 t=11284 ms=405
+Cat Arena: sound gun0_0 t=11379 ms=404
+Cat Arena: sound gun0_0 t=11474 ms=404
+Cat Arena: sound gun0_0 t=11554 ms=404
+Wrote screenshots/weapon00.jpg
+CA_STATE t=11650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=14 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=47 pmflags=0 slot=1 w0=0 w1=0 inhand=0 clip2=46
+Cat Arena: give NAILGUN -> SHOTGUN
+Cat Arena: sound gun1_0 t=12161 ms=674
+CA_STATE t=12200 pos=-700,-300,32 hspeed=0 vz=-109 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+CA_STATE t=12300 pos=-708,-300,50 hspeed=83 vz=161 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=625 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+Cat Arena: sound body_land_1 t=12683 ms=317
+Cat Arena: sound gun1_1 t=12886 ms=675
+Cat Arena: sound gun1_0 t=13601 ms=674
+Cat Arena: sound gun1_1 t=14324 ms=675
+Cat Arena: sound gun1_0 t=15042 ms=674
+Wrote screenshots/weapon01.jpg
+CA_STATE t=15200 pos=-753,-300,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=599 pmflags=0 slot=1 w0=0 w1=1 inhand=1 clip2=46
+Cat Arena: give SHOTGUN -> GRENADE LAUNCHER
+Cat Arena: sound gun2_0 t=15778 ms=674
+Cat Arena: sound body_land_1 t=15803 ms=317
+CA_STATE t=15800 pos=-700,-300,30 hspeed=0 vz=-127 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+CA_STATE t=15950 pos=-700,-300,37 hspeed=0 vz=70 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=634 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: sound body_land_1 t=16208 ms=317
+Cat Arena: sound explosion_grenade t=16408 ms=1170
+Cat Arena: sound gun2_1 t=16564 ms=674
+Cat Arena: sound explosion_grenade t=17155 ms=1170
+Cat Arena: sound gun2_1 t=17348 ms=674
+Cat Arena: sound explosion_grenade t=17961 ms=1170
+Cat Arena: sound gun2_1 t=18128 ms=674
+Cat Arena: sound explosion_grenade t=18709 ms=1170
+Cat Arena: sound gun2_1 t=18908 ms=674
+Wrote screenshots/weapon02.jpg
+Cat Arena: sound explosion_grenade t=19504 ms=1170
+CA_STATE t=19500 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=221 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: give GRENADE LAUNCHER -> RAILGUN
+Cat Arena: sound gun3_0 t=20216 ms=534
+Cat Arena: sound body_land_1 t=20227 ms=317
+CA_STATE t=20250 pos=-700,-300,27 hspeed=0 vz=-144 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=46
+CA_STATE t=20400 pos=-700,-300,38 hspeed=0 vz=64 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=841 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=46
+Cat Arena: sound body_land_1 t=20639 ms=317
+Cat Arena: sound gun3_0 t=21201 ms=534
+Cat Arena: sound gun3_1 t=22179 ms=534
+Cat Arena: sound gun3_0 t=23156 ms=534
+Wrote screenshots/weapon03.jpg
+CA_STATE t=23600 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=584 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=46
+Cat Arena: give RAILGUN -> ROCKET LAUNCHER
+Cat Arena: sound gun4_1 t=24180 ms=677
+Cat Arena: sound body_land_1 t=24216 ms=317
+CA_STATE t=24200 pos=-700,-300,31 hspeed=0 vz=-122 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+CA_STATE t=24350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=753 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound gun4_1 t=25045 ms=677
+Cat Arena: sound gun4_0 t=25911 ms=675
+Cat Arena: sound explosion_rocket t=25958 ms=1170
+Cat Arena: sound gun4_1 t=26766 ms=677
+Cat Arena: sound explosion_rocket t=26803 ms=1170
+Cat Arena: sound gun4_0 t=27634 ms=675
+Cat Arena: sound explosion_rocket t=27711 ms=1170
+Wrote screenshots/weapon04.jpg
+CA_STATE t=28200 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=338 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound explosion_rocket t=28552 ms=1170
+Cat Arena: give ROCKET LAUNCHER -> SUPER NAILGUN
+Cat Arena: sound body_land_1 t=28973 ms=317
+Cat Arena: sound gun5_0 t=28997 ms=405
+CA_STATE t=29050 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=46
+Cat Arena: sound gun5_0 t=29130 ms=405
+CA_STATE t=29200 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=115 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=46
+Cat Arena: sound gun5_1 t=29260 ms=405
+Cat Arena: sound gun5_0 t=29392 ms=405
+Cat Arena: sound explosion_rocket t=29405 ms=1170
+Cat Arena: sound gun5_1 t=29520 ms=405
+Cat Arena: sound gun5_1 t=29648 ms=405
+Cat Arena: sound gun5_1 t=29783 ms=405
+Cat Arena: sound gun5_1 t=29906 ms=405
+Cat Arena: sound gun5_1 t=30045 ms=405
+Cat Arena: sound gun5_1 t=30170 ms=405
+Cat Arena: sound gun5_1 t=30297 ms=405
+Cat Arena: sound gun5_1 t=30426 ms=405
+Cat Arena: sound gun5_0 t=30557 ms=405
+Cat Arena: sound gun5_1 t=30693 ms=405
+Cat Arena: sound gun5_1 t=30820 ms=405
+Cat Arena: sound gun5_1 t=30959 ms=405
+Cat Arena: sound gun5_1 t=31082 ms=405
+Cat Arena: sound gun5_1 t=31212 ms=405
+Cat Arena: sound gun5_1 t=31341 ms=405
+Cat Arena: sound gun5_1 t=31474 ms=405
+Cat Arena: sound gun5_0 t=31602 ms=405
+Cat Arena: sound gun5_1 t=31733 ms=405
+Cat Arena: sound gun5_0 t=31859 ms=405
+Cat Arena: sound gun5_1 t=31991 ms=405
+Cat Arena: sound gun5_1 t=32113 ms=405
+Cat Arena: sound gun5_0 t=32246 ms=405
+Cat Arena: sound gun5_0 t=32379 ms=405
+Wrote screenshots/weapon05.jpg
+CA_STATE t=32400 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=10 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=6 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=46
+Cat Arena: give SUPER NAILGUN -> THUNDERBOLT
+Cat Arena: sound gun6_1 t=32994 ms=534
+Cat Arena: sound body_land_1 t=33043 ms=317
+CA_STATE t=33000 pos=-700,-300,31 hspeed=0 vz=-118 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=75 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=33073 ms=534
+Cat Arena: sound gun6_0 t=33149 ms=535
+CA_STATE t=33150 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=73 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=42 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=33223 ms=534
+Cat Arena: sound gun6_0 t=33294 ms=535
+Cat Arena: sound gun6_1 t=33375 ms=534
+Cat Arena: sound gun6_0 t=33446 ms=535
+Cat Arena: sound gun6_1 t=33523 ms=534
+Cat Arena: sound gun6_0 t=33604 ms=535
+Cat Arena: sound gun6_1 t=33671 ms=534
+Cat Arena: sound gun6_0 t=33751 ms=535
+Cat Arena: sound gun6_0 t=33822 ms=535
+Cat Arena: sound gun6_1 t=33902 ms=534
+Cat Arena: sound gun6_1 t=33976 ms=534
+Cat Arena: sound gun6_0 t=34052 ms=535
+Cat Arena: sound gun6_1 t=34125 ms=534
+Cat Arena: sound gun6_1 t=34205 ms=534
+Cat Arena: sound gun6_0 t=34276 ms=535
+Cat Arena: sound gun6_1 t=34348 ms=534
+Cat Arena: sound gun6_0 t=34421 ms=535
+Cat Arena: sound gun6_0 t=34498 ms=535
+Cat Arena: sound gun6_0 t=34569 ms=535
+Cat Arena: sound gun6_0 t=34649 ms=535
+Cat Arena: sound gun6_1 t=34722 ms=534
+Cat Arena: sound gun6_1 t=34803 ms=534
+Cat Arena: sound gun6_1 t=34873 ms=534
+Cat Arena: sound gun6_0 t=34943 ms=535
+Cat Arena: sound gun6_0 t=35025 ms=535
+Cat Arena: sound gun6_0 t=35096 ms=535
+Cat Arena: sound gun6_0 t=35175 ms=535
+Cat Arena: sound gun6_0 t=35255 ms=535
+Cat Arena: sound gun6_1 t=35319 ms=534
+Cat Arena: sound gun6_0 t=35402 ms=535
+Cat Arena: sound gun6_0 t=35473 ms=535
+Cat Arena: sound gun6_1 t=35553 ms=534
+Cat Arena: sound gun6_0 t=35617 ms=535
+Cat Arena: sound gun6_0 t=35697 ms=535
+Cat Arena: sound gun6_1 t=35767 ms=534
+Cat Arena: sound gun6_1 t=35851 ms=534
+Cat Arena: sound gun6_0 t=35928 ms=535
+Cat Arena: sound gun6_1 t=35996 ms=534
+Cat Arena: sound gun6_1 t=36070 ms=534
+Cat Arena: sound gun6_0 t=36151 ms=535
+Wrote screenshots/weapon06.jpg
+CA_STATE t=36200 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=32 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=66 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: give THUNDERBOLT -> SUPER SHOTGUN
+Cat Arena: sound gun7_0 t=36706 ms=675
+CA_STATE t=36750 pos=-700,-300,33 hspeed=0 vz=-106 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=12 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=46
+CA_STATE t=36850 pos=-710,-300,53 hspeed=100 vz=169 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=777 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=46
+Cat Arena: sound body_land_1 t=37271 ms=317
+Cat Arena: sound gun7_1 t=37593 ms=675
+Cat Arena: sound gun7_1 t=38468 ms=675
+Cat Arena: sound gun7_0 t=39351 ms=675
+Wrote screenshots/weapon07.jpg
+CA_STATE t=39850 pos=-753,-300,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=423 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=46
+Cat Arena: give SUPER SHOTGUN -> PLASMA REPEATER
+Cat Arena: sound gun8_1 t=40440 ms=534
+Cat Arena: sound body_land_1 t=40471 ms=317
+CA_STATE t=40450 pos=-700,-300,30 hspeed=0 vz=-126 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=48 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: sound gun8_1 t=40640 ms=534
+CA_STATE t=40600 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=47 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=83 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: sound gun8_1 t=40831 ms=534
+Cat Arena: sound gun8_1 t=41016 ms=534
+Cat Arena: sound gun8_0 t=41204 ms=534
+Cat Arena: sound gun8_0 t=41393 ms=534
+Cat Arena: sound gun8_1 t=41585 ms=534
+Cat Arena: sound gun8_1 t=41770 ms=534
+Cat Arena: sound gun8_0 t=41968 ms=534
+Cat Arena: sound gun8_1 t=42151 ms=534
+Cat Arena: sound gun8_1 t=42341 ms=534
+Cat Arena: sound gun8_0 t=42535 ms=534
+Cat Arena: sound gun8_1 t=42719 ms=534
+Cat Arena: sound gun8_0 t=42925 ms=534
+Cat Arena: sound gun8_0 t=43105 ms=534
+Cat Arena: sound gun8_0 t=43297 ms=534
+Cat Arena: sound gun8_0 t=43485 ms=534
+Wrote screenshots/weapon08.jpg
+CA_STATE t=43600 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=31 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=111 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: give PLASMA REPEATER -> TRIPLE SPIKE
+Cat Arena: sound gun9_0 t=44133 ms=405
+Cat Arena: sound body_land_1 t=44175 ms=317
+CA_STATE t=44150 pos=-700,-300,31 hspeed=0 vz=-117 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+CA_STATE t=44300 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=229 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=44485 ms=405
+Cat Arena: sound gun9_0 t=44814 ms=405
+Cat Arena: sound gun9_0 t=45161 ms=405
+Cat Arena: sound gun9_0 t=45493 ms=405
+Cat Arena: sound gun9_0 t=45835 ms=405
+Cat Arena: sound gun9_0 t=46184 ms=405
+Cat Arena: sound gun9_1 t=46521 ms=405
+Cat Arena: sound gun9_0 t=46862 ms=405
+Cat Arena: sound gun9_0 t=47202 ms=405
+Wrote screenshots/weapon09.jpg
+CA_STATE t=47500 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=26 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=84 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: give TRIPLE SPIKE -> RIFT CANNON
+Cat Arena: sound gun10_1 t=48165 ms=673
+Cat Arena: sound body_land_1 t=48187 ms=317
+CA_STATE t=48200 pos=-700,-300,29 hspeed=0 vz=-135 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=46
+CA_STATE t=48350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=1023 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=46
+Cat Arena: sound gun10_1 t=49325 ms=673
+Cat Arena: sound gun10_0 t=50479 ms=674
+Cat Arena: sound explosion_rift t=50614 ms=1170
+Cat Arena: sound gun10_0 t=51622 ms=674
+Cat Arena: sound explosion_rift t=51764 ms=1170
+Wrote screenshots/weapon10.jpg
+CA_STATE t=52700 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=1 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=120 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=46
+Cat Arena: sound explosion_rift t=52917 ms=1170
+Cat Arena: give RIFT CANNON -> IRON CHAINGUN
+Cat Arena: sound body_land_1 t=53436 ms=317
+Cat Arena: sound gun11_0 t=53448 ms=405
+CA_STATE t=53450 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=100 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=46
+Cat Arena: sound gun11_1 t=53517 ms=405
+Cat Arena: sound gun11_1 t=53581 ms=405
+Cat Arena: sound gun11_1 t=53657 ms=405
+CA_STATE t=53650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=97 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=50 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=46
+Cat Arena: sound gun11_0 t=53713 ms=405
+Cat Arena: sound gun11_1 t=53778 ms=405
+Cat Arena: sound gun11_1 t=53845 ms=405
+Cat Arena: sound gun11_0 t=53909 ms=405
+Cat Arena: sound gun11_0 t=53972 ms=405
+Cat Arena: sound gun11_0 t=54041 ms=405
+Cat Arena: sound explosion_rift t=54053 ms=1170
+Cat Arena: sound gun11_0 t=54106 ms=405
+Cat Arena: sound gun11_1 t=54171 ms=405
+Cat Arena: sound gun11_1 t=54239 ms=405
+Cat Arena: sound gun11_0 t=54302 ms=405
+Cat Arena: sound gun11_0 t=54368 ms=405
+Cat Arena: sound gun11_1 t=54426 ms=405
+Cat Arena: sound gun11_1 t=54488 ms=405
+Cat Arena: sound gun11_1 t=54552 ms=405
+Cat Arena: sound gun11_0 t=54616 ms=405
+Cat Arena: sound gun11_1 t=54681 ms=405
+Cat Arena: sound gun11_0 t=54749 ms=405
+Cat Arena: sound gun11_0 t=54819 ms=405
+Cat Arena: sound gun11_0 t=54884 ms=405
+Cat Arena: sound gun11_1 t=54950 ms=405
+Cat Arena: sound gun11_1 t=55012 ms=405
+Cat Arena: sound gun11_0 t=55075 ms=405
+Cat Arena: sound gun11_0 t=55145 ms=405
+Cat Arena: sound gun11_1 t=55206 ms=405
+Cat Arena: sound gun11_1 t=55272 ms=405
+Cat Arena: sound gun11_1 t=55335 ms=405
+Cat Arena: sound gun11_0 t=55396 ms=405
+Cat Arena: sound gun11_1 t=55468 ms=405
+Cat Arena: sound gun11_0 t=55530 ms=405
+Cat Arena: sound gun11_0 t=55593 ms=405
+Cat Arena: sound gun11_0 t=55663 ms=405
+Cat Arena: sound gun11_1 t=55727 ms=405
+Cat Arena: sound gun11_1 t=55800 ms=405
+Cat Arena: sound gun11_0 t=55864 ms=405
+Cat Arena: sound gun11_0 t=55921 ms=405
+Cat Arena: sound gun11_0 t=55993 ms=405
+Cat Arena: sound gun11_0 t=56055 ms=405
+Cat Arena: sound gun11_1 t=56117 ms=405
+Cat Arena: sound gun11_0 t=56185 ms=405
+Cat Arena: sound gun11_0 t=56244 ms=405
+Cat Arena: sound gun11_0 t=56316 ms=405
+Cat Arena: sound gun11_1 t=56383 ms=405
+Cat Arena: sound gun11_1 t=56445 ms=405
+Cat Arena: sound gun11_1 t=56514 ms=405
+Cat Arena: sound gun11_1 t=56568 ms=405
+Cat Arena: sound gun11_1 t=56638 ms=405
+Cat Arena: sound gun11_1 t=56698 ms=405
+Cat Arena: sound gun11_0 t=56767 ms=405
+Cat Arena: sound gun11_0 t=56843 ms=405
+Cat Arena: sound gun11_1 t=56893 ms=405
+Cat Arena: sound gun11_1 t=56966 ms=405
+Cat Arena: sound gun11_0 t=57028 ms=405
+Cat Arena: sound gun11_1 t=57089 ms=405
+Wrote screenshots/weapon11.jpg
+CA_STATE t=57150 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=43 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=29 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=46
+Cat Arena: give IRON CHAINGUN -> HAND CANNON
+Cat Arena: sound gun12_1 t=57882 ms=675
+Cat Arena: sound body_land_1 t=57893 ms=317
+CA_STATE t=57900 pos=-700,-300,28 hspeed=0 vz=-143 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=46
+CA_STATE t=58050 pos=-700,-300,36 hspeed=0 vz=81 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=699 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=46
+Cat Arena: sound body_land_1 t=58306 ms=317
+Cat Arena: sound gun12_0 t=58708 ms=675
+Cat Arena: sound gun12_1 t=59531 ms=675
+Cat Arena: sound gun12_0 t=60342 ms=675
+Cat Arena: sound gun12_1 t=61174 ms=675
+Wrote screenshots/weapon12.jpg
+CA_STATE t=61250 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=2 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=758 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=46
+Cat Arena: give HAND CANNON -> HELLFIRE CARBINE
+Cat Arena: sound gun13_1 t=61802 ms=534
+Cat Arena: sound body_land_1 t=61856 ms=317
+CA_STATE t=61850 pos=-700,-300,32 hspeed=0 vz=-111 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=28 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+CA_STATE t=61950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=166 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_0 t=62083 ms=534
+Cat Arena: sound gun13_0 t=62369 ms=534
+Cat Arena: sound gun13_0 t=62643 ms=534
+Cat Arena: sound gun13_0 t=62919 ms=534
+Cat Arena: sound gun13_1 t=63205 ms=534
+Cat Arena: sound gun13_0 t=63481 ms=534
+Cat Arena: sound gun13_1 t=63762 ms=534
+Cat Arena: sound gun13_0 t=64047 ms=534
+Cat Arena: sound gun13_0 t=64326 ms=534
+Cat Arena: sound gun13_1 t=64609 ms=534
+Cat Arena: sound gun13_0 t=64888 ms=534
+Wrote screenshots/weapon13.jpg
+CA_STATE t=64950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=16 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=264 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: give HELLFIRE CARBINE -> SAWBLADE DRIVER
+Cat Arena: sound gun14_0 t=65493 ms=405
+Cat Arena: sound body_land_1 t=65539 ms=317
+CA_STATE t=65500 pos=-700,-300,32 hspeed=0 vz=-114 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=22 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+CA_STATE t=65650 pos=-700,-300,31 hspeed=0 vz=118 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=21 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=276 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+Cat Arena: sound gun14_1 t=65880 ms=405
+Cat Arena: sound body_land_1 t=65943 ms=317
+Cat Arena: sound gun14_1 t=66255 ms=405
+Cat Arena: sound body_land_1 t=66357 ms=317
+Cat Arena: sound gun14_0 t=66640 ms=405
+Cat Arena: sound gun14_0 t=67019 ms=405
+Cat Arena: sound gun14_0 t=67401 ms=405
+Cat Arena: sound gun14_0 t=67774 ms=405
+Cat Arena: sound gun14_1 t=68164 ms=405
+Cat Arena: sound gun14_1 t=68541 ms=405
+Wrote screenshots/weapon14.jpg
+CA_STATE t=68600 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=13 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=354 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+Cat Arena: give SAWBLADE DRIVER -> QUAD SHOTGUN
+Cat Arena: sound gun15_0 t=69169 ms=674
+CA_STATE t=69200 pos=-700,-300,31 hspeed=0 vz=-122 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=8 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=46
+CA_STATE t=69300 pos=-715,-300,56 hspeed=118 vz=161 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=1025 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=46
+Cat Arena: sound body_land_1 t=69732 ms=317
+Cat Arena: sound gun15_0 t=70312 ms=674
+Cat Arena: sound gun15_1 t=71469 ms=675
+Wrote screenshots/weapon15.jpg
+CA_STATE t=72350 pos=-753,-300,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=100 score=0 weapon=2 wstate=3 wtime=294 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=46
+Cat Arena: give QUAD SHOTGUN -> ROCKET LAUNCHER
+godmode OFF
+Cat Arena: sound body_land_1 t=73765 ms=317
+Cat Arena: sound gun4_0 t=74637 ms=675
+Cat Arena: sound beep_hurt t=74658 ms=80
+CA_STATE t=74650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=100 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound explosion_rocket t=74704 ms=1170
+CA_STATE t=74850 pos=-744,-300,90 hspeed=256 vz=312 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=0 weapon=2 wstate=3 wtime=688 pmflags=64 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound body_land_3 t=75718 ms=325
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 640 -640 223
+Cat Arena: spawn skyjuggernaut at 640 -200 201
+Cat Arena: spawn banshee at 640 -200 41
+Cat Arena: spawn crusher at 200 -640 41
+Cat Arena: spawn banshee at -200 -640 41
+Cat Arena: spawn crusher at 640 300 41
+Cat Arena: spawn crusher at 640 -640 41
+Cat Arena: spawn shambler at -640 300 41
+Cat Arena: spawn pyromancer at -640 -640 41
+Cat Arena: spawn skyraider at 640 300 229
+Cat Arena: give ROCKET LAUNCHER -> RAILGUN
+godmode ON
+Cat Arena: sound body_land_1 t=77004 ms=317
+Cat Arena: sound gun3_1 t=77282 ms=534
+Cat Arena: frag reroll RAILGUN -> RIFT CANNON
+Cat Arena: killed pyromancer
+CA_STATE t=77300 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=0 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=3 inhand=3 clip2=46
+Cat Arena: sound voice_normal_eliminated_1 t=77357 ms=874 enemy=85 type=pyromancer d=8.4 playing=0
+Cat Arena: sound gun10_0 t=77420 ms=674
+Cat Arena: frag reroll RIFT CANNON -> ROCKET LAUNCHER
+Cat Arena: killed banshee (gibbed)
+CA_STATE t=77850 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=1 weapon=2 wstate=3 wtime=754 pmflags=0 slot=1 w0=0 w1=10 inhand=10 clip2=46
+Cat Arena: sound voice_light_eliminated_1 t=77954 ms=853 enemy=81 type=banshee d=9.6 playing=1
+Cat Arena: sound explosion_rift t=77954 ms=1170
+Cat Arena: sound gun4_0 t=78007 ms=675
+CA_STATE t=78350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=2 weapon=2 wstate=3 wtime=561 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound voice_light_attack_2 t=78451 ms=592 enemy=79 type=banshee d=27.4 playing=1
+Cat Arena: sound explosion_rocket t=78513 ms=1170
+Cat Arena: sound gun4_0 t=78878 ms=675
+Cat Arena: sound voice_bass_idle_0 t=78878 ms=630 enemy=78 type=skyjuggernaut d=29.9 playing=1
+CA_STATE t=78900 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=2 weapon=2 wstate=3 wtime=15 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound explosion_rocket t=79251 ms=1170
+CA_STATE t=79400 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=2 weapon=2 wstate=3 wtime=373 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound gun4_0 t=79724 ms=675
+Cat Arena: frag reroll ROCKET LAUNCHER -> HAND CANNON
+Cat Arena: killed shambler (gibbed)
+CA_STATE t=79900 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=56 score=2 weapon=2 wstate=3 wtime=739 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound voice_bass_eliminated_1 t=79960 ms=951 enemy=84 type=shambler d=5.5 playing=0
+Cat Arena: sound explosion_rocket t=79960 ms=1170
+Cat Arena: hit by skyraider spike 12
+Cat Arena: sound gun12_1 t=80020 ms=675
+Cat Arena: sound voice_normal_hurt_2 t=80106 ms=389 enemy=86 type=skyraider d=8.5 playing=1
+Cat Arena: sound voice_light_attack_1 t=80203 ms=517 enemy=79 type=banshee d=9.5 playing=2
+Cat Arena: hit by banshee voidorb 19
+CA_STATE t=80450 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=6 reloading=0 health=56 score=3 weapon=2 wstate=3 wtime=402 pmflags=0 slot=1 w0=0 w1=12 inhand=12 clip2=46
+Cat Arena: sound voice_bass_idle_0 t=80599 ms=630 enemy=82 type=crusher d=29.5 playing=2
+Cat Arena: sound gun12_0 t=80827 ms=675
+Cat Arena: frag reroll HAND CANNON -> IRON CHAINGUN
+Cat Arena: killed skyraider
+Cat Arena: sound voice_normal_eliminated_1 t=80902 ms=874 enemy=86 type=skyraider d=0.7 playing=2
+Cat Arena: sound gun11_1 t=80964 ms=405
+Cat Arena: sound gun11_0 t=81018 ms=405
+Cat Arena: sound gun11_1 t=81088 ms=405
+CA_STATE t=81100 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=98 reloading=0 health=56 score=4 weapon=2 wstate=3 wtime=46 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=46
+Cat Arena: sound voice_light_hurt_0 t=81158 ms=294 enemy=79 type=banshee d=8.8 playing=2
+Cat Arena: sound gun11_1 t=81177 ms=405
+Cat Arena: sound gun11_0 t=81251 ms=405
+Cat Arena: sound gun11_0 t=81312 ms=405
+Cat Arena: hit by skyjuggernaut voidorb 24
+Cat Arena: sound gun11_1 t=81391 ms=405
+Cat Arena: hit by banshee voidorb 19
+Cat Arena: sound voice_light_attack_1 t=81413 ms=517 enemy=77 type=skyprobe d=10.8 playing=2
+Cat Arena: sound gun11_0 t=81498 ms=405
+Cat Arena: sound gun11_0 t=81580 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER SHOTGUN
+Cat Arena: killed banshee
+Cat Arena: sound voice_light_eliminated_1 t=81659 ms=853 enemy=79 type=banshee d=8.8 playing=2
+Cat Arena: sound gun7_1 t=81713 ms=675
+CA_STATE t=81850 pos=-713,-293,24 hspeed=79 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=56 score=5 weapon=2 wstate=3 wtime=739 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=46
+Wrote screenshots/combat_40.jpg
+Cat Arena: hit by skyprobe shot 7
+CA_STATE t=82450 pos=-717,-291,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=11 reloading=0 health=56 score=5 weapon=2 wstate=3 wtime=186 pmflags=0 slot=1 w0=0 w1=7 inhand=7 clip2=46
+Cat Arena: sound gun7_0 t=82582 ms=675
+Cat Arena: frag reroll SUPER SHOTGUN -> RAILGUN
+Cat Arena: killed skyprobe
+Cat Arena: hit by skyjuggernaut voidorb 24
+Cat Arena: sound voice_light_eliminated_0 t=82659 ms=745 enemy=77 type=skyprobe d=2.9 playing=0
+Cat Arena: sound gun3_1 t=82707 ms=534
+Cat Arena: frag reroll RAILGUN -> QUAD SHOTGUN
+Cat Arena: killed crusher (gibbed)
+Cat Arena: sound voice_bass_eliminated_0 t=82810 ms=831 enemy=80 type=crusher d=5.1 playing=1
+Cat Arena: sound gun15_1 t=82851 ms=675
+CA_STATE t=83100 pos=-737,-289,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=7 weapon=2 wstate=3 wtime=938 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=46
+Cat Arena: sound voice_bass_attack_2 t=83157 ms=658 enemy=78 type=skyjuggernaut d=6.1 playing=2
+CA_STATE t=83550 pos=-737,-289,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=7 weapon=2 wstate=3 wtime=445 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=46
+Cat Arena: hit by skyjuggernaut voidorb 24
+Cat Arena: sound gun15_1 t=84012 ms=675
+Cat Arena: frag reroll QUAD SHOTGUN -> ROCKET LAUNCHER
+Cat Arena: killed skyjuggernaut
+CA_STATE t=84050 pos=-737,-289,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=7 reloading=0 health=56 score=7 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=15 inhand=15 clip2=46
+Cat Arena: sound voice_bass_eliminated_0 t=84117 ms=831 enemy=78 type=skyjuggernaut d=0.8 playing=0
+Cat Arena: sound gun4_1 t=84154 ms=677
+Cat Arena: sound explosion_rocket t=84664 ms=1170
+CA_STATE t=84750 pos=-737,-289,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=8 weapon=2 wstate=3 wtime=309 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound gun4_1 t=85025 ms=677
+Cat Arena: sound explosion_rocket t=85364 ms=1170
+CA_STATE t=85400 pos=-737,-289,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=8 weapon=2 wstate=3 wtime=526 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound gun4_1 t=85877 ms=677
+Cat Arena: frag reroll ROCKET LAUNCHER -> TRIPLE SPIKE
+Cat Arena: killed crusher (gibbed)
+CA_STATE t=86050 pos=-737,-289,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=3 reloading=0 health=56 score=8 weapon=2 wstate=3 wtime=752 pmflags=0 slot=1 w0=0 w1=4 inhand=4 clip2=46
+Cat Arena: sound explosion_rocket t=86100 ms=1170
+Cat Arena: sound voice_bass_eliminated_2 t=86100 ms=1075 enemy=82 type=crusher d=5.2 playing=0
+Cat Arena: sound gun9_0 t=86183 ms=405
+Cat Arena: sound gun9_0 t=86508 ms=405
+CA_STATE t=86800 pos=-737,-291,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=56 score=9 weapon=2 wstate=3 wtime=106 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=86859 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=86951 ms=328 enemy=83 type=crusher d=3.7 playing=1
+Cat Arena: sound gun9_1 t=87208 ms=405
+Cat Arena: sound voice_bass_hurt_0 t=87320 ms=328 enemy=83 type=crusher d=2.0 playing=0
+Cat Arena: sound gun9_0 t=87544 ms=405
+CA_STATE t=87550 pos=-737,-291,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=32 reloading=0 health=56 score=9 weapon=2 wstate=3 wtime=2 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=87877 ms=405
+Cat Arena: frag reroll TRIPLE SPIKE -> HELLFIRE CARBINE
+Cat Arena: killed crusher
+Cat Arena: wave 1 cleared
+Cat Arena: sound voice_bass_eliminated_1 t=87952 ms=951 enemy=83 type=crusher d=1.3 playing=0
+Cat Arena: sound gun13_0 t=87992 ms=534
+Cat Arena: sound gun13_0 t=88283 ms=534
+CA_STATE t=88300 pos=-737,-291,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=29 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_1 t=88572 ms=534
+Cat Arena: sound gun13_1 t=88839 ms=534
+CA_STATE t=88950 pos=-737,-291,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=24 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=197 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_0 t=89114 ms=534
+Cat Arena: sound gun13_0 t=89424 ms=534
+CA_STATE t=89600 pos=-737,-291,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=22 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=158 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_0 t=89697 ms=534
+Cat Arena: sound body_land_1 t=89739 ms=317
+Cat Arena: sound gun13_1 t=89979 ms=534
+CA_STATE t=90050 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=20 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=250 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_1 t=90263 ms=534
+CA_STATE t=90450 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=19 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=117 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_1 t=90545 ms=534
+Cat Arena: sound gun13_1 t=90829 ms=534
+CA_STATE t=90900 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=17 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=246 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: sound gun13_1 t=91126 ms=534
+CA_STATE t=91300 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=16 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=124 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Wrote screenshots/combat_120.jpg
+Cat Arena: wave 2, 13 enemies
+Cat Arena: spawn skyprobe at -640 300 217
+Cat Arena: spawn sentinel at -200 -640 41
+Cat Arena: spawn sapper at -640 300 41
+Cat Arena: spawn skyraider at -640 -640 172
+Cat Arena: spawn fiend at -640 -200 41
+Cat Arena: spawn marauder at 200 -640 41
+Cat Arena: spawn skitter at 640 -640 41
+Cat Arena: spawn warden at 640 300 41
+Cat Arena: spawn cultist at -640 -640 41
+Cat Arena: spawn pyromancer at 640 -200 41
+Cat Arena: sound gun13_1 t=91422 ms=534
+Cat Arena: sound gun13_0 t=91690 ms=534
+CA_STATE t=91750 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=14 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=252 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: spawn brute at -640 -200 41
+Cat Arena: sound gun13_1 t=91976 ms=534
+Cat Arena: spawn brute at -200 -640 41
+CA_STATE t=92150 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=13 reloading=0 health=56 score=10 weapon=2 wstate=3 wtime=123 pmflags=0 slot=1 w0=0 w1=13 inhand=13 clip2=46
+Cat Arena: spawn skyraider at -640 -640 204
+Cat Arena: sound gun13_1 t=92254 ms=534
+Cat Arena: frag reroll HELLFIRE CARBINE -> THUNDERBOLT
+Cat Arena: killed pyromancer
+Cat Arena: sound voice_normal_eliminated_1 t=92361 ms=874 enemy=93 type=pyromancer d=6.7 playing=0
+Cat Arena: sound gun6_0 t=92386 ms=535
+Cat Arena: sound voice_bass_hurt_1 t=92457 ms=373 enemy=91 type=warden d=9.7 playing=1
+Cat Arena: sound gun6_1 t=92468 ms=534
+Cat Arena: sound gun6_0 t=92551 ms=535
+Cat Arena: sound gun6_0 t=92634 ms=535
+CA_STATE t=92600 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=73 reloading=0 health=56 score=11 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=92727 ms=534
+Cat Arena: sound voice_normal_attack_0 t=92805 ms=470 enemy=89 type=marauder d=12.8 playing=2
+Cat Arena: sound gun6_1 t=92818 ms=534
+Cat Arena: sound gun6_0 t=92906 ms=535
+Cat Arena: sound voice_light_hurt_0 t=92906 ms=294 enemy=90 type=skitter d=6.9 playing=2
+Cat Arena: sound gun6_0 t=93001 ms=535
+Cat Arena: sound gun6_0 t=93093 ms=535
+Cat Arena: frag reroll THUNDERBOLT -> PLASMA REPEATER
+Cat Arena: killed skitter
+CA_STATE t=93050 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=68 reloading=0 health=56 score=11 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound voice_light_eliminated_0 t=93162 ms=745 enemy=90 type=skitter d=4.8 playing=3
+Cat Arena: sound gun8_0 t=93221 ms=534
+Cat Arena: sound voice_normal_hurt_0 t=93314 ms=301 enemy=89 type=marauder d=8.2 playing=1
+Cat Arena: sound gun8_1 t=93420 ms=534
+Cat Arena: sound voice_light_attack_2 t=93508 ms=592 enemy=78 type=skyprobe d=22.8 playing=2
+CA_STATE t=93500 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=56 score=12 weapon=2 wstate=3 wtime=131 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: sound gun8_0 t=93629 ms=534
+Cat Arena: hit by marauder spike 6
+Cat Arena: hit by marauder spike 6
+Cat Arena: sound gun8_0 t=93829 ms=534
+Cat Arena: sound voice_normal_hurt_1 t=93926 ms=343 enemy=89 type=marauder d=6.9 playing=1
+Cat Arena: sound gun8_0 t=94008 ms=534
+Cat Arena: frag reroll PLASMA REPEATER -> GRENADE LAUNCHER
+Cat Arena: killed marauder
+Cat Arena: sound voice_normal_eliminated_1 t=94115 ms=874 enemy=89 type=marauder d=6.9 playing=1
+Cat Arena: sound gun2_0 t=94136 ms=674
+Cat Arena: hit by warden voidorb 20
+CA_STATE t=94250 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=13 weapon=2 wstate=3 wtime=716 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound explosion_grenade t=94511 ms=1170
+Cat Arena: sound voice_normal_hurt_2 t=94511 ms=389 enemy=83 type=sentinel d=8.8 playing=1
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: sound voice_normal_attack_0 t=94718 ms=470 enemy=84 type=sapper d=19.1 playing=2
+Cat Arena: sound gun2_1 t=94919 ms=674
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: sound explosion_grenade t=95007 ms=1170
+Cat Arena: sound voice_normal_attack_1 t=95007 ms=530 enemy=87 type=skyraider d=1.0 playing=1
+CA_STATE t=95050 pos=572,6,46 hspeed=256 vz=407 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=13 weapon=2 wstate=3 wtime=701 pmflags=64 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: sound voice_normal_attack_2 t=95109 ms=607 enemy=92 type=cultist d=12.1 playing=2
+Cat Arena: sound voice_light_attack_0 t=95257 ms=458 enemy=88 type=fiend d=1.8 playing=2
+Cat Arena: sound body_land_2 t=95527 ms=320
+Cat Arena: sound voice_normal_attack_0 t=95568 ms=470 enemy=76 type=skyraider d=8.0 playing=2
+Cat Arena: hit by fiend melee 18
+CA_STATE t=95600 pos=700,74,24 hspeed=200 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=13 weapon=2 wstate=3 wtime=127 pmflags=32 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: sound gun2_1 t=95733 ms=674
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by cultist fireball 4
+Cat Arena: frag reroll GRENADE LAUNCHER -> HAND CANNON
+Cat Arena: killed skyraider (gibbed)
+Cat Arena: frag reroll HAND CANNON -> SUPER NAILGUN
+Cat Arena: killed fiend (gibbed)
+Cat Arena: sound body_land_3 t=95780 ms=325
+Cat Arena: sound voice_normal_eliminated_0 t=95805 ms=764 enemy=87 type=skyraider d=1.1 playing=1
+Cat Arena: sound voice_light_eliminated_1 t=95805 ms=853 enemy=88 type=fiend d=1.5 playing=2
+Cat Arena: sound explosion_grenade t=95805 ms=1170
+Cat Arena: sound gun5_0 t=95885 ms=405
+Cat Arena: sound gun5_1 t=96017 ms=405
+Cat Arena: sound gun5_1 t=96114 ms=405
+Cat Arena: sound voice_normal_hurt_2 t=96208 ms=389 enemy=76 type=skyraider d=2.1 playing=2
+Cat Arena: sound gun5_0 t=96248 ms=405
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun5_1 t=96389 ms=405
+Cat Arena: hit by cultist fireball 4
+Cat Arena: hit by warden voidorb 20
+Cat Arena: hit by skyprobe shot 7
+Cat Arena: sound gun5_1 t=96534 ms=405
+CA_STATE t=96500 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=31 reloading=0 health=56 score=15 weapon=2 wstate=3 wtime=61 pmflags=0 slot=1 w0=0 w1=5 inhand=5 clip2=46
+Cat Arena: sound gun5_1 t=96660 ms=405
+Cat Arena: sound voice_bass_idle_1 t=96786 ms=724 enemy=97 type=brute d=15.7 playing=0
+Cat Arena: sound gun5_1 t=96803 ms=405
+Cat Arena: sound gun5_0 t=96925 ms=405
+Cat Arena: frag reroll SUPER NAILGUN -> THUNDERBOLT
+Cat Arena: killed skyraider
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: sound voice_normal_eliminated_0 t=97004 ms=764 enemy=76 type=skyraider d=0.5 playing=1
+Cat Arena: sound gun6_0 t=97054 ms=535
+Cat Arena: sound gun6_1 t=97140 ms=534
+Cat Arena: sound voice_light_hurt_2 t=97158 ms=380 enemy=78 type=skyprobe d=0.6 playing=2
+CA_STATE t=97150 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=74 reloading=0 health=56 score=16 weapon=2 wstate=3 wtime=19 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_0 t=97210 ms=535
+Cat Arena: sound gun6_1 t=97285 ms=534
+Cat Arena: sound gun6_0 t=97383 ms=535
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+Cat Arena: sound gun6_1 t=97471 ms=534
+Cat Arena: frag reroll THUNDERBOLT -> TRIPLE SPIKE
+Cat Arena: killed skyprobe
+Cat Arena: sound voice_light_eliminated_0 t=97552 ms=745 enemy=78 type=skyprobe d=0.6 playing=1
+Cat Arena: sound gun9_0 t=97595 ms=405
+Cat Arena: sound voice_bass_attack_2 t=97767 ms=658 enemy=91 type=warden d=7.6 playing=2
+Cat Arena: hit by cultist fireball 4
+CA_STATE t=97850 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=56 score=17 weapon=2 wstate=3 wtime=123 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=97933 ms=405
+Cat Arena: sound voice_normal_idle_1 t=97976 ms=665 enemy=83 type=sentinel d=9.2 playing=2
+Cat Arena: sound gun9_1 t=98267 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=98351 ms=343 enemy=92 type=cultist d=6.9 playing=2
+CA_STATE t=98450 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=33 reloading=0 health=56 score=17 weapon=2 wstate=3 wtime=172 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=98605 ms=405
+Cat Arena: frag reroll TRIPLE SPIKE -> SAWBLADE DRIVER
+Cat Arena: killed cultist
+Cat Arena: sound voice_normal_eliminated_2 t=98715 ms=988 enemy=92 type=cultist d=6.9 playing=0
+Cat Arena: sound gun14_0 t=98728 ms=405
+Cat Arena: hit by warden voidorb 20
+CA_STATE t=99050 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=21 reloading=0 health=56 score=18 weapon=2 wstate=3 wtime=96 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+Cat Arena: sound gun14_0 t=99122 ms=405
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: sound gun14_1 t=99520 ms=405
+Cat Arena: sound voice_bass_hurt_1 t=99615 ms=373 enemy=97 type=brute d=2.2 playing=1
+Cat Arena: sound gun14_0 t=99924 ms=405
+CA_STATE t=99900 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=19 reloading=0 health=56 score=18 weapon=2 wstate=3 wtime=59 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+Cat Arena: sound voice_normal_attack_2 t=99970 ms=607 enemy=84 type=sapper d=7.8 playing=1
+Cat Arena: sound voice_bass_attack_1 t=100150 ms=578 enemy=91 type=warden d=7.6 playing=1
+Cat Arena: sound gun14_1 t=100284 ms=405
+Cat Arena: frag reroll SAWBLADE DRIVER -> TRIPLE SPIKE
+Cat Arena: killed brute (gibbed)
+Cat Arena: sound voice_bass_eliminated_2 t=100351 ms=1075 enemy=97 type=brute d=1.3 playing=2
+Cat Arena: sound gun9_1 t=100406 ms=405
+CA_STATE t=100500 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=35 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=270 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound voice_normal_attack_0 t=100602 ms=470 enemy=83 type=sentinel d=9.2 playing=2
+Cat Arena: sound gun9_0 t=100742 ms=405
+Cat Arena: sound voice_bass_hurt_2 t=100804 ms=424 enemy=79 type=brute d=6.9 playing=2
+Cat Arena: hit by sapper spike 6
+Cat Arena: hit by sapper spike 6
+CA_STATE t=100950 pos=753,85,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=152 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=101081 ms=405
+Cat Arena: sound body_land_1 t=101134 ms=317
+Cat Arena: sound gun9_1 t=101444 ms=405
+CA_STATE t=101450 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=33 reloading=0 health=56 score=19 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=101792 ms=405
+CA_STATE t=101900 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=31 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=278 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=102135 ms=405
+CA_STATE t=102250 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=30 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=274 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=102484 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=102557 ms=343 enemy=84 type=sapper d=28.8 playing=0
+CA_STATE t=102650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=29 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=211 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=102817 ms=405
+Cat Arena: sound voice_normal_attack_1 t=103004 ms=530 enemy=83 type=sentinel d=25.7 playing=0
+CA_STATE t=103000 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=28 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=171 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=103164 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=103255 ms=301 enemy=84 type=sapper d=22.4 playing=1
+CA_STATE t=103400 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=148 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=103508 ms=405
+Cat Arena: sound voice_normal_hurt_1 t=103605 ms=343 enemy=84 type=sapper d=19.2 playing=0
+Cat Arena: sound gun9_1 t=103848 ms=405
+Cat Arena: frag reroll TRIPLE SPIKE -> HAND CANNON
+Cat Arena: killed sapper
+CA_STATE t=103850 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=26 reloading=0 health=56 score=19 weapon=2 wstate=3 wtime=11 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound voice_normal_eliminated_2 t=103904 ms=988 enemy=84 type=sapper d=16.9 playing=1
+Cat Arena: sound gun12_1 t=103976 ms=675
+Cat Arena: frag reroll HAND CANNON -> THUNDERBOLT
+Cat Arena: killed sentinel (gibbed)
+Cat Arena: sound voice_normal_eliminated_0 t=104054 ms=764 enemy=83 type=sentinel d=23.5 playing=1
+Cat Arena: sound gun6_0 t=104100 ms=535
+Cat Arena: sound gun6_1 t=104173 ms=534
+Cat Arena: sound gun6_0 t=104270 ms=535
+Cat Arena: sound gun6_1 t=104356 ms=534
+Cat Arena: sound gun6_0 t=104427 ms=535
+CA_STATE t=104400 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=71 reloading=0 health=56 score=21 weapon=2 wstate=3 wtime=48 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=104499 ms=534
+Cat Arena: sound gun6_1 t=104588 ms=534
+Cat Arena: sound gun6_1 t=104682 ms=534
+Cat Arena: sound voice_bass_attack_2 t=104755 ms=658 enemy=91 type=warden d=27.6 playing=2
+Cat Arena: sound gun6_1 t=104769 ms=534
+Cat Arena: sound gun6_1 t=104837 ms=534
+Cat Arena: sound gun6_1 t=104915 ms=534
+CA_STATE t=104900 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=65 reloading=0 health=56 score=21 weapon=2 wstate=3 wtime=57 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=104984 ms=534
+Cat Arena: sound gun6_0 t=105068 ms=535
+Cat Arena: sound gun6_1 t=105145 ms=534
+Cat Arena: sound gun6_0 t=105211 ms=535
+Cat Arena: hit by sentinel voidorb 20
+Cat Arena: sound gun6_1 t=105294 ms=534
+Cat Arena: sound gun6_1 t=105376 ms=534
+CA_STATE t=105350 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=59 reloading=0 health=56 score=21 weapon=2 wstate=3 wtime=50 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_0 t=105448 ms=535
+Cat Arena: sound gun6_1 t=105532 ms=534
+Cat Arena: sound gun6_0 t=105604 ms=535
+Cat Arena: sound gun6_1 t=105686 ms=534
+Cat Arena: sound gun6_1 t=105777 ms=534
+Cat Arena: sound gun6_1 t=105843 ms=534
+Cat Arena: sound gun6_1 t=105923 ms=534
+CA_STATE t=105950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=52 reloading=0 health=56 score=21 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_0 t=106013 ms=535
+Cat Arena: sound gun6_1 t=106079 ms=534
+Cat Arena: sound gun6_1 t=106164 ms=534
+Cat Arena: sound gun6_0 t=106231 ms=535
+Cat Arena: sound gun6_0 t=106309 ms=535
+Cat Arena: sound voice_bass_hurt_0 t=106309 ms=328 enemy=91 type=warden d=20.1 playing=0
+Cat Arena: sound gun6_1 t=106388 ms=534
+CA_STATE t=106400 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=56 score=21 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=106485 ms=534
+Cat Arena: sound gun6_0 t=106581 ms=535
+Cat Arena: sound gun6_0 t=106672 ms=535
+Cat Arena: sound gun6_0 t=106771 ms=535
+Cat Arena: sound gun6_1 t=106877 ms=534
+Cat Arena: hit by warden voidorb 20
+CA_STATE t=106900 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=41 reloading=0 health=56 score=21 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound gun6_1 t=106965 ms=534
+Cat Arena: sound voice_bass_hurt_1 t=106965 ms=373 enemy=91 type=warden d=16.9 playing=0
+Cat Arena: frag reroll THUNDERBOLT -> GRENADE LAUNCHER
+Cat Arena: killed warden
+Cat Arena: sound voice_bass_eliminated_2 t=107057 ms=1075 enemy=91 type=warden d=16.8 playing=1
+Cat Arena: sound gun2_0 t=107093 ms=674
+CA_STATE t=107500 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=22 weapon=2 wstate=3 wtime=416 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: sound explosion_grenade t=107609 ms=1170
+Cat Arena: sound gun2_0 t=107870 ms=674
+CA_STATE t=107950 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=22 weapon=2 wstate=3 wtime=720 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: sound explosion_grenade t=108363 ms=1170
+CA_STATE t=108500 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=4 reloading=0 health=56 score=22 weapon=2 wstate=3 wtime=188 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: sound gun2_1 t=108662 ms=674
+Cat Arena: frag reroll GRENADE LAUNCHER -> TRIPLE SPIKE
+Cat Arena: killed brute (gibbed)
+Cat Arena: wave 2 cleared
+Cat Arena: sound explosion_grenade t=109012 ms=1170
+Cat Arena: sound voice_bass_eliminated_2 t=109012 ms=1075 enemy=79 type=brute d=7.5 playing=0
+Cat Arena: sound gun9_1 t=109076 ms=405
+CA_STATE t=109050 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=56 score=23 weapon=2 wstate=0 wtime=41 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=109416 ms=405
+CA_STATE t=109650 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=34 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=162 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=109752 ms=405
+Cat Arena: sound gun9_0 t=110098 ms=405
+CA_STATE t=110100 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=33 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=13 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=110444 ms=405
+CA_STATE t=110550 pos=-700,-300,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=31 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=261 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound body_land_1 t=110727 ms=317
+Cat Arena: sound gun9_1 t=110791 ms=405
+CA_STATE t=110950 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=30 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=208 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=111132 ms=405
+CA_STATE t=111350 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=29 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=135 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=111468 ms=405
+CA_STATE t=111750 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=28 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=85 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=111810 ms=405
+Cat Arena: sound gun9_0 t=112153 ms=405
+CA_STATE t=112150 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=27 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=45 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_0 t=112495 ms=405
+Cat Arena: wave 3, 17 enemies
+Cat Arena: spawn skyprobe at -640 -200 233
+Cat Arena: spawn skyraider at -640 300 215
+Cat Arena: spawn shambler at -640 -200 41
+Cat Arena: spawn skyjuggernaut at -200 -640 179
+Cat Arena: spawn reaver at -200 -640 41
+Cat Arena: spawn ogre at -640 -640 41
+Cat Arena: spawn marauder at -640 300 41
+Cat Arena: spawn shambler at 200 -640 41
+Cat Arena: spawn skyraider at 200 -640 230
+Cat Arena: spawn reaver at 640 -640 41
+Cat Arena: spawn crusher at 640 300 41
+Cat Arena: spawn grunt at 640 -200 41
+CA_STATE t=112500 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=26 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=1 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: spawn skyraider at 200 -640 183
+Cat Arena: sound gun9_0 t=112827 ms=405
+Cat Arena: spawn grunt at -640 -640 41
+CA_STATE t=112900 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=24 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=288 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: spawn sentinel at -640 300 41
+Cat Arena: sound gun9_0 t=113174 ms=405
+Cat Arena: spawn harrier at -640 -200 41
+CA_STATE t=113350 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=23 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=215 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=113507 ms=405
+Cat Arena: spawn marauder at -200 -640 41
+Cat Arena: sound voice_bass_hurt_0 t=113608 ms=328 enemy=98 type=crusher d=5.6 playing=0
+Cat Arena: sound gun9_0 t=113846 ms=405
+CA_STATE t=113850 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=22 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=58 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound voice_bass_hurt_0 t=113903 ms=328 enemy=98 type=crusher d=4.1 playing=1
+Cat Arena: sound voice_normal_attack_2 t=114000 ms=607 enemy=99 type=grunt d=6.7 playing=1
+Cat Arena: sound voice_normal_attack_2 t=114106 ms=607 enemy=94 type=marauder d=25.8 playing=2
+Cat Arena: sound gun9_1 t=114189 ms=405
+CA_STATE t=114400 pos=560,0,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=20 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=195 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound voice_bass_attack_2 t=114465 ms=658 enemy=91 type=skyjuggernaut d=18.7 playing=2
+Cat Arena: sound gun9_1 t=114545 ms=405
+Cat Arena: sound voice_normal_hurt_0 t=114611 ms=301 enemy=97 type=reaver d=0.9 playing=2
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound voice_normal_attack_1 t=114870 ms=530 enemy=101 type=grunt d=26.1 playing=2
+Cat Arena: sound gun9_1 t=114897 ms=405
+Cat Arena: hit by grunt shot 10
+Cat Arena: sound voice_normal_hurt_0 t=114974 ms=301 enemy=97 type=reaver d=0.9 playing=2
+Cat Arena: hit by reaver melee 19
+Cat Arena: hit by crusher melee 30
+CA_STATE t=115150 pos=560,1,24 hspeed=97 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=18 reloading=0 health=56 score=23 weapon=2 wstate=3 wtime=105 pmflags=64 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=115233 ms=405
+Cat Arena: frag reroll TRIPLE SPIKE -> SAWBLADE DRIVER
+Cat Arena: killed reaver
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound voice_normal_eliminated_1 t=115325 ms=874 enemy=97 type=reaver d=0.9 playing=1
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound gun14_0 t=115364 ms=405
+Cat Arena: sound voice_normal_attack_0 t=115504 ms=470 enemy=77 type=sentinel d=19.4 playing=1
+Cat Arena: hit by skyprobe shot 8
+Cat Arena: sound gun14_1 t=115742 ms=405
+Cat Arena: sound voice_normal_attack_1 t=115773 ms=530 enemy=99 type=grunt d=6.7 playing=2
+Cat Arena: hit by reaver melee 19
+Cat Arena: hit by skyjuggernaut voidorb 26
+Cat Arena: sound voice_normal_attack_1 t=116005 ms=530 enemy=96 type=skyraider d=0.5 playing=2
+Cat Arena: sound gun14_1 t=116127 ms=405
+CA_STATE t=116100 pos=566,-5,24 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=20 reloading=0 health=56 score=24 weapon=2 wstate=3 wtime=85 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+Cat Arena: sound voice_normal_attack_2 t=116269 ms=607 enemy=93 type=ogre d=8.8 playing=2
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by ogre fireball 4
+Cat Arena: hit by grunt shot 10
+Cat Arena: sound voice_bass_attack_0 t=116414 ms=509 enemy=91 type=skyjuggernaut d=6.2 playing=2
+Cat Arena: sound voice_bass_attack_2 t=116535 ms=658 enemy=98 type=crusher d=1.3 playing=2
+Cat Arena: sound gun14_1 t=116577 ms=405
+Cat Arena: frag reroll SAWBLADE DRIVER -> GRENADE LAUNCHER
+Cat Arena: killed reaver
+Cat Arena: hit by grunt shot 10
+Cat Arena: sound voice_normal_eliminated_1 t=116663 ms=874 enemy=92 type=reaver d=1.1 playing=3
+Cat Arena: sound gun2_1 t=116701 ms=674
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound explosion_grenade t=116850 ms=1170
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by skyprobe shot 8
+Cat Arena: sound voice_bass_attack_2 t=117050 ms=658 enemy=95 type=shambler d=2.4 playing=2
+Cat Arena: hit by skyjuggernaut voidorb 26
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+CA_STATE t=117250 pos=620,-6,58 hspeed=138 vz=-73 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=5 reloading=0 health=56 score=25 weapon=2 wstate=3 wtime=271 pmflags=0 slot=1 w0=0 w1=2 inhand=2 clip2=46
+Cat Arena: hit by crusher melee 30
+Cat Arena: sound body_land_1 t=117420 ms=317
+Cat Arena: sound gun2_1 t=117455 ms=674
+Cat Arena: hit by sentinel voidorb 21
+Cat Arena: frag reroll GRENADE LAUNCHER -> IRON CHAINGUN
+Cat Arena: killed skyprobe
+Cat Arena: sound voice_normal_attack_1 t=117518 ms=530 enemy=99 type=grunt d=5.9 playing=2
+Cat Arena: sound voice_light_eliminated_2 t=117555 ms=964 enemy=88 type=skyprobe d=2.0 playing=2
+Cat Arena: sound explosion_grenade t=117555 ms=1170
+Cat Arena: sound gun11_1 t=117651 ms=405
+Cat Arena: sound gun11_1 t=117739 ms=405
+Cat Arena: sound gun11_0 t=117816 ms=405
+Cat Arena: sound gun11_1 t=117900 ms=405
+Cat Arena: sound voice_normal_attack_1 t=117900 ms=530 enemy=77 type=sentinel d=9.1 playing=2
+Cat Arena: sound gun11_0 t=117969 ms=405
+Cat Arena: frag reroll IRON CHAINGUN -> PLASMA REPEATER
+Cat Arena: killed skyraider
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound body_land_1 t=118030 ms=317
+Cat Arena: hit by marauder spike 7
+CA_STATE t=118000 pos=753,-50,65 hspeed=79 vz=-188 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=96 reloading=0 health=56 score=26 weapon=2 wstate=0 wtime=0 pmflags=0 slot=1 w0=0 w1=11 inhand=11 clip2=46
+Cat Arena: sound voice_normal_eliminated_2 t=118053 ms=988 enemy=96 type=skyraider d=0.6 playing=2
+Cat Arena: sound gun8_0 t=118127 ms=534
+Cat Arena: sound gun8_0 t=118336 ms=534
+Cat Arena: hit by harrier spike 7
+Cat Arena: hit by grunt shot 10
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound gun8_0 t=118520 ms=534
+Cat Arena: sound voice_normal_attack_0 t=118520 ms=470 enemy=100 type=skyraider d=0.4 playing=1
+Cat Arena: sound gun8_0 t=118696 ms=534
+Cat Arena: sound voice_bass_attack_0 t=118721 ms=509 enemy=98 type=crusher d=1.9 playing=2
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+CA_STATE t=118800 pos=753,-61,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=44 reloading=0 health=56 score=27 weapon=2 wstate=3 wtime=124 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: sound gun8_1 t=118903 ms=534
+Cat Arena: hit by ogre fireball 4
+Cat Arena: sound gun8_1 t=119089 ms=534
+Cat Arena: sound voice_normal_idle_0 t=119089 ms=579 enemy=94 type=marauder d=6.9 playing=1
+Cat Arena: frag reroll PLASMA REPEATER -> SHOTGUN
+Cat Arena: killed skyjuggernaut
+Cat Arena: hit by sentinel voidorb 21
+Cat Arena: sound voice_bass_eliminated_0 t=119151 ms=831 enemy=91 type=skyjuggernaut d=0.4 playing=2
+Cat Arena: hit by skyjuggernaut voidorb 26
+Cat Arena: sound gun1_1 t=119206 ms=675
+Cat Arena: frag reroll SHOTGUN -> ROCKET LAUNCHER
+Cat Arena: killed skyraider
+Cat Arena: frag reroll ROCKET LAUNCHER -> SAWBLADE DRIVER
+Cat Arena: killed skyraider
+Cat Arena: hit by skyraider spike 13
+Cat Arena: hit by skyraider spike 13
+Cat Arena: sound voice_bass_attack_1 t=119279 ms=578 enemy=95 type=shambler d=1.4 playing=2
+Cat Arena: hit by grunt shot 10
+Cat Arena: sound voice_normal_eliminated_2 t=119323 ms=988 enemy=89 type=skyraider d=0.3 playing=3
+Cat Arena: sound voice_normal_eliminated_2 t=119323 ms=988 enemy=100 type=skyraider d=0.4 playing=4
+Cat Arena: sound gun14_1 t=119374 ms=405
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by harrier spike 7
+Cat Arena: sound gun14_0 t=119738 ms=405
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+CA_STATE t=120000 pos=753,-61,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=20 reloading=0 health=56 score=30 weapon=2 wstate=3 wtime=171 pmflags=0 slot=1 w0=0 w1=14 inhand=14 clip2=46
+Cat Arena: hit by shambler melee 30
+Cat Arena: hit by grunt shot 10
+Cat Arena: sound gun14_0 t=120117 ms=405
+Cat Arena: sound voice_normal_attack_2 t=120117 ms=607 enemy=101 type=grunt d=7.8 playing=2
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound gun14_1 t=120477 ms=405
+Cat Arena: frag reroll SAWBLADE DRIVER -> ROCKET LAUNCHER
+Cat Arena: killed shambler (gibbed)
+Cat Arena: sound voice_bass_eliminated_2 t=120573 ms=1075 enemy=95 type=shambler d=1.4 playing=1
+Cat Arena: sound gun4_0 t=120601 ms=675
+Cat Arena: frag reroll ROCKET LAUNCHER -> SUPER NAILGUN
+Cat Arena: killed crusher (gibbed)
+Cat Arena: sound explosion_rocket t=120723 ms=1170
+Cat Arena: sound voice_bass_eliminated_1 t=120723 ms=951 enemy=98 type=crusher d=2.5 playing=2
+Cat Arena: sound gun5_0 t=120744 ms=405
+Cat Arena: sound gun5_1 t=120872 ms=405
+Cat Arena: frag reroll SUPER NAILGUN -> TRIPLE SPIKE
+Cat Arena: killed grunt
+Cat Arena: sound voice_normal_eliminated_1 t=120962 ms=874 enemy=99 type=grunt d=3.9 playing=2
+Cat Arena: sound gun9_0 t=121016 ms=405
+CA_STATE t=121000 pos=753,-108,150 hspeed=140 vz=193 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=36 reloading=0 health=56 score=33 weapon=2 wstate=0 wtime=58 pmflags=0 slot=1 w0=0 w1=9 inhand=9 clip2=46
+Cat Arena: sound gun9_1 t=121338 ms=405
+Cat Arena: frag reroll TRIPLE SPIKE -> NAILGUN
+Cat Arena: killed ogre
+Cat Arena: sound voice_normal_eliminated_2 t=121406 ms=988 enemy=93 type=ogre d=3.1 playing=3
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound gun0_1 t=121491 ms=405
+Cat Arena: sound gun0_1 t=121567 ms=405
+Cat Arena: sound gun0_1 t=121662 ms=405
+Cat Arena: sound gun0_0 t=121740 ms=404
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound gun0_0 t=121837 ms=404
+Cat Arena: sound voice_normal_attack_0 t=121858 ms=470 enemy=101 type=grunt d=7.2 playing=1
+CA_STATE t=121850 pos=753,-225,48 hspeed=114 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=56 score=34 weapon=2 wstate=3 wtime=41 pmflags=32 slot=1 w0=0 w1=0 inhand=0 clip2=46
+Cat Arena: sound gun0_0 t=121938 ms=404
+Cat Arena: sound gun0_1 t=122011 ms=405
+Cat Arena: sound voice_light_hurt_0 t=122011 ms=294 enemy=103 type=harrier d=1.5 playing=2
+Cat Arena: sound gun0_1 t=122118 ms=405
+Cat Arena: frag reroll NAILGUN -> PLASMA REPEATER
+Cat Arena: killed harrier
+Cat Arena: sound voice_light_eliminated_1 t=122208 ms=853 enemy=103 type=harrier d=1.5 playing=3
+Cat Arena: sound gun8_0 t=122251 ms=534
+Cat Arena: sound voice_normal_attack_0 t=122362 ms=470 enemy=104 type=marauder d=2.4 playing=2
+Cat Arena: sound gun8_1 t=122432 ms=534
+Cat Arena: sound voice_bass_attack_2 t=122512 ms=658 enemy=90 type=shambler d=2.1 playing=2
+Cat Arena: sound gun8_1 t=122631 ms=534
+CA_STATE t=122650 pos=753,-234,48 hspeed=0 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=46 reloading=0 health=56 score=35 weapon=2 wstate=3 wtime=24 pmflags=0 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: hit by grunt shot 10
+Cat Arena: sound gun8_0 t=122818 ms=534
+Cat Arena: sound voice_normal_attack_2 t=122856 ms=607 enemy=94 type=marauder d=2.0 playing=2
+Cat Arena: sound gun8_0 t=122999 ms=534
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound gun8_1 t=123225 ms=534
+Cat Arena: sound voice_bass_hurt_0 t=123323 ms=328 enemy=90 type=shambler d=1.3 playing=1
+Cat Arena: hit by shambler melee 30
+Cat Arena: sound gun8_1 t=123382 ms=534
+Cat Arena: frag reroll PLASMA REPEATER -> SAWBLADE DRIVER
+Cat Arena: killed shambler (gibbed)
+CA_STATE t=123400 pos=753,-235,50 hspeed=130 vz=55 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=42 reloading=0 health=56 score=35 weapon=2 wstate=3 wtime=7 pmflags=64 slot=1 w0=0 w1=8 inhand=8 clip2=46
+Cat Arena: sound voice_bass_eliminated_2 t=123460 ms=1075 enemy=90 type=shambler d=1.3 playing=2
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound gun14_1 t=123531 ms=405
+Cat Arena: hit by marauder spike 7
+Cat Arena: hit by marauder spike 7
+Cat Arena: sound body_land_0 t=123561 ms=312
+Cat Arena: hit by sentinel voidorb 21
+Cat Arena: sound voice_normal_attack_2 t=123629 ms=607 enemy=101 type=grunt d=7.4 playing=2
+Cat Arena: sound gun14_0 t=123896 ms=405
+Cat Arena: frag reroll SAWBLADE DRIVER -> RAILGUN
+Cat Arena: killed marauder
+Cat Arena: sound voice_normal_eliminated_0 t=123958 ms=764 enemy=94 type=marauder d=2.2 playing=2
+Cat Arena: sound gun3_0 t=124027 ms=534
+Cat Arena: frag reroll RAILGUN -> QUAD SHOTGUN
+Cat Arena: killed marauder
+Cat Arena: sound voice_normal_eliminated_0 t=124104 ms=764 enemy=104 type=marauder d=2.5 playing=3
+Cat Arena: sound gun15_1 t=124165 ms=675
+Cat Arena: frag reroll QUAD SHOTGUN -> THUNDERBOLT
+Cat Arena: killed sentinel
+Cat Arena: sound voice_normal_eliminated_2 t=124261 ms=988 enemy=77 type=sentinel d=4.2 playing=3
+CA_STATE t=124250 pos=753,-249,48 hspeed=132 vz=0 sliding=0 slide_ms=0 cooldown_ms=0 ducked=0 clip=75 reloading=0 health=56 score=39 weapon=2 wstate=0 wtime=69 pmflags=0 slot=1 w0=0 w1=6 inhand=6 clip2=46
+Cat Arena: sound body_land_1 t=124415 ms=317
+CATEST end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+---------------------------
+----- Client Shutdown (Client quit) -----
+Closing SDL audio playback device...
+SDL audio playback device closed.
+SDL audio shut down.
+RE_Shutdown( 3 )
+-----------------------

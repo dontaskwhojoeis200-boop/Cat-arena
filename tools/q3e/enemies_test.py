@@ -143,7 +143,7 @@ def check(lineup_path, waves_path):
     god_off = text.split("CATEST god off")[1].split("CATEST god on")[0] if "CATEST god off" in text else ""
     off_states = [dict(kv.split("=", 1) for kv in m.group(1).split()) for m in re.finditer(r"CA_STATE (.*)", god_off)]
     took = len(re.findall(r"Cat Arena: hit by", god_off))
-    ok(took > 0 and (len(off_states) == 0 or int(off_states[-1]["health"]) < 125), "without god mode: %d hits, health then %s" % (took, off_states[-1]["health"] if off_states else "?"))
+    ok(took > 0 and (len(off_states) == 0 or int(off_states[-1]["health"]) < 100), "without god mode: %d hits, health then %s" % (took, off_states[-1]["health"] if off_states else "?"))
     reached = [int(w) for w in re.findall(r"Cat Arena: wave (\d+),", waves)]
     ok(max(reached or [0]) >= 3, "waves reached: %s" % (max(reached or [0])))
     ok(all("ERROR" not in t and "Signal caught" not in t for t in (lineup, text)), "no errors")

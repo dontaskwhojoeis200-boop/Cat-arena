@@ -107,8 +107,8 @@ def check(root, levels_log, levels_raw, music_log, music_raw, sounds_log, sounds
        "music: %.1f s of output, RMS %.4f, soundtrack x 0.322 %.4f" % (n / 44100.0, rms_out, rms_ref))
     # sounds
     text = open(sounds_log, errors="replace").read()
-    ok("Cat Arena: 84 sounds registered" in text and "Cat Arena: sound " in text and not re.search(r"Cat Arena: sound \S+ missing", text),
-       "84 sounds registered, none missing")
+    ok("Cat Arena: 85 sounds registered" in text and "Cat Arena: sound " in text and not re.search(r"Cat Arena: sound \S+ missing", text),
+       "85 sounds registered, none missing")
     events = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in re.finditer(r"Cat Arena: sound (\w+) t=(-?\d+) ms=(\d+)(.*)", text)]
     names = [e[0] for e in events]
     started = re.findall(r"^\d+ : (\S+)$", text, re.M)
