@@ -158,7 +158,9 @@ class Rig:
         net = []
         if loss:
             net += ["+set", "net_dropsim", str(loss)]
-        sv = ["+set", "ca_log", "1", "+set", "ca_waves", "1" if waves else "0", "+set", "sv_fps", "20", "+set", "g_inactivity", "0"] + net
+        # every player starts with the same two weapons (NAILGUN in hand), as the gameplay test
+        sv = ["+set", "ca_log", "1", "+set", "ca_waves", "1" if waves else "0", "+set", "sv_fps", "20", "+set", "g_inactivity", "0",
+              "+set", "ca_loadout", "0 1"] + net
         if delay:
             sv += ["+set", "sv_packetdelay", str(delay)]
         h = os.path.join(out, "server")
@@ -317,7 +319,7 @@ def run(a):
             c.cmd('set ca_auto "ca_aimnearest"', "+attack")
         audit_start = A.log.size()
         ents, nets = [], []
-        t_end = time.time() + 90
+        t_end = time.time() + 150
         shownet = False
         sv_wave = rig.server.log.size()
         while time.time() < t_end:
@@ -328,7 +330,7 @@ def run(a):
                 shownet = True
                 time.sleep(10)
                 A.cmd("cl_shownet 0", "echo CA_SHOWNET_END")
-            if re.search(r"Cat Arena: wave 2 cleared", rig.server.log.text()[sv_wave:]):
+            if re.search(r"Cat Arena: wave 2 cleared", rig.server.log.text()[sv_wave:]) and all(r.get("score", 0) > 0 for r in rig.coopstate().values()):
                 break
             time.sleep(3)
         for c in rig.clients:
