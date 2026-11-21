@@ -1,0 +1,792 @@
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	﻿2026-11-21T00:02:19.5975129Z Current runner version: '2.338.2'
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6038743Z ##[group]Runner Image Provisioner
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6040034Z Hosted Compute Agent
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6040835Z Version: 20261111.635
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6041422Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6042099Z Build Date: 2026-11-11T01:49:01Z
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6042749Z Worker ID: {2a50a5ee-c3ee-4d9f-aec1-7eaf33561c58}
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6043425Z Region: northcentralus
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6043958Z Cloud: Azure
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6044435Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6045845Z ##[group]Operating System
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6046462Z Microsoft Windows Server 2022
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6047013Z 10.0.20348
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6047478Z Datacenter
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6047944Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6048409Z ##[group]Runner Image
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6048945Z Image: windows-2022
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6049444Z Version: 20261116.370.1
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6050438Z Included Software: https://github.com/actions/runner-images/blob/win22/20261116.370/images/windows/Windows2022-Readme.md
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6052220Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20261116.370
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6053131Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6054230Z ##[group]GITHUB_TOKEN Permissions
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6056026Z Contents: read
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6056587Z Metadata: read
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6057127Z Packages: read
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6057604Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6059584Z Secret source: Actions
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6060441Z Cache mode: write
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6061105Z Prepare workflow directory
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6509819Z Prepare all required actions
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.6567912Z Getting action download info
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:19.9078334Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:20.0328089Z Download action repository 'microsoft/setup-msbuild@v2' (SHA:6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:20.2721144Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Set up job	2026-11-21T00:02:20.6082053Z Complete job name: Cat Arena Q3E Windows x64 (MSVC, Vulkan)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	﻿2026-11-21T00:02:20.7721680Z ##[group]Run actions/checkout@v4
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7722952Z with:
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7723518Z   repository: dontaskwhojoeis200-boop/Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7728634Z   token: ***
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7729117Z   ssh-strict: true
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7729597Z   ssh-user: git
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7730097Z   persist-credentials: true
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7730642Z   clean: true
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7731138Z   sparse-checkout-cone-mode: true
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7731714Z   fetch-depth: 1
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7732182Z   fetch-tags: false
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7732669Z   show-progress: true
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7733062Z   lfs: false
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7733415Z   submodules: false
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7733810Z   set-safe-directory: true
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7734295Z   allow-unsafe-pr-checkout: false
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.7734975Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.9129380Z Syncing repository: dontaskwhojoeis200-boop/Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.9131308Z ##[group]Getting Git version info
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:20.9132047Z Working directory is 'D:\a\Cat-arena\Cat-arena'
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.0168393Z [command]"C:\Program Files\Git\bin\git.exe" version
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.3657363Z git version 2.56.1.windows.1
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.3708092Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.3733756Z Temporarily overriding HOME='D:\a\_temp\939a244b-fc5a-4599-8e3e-ba66a97cecda' before making global git config changes
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.3736426Z Adding repository directory to the temporary git global config as a safe directory
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.3747150Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cat-arena\Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.4350357Z Deleting the contents of 'D:\a\Cat-arena\Cat-arena'
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.4355685Z ##[group]Initializing the repository
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.4364905Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Cat-arena\Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.5032086Z Initialized empty Git repository in D:/a/Cat-arena/Cat-arena/.git/
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.5082094Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/dontaskwhojoeis200-boop/Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.5662733Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.5664074Z ##[group]Disabling automatic garbage collection
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.5671827Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.5995324Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.6009369Z ##[group]Setting up auth
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.6011736Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:21.6393902Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:23.0017601Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:23.0315359Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:23.5630100Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:23.5925203Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:24.0677376Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:24.0989972Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:24.0990610Z ##[group]Fetching the repository
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:24.1010021Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0c533b98464ccc7c0233cb3c9b5634b24731aad5:refs/remotes/origin/migration/quake3e-n10
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.6602436Z From https://github.com/dontaskwhojoeis200-boop/Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.6603915Z  * [new ref]         0c533b98464ccc7c0233cb3c9b5634b24731aad5 -> origin/migration/quake3e-n10
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.6639476Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.6639983Z ##[group]Determining the checkout info
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.6643487Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.6659893Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.7096997Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.7400420Z ##[group]Checking out the ref
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:32.7410868Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B migration/quake3e-n10 refs/remotes/origin/migration/quake3e-n10
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.8155342Z Updating files:  53% (1526/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.8453929Z Updating files:  54% (1547/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.8589565Z Updating files:  55% (1575/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.8865656Z Updating files:  56% (1604/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.8992715Z Updating files:  57% (1632/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.9098006Z Updating files:  58% (1661/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.9181788Z Updating files:  59% (1690/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.9260667Z Updating files:  60% (1718/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.9337814Z Updating files:  61% (1747/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:33.9418801Z Updating files:  62% (1776/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.1568580Z Updating files:  63% (1804/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.1642423Z Updating files:  64% (1833/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.1737711Z Updating files:  65% (1861/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.1823900Z Updating files:  66% (1890/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.1929380Z Updating files:  67% (1919/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.2403588Z Updating files:  68% (1947/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.2549819Z Updating files:  69% (1976/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.2606892Z Updating files:  70% (2005/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.2709064Z Updating files:  71% (2033/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.2815312Z Updating files:  72% (2062/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.2960203Z Updating files:  73% (2090/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3010680Z Updating files:  74% (2119/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3111853Z Updating files:  75% (2148/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3236828Z Updating files:  76% (2176/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3365496Z Updating files:  77% (2205/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3465722Z Updating files:  78% (2234/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3693513Z Updating files:  79% (2262/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3745841Z Updating files:  80% (2291/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3813650Z Updating files:  81% (2320/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.3879410Z Updating files:  82% (2348/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.4454732Z Updating files:  83% (2377/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.4535208Z Updating files:  84% (2405/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.4588847Z Updating files:  85% (2434/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.4654296Z Updating files:  86% (2463/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.4751436Z Updating files:  87% (2491/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.4833790Z Updating files:  88% (2520/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.5923873Z Updating files:  89% (2549/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.5981965Z Updating files:  90% (2577/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.6027461Z Updating files:  91% (2606/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.6113849Z Updating files:  92% (2634/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.7543233Z Updating files:  93% (2663/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:34.7988680Z Updating files:  94% (2692/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.0736267Z Updating files:  94% (2695/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.1678814Z Updating files:  95% (2720/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.1827510Z Updating files:  96% (2749/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.1895559Z Updating files:  97% (2778/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7082077Z Updating files:  98% (2806/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7146561Z Updating files:  99% (2835/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7146980Z Updating files: 100% (2863/2863)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7147237Z Updating files: 100% (2863/2863), done.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7356612Z Switched to a new branch 'migration/quake3e-n10'
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7386357Z branch 'migration/quake3e-n10' set up to track 'origin/migration/quake3e-n10'.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.7691349Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.8077419Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/checkout@v4	2026-11-21T00:02:35.8374324Z 0c533b98464ccc7c0233cb3c9b5634b24731aad5
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run microsoft/setup-msbuild@v2	﻿2026-11-21T00:02:35.8847098Z ##[group]Run microsoft/setup-msbuild@v2
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run microsoft/setup-msbuild@v2	2026-11-21T00:02:35.8847479Z with:
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run microsoft/setup-msbuild@v2	2026-11-21T00:02:35.8847684Z   msbuild-architecture: x86
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run microsoft/setup-msbuild@v2	2026-11-21T00:02:35.8847903Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run microsoft/setup-msbuild@v2	2026-11-21T00:02:36.0410068Z [command]C:\ProgramData\Chocolatey\bin\vswhere.exe -products * -requires Microsoft.Component.MSBuild -property installationPath -latest
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run microsoft/setup-msbuild@v2	2026-11-21T00:02:36.5502371Z C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	﻿2026-11-21T00:02:36.5875646Z ##[group]Run New-Item -ItemType Directory -Force bin | Out-Null
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5876359Z [36;1mNew-Item -ItemType Directory -Force bin | Out-Null[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5877212Z [36;1mmsbuild code\win32\msvc2017\quake3e-ded.vcxproj -p:TargetName=quake3e.ded,Configuration=Release,Platform=x64 /p:PlatformToolset=v143 -v:minimal[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5877983Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5878448Z [36;1mCopy-Item code\win32\msvc2017\output\quake3e.ded.exe bin\quake3e.ded.x64.exe[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5879285Z [36;1mmsbuild code\win32\msvc2017\quake3e-ded.vcxproj -p:TargetName=quake3e.ded,Configuration=Release,Platform=x64 -t:Clean -v:minimal[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5880267Z [36;1mmsbuild code\win32\msvc2017\renderervk.vcxproj -p:Configuration=Release,Platform=x64 /p:PlatformToolset=v143 -v:minimal[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5880893Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5881652Z [36;1mmsbuild code\win32\msvc2017\quake3e.vcxproj -p:TargetName=quake3e,Configuration=Release,Platform=x64,UseWasapi=USE_WASAPI=0 /p:PlatformToolset=v143 -v:minimal[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5882729Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5883168Z [36;1mCopy-Item code\win32\msvc2017\output\quake3e.exe bin\quake3e-vulkan.x64.exe[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.5883639Z [36;1mGet-ChildItem bin | Format-Table Name, Length[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.6345095Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:36.6345643Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:40.6823629Z MSBuild version 17.14.60+43b635718 for .NET Framework
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:41.8864280Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:48.8019277Z   be_aas_bspq3.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:48.8019698Z   be_aas_cluster.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:48.8019951Z   be_aas_debug.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:48.8020181Z   be_aas_entity.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:52.6207165Z   be_aas_file.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:52.6207762Z   be_aas_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:52.6304141Z   be_aas_move.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:52.6828478Z   be_aas_optimize.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:52.7010984Z   be_aas_reach.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:52.8205309Z   be_aas_route.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.2111749Z   be_aas_routealt.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.3889164Z   be_aas_sample.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.4652715Z   be_ai_char.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.4781508Z   be_ai_chat.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.5344203Z   be_ai_gen.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.5842335Z   be_ai_goal.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.6057314Z   be_ai_move.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.8593814Z   be_ai_weap.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.8638266Z   be_ai_weight.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:53.8679361Z   be_ea.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.1054609Z   be_interface.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.1073138Z   l_crc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.1211342Z   l_libvar.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.1709590Z   l_log.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.2196517Z   l_memory.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.2245058Z   l_precomp.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.2344049Z   l_script.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:54.2929397Z   l_struct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.0962426Z   botlib.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\botlib_Release_x64\quake3e.ded.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.3670201Z   Assembling...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.4219776Z   Microsoft (R) Macro Assembler (x64) Version 14.44.35230.0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.4220584Z   Copyright (C) Microsoft Corporation.  All rights reserved.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.4221084Z   
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.4310269Z    Assembling: D:\a\Cat-arena\Cat-arena\engine\quake3e\code\asm\common_x64.asm
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.5233648Z   cmd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.5294180Z   cm_load.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.5297318Z   cm_patch.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.5298312Z   cm_polylib.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.8207919Z   cm_test.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.9447364Z   cm_trace.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:55.9926647Z   common.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.0136442Z   cvar.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.1886399Z   files.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.2652058Z   history.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.5079624Z   huffman.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.5307510Z   huffman_static.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.5798032Z   keys.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.5945202Z   md4.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.6094131Z   md5.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.6802259Z   msg.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.8123058Z   net_chan.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.8379072Z   net_ip.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.8528263Z   q_math.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:56.9036499Z   q_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.0475225Z   unzip.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.3963736Z   vm.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.4046524Z   vm_interpreted.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.5759448Z   vm_x86.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.6210432Z   sv_bot.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.7034905Z   sv_ccmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.7920765Z   sv_client.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:57.9769348Z   sv_filter.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:58.1159993Z   sv_game.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:58.3845792Z   sv_init.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:58.7687018Z   sv_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:58.9760705Z   sv_net_chan.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:58.9991219Z   sv_snapshot.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:59.1174787Z   sv_world.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:59.1607060Z   win_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:59.2062606Z   win_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:02:59.3195486Z   win_syscon.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:03.1883561Z   quake3e-ded.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\quake3e.ded.exe
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:03.5982452Z MSBuild version 17.14.60+43b635718 for .NET Framework
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:03.6306541Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:03.9292828Z MSBuild version 17.14.60+43b635718 for .NET Framework
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:03.9588116Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.2772910Z   tr_noise.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.2775437Z   tr_animation.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.2776508Z   tr_backend.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.2777087Z   tr_bsp.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.4158973Z   tr_cmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.6878054Z   tr_curve.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.7640147Z   tr_image.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.7640812Z   tr_font.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.9768103Z   tr_image_bmp.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:04.9795143Z   tr_image_jpg.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.0482009Z   tr_image_pcx.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.0642566Z   tr_image_png.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.0892686Z   tr_image_tga.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.1513674Z   tr_init.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.2104186Z   tr_light.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.2456941Z   tr_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.4902999Z   tr_marks.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.5228905Z   tr_mesh.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.5241949Z   tr_model.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.5983512Z   tr_model_iqm.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.7340018Z   tr_scene.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.7389936Z   tr_shade.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.9034327Z   tr_shader.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:05.9386716Z   tr_shade_calc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.3040422Z   tr_shadows.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.3243349Z   tr_sky.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.3474637Z   tr_surface.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.5625172Z   tr_world.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.5915550Z   vk.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.6361427Z   vk_flares.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:06.6366100Z   vk_vbo.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:07.5588043Z C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1564,5): warning MSB8012: TargetPath(D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\renderer.lib) does not match the Library's OutputFile property value (D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\Release-x64-renderer.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile). [D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\renderervk.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:07.5595764Z C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1566,5): warning MSB8012: TargetName(renderer) does not match the Library's OutputFile property value (Release-x64-renderer). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile). [D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\renderervk.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:07.6317457Z   renderervk.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\renderer.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:07.7452921Z MSBuild version 17.14.60+43b635718 for .NET Framework
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:07.7761073Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.1350382Z   be_aas_bspq3.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.1353502Z   be_aas_cluster.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.1354109Z   be_aas_debug.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.1354564Z   be_aas_entity.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.2950044Z   be_aas_file.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.3360599Z   be_aas_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.3400133Z   be_aas_move.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.3954365Z   be_aas_optimize.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.4198495Z   be_aas_reach.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.4761593Z   be_aas_route.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.7021474Z   be_aas_routealt.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.9457960Z   be_aas_sample.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:08.9955982Z   be_ai_char.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.1283565Z   be_ai_chat.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.1337008Z   be_ai_gen.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.1833473Z   be_ai_goal.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.4314233Z   be_ai_move.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.4359060Z   be_ai_weap.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.6704503Z   be_ai_weight.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.6746898Z   be_ea.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.6762581Z   be_interface.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.7783109Z   l_crc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.7903523Z   l_libvar.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.8007827Z   l_log.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.8369206Z   l_memory.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.8627885Z   l_precomp.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.8649778Z   l_script.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:09.9085136Z   l_struct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.2436141Z   botlib.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\botlib_Release_x64\quake3e.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.3854917Z   jaricom.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.3939330Z   jcapimin.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.4106227Z   jcapistd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.4349897Z   jcarith.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.4637022Z   jccoefct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.4828007Z   jccolor.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.4962407Z   jcdctmgr.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.5990644Z   jchuff.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.6059355Z   jcinit.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.6384845Z   jcmainct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.7301622Z   jcmarker.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.7929670Z   jcmaster.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.8080473Z   jcomapi.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.8813266Z   jcparam.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.9214795Z   jcprepct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.9228225Z   jcsample.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:10.9580627Z   jctrans.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.0837133Z   jdapimin.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.1011480Z   jdapistd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.1020883Z   jdarith.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.1414127Z   jdatadst.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.1667393Z   jdatasrc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.1733765Z   jdcoefct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.2191458Z   jdcolor.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.2742803Z   jddctmgr.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.2838965Z   jdhuff.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.3155282Z   jdinput.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.4852009Z   jdmainct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.4878323Z   jdmarker.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.4925750Z   jdmaster.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.5336124Z   jdmerge.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.6377300Z   jdpostct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.6672771Z   jdsample.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.6828581Z   jdtrans.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.7308909Z   jerror.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.7328183Z   jfdctflt.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.7466464Z   jfdctfst.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.7723344Z   jfdctint.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.8009382Z   jidctflt.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:11.8311762Z   jidctfst.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:12.0957413Z   jidctint.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:12.2292631Z   jmemmgr.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:12.2360354Z   jmemnobs.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:12.2647107Z   jquant1.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:12.3235434Z   jquant2.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:12.6748341Z   jutils.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.0046857Z   libjpeg.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\libjpeg_Release_x64\quake3e.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.1261823Z   bitwise.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.1264847Z   framing.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.3311190Z   libogg.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\libogg_Release_x64\quake3e.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.4282987Z   analysis.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.4284853Z   bitrate.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.4285155Z   block.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.4285428Z   codebook.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.6837701Z   envelope.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.6870317Z   floor0.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.6903158Z   floor1.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.7288684Z   info.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.7299712Z   lookup.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.7432916Z   lpc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.9061769Z   lsp.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.9077056Z   mapping0.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.9142235Z   mdct.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:13.9599744Z   psy.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.0293724Z   registry.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.2259668Z   res0.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.2969489Z   sharedbook.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.5977383Z   smallft.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.6032535Z   synthesis.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.6055540Z   vorbisfile.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:14.8313523Z   window.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1034230Z   libvorbis.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\build\libvorbis_Release_x64\quake3e.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1668867Z   Assembling...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1733117Z   Microsoft (R) Macro Assembler (x64) Version 14.44.35230.0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1733853Z   Copyright (C) Microsoft Corporation.  All rights reserved.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1734420Z   
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1758643Z    Assembling: D:\a\Cat-arena\Cat-arena\engine\quake3e\code\asm\snd_mix_x64.asm
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1770129Z   Assembling...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1831953Z   Microsoft (R) Macro Assembler (x64) Version 14.44.35230.0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1832971Z   Copyright (C) Microsoft Corporation.  All rights reserved.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1833438Z   
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.1856668Z    Assembling: D:\a\Cat-arena\Cat-arena\engine\quake3e\code\asm\common_x64.asm
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.2885478Z   cl_avi.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.2895665Z   cl_cgame.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.2954200Z   cl_cin.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.2957601Z   cl_console.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:15.7974614Z   cl_curl.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.0296052Z   cl_input.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.0863015Z   cl_jpeg.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.2603015Z   cl_keys.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.5192441Z   cl_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.5219020Z   cl_net_chan.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.5580416Z   cl_parse.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:16.7726470Z   cl_scrn.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.0928837Z   cl_ui.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.1021075Z   snd_adpcm.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.1943389Z   snd_codec.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.2067148Z   snd_codec_ogg.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.3812330Z   snd_codec_wav.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.6032287Z   snd_dma.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.6410079Z   snd_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.7459651Z   snd_mem.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.7991997Z   snd_mix.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:17.8651118Z   snd_wavelet.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.1293486Z   cmd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.1759500Z   cm_load.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.1767651Z   cm_patch.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.1949339Z   cm_polylib.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.6066925Z   cm_test.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.6105826Z   cm_trace.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.6883596Z   common.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.7522008Z   cvar.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:18.7961202Z   files.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.1575391Z   history.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.2204593Z   huffman.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.2708896Z   huffman_static.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.3096017Z   keys.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.3419734Z   md4.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.5873189Z   md5.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.6139039Z   msg.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.6378894Z   net_chan.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.8196314Z   net_ip.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.8238138Z   puff.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.8369563Z   q_math.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:19.8388415Z   q_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.1160839Z   unzip.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.1326068Z   vm.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.1394151Z   vm_interpreted.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.4263094Z   vm_x86.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.4683688Z   sv_bot.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.6426925Z   sv_ccmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.6912977Z   sv_client.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:20.8663006Z   sv_filter.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.1594766Z   sv_game.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.2329452Z   sv_init.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.2378752Z   sv_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.4760396Z   sv_net_chan.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.5506571Z   sv_snapshot.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.5896609Z   sv_world.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.6928673Z   win_input.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.7029315Z   win_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:21.7881835Z   win_minimize.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.2414425Z   win_qvk.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.2599754Z   win_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.3439264Z   win_snd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.4768950Z   win_syscon.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.7084345Z   win_wndproc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.7607745Z   win_gamma.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:22.8412240Z   win_glimp.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:23.0416152Z   win_qgl.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.0997726Z      Creating library .\output\quake3e.lib and object .\output\quake3e.exp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.2296842Z   quake3e.vcxproj -> D:\a\Cat-arena\Cat-arena\engine\quake3e\code\win32\msvc2017\output\quake3e.exe
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.3479625Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.3497305Z [32;1mName                  [0m[32;1m  Length[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.3498178Z [32;1m----                  [0m [32;1m ------[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.3498751Z quake3e-vulkan.x64.exe 2736128
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.3499105Z quake3e.ded.x64.exe     963072
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build engine (dedicated server, then client with the Vulkan renderer)	2026-11-21T00:03:24.3502021Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	﻿2026-11-21T00:03:24.3825861Z ##[group]Run cmake -S game -B build-game -G "Visual Studio 17 2022" -A x64
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3826490Z [36;1mcmake -S game -B build-game -G "Visual Studio 17 2022" -A x64[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3827099Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3827479Z [36;1mcmake --build build-game --config Release -- /m /v:minimal[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3827844Z [36;1mif ($LASTEXITCODE -ne 0) { exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3828225Z [36;1mGet-ChildItem build-game\Release\*.dll | Format-Table Name, Length[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3868192Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:24.3868565Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:25.4737313Z -- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.20348.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:31.7398061Z -- The C compiler identification is MSVC 19.44.35230.0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:32.9983019Z -- The CXX compiler identification is MSVC 19.44.35230.0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:33.1434375Z -- Detecting C compiler ABI info
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.1849414Z -- Detecting C compiler ABI info - done
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.1990352Z -- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.2009689Z -- Detecting C compile features
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.2068828Z -- Detecting C compile features - done
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.2242630Z -- Detecting CXX compiler ABI info
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9174350Z -- Detecting CXX compiler ABI info - done
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9312992Z -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9317502Z -- Detecting CXX compile features
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9327009Z -- Detecting CXX compile features - done
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9387574Z -- Configuring done (9.7s)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9901943Z -- Generating done (0.1s)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:34.9909438Z -- Build files have been written to: D:/a/Cat-arena/Cat-arena/build-game
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:35.1158829Z MSBuild version 17.14.60+43b635718 for .NET Framework
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:35.1457892Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:35.5263696Z   1>Checking Build System
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:35.8583488Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:36.0364515Z   ca_bridge.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:36.2277878Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:36.3644698Z   navigation.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.0512390Z   ca_weapons.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.3467097Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.6461479Z   ca_bridge.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\ca_bridge.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.7219915Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.8034252Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.8091770Z   ui_main.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:37.9654831Z   cg_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.0388252Z   cg_consolecmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.0901428Z   cg_draw.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.1460700Z   cg_drawtools.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.1986019Z   cg_effects.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.2499453Z   cg_ents.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.3061802Z   cg_event.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.3531465Z   cg_info.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.4023005Z   cg_localents.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.4209898Z   q_math.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.4502608Z   cg_marks.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.4717237Z   q_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.4877284Z   cg_particles.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.5268109Z   cg_players.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.5305052Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.6185777Z   cg_playerstate.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.6665094Z   cg_predict.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.7485036Z   cg_scoreboard.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.7817675Z   cg_servercmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.8134343Z   cg_snapshot.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.8440880Z   cg_view.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.8764692Z   cg_weapons.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.9146661Z   cg_syscalls.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:38.9460924Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3566108Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(122,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3590206Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(123,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3592948Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(691,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3595517Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(798,10): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3597963Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(916,7): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3600462Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(949,34): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.3603013Z D:\a\Cat-arena\Cat-arena\game\ioq3\code\qcommon\q_shared.c(1061,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\Cat-arena\Cat-arena\build-game\ui.vcxproj]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.7133327Z      Creating library D:/a/Cat-arena/Cat-arena/build-game/Release/uix86_64.lib and object D:/a/Cat-arena/Cat-arena/build-game/Release/uix86_64.exp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.7967953Z   ui.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\uix86_64.dll
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:39.9024418Z   physics_world.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.3491934Z   Compiling...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.3492345Z   cg_ca_effects.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.3824269Z   bg_misc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.4198594Z   bg_pmove.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.4538444Z   bg_slidemove.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.4837834Z   bg_lib.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.4900597Z   q_math.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.5223942Z   q_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:40.5605422Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:41.1212799Z      Creating library D:/a/Cat-arena/Cat-arena/build-game/Release/cgamex86_64.lib and object D:/a/Cat-arena/Cat-arena/build-game/Release/cgamex86_64.exp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:41.2124529Z   cgame.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\cgamex86_64.dll
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:42.4766209Z   assets.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:44.6767295Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.0971391Z   ca_n10nav.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\ca_n10nav.lib
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.2247638Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.3954784Z   g_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.4312286Z   ai_chat.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.4669785Z   ai_cmd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.5039249Z   ai_dmnet.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.5427038Z   ai_dmq3.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.5851776Z   ai_main.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.6204139Z   ai_team.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.6537115Z   ai_vcmd.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.6855442Z   g_active.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.7165703Z   g_arenas.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.7453405Z   g_bot.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.7755314Z   g_client.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.8059311Z   g_cmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.8373214Z   g_combat.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.8676296Z   g_items.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.8974515Z   g_mem.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.9252548Z   g_misc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.9534549Z   g_missile.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:48.9825135Z   g_mover.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:49.0146219Z   g_session.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:49.0430272Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.5424501Z   Compiling...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.5424790Z   g_spawn.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.5737850Z   g_svcmds.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.6037764Z   g_target.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.6332694Z   g_team.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.6647692Z   g_trigger.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.6941254Z   g_utils.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.7246217Z   g_weapon.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.7546383Z   g_syscalls.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.7843125Z   g_ca.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.8142310Z   g_ca_weapons.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.8448257Z   bg_misc.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.8736790Z   bg_pmove.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.9051636Z   bg_slidemove.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.9325554Z   bg_lib.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.9374264Z   q_math.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.9653889Z   q_shared.c
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:50.9932572Z   Generating Code...
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:51.8075317Z   ca_horde.cpp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:54.9862846Z      Creating library D:/a/Cat-arena/Cat-arena/build-game/Release/qagamex86_64.lib and object D:/a/Cat-arena/Cat-arena/build-game/Release/qagamex86_64.exp
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.0678191Z   qagame.vcxproj -> D:\a\Cat-arena\Cat-arena\build-game\Release\qagamex86_64.dll
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.1486704Z   Building Custom Rule D:/a/Cat-arena/Cat-arena/game/CMakeLists.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3225336Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3243291Z [32;1mName            [0m[32;1m Length[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3244154Z [32;1m----            [0m [32;1m------[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3244727Z cgamex86_64.dll  233472
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3245125Z qagamex86_64.dll 468992
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3245529Z uix86_64.dll      22016
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Build game modules (qagame, cgame, ui; C + C++20)	2026-11-21T00:03:55.3249218Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	﻿2026-11-21T00:03:55.3586461Z ##[group]Run python tools/q3e/package.py --engine-dir engine/quake3e/bin --client quake3e-vulkan.x64.exe --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena --commit $env:GITHUB_SHA
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:55.3588051Z [36;1mpython tools/q3e/package.py --engine-dir engine/quake3e/bin --client quake3e-vulkan.x64.exe --server quake3e.ded.x64.exe --modules-dir build-game/Release --out dist/CatArena --commit $env:GITHUB_SHA[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:55.3628933Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:55.3629299Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8350058Z      15429  COPYING.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8350477Z     963072  CatArena-server.exe
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8350826Z    2736128  CatArena.exe
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8351098Z        788  README.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8351355Z        357  SOURCE.txt
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8351655Z     233472  catarena\cgamex86_64.dll
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8352010Z    2994477  catarena\pak0.pk3
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8352327Z     468992  catarena\qagamex86_64.dll
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Package	2026-11-21T00:03:56.8352976Z      22016  catarena\uix86_64.dll
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	﻿2026-11-21T00:03:56.9584112Z ##[group]Run $p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_test +ca_selftest +quit" -NoNewWindow -PassThru
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9585578Z [36;1m$p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_test +ca_selftest +quit" -NoNewWindow -PassThru[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9586567Z [36;1mif (-not $p.WaitForExit(90000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 90 s"; exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9587104Z [36;1m$log = Get-Content home\catarena\qconsole.log -Raw[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9587414Z [36;1mWrite-Host $log[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9588473Z [36;1m$checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-D3 \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: horde PASS', 'ca_selftest: PASS N10 weapon table: 16/16', 'ca_selftest: weapons PASS', 'ca_selftest: ALL PASS')[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9589607Z [36;1m$fail = $false[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9590043Z [36;1mforeach ($c in $checks) { if ($log -match $c) { Write-Host "PASS $c" } else { Write-Host "FAIL $c"; $fail = $true } }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9590575Z [36;1mWrite-Host "server exit code $($p.ExitCode)"[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9590904Z [36;1mif ($fail -or $p.ExitCode -ne 0) { exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9591200Z [36;1mRemove-Item -Recurse -Force home[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9591596Z [36;1m# Reactor Bastion (converted from N10): map load + gameplay self-test on it[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9592495Z [36;1m$p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +map ca_reactor +ca_selftest +quit" -NoNewWindow -PassThru[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9594401Z [36;1mif (-not $p.WaitForExit(120000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 120 s (ca_reactor)"; exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9594983Z [36;1m$log = Get-Content home\catarena\qconsole.log -Raw[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9596027Z [36;1mforeach ($c in @('mapname\\ca_reactor', 'N10 navigation graph for ca_reactor', 'ca_selftest: PASS N10 routes', 'ca_selftest: weapons PASS', 'ca_selftest: ALL PASS')) { if ($log -match $c) { Write-Host "PASS ca_reactor $c" } else { Write-Host "FAIL ca_reactor $c"; $fail = $true } }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9597340Z [36;1m($log -split "`n") | Where-Object { $_ -match 'ca_selftest|navigation graph' } | ForEach-Object { Write-Host "ca_reactor: $_" }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9597962Z [36;1mif ($fail -or $p.ExitCode -ne 0) { Write-Host $log; exit 1 }[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9598309Z [36;1mRemove-Item -Recurse -Force home[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9598858Z [36;1mWrite-Host "PASS q3e Windows smoke: engine + Cat Arena DLLs + ca_test.bsp + ca_reactor.bsp + gameplay and weapon self-tests"[0m
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9637146Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:56.9637507Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5208796Z logfile opened on Sat Nov 21 00:03:57 2026
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5209519Z execing default.cfg
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5209955Z couldn't exec q3config_server.cfg
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5210486Z couldn't exec autoexec.cfg
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5211044Z fs_homepath is write protected.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5211986Z ...detecting CPU, found AMD EPYC 7763 64-Core Processor                
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5212902Z --- Common Initialization Complete ---
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5213482Z Hostname: runnervmhh3zg
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5219174Z IP6: fe80::88bd:9a16:96c2:e2e1%14
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5219790Z IP6: fe80::3366:729d:690e:cad0%11
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5220343Z IP: 10.1.0.10
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5220765Z IP: 172.25.240.1
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5221240Z Opening IP socket: 0.0.0.0:27960
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5221990Z Working directory: D:\a\Cat-arena\Cat-arena\dist\CatArena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5222857Z ------ Server Initialization ------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5226241Z Server: ca_test
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5226578Z ...loaded in 0 milliseconds
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5226950Z ----------------------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5227281Z 72 files in 1 pk3 files
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5227643Z Loading dll file qagame.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5228011Z VM_LoadDLL 'qagamex86_64.dll' ok
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5228505Z VM_LoadDll(qagame) found **vmMain** at 00007FFFBA1639E0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5229034Z VM_LoadDll(qagame) succeeded!
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5229439Z ------- Game Initialization -------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5229850Z gamename: baseq3
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5230250Z Cat Arena: Feral Claw N10-Q3E-D3 (qagame, C++20 bridge)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5230895Z C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5231515Z gamedate: Nov 21 2026
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5231922Z ------------------------------------------------------------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5234300Z InitGame: \dmflags\0\fraglimit\0\g_gametype\0\mapname\ca_test\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\8\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e win_msvc-x86_64 Nov 21 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5236835Z Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5237564Z Cat Arena horde ready (fiend, N10 wave rules)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5238015Z 0 teams with 0 entities
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5238432Z 2 items registered
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5238760Z -----------------------------------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5239132Z -----------------------------------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5239626Z ca_selftest: PASS wave 1: 10 enemies, all spawned at once
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5240574Z ca_selftest: PASS wave 2: ceil(10 * 1.25) = 13, first batch 11
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5241187Z ca_selftest: PASS wave 3: 17 enemies, scale 1.05^2
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5241738Z ca_selftest: PASS enemy spawn points found in the map
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5242525Z ca_selftest: PASS fiend moves with Pmove (best of 4 directions: 88 units in 0.5 s)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5243270Z ca_selftest: PASS fiend entity spawned
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5243727Z ca_selftest: PASS fiend health 100
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5244210Z ca_selftest: PASS four nailgun hits (13) leave 48 health
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5244717Z ca_selftest: PASS fiend dies and counts as a kill
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5245539Z ca_selftest: PASS N10 weapon table: 16/16 weapons match (damage, rate, magazine, reload, pellets, range)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5246249Z ca_selftest: horde PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5246918Z ca_selftest: PASS weapons: projectile constants (rocket 832 u/s, grenade gravity 480 u/s^2, rift life 2.6 s)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5247918Z ca_selftest: PASS weapons: 16 weapons, 13 hitscan + rocket + grenade + rift
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5248659Z ca_selftest: PASS weapons: NAILGUN body hit 13 (dealt 13)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5249327Z ca_selftest: PASS weapons: HAND CANNON head hit x2 = 156 (dealt 156)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5250122Z ca_selftest: PASS weapons: QUAD SHOTGUN 20 pellets at point blank (dealt 280)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5250992Z ca_selftest: PASS weapons: THUNDERBOLT does not reach 25 m (range 20 m)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5251811Z ca_selftest: PASS weapons: RAILGUN hits at 25 m for 132 (dealt 132)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5252560Z ca_selftest: PASS weapons: rocket blast 1 m away deals 81 (expected 81)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5253346Z ca_selftest: PASS weapons: no blast damage beyond 3.35 m x power (4 m)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5254170Z ca_selftest: PASS weapons: rift blast reaches 4 m (radius 4.76 m), dealt 21
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5255128Z ca_selftest: PASS weapons: grenade after 1 s at (704.0, -192.0), life 2.3 s
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5255972Z ca_selftest: PASS weapons: RAILGUN kills a 100 hp fiend in one body hit
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5256618Z ca_selftest: weapons PASS (0 failed)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5257050Z ca_selftest: ALL PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5257429Z ----- Server Shutdown (Server quit) -----
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5259032Z ==== ShutdownGame ====
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5259362Z ShutdownGame:
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5259723Z ------------------------------------------------------------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5260216Z ---------------------------
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5260458Z 
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5279433Z PASS VM_LoadDll\(qagame\) succeeded
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5292700Z PASS Cat Arena: Feral Claw N10-Q3E-D3 \(qagame, C\+\+20 bridge\)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5334658Z PASS C\+\+20 bridge self-test: PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5342035Z PASS mapname\\ca_test
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5348856Z PASS Cat Arena horde ready
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5355906Z PASS ca_selftest: horde PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5363330Z PASS ca_selftest: PASS N10 weapon table: 16/16
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5370485Z PASS ca_selftest: weapons PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5377546Z PASS ca_selftest: ALL PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:57.5401443Z server exit code 0
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0353446Z PASS ca_reactor mapname\\ca_reactor
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0359958Z PASS ca_reactor N10 navigation graph for ca_reactor
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0366487Z PASS ca_reactor ca_selftest: PASS N10 routes
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0372683Z PASS ca_reactor ca_selftest: weapons PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0378522Z PASS ca_reactor ca_selftest: ALL PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0488476Z ca_reactor: Cat Arena: N10 navigation graph for ca_reactor (6182 nodes)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0499334Z ca_reactor: ca_selftest: PASS wave 1: 10 enemies, all spawned at once
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0507767Z ca_reactor: ca_selftest: PASS wave 2: ceil(10 * 1.25) = 13, first batch 11
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0516492Z ca_reactor: ca_selftest: PASS wave 3: 17 enemies, scale 1.05^2
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0523167Z ca_reactor: ca_selftest: PASS enemy spawn points found in the map
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0529926Z ca_reactor: ca_selftest: PASS fiend moves with Pmove (best of 4 directions: 103 units in 0.5 s)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0536522Z ca_reactor: ca_selftest: PASS fiend entity spawned
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0543040Z ca_reactor: ca_selftest: PASS fiend health 100
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0549437Z ca_reactor: ca_selftest: PASS four nailgun hits (13) leave 48 health
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0555966Z ca_reactor: ca_selftest: PASS fiend dies and counts as a kill
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0562491Z ca_reactor: ca_selftest: PASS N10 routes from the lowest spot: L1 7/7, L2 22/24, L3 18/18 spots reachable
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0568928Z ca_reactor: ca_selftest: PASS N10 weapon table: 16/16 weapons match (damage, rate, magazine, reload, pellets, range)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0575035Z ca_reactor: ca_selftest: horde PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0581492Z ca_reactor: ca_selftest: PASS weapons: projectile constants (rocket 832 u/s, grenade gravity 480 u/s^2, rift life 2.6 s)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0587771Z ca_reactor: ca_selftest: PASS weapons: 16 weapons, 13 hitscan + rocket + grenade + rift
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0594297Z ca_reactor: ca_selftest: PASS weapons: NAILGUN body hit 13 (dealt 13)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0600677Z ca_reactor: ca_selftest: PASS weapons: HAND CANNON head hit x2 = 156 (dealt 156)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0607144Z ca_reactor: ca_selftest: PASS weapons: QUAD SHOTGUN 20 pellets at point blank (dealt 280)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0613437Z ca_reactor: ca_selftest: PASS weapons: THUNDERBOLT does not reach 25 m (range 20 m)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0619709Z ca_reactor: ca_selftest: PASS weapons: RAILGUN hits at 25 m for 132 (dealt 132)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0626080Z ca_reactor: ca_selftest: PASS weapons: rocket blast 1 m away deals 81 (expected 81)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0632827Z ca_reactor: ca_selftest: PASS weapons: no blast damage beyond 3.35 m x power (4 m)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0638950Z ca_reactor: ca_selftest: PASS weapons: rift blast reaches 4 m (radius 4.76 m), dealt 21
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0645175Z ca_reactor: ca_selftest: PASS weapons: grenade after 1 s at (704.0, -192.0), life 2.3 s
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0651629Z ca_reactor: ca_selftest: PASS weapons: RAILGUN kills a 100 hp fiend in one body hit
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0657872Z ca_reactor: ca_selftest: weapons PASS (0 failed)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0835222Z ca_reactor: ca_selftest: ALL PASS
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Smoke test (dedicated server loads the test arena, gameplay self-test)	2026-11-21T00:03:58.0879949Z PASS q3e Windows smoke: engine + Cat Arena DLLs + ca_test.bsp + ca_reactor.bsp + gameplay and weapon self-tests
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	﻿2026-11-21T00:03:58.1479950Z ##[group]Run actions/upload-artifact@v4
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1480301Z with:
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1480496Z   name: CAT_ARENA_Q3E_D3_WINDOWS_x64
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1480746Z   path: dist/CatArena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1480964Z   if-no-files-found: error
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1481181Z   retention-days: 30
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1481380Z   compression-level: 6
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1481581Z   overwrite: false
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1481779Z   include-hidden-files: false
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.1482008Z ##[endgroup]
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.3346687Z (node:4024) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.3347685Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.3441943Z With the provided path, there will be 9 files uploaded
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.3447066Z Artifact name is valid!
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.3449617Z Root directory input is valid!
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.5688651Z Beginning upload of artifact content to blob storage
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:58.8558151Z (node:4024) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.2733476Z Uploaded bytes 5233460
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.3060580Z Finished uploading artifact content to blob storage!
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.3061969Z SHA256 digest of uploaded artifact zip is eff97fab07b0fb05b4ed932251f691a2526716dd0be5b58c66f8905a039871fc
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.3064128Z Finalizing artifact upload
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.6159254Z Artifact CAT_ARENA_Q3E_D3_WINDOWS_x64.zip successfully finalized. Artifact ID 14680881912
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.6160512Z Artifact CAT_ARENA_Q3E_D3_WINDOWS_x64 has been successfully uploaded! Final size is 5233460 bytes. Artifact ID is 14680881912
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Run actions/upload-artifact@v4	2026-11-21T00:03:59.6169285Z Artifact download URL: https://github.com/dontaskwhojoeis200-boop/Cat-arena/actions/runs/44841066191/artifacts/14680881912
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	﻿2026-11-21T00:03:59.6478633Z Post job cleanup.
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.8320376Z [command]"C:\Program Files\Git\bin\git.exe" version
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.8595916Z git version 2.56.1.windows.1
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.8661903Z Temporarily overriding HOME='D:\a\_temp\926799e0-0581-45da-9bfd-b035df099f80' before making global git config changes
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.8663209Z Adding repository directory to the temporary git global config as a safe directory
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.8677758Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cat-arena\Cat-arena
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.9014642Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:03:59.9307540Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:04:00.4166285Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:04:00.4424179Z http.https://github.com/.extraheader
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:04:00.4458331Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:04:00.4743275Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:04:00.9312316Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Post Run actions/checkout@v4	2026-11-21T00:04:00.9591540Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	﻿2026-11-21T00:04:01.4219269Z Cleaning up orphan processes
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	2026-11-21T00:04:01.4372046Z Terminate orphan process: pid (3012) (mspdbsrv)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	2026-11-21T00:04:01.4542044Z Terminate orphan process: pid (2648) (vctip)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	2026-11-21T00:04:01.4606543Z Terminate orphan process: pid (6164) (MSBuild)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	2026-11-21T00:04:01.4677498Z Terminate orphan process: pid (6736) (MSBuild)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	2026-11-21T00:04:01.4719784Z Terminate orphan process: pid (3564) (MSBuild)
+Cat Arena Q3E Windows x64 (MSVC, Vulkan)	Complete job	2026-11-21T00:04:01.4886233Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4, microsoft/setup-msbuild@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

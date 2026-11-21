@@ -24,7 +24,9 @@ slide, the NAILGUN, waves of fiends (N10 rules); self-test 10/10 on Linux and Wi
 gameplay run 11/11 on Linux.
 Stage D, part 1: Reactor Bastion converted from N10 to a Quake III BSP and checked in game against
 the N10 data (50 floor spots, 20 ramps, 4 jump pads). Part 2: N10's navigation reused in the server module; fiends
-reach the player on every level of Reactor Bastion.
+reach the player on every level of Reactor Bastion. Part 3: all 16 N10 weapons (two at a time,
+switch, frag reroll, projectiles, blasts, recoil, 16 viewmodels and their effects); self-test ALL
+PASS on both maps (Linux, Windows CI run 44841066191), scripted client run 25/25 on Linux.
 Stage B: branded engine, Cat Arena game modules (ioquake3 GPL game code + C++20), generated test
 arena compiled with q3map2; Windows CI builds and packages it and a dedicated server loads the arena
 with the Cat Arena DLL; on Linux the menu, the arena and stock Quake III movement run. Stage A — Quake3e
