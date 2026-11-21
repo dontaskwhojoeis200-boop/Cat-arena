@@ -165,3 +165,34 @@ Full account in `STAGE_D_REVIEW.md`; logs in `evidence/stage-d/review/`.
 | Regression on the part 2 build | coop ALL PASS (19), gameplay ALL PASS (11) | Tested | linux-regression-e2-summary.txt |
 | Differences from N10 | every teammate gets the guests' tint (a Quake III client does not know which player hosts); no melee layer (no melee event); tracers of other players start at the eye, not at the Marine Cat's gun; enemy hits on players use the Quake III player box, not N10's six Marine Cat parts; the local Marine Cat only in third person (not in mirrors) | — | — |
 | Windows CI run 44944222390 (commit abecd23, parts 1 and 2) | success: MSVC build; `ca_selftest` ALL PASS on the test arena and the four maps; the co-op rules test ALL PASS (19) on the Windows dedicated server; `cgamex86_64.dll` 283,136 bytes | Tested | windows-ci-44944222390.log; artifact `CAT_ARENA_Q3E_E1_WINDOWS_x64` (id 14723165437, 21,627,281 bytes) |
+
+## Q3E-E, part 3: four clients, network conditions, snapshot audit, soak — 2026-11-21
+
+`tools/q3e/net_test.py`: a dedicated server and four real clients (320 x 240 windows, 30 fps,
+lavapipe on Xvfb) on one Linux machine, two cores. Network conditions from the engine itself:
+`cl_packetdelay` / `sv_packetdelay` (each way) and `net_dropsim` (incoming packets dropped on every
+process). Each run: four join; every client sees the three others where the server has them
+(placed, then after a walk); a player downed by the server is revived by another client holding F
+on his own client (status lines on both clients); a wave fought by the four until wave 2 is cleared
+and everybody has a kill; ten seconds of `cl_shownet 1` on one client; one client leaves and comes
+back; all four down → squad wipe on every client, nobody down again after the restart.
+
+| Run | Result | Pings (ms) | Snapshots lost | Largest / mean server message (bytes) | Most entities: client snapshot / server peak | Evidence (`docs/q3e/evidence/stage-e/`) |
+|---|---|---|---|---|---|---|
+| clean | ALL PASS (21) | 0 | 0 | 541 / 178 | 49 / 50 | linux-net-clean-checks.txt, -data.json, -server.txt |
+| 100 ms each way | ALL PASS (22) | 192–224 | 0 | 901 / 339 | 54 / 55 | linux-net-delay100-* |
+| 10 % loss | ALL PASS (22) | 0–32 | 377–412 of ~3,950 per client (~10 %) | 666 / 185 | 37 / 38 | linux-net-loss10-* |
+| 75 ms each way + 5 % loss | ALL PASS (23) | 176–196 | 87–100 of ~1,750 (~5 %) | 1,088 / 388 | 46 / 47 | linux-net-mixed-* |
+
+Snapshot audit: the limits are MAX_SNAPSHOT_ENTITIES 256 and MAX_MSGLEN 16,384 bytes; the worst
+figures above are 55 entities and 1,088 bytes. At the server's peak most entities were Quake III
+event entities (24–40: hits, sounds), then the 10 enemies of wave 1, 4 players and a few
+projectiles. The Delta client's later join shows in its smaller snapshot counts.
+
+Found and fixed on the way: Quake3e refuses a fourth connection from one address by default
+(`sv_maxclientsPerIP 3`); now 4, with `sv_maxclients 4` (N10's room size). After a squad wipe a
+player could go down again at once: a spawn spot under a body not yet respawned was taken and the
+Quake III telefrag hit it; the bodies leave before the respawns, and everybody gets N10's 2.5 s
+grace. A first 75 ms + 5 % run failed "every client killed" (Delta fired 23 shots with a slow
+random weapon while the others took all 23 kills); the runs now give everybody the same weapons
+and fight until all four have a kill.

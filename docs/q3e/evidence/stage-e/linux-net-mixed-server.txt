@@ -1,0 +1,208 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+312 files in 1 pk3 files
+couldn't exec q3config_server.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-E3
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+312 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7fad5ea0fc20
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-E1 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+------------------------------------------------------------
+InitGame: \dmflags\0\fraglimit\0\g_gametype\0\mapname\ca_test\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\4\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e linux-x86_64 Nov 19 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 0 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+ClientConnect: 0
+ClientUserinfoChanged: 0 n\Alpha\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Alpha^7 connected\n"
+ClientUserinfoChanged: 0 n\Alpha\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Alpha^7 entered the game\n"
+ClientBegin: 0
+ClientConnect: 1
+ClientUserinfoChanged: 1 n\Bravo\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Bravo^7 connected\n"
+ClientUserinfoChanged: 1 n\Bravo\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Bravo^7 entered the game\n"
+ClientBegin: 1
+ClientConnect: 2
+ClientUserinfoChanged: 2 n\Charlie\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Charlie^7 connected\n"
+ClientUserinfoChanged: 2 n\Charlie\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Charlie^7 entered the game\n"
+ClientBegin: 2
+ClientConnect: 3
+ClientUserinfoChanged: 3 n\Delta\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Delta^7 connected\n"
+ClientUserinfoChanged: 3 n\Delta\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Delta^7 entered the game\n"
+ClientBegin: 3
+CASTATE_BEGIN
+CA_COOP t=23100 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=23100 client=1 name=Bravo health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=23100 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-220,24 score=0 grace=0
+CA_COOP t=23100 client=3 name=Delta health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-220,24 score=0 grace=0
+CASTATE_END
+CASTATE_BEGIN
+CA_COOP t=27300 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=27300 client=1 name=Bravo health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-464,-300,24 score=0 grace=0
+CA_COOP t=27300 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-220,24 score=0 grace=0
+CA_COOP t=27300 client=3 name=Delta health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-220,24 score=0 grace=0
+CASTATE_END
+Cat Arena: Bravo down t=29500
+Cat Arena: Bravo revived by Alpha t=35700
+CA_ENTS t=38950 sent=4 max=5 maxt=14950 inuse=16 num=77 players=4 enemies=0 missiles=0 pickups=0 events=0 other=0 peak_players=4 peak_enemies=0 peak_missiles=0 peak_pickups=0 peak_events=1 peak_other=0
+Cat Arena: wave 1, 10 enemies
+Cat Arena: spawn skyprobe at 640 300 223
+Cat Arena: spawn skyjuggernaut at 640 -640 201
+Cat Arena: spawn banshee at 640 -200 41
+Cat Arena: spawn crusher at 200 -640 41
+Cat Arena: spawn banshee at -200 -640 41
+Cat Arena: spawn crusher at 640 300 41
+Cat Arena: spawn crusher at 640 -640 41
+Cat Arena: spawn shambler at -640 300 41
+Cat Arena: spawn pyromancer at -640 -640 41
+Cat Arena: spawn skyraider at 640 -200 229
+Cat Arena: frag reroll NAILGUN -> SHOTGUN
+Cat Arena: killed pyromancer
+Cat Arena: frag reroll NAILGUN -> HAND CANNON
+Cat Arena: killed banshee
+Cat Arena: frag reroll NAILGUN -> SHOTGUN
+Cat Arena: killed shambler
+Cat Arena: frag reroll SHOTGUN -> GRENADE LAUNCHER
+Cat Arena: killed skyraider
+CA_ENTS t=42350 sent=17 max=37 maxt=39600 inuse=29 num=154 players=4 enemies=6 missiles=3 pickups=0 events=4 other=0 peak_players=4 peak_enemies=10 peak_missiles=0 peak_pickups=0 peak_events=23 peak_other=0
+Cat Arena: frag reroll SHOTGUN -> PLASMA REPEATER
+Cat Arena: killed banshee
+Cat Arena: frag reroll GRENADE LAUNCHER -> THUNDERBOLT
+Cat Arena: killed skyprobe (gibbed)
+Cat Arena: frag reroll PLASMA REPEATER -> IRON CHAINGUN
+Cat Arena: killed crusher
+CA_ENTS t=45550 sent=29 max=37 maxt=39600 inuse=41 num=154 players=4 enemies=4 missiles=1 pickups=0 events=20 other=0 peak_players=4 peak_enemies=10 peak_missiles=0 peak_pickups=0 peak_events=23 peak_other=0
+Cat Arena: frag reroll IRON CHAINGUN -> SUPER NAILGUN
+Cat Arena: killed skyjuggernaut
+Cat Arena: frag reroll SUPER NAILGUN -> QUAD SHOTGUN
+Cat Arena: killed crusher
+Cat Arena: frag reroll QUAD SHOTGUN -> GRENADE LAUNCHER
+Cat Arena: killed crusher
+Cat Arena: wave 1 cleared
+Cat Arena: wave 2, 13 enemies
+Cat Arena: spawn skyprobe at 640 -640 196
+Cat Arena: spawn skyprobe at 640 -200 207
+Cat Arena: spawn sentinel at 640 300 41
+Cat Arena: spawn skitter at 640 -640 41
+Cat Arena: spawn fiend at 640 -200 41
+Cat Arena: spawn marauder at 200 -640 41
+Cat Arena: spawn skitter at -200 -640 41
+Cat Arena: spawn warden at -640 300 41
+Cat Arena: spawn cultist at -640 -640 41
+Cat Arena: spawn skyjuggernaut at 640 300 206
+Cat Arena: spawn reaver at 640 -640 41
+Cat Arena: spawn pyromancer at 640 -200 41
+Cat Arena: frag reroll GRENADE LAUNCHER -> ROCKET LAUNCHER
+Cat Arena: killed cultist
+Cat Arena: spawn grunt at 640 -640 41
+Cat Arena: frag reroll THUNDERBOLT -> HELLFIRE CARBINE
+Cat Arena: killed warden
+Cat Arena: frag reroll ROCKET LAUNCHER -> HELLFIRE CARBINE
+Cat Arena: killed skitter (gibbed)
+Cat Arena: frag reroll HELLFIRE CARBINE -> IRON CHAINGUN
+Cat Arena: killed marauder (gibbed)
+Cat Arena: frag reroll IRON CHAINGUN -> SHOTGUN
+Cat Arena: killed fiend
+Cat Arena: frag reroll HELLFIRE CARBINE -> THUNDERBOLT
+Cat Arena: killed skitter (gibbed)
+Cat Arena: frag reroll SHOTGUN -> TRIPLE SPIKE
+Cat Arena: killed reaver
+Cat Arena: frag reroll THUNDERBOLT -> QUAD SHOTGUN
+Cat Arena: killed skyprobe
+Cat Arena: frag reroll NAILGUN -> PLASMA REPEATER
+Cat Arena: killed skyprobe
+Cat Arena: frag reroll HAND CANNON -> RAILGUN
+Cat Arena: killed grunt
+Cat Arena: frag reroll PLASMA REPEATER -> TRIPLE SPIKE
+Cat Arena: killed pyromancer
+CA_ENTS t=58850 sent=13 max=47 maxt=57250 inuse=25 num=177 players=4 enemies=2 missiles=0 pickups=0 events=7 other=0 peak_players=4 peak_enemies=6 peak_missiles=2 peak_pickups=0 peak_events=35 peak_other=0
+Cat Arena: frag reroll RAILGUN -> SAWBLADE DRIVER
+Cat Arena: killed skyjuggernaut
+Cat Arena: frag reroll SAWBLADE DRIVER -> RAILGUN
+Cat Arena: killed sentinel
+Cat Arena: wave 2 cleared
+CA_ENTS t=62150 sent=10 max=47 maxt=57250 inuse=22 num=177 players=4 enemies=0 missiles=0 pickups=0 events=6 other=0 peak_players=4 peak_enemies=6 peak_missiles=2 peak_pickups=0 peak_events=35 peak_other=0
+CASTATE_BEGIN
+CA_COOP t=62350 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-753,-189,80 score=2 grace=0
+CA_COOP t=62350 client=1 name=Bravo health=45 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-752,-146,80 score=11 grace=0
+CA_COOP t=62350 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-725,-167,24 score=4 grace=0
+CA_COOP t=62350 client=3 name=Delta health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-737,-137,24 score=6 grace=0
+CASTATE_END
+Cat Arena: wave 3, 17 enemies
+Cat Arena: spawn skyprobe at 200 -640 203
+Cat Arena: spawn skyraider at -200 -640 220
+Cat Arena: spawn crusher at 640 -640 41
+Cat Arena: spawn banshee at 200 -640 41
+Cat Arena: spawn marauder at 640 300 41
+Cat Arena: spawn sapper at 640 -200 41
+Cat Arena: spawn stalker at -200 -640 41
+Cat Arena: spawn grunt at -640 -640 41
+Cat Arena: spawn grunt at -640 300 41
+Cat Arena: spawn harrier at -640 -200 41
+CASTATE_BEGIN
+CA_COOP t=63450 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-753,-189,80 score=2 grace=0
+CA_COOP t=63450 client=1 name=Bravo health=45 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-752,-146,80 score=11 grace=0
+CA_COOP t=63450 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-725,-167,24 score=4 grace=0
+CA_COOP t=63450 client=3 name=Delta health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-737,-137,24 score=6 grace=0
+CASTATE_END
+broadcast: print "Delta^7 disconnected\n"
+ClientDisconnect: 3
+Cat Arena: spawn warden at 640 300 41
+Cat Arena: spawn ogre at 200 -640 41
+Cat Arena: spawn sapper at 640 -200 41
+Cat Arena: spawn shambler at -200 -640 41
+Cat Arena: spawn skitter at 640 -640 41
+Cat Arena: spawn reaver at 640 300 41
+Cat Arena: spawn fiend at 200 -640 41
+127.0.0.1: reuse slot 3
+ClientConnect: 3
+ClientUserinfoChanged: 3 n\Delta\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Delta^7 connected\n"
+ClientUserinfoChanged: 3 n\Delta\t\0\model\sarge\hmodel\sarge\g_redteam\\g_blueteam\\c1\4\c2\5\hc\100\w\0\l\0\tt\0\tl\0
+broadcast: print "Delta^7 entered the game\n"
+ClientBegin: 3
+Cat Arena: Delta down t=89950
+Cat Arena: Charlie down t=93650
+Cat Arena: Alpha down t=94550
+Cat Arena: Bravo down t=94550
+Cat Arena: squad wiped, round restarts t=97300
+Cat Arena: round restarts at wave 1
+broadcast: print "Bravo^7 disconnected\n"
+ClientDisconnect: 1
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+---------------------------

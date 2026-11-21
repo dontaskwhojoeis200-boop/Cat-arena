@@ -19,7 +19,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = os.path.join(ROOT, "game", "base", "catarena")
 SKIP_EXT = {".map", ".srf", ".prt", ".lin", ".bak", ".obj", ".mtl"}
 
-README = """Cat Arena: Feral Claw — Quake3e migration prototype (N10-Q3E stage D, part 7)
+README = """Cat Arena: Feral Claw — Quake3e migration prototype (N10-Q3E stage E)
 
 Start CatArena.exe and choose PLAY. The four Cat Arena maps converted from N10 (Reactor Bastion,
 Helios Crucible, Bastion Keep, The Arsenal) and the test arena. Waves of the 20 Cat Arena enemy
@@ -28,8 +28,16 @@ replaces the weapon in hand), stock Quake III movement plus Cat Arena sprint and
 and soundtrack, N10's medkits on the four maps (+40 health, back after 13 s) (s_volume = master volume, s_musicvolume = music, ca_music 0 = no soundtrack).
 This is an engine prototype, not the full game; the playable game remains the N10 build.
 
+Co-op (up to 4 players, N10's rules): with teammates a player at 0 health goes down; hold F next
+to a downed teammate for 4 s to revive them (45 health); when everybody is down the round restarts
+at wave 1. Other players appear as Marine Cats.
+  Host:    open the console (`) and type  map ca_reactor   (or ca_helios, ca_bastion, ca_arsenal)
+  Players: open the console and type  connect <host address>
+  Over the internet the host forwards UDP port 27960 to the host PC. A dedicated server:
+  CatArena-server +set dedicated 1 +map ca_reactor
+
 Controls: WASD move, mouse look, SPACE jump, SHIFT sprint, C / CTRL crouch (slide while sprinting),
-MOUSE1 fire, R reload, Q switch weapon, ESC menu, ` console.
+MOUSE1 fire, R reload, Q switch weapon, F revive a teammate (hold), ESC menu, ` console.
 
 Engine: Quake3e (GPL v2), see COPYING.txt and SOURCE.txt. Game modules: Cat Arena + ioquake3 game
 code (GPL v2). Art, sound and maps: Cat Arena: Feral Claw.
