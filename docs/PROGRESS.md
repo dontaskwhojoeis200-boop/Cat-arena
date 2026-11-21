@@ -1,4 +1,4 @@
-# Native rewrite progress — 2026-11-19
+# Native rewrite progress — 2026-11-21
 
 N0 (core, shell), N1 (bake, loaders), N2 (Helios rendered), N2.1 (Vulkan 1.2 baseline, optional
 1.3/1.4), N3 (player physics and traversal) implemented. N4 (four maps, navigation) delivered with
@@ -18,7 +18,7 @@ not yet run on a Windows PC.**
 against the original game (branch `n10`): two co-op enemy-shot rules restored, weapon tapes on all
 four maps bit-identical, cross-play and a one-hour soak pass. Not yet played on a Windows PC.**
 Branch `n11-baseline` (another session, 2026-11-13) is not yet reviewed or merged.
-**N10-Q3E (engine migration onto Quake3e, branch `migration/quake3e-n10`): stages A, B and C done.
+**N10-Q3E (engine migration onto Quake3e, branch `migration/quake3e-n10`): stages A, B, C and D done; stage E (multiplayer) part 1 done.
 Stage C: first playable loop in the test arena — stock Quake III movement with Cat Arena sprint and
 slide, the NAILGUN, waves of fiends (N10 rules); self-test 10/10 on Linux and Windows CI, scripted
 gameplay run 11/11 on Linux.
@@ -28,7 +28,7 @@ reach the player on every level of Reactor Bastion. Part 3: all 16 N10 weapons (
 switch, frag reroll, projectiles, blasts, recoil, 16 viewmodels and their effects); self-test ALL
 PASS on both maps (Linux, Windows CI run 44841066191), scripted client run 25/25 on Linux. Part 4: all
 20 N10 enemy types (stats, spawn rules, ranged attacks, flyers) with N10's animation ported to
-cgame; scripted lineup and waves 9/9 on Linux. Part 5: Helios Crucible, Bastion Keep and The Arsenal converted too (N10 material meshes, baked sky, lighting matched to N10, portals, animated props); self-test, map test and waves pass on all four maps on Linux; self-test ALL PASS on all four in Windows CI run 44868659259. Part 6: N10's sounds and soundtrack (gun takes, blasts, body sounds, beeps, enemy voices with N10's limits), output level measured equal to N10's on Linux; Windows CI run 44870467090 builds and packages it, self-test ALL PASS. Part 7: N10's medkits on the four maps (+40 health, back after 13 s), spawn health 100; Windows CI run 44910818901 self-test ALL PASS. Stage D review (docs/q3e/STAGE_D_REVIEW.md): every stage D test on one build passes, converters reproduce the committed data, fall damage removed; owner's answers: keep q3map2's contrast, the stock player box and N10's flyer steering; N10's HUD / menus / settings move to stage F; stage E (multiplayer) is next.
+cgame; scripted lineup and waves 9/9 on Linux. Part 5: Helios Crucible, Bastion Keep and The Arsenal converted too (N10 material meshes, baked sky, lighting matched to N10, portals, animated props); self-test, map test and waves pass on all four maps on Linux; self-test ALL PASS on all four in Windows CI run 44868659259. Part 6: N10's sounds and soundtrack (gun takes, blasts, body sounds, beeps, enemy voices with N10's limits), output level measured equal to N10's on Linux; Windows CI run 44870467090 builds and packages it, self-test ALL PASS. Part 7: N10's medkits on the four maps (+40 health, back after 13 s), spawn health 100; Windows CI run 44910818901 self-test ALL PASS. Stage D review (docs/q3e/STAGE_D_REVIEW.md): every stage D test on one build passes, converters reproduce the committed data, fall damage removed; owner's answers: keep q3map2's contrast, the stock player box and N10's flyer steering; N10's HUD / menus / settings move to stage F; stage E (multiplayer) is next. Stage E, part 1: N10's co-op rules on the Quake III server (downed instead of dead with teammates, F held 4 s within 3.2 m revives with 45 health and 2 s grace, squad wipe after 2.7 s restarts at wave 1, a player left alone gets up) with co-op name tags and the revive status line; scripted-player test 19/19 on Linux. Next: Marine Cats for the other players, four clients and network tests, the WebSocket tunnel.
 Stage B: branded engine, Cat Arena game modules (ioquake3 GPL game code + C++20), generated test
 arena compiled with q3map2; Windows CI builds and packages it and a dedicated server loads the arena
 with the Cat Arena DLL; on Linux the menu, the arena and stock Quake III movement run. Stage A — Quake3e

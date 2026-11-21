@@ -531,6 +531,9 @@ void ClientRespawn( gentity_t *ent ) {
 
 	CopyToBodyQue (ent);
 	ClientSpawn(ent);
+#ifdef CAT_ARENA_STANDALONE
+	ent->client->caGraceUntil = level.time + 2500;	// N10 finish_respawn: respawn_grace_ 2.5 s
+#endif
 }
 
 /*
@@ -943,7 +946,11 @@ char *ClientConnect( int clientNum, qboolean firstTime, qboolean isBot ) {
 	if( isBot ) {
 		ent->r.svFlags |= SVF_BOT;
 		ent->inuse = qtrue;
-		if( !G_BotConnect( clientNum, !firstTime ) ) {
+		if(
+#ifdef CAT_ARENA_STANDALONE
+			!atoi( Info_ValueForKey( userinfo, "ca_scripted" ) ) &&	// Cat Arena test player: no bot AI
+#endif
+			!G_BotConnect( clientNum, !firstTime ) ) {
 			return "BotConnectfailed";
 		}
 	}
@@ -1281,6 +1288,9 @@ void ClientDisconnect( int clientNum ) {
 		return;
 	}
 
+#ifdef CAT_ARENA_STANDALONE
+	G_CA_CoopClientLeft( clientNum );
+#endif
 	// stop any following clients
 	for ( i = 0 ; i < level.maxclients ; i++ ) {
 		if ( level.clients[i].sess.sessionTeam == TEAM_SPECTATOR

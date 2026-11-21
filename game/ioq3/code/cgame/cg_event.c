@@ -357,7 +357,9 @@ static void CG_UseItem( centity_t *cent ) {
 	// print a message if the local player
 	if ( es->number == cg.snap->ps.clientNum ) {
 		if ( !itemNum ) {
+#ifndef CAT_ARENA_STANDALONE	// Cat Arena: F revives a teammate (no holdable items)
 			CG_CenterPrint( "No item to use", SCREEN_HEIGHT * 0.30, BIGCHAR_WIDTH );
+#endif
 		} else {
 			item = BG_FindItemForHoldable( itemNum );
 			CG_CenterPrint( va("Use %s", item->pickup_name), SCREEN_HEIGHT * 0.30, BIGCHAR_WIDTH );

@@ -2096,6 +2096,9 @@ static void CG_DrawCrosshairNames( void ) {
 	if ( !cg_drawCrosshairNames.integer ) {
 		return;
 	}
+#ifdef CAT_ARENA_STANDALONE	// Cat Arena: the co-op name tags show the names (cg_ca_coop.c)
+	return;
+#endif
 	if ( cg.renderingThirdPerson ) {
 		return;
 	}
@@ -2235,7 +2238,11 @@ static qboolean CG_DrawScoreboard( void ) {
 		return qfalse;
 	}
 
-	if ( cg.showScores || cg.predictedPlayerState.pm_type == PM_DEAD || cg.predictedPlayerState.pm_type == PM_INTERMISSION ) {
+	if ( cg.showScores || ( cg.predictedPlayerState.pm_type == PM_DEAD
+#ifdef CAT_ARENA_STANDALONE
+		&& !( cg.predictedPlayerState.eFlags & EF_CA_DOWNED )	// down: the revive line, not the scoreboard
+#endif
+		) || cg.predictedPlayerState.pm_type == PM_INTERMISSION ) {
 	} else {
 		if ( !CG_FadeColor( cg.scoreFadeTime, FADE_TIME ) ) {
 			// next time scoreboard comes up, don't print killer
@@ -2635,6 +2642,11 @@ static void CG_Draw2D(stereoFrame_t stereoFrame)
 #endif
 			CG_DrawReward();
 		}
+#ifdef CAT_ARENA_STANDALONE
+		if ( !cg.showScores ) {
+			CG_CA_DrawCoopHud();	// name tags and the revive status line, also while down
+		}
+#endif
 	}
 
 	if ( cgs.gametype >= GT_TEAM ) {

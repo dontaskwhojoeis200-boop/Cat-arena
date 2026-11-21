@@ -815,6 +815,11 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 	if (!targ->takedamage) {
 		return;
 	}
+#ifdef CAT_ARENA_STANDALONE
+	if ( targ->client && ( level.time < targ->client->caGraceUntil || G_CA_IsDowned( targ ) ) ) {
+		return;		// N10: no damage during the respawn / revive grace, none to a downed player
+	}
+#endif
 
 	// the intermission has already been qualified for, so don't
 	// allow any extra scoring
@@ -1043,6 +1048,11 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 				targ->health = -999;
 
 			targ->enemy = attacker;
+#ifdef CAT_ARENA_STANDALONE
+			if ( targ->client && G_CA_DownPlayer( targ ) ) {	// co-op: down until revived (N10)
+				return;
+			}
+#endif
 			targ->die (targ, inflictor, attacker, take, mod);
 			return;
 		} else if ( targ->pain ) {

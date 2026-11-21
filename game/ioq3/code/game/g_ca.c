@@ -435,6 +435,14 @@ void G_CA_MedkitTouch( gentity_t *ent, const vec3_t from ) {
 	}
 }
 
+void G_CA_MedkitsReset( void ) {	/* a round restart: every medkit ready (N10 Arena::spawn) */
+	int k;
+	for ( k = 0 ; k < caMedkitCount ; k++ ) {
+		caMedkitReadyAt[k] = 0;
+		caMedkits[k]->r.svFlags &= ~SVF_NOCLIENT;
+	}
+}
+
 static void CA_MedkitFrame( void ) {
 	int k;
 	for ( k = 0 ; k < caMedkitCount ; k++ ) {
@@ -542,6 +550,7 @@ void G_CA_Frame( int msec ) {
 	}
 	G_CA_Burn( msec );
 	CA_MedkitFrame();
+	G_CA_CoopFrame( msec );
 	trap_Cvar_Update( &ca_waves );
 	trap_Cvar_Update( &ca_log );
 	if ( !ca_waves.integer && !CA_HordeLineupActive() ) {

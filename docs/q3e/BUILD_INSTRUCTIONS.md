@@ -185,10 +185,26 @@ python3 tools/q3e/medkit_test.py check <console log> <homepath>/catarena/medkit.
 
 `ca_health <1-100>` (cheat) sets the player's health; `ca_log 1` prints every medkit taken.
 
+## Co-op rules (stage E, part 1)
+
+```
+python3 tools/q3e/coop_test.py write <homepath>/catarena/coop.cfg
+CatArena-server +set fs_homepath <homepath> +set dedicated 1 +set ca_waves 0 +set ca_log 1 +map ca_test +exec coop.cfg
+python3 tools/q3e/coop_test.py check <server log>
+python3 tools/q3e/coop_test.py view <homepath>/catarena/view.cfg        # pictures of the co-op HUD
+SDL_AUDIODRIVER=dummy CatArena +set fs_homepath <homepath> +set com_maxfps 60 +set ca_waves 0 +set ca_log 1 +devmap ca_test +wait 150 +exec view.cfg
+```
+
+Server test commands (cheats not needed; for tests only): `ca_addplayer <name>` (a scripted player
+in a bot slot, no bot AI), `ca_removeplayer <client>`, `ca_input <client> <forward> <right> <up>
+<buttons>` (buttons: 1 attack, 4 use = F), `ca_moveplayer <client> <x> <y> <z> <yaw>`, `ca_hurt
+<client> <damage>` (through `G_Damage`), `ca_coopstate` (one `CA_COOP` line per player). With
+`ca_log 1` the server prints downs, revives and wipes, the client each new status line.
+
 ## Stage D review: everything at once
 
 ```
-python3 tools/q3e/run_stage_d.py . <package dir> <out dir> [selftest gameplay weapons lineup waves map sound medkit views]
+python3 tools/q3e/run_stage_d.py . <package dir> <out dir> [selftest coop gameplay weapons lineup waves map sound medkit views]
 CatArena-server +set dedicated 1 +map ca_reactor +ca_fitsurvey 20 +quit     # Quake III player box vs N10's player
 ```
 

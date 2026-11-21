@@ -1559,7 +1559,11 @@ void BG_PlayerStateToEntityState( playerState_t *ps, entityState_t *s, qboolean 
 	}
 
 	s->loopSound = ps->loopSound;
+#ifdef CAT_ARENA_STANDALONE
+	s->generic1 = ps->stats[STAT_HEALTH] < 0 ? 0 : ps->stats[STAT_HEALTH] > 255 ? 255 : ps->stats[STAT_HEALTH];	// Cat Arena: health for the teammates' name tags
+#else
 	s->generic1 = ps->generic1;
+#endif
 }
 
 /*
@@ -1639,5 +1643,9 @@ void BG_PlayerStateToEntityStateExtraPolate( playerState_t *ps, entityState_t *s
 	}
 
 	s->loopSound = ps->loopSound;
+#ifdef CAT_ARENA_STANDALONE
+	s->generic1 = ps->stats[STAT_HEALTH] < 0 ? 0 : ps->stats[STAT_HEALTH] > 255 ? 255 : ps->stats[STAT_HEALTH];	// Cat Arena: health for the teammates' name tags
+#else
 	s->generic1 = ps->generic1;
+#endif
 }

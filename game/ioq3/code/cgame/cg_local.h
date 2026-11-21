@@ -643,6 +643,9 @@ typedef struct {
 	char			testModelName[MAX_QPATH];
 	qboolean		testGun;
 
+#ifdef CAT_ARENA_STANDALONE
+	int			caLastCoopStat;		// the co-op status line last drawn, without its percentage (ca_log)
+#endif
 } cg_t;
 
 
@@ -1724,4 +1727,5 @@ void CG_CA_Pickup( centity_t *cent );
 void CG_CA_EnemyVoices( centity_t *cent );
 void CG_CA_EnemyDeathVoice( centity_t *cent );
 void CG_CA_StartMusic( void );
+void CG_CA_DrawCoopHud( void );
 #endif

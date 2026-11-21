@@ -54,6 +54,7 @@ void CA_HordeEnemyKilled( int entityNum );      /* from the enemy's die callback
 void CA_HordeShutdown( void );
 int  CA_HordeSelfTest( void );
 void CA_HordeLineup( const float origin[3], float yawDeg );   /* cheat ca_lineup: all 20 types, held still */
+void CA_HordeRestart( void );   /* co-op squad wipe: no enemies, wave 1 begins on the next frame */
 void CA_HordeFitSurvey( int list );   /* stage D review: Quake III player box vs N10 player on the N10 nodes */
 int  CA_HordePickups( float *xyz, int max );   /* N10 medkit spots (x y z floor, Quake III units); after CA_HordeInit */
 int  CA_HordeLineupActive( void );                  /* server command ca_selftest: 1 = all checks passed */

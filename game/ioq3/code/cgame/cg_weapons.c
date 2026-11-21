@@ -1368,6 +1368,11 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 	if ( ps->pm_type == PM_INTERMISSION ) {
 		return;
 	}
+#ifdef CAT_ARENA_STANDALONE
+	if ( ps->eFlags & EF_CA_DOWNED ) {	// Cat Arena: no weapon while down (N10)
+		return;
+	}
+#endif
 
 	// no gun if in third person view or a camera is active
 	//if ( cg.renderingThirdPerson || cg.cameraMode) {

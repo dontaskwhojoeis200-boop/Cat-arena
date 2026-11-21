@@ -288,8 +288,11 @@ qboolean CG_DrawOldScoreboard( void ) {
 		return qfalse;
 	}
 
-	if ( cg.showScores || cg.predictedPlayerState.pm_type == PM_DEAD ||
-		 cg.predictedPlayerState.pm_type == PM_INTERMISSION ) {
+	if ( cg.showScores || ( cg.predictedPlayerState.pm_type == PM_DEAD
+#ifdef CAT_ARENA_STANDALONE
+		 && !( cg.predictedPlayerState.eFlags & EF_CA_DOWNED )
+#endif
+		 ) || cg.predictedPlayerState.pm_type == PM_INTERMISSION ) {
 		fade = 1.0;
 		fadeColor = colorWhite;
 	} else {

@@ -332,7 +332,11 @@ static void CG_OffsetFirstPersonView( void ) {
 	angles = cg.refdefViewAngles;
 
 	// if dead, fix the angle and don't add any kick
-	if ( cg.snap->ps.stats[STAT_HEALTH] <= 0 ) {
+	if ( cg.snap->ps.stats[STAT_HEALTH] <= 0
+#ifdef CAT_ARENA_STANDALONE
+		&& !( cg.snap->ps.eFlags & EF_CA_DOWNED )	// down (N10): first person, the view still turns
+#endif
+		) {
 		angles[ROLL] = 40;
 		angles[PITCH] = -15;
 		angles[YAW] = cg.snap->ps.stats[STAT_DEAD_YAW];
@@ -805,7 +809,11 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
 
 	// decide on third person view
 	cg.renderingThirdPerson = cg.snap->ps.persistant[PERS_TEAM] != TEAM_SPECTATOR
-							&& (cg_thirdPerson.integer || (cg.snap->ps.stats[STAT_HEALTH] <= 0));
+							&& (cg_thirdPerson.integer || (cg.snap->ps.stats[STAT_HEALTH] <= 0
+#ifdef CAT_ARENA_STANDALONE
+							&& !( cg.snap->ps.eFlags & EF_CA_DOWNED )
+#endif
+							));
 
 	// build cg.refdef
 	inwater = CG_CalcViewValues();

@@ -1,0 +1,20 @@
+PASS three scripted players joined
+PASS all three at 100 health, no status line
+PASS Bravo at 0 health is down, not dead: YOU ARE DOWN ({'t': 2600, 'client': 1, 'name': 'Bravo', 'health': 0, 'downed': 1, 'dead': 0, 'status': 4, 'subject': -1, 'pct': 0, 'pos': '-640,-300,24', 'score': 0, 'grace': 0})
+PASS Alpha 1.9 m away sees HOLD F TO REVIVE Bravo; Charlie far away sees nothing
+PASS a downed player takes no damage and does not die
+PASS holding F far away revives nobody
+PASS half way: Alpha REVIVING Bravo 50%, Bravo BEING REVIVED
+PASS revived 4000 ms after Alpha began holding F (N10 4 s), back with 45 health and 2 s of grace
+PASS no damage during the grace (45)
+PASS damage again after it (15)
+PASS 3.5 m away: out of reach (N10 3.2 m)
+PASS 3.0 m away: reviving
+PASS 2.5 m away behind a cover block: no line of sight, no revive
+PASS all three down
+PASS SQUAD ELIMINATED · RESTARTING ROUND for everybody
+PASS squad wiped 2750 ms after the last went down (N10 2.7 s): everybody back at 100, wave 1
+PASS Alpha left alone while down gets up with 100 health
+PASS alone, a player dies (no downed state)
+PASS no errors
+ALL PASS

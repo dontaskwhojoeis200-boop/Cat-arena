@@ -1008,6 +1008,11 @@ void ClientThink_real( gentity_t *ent ) {
 
 	// check for respawning
 	if ( client->ps.stats[STAT_HEALTH] <= 0 ) {
+#ifdef CAT_ARENA_STANDALONE
+		if ( G_CA_IsDowned( ent ) ) {
+			return;		// co-op: down until a teammate revives (or the squad is wiped)
+		}
+#endif
 		// wait for the attack button to be pressed
 		if ( level.time > client->respawnTime ) {
 			// forcerespawn is to prevent users from waiting out powerups

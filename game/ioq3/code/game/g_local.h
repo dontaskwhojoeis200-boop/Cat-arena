@@ -315,6 +315,7 @@ struct gclient_s {
 #ifdef CAT_ARENA_STANDALONE
 	int			caBurnMs;			// N10 igniteBurn: fireball burn left
 	int			caBurnTickMs;		// time to the next burn damage
+	int			caGraceUntil;		// N10 respawn_grace_: no damage before this level.time
 #endif
 
 #ifdef MISSIONPACK
@@ -969,10 +970,24 @@ void SP_info_ca_enemy_spawn( gentity_t *ent );
 void SP_misc_ca_prop( gentity_t *ent );
 void Svcmd_CA_SelfTest_f( void );
 void CA_HordeFitSurvey( int list );	/* ca_game.h */
+void CA_HordeRestart( void );	/* ca_game.h */
 void Cmd_CA_AimNearest_f( gentity_t *ent );
 void Cmd_CA_State_f( gentity_t *ent );
 void Cmd_CA_Place_f( gentity_t *ent );
 void Cmd_CA_Health_f( gentity_t *ent );
+// g_ca_coop.c: N10's co-op rules (downed, revive, squad wipe)
+int G_CA_PlayingClients( void );
+qboolean G_CA_IsDowned( const gentity_t *ent );
+qboolean G_CA_DownPlayer( gentity_t *ent );
+void G_CA_CoopFrame( int msec );
+void G_CA_CoopClientLeft( int clientNum );
+void G_CA_MedkitsReset( void );
+void Svcmd_CA_AddPlayer_f( void );
+void Svcmd_CA_RemovePlayer_f( void );
+void Svcmd_CA_Input_f( void );
+void Svcmd_CA_MovePlayer_f( void );
+void Svcmd_CA_Hurt_f( void );
+void Svcmd_CA_CoopState_f( void );
 void G_CA_MedkitTouch( gentity_t *ent, const vec3_t from );
 int G_CA_MedkitCount( void );
 void Cmd_CA_Give_f( gentity_t *ent );

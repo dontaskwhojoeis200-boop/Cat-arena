@@ -160,6 +160,22 @@ cgame draws the glow sprite and the billboard (`CG_CA_Pickup`).
 
 ## Networking (Q3E-E)
 
+### Co-op rules (part 1)
+
+N10 has one host that simulates everything; here the Quake III server applies N10's co-op rules to
+every player alike (`g_ca_coop.c`). `G_Damage` asks `G_CA_DownPlayer` before a player dies: with
+two or more players the player stays at 0 health with `EF_CA_DOWNED` (pm_type `PM_DEAD`, so the
+shared Pmove only turns the view; enemies see a dead player and pick another). `G_CA_CoopFrame` runs
+every server frame from `G_CA_Frame`: the revive (holder, target, progress; one at a time as N10's
+host), the squad wipe timer (`CA_SquadRestart`: round entities removed, `CA_HordeRestart`, medkits
+ready, every player respawned) and each player's status line, packed into `stats[STAT_CA_COOP]`
+(kind, subject client, percent). `caGraceUntil` in `gclient_t` blocks damage after a revive or a
+respawn. cgame (`cg_ca_coop.c`) draws the name tags from the snapshot's player entities (health in
+`generic1`) and the status line from the player state.
+
+Test players: `ca_addplayer` fills a bot slot with userinfo `ca_scripted 1`, which skips the bot AI
+(`G_BotConnect`); `G_RunClient` runs their `pers.cmd`, which `ca_input` sets.
+
 - Server-authoritative game on the engine's client / server model; up to 4 players; a "host"
   runs a listen server.
 - Enemies, players, projectiles and pickups as `entityState_t` entities in delta snapshots;

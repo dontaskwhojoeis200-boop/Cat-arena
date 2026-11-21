@@ -119,6 +119,7 @@ public:
     void shutdown() { for(auto& e : enemies_) if(e.alive()) im_.removeEnemy(e.entity), e.entity = -1; }
     int self_test();
     void fit_survey(int list);
+    void restart() { clear(); waves_ = {}; reset_ms_ = -1; print("Cat Arena: round restarts at wave 1\n"); }
     // ca_lineup (cheat): every type in rows in front of a point, held still
     void lineup(const float origin[3], float yaw_deg);
     bool lineup_active() const { return frozen_; }
@@ -908,6 +909,9 @@ extern "C" void CA_HordeLineup(const float origin[3], float yawDeg) {
 extern "C" int CA_HordeLineupActive(void) { return g_horde.lineup_active() ? 1 : 0; }
 extern "C" void CA_HordeFitSurvey(int list) {
     try { g_horde.fit_survey(list); } catch(...) {}
+}
+extern "C" void CA_HordeRestart(void) {   // co-op squad wipe: the round starts again at wave 1 (N10 reloads the map)
+    try { g_horde.restart(); } catch(...) {}
 }
 extern "C" int CA_HordePickups(float* xyz, int max) {
     try { return g_horde.pickups(xyz, max); } catch(...) { return 0; }

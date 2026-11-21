@@ -1335,6 +1335,11 @@ static void PM_CheckDuck (void)
 	{
 		pm->maxs[2] = DEAD_HEIGHT;
 		pm->ps->viewheight = DEAD_VIEWHEIGHT;
+#ifdef CAT_ARENA_STANDALONE
+		if ( pm->ps->eFlags & EF_CA_DOWNED ) {
+			pm->ps->viewheight = (int)( 0.62f * CA_UNITS_PER_METRE ) - 24;	// N10 kDownedEye: 0.62 m above the feet
+		}
+#endif
 		return;
 	}
 
@@ -1960,7 +1965,11 @@ void PM_UpdateViewAngles( playerState_t *ps, const usercmd_t *cmd ) {
 		return;		// no view changes at all
 	}
 
-	if ( ps->pm_type != PM_SPECTATOR && ps->stats[STAT_HEALTH] <= 0 ) {
+	if ( ps->pm_type != PM_SPECTATOR && ps->stats[STAT_HEALTH] <= 0
+#ifdef CAT_ARENA_STANDALONE
+		&& !( ps->eFlags & EF_CA_DOWNED )	// N10: a downed player still looks around
+#endif
+		) {
 		return;		// no view changes at all
 	}
 

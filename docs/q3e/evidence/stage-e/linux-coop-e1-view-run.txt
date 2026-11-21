@@ -1,0 +1,25 @@
+Cat Arena: Charlie down t=5850
+Cat Arena: status HOLD F TO REVIVE CHARLIE - 4 SECONDS
+Wrote screenshots/coop_hold_f.jpg
+Cat Arena: status REVIVING CHARLIE - 1%
+Wrote screenshots/coop_reviving.jpg
+Cat Arena: Charlie revived by Cat t=10850
+CA_COOP t=12150 client=0 name=Cat health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=12150 client=1 name=Bravo health=65 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-540,-330,24 score=0 grace=0
+CA_COOP t=12150 client=2 name=Charlie health=45 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-620,-240,24 score=0 grace=1
+Cat Arena: Cat down t=12150
+Wrote screenshots/coop_revived.jpg
+Cat Arena: status YOU ARE DOWN - WAIT FOR ANY TEAMMATE TO HOLD F FOR 4 SECONDS
+Wrote screenshots/coop_down.jpg
+Cat Arena: status BEING REVIVED - 1%
+Wrote screenshots/coop_being_revived.jpg
+Cat Arena: Cat revived by Bravo t=17250
+Cat Arena: Bravo down t=20000
+Cat Arena: Charlie down t=20000
+Cat Arena: Cat down t=20000
+Cat Arena: status SQUAD ELIMINATED - RESTARTING ROUND
+Wrote screenshots/coop_wiped.jpg
+Cat Arena: squad wiped, round restarts t=22750
+CA_COOP t=23850 client=0 name=Cat health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=560,0,24 score=0 grace=0
+CA_COOP t=23850 client=1 name=Bravo health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,200,24 score=0 grace=0
+CA_COOP t=23850 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,-560,24 score=0 grace=0

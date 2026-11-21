@@ -1,0 +1,147 @@
+CatArena Q3E 1.32e linux-x86_64 Nov 19 2026
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+execing default.cfg
+couldn't exec q3config_server.cfg
+couldn't exec autoexec.cfg
+fs_homepath is write protected.
+...detecting CPU, found Intel(R) Xeon(R) Processor
+--- Common Initialization Complete ---
+Hostname: vm
+IP: 127.0.0.1
+IP: 192.0.2.2
+Opening IP socket: 0.0.0.0:27960
+Working directory: /tmp/claude-0/Q3E-E1
+stdin is not a tty, tty console mode failed
+------ Server Initialization ------
+Server: ca_test
+----- FS_Startup -----
+...loaded in 0 milliseconds
+----------------------
+309 files in 1 pk3 files
+Loading dll file qagame.
+VM_LoadDLL 'qagamex86_64.so' ok
+VM_LoadDll(qagame) found **vmMain** at 0x7f377f60fc20
+VM_LoadDll(qagame) succeeded!
+------- Game Initialization -------
+gamename: baseq3
+Cat Arena: Feral Claw N10-Q3E-D7 (qagame, C++20 bridge)
+C++20 bridge self-test: PASS (exceptions contained: yes, units: ok)
+gamedate: Nov 21 2026
+------------------------------------------------------------
+InitGame: \dmflags\0\fraglimit\0\g_gametype\0\mapname\ca_test\protocol\68\sv_allowDownload\1\sv_dlRate\100\sv_floodProtect\1\sv_hostname\noname\sv_maxRate\0\sv_maxclients\8\sv_minRate\0\sv_privateClients\0\timelimit\0\version\CatArena Q3E 1.32e linux-x86_64 Nov 19 2026\capturelimit\8\g_maxGameClients\0\g_needpass\0\gamename\baseq3
+Cat Arena: no N10 navigation data (maps/ca_test.cadata); enemies chase directly
+Cat Arena horde ready (20 N10 enemy types, N10 wave rules)
+Cat Arena: 0 medkits
+0 teams with 0 entities
+2 items registered
+-----------------------------------
+-----------------------------------
+execing coop.cfg
+Forcing disconnect on active client: 0
+ClientConnect: 0
+ClientUserinfoChanged: 0 n\Alpha\t\0\model\\hmodel\\c1\\c2\\hc\100\w\0\l\0\skill\\tt\0\tl\0
+broadcast: print "Alpha^7 connected\n"
+broadcast: print "Alpha^7 entered the game\n"
+ClientBegin: 0
+Cat Arena: player 0 Alpha joined
+Forcing disconnect on active client: 1
+ClientConnect: 1
+ClientUserinfoChanged: 1 n\Bravo\t\0\model\\hmodel\\c1\\c2\\hc\100\w\0\l\0\skill\\tt\0\tl\0
+broadcast: print "Bravo^7 connected\n"
+broadcast: print "Bravo^7 entered the game\n"
+ClientBegin: 1
+Cat Arena: player 1 Bravo joined
+Forcing disconnect on active client: 2
+ClientConnect: 2
+ClientUserinfoChanged: 2 n\Charlie\t\0\model\\hmodel\\c1\\c2\\hc\100\w\0\l\0\skill\\tt\0\tl\0
+broadcast: print "Charlie^7 connected\n"
+broadcast: print "Charlie^7 entered the game\n"
+ClientBegin: 2
+Cat Arena: player 2 Charlie joined
+CASTEP start
+CA_COOP t=2400 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=2400 client=1 name=Bravo health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=2400 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+Cat Arena: Bravo down t=2400
+CASTEP bravo down
+CA_COOP t=2600 client=0 name=Alpha health=100 downed=0 dead=0 status=1 subject=1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=2600 client=1 name=Bravo health=0 downed=1 dead=0 status=4 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=2600 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP downed hurt
+CA_COOP t=2800 client=0 name=Alpha health=100 downed=0 dead=0 status=1 subject=1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=2800 client=1 name=Bravo health=0 downed=1 dead=0 status=4 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=2800 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP charlie holds far away
+CA_COOP t=4300 client=0 name=Alpha health=100 downed=0 dead=0 status=1 subject=1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=4300 client=1 name=Bravo health=0 downed=1 dead=0 status=4 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=4300 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP alpha holds
+CA_COOP t=4300 client=0 name=Alpha health=100 downed=0 dead=0 status=1 subject=1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=4300 client=1 name=Bravo health=0 downed=1 dead=0 status=4 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=4300 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP half way
+CA_COOP t=6300 client=0 name=Alpha health=100 downed=0 dead=0 status=2 subject=1 pct=50 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=6300 client=1 name=Bravo health=0 downed=1 dead=0 status=3 subject=0 pct=50 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=6300 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+Cat Arena: Bravo revived by Alpha t=8300
+CASTEP after 4.5 s
+CA_COOP t=8800 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=8800 client=1 name=Bravo health=45 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=1
+CA_COOP t=8800 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP hurt in grace
+CA_COOP t=8900 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=8900 client=1 name=Bravo health=45 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=1
+CA_COOP t=8900 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP hurt after grace
+CA_COOP t=11500 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-700,-300,24 score=0 grace=0
+CA_COOP t=11500 client=1 name=Bravo health=15 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=11500 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+Cat Arena: Bravo down t=11500
+CASTEP holding 3.5 m away
+CA_COOP t=12600 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-752,-300,48 score=0 grace=0
+CA_COOP t=12600 client=1 name=Bravo health=0 downed=1 dead=0 status=4 subject=-1 pct=0 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=12600 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP holding 3.0 m away
+CA_COOP t=13600 client=0 name=Alpha health=100 downed=0 dead=0 status=2 subject=1 pct=25 pos=-736,-300,24 score=0 grace=0
+CA_COOP t=13600 client=1 name=Bravo health=0 downed=1 dead=0 status=3 subject=0 pct=25 pos=-640,-300,24 score=0 grace=0
+CA_COOP t=13600 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP holding behind cover
+CA_COOP t=15000 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,-190,24 score=0 grace=0
+CA_COOP t=15000 client=1 name=Bravo health=0 downed=1 dead=0 status=4 subject=-1 pct=0 pos=0,-100,24 score=0 grace=0
+CA_COOP t=15000 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+Cat Arena: Alpha down t=15200
+Cat Arena: Charlie down t=15200
+CASTEP all down
+CA_COOP t=15400 client=0 name=Alpha health=0 downed=1 dead=0 status=5 subject=-1 pct=0 pos=0,-190,24 score=0 grace=0
+CA_COOP t=15400 client=1 name=Bravo health=0 downed=1 dead=0 status=5 subject=-1 pct=0 pos=0,-100,24 score=0 grace=0
+CA_COOP t=15400 client=2 name=Charlie health=0 downed=1 dead=0 status=5 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+CASTEP wiping
+CA_COOP t=16900 client=0 name=Alpha health=0 downed=1 dead=0 status=5 subject=-1 pct=0 pos=0,-190,24 score=0 grace=0
+CA_COOP t=16900 client=1 name=Bravo health=0 downed=1 dead=0 status=5 subject=-1 pct=0 pos=0,-100,24 score=0 grace=0
+CA_COOP t=16900 client=2 name=Charlie health=0 downed=1 dead=0 status=5 subject=-1 pct=0 pos=0,300,24 score=0 grace=0
+Cat Arena: squad wiped, round restarts t=17950
+Cat Arena: round restarts at wave 1
+CASTEP after the wipe
+CA_COOP t=18900 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=560,0,24 score=0 grace=0
+CA_COOP t=18900 client=1 name=Bravo health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-560,0,24 score=0 grace=0
+CA_COOP t=18900 client=2 name=Charlie health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=0,-560,24 score=0 grace=0
+Cat Arena: Alpha down t=18900
+broadcast: print "Bravo^7 left the arena\n"
+ClientDisconnect: 1
+broadcast: print "Charlie^7 left the arena\n"
+Cat Arena: Alpha alone and down: gets up t=19100
+ClientDisconnect: 2
+CASTEP alone after leaving
+CA_COOP t=19600 client=0 name=Alpha health=100 downed=0 dead=0 status=0 subject=-1 pct=0 pos=-560,0,24 score=0 grace=1
+Kill: 1022 0 0: <world> killed Alpha by MOD_UNKNOWN
+CASTEP solo death
+CA_COOP t=22800 client=0 name=Alpha health=-100 downed=0 dead=1 status=0 subject=-1 pct=0 pos=-560,0,24 score=-1 grace=0
+CASTEP end
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+---------------------------

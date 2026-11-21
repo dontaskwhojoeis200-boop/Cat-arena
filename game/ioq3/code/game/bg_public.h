@@ -186,6 +186,14 @@ typedef enum {
 #define	CA_SLIDE_START_SPEED	200.0f
 
 // Cat Arena weapons (N10-Q3E stage D part 3): two slots of N10 weapons carried in WP_MACHINEGUN.
+// stats[STAT_CA_COOP]: the co-op status line (N10 coopReviveStatus)
+#define	CA_COOP_HOLD_TO_REVIVE	1	// HOLD F TO REVIVE <client> · 4 SECONDS
+#define	CA_COOP_REVIVING		2	// REVIVING <client> · <percent>%
+#define	CA_COOP_BEING_REVIVED	3	// BEING REVIVED · <percent>%
+#define	CA_COOP_DOWN			4	// YOU ARE DOWN · WAIT FOR ANY TEAMMATE TO HOLD F FOR 4 SECONDS
+#define	CA_COOP_WIPED			5	// SQUAD ELIMINATED · RESTARTING ROUND
+#define	CA_COOP_STAT( kind, client, pct )	( ( ( kind ) << 12 ) | ( ( ( client ) + 1 ) << 7 ) | ( pct ) )
+
 // stats[STAT_CA_LOADOUT] = slot 0 weapon (bits 0-3) | slot 1 weapon (bits 4-7) | slot in hand
 // (bit 8) | switch button held (bit 9). Weapon numbers are N10 indices (ca_bridge.h CA_Weapon).
 #define	BUTTON_CA_SWITCH	BUTTON_GETFLAG		// +button7 (N10: Q / Tab)
@@ -262,6 +270,7 @@ typedef enum {
 	,STAT_CA_CLIP					// rounds in the magazine of the weapon in hand
 	,STAT_CA_CLIP2					// rounds in the magazine of the other slot
 	,STAT_CA_LOADOUT				// CA_LO_*: the two weapon slots, the slot in hand, switch held
+	,STAT_CA_COOP					// co-op status line: CA_COOP_* kind << 12 | (client + 1) << 7 | percent
 #endif
 } statIndex_t;
 
@@ -304,6 +313,7 @@ typedef enum {
 #define	EF_NODRAW			0x00000080		// may have an event, but no model (unspawned items)
 #define	EF_FIRING			0x00000100		// for lightning gun
 #define	EF_KAMIKAZE			0x00000200
+#define	EF_CA_DOWNED		EF_KAMIKAZE		// Cat Arena co-op: down at 0 health until revived (EF_KAMIKAZE is Team Arena only)
 #define	EF_MOVER_STOP		0x00000400		// will push otherwise
 #define EF_AWARD_CAP		0x00000800		// draw the capture sprite
 #define	EF_TALK				0x00001000		// draw a talk balloon

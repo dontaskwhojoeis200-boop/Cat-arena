@@ -10,6 +10,7 @@ and <out dir>/summary.txt lists the verdict of every test. Takes about three hou
 
 Tests (names usable as [only]):
   selftest-<map>   dedicated server ca_selftest on ca_test and the four N10 maps
+  coop             stage E co-op rules with three scripted players on the dedicated server
   gameplay         stage C scripted run (movement, slide, reload, fiends, waves)
   weapons          16 weapons, frag rerolls, blasts, combat
   lineup           the 20 enemy types lined up (pictures, wind-up)
@@ -85,6 +86,14 @@ def main(root, pkg, out, only):
         results.append((name, ok, "ALL PASS" if ok else "; ".join(fails[:3]) or "no verdict"))
         print("%-22s %s" % (name, "PASS" if ok else "FAIL"), flush=True)
 
+    if want("coop"):
+        h = home("coop")
+        py("coop_test.py", "write", os.path.join(h, "catarena", "coop.cfg"))
+        log = os.path.join(out, "coop.log")
+        with open(log, "w") as f:
+            r = subprocess.run([os.path.join(pkg, "CatArena-server"), "+set", "fs_homepath", h, "+set", "dedicated", "1", "+set", "ca_waves", "0", "+set", "ca_log", "1",
+                                "+map", "ca_test", "+exec", "coop.cfg"], stdout=f, stderr=subprocess.STDOUT, timeout=600, cwd=pkg)
+        verdict("coop", py("coop_test.py", "check", log, capture=log + ".checks"), log + ".checks")
     if want("gameplay"):
         h = home("gameplay")
         py("gameplay_test.py", "write", os.path.join(h, "catarena", "catest.cfg"))

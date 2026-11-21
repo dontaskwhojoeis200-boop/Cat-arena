@@ -454,6 +454,18 @@ qboolean	ConsoleCommand( void ) {
 	trap_Argv( 0, cmd, sizeof( cmd ) );
 
 #ifdef CAT_ARENA_STANDALONE
+	{	/* co-op test commands (g_ca_coop.c) */
+		static const struct { const char *name; void ( *fn )( void ); } caCoop[] = {
+			{ "ca_addplayer", Svcmd_CA_AddPlayer_f }, { "ca_removeplayer", Svcmd_CA_RemovePlayer_f }, { "ca_input", Svcmd_CA_Input_f },
+			{ "ca_moveplayer", Svcmd_CA_MovePlayer_f }, { "ca_hurt", Svcmd_CA_Hurt_f }, { "ca_coopstate", Svcmd_CA_CoopState_f } };
+		int k;
+		for ( k = 0 ; k < (int)ARRAY_LEN( caCoop ) ; k++ ) {
+			if ( !Q_stricmp( cmd, caCoop[k].name ) ) {
+				caCoop[k].fn();
+				return qtrue;
+			}
+		}
+	}
 	if ( Q_stricmp (cmd, "ca_fitsurvey") == 0 ) {	/* stage D review: where the Quake III player box fits vs N10's player */
 		char arg[16];
 		trap_Argv( 1, arg, sizeof( arg ) );

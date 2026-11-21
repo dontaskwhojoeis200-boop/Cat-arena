@@ -58,7 +58,7 @@ jobs:
           if (-not $p.WaitForExit(90000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 90 s"; exit 1 }
           $log = Get-Content home\catarena\qconsole.log -Raw
           Write-Host $log
-          $checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-D7 \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: horde PASS', 'ca_selftest: PASS N10 weapon table: 16/16', 'ca_selftest: PASS N10 enemy table: 10/10', 'ca_selftest: PASS all 20 enemy types spawn', 'ca_selftest: PASS skyprobe flies', 'ca_selftest: weapons PASS', 'ca_selftest: ALL PASS')
+          $checks = @('VM_LoadDll\(qagame\) succeeded', 'Cat Arena: Feral Claw N10-Q3E-E1 \(qagame, C\+\+20 bridge\)', 'C\+\+20 bridge self-test: PASS', 'mapname\\ca_test', 'Cat Arena horde ready', 'ca_selftest: horde PASS', 'ca_selftest: PASS N10 weapon table: 16/16', 'ca_selftest: PASS N10 enemy table: 10/10', 'ca_selftest: PASS all 20 enemy types spawn', 'ca_selftest: PASS skyprobe flies', 'ca_selftest: weapons PASS', 'ca_selftest: ALL PASS')
           $fail = $false
           foreach ($c in $checks) { if ($log -match $c) { Write-Host "PASS $c" } else { Write-Host "FAIL $c"; $fail = $true } }
           Write-Host "server exit code $($p.ExitCode)"
@@ -74,11 +74,19 @@ jobs:
             if ($fail -or $p.ExitCode -ne 0) { Write-Host $log; exit 1 }
             Remove-Item -Recurse -Force home
           }
-          Write-Host "PASS q3e Windows smoke: engine + Cat Arena DLLs + ca_test.bsp + the four N10 maps + gameplay, enemy and weapon self-tests"
+          # stage E: N10's co-op rules (downed, revive, squad wipe, grace) with three scripted players
+          New-Item -ItemType Directory -Force home\catarena | Out-Null
+          python ..\..\tools\q3e\coop_test.py write home\catarena\coop.cfg
+          $p = Start-Process -FilePath .\CatArena-server.exe -ArgumentList "+set dedicated 1 +set logfile 2 +set fs_homepath `"$PWD\home`" +set ca_waves 0 +set ca_log 1 +map ca_test +exec coop.cfg" -NoNewWindow -PassThru
+          if (-not $p.WaitForExit(180000)) { $p.Kill(); Write-Host "FAIL: server did not quit within 180 s (coop)"; exit 1 }
+          python ..\..\tools\q3e\coop_test.py check home\catarena\qconsole.log
+          if ($LASTEXITCODE -ne 0) { Get-Content home\catarena\qconsole.log; exit 1 }
+          Remove-Item -Recurse -Force home
+          Write-Host "PASS q3e Windows smoke: engine + Cat Arena DLLs + ca_test.bsp + the four N10 maps + gameplay, enemy and weapon self-tests + co-op rules"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: CAT_ARENA_Q3E_D7_WINDOWS_x64
+          name: CAT_ARENA_Q3E_E1_WINDOWS_x64
           path: dist/CatArena
           if-no-files-found: error
           retention-days: 30
